@@ -32,7 +32,7 @@ from komikku.models import backup_db
 from komikku.models import init_db
 from komikku.models import Settings
 from komikku.models.database import clear_cached_data
-from komikku.preferences import PreferencesPage
+from komikku.preferences import PreferencesDialog
 from komikku.reader import ReaderPage
 from komikku.servers.utils import get_allowed_servers_list
 from komikku.support import SupportPage
@@ -323,9 +323,11 @@ class ApplicationWindow(Adw.ApplicationWindow):
         self.download_manager = DownloadManagerPage(self)
         self.explorer = Explorer(self)
         self.history = HistoryPage(self)
-        self.preferences = PreferencesPage(self)
         self.support = SupportPage(self)
         self.webview = WebviewPage(self)
+
+        # Init dialogs
+        self.preferences = PreferencesDialog(self)
 
         if self.application.profile in ('beta', 'development'):
             self.add_css_class('devel')

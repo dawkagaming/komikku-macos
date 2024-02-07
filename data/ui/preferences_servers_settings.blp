@@ -13,13 +13,9 @@ template $PreferencesServersSettingsSubPage : Adw.NavigationPage {
       };
     }
 
-    content: Box {
-      orientation: vertical;
-
-      Adw.PreferencesPage {
-        Adw.PreferencesGroup group {
-          vexpand: true;
-        }
+    content: Adw.PreferencesPage {
+      Adw.PreferencesGroup group {
+        vexpand: true;
       }
     };
   };

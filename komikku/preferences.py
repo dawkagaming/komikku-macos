@@ -20,14 +20,8 @@ from komikku.utils import html_escape
 
 
 @Gtk.Template.from_resource('/info/febvre/Komikku/ui/preferences.ui')
-class PreferencesPage(Adw.NavigationPage):
-    __gtype_name__ = 'PreferencesPage'
-
-    title_stack = Gtk.Template.Child('title_stack')
-    title = Gtk.Template.Child('title')
-
-    pages_stack = Gtk.Template.Child('pages_stack')
-    viewswitcherbar = Gtk.Template.Child('viewswitcherbar')
+class PreferencesDialog(Adw.PreferencesDialog):
+    __gtype_name__ = 'PreferencesDialog'
 
     color_scheme_row = Gtk.Template.Child('color_scheme_row')
     night_light_switch = Gtk.Template.Child('night_light_switch')
@@ -62,18 +56,14 @@ class PreferencesPage(Adw.NavigationPage):
     disable_animations_switch = Gtk.Template.Child('disable_animations_switch')
 
     def __init__(self, window):
-        Adw.NavigationPage.__init__(self)
+        Adw.PreferencesDialog.__init__(self)
 
         self.window = window
-
-        self.window.breakpoint.add_setter(self.viewswitcherbar, 'reveal', True)
-        self.window.breakpoint.add_setter(self.title_stack, 'visible-child', self.title)
-
         self.settings = Settings.get_default()
 
-        self.set_config_values()
+        self.connect('closed', self.on_closed)
 
-        self.window.navigationview.add(self)
+        self.set_config_values()
 
     def on_background_color_changed(self, row, _gparam):
         index = row.get_selected()
@@ -97,6 +87,12 @@ class PreferencesPage(Adw.NavigationPage):
         else:
             self.settings.card_backdrop = False
             self.window.card.remove_backdrop()
+
+    def on_closed(self, _dialog):
+        # Pop subpage if one is opened when dialog is closed
+        self.pop_subpage()
+        # Close search if opened
+        self.set_search_enabled(False)
 
     def on_color_scheme_changed(self, row, _gparam):
         index = row.get_selected()
@@ -327,16 +323,12 @@ class PreferencesPage(Adw.NavigationPage):
         self.new_chapters_auto_download_switch.connect('notify::active', self.on_new_chapters_auto_download_changed)
 
         # Servers languages
-        self.servers_languages_subpage = PreferencesServersLanguagesSubPage(self)
-        self.window.navigationview.add(self.servers_languages_subpage)
         self.servers_languages_actionrow.props.activatable = True
-        self.servers_languages_actionrow.connect('activated', self.servers_languages_subpage.present)
+        self.servers_languages_actionrow.connect('activated', lambda _row: self.push_subpage(PreferencesServersLanguagesSubPage(self)))
 
         # Servers settings
-        self.servers_settings_subpage = PreferencesServersSettingsSubPage(self)
-        self.window.navigationview.add(self.servers_settings_subpage)
         self.servers_settings_actionrow.props.activatable = True
-        self.servers_settings_actionrow.connect('activated', self.servers_settings_subpage.present)
+        self.servers_settings_actionrow.connect('activated', lambda _row: self.push_subpage(PreferencesServersSettingsSubPage(self)))
 
         # Long strip detection
         self.long_strip_detection_switch.set_active(self.settings.long_strip_detection)
@@ -418,7 +410,8 @@ class PreferencesPage(Adw.NavigationPage):
 
         self.update_cached_data_size()
 
-        self.window.navigationview.push(self)
+        self.set_search_enabled(True)
+        self.present(self.window)
 
     def update_cached_data_size(self):
         self.clear_cached_data_actionrow.set_subtitle(folder_size(get_cached_data_dir()) or '-')
@@ -453,14 +446,9 @@ class PreferencesServersLanguagesSubPage(Adw.NavigationPage):
         else:
             self.settings.remove_servers_language(code)
 
-        # Update Servers settings subpage
-        self.parent.servers_settings_subpage.populate()
         # Update Explorer servers page
         if self.window.explorer.servers_page in self.window.navigationview.get_navigation_stack():
             self.window.explorer.servers_page.populate()
-
-    def present(self, _widget):
-        self.window.navigationview.push(self)
 
 
 @Gtk.Template.from_resource('/info/febvre/Komikku/ui/preferences_servers_settings.ui')
@@ -649,9 +637,6 @@ class PreferencesServersSettingsSubPage(Adw.NavigationPage):
                 switchrow.connect('notify::active', self.on_server_activated, server_main_id)
 
                 self.group.add(switchrow)
-
-    def present(self, _widget):
-        self.window.navigationview.push(self)
 
     def save_credential(self, button, server_main_id, server_class, username_entry, password_entry, address_entry, plaintext_checkbutton):
         username = username_entry.get_text()
