@@ -25,6 +25,7 @@ class Asurascans_tr(MangaStream):
     id = 'asurascans_tr'
     name = 'Armoni Scans (Asura Scans)'
     lang = 'tr'
+    status = 'disabled'
 
     base_url = 'https://armoniscans.com'
 
