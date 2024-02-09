@@ -3,15 +3,15 @@
 # This file is distributed under the same license as the Komikku package.
 #
 # Ege Çelikçi <egecelikci@gmail.com>, 2020.
-# Sabri Ünal <libreajans@gmail.com>, 2022, 2023.
+# Sabri Ünal <libreajans@gmail.com>, 2022, 2023, 2024.
 # Volkan Yıldırım <volki+weblate@disroot.org>, 2023, 2024.
 msgid ""
 msgstr ""
 "Project-Id-Version: Komikku main\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-02-02 01:51+0100\n"
-"PO-Revision-Date: 2024-02-07 20:01+0000\n"
-"Last-Translator: Volkan Yıldırım <volki+weblate@disroot.org>\n"
+"PO-Revision-Date: 2024-02-10 01:02+0000\n"
+"Last-Translator: Sabri Ünal <libreajans@gmail.com>\n"
 "Language-Team: Turkish <https://hosted.weblate.org/projects/komikku/main/tr/>"
 "\n"
 "Language: tr\n"
@@ -281,7 +281,7 @@ msgstr "Sunucular"
 
 #: ../data/ui/explorer_servers.blp:13
 msgid "Search Comics Across All Servers"
-msgstr ""
+msgstr "Tüm Sunucularda Çizgi Roman Ara"
 
 #: ../data/ui/explorer_servers.blp:19
 msgid "Search Servers"
@@ -727,19 +727,19 @@ msgstr "Veriler kitaplığa kaydedilmedi"
 
 #: ../data/ui/preferences.blp:299
 msgid "Clear Chapters Cache and Database"
-msgstr ""
+msgstr "Bölüm Önbelleğini ve Veri Tabanını Temizle"
 
 #: ../data/ui/preferences.blp:304
 msgid "Clear Chapters Cache and Database on Exit"
-msgstr ""
+msgstr "Çıkışta Bölüm Önbelleğini ve Veri Tabanını Temizle"
 
 #: ../data/ui/preferences.blp:309
 msgid "Credentials Storage"
-msgstr ""
+msgstr "Kimlik Bilgileri Depolama"
 
 #: ../data/ui/preferences.blp:312
 msgid "Allow Plaintext Storage as Fallback"
-msgstr ""
+msgstr "Geri Uyumluluk Olarak Düz Metin Depolamaya İzin Ver"
 
 #: ../data/ui/preferences.blp:313
 msgid "Used when no keyring backends are found"
@@ -917,7 +917,7 @@ msgstr "İptal"
 
 #: ../komikku/application.py:405
 msgid "Supporters"
-msgstr ""
+msgstr "Destekleyenler"
 
 #: ../komikku/application.py:425
 msgid "Join Chat"
@@ -1159,7 +1159,7 @@ msgstr "Küresel olarak ada göre ara"
 
 #: ../komikku/explorer/search/__init__.py:330
 msgid "Search for Comics"
-msgstr ""
+msgstr "Çizgi Roman Ara"
 
 #: ../komikku/explorer/search/__init__.py:406
 msgid "Oops, failed to retrieve manga's information."
@@ -1260,7 +1260,7 @@ msgstr "Okunma durumları güncellenemedi"
 
 #: ../komikku/library/__init__.py:749
 msgid "Add New Comic"
-msgstr ""
+msgstr "Yeni Çizgi Roman Ekle"
 
 #: ../komikku/library/__init__.py:779 ../komikku/library/categories_list.py:145
 msgid "Uncategorized"
@@ -1676,7 +1676,7 @@ msgstr "NSFW içeriği içeren mangaların gösterilme durumu"
 #: ../komikku/servers/multi/mangareader.py:102
 #, python-brace-format
 msgid "Not available in {0} language"
-msgstr ""
+msgstr "{0} dilinde kullanılamaz"
 
 #: ../komikku/servers/webtoon/__init__.py:52
 msgid "Originals"
