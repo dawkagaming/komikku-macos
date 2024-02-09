@@ -43,8 +43,8 @@ class Mangahub(Server):
     manga_url = base_url + '/manga/{0}'
     chapter_url = base_url + '/chapter/{0}/{1}'
     api_url = 'https://api2.mangahub.io/graphql'
-    image_url = 'https://imgx.mangahub.io/{0}'
-    cover_url = 'https://thumb.mangahub.io/{0}'
+    image_url = 'https://imgx.mghcdn.com/{0}'
+    cover_url = 'https://thumb.mghcdn.com/{0}'
 
     def __init__(self):
         self.api_key = None
