@@ -26,6 +26,11 @@
         </ul>
     </description>
 
+    <branding>
+      <color type="primary" scheme_preference="light">#f66151</color>
+      <color type="primary" scheme_preference="dark">#f66151</color>
+    </branding>
+
     <requires>
         <display_length compare="ge">360</display_length>
     </requires>
