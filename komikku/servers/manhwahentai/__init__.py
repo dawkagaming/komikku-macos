@@ -24,10 +24,11 @@ class Manhwahentai(Madara):
     chapters_url = base_url + '/pornhwa/{0}/ajax/chapters/'
 
     chapters_list_selector = '.manga-post-chapters'
+    details_name_selector = '.post-title p.h1'
     details_authors_selector = '.post-tax-wp-manga-artist .post-tags .tag-name'
     details_genres_selector = '.post-tax-wp-manga-category .post-tags .tag-name'
     details_status_selector = None
-    details_synopsis_selector = None
+    details_synopsis_selector = '.post-meta:nth-child(9) > span:nth-child(2)'
 
     @bypass_cf
     def get_manga_chapter_data(self, manga_slug, manga_name, chapter_slug, chapter_url):
