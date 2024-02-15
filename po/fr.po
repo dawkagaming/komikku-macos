@@ -6,16 +6,16 @@ msgstr ""
 "Project-Id-Version: unnamed project\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-02-15 22:58+0100\n"
-"PO-Revision-Date: 2024-02-03 02:01+0000\n"
+"PO-Revision-Date: 2024-02-15 22:12+0000\n"
 "Last-Translator: Valéry Febvre <vfebvre@easter-eggs.com>\n"
-"Language-Team: French <https://hosted.weblate.org/projects/komikku/main/fr/"
-">\n"
+"Language-Team: French <https://hosted.weblate.org/projects/komikku/main/fr/>"
+"\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 5.4-dev\n"
+"X-Generator: Weblate 5.4\n"
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:11
 msgid "Read your favorite manga"
@@ -124,24 +124,27 @@ msgstr "@authorfullname@"
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:106
 msgid "[Downloader] Improve error notification"
-msgstr ""
+msgstr "[Téléchargeur] Amélioration de la notification en cas d'erreur"
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:107
 msgid "[Updater] Improve notifications"
-msgstr ""
+msgstr "[Mises à jour] Amélioration des notifications"
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:108
 msgid ""
 "[Updater] Prevent manga update from being scheduled while it's being updated"
 msgstr ""
+"[Mises à jour] Empêche la mise à jour d'un manga alors qu'il est en train "
+"d'être mis à jour"
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:109
 msgid "[Servers] Armoni Scans (TR): Disable"
-msgstr ""
+msgstr "[Serveurs] Scans Armoni (TR) : Désactivation"
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:110
 msgid "[Servers] Komga: Fixed missing covers in search"
 msgstr ""
+"[Serveurs] Komga : Correction des couvertures manquantes dans la recherche"
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:111
 msgid "[Servers] MangaHub (EN): Update"
@@ -149,7 +152,7 @@ msgstr "[Serveurs] MangaHub (EN) : Mise à jour"
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:112
 msgid "[Servers] Manhuaus (EN): Update"
-msgstr ""
+msgstr "[Serveurs] Manhuaus (FR) : Mise à jour"
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:113
 msgid "[Servers] Manhwa Hentai (EN): Update"
@@ -157,13 +160,15 @@ msgstr "[Serveurs] Manhwa Hentai (EN) : Mise à jour"
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:114
 msgid "[Servers] Tapas (EN): Update"
-msgstr ""
+msgstr "[Serveurs] Tapas (FR) : Mise à jour"
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:115
 msgid ""
 "[L10n] Updated Chinese (Traditional), French, Russian, Spanish, Turkish "
 "translations"
 msgstr ""
+"[L10n] Mise à jour des traductions Chinois (Traditionnel), Français, Russe, "
+"Espagnol, Turc"
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:117
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:132
@@ -1012,6 +1017,9 @@ msgid ""
 "{0} is no longer supported.\n"
 "Please switch to another server."
 msgstr ""
+"AVIS\n"
+"{0} n'est plus pris en charge.\n"
+"Veuillez basculer vers un autre serveur."
 
 #: ../komikku/card/__init__.py:435
 msgid "Unknown author"
@@ -1098,7 +1106,7 @@ msgstr "Enregistrer"
 #: ../komikku/downloader.py:235
 #, python-brace-format
 msgid "Download failure: {0}"
-msgstr ""
+msgstr "Échec du téléchargement : {0}"
 
 #: ../komikku/downloader.py:246
 #, python-brace-format
