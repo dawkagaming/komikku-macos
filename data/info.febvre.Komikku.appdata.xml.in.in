@@ -100,8 +100,25 @@
     <url type="donation">https://valos.gitlab.io/Komikku/#sponsor</url>
 
     <releases>
-        <release version="1.37.1" date="2024-02-01">
+        <release version="1.38.0" date="2024-02-16">
             <description>
+                <ul>
+                    <li>[Downloader] Improved error notification</li>
+                    <li>[Updater] Improved notifications</li>
+                    <li>[Updater] Prevent manga update from being scheduled while it's being updated</li>
+                    <li>[Servers] Armoni Scans (TR): Disable</li>
+                    <li>[Servers] Komga: Fixed missing covers in search</li>
+                    <li>[Servers] MangaHub (EN): Update</li>
+                    <li>[Servers] Manhuaus (EN): Update</li>
+                    <li>[Servers] Manhwa Hentai (EN): Update</li>
+                    <li>[Servers] Tapas (EN): Update</li>
+                    <li>[L10n] Updated Chinese (Traditional), French, Russian, Spanish, Turkish translations</li>
+                </ul>
+                <p>Happy reading.</p>
+            </description>
+        </release>
+        <release version="1.37.1" date="2024-02-01">
+            <description translate="no">
                 <ul>
                     <li>[Card] Added an indicator when an update is in progress</li>
                     <li>[Card] Added Pull-to-Update feature</li>

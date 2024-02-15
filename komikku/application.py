@@ -419,14 +419,16 @@ class ApplicationWindow(Adw.ApplicationWindow):
 
         window.set_release_notes("""
             <ul>
-                <li>[Card] Added an indicator when an update is in progress</li>
-                <li>[Card] Added Pull-to-Update feature</li>
-                <li>[Card] Updated disk usage when one or more chapters are reset</li>
-                <li>[Webview] Fixed rare cases where pages loading end could not be detected</li>
-                <li>[About] Fixed "Report an Issue" link</li>
-                <li>[Servers] Some improvements to speed up HTML pages parsing</li>
-                <li>[Servers] Manga-Scantrad (FR): Fix status CSS selector</li>
-                <li>[L10n] Updated Russian translation</li>
+                <li>[Downloader] Improved error notification</li>
+                <li>[Updater] Improved notifications</li>
+                <li>[Updater] Prevent manga update from being scheduled while it's being updated</li>
+                <li>[Servers] Armoni Scans (TR): Disable</li>
+                <li>[Servers] Komga: Fixed missing covers in search</li>
+                <li>[Servers] MangaHub (EN): Update</li>
+                <li>[Servers] Manhuaus (EN): Update</li>
+                <li>[Servers] Manhwa Hentai (EN): Update</li>
+                <li>[Servers] Tapas (EN): Update</li>
+                <li>[L10n] Updated Chinese (Traditional), French, Russian, Spanish, Turkish translations</li>
             </ul>
             <p>Happy reading.</p>
         """)
