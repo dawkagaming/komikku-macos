@@ -56,10 +56,11 @@ class Madara(Server):
     series_name: str = 'manga'
 
     chapters_list_selector = '#manga-chapters-holder'
+    details_name_selector = 'h1'
     details_authors_selector = '.author-content a, .artist-content a'
     details_scanlators_selector = None
     details_genres_selector = '.genres-content a'
-    details_status_selector = '.post-status .post-content_item:nth-child(2) .summary-content'
+    details_status_selector = '.post-status .summary-content'
     details_synopsis_selector = '.summary__content'
     results_selector = '.row'
     result_name_slug_selector = '.post-title a'
@@ -113,7 +114,7 @@ class Madara(Server):
             # Slug has changed
             data['slug'] = r.url.split('/')[-2]
 
-        data['name'] = get_soup_element_inner_text(soup.find('h1'))
+        data['name'] = get_soup_element_inner_text(soup.select_one(self.details_name_selector))
         if cover_div := soup.find('div', class_='summary_image'):
             data['cover'] = cover_div.a.img.get('data-src')
             if data['cover'] is None:
@@ -142,7 +143,8 @@ class Madara(Server):
                 data['genres'].append(genre)
 
         if self.details_status_selector:
-            if element := soup.select_one(self.details_status_selector):
+            if elements := soup.select(self.details_status_selector):
+                element = elements[-1]  # get last element (release date is sometimes shown just before)
                 status = element.text.strip()
                 # Remove emoji
                 status = remove_emoji_from_string(status)
