@@ -494,7 +494,9 @@ class KImage(Gtk.Widget, Gtk.Scrollable):
         rect.init(0, 0, width * scale_factor, height * scale_factor)
         if self.zoom < 1:
             if self.texture.get_height() > 8192 and platform.machine() == 'aarch64':
-                filter = Gsk.ScalingFilter.LINEAR
+                # Linear filters produce black images (with noise) at least on my Librem 5
+                # GSK renderer GL bug?
+                filter = Gsk.ScalingFilter.NEAREST
             else:
                 filter = Gsk.ScalingFilter.TRILINEAR
         else:
