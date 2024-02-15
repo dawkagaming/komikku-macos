@@ -9,11 +9,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Komikku main\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-02-02 01:51+0100\n"
+"POT-Creation-Date: 2024-02-15 22:58+0100\n"
 "PO-Revision-Date: 2024-02-10 01:02+0000\n"
 "Last-Translator: Sabri Ünal <libreajans@gmail.com>\n"
-"Language-Team: Turkish <https://hosted.weblate.org/projects/komikku/main/tr/>"
-"\n"
+"Language-Team: Turkish <https://hosted.weblate.org/projects/komikku/main/tr/"
+">\n"
 "Language: tr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -80,86 +80,130 @@ msgstr "Okuma geçmişi"
 msgid "Light and dark themes"
 msgstr "Açık ve koyu tema"
 
-#: ../data/info.febvre.Komikku.appdata.xml.in.in:41
+#: ../data/info.febvre.Komikku.appdata.xml.in.in:46
 msgid "The Library page"
 msgstr "Kitaplık sayfası"
 
-#: ../data/info.febvre.Komikku.appdata.xml.in.in:45
+#: ../data/info.febvre.Komikku.appdata.xml.in.in:50
 msgid "The Library page with the category sidebar open"
 msgstr "Kitaplık sayfası kategori kenar çubuğu açık"
 
-#: ../data/info.febvre.Komikku.appdata.xml.in.in:49
+#: ../data/info.febvre.Komikku.appdata.xml.in.in:54
 msgid "The Preferences page (Library settings)"
 msgstr "Tercihler sayfası (Kitaplık ayarları)"
 
-#: ../data/info.febvre.Komikku.appdata.xml.in.in:53
+#: ../data/info.febvre.Komikku.appdata.xml.in.in:58
 msgid "The Explorer page in mobile format (Servers list)"
 msgstr "Keşfet sayfası mobil biçimde (Sunucu listesi)"
 
-#: ../data/info.febvre.Komikku.appdata.xml.in.in:57
+#: ../data/info.febvre.Komikku.appdata.xml.in.in:62
 msgid "The Details page"
 msgstr "Ayrıntılar sayfası"
 
-#: ../data/info.febvre.Komikku.appdata.xml.in.in:61
+#: ../data/info.febvre.Komikku.appdata.xml.in.in:66
 msgid "The Details page (chapters list)"
 msgstr "Ayrıntılar sayfası (böümler listesi)"
 
-#: ../data/info.febvre.Komikku.appdata.xml.in.in:65
+#: ../data/info.febvre.Komikku.appdata.xml.in.in:70
 msgid "The Reader page"
 msgstr "Okuyucu sayfası"
 
-#: ../data/info.febvre.Komikku.appdata.xml.in.in:69
+#: ../data/info.febvre.Komikku.appdata.xml.in.in:74
 msgid "The Reader page in mobile format"
 msgstr "Okuyucu sayfası mobil biçimde"
 
-#: ../data/info.febvre.Komikku.appdata.xml.in.in:73
+#: ../data/info.febvre.Komikku.appdata.xml.in.in:78
 msgid "The Category editor page in mobile format"
 msgstr "Kategori üzenleyici sayfası mobil biçimde"
 
-#: ../data/info.febvre.Komikku.appdata.xml.in.in:77
+#: ../data/info.febvre.Komikku.appdata.xml.in.in:82
 msgid "The Reading history page in mobile format"
 msgstr "Okuma geçmişi sayfası mobil biçimde"
 
-#: ../data/info.febvre.Komikku.appdata.xml.in.in:85
+#: ../data/info.febvre.Komikku.appdata.xml.in.in:90
 msgid "@authorfullname@"
 msgstr "@authorfullname@"
 
-#: ../data/info.febvre.Komikku.appdata.xml.in.in:101
+#: ../data/info.febvre.Komikku.appdata.xml.in.in:106
+msgid "[Downloader] Improve error notification"
+msgstr ""
+
+#: ../data/info.febvre.Komikku.appdata.xml.in.in:107
+msgid "[Updater] Improve notifications"
+msgstr ""
+
+#: ../data/info.febvre.Komikku.appdata.xml.in.in:108
+msgid ""
+"[Updater] Prevent manga update from being scheduled while it's being updated"
+msgstr ""
+
+#: ../data/info.febvre.Komikku.appdata.xml.in.in:109
+msgid "[Servers] Armoni Scans (TR): Disable"
+msgstr ""
+
+#: ../data/info.febvre.Komikku.appdata.xml.in.in:110
+msgid "[Servers] Komga: Fixed missing covers in search"
+msgstr ""
+
+#: ../data/info.febvre.Komikku.appdata.xml.in.in:111
+msgid "[Servers] MangaHub (EN): Update"
+msgstr ""
+
+#: ../data/info.febvre.Komikku.appdata.xml.in.in:112
+msgid "[Servers] Manhuaus (EN): Update"
+msgstr ""
+
+#: ../data/info.febvre.Komikku.appdata.xml.in.in:113
+msgid "[Servers] Manhwa Hentai (EN): Update"
+msgstr ""
+
+#: ../data/info.febvre.Komikku.appdata.xml.in.in:114
+msgid "[Servers] Tapas (EN): Update"
+msgstr ""
+
+#: ../data/info.febvre.Komikku.appdata.xml.in.in:115
+msgid ""
+"[L10n] Updated Chinese (Traditional), French, Russian, Spanish, Turkish "
+"translations"
+msgstr ""
+
+#: ../data/info.febvre.Komikku.appdata.xml.in.in:117
+#: ../data/info.febvre.Komikku.appdata.xml.in.in:132
+msgid "Happy reading."
+msgstr "İyi okumalar."
+
+#: ../data/info.febvre.Komikku.appdata.xml.in.in:123
 msgid "[Card] Added an indicator when an update is in progress"
 msgstr ""
 
-#: ../data/info.febvre.Komikku.appdata.xml.in.in:102
+#: ../data/info.febvre.Komikku.appdata.xml.in.in:124
 msgid "[Card] Added Pull-to-Update feature"
 msgstr ""
 
-#: ../data/info.febvre.Komikku.appdata.xml.in.in:103
+#: ../data/info.febvre.Komikku.appdata.xml.in.in:125
 msgid "[Card] Updated disk usage when one or more chapters are reset"
 msgstr ""
 
-#: ../data/info.febvre.Komikku.appdata.xml.in.in:104
+#: ../data/info.febvre.Komikku.appdata.xml.in.in:126
 msgid ""
 "[Webview] Fixed rare cases where pages loading end could not be detected"
 msgstr ""
 
-#: ../data/info.febvre.Komikku.appdata.xml.in.in:105
+#: ../data/info.febvre.Komikku.appdata.xml.in.in:127
 msgid "[About] Fixed \"Report an Issue\" link"
 msgstr ""
 
-#: ../data/info.febvre.Komikku.appdata.xml.in.in:106
+#: ../data/info.febvre.Komikku.appdata.xml.in.in:128
 msgid "[Servers] Some improvements to speed up HTML pages parsing"
 msgstr ""
 
-#: ../data/info.febvre.Komikku.appdata.xml.in.in:107
+#: ../data/info.febvre.Komikku.appdata.xml.in.in:129
 msgid "[Servers] Manga-Scantrad (FR): Fix status CSS selector"
 msgstr ""
 
-#: ../data/info.febvre.Komikku.appdata.xml.in.in:108
+#: ../data/info.febvre.Komikku.appdata.xml.in.in:130
 msgid "[L10n] Updated Russian translation"
 msgstr "[L10n] Rusça çeviri güncellendi"
-
-#: ../data/info.febvre.Komikku.appdata.xml.in.in:110
-msgid "Happy reading."
-msgstr "İyi okumalar."
 
 #: ../data/info.febvre.Komikku.desktop.in:3
 msgid "@prettyname@"
@@ -900,85 +944,82 @@ msgstr "Tek seferlik ya da aylık bağış"
 msgid "Webview"
 msgstr "Web görünümü"
 
-#: ../komikku/application.py:141
+#: ../komikku/application.py:152
 msgid "Multiple URLs not supported"
 msgstr "Birden fazla URL desteklenmiyor"
 
-#: ../komikku/application.py:157
+#: ../komikku/application.py:168
 msgid "Invalid URL {}, not handled by any server."
 msgstr "Geçersiz URL {}, herhangi bir sunucu tarafından işlenmedi."
 
-#: ../komikku/application.py:342 ../komikku/card/__init__.py:135
+#: ../komikku/application.py:351 ../komikku/card/__init__.py:135
 #: ../komikku/card/__init__.py:136 ../komikku/categories_editor.py:188
-#: ../komikku/downloader.py:374 ../komikku/downloader.py:375
+#: ../komikku/downloader.py:376 ../komikku/downloader.py:377
 #: ../komikku/library/__init__.py:744 ../komikku/library/__init__.py:745
 msgid "Cancel"
 msgstr "İptal"
 
-#: ../komikku/application.py:405
+#: ../komikku/application.py:414
 msgid "Supporters"
 msgstr "Destekleyenler"
 
-#: ../komikku/application.py:425
+#: ../komikku/application.py:436
 msgid "Join Chat"
 msgstr "Sohbete Katıl"
 
-#: ../komikku/application.py:515
+#: ../komikku/application.py:526
 msgid "Are you sure you want to quit?"
 msgstr "Çıkmak istediğinden emin misin?"
 
-#: ../komikku/application.py:518
+#: ../komikku/application.py:529
 msgid "Some chapters are currently being downloaded."
 msgstr "Bazı bölümler şu anda indiriliyor."
 
-#: ../komikku/application.py:520
+#: ../komikku/application.py:531
 msgid "Some mangas are currently being updated."
 msgstr "Bazı mangalar şu anda güncelleniyor."
 
-#: ../komikku/application.py:524
+#: ../komikku/application.py:535
 msgid "Quit?"
 msgstr "Çık?"
 
-#: ../komikku/application.py:526
+#: ../komikku/application.py:537
 msgid "Quit"
 msgstr "Çık"
 
-#: ../komikku/card/__init__.py:159
-#, python-brace-format
-msgid ""
-"NOTICE\n"
-"{0} server is not longer supported.\n"
-"Please switch to another server."
-msgstr ""
-"DİKKAT\n"
-"{0} sunucusu artık desteklenmemektedir.\n"
-"Lütfen başka bir sunucuya geçin."
-
-#: ../komikku/card/__init__.py:259
+#: ../komikku/card/__init__.py:253
 msgid "Read progress synchronization with server completed successfully"
 msgstr "Sunucuyla, okuma ilerleme eşitlemesi başarıyla tamamlandı"
 
-#: ../komikku/card/__init__.py:270
+#: ../komikku/card/__init__.py:264
 msgid "Failed to get manga URL"
 msgstr "Manga URLʼsi alınamadı"
 
-#: ../komikku/card/__init__.py:436
+#: ../komikku/card/__init__.py:289
+#, python-brace-format
+msgid ""
+"NOTICE\n"
+"{0} is no longer supported.\n"
+"Please switch to another server."
+msgstr ""
+
+#: ../komikku/card/__init__.py:435
 msgid "Unknown author"
 msgstr "Bilinmeyen yazar"
 
-#: ../komikku/card/__init__.py:442 ../komikku/card/__init__.py:451
+#: ../komikku/card/__init__.py:441 ../komikku/card/__init__.py:450
 msgid "Unknown status"
 msgstr "Bilinmeyen durum"
 
-#: ../komikku/card/__init__.py:452 ../komikku/explorer/common.py:174
+#: ../komikku/card/__init__.py:451 ../komikku/explorer/common.py:174
 msgid "Local"
 msgstr "Yerel"
 
-#: ../komikku/card/__init__.py:478 ../komikku/card/chapters_list.py:607
+#: ../komikku/card/__init__.py:477 ../komikku/card/chapters_list.py:607
 msgid "%m/%d/%Y"
 msgstr "%d/%m/%Y"
 
-#: ../komikku/card/chapters_list.py:309 ../komikku/downloader.py:519
+#: ../komikku/card/chapters_list.py:309 ../komikku/downloader.py:521
 #: ../komikku/library/__init__.py:775
 #, python-brace-format
 msgid "{0} selected"
@@ -1044,21 +1085,26 @@ msgstr "Düzenle"
 msgid "Save"
 msgstr "Kaydet"
 
-#: ../komikku/downloader.py:244
+#: ../komikku/downloader.py:235
+#, python-brace-format
+msgid "Download failure: {0}"
+msgstr ""
+
+#: ../komikku/downloader.py:246
 #, python-brace-format
 msgid "{0}/{1} pages downloaded"
 msgstr "{0}/{1} sayfa indirildi"
 
-#: ../komikku/downloader.py:246
+#: ../komikku/downloader.py:248
 msgid "error"
 msgstr "hata"
 
-#: ../komikku/downloader.py:250 ../komikku/downloader.py:267
+#: ../komikku/downloader.py:252 ../komikku/downloader.py:269
 #, python-brace-format
 msgid "[{0}] Chapter {1}"
 msgstr "[{0}] Bölüm {1}"
 
-#: ../komikku/downloader.py:266
+#: ../komikku/downloader.py:268
 msgid "Download completed"
 msgstr "İndirme tamamlandı"
 
@@ -1663,12 +1709,12 @@ msgstr "Olmadan"
 msgid "16+"
 msgstr "16+"
 
-#: ../komikku/servers/multi/madara.py:377
+#: ../komikku/servers/multi/madara.py:379
 #: ../komikku/servers/readmanhwa/__init__.py:44
 msgid "NSFW Content"
 msgstr "NSFW İçerik"
 
-#: ../komikku/servers/multi/madara.py:378
+#: ../komikku/servers/multi/madara.py:380
 #: ../komikku/servers/readmanhwa/__init__.py:45
 msgid "Whether to show manga containing NSFW content"
 msgstr "NSFW içeriği içeren mangaların gösterilme durumu"
@@ -1686,58 +1732,54 @@ msgstr "Özgünler"
 msgid "Canvas"
 msgstr "Tuval"
 
-#: ../komikku/updater.py:100
+#: ../komikku/updater.py:104
 msgid "Library update completed with errors"
 msgstr "Kitaplık güncellemesi hatalarla tamamlandı"
 
-#: ../komikku/updater.py:102
+#: ../komikku/updater.py:106
 msgid "Library update completed"
 msgstr "Kitaplık güncellemesi tamamlandı"
 
-#: ../komikku/updater.py:105
+#: ../komikku/updater.py:109
 msgid "Update completed with errors"
 msgstr "Güncelleme hatalarla tamamlandı"
 
-#: ../komikku/updater.py:107
+#: ../komikku/updater.py:111
 msgid "Update completed"
 msgstr "Güncelleme tamamlandı"
 
-#: ../komikku/updater.py:111
+#: ../komikku/updater.py:115
 #, python-brace-format
 msgid "{0} successful update"
 msgid_plural "{0} successful updates"
 msgstr[0] "{0} başarılı güncelleme"
 msgstr[1] "{0} başarılı güncelleme"
 
-#: ../komikku/updater.py:112 ../komikku/updater.py:128
+#: ../komikku/updater.py:116 ../komikku/updater.py:132
 #, python-brace-format
 msgid "{0} new chapter"
 msgid_plural "{0} new chapters"
 msgstr[0] "{0} yeni bölüm"
 msgstr[1] "{0} yeni bölüm"
 
-#: ../komikku/updater.py:114
+#: ../komikku/updater.py:118 ../komikku/updater.py:140
 msgid "No new chapters"
 msgstr "Yeni bölüm yok"
 
-#: ../komikku/updater.py:117
+#: ../komikku/updater.py:121
 #, python-brace-format
 msgid "{0} update failed"
 msgid_plural "{0} updates failed"
 msgstr[0] "{0} güncelleme başarısız oldu"
 msgstr[1] "{0} güncelleme başarısız oldu"
 
-#: ../komikku/updater.py:152
+#: ../komikku/updater.py:158
 msgid "Oops, update has failed. Please try again."
 msgstr "Hata, güncelleme başarısız oldu. Lütfen tekrar deneyin."
 
-#: ../komikku/updater.py:161
+#: ../komikku/updater.py:167
 msgid "Library update started"
 msgstr "Kitaplık güncellemesi başladı"
-
-#: ../komikku/updater.py:163
-msgid "Update started"
-msgstr "Güncelleme başladı"
 
 #: ../komikku/utils.py:175
 msgid "You are currently offline"
@@ -1751,6 +1793,19 @@ msgstr ""
 #: ../komikku/webview.py:357
 msgid "Please complete CAPTCHA"
 msgstr "Lütfen CAPTCHA'yı tamamlayın"
+
+#, python-brace-format
+#~ msgid ""
+#~ "NOTICE\n"
+#~ "{0} server is not longer supported.\n"
+#~ "Please switch to another server."
+#~ msgstr ""
+#~ "DİKKAT\n"
+#~ "{0} sunucusu artık desteklenmemektedir.\n"
+#~ "Lütfen başka bir sunucuya geçin."
+
+#~ msgid "Update started"
+#~ msgstr "Güncelleme başladı"
 
 #~ msgid "[Servers] WEBTOON: Update"
 #~ msgstr "[Sunucular] WEBTOON: Güncellendi"
