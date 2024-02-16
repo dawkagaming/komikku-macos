@@ -40,11 +40,12 @@ class Updater(GObject.GObject):
     def add(self, mangas):
         if not isinstance(mangas, list):
             mangas = [mangas, ]
-        mangas.reverse()
+
+        batch = len(mangas) > 1  # is it a batch or a single update?
 
         for manga in mangas:
             if manga.id not in self.queue and manga.id != self.current_id and manga.server.status == 'enabled':
-                self.queue.append(manga.id)
+                self.queue.append((manga.id, batch))
 
     @if_network_available
     def start(self):
@@ -68,7 +69,7 @@ class Updater(GObject.GObject):
                 if self.stop_flag is True:
                     break
 
-                manga_id = self.queue.pop(0)
+                manga_id, in_batch = self.queue.pop(0)
                 manga = Manga.get(manga_id)
                 if manga is None:
                     continue
@@ -81,7 +82,7 @@ class Updater(GObject.GObject):
                         nb_chapters = len(recent_chapters_ids)
                         if nb_chapters > 0:
                             total_chapters += nb_chapters
-                        GLib.idle_add(complete, manga, recent_chapters_ids, nb_deleted_chapters, synced)
+                        GLib.idle_add(complete, manga, in_batch, recent_chapters_ids, nb_deleted_chapters, synced)
                     else:
                         total_errors += 1
                         GLib.idle_add(error, manga)
@@ -122,7 +123,7 @@ class Updater(GObject.GObject):
 
             GLib.timeout_add(2000, show_notification, 'updater.0', title, '\n'.join(messages))
 
-        def complete(manga, recent_chapters_ids, nb_deleted_chapters, synced):
+        def complete(manga, in_batch, recent_chapters_ids, nb_deleted_chapters, synced):
             nb_recent_chapters = len(recent_chapters_ids)
 
             if nb_recent_chapters > 0:
@@ -136,7 +137,7 @@ class Updater(GObject.GObject):
                 if Settings.get_default().new_chapters_auto_download:
                     self.window.downloader.add(recent_chapters_ids, emit_signal=True)
                     self.window.downloader.start()
-            else:
+            elif not in_batch:
                 show_notification(f'updater.{manga.id}', manga.name, _('No new chapters'))
 
             self.emit(
@@ -192,7 +193,6 @@ class Updater(GObject.GObject):
         rows = db_conn.execute('SELECT * FROM mangas WHERE in_library = 1 ORDER BY last_read DESC').fetchall()
         db_conn.close()
 
-        for row in rows:
-            self.add(Manga.get(row['id']))
+        self.add([Manga.get(row['id']) for row in rows])
 
         self.start()
