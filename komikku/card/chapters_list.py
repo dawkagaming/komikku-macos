@@ -91,8 +91,8 @@ class ChaptersList:
         self.gesture_long_press = Gtk.GestureLongPress.new()
         self.gesture_long_press.set_propagation_phase(Gtk.PropagationPhase.CAPTURE)
         self.gesture_long_press.set_touch_only(False)
-        self.listview.add_controller(self.gesture_long_press)
         self.gesture_long_press.connect('pressed', self.on_long_press)
+        self.listview.add_controller(self.gesture_long_press)
 
         self.card.window.downloader.connect('download-changed', self.update_chapter_item)
 

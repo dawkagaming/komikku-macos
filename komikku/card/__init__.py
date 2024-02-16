@@ -87,10 +87,11 @@ class CardPage(Adw.NavigationPage):
         self.pool_to_update_revealer.bind_property('child-revealed', self.pool_to_update_spinner, 'spinning', 0)
         # Drag gesture
         self.gesture_drag = Gtk.GestureDrag.new()
+        self.gesture_drag.set_touch_only(True)
         self.gesture_drag.set_propagation_phase(Gtk.PropagationPhase.CAPTURE)
         self.gesture_drag.connect('drag-end', self.on_gesture_drag_end)
         self.gesture_drag.connect('drag-update', self.on_gesture_drag_update)
-        self.add_controller(self.gesture_drag)
+        self.stack.add_controller(self.gesture_drag)
 
         self.info_box = InfoBox(self)
         self.categories_list = CategoriesList(self)
