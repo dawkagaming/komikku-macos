@@ -2,23 +2,24 @@
 # Copyright (C) 2021 THE Komikku'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the Komikku package.
 # Óscar Fernández Díaz <oscfdezdz@tuta.io>, 2021-2022.
-# Óscar Fernández Díaz <oscfdezdz@users.noreply.hosted.weblate.org>, 2023.
+# Óscar Fernández Díaz <oscfdezdz@users.noreply.hosted.weblate.org>, 2023, 2024.
 # gallegonovato <fran-carro@hotmail.es>, 2023, 2024.
 msgid ""
 msgstr ""
 "Project-Id-Version: Komikku 0.30.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-02-15 22:58+0100\n"
-"PO-Revision-Date: 2024-02-07 20:01+0000\n"
-"Last-Translator: gallegonovato <fran-carro@hotmail.es>\n"
-"Language-Team: Spanish <https://hosted.weblate.org/projects/komikku/main/es/"
-">\n"
+"PO-Revision-Date: 2024-02-18 01:03+0000\n"
+"Last-Translator: Óscar Fernández Díaz <oscfdezdz@users.noreply.hosted.weblate"
+".org>\n"
+"Language-Team: Spanish <https://hosted.weblate.org/projects/komikku/main/es/>"
+"\n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.4-dev\n"
+"X-Generator: Weblate 5.4\n"
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:11
 msgid "Read your favorite manga"
@@ -81,20 +82,20 @@ msgstr "Temas claro y oscuro"
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:46
 msgid "The Library page"
-msgstr "Página de la Biblioteca"
+msgstr "Página de la biblioteca"
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:50
 msgid "The Library page with the category sidebar open"
 msgstr ""
-"La página de la Biblioteca con la barra lateral de las categorías abiertas"
+"La página de la biblioteca con la barra lateral de las categorías abiertas"
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:54
 msgid "The Preferences page (Library settings)"
-msgstr "La página de las Preferencias (Configuración de la biblioteca)"
+msgstr "La página de las preferencias (Configuración de la biblioteca)"
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:58
 msgid "The Explorer page in mobile format (Servers list)"
-msgstr "La página del Explorador en formato móvil (Lista de servidores)"
+msgstr "La página del explorador en formato móvil (Lista de servidores)"
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:62
 msgid "The Details page"
@@ -102,7 +103,7 @@ msgstr "Página de los detalles"
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:66
 msgid "The Details page (chapters list)"
-msgstr "La página de los Detalles (lista de los capítulos)"
+msgstr "La página de los detalles (lista de los capítulos)"
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:70
 msgid "The Reader page"
@@ -110,7 +111,7 @@ msgstr "La página del lector"
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:74
 msgid "The Reader page in mobile format"
-msgstr "La página del Lector en formato móvil"
+msgstr "La página del lector en formato móvil"
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:78
 msgid "The Category editor page in mobile format"
@@ -118,7 +119,7 @@ msgstr "La página del editor de las categorías en formato móvil"
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:82
 msgid "The Reading history page in mobile format"
-msgstr "La página Historial de lectura en formato móvil"
+msgstr "La página historial de lectura en formato móvil"
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:90
 msgid "@authorfullname@"
@@ -126,46 +127,50 @@ msgstr "@authorfullname@"
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:106
 msgid "[Downloader] Improve error notification"
-msgstr ""
+msgstr "[Descargador] Mejora de la notificación de errores"
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:107
 msgid "[Updater] Improve notifications"
-msgstr ""
+msgstr "[Actualizador] Mejora de las notificaciones"
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:108
 msgid ""
 "[Updater] Prevent manga update from being scheduled while it's being updated"
 msgstr ""
+"[Actualizador] Impedir que se programe la actualización del manga mientras "
+"se está actualizando"
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:109
 msgid "[Servers] Armoni Scans (TR): Disable"
-msgstr ""
+msgstr "[Servidores] Armoni Scans (TR): Desactivar"
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:110
 msgid "[Servers] Komga: Fixed missing covers in search"
-msgstr ""
+msgstr "[Servidores] Komga: Corregidas las tapas que faltaban en la búsqueda"
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:111
 msgid "[Servers] MangaHub (EN): Update"
-msgstr ""
+msgstr "[Servidores] MangaHub (EN): Actualización"
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:112
 msgid "[Servers] Manhuaus (EN): Update"
-msgstr ""
+msgstr "[Servidores] Manhuaus (EN): Actualización"
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:113
 msgid "[Servers] Manhwa Hentai (EN): Update"
-msgstr ""
+msgstr "[Servidores] Manhwa Hentai (EN): Actualización"
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:114
 msgid "[Servers] Tapas (EN): Update"
-msgstr ""
+msgstr "[Servidores] Tapas (EN): Actualización"
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:115
 msgid ""
 "[L10n] Updated Chinese (Traditional), French, Russian, Spanish, Turkish "
 "translations"
 msgstr ""
+"[L10n] Actualizadas las traducciones al chino (tradicional), francés, ruso, "
+"español y turco"
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:117
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:132
@@ -222,8 +227,8 @@ msgid ""
 "manga;reader;viewer;comic;manhwa;manhua;bd;webtoon;webcomic;scan;offline;"
 "gnome;"
 msgstr ""
-"manga;lector;visor;comic;manhwa;manhua;bd;webtoon;webcomic;scan;offline;"
-"gnome;"
+"manga;reader;viewer;comic;manhwa;manhua;bd;webtoon;webcomic;scan;offline;gnom"
+"e;lector;visor;"
 
 #: ../data/ui/about_window.ui.in:28
 msgid ""
@@ -354,7 +359,7 @@ msgstr "Biblioteca"
 
 #: ../data/ui/library.blp:19
 msgid "Toggle Categories Sidebar"
-msgstr "Alternar categorías en la barra lateral"
+msgstr "Conmutar la barra lateral de las categorías"
 
 #: ../data/ui/library.blp:23
 msgid "Komikku"
@@ -787,7 +792,7 @@ msgstr "Almacenamiento de credenciales"
 
 #: ../data/ui/preferences.blp:312
 msgid "Allow Plaintext Storage as Fallback"
-msgstr "Permitir el almacenamiento de texto sin formato"
+msgstr "Permitir el almacenamiento de texto plano como respaldo"
 
 #: ../data/ui/preferences.blp:313
 msgid "Used when no keyring backends are found"
@@ -827,7 +832,7 @@ msgstr "Atrás"
 
 #: ../data/ui/reader.blp:31
 msgid "Toggle Fullscreen Mode"
-msgstr "Activar el modo de pantalla completa"
+msgstr "Conmutar el modo de pantalla completa"
 
 #: ../data/ui/shortcuts_overview.blp:11
 msgctxt "Shortcut window description"
@@ -842,12 +847,12 @@ msgstr "Abrir las preferencias"
 #: ../data/ui/shortcuts_overview.blp:19
 msgctxt "Shortcut window description"
 msgid "Toggle Fullscreen Mode"
-msgstr "Activar el modo de pantalla completa"
+msgstr "Conmutar el modo de pantalla completa"
 
 #: ../data/ui/shortcuts_overview.blp:24
 msgctxt "Shortcut window description"
 msgid "Open Keyboard Shortcuts"
-msgstr "Abrir los atajos de teclado"
+msgstr "Abrir los atajos del teclado"
 
 #: ../data/ui/shortcuts_overview.blp:30
 msgctxt "Shortcut window description"
@@ -901,7 +906,7 @@ msgstr "Seleccionar todas las descargas"
 
 #: ../data/ui/support.blp:6 ../data/ui/support.blp:12
 msgid "Support Development"
-msgstr "Apoyo al desarrollo"
+msgstr "Apoyar el desarrollo"
 
 #: ../data/ui/support.blp:46
 msgid "How can you support?"
@@ -966,7 +971,7 @@ msgstr "Cancelar"
 
 #: ../komikku/application.py:414
 msgid "Supporters"
-msgstr "Partidarios"
+msgstr "Apoyos"
 
 #: ../komikku/application.py:436
 msgid "Join Chat"
@@ -1009,6 +1014,9 @@ msgid ""
 "{0} is no longer supported.\n"
 "Please switch to another server."
 msgstr ""
+"AVISO\n"
+"{0} ya no está soportado.\n"
+"Por favor, cambie a otro servidor."
 
 #: ../komikku/card/__init__.py:435
 msgid "Unknown author"
@@ -1095,7 +1103,7 @@ msgstr "Guardar"
 #: ../komikku/downloader.py:235
 #, python-brace-format
 msgid "Download failure: {0}"
-msgstr ""
+msgstr "Fallo de descarga: {0}"
 
 #: ../komikku/downloader.py:246
 #, python-brace-format
@@ -1312,7 +1320,7 @@ msgstr "Fallo en la actualización del estado de la lectura"
 
 #: ../komikku/library/__init__.py:749
 msgid "Add New Comic"
-msgstr "Añadir un nuevo cómic"
+msgstr "Añadir cómic nuevo"
 
 #: ../komikku/library/__init__.py:779 ../komikku/library/categories_list.py:145
 msgid "Uncategorized"
