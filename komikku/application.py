@@ -418,6 +418,9 @@ class ApplicationWindow(Adw.ApplicationWindow):
         window.set_debug_info(debug_info.generate())
 
         window.set_release_notes("""
+            <p>This version fixes a regression in Updater. During batch updates, an unwanted "No new chapters" notification was sent for every manga without changes.</p>
+
+            <p>Changes in version 1.38.0</p>
             <ul>
                 <li>[Downloader] Improved error notification</li>
                 <li>[Updater] Improved notifications</li>

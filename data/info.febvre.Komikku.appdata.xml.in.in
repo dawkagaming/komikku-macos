@@ -100,8 +100,11 @@
     <url type="donation">https://valos.gitlab.io/Komikku/#sponsor</url>
 
     <releases>
-        <release version="1.38.0" date="2024-02-16">
+        <release version="1.38.1" date="2024-02-17">
             <description>
+                <p>This version fixes a regression in Updater. During batch updates, an unwanted "No new chapters" notification was sent for every manga without changes.</p>
+
+                <p>Changes in version 1.38.0</p>
                 <ul>
                     <li>[Downloader] Improved error notification</li>
                     <li>[Updater] Improved notifications</li>
