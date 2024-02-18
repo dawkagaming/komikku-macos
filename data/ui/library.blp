@@ -39,6 +39,7 @@ template $LibraryPage : Adw.NavigationPage {
 
     content: Adw.OverlaySplitView overlaysplitview {
       collapsed: true;
+
       content:
       Stack stack {
         transition-type: none;
@@ -196,7 +197,6 @@ template $LibraryPage : Adw.NavigationPage {
       };
 
       sidebar: Box {
-        width-request: 200;
         orientation: vertical;
 
         Label {

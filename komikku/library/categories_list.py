@@ -50,7 +50,7 @@ class CategoriesList:
         self.library.flowbox.invalidate_filter()
 
     def on_edit_mode_cancel_button_clicked(self, _button):
-        self.library.flap.set_reveal_flap(False)
+        self.library.overlaysplitview.set_show_sidebar(False)
 
     def on_edit_mode_ok_button_clicked(self, _button):
         def run():
