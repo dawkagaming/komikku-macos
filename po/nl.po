@@ -1,20 +1,21 @@
 # Heimen Stoffels <vistausss@fastmail.com>, 2023.
 # Philip Goto <philip.goto@gmail.com>, 2023.
 # Koen Benne <koen.benne@gmail.com>, 2023.
+# Mikachu <micah.sh@proton.me>, 2024.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-02-15 22:58+0100\n"
-"PO-Revision-Date: 2023-05-16 00:14+0000\n"
-"Last-Translator: Koen Benne <koen.benne@gmail.com>\n"
+"PO-Revision-Date: 2024-02-19 22:51+0000\n"
+"Last-Translator: Mikachu <micah.sh@proton.me>\n"
 "Language-Team: Dutch <https://hosted.weblate.org/projects/komikku/main/nl/>\n"
 "Language: nl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.18-dev\n"
+"X-Generator: Weblate 5.5-dev\n"
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:11
 msgid "Read your favorite manga"
@@ -65,11 +66,11 @@ msgstr "Automatische update van manga"
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:23
 msgid "Automatic download of new chapters"
-msgstr "Automatisch downloaden van nieuwe hoofdstukken"
+msgstr "Automatische download van nieuwe hoofdstukken"
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:24
 msgid "Reading history"
-msgstr "Geschiedenis van lezen"
+msgstr "Leesgeschiedenis"
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:25
 msgid "Light and dark themes"
@@ -77,43 +78,43 @@ msgstr "Lichte en donkere thema's"
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:46
 msgid "The Library page"
-msgstr ""
+msgstr "De Bibliotheekpagina"
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:50
 msgid "The Library page with the category sidebar open"
-msgstr ""
+msgstr "De Bibliotheekpagina met de categoriezijbalk geopend"
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:54
 msgid "The Preferences page (Library settings)"
-msgstr ""
+msgstr "De Voorkeurpagina (Bibliotheekinstellingen)"
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:58
 msgid "The Explorer page in mobile format (Servers list)"
-msgstr ""
+msgstr "De Verkenpagina in mobiel formaat (Serverlijst)"
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:62
 msgid "The Details page"
-msgstr ""
+msgstr "De Detailpagina"
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:66
 msgid "The Details page (chapters list)"
-msgstr ""
+msgstr "De Detailpagina (hoofdstuklijst)"
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:70
 msgid "The Reader page"
-msgstr ""
+msgstr "De Leespagina"
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:74
 msgid "The Reader page in mobile format"
-msgstr ""
+msgstr "De Leespagina in mobiel formaat"
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:78
 msgid "The Category editor page in mobile format"
-msgstr ""
+msgstr "De Categorie-editorpagina in mobiel formaat"
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:82
 msgid "The Reading history page in mobile format"
-msgstr ""
+msgstr "De Leesgeschiedenispagina in mobiel formaat"
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:90
 msgid "@authorfullname@"
@@ -121,46 +122,50 @@ msgstr "@authorfullname@"
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:106
 msgid "[Downloader] Improve error notification"
-msgstr ""
+msgstr "[Downloader] Verbeter errormeldingen"
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:107
 msgid "[Updater] Improve notifications"
-msgstr ""
+msgstr "[Updater] Verbeter meldingen"
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:108
 msgid ""
 "[Updater] Prevent manga update from being scheduled while it's being updated"
 msgstr ""
+"[Updater] Voorkom dat een manga-update wordt gepland terwijl deze wordt "
+"geupdate"
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:109
 msgid "[Servers] Armoni Scans (TR): Disable"
-msgstr ""
+msgstr "[Servers] Armoni Scans (TR): Uitgeschakeld"
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:110
 msgid "[Servers] Komga: Fixed missing covers in search"
-msgstr ""
+msgstr "[Servers] Komga: Ontbreken covers in zoekresultaten verbeterd"
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:111
 msgid "[Servers] MangaHub (EN): Update"
-msgstr ""
+msgstr "[Servers] MangaHub (EN): Update"
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:112
 msgid "[Servers] Manhuaus (EN): Update"
-msgstr ""
+msgstr "[Servers] Manhuaus (EN): Update"
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:113
 msgid "[Servers] Manhwa Hentai (EN): Update"
-msgstr ""
+msgstr "[Servers] Manhwa Hentai (EN): Update"
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:114
 msgid "[Servers] Tapas (EN): Update"
-msgstr ""
+msgstr "[Servers] Tapas (EN): Update"
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:115
 msgid ""
 "[L10n] Updated Chinese (Traditional), French, Russian, Spanish, Turkish "
 "translations"
 msgstr ""
+"[L10n] Chineese (traditioneel), Franse, Russische, Spaanse, Turkse "
+"vertalingen geüpdate"
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:117
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:132
@@ -169,36 +174,40 @@ msgstr "Vrolijk lezen."
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:123
 msgid "[Card] Added an indicator when an update is in progress"
-msgstr ""
+msgstr "[Card] Indicator wanneer een update bezig is toegevoegd"
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:124
 msgid "[Card] Added Pull-to-Update feature"
-msgstr ""
+msgstr "[Card] 'Pull-to-Update'-functie toegevoegd"
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:125
 msgid "[Card] Updated disk usage when one or more chapters are reset"
 msgstr ""
+"[Card] Schijfgebruik wanneer één of meer hoofdstukken worden gereset geüpdate"
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:126
 msgid ""
 "[Webview] Fixed rare cases where pages loading end could not be detected"
 msgstr ""
+"[Webview] Zeldzame gevallen waarin het einde van het laden van pagina's niet "
+"kon worden gedetecteerd verholpen"
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:127
 msgid "[About] Fixed \"Report an Issue\" link"
-msgstr ""
+msgstr "[About] \"Rapporteer een probleem\" link gerepareerd"
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:128
 msgid "[Servers] Some improvements to speed up HTML pages parsing"
 msgstr ""
+"[Servers] Enkele verbeteringen om het parsen van HTML-pagina's te versnellen"
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:129
 msgid "[Servers] Manga-Scantrad (FR): Fix status CSS selector"
-msgstr ""
+msgstr "[Servers] Manga-Scantrad (FR): Repareer status CSS-selector"
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:130
 msgid "[L10n] Updated Russian translation"
-msgstr ""
+msgstr "[L10n] Update Russische vertaling"
 
 #: ../data/info.febvre.Komikku.desktop.in:3
 msgid "@prettyname@"
@@ -213,6 +222,8 @@ msgid ""
 "manga;reader;viewer;comic;manhwa;manhua;bd;webtoon;webcomic;scan;offline;"
 "gnome;"
 msgstr ""
+"manga;reader;viewer;comic;manhwa;manhua;bd;webtoon;webcomic;scan;offline;gnom"
+"e;lezer;strip;stripverhaal;"
 
 #: ../data/ui/about_window.ui.in:28
 msgid ""
@@ -236,7 +247,7 @@ msgstr "Menu"
 
 #: ../data/ui/card.blp:36
 msgid "Resume Reading"
-msgstr ""
+msgstr "Verderlezen"
 
 #: ../data/ui/card.blp:55
 msgid "Info"
@@ -273,7 +284,7 @@ msgstr "Samenvatting"
 #: ../data/ui/card.blp:485 ../data/ui/categories_editor.blp:64
 #: ../data/ui/library.blp:235
 msgid "No Categories"
-msgstr ""
+msgstr "Geen Categorieën"
 
 #: ../data/ui/card_chapters_list_row.blp:61
 msgid "New"
@@ -284,23 +295,21 @@ msgid "Add"
 msgstr "Toevoegen"
 
 #: ../data/ui/download_manager.blp:6 ../data/ui/download_manager.blp:16
-#, fuzzy
 msgid "Download Manager"
 msgstr "Downloadbeheer"
 
 #: ../data/ui/download_manager.blp:28
 msgid "Start/Stop Download"
-msgstr ""
+msgstr "Start/Stop Download"
 
 #: ../data/ui/download_manager.blp:65
 msgid "No Downloads"
-msgstr ""
+msgstr "Geen Downloads"
 
 #: ../data/ui/explorer_search.blp:10 ../data/ui/explorer_search.blp:35
 #: ../data/ui/history.blp:18 ../data/ui/library.blp:36
-#, fuzzy
 msgid "Search"
-msgstr "Zoeken"
+msgstr "Zoek"
 
 #: ../data/ui/explorer_search.blp:28
 msgid "Open in Browser"
@@ -320,11 +329,11 @@ msgstr "Servers"
 
 #: ../data/ui/explorer_servers.blp:13
 msgid "Search Comics Across All Servers"
-msgstr ""
+msgstr "Zoek Comics op Alle Servers"
 
 #: ../data/ui/explorer_servers.blp:19
 msgid "Search Servers"
-msgstr ""
+msgstr "Zoek Servers"
 
 #: ../data/ui/explorer_servers.blp:33
 msgid "Search for servers by name or language"
@@ -336,17 +345,16 @@ msgstr "Geschiedenis"
 
 #: ../data/ui/history.blp:69
 msgid "No History"
-msgstr ""
+msgstr "Geen geschiedenis"
 
 #: ../data/ui/library.blp:6 ../data/ui/preferences.blp:66
 #: ../data/ui/preferences.blp:69
-#, fuzzy
 msgid "Library"
-msgstr "Verzameling"
+msgstr "Bibliotheek"
 
 #: ../data/ui/library.blp:19
 msgid "Toggle Categories Sidebar"
-msgstr ""
+msgstr "Schakel Categorieënzijbalk in/uit"
 
 #: ../data/ui/library.blp:23
 msgid "Komikku"
@@ -354,7 +362,7 @@ msgstr "Komikku"
 
 #: ../data/ui/library.blp:30
 msgid "Main Menu"
-msgstr ""
+msgstr "Hoofdmenu"
 
 #: ../data/ui/library.blp:61
 msgid "Search by name, server or genre"
@@ -366,7 +374,7 @@ msgstr "Bijwerken"
 
 #: ../data/ui/library.blp:183
 msgid "Discover Comics"
-msgstr ""
+msgstr "Ontdek Comics"
 
 #: ../data/ui/library.blp:257
 msgid "OK"
@@ -378,27 +386,27 @@ msgstr "Hoofdstukvolgorde"
 
 #: ../data/ui/menu/card.xml:23
 msgid "⬆ By Source"
-msgstr "⬆ Bij bron"
+msgstr "⬆ Op bron"
 
 #: ../data/ui/menu/card.xml:28
 msgid "⬇ By Source"
-msgstr "⬇ Bij bron"
+msgstr "⬇ Op bron"
 
 #: ../data/ui/menu/card.xml:34
 msgid "⬆ By Date"
-msgstr "⬆ Bij datum"
+msgstr "⬆ Op datum"
 
 #: ../data/ui/menu/card.xml:39
 msgid "⬇ By Date"
-msgstr "⬇ Bij datum"
+msgstr "⬇ Op datum"
 
 #: ../data/ui/menu/card.xml:45
 msgid "⬆ By Title"
-msgstr "⬆ Bij titel"
+msgstr "⬆ Op titel"
 
 #: ../data/ui/menu/card.xml:50
 msgid "⬇ By Title"
-msgstr "⬇ Bij titel"
+msgstr "⬇ Op titel"
 
 #: ../data/ui/menu/card_selection_mode.xml:18
 #: ../data/ui/menu/library_selection_mode.xml:25
@@ -411,7 +419,7 @@ msgstr "Alles verwijderen"
 
 #: ../data/ui/menu/explorer_search_global_search.xml:7
 msgid "Pinned Servers Only"
-msgstr ""
+msgstr "Alleen Vastgemaakte Servers"
 
 #: ../data/ui/menu/library_search.xml:7
 msgid "Unread"
@@ -431,19 +439,19 @@ msgstr "Verzameling bijwerken"
 
 #: ../data/ui/menu/main.xml:11
 msgid "Sort"
-msgstr ""
+msgstr "Sorteer"
 
 #: ../data/ui/menu/main.xml:16
 msgid "Alphabetical"
-msgstr ""
+msgstr "Alfabetisch"
 
 #: ../data/ui/menu/main.xml:21
 msgid "Latest Read First"
-msgstr ""
+msgstr "Meest recent gelezen eerst"
 
 #: ../data/ui/menu/main.xml:26
 msgid "Latest Updated First"
-msgstr ""
+msgstr "Meest recent geüpdate eerst"
 
 #: ../data/ui/menu/main.xml:55
 msgid "Keyboard Shortcuts"
@@ -451,7 +459,7 @@ msgstr "Sneltoetsen"
 
 #: ../data/ui/menu/main.xml:59
 msgid "Donate"
-msgstr ""
+msgstr "Doneer"
 
 #: ../data/ui/menu/main.xml:63
 msgid "About Komikku"
@@ -474,9 +482,8 @@ msgid "Hide Page Numbering"
 msgstr "Verberg paginanummering"
 
 #: ../data/ui/menu/reader.xml:106
-#, fuzzy
 msgid "Save Page"
-msgstr "Bewaar pagina"
+msgstr "Pagina opslaan"
 
 #: ../data/ui/preferences.blp:10 ../data/ui/preferences.blp:21
 #: ../data/ui/preferences_servers_languages.blp:11
@@ -518,15 +525,15 @@ msgstr "Meldingen"
 
 #: ../data/ui/preferences.blp:53
 msgid "Use desktop notifications for downloads and library updates"
-msgstr "Meldingen op het bureaublad tonen over downloads en bibliotheekupdates"
+msgstr "Gebruik bureaubladmeldingen voor downloads- en bibliotheekupdates"
 
 #: ../data/ui/preferences.blp:57
 msgid "Backdrop in Details Page"
-msgstr ""
+msgstr "Achtergrond in Detailspagina"
 
 #: ../data/ui/preferences.blp:58
 msgid "Enable background recoloring to match cover"
-msgstr ""
+msgstr "Activeer achtergrondherkleuring om overeen te komen met de cover"
 
 #: ../data/ui/preferences.blp:72
 msgid "Display"
@@ -538,11 +545,11 @@ msgstr "Weergavemodus"
 
 #: ../data/ui/preferences.blp:78
 msgid "Grid"
-msgstr "Raster"
+msgstr "Rooster"
 
 #: ../data/ui/preferences.blp:79
 msgid "Compact Grid"
-msgstr "Compact raster"
+msgstr "Compact rooster"
 
 #: ../data/ui/preferences.blp:85
 msgid "Servers Logo"
@@ -605,11 +612,11 @@ msgstr "Servers in- en uitschakelen en configureren"
 
 #: ../data/ui/preferences.blp:190
 msgid "Long Strip Detection"
-msgstr "Lange stripboek herkenning"
+msgstr "Lange strook detectie"
 
 #: ../data/ui/preferences.blp:191
 msgid "Automatically detect long vertical strip when possible"
-msgstr "Detecteert automatisch lange stripboek indien mogelijk"
+msgstr "Detecteert automatisch lange verticale strook indien mogelijk"
 
 #: ../data/ui/preferences.blp:195
 msgid "NSFW Content (18+)"
@@ -629,7 +636,6 @@ msgstr "Of servers met alleen NSFW-inhoud moeten worden ingeschakeld"
 
 #: ../data/ui/preferences.blp:209 ../data/ui/preferences.blp:212
 #: ../data/ui/reader.blp:6
-#, fuzzy
 msgid "Reader"
 msgstr "Lezer"
 
@@ -732,7 +738,7 @@ msgid ""
 msgstr ""
 "Witte randen van afbeeldingen bijsnijden\n"
 "\n"
-"OPMERKING: Vereist meer CPU-gebruik en kan rendering en animatievertragingen "
+"OPMERKING: Vereist meer CPU-gebruik en kan render- en animatievertragingen "
 "veroorzaken, vooral op mobiele apparaten."
 
 #: ../data/ui/preferences.blp:275
@@ -765,19 +771,19 @@ msgstr "Gegevens niet opgeslagen in de bibliotheek"
 
 #: ../data/ui/preferences.blp:299
 msgid "Clear Chapters Cache and Database"
-msgstr ""
+msgstr "Wis Hoofdstuk-Cache en Database"
 
 #: ../data/ui/preferences.blp:304
 msgid "Clear Chapters Cache and Database on Exit"
-msgstr ""
+msgstr "Wis Hoofdstuk-Cache en Database tijdens Afsluiten"
 
 #: ../data/ui/preferences.blp:309
 msgid "Credentials Storage"
-msgstr ""
+msgstr "Referentiegegevensopslag"
 
 #: ../data/ui/preferences.blp:312
 msgid "Allow Plaintext Storage as Fallback"
-msgstr ""
+msgstr "Toestaan van plain-textopslag als reserveoptie"
 
 #: ../data/ui/preferences.blp:313
 msgid "Used when no keyring backends are found"
@@ -805,10 +811,9 @@ msgid ""
 "environment and therefore cannot disable animations globally via GNOME "
 "Settings (Accessibility ⇨ Seeing ⇨ Reduce Animation)."
 msgstr ""
-"Deze afstelling is alleen bedoeld voor gebruikers die geen gebruik maken van "
-"de GNOME-desktopomgeving en daarom animaties niet globaal kunnen "
-"uitschakelen via de GNOME-instellingen (Toegankelijkheid ⇨ Zien ⇨ Animatie "
-"verminderen)."
+"Deze tweak is alleen bedoeld voor gebruikers die de Gnome-desktopomgeving "
+"niet gebruiken en daarom animaties niet globaal kunnen uitschakelen via "
+"Gnome-instellingen (Toegankelijkheid ⇨ Zien ⇨ Animatie verminderen)."
 
 #: ../data/ui/reader.blp:17
 msgid "Back"
@@ -816,7 +821,7 @@ msgstr "Terug"
 
 #: ../data/ui/reader.blp:31
 msgid "Toggle Fullscreen Mode"
-msgstr ""
+msgstr "Schakel Volledigschermmodus in/uit"
 
 #: ../data/ui/shortcuts_overview.blp:11
 msgctxt "Shortcut window description"
@@ -826,17 +831,17 @@ msgstr "App"
 #: ../data/ui/shortcuts_overview.blp:14
 msgctxt "Shortcut window description"
 msgid "Open Preferences"
-msgstr ""
+msgstr "Open Voorkeuren"
 
 #: ../data/ui/shortcuts_overview.blp:19
 msgctxt "Shortcut window description"
 msgid "Toggle Fullscreen Mode"
-msgstr ""
+msgstr "Schakel Volledigschermmodus in/uit"
 
 #: ../data/ui/shortcuts_overview.blp:24
 msgctxt "Shortcut window description"
 msgid "Open Keyboard Shortcuts"
-msgstr ""
+msgstr "Open Toetsenbordsnelkoppelingen"
 
 #: ../data/ui/shortcuts_overview.blp:30
 msgctxt "Shortcut window description"
@@ -846,12 +851,12 @@ msgstr "Bibliotheek"
 #: ../data/ui/shortcuts_overview.blp:33
 msgctxt "Shortcut window description"
 msgid "Add Manga"
-msgstr ""
+msgstr "Voeg Manga toe"
 
 #: ../data/ui/shortcuts_overview.blp:38
 msgctxt "Shortcut window description"
 msgid "Select All"
-msgstr ""
+msgstr "Selecteer Alles"
 
 #: ../data/ui/shortcuts_overview.blp:43
 msgctxt "Shortcut window description"
@@ -866,7 +871,7 @@ msgstr "Manga-kaart"
 #: ../data/ui/shortcuts_overview.blp:52
 msgctxt "Shortcut window description"
 msgid "Select All Chapters"
-msgstr ""
+msgstr "Selecteer alle Hoofdstukken"
 
 #: ../data/ui/shortcuts_overview.blp:58
 msgctxt "Shortcut window description"
@@ -886,52 +891,59 @@ msgstr "Downloadbeheer"
 #: ../data/ui/shortcuts_overview.blp:70
 msgctxt "Shortcut window description"
 msgid "Select All Downloads"
-msgstr ""
+msgstr "Selecteer alle Downloads"
 
 #: ../data/ui/support.blp:6 ../data/ui/support.blp:12
 msgid "Support Development"
-msgstr ""
+msgstr "Ondersteun Ontwikkeling"
 
 #: ../data/ui/support.blp:46
 msgid "How can you support?"
-msgstr ""
+msgstr "Hoe kunt u ondersteunen?"
 
 #: ../data/ui/support.blp:54
 msgid ""
 "Developing and maintaining Komikku is a challenging task that takes up most "
 "of my free time."
 msgstr ""
+"Het ontwikkelen en onderhouden van Komikku is een uitdagende taak die het "
+"grootste deel van mijn vrije tijd in beslag neemt."
 
 #: ../data/ui/support.blp:61
 msgid "Komikku will always be free and open-source and will never contain ads."
 msgstr ""
+"Komikku zal altijd gratis en open-source zijn en zal nooit advertenties "
+"bevatten."
 
 #: ../data/ui/support.blp:68
 msgid ""
 "So if you like it, and you are able, please consider a one-time or recurring "
 "donation to support me, it will be hugely appreciated."
 msgstr ""
+"Dus als je het leuk vindt en in staat bent, overweeg dan alsjeblieft een "
+"eenmalige of terugkerende donatie om me te ondersteunen, het zal enorm "
+"gewaardeerd worden."
 
 #: ../data/ui/support.blp:82
 msgid "Weekly, monthly or yearly donation"
-msgstr ""
+msgstr "Wekelijkse-, maandelijkse- of jaarlijkse donatie"
 
 #: ../data/ui/support.blp:88 ../data/ui/support.blp:104
 #: ../data/ui/support.blp:120
 msgid "Donate and Support"
-msgstr ""
+msgstr "Doneren en Ondersteunen"
 
 #: ../data/ui/support.blp:98
 msgid "One-time donation"
-msgstr ""
+msgstr "Eenmalige donatie"
 
 #: ../data/ui/support.blp:114
 msgid "One-time or monthly donation"
-msgstr ""
+msgstr "Eenmalige of maandelijkse donatie"
 
 #: ../data/ui/webview.blp:6
 msgid "Webview"
-msgstr ""
+msgstr "Webview"
 
 #: ../komikku/application.py:152
 msgid "Multiple URLs not supported"
@@ -950,7 +962,7 @@ msgstr "Annuleren"
 
 #: ../komikku/application.py:414
 msgid "Supporters"
-msgstr ""
+msgstr "Supporters"
 
 #: ../komikku/application.py:436
 msgid "Join Chat"
@@ -991,6 +1003,9 @@ msgid ""
 "{0} is no longer supported.\n"
 "Please switch to another server."
 msgstr ""
+"LET OP:\n"
+"De server '{0}' wordt niet meer ondersteund.\n"
+"Schakel over naar een andere server."
 
 #: ../komikku/card/__init__.py:435
 msgid "Unknown author"
@@ -1013,8 +1028,8 @@ msgstr "%d/%m/%Y"
 #, python-brace-format
 msgid "{0} selected"
 msgid_plural "{0} selected"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "{0} geselecteerd"
+msgstr[1] "{0} geselecteerde"
 
 #: ../komikku/card/chapters_list.py:381 ../komikku/card/chapters_list.py:476
 msgid "Failed to update chapters reading status"
@@ -1077,7 +1092,7 @@ msgstr "Opslaan"
 #: ../komikku/downloader.py:235
 #, python-brace-format
 msgid "Download failure: {0}"
-msgstr ""
+msgstr "Downloadfout: {0}"
 
 #: ../komikku/downloader.py:246
 #, python-brace-format
@@ -1101,20 +1116,20 @@ msgstr "Download voltooid"
 #, python-brace-format
 msgid "{0} chapter"
 msgid_plural "{0} chapters"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "{0} Hoofdstuk"
+msgstr[1] "{0} Hoofdstukken"
 
 #: ../komikku/explorer/common.py:61
 msgid "Last Chapter: {}"
-msgstr ""
+msgstr "Laatste Hoofdstuk: {}"
 
 #: ../komikku/explorer/common.py:63
 msgid "Last Volume: {}"
-msgstr ""
+msgstr "Laatste Deel: {}"
 
 #: ../komikku/explorer/common.py:175
 msgid "Comics stored locally as archives in CBZ/CBR formats"
-msgstr "Strips lokaal opgeslagen als archief in CBZ/CBR formaat"
+msgstr "Lokaal als archief opgeslagen strips in CBZ/CBR-formaat"
 
 #: ../komikku/explorer/common.py:192 ../komikku/preferences.py:552
 #: ../komikku/preferences.py:646 ../komikku/servers/mangatube/__init__.py:57
@@ -1137,15 +1152,16 @@ msgid ""
 "\n"
 "NOTE: The 'unrar' or 'unar' command-line tool is required for CBR archives."
 msgstr ""
-"Een specifieke mappenstructuur is vereist om lokale strips goed te kunnen "
+"Er is een specifieke mappenstructuur nodig om lokale strips goed te kunnen "
 "verwerken.\n"
 "\n"
 "Elke strip moet een eigen map hebben die de hoofdstukken/volumes als "
 "archiefbestanden in CBZ- of CBR-formaat moet bevatten.\n"
 "\n"
-"De naam van de map wordt gebruikt als naam voor het stripverhaal.\n"
+"De naam van de map wordt gebruikt als naam voor de strip.\n"
 "\n"
-"LET OP: De 'unrar' of 'unar' command-line tool is vereist voor CBR archieven."
+"OPMERKING: De 'unrar' of 'unar' command-line tool is vereist voor CBR "
+"archieven."
 
 #: ../komikku/explorer/common.py:231
 msgid "Open local folder"
@@ -1153,7 +1169,7 @@ msgstr "Lokale map openen"
 
 #: ../komikku/explorer/common.py:239
 msgid "Toggle pinned status"
-msgstr "Schakelen tussen vastgepinde status"
+msgstr "Schakelen vastgepinde status in/uit"
 
 #: ../komikku/explorer/search/__init__.py:252
 msgid "Oops, server website URL is unknown."
@@ -1161,7 +1177,7 @@ msgstr "Oeps, server website URL is onbekend."
 
 #: ../komikku/explorer/search/__init__.py:292
 msgid "Search {}"
-msgstr "{} zoeken"
+msgstr "{} Zoeken"
 
 #: ../komikku/explorer/search/__init__.py:294
 msgid "Search for Reading"
@@ -1179,19 +1195,19 @@ msgid ""
 msgstr ""
 "U kunt ook specifieke strips opzoeken met de syntaxis:\n"
 "\n"
-"<b>id:ID van stripboek URL</b>"
+"<b>id:ID van comic URL</b>"
 
 #: ../komikku/explorer/search/__init__.py:326
 msgid "Global Search"
-msgstr "Globaal zoeken"
+msgstr "Algemene zoekopdracht"
 
 #: ../komikku/explorer/search/__init__.py:328
 msgid "Search globally by name"
-msgstr ""
+msgstr "Zoek globaal op naam"
 
 #: ../komikku/explorer/search/__init__.py:330
 msgid "Search for Comics"
-msgstr ""
+msgstr "Zoek voor Comics"
 
 #: ../komikku/explorer/search/__init__.py:406
 msgid "Oops, failed to retrieve manga's information."
@@ -1243,7 +1259,7 @@ msgstr "Andere"
 
 #: ../komikku/explorer/servers.py:169
 msgid "Pinned"
-msgstr "Vastgepind"
+msgstr "Vastgezet"
 
 #: ../komikku/history.py:127
 msgid "Today"
@@ -1293,7 +1309,7 @@ msgstr "Kan de leesstatus niet bijwerken"
 
 #: ../komikku/library/__init__.py:749
 msgid "Add New Comic"
-msgstr ""
+msgstr "Voeg Nieuwe Comic Toe"
 
 #: ../komikku/library/__init__.py:779 ../komikku/library/categories_list.py:145
 msgid "Uncategorized"
@@ -1397,16 +1413,16 @@ msgid ""
 "No keyring backends were found to store credential. Use plaintext storage as "
 "fallback."
 msgstr ""
-"Geen sleutelbosservice gevonden om de inloggegevens op te slaan. Gebruik "
-"tekstopslag als terugval."
+"Geen keyringservice gevonden om de inloggegevens op te slaan. Gebruik plain-"
+"textopslag als reserveoptie."
 
 #: ../komikku/preferences.py:620
 msgid ""
 "No keyring backends were found to store credential. Plaintext storage will "
 "be used as fallback."
 msgstr ""
-"Geen sleutelbosservice gevonden om de inloggegevens op te slaan. Tekstopslag "
-"wordt als terugval gebruikt."
+"Geen sleutelbosservice gevonden om de inloggegevens op te slaan. Plain-"
+"textopslag zal als reserveoptie worden gebruikt."
 
 #: ../komikku/preferences.py:628
 msgid "Test"
@@ -1499,7 +1515,7 @@ msgstr "Problemen"
 
 #: ../komikku/servers/dynasty/__init__.py:45
 msgid "Series"
-msgstr "Series"
+msgstr "Serie"
 
 #: ../komikku/servers/dynasty/__init__.py:46
 msgid "Chapters"
@@ -1559,7 +1575,7 @@ msgstr "Suggestief"
 
 #: ../komikku/servers/mangadex/__init__.py:65
 msgid "Erotica"
-msgstr "Erotiek"
+msgstr "Erotica"
 
 #: ../komikku/servers/mangadex/__init__.py:66
 msgid "Pornographic"
@@ -1577,11 +1593,11 @@ msgstr "Filter op statussen"
 
 #: ../komikku/servers/mangadex/__init__.py:77
 msgid "Completed"
-msgstr ""
+msgstr "Voltooid"
 
 #: ../komikku/servers/mangadex/__init__.py:78
 msgid "Paused"
-msgstr ""
+msgstr "Gepauzeerd"
 
 #: ../komikku/servers/mangadex/__init__.py:79
 #: ../komikku/servers/mangaworld/__init__.py:53
@@ -1590,27 +1606,27 @@ msgstr "Geannuleerd"
 
 #: ../komikku/servers/mangadex/__init__.py:85
 msgid "Publication Demographic"
-msgstr ""
+msgstr "Publicatiedoelgroep"
 
 #: ../komikku/servers/mangadex/__init__.py:86
 msgid "Filter by publication demographics"
-msgstr ""
+msgstr "Filter op Publicatiedoelgroep"
 
 #: ../komikku/servers/mangadex/__init__.py:89
 msgid "Shounen"
-msgstr ""
+msgstr "Shounen"
 
 #: ../komikku/servers/mangadex/__init__.py:90
 msgid "Shoujo"
-msgstr ""
+msgstr "Shoujo"
 
 #: ../komikku/servers/mangadex/__init__.py:91
 msgid "Josei"
-msgstr ""
+msgstr "Josei"
 
 #: ../komikku/servers/mangadex/__init__.py:92
 msgid "Seinen"
-msgstr ""
+msgstr "Seinen"
 
 #: ../komikku/servers/mangapill/__init__.py:31
 #: ../komikku/servers/mangatube/__init__.py:33
@@ -1618,13 +1634,13 @@ msgstr ""
 #: ../komikku/servers/multi/manga_stream.py:51
 #: ../komikku/servers/webtoon/__init__.py:46
 msgid "Type"
-msgstr "Soort"
+msgstr "Type"
 
 #: ../komikku/servers/mangapill/__init__.py:32
 #: ../komikku/servers/multi/manga_stream.py:52
 #: ../komikku/servers/webtoon/__init__.py:47
 msgid "Filter by type"
-msgstr "Op soort filteren"
+msgstr "Filter op type"
 
 #: ../komikku/servers/mangapill/__init__.py:37
 #: ../komikku/servers/mangatube/__init__.py:38
@@ -1663,11 +1679,11 @@ msgstr "Manhua"
 
 #: ../komikku/servers/mangapill/__init__.py:43
 msgid "OEL"
-msgstr "Originele Engelse Manga"
+msgstr "OEL"
 
 #: ../komikku/servers/mangatube/__init__.py:34
 msgid "Type of Serie"
-msgstr "Soort serie"
+msgstr "Type serie"
 
 #: ../komikku/servers/mangatube/__init__.py:41
 msgid "Webtoon"
@@ -1680,7 +1696,7 @@ msgstr "Strip"
 
 #: ../komikku/servers/mangatube/__init__.py:44
 msgid "Light Novel"
-msgstr "Lichte roman"
+msgstr "Light Novel"
 
 #: ../komikku/servers/mangatube/__init__.py:50
 msgid "Age Rating"
@@ -1711,15 +1727,15 @@ msgstr "Of manga met NSFW-inhoud moet worden getoond"
 #: ../komikku/servers/multi/mangareader.py:102
 #, python-brace-format
 msgid "Not available in {0} language"
-msgstr ""
+msgstr "Niet beschikbaar in {0} taal"
 
 #: ../komikku/servers/webtoon/__init__.py:52
 msgid "Originals"
-msgstr ""
+msgstr "Origineel"
 
 #: ../komikku/servers/webtoon/__init__.py:53
 msgid "Canvas"
-msgstr ""
+msgstr "Canvas"
 
 #: ../komikku/updater.py:104
 msgid "Library update completed with errors"
@@ -1741,15 +1757,15 @@ msgstr "Bijwerken voltooid"
 #, python-brace-format
 msgid "{0} successful update"
 msgid_plural "{0} successful updates"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "{0} succesvolle update"
+msgstr[1] "{0} succesvolle updates"
 
 #: ../komikku/updater.py:116 ../komikku/updater.py:132
 #, python-brace-format
 msgid "{0} new chapter"
 msgid_plural "{0} new chapters"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "{0} nieuw hoofdstuk"
+msgstr[1] "{0} nieuwe hoofdstukken"
 
 #: ../komikku/updater.py:118 ../komikku/updater.py:140
 msgid "No new chapters"
@@ -1759,8 +1775,8 @@ msgstr "Geen nieuwe hoofdstukken"
 #, python-brace-format
 msgid "{0} update failed"
 msgid_plural "{0} updates failed"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "{0} update mislukt"
+msgstr[1] "{0} updates mislukt"
 
 #: ../komikku/updater.py:158
 msgid "Oops, update has failed. Please try again."
