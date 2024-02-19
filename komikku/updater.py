@@ -162,7 +162,7 @@ class Updater(GObject.GObject):
             return False
 
         if self.running or len(self.queue) == 0:
-            return
+            return False
 
         if self.update_library_flag:
             title = _('Library update started')
@@ -174,6 +174,8 @@ class Updater(GObject.GObject):
         thread = threading.Thread(target=run)
         thread.daemon = True
         thread.start()
+
+        return True
 
     def remove(self, manga):
         if manga.id in self.queue:
@@ -195,4 +197,4 @@ class Updater(GObject.GObject):
 
         self.add([Manga.get(row['id']) for row in rows])
 
-        self.start()
+        return self.start()

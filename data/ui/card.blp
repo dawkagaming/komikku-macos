@@ -37,460 +37,463 @@ template $CardPage : Adw.NavigationPage {
       }
     }
 
-    content: Gtk.Box {
-        orientation: vertical;
+    content: Overlay {
+      [overlay]
+      ProgressBar progressbar {
+        valign: start;
+        inverted: true;
+        pulse-step: 0.25;
+        show-text: false;
+        styles [
+          "osd",
+        ]
+      }
 
-        ProgressBar progressbar {
-          inverted: true;
-          pulse-step: 0.25;
-          show-text: false;
-          styles [
-            "osd",
-          ]
-        }
+      child: Adw.ViewStack stack {
+        can-target: true;
 
-        Adw.ViewStack stack {
-          Adw.ViewStackPage {
-            name: "info";
-            title: _("Info");
-            icon-name: "help-about-symbolic";
-            child: ScrolledWindow info_scrolledwindow {
-              hscrollbar-policy: never;
-              propagate-natural-width: true;
-              child: Viewport {
-                Adw.Clamp {
-                  maximum-size: 768;
-                  margin-top: 10;
-                  margin-end: 12;
-                  margin-bottom: 24;
-                  margin-start: 12;
+        Adw.ViewStackPage {
+          name: "info";
+          title: _("Info");
+          icon-name: "help-about-symbolic";
+
+          child: ScrolledWindow info_scrolledwindow {
+            hscrollbar-policy: never;
+
+            child: Viewport {
+              Adw.Clamp {
+                maximum-size: 768;
+                margin-top: 12;
+                margin-end: 12;
+                margin-bottom: 24;
+                margin-start: 12;
+
+                Box {
+                  orientation: vertical;
+                  spacing: 32;
+
+                  Box cover_box {
+                    spacing: 24;
+
+                    Picture cover_image {
+                      can-shrink: false;
+                      halign: center;
+                      valign: center;
+
+                      styles [
+                        "rounded",
+                        "cover-dropshadow",
+                      ]
+                    }
+
+                    Box {
+                      valign: center;
+                      hexpand: true;
+                      spacing: 8;
+                      orientation: vertical;
+
+                      Label name_label {
+                        halign: start;
+                        valign: fill;
+                        hexpand: true;
+                        label: "name";
+                        wrap: true;
+                        xalign: 0;
+
+                        styles [
+                          "title-1",
+                        ]
+                      }
+
+                      Label authors_label {
+                        halign: start;
+                        valign: fill;
+                        label: "authors";
+                        wrap: true;
+                        max-width-chars: 100;
+                        xalign: 0;
+
+                        styles [
+                          "dim-label",
+                          "title-2",
+                        ]
+                      }
+
+                      Label status_server_label {
+                        halign: start;
+                        valign: fill;
+                        label: "status and server";
+                        wrap: true;
+                        max-width-chars: 100;
+                        xalign: 0;
+
+                        styles [
+                          "dim-label",
+                          "title-4",
+                        ]
+                      }
+
+                      Box buttons_box {
+                        spacing: 18;
+                        halign: start;
+                        margin-top: 8;
+                        orientation: horizontal;
+
+                        Button add_button {
+                          child: Adw.ButtonContent {
+                            halign: center;
+                            label: _("Add to Library");
+                            icon-name: "list-add-symbolic";
+                          };
+
+                          styles [
+                            "pill",
+                            "suggested-action",
+                          ]
+                        }
+
+                        Button resume2_button {
+                          child: Adw.ButtonContent {
+                            halign: center;
+                            label: _("Resume");
+                            icon-name: "media-playback-start-symbolic";
+                          };
+
+                          styles [
+                            "pill",
+                          ]
+                        }
+                      }
+                    }
+                  }
 
                   Box {
                     orientation: vertical;
-                    spacing: 32;
+                    spacing: 12;
 
-                    Box cover_box {
-                      spacing: 24;
+                    Label {
+                      label: _("Details");
+                      xalign: 0;
+                      halign: fill;
+                      ellipsize: end;
 
-                      Picture cover_image {
-                        can-shrink: false;
-                        halign: center;
-                        valign: center;
-
-                        styles [
-                          "rounded",
-                          "cover-dropshadow",
-                        ]
-                      }
-
-                      Box {
-                        valign: center;
-                        hexpand: true;
-                        spacing: 8;
-                        orientation: vertical;
-
-                        Label name_label {
-                          halign: start;
-                          valign: fill;
-                          hexpand: true;
-                          label: "name";
-                          wrap: true;
-                          xalign: 0;
-
-                          styles [
-                            "title-1",
-                          ]
-                        }
-
-                        Label authors_label {
-                          halign: start;
-                          valign: fill;
-                          label: "authors";
-                          wrap: true;
-                          max-width-chars: 100;
-                          xalign: 0;
-
-                          styles [
-                            "dim-label",
-                            "title-2",
-                          ]
-                        }
-
-                        Label status_server_label {
-                          halign: start;
-                          valign: fill;
-                          label: "status and server";
-                          wrap: true;
-                          max-width-chars: 100;
-                          xalign: 0;
-
-                          styles [
-                            "dim-label",
-                            "title-4",
-                          ]
-                        }
-
-                        Box buttons_box {
-                          spacing: 18;
-                          halign: start;
-                          margin-top: 8;
-                          orientation: horizontal;
-
-                          Button add_button {
-                            child: Adw.ButtonContent {
-                              halign: center;
-                              label: _("Add to Library");
-                              icon-name: "list-add-symbolic";
-                            };
-
-                            styles [
-                              "pill",
-                              "suggested-action",
-                            ]
-                          }
-
-                          Button resume2_button {
-                            child: Adw.ButtonContent {
-                              halign: center;
-                              label: _("Resume");
-                              icon-name: "media-playback-start-symbolic";
-                            };
-
-                            styles [
-                              "pill",
-                            ]
-                          }
-                        }
-                      }
+                      styles [
+                        "heading",
+                      ]
                     }
 
-                    Box {
-                      orientation: vertical;
-                      spacing: 12;
+                    ListBox {
+                      can-focus: false;
 
-                      Label {
-                        label: _("Details");
-                        xalign: 0;
-                        halign: fill;
-                        ellipsize: end;
+                      ListBoxRow {
+                        activatable: false;
+                        selectable: false;
 
-                        styles [
-                          "heading",
-                        ]
+                        Box {
+                          spacing: 12;
+                          margin-top: 16;
+                          margin-end: 12;
+                          margin-bottom: 16;
+                          margin-start: 12;
+
+                          Image {
+                            halign: start;
+                            icon-name: "view-dual-symbolic";
+                          }
+
+                          Label {
+                            halign: start;
+                            label: _("Genres");
+                            wrap: false;
+                          }
+
+                          Label genres_label {
+                            halign: end;
+                            hexpand: true;
+                            label: "genres";
+                            justify: right;
+                            wrap: true;
+                            wrap-mode: word_char;
+                            xalign: 1;
+                          }
+                        }
                       }
 
-                      ListBox {
-                        can-focus: false;
+                      ListBoxRow {
+                        activatable: false;
+                        selectable: false;
 
-                        ListBoxRow {
-                          activatable: false;
-                          selectable: false;
+                        Box {
+                          spacing: 12;
+                          margin-top: 16;
+                          margin-end: 12;
+                          margin-bottom: 16;
+                          margin-start: 12;
 
-                          Box {
-                            spacing: 12;
-                            margin-top: 16;
-                            margin-end: 12;
-                            margin-bottom: 16;
-                            margin-start: 12;
+                          Image {
+                            halign: start;
+                            icon-name: "document-edit-symbolic";
+                          }
 
-                            Image {
-                              halign: start;
-                              icon-name: "view-dual-symbolic";
-                            }
+                          Label {
+                            label: _("Scanlators");
+                            wrap: false;
+                          }
 
-                            Label {
-                              halign: start;
-                              label: _("Genres");
-                              wrap: false;
-                            }
-
-                            Label genres_label {
-                              halign: end;
-                              hexpand: true;
-                              label: "genres";
-                              justify: right;
-                              wrap: true;
-                              wrap-mode: word_char;
-                              xalign: 1;
-                            }
+                          Label scanlators_label {
+                            halign: end;
+                            hexpand: true;
+                            label: "scanlators";
+                            justify: right;
+                            wrap: true;
+                            wrap-mode: word_char;
                           }
                         }
-
-                        ListBoxRow {
-                          activatable: false;
-                          selectable: false;
-
-                          Box {
-                            spacing: 12;
-                            margin-top: 16;
-                            margin-end: 12;
-                            margin-bottom: 16;
-                            margin-start: 12;
-
-                            Image {
-                              halign: start;
-                              icon-name: "document-edit-symbolic";
-                            }
-
-                            Label {
-                              label: _("Scanlators");
-                              wrap: false;
-                            }
-
-                            Label scanlators_label {
-                              halign: end;
-                              hexpand: true;
-                              label: "scanlators";
-                              justify: right;
-                              wrap: true;
-                              wrap-mode: word_char;
-                            }
-                          }
-                        }
-
-                        ListBoxRow {
-                          activatable: false;
-                          selectable: false;
-
-                          Box {
-                            spacing: 12;
-                            margin-top: 16;
-                            margin-end: 12;
-                            margin-bottom: 16;
-                            margin-start: 12;
-
-                            Image {
-                              halign: start;
-                              icon-name: "view-list-bullet-symbolic";
-                            }
-
-                            Label {
-                              label: _("Chapters");
-                              wrap: false;
-                            }
-
-                            Label chapters_label {
-                              halign: end;
-                              hexpand: true;
-                              label: "chapter";
-                              justify: right;
-                              single-line-mode: true;
-                            }
-                          }
-                        }
-
-                        ListBoxRow {
-                          activatable: false;
-                          selectable: false;
-
-                          Box {
-                            spacing: 12;
-                            margin-top: 16;
-                            margin-end: 12;
-                            margin-bottom: 16;
-                            margin-start: 12;
-
-                            Image {
-                              halign: start;
-                              icon-name: "document-open-recent-symbolic";
-                            }
-
-                            Label {
-                              label: _("Last Update");
-                              wrap: false;
-                            }
-
-                            Label last_update_label {
-                              halign: end;
-                              hexpand: true;
-                              label: "last update";
-                              justify: right;
-                              single-line-mode: true;
-                            }
-                          }
-                        }
-
-                        ListBoxRow {
-                          activatable: false;
-                          selectable: false;
-
-                          Box {
-                            spacing: 12;
-                            margin-top: 16;
-                            margin-end: 12;
-                            margin-bottom: 16;
-                            margin-start: 12;
-
-                            Image {
-                              halign: start;
-                              icon-name: "drive-harddisk-symbolic";
-                            }
-
-                            Label {
-                              halign: start;
-                              label: _("Size on Disk");
-                              wrap: true;
-                              wrap-mode: word_char;
-                            }
-
-                            Label size_on_disk_label {
-                              halign: end;
-                              hexpand: true;
-                              label: "size on disk";
-                              justify: right;
-                              single-line-mode: true;
-                            }
-                          }
-                        }
-
-                        styles [
-                          "boxed-list",
-                        ]
-                      }
-                    }
-
-                    Box {
-                      orientation: vertical;
-                      spacing: 12;
-
-                      Label {
-                        label: _("Synopsis");
-                        xalign: 0;
-                        halign: fill;
-                        ellipsize: end;
-
-                        styles [
-                          "heading",
-                        ]
                       }
 
-                      Label synopsis_label {
-                        hexpand: true;
-                        label: "synopsis";
-                        wrap: true;
-                        wrap-mode: word_char;
-                        xalign: 0;
+                      ListBoxRow {
+                        activatable: false;
+                        selectable: false;
 
-                        styles [
-                          "synopsis-label",
-                        ]
+                        Box {
+                          spacing: 12;
+                          margin-top: 16;
+                          margin-end: 12;
+                          margin-bottom: 16;
+                          margin-start: 12;
+
+                          Image {
+                            halign: start;
+                            icon-name: "view-list-bullet-symbolic";
+                          }
+
+                          Label {
+                            label: _("Chapters");
+                            wrap: false;
+                          }
+
+                          Label chapters_label {
+                            halign: end;
+                            hexpand: true;
+                            label: "chapter";
+                            justify: right;
+                            single-line-mode: true;
+                          }
+                        }
                       }
+
+                      ListBoxRow {
+                        activatable: false;
+                        selectable: false;
+
+                        Box {
+                          spacing: 12;
+                          margin-top: 16;
+                          margin-end: 12;
+                          margin-bottom: 16;
+                          margin-start: 12;
+
+                          Image {
+                            halign: start;
+                            icon-name: "document-open-recent-symbolic";
+                          }
+
+                          Label {
+                            label: _("Last Update");
+                            wrap: false;
+                          }
+
+                          Label last_update_label {
+                            halign: end;
+                            hexpand: true;
+                            label: "last update";
+                            justify: right;
+                            single-line-mode: true;
+                          }
+                        }
+                      }
+
+                      ListBoxRow {
+                        activatable: false;
+                        selectable: false;
+
+                        Box {
+                          spacing: 12;
+                          margin-top: 16;
+                          margin-end: 12;
+                          margin-bottom: 16;
+                          margin-start: 12;
+
+                          Image {
+                            halign: start;
+                            icon-name: "drive-harddisk-symbolic";
+                          }
+
+                          Label {
+                            halign: start;
+                            label: _("Size on Disk");
+                            wrap: true;
+                            wrap-mode: word_char;
+                          }
+
+                          Label size_on_disk_label {
+                            halign: end;
+                            hexpand: true;
+                            label: "size on disk";
+                            justify: right;
+                            single-line-mode: true;
+                          }
+                        }
+                      }
+
+                      styles [
+                        "boxed-list",
+                      ]
                     }
                   }
-                }
-              };
-            };
-          }
 
-          Adw.ViewStackPage {
-            name: "chapters";
-            title: _("Chapters");
-            icon-name: "view-list-bullet";
-            child: Box {
-              orientation: vertical;
+                  Box {
+                    orientation: vertical;
+                    spacing: 12;
 
-              ScrolledWindow chapters_scrolledwindow {
-                vexpand: true;
+                    Label {
+                      label: _("Synopsis");
+                      xalign: 0;
+                      halign: fill;
+                      ellipsize: end;
 
-                Adw.ClampScrollable {
-                  maximum-size: 768;
-                  margin-top: 12;
-                  margin-end: 12;
-                  margin-bottom: 12;
-                  margin-start: 12;
+                      styles [
+                        "heading",
+                      ]
+                    }
 
-                  ListView chapters_listview {
-                    valign: start;
+                    Label synopsis_label {
+                      hexpand: true;
+                      label: "synopsis";
+                      wrap: true;
+                      wrap-mode: word_char;
+                      xalign: 0;
 
-                    styles [
-                      "card",
-                    ]
+                      styles [
+                        "synopsis-label",
+                      ]
+                    }
                   }
                 }
               }
+            };
+          };
+        }
 
-              ActionBar chapters_selection_mode_actionbar {
-                revealed: false;
+        Adw.ViewStackPage {
+          name: "chapters";
+          title: _("Chapters");
+          icon-name: "view-list-bullet";
+          child: Box {
+            orientation: vertical;
 
-                [start]
-                Button {
-                  icon-name: "folder-download-symbolic";
-                  tooltip-text: _("Download");
-                  action-name: "app.card.download-selected-chapters";
-                }
+            ScrolledWindow chapters_scrolledwindow {
+              vexpand: true;
 
-                [start]
-                Separator {
+              Adw.ClampScrollable {
+                maximum-size: 768;
+                margin-top: 12;
+                margin-end: 12;
+                margin-bottom: 12;
+                margin-start: 12;
+
+                ListView chapters_listview {
+                  valign: start;
+
                   styles [
-                    "spacer",
+                    "card",
                   ]
                 }
+              }
+            }
 
-                [start]
-                Button {
-                  icon-name: "brush-symbolic";
-                  tooltip-text: _("Clear");
-                  action-name: "app.card.clear-selected-chapters";
-                }
+            ActionBar chapters_selection_mode_actionbar {
+              revealed: false;
 
-                [start]
-                Button {
-                  icon-name: "user-trash-symbolic";
-                  tooltip-text: _("Clear and Reset");
-                  action-name: "app.card.clear-reset-selected-chapters";
-                }
+              [start]
+              Button {
+                icon-name: "folder-download-symbolic";
+                tooltip-text: _("Download");
+                action-name: "app.card.download-selected-chapters";
+              }
 
-                [end]
-                MenuButton chapters_selection_mode_menubutton {
-                  tooltip-text: _("Menu");
-                  icon-name: "view-more-symbolic";
-                  direction: up;
+              [start]
+              Separator {
+                styles [
+                  "spacer",
+                ]
+              }
+
+              [start]
+              Button {
+                icon-name: "brush-symbolic";
+                tooltip-text: _("Clear");
+                action-name: "app.card.clear-selected-chapters";
+              }
+
+              [start]
+              Button {
+                icon-name: "user-trash-symbolic";
+                tooltip-text: _("Clear and Reset");
+                action-name: "app.card.clear-reset-selected-chapters";
+              }
+
+              [end]
+              MenuButton chapters_selection_mode_menubutton {
+                tooltip-text: _("Menu");
+                icon-name: "view-more-symbolic";
+                direction: up;
+              }
+            }
+          };
+        }
+
+        Adw.ViewStackPage {
+          name: "categories";
+          title: _("Categories");
+          icon-name: "user-bookmarks-symbolic";
+          child: ScrolledWindow categories_scrolledwindow {
+            child: Viewport {
+              scroll-to-focus: true;
+
+              Adw.Clamp {
+                maximum-size: 768;
+                margin-top: 12;
+                margin-end: 12;
+                margin-bottom: 12;
+                margin-start: 12;
+
+                Stack categories_stack {
+                  StackPage {
+                    name: "list";
+                    child: ListBox categories_listbox {
+                      selection-mode: none;
+                      valign: start;
+
+                      styles [
+                        "boxed-list",
+                      ]
+                    };
+                  }
+
+                  StackPage {
+                    name: "empty";
+                    child: Adw.StatusPage {
+                      icon-name: "user-bookmarks-symbolic";
+                      title: _("No Categories");
+                    };
+                  }
                 }
               }
             };
-          }
-
-          Adw.ViewStackPage {
-            name: "categories";
-            title: _("Categories");
-            icon-name: "user-bookmarks-symbolic";
-            child: ScrolledWindow categories_scrolledwindow {
-              child: Viewport {
-                scroll-to-focus: true;
-
-                Adw.Clamp {
-                  maximum-size: 768;
-                  margin-top: 12;
-                  margin-end: 12;
-                  margin-bottom: 12;
-                  margin-start: 12;
-
-                  Stack categories_stack {
-                    StackPage {
-                      name: "list";
-                      child: ListBox categories_listbox {
-                        selection-mode: none;
-                        valign: start;
-
-                        styles [
-                          "boxed-list",
-                        ]
-                      };
-                    }
-
-                    StackPage {
-                      name: "empty";
-                      child: Adw.StatusPage {
-                        icon-name: "user-bookmarks-symbolic";
-                        title: _("No Categories");
-                      };
-                    }
-                  }
-                }
-              };
-            };
-          }
+          };
         }
+      };
     };
 
     [bottom]

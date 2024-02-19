@@ -309,10 +309,9 @@ class CardPage(Adw.NavigationPage):
 
     def on_update_request(self, _action=None, _param=None):
         self.window.updater.add(self.manga)
-        self.window.updater.start()
-
-        # Start update indicator
-        self.toggle_update_indicator()
+        if self.window.updater.start():
+            # Start update indicator
+            self.toggle_update_indicator()
 
     def populate(self):
         self.chapters_list.set_sort_order(invalidate=False)
