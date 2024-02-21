@@ -5,7 +5,6 @@
 from gettext import gettext as _
 from gettext import ngettext
 import threading
-import time
 
 from gi.repository import Adw
 from gi.repository import Gdk
@@ -331,9 +330,11 @@ class LibraryPage(Adw.NavigationPage):
             self.window.downloader.stop()
             self.window.updater.stop()
 
-            while self.window.downloader.running or self.window.updater.running:
-                time.sleep(0.1)
-                continue
+            GLib.idle_add(do_delete)
+
+        def do_delete():
+            if self.window.downloader.running or self.window.updater.running:
+                return GLib.SOURCE_CONTINUE
 
             # Safely delete mangas in DB
             for manga in mangas:

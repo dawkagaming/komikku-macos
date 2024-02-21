@@ -7,7 +7,6 @@ import gi
 import logging
 import sys
 from threading import Timer
-import time
 
 gi.require_version('Gtk', '4.0')
 gi.require_version('Adw', '1')
@@ -506,25 +505,25 @@ class ApplicationWindow(Adw.ApplicationWindow):
         self.support.show()
 
     def quit(self, *args, force=False):
+        def confirm_callback():
+            self.downloader.stop()
+            self.updater.stop()
+
+            GLib.idle_add(do_quit)
+
         def do_quit():
+            if self.downloader.running or self.updater.running:
+                return GLib.SOURCE_CONTINUE
+
             self.save_window_size()
             if Settings.get_default().clear_cached_data_on_app_close:
                 clear_cached_data()
+
             backup_db()
 
             self.application.quit()
 
         if self.downloader.running or self.updater.running:
-            def confirm_callback():
-                self.downloader.stop()
-                self.updater.stop()
-
-                while self.downloader.running or self.updater.running:
-                    time.sleep(0.1)
-                    continue
-
-                do_quit()
-
             message = [
                 _('Are you sure you want to quit?'),
             ]
@@ -542,10 +541,10 @@ class ApplicationWindow(Adw.ApplicationWindow):
                 )
             else:
                 confirm_callback()
+        else:
+            do_quit()
 
-            return Gdk.EVENT_STOP
-
-        do_quit()
+        return Gdk.EVENT_STOP
 
     def save_window_size(self):
         if self.is_fullscreen():

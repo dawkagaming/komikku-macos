@@ -93,19 +93,21 @@ class Downloader(GObject.GObject):
 
         self.stop()
 
-        while self.running:
-            time.sleep(0.1)
-            continue
+        def do_remove():
+            if self.running:
+                return GLib.SOURCE_CONTINUE
 
-        for chapter in chapters:
-            download = Download.get_by_chapter_id(chapter.id)
-            if download:
-                download.delete()
+            for chapter in chapters:
+                download = Download.get_by_chapter_id(chapter.id)
+                if download:
+                    download.delete()
 
-            self.emit('download-changed', None, chapter)
+                self.emit('download-changed', None, chapter)
 
-        if was_running:
-            self.start()
+            if was_running:
+                self.start()
+
+        GLib.idle_add(do_remove)
 
     @if_network_available
     def start(self):
@@ -295,10 +297,12 @@ class Downloader(GObject.GObject):
         thread.start()
 
     def stop(self, save_state=False):
-        if self.running:
-            self.stop_flag = True
-            if save_state:
-                Settings.get_default().downloader_state = False
+        if not self.running:
+            return
+
+        self.stop_flag = True
+        if save_state:
+            Settings.get_default().downloader_state = False
 
 
 @Gtk.Template.from_resource('/info/febvre/Komikku/ui/download_manager.ui')
