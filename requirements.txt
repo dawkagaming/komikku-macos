@@ -8,7 +8,7 @@ lxml
 natsort
 piexif
 Pillow
-pure-protobuf
+pure-protobuf >= 3.0.0
 PyGObject
 python_magic
 rarfile
