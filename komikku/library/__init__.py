@@ -40,11 +40,14 @@ class LibraryPage(Adw.NavigationPage):
     search_entry = Gtk.Template.Child('searchentry')
     overlaysplitview = Gtk.Template.Child('overlaysplitview')
     stack = Gtk.Template.Child('stack')
+
     categories_stack = Gtk.Template.Child('categories_stack')
     categories_listbox = Gtk.Template.Child('categories_listbox')
     categories_edit_mode_buttonbox = Gtk.Template.Child('categories_edit_mode_buttonbox')
     categories_edit_mode_cancel_button = Gtk.Template.Child('categories_edit_mode_cancel_button')
     categories_edit_mode_ok_button = Gtk.Template.Child('categories_edit_mode_ok_button')
+
+    activity_progressbar = Gtk.Template.Child('activity_progressbar')
     flowbox = Gtk.Template.Child('flowbox')
     selection_mode_actionbar = Gtk.Template.Child('selection_mode_actionbar')
     selection_mode_menubutton = Gtk.Template.Child('selection_mode_menubutton')
@@ -566,6 +569,8 @@ class LibraryPage(Adw.NavigationPage):
         if self.searchbar.get_search_mode():
             self.search_entry.grab_focus()
 
+        self.toggle_activity_indicator()
+
     def on_sort_order_changed(self, _action, variant):
         value = variant.get_string()
         if value == Settings.get_default().library_sort_order:
@@ -697,6 +702,23 @@ class LibraryPage(Adw.NavigationPage):
         self.stack.set_visible_child_name(name)
         self.update_headerbar_buttons()
 
+    def toggle_activity_indicator(self):
+        def pulse():
+            if self.window.page != self.props.tag or self.window.updater.update_library_flag:
+                # Stop indicator
+                self.activity_progressbar.props.fraction = 0
+                return GLib.SOURCE_REMOVE
+
+            if self.window.updater.running:
+                self.activity_progressbar.pulse()
+                return GLib.SOURCE_CONTINUE
+
+            # Update is ended, stop indicator
+            self.activity_progressbar.props.fraction = 0
+            return GLib.SOURCE_REMOVE
+
+        GLib.timeout_add(250, pulse)
+
     def toggle_search_mode(self):
         self.searchbar.set_search_mode(not self.searchbar.get_search_mode())
 
@@ -759,7 +781,8 @@ class LibraryPage(Adw.NavigationPage):
 
     def update_selected(self, _action, _param):
         self.window.updater.add([thumbnail.manga for thumbnail in self.flowbox.get_selected_children()])
-        self.window.updater.start()
+        if self.window.updater.start():
+            self.toggle_activity_indicator()
 
         self.leave_selection_mode()
 

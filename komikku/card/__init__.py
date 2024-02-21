@@ -30,8 +30,7 @@ class CardPage(Adw.NavigationPage):
     resume_button = Gtk.Template.Child('resume_button')
     menu_button = Gtk.Template.Child('menu_button')
 
-    progressbar = Gtk.Template.Child('progressbar')
-    progressbar_timeout_id = None
+    activity_progressbar = Gtk.Template.Child('activity_progressbar')
     stack = Gtk.Template.Child('stack')
     categories_stack = Gtk.Template.Child('categories_stack')
     categories_scrolledwindow = Gtk.Template.Child('categories_scrolledwindow')
@@ -70,7 +69,6 @@ class CardPage(Adw.NavigationPage):
         self.builder.add_from_resource('/info/febvre/Komikku/ui/menu/card.xml')
         self.builder.add_from_resource('/info/febvre/Komikku/ui/menu/card_selection_mode.xml')
 
-        self.connect('hidden', self.on_hidden)
         self.connect('shown', self.on_shown)
         self.window.controller_key.connect('key-pressed', self.on_key_pressed)
 
@@ -223,10 +221,6 @@ class CardPage(Adw.NavigationPage):
         else:
             self.pool_to_update_spinner.props.margin_top = max(0, min(150, offset_y / 2))
 
-    def on_hidden(self, _page):
-        # Force stop of update indicator (in case an update is in progress)
-        self.toggle_update_indicator(False)
-
     def on_key_pressed(self, _controller, keyval, _keycode, state):
         if self.window.page != self.props.tag:
             return Gdk.EVENT_PROPAGATE
@@ -291,7 +285,7 @@ class CardPage(Adw.NavigationPage):
                 )
 
             # Show update indicator (in case an update is in progress)
-            self.toggle_update_indicator()
+            self.toggle_activity_indicator()
 
             if self.window.last_navigation_action != 'push':
                 return
@@ -311,7 +305,7 @@ class CardPage(Adw.NavigationPage):
         self.window.updater.add(self.manga)
         if self.window.updater.start():
             # Start update indicator
-            self.toggle_update_indicator()
+            self.toggle_activity_indicator()
 
     def populate(self):
         self.chapters_list.set_sort_order(invalidate=False)
@@ -352,31 +346,22 @@ class CardPage(Adw.NavigationPage):
 
         self.window.navigationview.push(self)
 
-    def toggle_update_indicator(self, state=True):
-        if state is False:
-            # Force indicator to stop (when page is left for example)
-            if self.progressbar_timeout_id is not None:
-                try:
-                    GLib.source_remove(self.progressbar_timeout_id)
-                except Exception:
-                    pass
-                else:
-                    self.progressbar_timeout_id = None
-                    self.progressbar.props.fraction = 0
-
-            return
-
+    def toggle_activity_indicator(self):
         def pulse(manga_id):
+            if self.window.page != self.props.tag:
+                # Page left, stop indicator
+                self.activity_progressbar.props.fraction = 0
+                return GLib.SOURCE_REMOVE
+
             if self.window.updater.current_id == manga_id:
-                self.progressbar.pulse()
+                self.activity_progressbar.pulse()
                 return GLib.SOURCE_CONTINUE
 
             # Update is ended, stop indicator
-            self.progressbar_timeout_id = None
-            self.progressbar.props.fraction = 0
+            self.activity_progressbar.props.fraction = 0
             return GLib.SOURCE_REMOVE
 
-        self.progressbar_timeout_id = GLib.timeout_add(250, pulse, self.manga.id)
+        GLib.timeout_add(250, pulse, self.manga.id)
 
 
 class InfoBox:
