@@ -3,17 +3,19 @@
 # Author: Valéry Febvre <vfebvre@easter-eggs.com>
 
 from dataclasses import dataclass
+from dataclasses import field
 from datetime import datetime
 from enum import IntEnum
 from functools import wraps
-import requests
 import re
 from typing import List
 import uuid
-import unidecode
 
-from pure_protobuf.dataclasses_ import field, message
-from pure_protobuf.types import int32
+from pure_protobuf.annotations import Field
+from pure_protobuf.message import BaseMessage
+import requests
+from typing_extensions import Annotated
+import unidecode
 
 from komikku.servers import Server
 from komikku.servers import USER_AGENT
@@ -385,127 +387,112 @@ class UpdateTimingEnum(IntEnum):
     DAY = 8
 
 
-@message
 @dataclass
-class Popup:
-    subject: str = field(1)
-    body: str = field(2)
+class Popup(BaseMessage):
+    subject: Annotated[str, Field(1)]
+    body: Annotated[str, Field(2)]
 
 
-@message
 @dataclass
-class ErrorResult:
-    action: ActionEnum = field(1)
-    english_popup: Popup = field(2)
-    spanish_popup: Popup = field(3)
-    debug_info: str = field(4)
+class ErrorResult(BaseMessage):
+    action: Annotated[ActionEnum, Field(1)]
+    english_popup: Annotated[Popup, Field(2)]
+    spanish_popup: Annotated[Popup, Field(3)]
+    debug_info: Annotated[str, Field(4)]
 
 
-@message
 @dataclass
-class MangaPage:
-    image_url: str = field(1)
-    width: int32 = field(2)
-    height: int32 = field(3)
-    encryption_key: str = field(5, default=None)
+class MangaPage(BaseMessage):
+    image_url: Annotated[str, Field(1)]
+    width: Annotated[int, Field(2)]
+    height: Annotated[int, Field(3)]
+    encryption_key: Annotated[str, Field(5)] = None
 
 
-@message
 @dataclass
-class Page:
-    page: MangaPage = field(1, default=None)
+class Page(BaseMessage):
+    page: Annotated[MangaPage, Field(1)] = None
 
 
-@message
 @dataclass
-class MangaViewer:
-    pages: List[Page] = field(1, default_factory=list)
+class MangaViewer(BaseMessage):
+    pages: Annotated[List[Page], Field(1)] = field(default_factory=list)
 
 
-@message
 @dataclass
-class Chapter:
-    title_id: int32 = field(1)
-    id: int32 = field(2)
-    name: str = field(3)
-    subtitle: str = field(4, default=None)
-    start_timestamp: int32 = field(6, default=None)
-    end_timestamp: int32 = field(7, default=None)
+class Chapter(BaseMessage):
+    title_id: Annotated[int, Field(1)]
+    id: Annotated[int, Field(2)]
+    name: Annotated[str, Field(3)]
+    subtitle: Annotated[str, Field(4)] = None
+    start_timestamp: Annotated[int, Field(6)] = None
+    end_timestamp: Annotated[int, Field(7)] = None
 
 
-@message
 @dataclass
-class Title:
-    id: int32 = field(1)
-    name: str = field(2)
-    author: str = field(3)
-    portrait_image_url: str = field(4)
-    # landscape_image_url: str = field(5)
-    # view_count: int32 = field(6)
-    language: LanguageEnum = field(7, default=LanguageEnum.ENGLISH)
+class Title(BaseMessage):
+    id: Annotated[int, Field(1)]
+    name: Annotated[str, Field(2)]
+    author: Annotated[str, Field(3)]
+    portrait_image_url: Annotated[str, Field(4)]
+    # landscape_image_url: Annotated[str, Field(5)]
+    # view_count: Annotated[int, Field(6)]
+    language: Annotated[LanguageEnum, Field(7)] = LanguageEnum.ENGLISH
 
 
-@message
 @dataclass
-class TitleDetail:
-    title: Title = field(1)
-    title_image_url: str = field(2)
-    synopsis: str = field(3)
-    # background_image_url: str = field(4)
-    next_timestamp: int32 = field(5, default=0)
-    update_timimg: UpdateTimingEnum = field(6, default=UpdateTimingEnum.DAY)
-    viewing_period_description: str = field(7, default=None)
-    non_appearance_info: str = field(8, default='')
-    first_chapters: List[Chapter] = field(9, default_factory=list)
-    last_chapters: List[Chapter] = field(10, default_factory=list)
-    is_simul_related: bool = field(14, default=True)
-    chapters_descending: bool = field(17, default=True)
+class TitleDetail(BaseMessage):
+    title: Annotated[Title, Field(1)]
+    title_image_url: Annotated[str, Field(2)]
+    synopsis: Annotated[str, Field(3)]
+    # background_image_url: Annotated[str, Field(4)]
+    next_timestamp: Annotated[int, Field(5)] = 0
+    update_timimg: Annotated[UpdateTimingEnum, Field(6)] = UpdateTimingEnum.DAY
+    viewing_period_description: Annotated[str, Field(7)] = None
+    non_appearance_info: Annotated[str, Field(8)] = ''
+    first_chapters: Annotated[List[Chapter], Field(9)] = field(default_factory=list)
+    last_chapters: Annotated[List[Chapter], Field(10)] = field(default_factory=list)
+    is_simul_related: Annotated[bool, Field(14)] = True
+    chapters_descending: Annotated[bool, Field(17)] = True
 
 
-@message
 @dataclass
-class TitlesAll:
-    titles: List[Title] = field(1)
+class TitlesAll(BaseMessage):
+    titles: Annotated[List[Title], Field(1)]
 
 
-@message
 @dataclass
-class TitlesRanking:
-    titles: List[Title] = field(1)
+class TitlesRanking(BaseMessage):
+    titles: Annotated[List[Title], Field(1)]
 
 
-@message
 @dataclass
-class UpdatedTitle:
-    title: Title = field(1, default=None)
+class UpdatedTitle(BaseMessage):
+    title: Annotated[Title, Field(1)] = None
 
 
-@message
 @dataclass
-class UpdatedTitleGroup:
-    group_name: str = field(1, default=None)
-    titles: List[UpdatedTitle] = field(2, default_factory=list)
+class UpdatedTitleGroup(BaseMessage):
+    group_name: Annotated[str, Field(1)] = None
+    titles: Annotated[List[UpdatedTitle], Field(2)] = field(default_factory=list)
 
 
-@message
 @dataclass
-class WebHomeView:
-    update_title_groups: List[UpdatedTitleGroup] = field(2, default_factory=list)
+class WebHomeView(BaseMessage):
+    update_title_groups: Annotated[List[UpdatedTitleGroup], Field(2)] = field(default_factory=list)
 
 
-@message
 @dataclass
-class SuccessResult:
-    is_featured_updated: bool = field(1, default=False)
-    titles_all: TitlesAll = field(5, default=None)
-    titles_ranking: TitlesRanking = field(6, default=None)
-    title_detail: TitleDetail = field(8, default=None)
-    manga_viewer: MangaViewer = field(10, default=None)
-    web_home_view: WebHomeView = field(11, default=None)
+class SuccessResult(BaseMessage):
+    is_featured_updated: Annotated[bool, Field(1)] = False
+    titles_all: Annotated[TitlesAll, Field(5)] = None
+    titles_ranking: Annotated[TitlesRanking, Field(6)] = None
+    title_detail: Annotated[TitleDetail, Field(8)] = None
+    manga_viewer: Annotated[MangaViewer, Field(10)] = None
+    web_home_view: Annotated[WebHomeView, Field(11)] = None
 
 
-@message
 @dataclass
-class MangaplusResponse:
-    success: SuccessResult = field(1, default=None)
-    error: ErrorResult = field(2, default=None)
+class MangaplusResponse(BaseMessage):
+    success: Annotated[SuccessResult, Field(1)] = None
+    error: Annotated[ErrorResult, Field(2)] = None
