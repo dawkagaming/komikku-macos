@@ -19,7 +19,7 @@ along with Komikku.  If not, see <http://www.gnu.org/licenses/>.
 -->
 <interface>
   <requires lib="libadwaita" version="1.0"/>
-  <object class="AdwAboutWindow" id="about_window">
+  <object class="AdwAboutDialog" id="about_window">
     <property name="application-name">@prettyname@</property>
     <property name="application-icon">@app_id@</property>
     <property name="version">@version@</property>

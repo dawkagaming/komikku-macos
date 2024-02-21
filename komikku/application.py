@@ -430,8 +430,7 @@ class ApplicationWindow(Adw.ApplicationWindow):
 
         window.add_link(_('Join Chat'), 'https://matrix.to/#/#komikku-gnome:matrix.org')
 
-        window.set_transient_for(self)
-        window.present()
+        window.present(self)
 
     def on_navigation_popped(self, _nav, _page):
         self.last_navigation_action = 'pop'
