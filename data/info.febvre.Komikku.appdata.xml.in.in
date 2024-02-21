@@ -27,8 +27,8 @@
     </description>
 
     <branding>
-      <color type="primary" scheme_preference="light">#f66151</color>
-      <color type="primary" scheme_preference="dark">#f66151</color>
+      <color type="primary" scheme_preference="light">#faa298</color>
+      <color type="primary" scheme_preference="dark">#7f2c22</color>
     </branding>
 
     <requires>
