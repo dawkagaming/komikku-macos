@@ -344,9 +344,7 @@ class ApplicationWindow(Adw.ApplicationWindow):
             elif response_id == 'cancel' and cancel_callback is not None:
                 cancel_callback()
 
-            dialog.destroy()
-
-        dialog = Adw.MessageDialog.new(self, title)
+        dialog = Adw.AlertDialog.new(title)
         dialog.set_body(message)
 
         dialog.add_response('cancel', _('Cancel'))
@@ -358,7 +356,7 @@ class ApplicationWindow(Adw.ApplicationWindow):
             dialog.set_response_appearance('yes', confirm_appearance)
 
         dialog.connect('response', on_response)
-        dialog.present()
+        dialog.present(self)
 
     def enter_search_mode(self, _action, _param):
         if self.page == 'library':
