@@ -2,11 +2,7 @@
 # SPDX-License-Identifier: GPL-3.0-only or GPL-3.0-or-later
 # Author: Valéry Febvre <vfebvre@easter-eggs.com>
 
-from bs4 import BeautifulSoup
-from bs4 import NavigableString
-import dateparser
 import datetime
-import emoji
 from functools import cache
 from functools import wraps
 import importlib
@@ -14,15 +10,21 @@ import inspect
 from io import BytesIO
 import itertools
 import logging
-import magic
 import math
 from operator import itemgetter
 import os
-from PIL import Image
 from pkgutil import iter_modules
-import requests
+import re
 import struct
 import sys
+
+from bs4 import BeautifulSoup
+from bs4 import NavigableString
+import dateparser
+import emoji
+import magic
+from PIL import Image
+import requests
 
 from komikku.servers.loader import server_finder
 
@@ -278,6 +280,15 @@ def get_soup_element_inner_text(outer, text=None):
             get_soup_element_inner_text(el, text)
 
     return ' '.join(text).strip()
+
+
+def sojson4_decode(s):
+    ss = re.split(r'[a-zA-Z]{1,}', s[240:-58])
+    sss = ''
+    for c in ss:
+        sss += chr(int(c))
+
+    return sss
 
 
 def remove_emoji_from_string(text):
