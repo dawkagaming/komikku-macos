@@ -56,7 +56,7 @@ class Rawdevart(Server):
 
             chapters.append(dict(slug=slug, title=title, date=date))
 
-        # Slug can be used to compute manga URL
+        # Slug can't be used to compute manga URL
         # Manga URL must be computed and recorded
         # It's computed using part of cover URL
         manga_url_slug_split = r_decoded['detail']['manga_cover_img_full'].split('/')[-1].split('-')[:-1]
