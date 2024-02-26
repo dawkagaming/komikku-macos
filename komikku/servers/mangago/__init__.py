@@ -3,6 +3,7 @@
 # Author: Valéry Febvre <vfebvre@easter-eggs.com>
 
 import base64
+import logging
 
 from bs4 import BeautifulSoup
 from cryptography.hazmat.primitives.ciphers import algorithms
@@ -20,6 +21,8 @@ from komikku.servers.utils import sojson4_decode
 SEARCH_RESULTS_PAGES = 5
 MOST_POPULAR_RESULTS_PAGES = 2
 LATEST_UPDATES_RESULTS_PAGES = 5
+
+logger = logging.getLogger('komikku.servers.mangago')
 
 
 class Mangago(Server):
@@ -81,7 +84,7 @@ class Mangago(Server):
                     author = a_element.text.strip()
                     if not author:
                         continue
-                    data['authors'].append(a_element.text.strip())
+                    data['authors'].append(author)
             elif label.startswith('Genre'):
                 for a_element in element.select('a'):
                     data['genres'].append(a_element.text.strip())
@@ -140,6 +143,10 @@ class Mangago(Server):
 
             break
 
+        if imgsrcs is None:
+            logger.warning('Failed to get encrypted pages URLs list')
+            return None
+
         # Get URL of JS file in charge of decryption (sojson.v4 obfuscated)
         chapterjs_url = None
         for script_element in soup.select('script'):
@@ -148,8 +155,16 @@ class Mangago(Server):
                 chapterjs_url = src
                 break
 
+        if chapterjs_url is None:
+            logger.warning('Failed to get URL of JS file in charge of decryption')
+            return None
+
         # Get file and deobfuscate it
         r = self.session_get(chapterjs_url)
+        if 'sojson.v4' not in r.text:
+            logger.warning('JS file in charge of decryption is not obfuscated with sojson.v4!')
+            return None
+
         js_code = sojson4_decode(r.text)
 
         # Parse JS code to get AES key and iv (both in hexadecimal)
@@ -162,6 +177,10 @@ class Mangago(Server):
                 iv = line.split('"')[-2]
             if iv and key:
                 break
+
+        if key is None or iv is None:
+            logger.warning('Failed to get AES key and/or iv')
+            return None
 
         key = bytes.fromhex(key)
         iv = bytes.fromhex(iv)
