@@ -73,7 +73,7 @@ class MangaStream(Server):
             self.manga_list_url = self.base_url + '/' + self.series_name + '/?status=&type={0}&order={1}'
 
         if self.manga_url is None:
-            self.manga_url = self.base_url + '/manga/{0}/'
+            self.manga_url = self.base_url + '/' + self.series_name + '/{0}/'
 
         if self.chapter_url is None:
             self.chapter_url = self.base_url + '/{chapter_slug}/'
