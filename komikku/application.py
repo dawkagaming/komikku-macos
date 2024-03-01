@@ -417,20 +417,13 @@ class ApplicationWindow(Adw.ApplicationWindow):
         window.set_debug_info(debug_info.generate())
 
         window.set_release_notes("""
-            <p>This version fixes a regression in Updater. During batch updates, an unwanted "No new chapters" notification was sent for every manga without changes.</p>
-
-            <p>Changes in version 1.38.0</p>
             <ul>
-                <li>[Downloader] Improved error notification</li>
-                <li>[Updater] Improved notifications</li>
-                <li>[Updater] Prevent manga update from being scheduled while it's being updated</li>
-                <li>[Servers] Armoni Scans (TR): Disable</li>
-                <li>[Servers] Komga: Fixed missing covers in search</li>
-                <li>[Servers] MangaHub (EN): Update</li>
-                <li>[Servers] Manhuaus (EN): Update</li>
-                <li>[Servers] Manhwa Hentai (EN): Update</li>
-                <li>[Servers] Tapas (EN): Update</li>
-                <li>[L10n] Updated Chinese (Traditional), French, Russian, Spanish, Turkish translations</li>
+                <li>[Library] Add an indicator when an partial update is in progress</li>
+                <li>[Servers] Added Mangago (EN)</li>
+                <li>[Serverd] Added Rawdevart (JA)</li>
+                <li>[Servers] Asura Scans (EN): Update</li>
+                <li>[Servers] Perf Scan (FR): Update</li>
+                <li>[L10n] Updated Dutch, Spanish and Turkish translations</li>
             </ul>
             <p>Happy reading.</p>
         """)

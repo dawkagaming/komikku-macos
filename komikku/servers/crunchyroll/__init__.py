@@ -39,8 +39,10 @@ class Crunchyroll(Server):
     possible_page_url_keys = ['encrypted_mobile_image_url', 'encrypted_composed_image_url']
     page_url_key = possible_page_url_keys[0]
 
-    _access_token = 'WveH9VkPLrXvuNm'
-    _access_type = 'com.crunchyroll.crunchyroid'
+    # _access_token = 'WveH9VkPLrXvuNm'
+    # _access_type = 'com.crunchyroll.crunchyroid'
+    _access_token = 'giKq5eY27ny3cqz'
+    _access_type = 'com.crunchyroll.static'
 
     headers = {
         'User-Agent': USER_AGENT,

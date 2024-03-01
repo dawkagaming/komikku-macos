@@ -100,8 +100,21 @@
     <url type="donation">https://valos.gitlab.io/Komikku/#sponsor</url>
 
     <releases>
-        <release version="1.38.1" date="2024-02-17">
+        <release version="1.39.0" date="2024-03-02">
             <description>
+                <ul>
+                    <li>[Library] Add an indicator when an partial update is in progress</li>
+                    <li>[Servers] Added Mangago (EN)</li>
+                    <li>[Serverd] Added Rawdevart (JA)</li>
+                    <li>[Servers] Asura Scans (EN): Update</li>
+                    <li>[Servers] Perf Scan (FR): Update</li>
+                    <li>[L10n] Updated Dutch, Spanish and Turkish translations</li>
+                </ul>
+                <p>Happy reading.</p>
+            </description>
+        </release>
+        <release version="1.38.1" date="2024-02-17">
+            <description translate="no">
                 <p>This version fixes a regression in Updater. During batch updates, an unwanted "No new chapters" notification was sent for every manga without changes.</p>
 
                 <p>Changes in version 1.38.0</p>
