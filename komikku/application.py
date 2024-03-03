@@ -456,7 +456,6 @@ class ApplicationWindow(Adw.ApplicationWindow):
             if Settings.get_default().downloader_state:
                 self.downloader.start()
         else:
-
             # Stop Updater
             self.updater.stop()
 

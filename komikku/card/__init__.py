@@ -190,7 +190,9 @@ class CardPage(Adw.NavigationPage):
             return
 
         self.pool_to_update = False
+        self.pool_to_update_revealer.props.transition_type = Gtk.RevealerTransitionType.SLIDE_DOWN
         self.pool_to_update_revealer.set_reveal_child(False)
+        self.pool_to_update_spinner.props.margin_top = 0
 
         if self.pool_to_update_offset > 2 * 150:
             self.on_update_request()
@@ -217,6 +219,7 @@ class CardPage(Adw.NavigationPage):
             self.pool_to_update = True
             # Adjust revealer position
             self.pool_to_update_revealer.set_margin_top(self.get_child().get_top_bar_height())
+            self.pool_to_update_revealer.props.transition_type = Gtk.RevealerTransitionType.NONE
             self.pool_to_update_revealer.set_reveal_child(True)
         else:
             self.pool_to_update_spinner.props.margin_top = max(0, min(150, offset_y / 2))
