@@ -17,8 +17,8 @@ from komikku.utils import PaintableCover
 
 DOWNLOAD_MAX_DELAY = 1  # in seconds
 LOGO_SIZE = 28
-THUMB_WIDTH = 45
-THUMB_HEIGHT = 62
+THUMB_WIDTH = 41
+THUMB_HEIGHT = 58
 
 
 class ExplorerSearchStackPage:
@@ -67,19 +67,18 @@ class ExplorerSearchResultRow(Adw.ActionRow):
             self.set_subtitle_lines(1)
 
         if self.has_cover:
-            self.cover = Gtk.Frame()
+            self.cover = Gtk.Button()
+            self.cover.add_css_class('explorer-search-cover-button')
+            self.cover.props.margin_top = 2
+            self.cover.props.margin_bottom = 2
             self.cover.set_size_request(THUMB_WIDTH, THUMB_HEIGHT)
-            self.cover.add_css_class('row-rounded-cover-frame')
+            self.cover.set_has_frame(False)
+            self.cover.connect('clicked', self.on_cover_clicked)
             self.add_prefix(self.cover)
 
             self.popover = Gtk.Popover()
             self.popover.set_position(Gtk.PositionType.RIGHT)
             self.popover.set_parent(self.cover)
-
-            self.gesture_click = Gtk.GestureClick.new()
-            self.gesture_click.set_button(0)
-            self.gesture_click.connect('released', self.on_cover_clicked)
-            self.cover.add_controller(self.gesture_click)
 
     def dispose(self):
         self.cover_data = None
@@ -88,15 +87,12 @@ class ExplorerSearchResultRow(Adw.ActionRow):
         if self.has_cover:
             if self.cover.get_child():
                 self.cover.get_child().set_paintable(None)
-            self.cover.remove_controller(self.gesture_click)
 
             if self.popover.get_child():
                 self.popover.get_child().set_paintable(None)
             self.popover.unparent()
 
-    def on_cover_clicked(self, _gesture, _n_press, _x, _y):
-        self.gesture_click.set_state(Gtk.EventSequenceState.CLAIMED)
-
+    def on_cover_clicked(self, _button):
         if self.cover_data is None:
             return
 
@@ -138,10 +134,10 @@ class ExplorerServerRow(Gtk.ListBoxRow):
         # Used in `explorer.servers` and `explorer.search` (global search) pages
         if page.props.tag == 'explorer.search':
             self.props.activatable = False
-            self.add_css_class('explorer-section-listboxrow')
+            self.add_css_class('explorer-server-section-listboxrow')
         else:
             self.props.activatable = True
-            self.add_css_class('explorer-listboxrow')
+            self.add_css_class('explorer-server-listboxrow')
 
         self.server_data = data
         if 'manga_initial_data' in data:

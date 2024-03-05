@@ -163,7 +163,7 @@ class ExplorerServersPage(Adw.NavigationPage):
         if count:
             # Add header
             row = Gtk.ListBoxRow(activatable=False)
-            row.add_css_class('explorer-section-listboxrow')
+            row.add_css_class('explorer-server-section-listboxrow')
             label = Gtk.Label(xalign=0)
             label.add_css_class('subtitle')
             label.set_text(_('Pinned').upper())
@@ -191,7 +191,7 @@ class ExplorerServersPage(Adw.NavigationPage):
                 last_lang = server_data['lang']
 
                 row = Gtk.ListBoxRow(activatable=False)
-                row.add_css_class('explorer-section-listboxrow')
+                row.add_css_class('explorer-server-section-listboxrow')
                 label = Gtk.Label(xalign=0)
                 label.add_css_class('subtitle')
                 label.set_text(LANGUAGES.get(server_data['lang'], _('Other')).upper())

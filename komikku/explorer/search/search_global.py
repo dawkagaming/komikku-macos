@@ -153,7 +153,7 @@ class ExplorerSearchStackPageSearchGlobal(ExplorerSearchStackPage):
                 row.position = 1
                 row.results = False
                 row.is_result = False
-                row.add_css_class('explorer-listboxrow')
+                row.add_css_class('explorer-server-listboxrow')
                 label = Gtk.Label(halign=Gtk.Align.CENTER, justify=Gtk.Justification.CENTER)
                 if results is None:
                     # Error
@@ -246,7 +246,7 @@ class ExplorerSearchStackPageSearchGlobal(ExplorerSearchStackPage):
             row.position = 1
             row.results = False
             row.is_result = False
-            row.add_css_class('explorer-listboxrow')
+            row.add_css_class('explorer-server-listboxrow')
             spinner = Gtk.Spinner()
             spinner.start()
             row.set_child(spinner)

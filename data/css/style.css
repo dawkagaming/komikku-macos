@@ -132,15 +132,19 @@ carousel slider {
 /*
  * Explorer
  */
-.explorer-listboxrow {
+.explorer-server-listboxrow {
     padding: 16px 12px;
 }
 
-.explorer-section-listboxrow {
+.explorer-server-section-listboxrow {
     padding: 12px;
     font-weight: 900;
     background: @headerbar_bg_color;
     color: @headerbar_fg_color;
+}
+
+.explorer-search-cover-button {
+    padding: 0px;
 }
 
 /*
