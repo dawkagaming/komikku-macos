@@ -8,6 +8,7 @@
 # Asura Scans [EN]
 # Asura Scans [TR]
 # Flam Scans [EN]
+# Lelmanga [FR]
 # PhenixScans [FR]
 # Rawkuma [JA]
 # Raw Manga [JA]
@@ -35,6 +36,7 @@ class MangaStream(Server):
 
     date_format: str = '%B %d, %Y'
     series_name: str = 'manga'
+    slug_position: int = -2
 
     name_selector: str = '.entry-title'
     thumbnail_selector: str = '.thumb img'
@@ -321,7 +323,7 @@ class MangaStream(Server):
         results = []
         for a_element in soup.select('.listupd .bs a'):
             results.append(dict(
-                slug=a_element.get('href').split('/')[-2],
+                slug=a_element.get('href').split('/')[self.slug_position],
                 name=a_element.get('title'),
                 cover=a_element.select_one('img.ts-post-image').get('src'),
             ))
@@ -358,7 +360,7 @@ class MangaStream(Server):
                 continue
 
             results.append(dict(
-                slug=serie['post_link'].split('/')[-2],
+                slug=serie['post_link'].split('/')[self.slug_position],
                 name=serie['post_title'],
                 cover=serie['post_image'],
                 last_chapter=serie['post_latest'],
