@@ -165,9 +165,11 @@ class MangaStream(Server):
         data['name'] = soup.select_one(self.name_selector).text.strip()
         data['cover'] = soup.select_one(self.thumbnail_selector).get('data-src')
         if not data['cover']:
-            data['cover'] = soup.select_one(self.thumbnail_selector).get('src')
-            if not data['cover'].startswith('http'):
-                data['cover'] = f'https:{data["cover"]}'
+            data['cover'] = soup.select_one(self.thumbnail_selector).get('data-lazy-src')
+            if not data['cover']:
+                data['cover'] = soup.select_one(self.thumbnail_selector).get('src')
+                if not data['cover'].startswith('http'):
+                    data['cover'] = f'https:{data["cover"]}'
 
         # Details
         if self.authors_selector:
@@ -322,10 +324,16 @@ class MangaStream(Server):
 
         results = []
         for a_element in soup.select('.listupd .bs a'):
+            cover_element = a_element.select_one('img.ts-post-image')
+            if cover_element.get('data-lazy-src'):
+                cover = cover_element.get('data-lazy-src')
+            else:
+                cover = cover_element.get('src')
+
             results.append(dict(
                 slug=a_element.get('href').split('/')[self.slug_position],
                 name=a_element.get('title'),
-                cover=a_element.select_one('img.ts-post-image').get('src'),
+                cover=cover,
             ))
 
         return results
