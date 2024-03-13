@@ -6,7 +6,7 @@
 
 # Supported servers:
 # Perf scan [FR]
-# Reaper Scans [pt_BR]
+# Reaper Scans [pt_BR] (disabled)
 
 from bs4 import BeautifulSoup
 import json

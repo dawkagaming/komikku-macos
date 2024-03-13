@@ -247,6 +247,7 @@ class Reaperscans_pt_br(Heancms):
     id = 'reaperscans_pt_br'
     name = 'Yugen Scans (Reaper Scans)'
     lang = 'pt_BR'
+    status = 'disabled'  # 03/2024: move to https://ikigaimangas.com/
 
     base_url = 'https://yugenmangas.lat'
     api_url = 'https://api.yugenmangas.net'
