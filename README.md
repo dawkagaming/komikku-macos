@@ -62,7 +62,7 @@ If you'd like to help translating **Komikku** into your language, please head ov
 [![Translation status](https://hosted.weblate.org/widgets/komikku/-/main/multi-auto.svg)](https://hosted.weblate.org/engage/komikku/)
 
 ### Code of Conduct
-We follow the [GNOME Code of Conduct](CODE_OF_CONDUCT.md).
+We follow the [GNOME Code of Conduct](https://conduct.gnome.org/).
 All communications in project spaces are expected to follow it.
 
 ## ❤️ Sponsor this project
