@@ -53,6 +53,7 @@ class Perfscan(Heancms):
     id = 'perfscan'
     name = 'Perf Scan'
     lang = 'fr'
+    is_nsfw = True
 
     base_url = 'https://perf-scan.fr'
     api_url = 'https://api.perf-scan.fr'
