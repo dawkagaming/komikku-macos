@@ -9,6 +9,7 @@
 # Asura Scans [TR]
 # Flam Scans [EN]
 # Lelmanga [FR]
+# Night scans [EN]
 # PhenixScans [FR]
 # Rawkuma [JA]
 # Raw Manga [JA]
