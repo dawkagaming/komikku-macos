@@ -27,7 +27,6 @@ class CardPage(Adw.NavigationPage):
     title_stack = Gtk.Template.Child('title_stack')
     title = Gtk.Template.Child('title')
     viewswitcher = Gtk.Template.Child('viewswitcher')
-    resume_button = Gtk.Template.Child('resume_button')
     menu_button = Gtk.Template.Child('menu_button')
 
     activity_progressbar = Gtk.Template.Child('activity_progressbar')
@@ -47,7 +46,7 @@ class CardPage(Adw.NavigationPage):
     status_server_label = Gtk.Template.Child('status_server_label')
     buttons_box = Gtk.Template.Child('buttons_box')
     add_button = Gtk.Template.Child('add_button')
-    resume2_button = Gtk.Template.Child('resume2_button')
+    resume_button = Gtk.Template.Child('resume_button')
     genres_label = Gtk.Template.Child('genres_label')
     scanlators_label = Gtk.Template.Child('scanlators_label')
     chapters_label = Gtk.Template.Child('chapters_label')
@@ -74,7 +73,6 @@ class CardPage(Adw.NavigationPage):
 
         # Header bar
         self.left_button.connect('clicked', self.leave_selection_mode)
-        self.resume_button.connect('clicked', self.on_resume_button_clicked)
         self.menu_button.set_menu_model(self.builder.get_object('menu-card'))
         # Focus is lost after showing popover submenu (bug?)
         self.menu_button.get_popover().connect('closed', lambda _popover: self.menu_button.grab_focus())
@@ -103,13 +101,17 @@ class CardPage(Adw.NavigationPage):
         self.window.navigationview.add(self)
 
     def add_actions(self):
-        self.delete_action = Gio.SimpleAction.new('card.delete', None)
-        self.delete_action.connect('activate', self.on_delete_menu_clicked)
-        self.window.application.add_action(self.delete_action)
+        self.resume_action = Gio.SimpleAction.new('card.resume', None)
+        self.resume_action.connect('activate', self.on_resume_button_clicked)
+        self.window.application.add_action(self.resume_action)
 
         self.update_action = Gio.SimpleAction.new('card.update', None)
         self.update_action.connect('activate', self.on_update_request)
         self.window.application.add_action(self.update_action)
+
+        self.delete_action = Gio.SimpleAction.new('card.delete', None)
+        self.delete_action.connect('activate', self.on_delete_menu_clicked)
+        self.window.application.add_action(self.delete_action)
 
         variant = GLib.Variant.new_string('desc')
         self.sort_order_action = Gio.SimpleAction.new_stateful('card.sort-order', variant.get_type(), variant)
@@ -139,7 +141,6 @@ class CardPage(Adw.NavigationPage):
         self.viewswitcherbar.set_visible(False)
         self.title_stack.set_visible_child(self.title)
 
-        self.resume_button.set_visible(False)
         self.menu_button.set_visible(False)
 
     def init(self, manga):
@@ -169,7 +170,6 @@ class CardPage(Adw.NavigationPage):
         if not self.viewswitcherbar.get_reveal():
             self.title_stack.set_visible_child(self.viewswitcher)
 
-        self.resume_button.set_visible(True)
         self.menu_button.set_visible(True)
 
     def on_add_button_clicked(self, _button):
@@ -177,7 +177,7 @@ class CardPage(Adw.NavigationPage):
         self.stack.get_page(self.stack.get_child_by_name('categories')).set_visible(True)
         # Hide Add to Library button
         self.info_box.add_button.set_visible(False)
-        self.info_box.resume2_button.add_css_class('suggested-action')
+        self.info_box.resume_button.add_css_class('suggested-action')
         # Update manga
         self.manga.add_in_library()
         self.window.library.on_manga_added(self.manga)
@@ -261,7 +261,7 @@ class CardPage(Adw.NavigationPage):
         else:
             self.window.show_notification(_('Failed to get manga URL'))
 
-    def on_resume_button_clicked(self, _button):
+    def on_resume_button_clicked(self, *args):
         chapters = []
         for i in range(self.chapters_list.list_model.get_n_items()):
             chapters.append(self.chapters_list.list_model.get_item(i).chapter)
@@ -379,7 +379,7 @@ class InfoBox:
         self.status_server_label = self.card.status_server_label
         self.buttons_box = self.card.buttons_box
         self.add_button = self.card.add_button
-        self.resume2_button = self.card.resume2_button
+        self.resume_button = self.card.resume_button
         self.genres_label = self.card.genres_label
         self.scanlators_label = self.card.scanlators_label
         self.chapters_label = self.card.chapters_label
@@ -388,7 +388,7 @@ class InfoBox:
         self.size_on_disk_label = self.card.size_on_disk_label
 
         self.add_button.connect('clicked', self.card.on_add_button_clicked)
-        self.resume2_button.connect('clicked', self.card.on_resume_button_clicked)
+        self.resume_button.connect('clicked', self.card.on_resume_button_clicked)
 
         self.window.breakpoint.add_setter(self.cover_box, 'orientation', Gtk.Orientation.VERTICAL)
         self.window.breakpoint.add_setter(self.cover_box, 'spacing', 12)
@@ -442,10 +442,10 @@ class InfoBox:
 
         if manga.in_library:
             self.add_button.set_visible(False)
-            self.resume2_button.add_css_class('suggested-action')
+            self.resume_button.add_css_class('suggested-action')
         else:
             self.add_button.set_visible(True)
-            self.resume2_button.remove_css_class('suggested-action')
+            self.resume_button.remove_css_class('suggested-action')
 
         if manga.genres:
             self.genres_label.set_markup(html_escape(', '.join(manga.genres)))

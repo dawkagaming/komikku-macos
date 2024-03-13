@@ -11,6 +11,8 @@ template $ReaderPage : Adw.NavigationPage {
       reveal-child: true;
 
       Adw.HeaderBar {
+        centering-policy: strict;
+
         [start]
         Button back_button {
           icon-name: "go-previous-symbolic";
@@ -19,16 +21,16 @@ template $ReaderPage : Adw.NavigationPage {
         title-widget: Adw.WindowTitle title {
         };
 
+        [start]
+        ToggleButton fullscreen_button {
+          icon-name: "view-fullscreen-symbolic";
+          tooltip-text: _("Toggle Fullscreen Mode");
+        }
+
         [end]
         MenuButton menu_button {
           icon-name: "view-more-symbolic";
           tooltip-text: _("Menu");
-        }
-
-        [end]
-        ToggleButton fullscreen_button {
-          icon-name: "view-fullscreen-symbolic";
-          tooltip-text: _("Toggle Fullscreen Mode");
         }
       }
     }

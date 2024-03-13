@@ -10,6 +10,8 @@ template $CardPage : Adw.NavigationPage {
   child: Adw.ToolbarView {
     [top]
     Adw.HeaderBar {
+      centering-policy: strict;
+
       [start]
       Button left_button {
         visible: false;
@@ -28,12 +30,6 @@ template $CardPage : Adw.NavigationPage {
       MenuButton menu_button {
         icon-name: "view-more-symbolic";
         tooltip-text: _("Menu");
-      }
-
-      [end]
-      Button resume_button {
-        icon-name: "media-playback-start-symbolic";
-        tooltip-text: _("Resume Reading");
       }
     }
 
@@ -152,7 +148,7 @@ template $CardPage : Adw.NavigationPage {
                           ]
                         }
 
-                        Button resume2_button {
+                        Button resume_button {
                           child: Adw.ButtonContent {
                             halign: center;
                             label: _("Resume");

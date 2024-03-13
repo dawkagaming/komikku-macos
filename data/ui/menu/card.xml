@@ -4,12 +4,19 @@
     <menu id="menu-card">
         <section>
             <item>
-                <attribute name="label" translatable="yes">Delete</attribute>
-                <attribute name="action">app.card.delete</attribute>
+                <attribute name="label" translatable="yes">Resume</attribute>
+                <attribute name="action">app.card.resume</attribute>
             </item>
             <item>
                 <attribute name="label" translatable="yes">Update</attribute>
                 <attribute name="action">app.card.update</attribute>
+            </item>
+        </section>
+
+        <section>
+            <item>
+                <attribute name="label" translatable="yes">Delete</attribute>
+                <attribute name="action">app.card.delete</attribute>
             </item>
         </section>
 
