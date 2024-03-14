@@ -18,9 +18,9 @@ logger = logging.getLogger('komikku.servers.dynasty')
 
 
 class Dynasty(Server):
-    lang = 'en'
     id = 'dynasty'
     name = 'Dynasty Reader'
+    lang = 'en'
     is_nsfw = True
     long_strip_genres = ['Long strip', ]
 
@@ -50,14 +50,14 @@ class Dynasty(Server):
             'key': 'with_tags',
             'type': 'entry',
             'name': _('With Tags'),
-            'description': _('Tags to search for'),
+            'description': _('Comma seperated list of tags to search for'),
             'default': '',
         },
         {
             'key': 'without_tags',
             'type': 'entry',
             'name': _('Without Tags'),
-            'description': _('Tags to exclude from search'),
+            'description': _('Comma seperated list of tags to exclude from search'),
             'default': '',
         },
     ]
