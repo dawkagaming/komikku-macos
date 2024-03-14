@@ -2,11 +2,11 @@
 # SPDX-License-Identifier: GPL-3.0-only or GPL-3.0-or-later
 # Author: Valéry Febvre <vfebvre@easter-eggs.com>
 
+from copy import deepcopy
 from gettext import gettext as _
 import threading
 
 from gi.repository import Adw
-from gi.repository import Gdk
 from gi.repository import GLib
 from gi.repository import Gtk
 
@@ -29,12 +29,12 @@ class ExplorerSearchPage(Adw.NavigationPage):
     title = Gtk.Template.Child('title')
     viewswitcher = Gtk.Template.Child('viewswitcher')
     server_website_button = Gtk.Template.Child('server_website_button')
+    filters_button = Gtk.Template.Child('filters_button')
 
     progressbar = Gtk.Template.Child('progressbar')
     stack = Gtk.Template.Child('stack')
-    searchbar = Gtk.Template.Child('searchbar')
     searchentry = Gtk.Template.Child('searchentry')
-    filter_menu_button = Gtk.Template.Child('filter_menu_button')
+    filters_menu_button = Gtk.Template.Child('filters_menu_button')
     search_stack = Gtk.Template.Child('search_stack')
     search_listbox = Gtk.Template.Child('search_listbox')
     search_no_results_status_page = Gtk.Template.Child('search_no_results_status_page')
@@ -62,20 +62,21 @@ class ExplorerSearchPage(Adw.NavigationPage):
         self.parent = parent
         self.window = parent.window
 
-        self.window.builder.add_from_resource('/info/febvre/Komikku/ui/menu/explorer_search_global_search.xml')
-
         self.connect('hidden', self.on_hidden)
         self.connect('shown', self.on_shown)
-
-        self.window.controller_key.connect('key-pressed', self.on_key_pressed)
 
         self.page_changed_handler_id = self.stack.connect('notify::visible-child-name', self.on_page_changed)
 
         self.server_website_button.connect('clicked', self.on_server_website_button_clicked)
-        self.searchbar.connect_entry(self.searchentry)
-        self.searchbar.set_key_capture_widget(self.window)
+        self.filters_button.connect('clicked', self.on_filters_button_clicked)
+
+        self.searchentry.set_key_capture_widget(self)
         self.searchentry.connect('activate', self.search)
         self.searchentry.connect('search-changed', self.on_search_changed)
+
+        self.filters_dialog = Adw.PreferencesDialog.new()
+        self.filters_dialog.set_title('Filters')
+        self.filters_dialog.props.presentation_mode = Adw.DialogPresentationMode.BOTTOM_SHEET
 
         self.window.breakpoint.add_setter(self.viewswitcherbar, 'reveal', True)
         self.window.breakpoint.add_setter(self.title_stack, 'visible-child', self.title)
@@ -110,122 +111,143 @@ class ExplorerSearchPage(Adw.NavigationPage):
 
         self.search_global_mode = False
 
-    def init_search_filters(self):
-        self.search_filters = get_server_default_search_filters(self.server)
-        self.filter_menu_button.remove_css_class('accent')
+    def init_filters_dialog(self):
+        defaults = get_server_default_search_filters(self.server)
+        self.search_filters = deepcopy(defaults)
 
-        if self.search_global_mode:
-            if self.search_global_page.selected_filters:
-                self.filter_menu_button.add_css_class('accent')
-            self.filter_menu_button.set_menu_model(self.window.builder.get_object('menu-explorer-search-global-search'))
-            return
+        # Hide filter menu button in searchbar
+        self.filters_menu_button.set_visible(False)
 
+        # Show or hide filters button in headerbar
         if not self.search_filters:
-            self.filter_menu_button.set_popover(None)
+            self.filters_button.set_visible(False)
             return
 
-        def build_checkbox(filter_):
-            def toggle(button, _param):
-                self.search_filters[filter_['key']] = button.get_active()
+        self.filters_button.set_visible(True)
+        self.filters_button.remove_css_class('accent')
 
-            check_button = Gtk.CheckButton(label=filter_['name'], active=filter_['default'])
-            check_button.connect('notify::active', toggle)
+        def build_entry(group, filter_):
+            def on_changed(row):
+                self.search_filters[filter_['key']] = row.get_text()
 
-            return check_button
+                if defaults != self.search_filters:
+                    self.filters_button.add_css_class('accent')
+                else:
+                    self.filters_button.remove_css_class('accent')
 
-        def build_entry(filter_):
-            def on_text_changed(buf, _param):
-                self.search_filters[filter_['key']] = buf.get_text()
+            group.set_title(filter_['name'])
 
-            entry = Gtk.Entry(text=filter_['default'])
-            entry.get_buffer().connect('notify::text', on_text_changed)
+            entry = Adw.EntryRow(title=filter_['description'])
+            entry.connect('changed', on_changed)
 
-            return entry
+            group.add(entry)
 
-        def build_select_single(filter_):
-            def toggle_option(button, _param, key):
-                if button.get_active():
-                    self.search_filters[filter_['key']] = key
+            return group
 
-            vbox = Gtk.Box(orientation=Gtk.Orientation.VERTICAL, spacing=6)
+        def build_select_single(group, filter_):
+            def on_selected(row, _param):
+                position = row.get_selected()
+                self.search_filters[filter_['key']] = filter_['options'][position]['key']
 
-            last = None
-            for option in filter_['options']:
-                is_active = option['key'] == filter_['default']
-                radio_button = Gtk.CheckButton(label=option['name'])
-                radio_button.set_group(last)
-                radio_button.set_active(is_active)
-                radio_button.connect('notify::active', toggle_option, option['key'])
-                vbox.append(radio_button)
-                last = radio_button
+                if defaults != self.search_filters:
+                    self.filters_button.add_css_class('accent')
+                else:
+                    self.filters_button.remove_css_class('accent')
 
-            return vbox
+            labels = Gtk.StringList()
+            selected_position = 0
+            for index, option in enumerate(filter_['options']):
+                labels.append(option['name'])
+                if option['key'] == filter_['default']:
+                    selected_position = index
 
-        def build_select_multiple(filter_):
-            def toggle_option(button, _param, key):
-                if button.get_active():
+            row = Adw.ComboRow(title=filter_['name'], subtitle=filter_['description'])
+            row.set_model(labels)
+            row.set_selected(selected_position)
+            row.connect('notify::selected', on_selected)
+
+            group.add(row)
+
+            return group
+
+        def build_select_multiple(group, filter_):
+            def on_active(row, _param, key):
+                if row.get_active():
                     self.search_filters[filter_['key']].append(key)
                 else:
                     self.search_filters[filter_['key']].remove(key)
 
-            vbox = Gtk.Box(orientation=Gtk.Orientation.VERTICAL, spacing=6)
+                if defaults != self.search_filters:
+                    self.filters_button.add_css_class('accent')
+                else:
+                    self.filters_button.remove_css_class('accent')
+
+            group.set_title(filter_['name'])
+            group.set_description(filter_['description'])
 
             for option in filter_['options']:
-                check_button = Gtk.CheckButton(label=option['name'], active=option['default'])
-                check_button.connect('notify::active', toggle_option, option['key'])
-                vbox.append(check_button)
+                row = Adw.SwitchRow()
+                row.set_title(option['name'])
+                row.set_active(option['default'])
+                row.connect('notify::active', on_active, option['key'])
 
-            return vbox
+                group.add(row)
 
-        popover = Gtk.Popover()
-        vbox = Gtk.Box(orientation=Gtk.Orientation.VERTICAL, spacing=12)
+            return group
+
+        def build_switch(group, filter_):
+            def on_active(row, _param, key):
+                self.search_filters[filter_['key']] = row.get_active()
+
+                if defaults != self.search_filters:
+                    self.filters_button.add_css_class('accent')
+                else:
+                    self.filters_button.remove_css_class('accent')
+
+            row = Adw.SwitchRow()
+            row.set_title(filter_['name'])
+            row.set_subtitle(filter_['description'])
+            row.set_active(filter_['default'])
+            row.connect('notify::active', on_active, filter_['key'])
+
+            group.add(row)
+
+            return group
+
+        # Remove a previous used page if exists
+        if page := self.filters_dialog.get_visible_page():
+            self.filters_dialog.remove(page)
+
+        page = Adw.PreferencesPage(title=_('Filters'))
+        self.filters_dialog.add(page)
 
         for index, filter_ in enumerate(self.server.filters):
-            if filter_['type'] == 'checkbox':
-                filter_widget = build_checkbox(filter_)
-            elif filter_['type'] == 'entry':
-                filter_widget = build_entry(filter_)
-            elif filter_['type'] == 'select':
+            group = Adw.PreferencesGroup()
+
+            if filter_['type'] == 'select':
                 if filter_['value_type'] == 'single':
-                    filter_widget = build_select_single(filter_)
+                    build_select_single(group, filter_)
                 elif filter_['value_type'] == 'multiple':
-                    filter_widget = build_select_multiple(filter_)
+                    build_select_multiple(group, filter_)
                 else:
                     raise ValueError('Invalid select value_type')  # noqa: TC003
+            elif filter_['type'] == 'checkbox':
+                build_switch(group, filter_)
+            elif filter_['type'] == 'entry':
+                build_entry(group, filter_)
             else:
                 raise ValueError('Invalid filter type')  # noqa: TC003
 
-            if index > 0:
-                vbox.append(Gtk.Separator())
+            page.add(group)
 
-            label = Gtk.Label(label=filter_['name'], xalign=0, tooltip_text=filter_['description'])
-            label.add_css_class('heading')
-            vbox.append(label)
-            vbox.append(filter_widget)
-
-        popover.set_child(vbox)
-
-        self.filter_menu_button.set_popover(popover)
+    def on_filters_button_clicked(self, _button):
+        self.filters_dialog.present(self.window)
 
     def on_hidden(self, _page):
         if self.window.previous_page == self.props.tag:
             return
 
         self.clear()
-
-    def on_key_pressed(self, _controller, keyval, _keycode, state):
-        if self.window.page != self.props.tag:
-            return Gdk.EVENT_PROPAGATE
-
-        modifiers = state & Gtk.accelerator_get_default_mod_mask()
-
-        if keyval == Gdk.KEY_Escape or (modifiers == Gdk.ModifierType.ALT_MASK and keyval in (Gdk.KEY_Left, Gdk.KEY_KP_Left)):
-            # If in search mode, stop event to prevent Search mode exit and do pop
-            if self.searchbar.get_search_mode():
-                self.window.navigationview.pop()
-                return Gdk.EVENT_STOP
-
-        return Gdk.EVENT_PROPAGATE
 
     def on_manga_clicked(self, _listbox, row):
         if self.search_global_mode:
@@ -273,7 +295,10 @@ class ExplorerSearchPage(Adw.NavigationPage):
         self.server = server
         self.search_global_mode = server is None
 
-        self.init_search_filters()
+        if self.search_global_mode:
+            self.search_global_page.init_filters_menu()
+        else:
+            self.init_filters_dialog()
 
         if not self.search_global_mode:
             # Search, Most Popular, Latest Updates

@@ -22,6 +22,12 @@ template $ExplorerSearchPage : Adw.NavigationPage {
         }
       };
 
+      [start]
+      Button filters_button {
+        icon-name: "filter-symbolic";
+        tooltip-text: _("Search Filters");
+      }
+
       [end]
       Button server_website_button {
         icon-name: "web-browser-symbolic";
@@ -42,28 +48,22 @@ template $ExplorerSearchPage : Adw.NavigationPage {
             margin-end: 12;
             margin-start: 12;
 
-            SearchBar searchbar {
-              search-mode-enabled: true;
+            Box {
+              hexpand: true;
+              margin-bottom: 6;
+              margin-top: 6;
 
-              Box {
+              SearchEntry searchentry {
                 hexpand: true;
+              }
 
-                SearchEntry searchentry {
-                  hexpand: true;
-                }
-
-                MenuButton filter_menu_button {
-                  focus-on-click: false;
-                  icon-name: "go-down-symbolic";
-                }
-
-                styles [
-                  "linked",
-                ]
+              MenuButton filters_menu_button {
+                focus-on-click: false;
+                icon-name: "filter-symbolic";
               }
 
               styles [
-                "inline",
+                "linked",
               ]
             }
           }
@@ -82,6 +82,7 @@ template $ExplorerSearchPage : Adw.NavigationPage {
           ScrolledWindow {
             vexpand: true;
             hscrollbar-policy: never;
+
             child: Viewport {
               scroll-to-focus: true;
 
@@ -150,9 +151,11 @@ template $ExplorerSearchPage : Adw.NavigationPage {
         name: "most_popular";
         title: _("Most Popular");
         icon-name: "starred-symbolic";
+
         child: ScrolledWindow {
           vexpand: true;
           hscrollbar-policy: never;
+
           child: Viewport {
             scroll-to-focus: true;
 
@@ -222,9 +225,11 @@ template $ExplorerSearchPage : Adw.NavigationPage {
         name: "latest_updates";
         title: _("Latest Updates");
         icon-name: "software-update-available-symbolic";
+
         child: ScrolledWindow {
           vexpand: true;
           hscrollbar-policy: never;
+
           child: Viewport {
             scroll-to-focus: true;
 

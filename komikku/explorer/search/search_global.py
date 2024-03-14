@@ -39,9 +39,12 @@ class ExplorerSearchStackPageSearchGlobal(ExplorerSearchStackPage):
         self.window = self.parent.window
         self.stack = self.parent.search_stack
         self.listbox = self.parent.search_listbox  # shared with explorer.search page
-        self.filter_menu_button = self.parent.filter_menu_button
+        self.filters_menu_button = self.parent.filters_menu_button
 
         self.selected_filters = Settings.get_default().explorer_search_global_selected_filters
+
+        self.window.builder.add_from_resource('/info/febvre/Komikku/ui/menu/explorer_search_global_search.xml')
+        self.filters_menu_button.set_menu_model(self.window.builder.get_object('menu-explorer-search-global-search'))
 
     def add_actions(self):
         action = Gio.SimpleAction.new_stateful(
@@ -49,6 +52,17 @@ class ExplorerSearchStackPageSearchGlobal(ExplorerSearchStackPage):
         )
         action.connect('change-state', self.on_menu_action_changed)
         self.window.application.add_action(action)
+
+    def init_filters_menu(self):
+        # Show filter menu button in searchbar
+        self.filters_menu_button.set_visible(True)
+        # Hide filters button in headerbar
+        self.parent.filters_button.set_visible(False)
+
+        if self.selected_filters:
+            self.filters_menu_button.add_css_class('accent')
+        else:
+            self.filters_menu_button.remove_css_class('accent')
 
     def on_menu_action_changed(self, action, variant):
         value = variant.get_boolean()
@@ -62,9 +76,9 @@ class ExplorerSearchStackPageSearchGlobal(ExplorerSearchStackPage):
         Settings.get_default().explorer_search_global_selected_filters = self.selected_filters
 
         if self.selected_filters:
-            self.filter_menu_button.add_css_class('accent')
+            self.filters_menu_button.add_css_class('accent')
         else:
-            self.filter_menu_button.remove_css_class('accent')
+            self.filters_menu_button.remove_css_class('accent')
 
     def search(self, term):
         if self.lock:
