@@ -836,16 +836,13 @@ class Manga:
                 if row:
                     # Update changes
                     changes = {}
-                    if row['title'] != chapter_data['title']:
-                        changes['title'] = chapter_data['title']
-                    if row['url'] != chapter_data.get('url'):
-                        changes['url'] = chapter_data['url']
-                    if chapter_data.get('date') and row['date'] != chapter_data['date']:
-                        changes['date'] = chapter_data['date']
-                    if row['scanlators'] != chapter_data.get('scanlators'):
-                        changes['scanlators'] = chapter_data['scanlators']
+                    for key in ('title', 'url', 'date', 'scanlators'):
+                        if row[key] != chapter_data.get(key):
+                            changes[key] = chapter_data.get(key)
+
                     if row['rank'] != rank:
                         changes['rank'] = rank
+
                     if changes:
                         update_row(db_conn, 'chapters', row['id'], changes)
                     rank += 1
