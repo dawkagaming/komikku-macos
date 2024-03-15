@@ -92,6 +92,39 @@ class Mangadex(Server):
                 {'key': 'seinen', 'name': _('Seinen'), 'default': False},
             ]
         },
+        {
+            'key': 'tags',
+            'type': 'select',
+            'name': _('Tags'),
+            'description': _('Filter by formats'),
+            'value_type': 'multiple',
+            'options': [
+                {'key': 'b11fda93-8f1d-4bef-b2ed-8803d3733170', 'name': _('4-Koma'), 'default': False},
+                {'key': 'f4122d1c-3b44-44d0-9936-ff7502c39ad3', 'name': _('Adaptation'), 'default': False},
+                {'key': '51d83883-4103-437c-b4b1-731cb73d786c', 'name': _('Anthology'), 'default': False},
+                {'key': '0a39b5a1-b235-4886-a747-1d05d216532d', 'name': _('Award Winning'), 'default': False},
+                {'key': 'b13b2a48-c720-44a9-9c77-39c9979373fb', 'name': _('Doujinshi'), 'default': False},
+                {'key': '7b2ce280-79ef-4c09-9b58-12b7c23a9b78', 'name': _('Fan Colored'), 'default': False},
+                {'key': 'f5ba408b-0e7a-484d-8d49-4e9125ac96de', 'name': _('Full Color'), 'default': False},
+                {'key': '3e2b8dae-350e-4ab8-a8ce-016e844b9f0d', 'name': _('Long Strip'), 'default': False},
+                {'key': '320831a8-4026-470b-94f6-8353740e6f04', 'name': _('Official Colored'), 'default': False},
+                {'key': '0234a31e-a729-4e28-9d6a-3f87c4966b9e', 'name': _('Oneshot'), 'default': False},
+                {'key': '891cf039-b895-47f0-9229-bef4c96eccd4', 'name': _('Self-Published'), 'default': False},
+                {'key': 'e197df38-d0e7-43b5-9b09-2842d0c326dd', 'name': _('Web Comic'), 'default': False},
+            ]
+        },
+        {
+            'key': 'tags_mode',
+            'type': 'select',
+            'name': _('Tags Inclusion Mode'),
+            'description': _('Include manga that match <b>all</b> tags (AND) or <b>any</b> tag (OR)'),
+            'value_type': 'single',
+            'default': 'AND',
+            'options': [
+                {'key': 'AND', 'name': _('AND')},
+                {'key': 'OR', 'name': _('OR')},
+            ],
+        },
     ]
 
     def __init__(self):
@@ -295,11 +328,27 @@ class Mangadex(Server):
         """
         return self.manga_url.format(slug)
 
-    def get_latest_updates(self, ratings=None, statuses=None, publication_demographics=None):
-        return self.search('', ratings=ratings, orderby='latest')
+    def get_latest_updates(self, ratings=None, statuses=None, publication_demographics=None, tags=None, tags_mode=None):
+        return self.search(
+            None,
+            ratings=ratings,
+            statuses=statuses,
+            publication_demographics=publication_demographics,
+            tags=tags,
+            tags_mode=tags_mode,
+            orderby='latest'
+        )
 
-    def get_most_populars(self, ratings=None, statuses=None, publication_demographics=None):
-        return self.search('', ratings=ratings, orderby='populars')
+    def get_most_populars(self, ratings=None, statuses=None, publication_demographics=None, tags=None, tags_mode=None):
+        return self.search(
+            None,
+            ratings=ratings,
+            statuses=statuses,
+            publication_demographics=publication_demographics,
+            tags=tags,
+            tags_mode=tags_mode,
+            orderby='populars'
+        )
 
     def resolve_chapters(self, manga_slug):
         chapters = []
@@ -346,12 +395,14 @@ class Mangadex(Server):
 
         return chapters
 
-    def search(self, term, ratings=None, statuses=None, publication_demographics=None, orderby=None):
+    def search(self, term, ratings=None, statuses=None, publication_demographics=None, tags=None, tags_mode=None, orderby=None):
         params = {
             'limit': SEARCH_RESULTS_LIMIT,
             'contentRating[]': ratings,
             'status[]': statuses,
             'includes[]': ['cover_art', ],
+            'includedTags[]': tags,
+            'includedTagsMode': tags_mode,
             'publicationDemographic[]': publication_demographics,
             'availableTranslatedLanguage[]': [self.lang_code, ],
         }
