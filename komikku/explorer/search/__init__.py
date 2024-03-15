@@ -137,10 +137,11 @@ class ExplorerSearchPage(Adw.NavigationPage):
 
             group.set_title(filter_['name'])
 
-            entry = Adw.EntryRow(title=filter_['description'])
-            entry.connect('changed', on_changed)
+            row = Adw.EntryRow(title=filter_['description'])
+            row.set_use_markup(True)
+            row.connect('changed', on_changed)
 
-            group.add(entry)
+            group.add(row)
 
             return group
 
@@ -162,6 +163,7 @@ class ExplorerSearchPage(Adw.NavigationPage):
                     selected_position = index
 
             row = Adw.ComboRow(title=filter_['name'], subtitle=filter_['description'])
+            row.set_use_markup(True)
             row.set_model(labels)
             row.set_selected(selected_position)
             row.connect('notify::selected', on_selected)
@@ -186,8 +188,8 @@ class ExplorerSearchPage(Adw.NavigationPage):
             group.set_description(filter_['description'])
 
             for option in filter_['options']:
-                row = Adw.SwitchRow()
-                row.set_title(option['name'])
+                row = Adw.SwitchRow(title=option['name'])
+                row.set_use_markup(True)
                 row.set_active(option['default'])
                 row.connect('notify::active', on_active, option['key'])
 
@@ -204,8 +206,8 @@ class ExplorerSearchPage(Adw.NavigationPage):
                 else:
                     self.filters_button.remove_css_class('accent')
 
-            row = Adw.SwitchRow()
-            row.set_title(filter_['name'])
+            row = Adw.SwitchRow(title=filter_['name'])
+            row.set_use_markup(True)
             row.set_subtitle(filter_['description'])
             row.set_active(filter_['default'])
             row.connect('notify::active', on_active, filter_['key'])
