@@ -6,26 +6,29 @@ msgstr ""
 "Project-Id-Version: unnamed project\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-03-16 01:42+0100\n"
-"PO-Revision-Date: 2024-02-15 22:12+0000\n"
+"PO-Revision-Date: 2024-03-17 02:01+0000\n"
 "Last-Translator: Valéry Febvre <vfebvre@easter-eggs.com>\n"
-"Language-Team: French <https://hosted.weblate.org/projects/komikku/main/fr/"
-">\n"
+"Language-Team: French <https://hosted.weblate.org/projects/komikku/main/fr/>"
+"\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 5.4\n"
+"X-Generator: Weblate 5.5-dev\n"
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:11
 msgid "Discover and read manga, webtoons, comics, and more"
 msgstr ""
+"Découvrez et lisez des mangas, webtoons, bandes dessinées, et plus encore"
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:13
 msgid ""
 "With its simple, elegant and adaptive interface, this reader lets you "
 "search, sort and read your series with ease."
 msgstr ""
+"Avec son interface simple, élégante et adaptative, ce lecteur vous permet de "
+"rechercher, trier et lire vos séries en toute simplicité."
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:15
 msgid "Why you will love Komikku?"
@@ -37,7 +40,7 @@ msgstr "Lecture en ligne ou hors ligne depuis des dizaines de serveurs"
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:18
 msgid "Support for locally stored series (in CBZ or CBR formats)"
-msgstr ""
+msgstr "Support pour les séries stockées localement (aux formats CBZ ou CBR)"
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:19
 msgid "RTL, LTR, Vertical and Webtoon reading modes"
@@ -61,7 +64,7 @@ msgstr "Catégories pour organiser votre bibliothèque"
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:22
 msgid "Automatic update of series"
-msgstr ""
+msgstr "Mise à jour automatique des séries"
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:23
 msgid "Automatic download of new chapters"
@@ -118,26 +121,28 @@ msgstr "La page Historique de lecture en format mobile"
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:106
 msgid "[Library] Add an indicator when an partial update is in progress"
 msgstr ""
+"[Bibliothèque] Ajout d'un indicateur lorsqu'une mise à jour partielle est en "
+"cours"
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:107
 msgid "[Servers] Added Mangago (EN)"
-msgstr ""
+msgstr "[Serveurs] Ajout de Mangago (EN)"
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:108
 msgid "[Serverd] Added Rawdevart (JA)"
-msgstr ""
+msgstr "[Serveurs] Ajout de Rawdevart (JA)"
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:109
 msgid "[Servers] Asura Scans (EN): Update"
-msgstr ""
+msgstr "[Serveurs] Asura Scans (EN) : Mise à jour"
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:110
 msgid "[Servers] Perf Scan (FR): Update"
-msgstr ""
+msgstr "[Serveurs] Perf Scan (FR) : Mise à jour"
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:111
 msgid "[L10n] Updated Dutch, Spanish and Turkish translations"
-msgstr ""
+msgstr "[L10n] Mise à jour des traductions néerlandaises, espagnoles et turques"
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:113
 msgid "Happy reading."
@@ -243,7 +248,7 @@ msgstr "Rechercher"
 
 #: ../data/ui/explorer_search.blp:28
 msgid "Search Filters"
-msgstr ""
+msgstr "Filtres de recherche"
 
 #: ../data/ui/explorer_search.blp:34
 msgid "Open in Browser"
@@ -1111,7 +1116,7 @@ msgstr "Basculer le statut épinglé"
 
 #: ../komikku/explorer/search/__init__.py:223
 msgid "Filters"
-msgstr ""
+msgstr "Filtres"
 
 #: ../komikku/explorer/search/__init__.py:276
 msgid "Oops, server website URL is unknown."
@@ -1469,19 +1474,19 @@ msgstr "Chapitres"
 
 #: ../komikku/servers/dynasty/__init__.py:52
 msgid "With Tags"
-msgstr "Avec les mots clés"
+msgstr "Avec les étiquettes"
 
 #: ../komikku/servers/dynasty/__init__.py:53
 msgid "Comma seperated list of tags to search for"
-msgstr ""
+msgstr "Liste d'étiquettes séparées par des virgules à rechercher"
 
 #: ../komikku/servers/dynasty/__init__.py:59
 msgid "Without Tags"
-msgstr "Sans les mots clés"
+msgstr "Sans les étiquettes"
 
 #: ../komikku/servers/dynasty/__init__.py:60
 msgid "Comma seperated list of tags to exclude from search"
-msgstr ""
+msgstr "Liste d'étiquettes séparées par des virgules à exclure de la recherche"
 
 #: ../komikku/servers/exceptions.py:10
 msgid "Error: {}"
@@ -1578,23 +1583,23 @@ msgstr "Seinen"
 
 #: ../komikku/servers/mangadex/__init__.py:98
 msgid "Tags"
-msgstr ""
+msgstr "Étiquettes"
 
 #: ../komikku/servers/mangadex/__init__.py:99
 msgid "Filter by formats"
-msgstr ""
+msgstr "Filtrer par formats"
 
 #: ../komikku/servers/mangadex/__init__.py:102
 msgid "4-Koma"
-msgstr ""
+msgstr "4-Koma"
 
 #: ../komikku/servers/mangadex/__init__.py:103
 msgid "Adaptation"
-msgstr ""
+msgstr "Adaptation"
 
 #: ../komikku/servers/mangadex/__init__.py:105
 msgid "Award Winning"
-msgstr ""
+msgstr "Récompensé par un prix"
 
 #: ../komikku/servers/mangadex/__init__.py:106
 #: ../komikku/servers/mangapill/__init__.py:40
@@ -1603,47 +1608,49 @@ msgstr "Doujinshi"
 
 #: ../komikku/servers/mangadex/__init__.py:107
 msgid "Fan Colored"
-msgstr ""
+msgstr "Coloré par un fan"
 
 #: ../komikku/servers/mangadex/__init__.py:108
 msgid "Full Color"
-msgstr ""
+msgstr "Entièrement colorisé"
 
 #: ../komikku/servers/mangadex/__init__.py:109
 msgid "Long Strip"
-msgstr ""
+msgstr "Long Strip"
 
 #: ../komikku/servers/mangadex/__init__.py:110
 msgid "Official Colored"
-msgstr ""
+msgstr "Coloration officielle"
 
 #: ../komikku/servers/mangadex/__init__.py:111
 msgid "Oneshot"
-msgstr ""
+msgstr "Oneshot"
 
 #: ../komikku/servers/mangadex/__init__.py:112
 msgid "Self-Published"
-msgstr ""
+msgstr "Auto-publié"
 
 #: ../komikku/servers/mangadex/__init__.py:113
 msgid "Web Comic"
-msgstr ""
+msgstr "Web Comic"
 
 #: ../komikku/servers/mangadex/__init__.py:119
 msgid "Tags Inclusion Mode"
-msgstr ""
+msgstr "Mode d'inclusion des étiquettes"
 
 #: ../komikku/servers/mangadex/__init__.py:120
 msgid "Include manga that match <b>all</b> tags (AND) or <b>any</b> tag (OR)"
 msgstr ""
+"Inclure les mangas qui correspondent à <b>toutes</b> les étiquettes (ET) ou "
+"à <b>n'importe quelle<b> étiquette (OU)"
 
 #: ../komikku/servers/mangadex/__init__.py:124
 msgid "AND"
-msgstr ""
+msgstr "ET"
 
 #: ../komikku/servers/mangadex/__init__.py:125
 msgid "OR"
-msgstr ""
+msgstr "OU"
 
 #: ../komikku/servers/mangapill/__init__.py:31
 #: ../komikku/servers/mangatube/__init__.py:33
