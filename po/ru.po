@@ -8,27 +8,30 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-03-16 01:42+0100\n"
-"PO-Revision-Date: 2024-02-16 23:40+0000\n"
+"PO-Revision-Date: 2024-03-17 02:01+0000\n"
 "Last-Translator: Сергей <asvmail.as@gmail.com>\n"
-"Language-Team: Russian <https://hosted.weblate.org/projects/komikku/main/ru/"
-">\n"
+"Language-Team: Russian <https://hosted.weblate.org/projects/komikku/main/ru/>"
+"\n"
 "Language: ru\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
 "n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
-"X-Generator: Weblate 5.4\n"
+"X-Generator: Weblate 5.5-dev\n"
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:11
 msgid "Discover and read manga, webtoons, comics, and more"
-msgstr ""
+msgstr "Открывайте для себя и читайте мангу, вебтуны, комиксы и многое другое"
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:13
 msgid ""
 "With its simple, elegant and adaptive interface, this reader lets you "
 "search, sort and read your series with ease."
 msgstr ""
+"Благодаря простому, элегантному и адаптивному интерфейсу это приложение для "
+"чтения позволяет с легкостью выполнять поиск, сортировку и чтение ваших "
+"циклов."
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:15
 msgid "Why you will love Komikku?"
@@ -40,7 +43,7 @@ msgstr "Онлайн и офлайн чтение с десятков серве
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:18
 msgid "Support for locally stored series (in CBZ or CBR formats)"
-msgstr ""
+msgstr "Поддержка локально сохраненных циклов (в форматах CBZ или CBR)"
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:19
 msgid "RTL, LTR, Vertical and Webtoon reading modes"
@@ -63,7 +66,7 @@ msgstr "Категории для организации вашей библио
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:22
 msgid "Automatic update of series"
-msgstr ""
+msgstr "Автоматическое обновление циклов"
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:23
 msgid "Automatic download of new chapters"
@@ -119,27 +122,27 @@ msgstr "Страница истории чтения в мобильном фо�
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:106
 msgid "[Library] Add an indicator when an partial update is in progress"
-msgstr ""
+msgstr "[Библиотека] Добавлен индикатор выполнения частичного обновления"
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:107
 msgid "[Servers] Added Mangago (EN)"
-msgstr ""
+msgstr "[Серверы] Добавлен Mangago (EN)"
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:108
 msgid "[Serverd] Added Rawdevart (JA)"
-msgstr ""
+msgstr "[Серверы] Добавлен Rawdevart (JA)"
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:109
 msgid "[Servers] Asura Scans (EN): Update"
-msgstr ""
+msgstr "[Серверы] Asura Scans (EN): Обновлено"
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:110
 msgid "[Servers] Perf Scan (FR): Update"
-msgstr ""
+msgstr "[Серверы] Perf Scan (FR): Обновлено"
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:111
 msgid "[L10n] Updated Dutch, Spanish and Turkish translations"
-msgstr ""
+msgstr "[L10n] Обновлены переводы на голландский, испанский и турецкий языки"
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:113
 msgid "Happy reading."
@@ -246,7 +249,7 @@ msgstr "Поиск"
 
 #: ../data/ui/explorer_search.blp:28
 msgid "Search Filters"
-msgstr ""
+msgstr "Фильтры поиска"
 
 #: ../data/ui/explorer_search.blp:34
 msgid "Open in Browser"
@@ -548,11 +551,11 @@ msgstr "Включение/отключение и настройка серве
 
 #: ../data/ui/preferences.blp:170
 msgid "Long Strip Detection"
-msgstr "Обнаружение длинных полос"
+msgstr "Обнаружение длинных лент"
 
 #: ../data/ui/preferences.blp:171
 msgid "Automatically detect long vertical strip when possible"
-msgstr "По возможности, автоматически обнаруживать длинные вертикальные полосы"
+msgstr "По возможности, автоматически обнаруживать длинные вертикальные ленты"
 
 #: ../data/ui/preferences.blp:175
 msgid "NSFW Content (18+)"
@@ -1113,7 +1116,7 @@ msgstr "Переключение статуса «закреплено»"
 
 #: ../komikku/explorer/search/__init__.py:223
 msgid "Filters"
-msgstr ""
+msgstr "Фильтры"
 
 #: ../komikku/explorer/search/__init__.py:276
 msgid "Oops, server website URL is unknown."
@@ -1471,7 +1474,7 @@ msgstr "С метками"
 
 #: ../komikku/servers/dynasty/__init__.py:53
 msgid "Comma seperated list of tags to search for"
-msgstr ""
+msgstr "Список меток для поиска, разделенных запятыми"
 
 #: ../komikku/servers/dynasty/__init__.py:59
 msgid "Without Tags"
@@ -1479,7 +1482,7 @@ msgstr "Без меток"
 
 #: ../komikku/servers/dynasty/__init__.py:60
 msgid "Comma seperated list of tags to exclude from search"
-msgstr ""
+msgstr "Список меток, разделённых запятыми, которые следует исключить из поиска"
 
 #: ../komikku/servers/exceptions.py:10
 msgid "Error: {}"
@@ -1574,23 +1577,23 @@ msgstr "Сэйнэн"
 
 #: ../komikku/servers/mangadex/__init__.py:98
 msgid "Tags"
-msgstr ""
+msgstr "Метки"
 
 #: ../komikku/servers/mangadex/__init__.py:99
 msgid "Filter by formats"
-msgstr ""
+msgstr "Фильтровать по формату"
 
 #: ../komikku/servers/mangadex/__init__.py:102
 msgid "4-Koma"
-msgstr ""
+msgstr "Ёнкома"
 
 #: ../komikku/servers/mangadex/__init__.py:103
 msgid "Adaptation"
-msgstr ""
+msgstr "Адаптация"
 
 #: ../komikku/servers/mangadex/__init__.py:105
 msgid "Award Winning"
-msgstr ""
+msgstr "Имеющий награды"
 
 #: ../komikku/servers/mangadex/__init__.py:106
 #: ../komikku/servers/mangapill/__init__.py:40
@@ -1599,47 +1602,49 @@ msgstr "Додзинси"
 
 #: ../komikku/servers/mangadex/__init__.py:107
 msgid "Fan Colored"
-msgstr ""
+msgstr "Фанатская цветная версия"
 
 #: ../komikku/servers/mangadex/__init__.py:108
 msgid "Full Color"
-msgstr ""
+msgstr "Полноцветный"
 
 #: ../komikku/servers/mangadex/__init__.py:109
 msgid "Long Strip"
-msgstr ""
+msgstr "Длинная лента"
 
 #: ../komikku/servers/mangadex/__init__.py:110
 msgid "Official Colored"
-msgstr ""
+msgstr "Официальная цветная версия"
 
 #: ../komikku/servers/mangadex/__init__.py:111
 msgid "Oneshot"
-msgstr ""
+msgstr "Ваншот"
 
 #: ../komikku/servers/mangadex/__init__.py:112
 msgid "Self-Published"
-msgstr ""
+msgstr "Самостоятельно публикуемый"
 
 #: ../komikku/servers/mangadex/__init__.py:113
 msgid "Web Comic"
-msgstr ""
+msgstr "Веб-комикс"
 
 #: ../komikku/servers/mangadex/__init__.py:119
 msgid "Tags Inclusion Mode"
-msgstr ""
+msgstr "Режим включения меток"
 
 #: ../komikku/servers/mangadex/__init__.py:120
 msgid "Include manga that match <b>all</b> tags (AND) or <b>any</b> tag (OR)"
 msgstr ""
+"Включить мангу, соответствующую <b>всем</b> меткам (AND) или "
+"<b>определённой</b> метке (OR)"
 
 #: ../komikku/servers/mangadex/__init__.py:124
 msgid "AND"
-msgstr ""
+msgstr "AND"
 
 #: ../komikku/servers/mangadex/__init__.py:125
 msgid "OR"
-msgstr ""
+msgstr "OR"
 
 #: ../komikku/servers/mangapill/__init__.py:31
 #: ../komikku/servers/mangatube/__init__.py:33
