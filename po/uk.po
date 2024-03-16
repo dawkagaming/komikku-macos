@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Komikku 1.17.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-02-15 22:58+0100\n"
+"POT-Creation-Date: 2024-03-16 01:42+0100\n"
 "PO-Revision-Date: 2023-04-10 21:23+0000\n"
 "Last-Translator: CakesTwix <cakestwix1@gmail.com>\n"
 "Language-Team: Ukrainian <https://hosted.weblate.org/projects/komikku/main/"
@@ -20,17 +20,14 @@ msgstr ""
 "X-Generator: Weblate 4.17-dev\n"
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:11
-msgid "Read your favorite manga"
-msgstr "Читайте свою улюблену мангу"
+msgid "Discover and read manga, webtoons, comics, and more"
+msgstr ""
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:13
 msgid ""
-"With its simple, elegant and adaptive interface, this manga reader allows "
-"you to search, sort and read all your favorite manga with ease."
+"With its simple, elegant and adaptive interface, this reader lets you "
+"search, sort and read your series with ease."
 msgstr ""
-"Завдяки простому, елегантному та адаптивному інтерфейсу, ця програма для "
-"читання манги дозволяє легко шукати, сортувати та читати всі ваші улюблені "
-"манги."
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:15
 msgid "Why you will love Komikku?"
@@ -41,8 +38,8 @@ msgid "Online and offline reading from dozens of servers"
 msgstr "Онлайн та офлайн читання з десятків серверів"
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:18
-msgid "Support for locally stored manga (in CBZ or CBR formats)"
-msgstr "Підтримка локально збереженої манги (у форматах CBZ або CBR)"
+msgid "Support for locally stored series (in CBZ or CBR formats)"
+msgstr ""
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:19
 msgid "RTL, LTR, Vertical and Webtoon reading modes"
@@ -64,8 +61,8 @@ msgid "Categories to organize your library"
 msgstr "Категорії для організації вашої бібліотеки"
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:22
-msgid "Automatic update of manga"
-msgstr "Автоматичне оновлення манги"
+msgid "Automatic update of series"
+msgstr ""
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:23
 msgid "Automatic download of new chapters"
@@ -119,90 +116,33 @@ msgstr ""
 msgid "The Reading history page in mobile format"
 msgstr ""
 
-#: ../data/info.febvre.Komikku.appdata.xml.in.in:90
-msgid "@authorfullname@"
-msgstr "@authorfullname@"
-
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:106
-msgid "[Downloader] Improve error notification"
+msgid "[Library] Add an indicator when an partial update is in progress"
 msgstr ""
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:107
-msgid "[Updater] Improve notifications"
+msgid "[Servers] Added Mangago (EN)"
 msgstr ""
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:108
-msgid ""
-"[Updater] Prevent manga update from being scheduled while it's being updated"
+msgid "[Serverd] Added Rawdevart (JA)"
 msgstr ""
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:109
-msgid "[Servers] Armoni Scans (TR): Disable"
+msgid "[Servers] Asura Scans (EN): Update"
 msgstr ""
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:110
-msgid "[Servers] Komga: Fixed missing covers in search"
+msgid "[Servers] Perf Scan (FR): Update"
 msgstr ""
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:111
-msgid "[Servers] MangaHub (EN): Update"
-msgstr ""
-
-#: ../data/info.febvre.Komikku.appdata.xml.in.in:112
-msgid "[Servers] Manhuaus (EN): Update"
+msgid "[L10n] Updated Dutch, Spanish and Turkish translations"
 msgstr ""
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:113
-msgid "[Servers] Manhwa Hentai (EN): Update"
-msgstr ""
-
-#: ../data/info.febvre.Komikku.appdata.xml.in.in:114
-msgid "[Servers] Tapas (EN): Update"
-msgstr ""
-
-#: ../data/info.febvre.Komikku.appdata.xml.in.in:115
-msgid ""
-"[L10n] Updated Chinese (Traditional), French, Russian, Spanish, Turkish "
-"translations"
-msgstr ""
-
-#: ../data/info.febvre.Komikku.appdata.xml.in.in:117
-#: ../data/info.febvre.Komikku.appdata.xml.in.in:132
 msgid "Happy reading."
 msgstr "Приємного читання."
-
-#: ../data/info.febvre.Komikku.appdata.xml.in.in:123
-msgid "[Card] Added an indicator when an update is in progress"
-msgstr ""
-
-#: ../data/info.febvre.Komikku.appdata.xml.in.in:124
-msgid "[Card] Added Pull-to-Update feature"
-msgstr ""
-
-#: ../data/info.febvre.Komikku.appdata.xml.in.in:125
-msgid "[Card] Updated disk usage when one or more chapters are reset"
-msgstr ""
-
-#: ../data/info.febvre.Komikku.appdata.xml.in.in:126
-msgid ""
-"[Webview] Fixed rare cases where pages loading end could not be detected"
-msgstr ""
-
-#: ../data/info.febvre.Komikku.appdata.xml.in.in:127
-msgid "[About] Fixed \"Report an Issue\" link"
-msgstr ""
-
-#: ../data/info.febvre.Komikku.appdata.xml.in.in:128
-msgid "[Servers] Some improvements to speed up HTML pages parsing"
-msgstr ""
-
-#: ../data/info.febvre.Komikku.appdata.xml.in.in:129
-msgid "[Servers] Manga-Scantrad (FR): Fix status CSS selector"
-msgstr ""
-
-#: ../data/info.febvre.Komikku.appdata.xml.in.in:130
-msgid "[L10n] Updated Russian translation"
-msgstr ""
 
 #: ../data/info.febvre.Komikku.desktop.in:3
 msgid "@prettyname@"
@@ -233,50 +173,46 @@ msgstr ""
 "купуючи офіційні комікси, коли вони будуть\n"
 "доступні у вашому регіоні/мові."
 
-#: ../data/ui/card.blp:30 ../data/ui/card.blp:445
+#: ../data/ui/card.blp:32 ../data/ui/card.blp:444
 #: ../data/ui/card_chapters_list_row.blp:44 ../data/ui/download_manager.blp:22
-#: ../data/ui/library.blp:130 ../data/ui/reader.blp:25
+#: ../data/ui/library.blp:142 ../data/ui/reader.blp:33
 msgid "Menu"
 msgstr "Меню"
 
-#: ../data/ui/card.blp:36
-msgid "Resume Reading"
-msgstr ""
-
-#: ../data/ui/card.blp:55
+#: ../data/ui/card.blp:53
 msgid "Info"
 msgstr "Інформація"
 
-#: ../data/ui/card.blp:142
+#: ../data/ui/card.blp:141
 msgid "Add to Library"
 msgstr "Додати до бібліотеки"
 
-#: ../data/ui/card.blp:172
+#: ../data/ui/card.blp:171
 msgid "Details"
 msgstr "Детальніше"
 
-#: ../data/ui/card.blp:203
+#: ../data/ui/card.blp:202
 msgid "Genres"
 msgstr "Жанри"
 
-#: ../data/ui/card.blp:236
+#: ../data/ui/card.blp:235
 msgid "Scanlators"
 msgstr "Перекладачі"
 
-#: ../data/ui/card.blp:299
+#: ../data/ui/card.blp:298
 msgid "Last Update"
 msgstr "Останнє оновлення"
 
-#: ../data/ui/card.blp:331
+#: ../data/ui/card.blp:330
 msgid "Size on Disk"
 msgstr "Розмір на диску"
 
-#: ../data/ui/card.blp:357
+#: ../data/ui/card.blp:356
 msgid "Synopsis"
 msgstr "Описание"
 
-#: ../data/ui/card.blp:485 ../data/ui/categories_editor.blp:64
-#: ../data/ui/library.blp:235
+#: ../data/ui/card.blp:484 ../data/ui/categories_editor.blp:64
+#: ../data/ui/library.blp:247
 msgid "No Categories"
 msgstr ""
 
@@ -301,25 +237,29 @@ msgstr ""
 msgid "No Downloads"
 msgstr ""
 
-#: ../data/ui/explorer_search.blp:10 ../data/ui/explorer_search.blp:35
+#: ../data/ui/explorer_search.blp:10 ../data/ui/explorer_search.blp:41
 #: ../data/ui/history.blp:18 ../data/ui/library.blp:36
 #, fuzzy
 msgid "Search"
 msgstr "Пошук"
 
 #: ../data/ui/explorer_search.blp:28
+msgid "Search Filters"
+msgstr ""
+
+#: ../data/ui/explorer_search.blp:34
 msgid "Open in Browser"
 msgstr "Відкрити в браузері"
 
-#: ../data/ui/explorer_search.blp:151
+#: ../data/ui/explorer_search.blp:152
 msgid "Most Popular"
 msgstr "Найпопулярніші"
 
-#: ../data/ui/explorer_search.blp:223
+#: ../data/ui/explorer_search.blp:226
 msgid "Latest Updates"
 msgstr "Останні оновлення"
 
-#: ../data/ui/explorer_servers.blp:6 ../data/ui/preferences.blp:169
+#: ../data/ui/explorer_servers.blp:6 ../data/ui/preferences.blp:149
 msgid "Servers"
 msgstr "Сервери"
 
@@ -343,8 +283,7 @@ msgstr "Історія"
 msgid "No History"
 msgstr ""
 
-#: ../data/ui/library.blp:6 ../data/ui/preferences.blp:66
-#: ../data/ui/preferences.blp:69
+#: ../data/ui/library.blp:6 ../data/ui/preferences.blp:48
 #, fuzzy
 msgid "Library"
 msgstr "Бібліотека"
@@ -361,47 +300,47 @@ msgstr ""
 msgid "Main Menu"
 msgstr ""
 
-#: ../data/ui/library.blp:61
+#: ../data/ui/library.blp:74
 msgid "Search by name, server or genre"
 msgstr "Пошук по назві, сервера або жанру"
 
-#: ../data/ui/library.blp:109 ../data/ui/preferences.blp:155
+#: ../data/ui/library.blp:121 ../data/ui/preferences.blp:135
 msgid "Update"
 msgstr "Оновлення"
 
-#: ../data/ui/library.blp:183
+#: ../data/ui/library.blp:196
 msgid "Discover Comics"
 msgstr ""
 
-#: ../data/ui/library.blp:257
+#: ../data/ui/library.blp:269
 msgid "OK"
 msgstr ""
 
-#: ../data/ui/menu/card.xml:18
+#: ../data/ui/menu/card.xml:25
 msgid "Order of Chapters"
 msgstr "Порядок глав"
 
-#: ../data/ui/menu/card.xml:23
+#: ../data/ui/menu/card.xml:30
 msgid "⬆ By Source"
 msgstr "⬆ За джерелом"
 
-#: ../data/ui/menu/card.xml:28
+#: ../data/ui/menu/card.xml:35
 msgid "⬇ By Source"
 msgstr "⬇ За джерелом"
 
-#: ../data/ui/menu/card.xml:34
+#: ../data/ui/menu/card.xml:41
 msgid "⬆ By Date"
 msgstr "⬆ За датою"
 
-#: ../data/ui/menu/card.xml:39
+#: ../data/ui/menu/card.xml:46
 msgid "⬇ By Date"
 msgstr "⬇ За датою"
 
-#: ../data/ui/menu/card.xml:45
+#: ../data/ui/menu/card.xml:52
 msgid "⬆ By Title"
 msgstr "⬆ За назвою"
 
-#: ../data/ui/menu/card.xml:50
+#: ../data/ui/menu/card.xml:57
 msgid "⬇ By Title"
 msgstr "⬇ За назвою"
 
@@ -484,256 +423,254 @@ msgstr "Приховати нумерацію сторінок"
 msgid "Save Page"
 msgstr "Зберегти сторінку"
 
-#: ../data/ui/preferences.blp:10 ../data/ui/preferences.blp:21
-#: ../data/ui/preferences_servers_languages.blp:11
+#: ../data/ui/preferences.blp:9 ../data/ui/preferences_servers_languages.blp:11
 #: ../data/ui/preferences_servers_settings.blp:11
 msgid "Preferences"
 msgstr "Налаштування"
 
-#: ../data/ui/preferences.blp:29 ../data/ui/preferences.blp:32
+#: ../data/ui/preferences.blp:14
 msgid "General"
 msgstr "Загальне"
 
-#: ../data/ui/preferences.blp:36
+#: ../data/ui/preferences.blp:19
 msgid "Theme"
 msgstr ""
 
-#: ../data/ui/preferences.blp:39
+#: ../data/ui/preferences.blp:22
 msgid "Light"
 msgstr ""
 
-#: ../data/ui/preferences.blp:40
+#: ../data/ui/preferences.blp:23
 msgid "Dark"
 msgstr ""
 
-#: ../data/ui/preferences.blp:41
+#: ../data/ui/preferences.blp:24
 msgid "Follow System"
 msgstr ""
 
-#: ../data/ui/preferences.blp:47
+#: ../data/ui/preferences.blp:30
 msgid "Night Light"
 msgstr "Нічний режим"
 
-#: ../data/ui/preferences.blp:48
+#: ../data/ui/preferences.blp:31
 msgid "Automatically enable dark theme at night"
 msgstr "Автоматично вмикати темну тему вночі"
 
-#: ../data/ui/preferences.blp:52
+#: ../data/ui/preferences.blp:35
 msgid "Desktop Notifications"
 msgstr "Повідомлення на робочому столі"
 
-#: ../data/ui/preferences.blp:53
+#: ../data/ui/preferences.blp:36
 msgid "Use desktop notifications for downloads and library updates"
 msgstr ""
 "Використовувати повідомлення робочого столу для завантажень і оновлень "
 "бібліотеки"
 
-#: ../data/ui/preferences.blp:57
+#: ../data/ui/preferences.blp:40
 msgid "Backdrop in Details Page"
 msgstr ""
 
-#: ../data/ui/preferences.blp:58
+#: ../data/ui/preferences.blp:41
 msgid "Enable background recoloring to match cover"
 msgstr ""
 
-#: ../data/ui/preferences.blp:72
+#: ../data/ui/preferences.blp:52
 msgid "Display"
 msgstr "Відображення"
 
-#: ../data/ui/preferences.blp:75
+#: ../data/ui/preferences.blp:55
 msgid "Display Mode"
 msgstr "Режим відображення"
 
-#: ../data/ui/preferences.blp:78
+#: ../data/ui/preferences.blp:58
 msgid "Grid"
 msgstr "Сітка"
 
-#: ../data/ui/preferences.blp:79
+#: ../data/ui/preferences.blp:59
 msgid "Compact Grid"
 msgstr "Компактна сітка"
 
-#: ../data/ui/preferences.blp:85
+#: ../data/ui/preferences.blp:65
 msgid "Servers Logo"
 msgstr "Логотип серверів"
 
-#: ../data/ui/preferences.blp:86
+#: ../data/ui/preferences.blp:66
 msgid "Display servers logo"
 msgstr "Відображати логотип серверів"
 
-#: ../data/ui/preferences.blp:90
+#: ../data/ui/preferences.blp:70
 msgid "Badges"
 msgstr "Значки"
 
-#: ../data/ui/preferences.blp:93
+#: ../data/ui/preferences.blp:73
 msgid "Number of Unread Chapters"
 msgstr "Кількість непрочитаних глав"
 
-#: ../data/ui/preferences.blp:113
+#: ../data/ui/preferences.blp:93
 msgid "Number of Downloaded Chapters"
 msgstr "Кількість завантажених глав"
 
-#: ../data/ui/preferences.blp:133
+#: ../data/ui/preferences.blp:113
 msgid "Number of Recent and Unread Chapters"
 msgstr "Кількість останніх і непрочитаних глав"
 
-#: ../data/ui/preferences.blp:158
+#: ../data/ui/preferences.blp:138
 msgid "Update at Startup"
 msgstr "Оновлення при запуску"
 
-#: ../data/ui/preferences.blp:159
+#: ../data/ui/preferences.blp:139
 msgid "Automatically update library at startup"
 msgstr "Автоматично оновлювати бібліотеку під час запуску"
 
-#: ../data/ui/preferences.blp:163
+#: ../data/ui/preferences.blp:143
 msgid "Auto Download of New Chapters"
 msgstr "Автоматичне завантаження нових глав"
 
-#: ../data/ui/preferences.blp:164
+#: ../data/ui/preferences.blp:144
 msgid "Automatically download new chapters"
 msgstr "Автоматично завантажувати нові глави"
 
-#: ../data/ui/preferences.blp:172
+#: ../data/ui/preferences.blp:152
 #: ../data/ui/preferences_servers_languages.blp:6
 #: ../data/ui/preferences_servers_languages.blp:12
 msgid "Servers Languages"
 msgstr "Мови серверів"
 
-#: ../data/ui/preferences.blp:173
+#: ../data/ui/preferences.blp:153
 msgid "Restrict servers to selected languages"
 msgstr "Обмеження серверів вибраними мовами"
 
-#: ../data/ui/preferences.blp:181 ../data/ui/preferences_servers_settings.blp:6
+#: ../data/ui/preferences.blp:161 ../data/ui/preferences_servers_settings.blp:6
 #: ../data/ui/preferences_servers_settings.blp:12
 msgid "Servers Settings"
 msgstr "Налаштування серверів"
 
-#: ../data/ui/preferences.blp:182
+#: ../data/ui/preferences.blp:162
 msgid "Enable/disable and configure servers"
 msgstr "Вмикання/вимикання та налаштування серверів"
 
-#: ../data/ui/preferences.blp:190
+#: ../data/ui/preferences.blp:170
 #, fuzzy
 msgid "Long Strip Detection"
 msgstr "Виявлення довгих полос"
 
-#: ../data/ui/preferences.blp:191
+#: ../data/ui/preferences.blp:171
 msgid "Automatically detect long vertical strip when possible"
 msgstr "Автоматично визначати довгу вертикальну полосу, коли це можливо"
 
-#: ../data/ui/preferences.blp:195
+#: ../data/ui/preferences.blp:175
 msgid "NSFW Content (18+)"
 msgstr "NSFW Контент (18+)"
 
-#: ../data/ui/preferences.blp:196
+#: ../data/ui/preferences.blp:176
 msgid "Whether to enable servers with NSFW content"
 msgstr "Чи вмикати сервери з NSFW-вмістом"
 
-#: ../data/ui/preferences.blp:200
+#: ../data/ui/preferences.blp:180
 msgid "NSFW Only Content (18+)"
 msgstr "Тільки контент NSFW (18+)"
 
-#: ../data/ui/preferences.blp:201
+#: ../data/ui/preferences.blp:181
 msgid "Whether to enable servers with NSFW only content"
 msgstr "Чи вмикати сервери з тільки NSFW контентом"
 
-#: ../data/ui/preferences.blp:209 ../data/ui/preferences.blp:212
-#: ../data/ui/reader.blp:6
+#: ../data/ui/preferences.blp:188 ../data/ui/reader.blp:6
 #, fuzzy
 msgid "Reader"
 msgstr "Читач"
 
-#: ../data/ui/preferences.blp:216
+#: ../data/ui/preferences.blp:193
 msgid "Reading Mode"
 msgstr "Режим читання"
 
-#: ../data/ui/preferences.blp:219
+#: ../data/ui/preferences.blp:196
 msgid "⬅ Right to Left"
 msgstr "⬅ Справа наліво"
 
-#: ../data/ui/preferences.blp:220
+#: ../data/ui/preferences.blp:197
 msgid "➡ Left to Right"
 msgstr "➡ Зліва направо"
 
-#: ../data/ui/preferences.blp:221
+#: ../data/ui/preferences.blp:198
 msgid "⬇ Vertical"
 msgstr "⬇ Вертикальний"
 
-#: ../data/ui/preferences.blp:222
+#: ../data/ui/preferences.blp:199
 msgid "⬇ Webtoon"
 msgstr "⬇ Вебтун"
 
-#: ../data/ui/preferences.blp:228
+#: ../data/ui/preferences.blp:205
 msgid "Maximum Width"
 msgstr "Максимальна ширина"
 
-#: ../data/ui/preferences.blp:229
+#: ../data/ui/preferences.blp:206
 msgid ""
 "Constrain reader's width to a given maximum size (Webtoon reading mode only)"
 msgstr ""
 "Обмеження ширини поля для читання до заданого максимального розміру (лише в "
 "режимі читання Webtoon)"
 
-#: ../data/ui/preferences.blp:240
+#: ../data/ui/preferences.blp:217
 msgid "Scaling"
 msgstr "Масштабування"
 
-#: ../data/ui/preferences.blp:241
+#: ../data/ui/preferences.blp:218
 msgid "Type of scaling to adapt image"
 msgstr "Тип масштабування для адаптації зображення"
 
-#: ../data/ui/preferences.blp:244
+#: ../data/ui/preferences.blp:221
 msgid "Adapt to Screen"
 msgstr "За екраном"
 
-#: ../data/ui/preferences.blp:245
+#: ../data/ui/preferences.blp:222
 msgid "Adapt to Width"
 msgstr "За шириною"
 
-#: ../data/ui/preferences.blp:246
+#: ../data/ui/preferences.blp:223
 msgid "Adapt to Height"
 msgstr "За висотою"
 
-#: ../data/ui/preferences.blp:247
+#: ../data/ui/preferences.blp:224
 msgid "Original Size"
 msgstr "За розміром"
 
-#: ../data/ui/preferences.blp:253
+#: ../data/ui/preferences.blp:230
 msgid "Landscape Pages Zoom"
 msgstr "Масштабування альбомних сторінок"
 
-#: ../data/ui/preferences.blp:254
+#: ../data/ui/preferences.blp:231
 msgid ""
 "Zoom page to fit height when page is landscape (Adapt to Screen scaling only)"
 msgstr ""
 "Збільшити сторінку до потрібної висоти, коли сторінка має альбомну "
 "орієнтацію (лише для адаптації до масштабу екрана)"
 
-#: ../data/ui/preferences.blp:258
+#: ../data/ui/preferences.blp:235
 msgid "Background Color"
 msgstr "Колір фону"
 
-#: ../data/ui/preferences.blp:261
+#: ../data/ui/preferences.blp:238
 msgid "White"
 msgstr "Білий"
 
-#: ../data/ui/preferences.blp:262
+#: ../data/ui/preferences.blp:239
 msgid "Gray"
 msgstr "Сірий"
 
-#: ../data/ui/preferences.blp:263
+#: ../data/ui/preferences.blp:240
 msgid "Black"
 msgstr "Чорний"
 
-#: ../data/ui/preferences.blp:264
+#: ../data/ui/preferences.blp:241
 msgid "System Style"
 msgstr "Системний"
 
-#: ../data/ui/preferences.blp:270
+#: ../data/ui/preferences.blp:247
 #, fuzzy
 msgid "Borders Crop"
 msgstr "Обрізати межі"
 
-#: ../data/ui/preferences.blp:271
+#: ../data/ui/preferences.blp:248
 msgid ""
 "Crop white borders of images\n"
 "\n"
@@ -745,63 +682,63 @@ msgstr ""
 "ПРИМІТКА: Вимагає більше використання процесора і може спричинити "
 "уповільнення рендерингу та анімації, особливо на мобільних пристроях."
 
-#: ../data/ui/preferences.blp:275
+#: ../data/ui/preferences.blp:252
 msgid "Page Numbering"
 msgstr "Нумерація сторінок"
 
-#: ../data/ui/preferences.blp:276
+#: ../data/ui/preferences.blp:253
 msgid "Hide the page numbering at the bottom of the screen while reading"
 msgstr "Приховати нумерацію сторінок внизу екрана під час читання"
 
-#: ../data/ui/preferences.blp:280
+#: ../data/ui/preferences.blp:257
 msgid "Fullscreen"
 msgstr "Повноекранний"
 
-#: ../data/ui/preferences.blp:281
+#: ../data/ui/preferences.blp:258
 msgid "Automatically enter fullscreen mode"
 msgstr "Автоматично переходити в повноекранний режим"
 
-#: ../data/ui/preferences.blp:289 ../data/ui/preferences.blp:292
+#: ../data/ui/preferences.blp:265
 msgid "Advanced"
 msgstr "Розширений"
 
-#: ../data/ui/preferences.blp:295
+#: ../data/ui/preferences.blp:269
 msgid "Data"
 msgstr "Дані"
 
-#: ../data/ui/preferences.blp:296
+#: ../data/ui/preferences.blp:270
 msgid "Data not saved in the library"
 msgstr "Дані, не збережені в бібліотеці"
 
-#: ../data/ui/preferences.blp:299
+#: ../data/ui/preferences.blp:273
 msgid "Clear Chapters Cache and Database"
 msgstr ""
 
-#: ../data/ui/preferences.blp:304
+#: ../data/ui/preferences.blp:278
 msgid "Clear Chapters Cache and Database on Exit"
 msgstr ""
 
-#: ../data/ui/preferences.blp:309
+#: ../data/ui/preferences.blp:283
 msgid "Credentials Storage"
 msgstr ""
 
-#: ../data/ui/preferences.blp:312
+#: ../data/ui/preferences.blp:286
 msgid "Allow Plaintext Storage as Fallback"
 msgstr ""
 
-#: ../data/ui/preferences.blp:313
+#: ../data/ui/preferences.blp:287
 msgid "Used when no keyring backends are found"
 msgstr "Використовується, якщо не знайдено жодного Keyring бекенда"
 
-#: ../data/ui/preferences.blp:318
+#: ../data/ui/preferences.blp:292
 msgid "Tweaks"
 msgstr "Твіки"
 
-#: ../data/ui/preferences.blp:321
+#: ../data/ui/preferences.blp:295
 msgid "Disable Animations"
 msgstr "Вимкнути анімації"
 
-#: ../data/ui/preferences.blp:322
+#: ../data/ui/preferences.blp:296
 msgid ""
 "Useful with E Ink e-readers to avoid very choppy and unpleasant animations "
 "(due to the low refresh rate of the screen)"
@@ -809,7 +746,7 @@ msgstr ""
 "Корисно для електронних читалок E-Ink, щоб уникнути дуже переривчастої та "
 "неприємної анімації (через низьку частоту оновлення екрану)"
 
-#: ../data/ui/preferences.blp:326
+#: ../data/ui/preferences.blp:300
 msgid ""
 "This tweak is only intended for users who do not use the GNOME desktop "
 "environment and therefore cannot disable animations globally via GNOME "
@@ -819,11 +756,11 @@ msgstr ""
 "не можуть вимкнути анімацію глобально за допомогою налаштувань GNOME "
 "(Доступність ⇨ Перегляд ⇨ Зменшити анімацію)."
 
-#: ../data/ui/reader.blp:17
+#: ../data/ui/reader.blp:19
 msgid "Back"
 msgstr "Назад"
 
-#: ../data/ui/reader.blp:31
+#: ../data/ui/reader.blp:27
 msgid "Toggle Fullscreen Mode"
 msgstr ""
 
@@ -943,58 +880,58 @@ msgstr ""
 msgid "Webview"
 msgstr ""
 
-#: ../komikku/application.py:152
+#: ../komikku/application.py:151
 msgid "Multiple URLs not supported"
 msgstr "Кілька URL-адрес не підтримуються"
 
-#: ../komikku/application.py:168
+#: ../komikku/application.py:167
 msgid "Invalid URL {}, not handled by any server."
 msgstr "Невірна URL-адреса {}, не обробляється жодним сервером."
 
-#: ../komikku/application.py:351 ../komikku/card/__init__.py:135
-#: ../komikku/card/__init__.py:136 ../komikku/categories_editor.py:188
-#: ../komikku/downloader.py:376 ../komikku/downloader.py:377
-#: ../komikku/library/__init__.py:744 ../komikku/library/__init__.py:745
+#: ../komikku/application.py:350 ../komikku/card/__init__.py:136
+#: ../komikku/card/__init__.py:137 ../komikku/categories_editor.py:188
+#: ../komikku/downloader.py:380 ../komikku/downloader.py:381
+#: ../komikku/library/__init__.py:767 ../komikku/library/__init__.py:768
 msgid "Cancel"
 msgstr "Скасувати"
 
-#: ../komikku/application.py:414
+#: ../komikku/application.py:413
 msgid "Supporters"
 msgstr ""
 
-#: ../komikku/application.py:436
+#: ../komikku/application.py:431
 msgid "Join Chat"
 msgstr "Приєднатися до чату"
 
-#: ../komikku/application.py:526
+#: ../komikku/application.py:519
 msgid "Are you sure you want to quit?"
 msgstr "Ви впевнені, що хочете вийти?"
 
-#: ../komikku/application.py:529
+#: ../komikku/application.py:522
 msgid "Some chapters are currently being downloaded."
 msgstr "Деякі глави наразі завантажуються."
 
-#: ../komikku/application.py:531
+#: ../komikku/application.py:524
 msgid "Some mangas are currently being updated."
 msgstr "Деякі манги наразі оновлюються."
 
-#: ../komikku/application.py:535
+#: ../komikku/application.py:528
 msgid "Quit?"
 msgstr "Вийти?"
 
-#: ../komikku/application.py:537
+#: ../komikku/application.py:530
 msgid "Quit"
 msgstr "Вийти"
 
-#: ../komikku/card/__init__.py:253
+#: ../komikku/card/__init__.py:251
 msgid "Read progress synchronization with server completed successfully"
 msgstr "Синхронізацію прогресу читання з сервером успішно завершено"
 
-#: ../komikku/card/__init__.py:264
+#: ../komikku/card/__init__.py:262
 msgid "Failed to get manga URL"
 msgstr "Не вдалося отримати URL-адресу манги"
 
-#: ../komikku/card/__init__.py:289
+#: ../komikku/card/__init__.py:287
 #, python-brace-format
 msgid ""
 "NOTICE\n"
@@ -1002,24 +939,24 @@ msgid ""
 "Please switch to another server."
 msgstr ""
 
-#: ../komikku/card/__init__.py:435
+#: ../komikku/card/__init__.py:423
 msgid "Unknown author"
 msgstr "Невідомий автор"
 
-#: ../komikku/card/__init__.py:441 ../komikku/card/__init__.py:450
+#: ../komikku/card/__init__.py:429 ../komikku/card/__init__.py:438
 msgid "Unknown status"
 msgstr "Невідомий статус"
 
-#: ../komikku/card/__init__.py:451 ../komikku/explorer/common.py:174
+#: ../komikku/card/__init__.py:439 ../komikku/explorer/common.py:170
 msgid "Local"
 msgstr "Локальний"
 
-#: ../komikku/card/__init__.py:477 ../komikku/card/chapters_list.py:607
+#: ../komikku/card/__init__.py:465 ../komikku/card/chapters_list.py:607
 msgid "%m/%d/%Y"
 msgstr "%d/%m/%Y"
 
-#: ../komikku/card/chapters_list.py:309 ../komikku/downloader.py:521
-#: ../komikku/library/__init__.py:775
+#: ../komikku/card/chapters_list.py:309 ../komikku/downloader.py:525
+#: ../komikku/library/__init__.py:799
 #, python-brace-format
 msgid "{0} selected"
 msgid_plural "{0} selected"
@@ -1031,11 +968,11 @@ msgstr[2] ""
 msgid "Failed to update chapters reading status"
 msgstr "Не вдалося оновити статус читання глав"
 
-#: ../komikku/card/chapters_list.py:664 ../komikku/library/__init__.py:387
+#: ../komikku/card/chapters_list.py:664 ../komikku/library/__init__.py:391
 msgid "Download"
 msgstr "Завантажити"
 
-#: ../komikku/card/chapters_list.py:674 ../komikku/preferences.py:134
+#: ../komikku/card/chapters_list.py:674 ../komikku/preferences.py:130
 msgid "Clear"
 msgstr "Очистити"
 
@@ -1059,7 +996,7 @@ msgstr "Позначити як непрочитане"
 msgid "Mark Previous Chapters as Read"
 msgstr "Позначити попередні глави як прочитані"
 
-#: ../komikku/categories_editor.py:77 ../komikku/library/__init__.py:361
+#: ../komikku/categories_editor.py:77 ../komikku/library/__init__.py:365
 msgid "Delete?"
 msgstr "Видалити?"
 
@@ -1073,7 +1010,7 @@ msgstr ""
 "\"{0}\" категорію?"
 
 #: ../komikku/categories_editor.py:79 ../komikku/categories_editor.py:177
-#: ../komikku/library/__init__.py:363
+#: ../komikku/library/__init__.py:367
 msgid "Delete"
 msgstr "Видалити"
 
@@ -1085,26 +1022,26 @@ msgstr "Редагувати"
 msgid "Save"
 msgstr "Зберегти"
 
-#: ../komikku/downloader.py:235
+#: ../komikku/downloader.py:237
 #, python-brace-format
 msgid "Download failure: {0}"
 msgstr ""
 
-#: ../komikku/downloader.py:246
+#: ../komikku/downloader.py:248
 #, python-brace-format
 msgid "{0}/{1} pages downloaded"
 msgstr "{0}/{1} завантажених сторінок"
 
-#: ../komikku/downloader.py:248
+#: ../komikku/downloader.py:250
 msgid "error"
 msgstr "помилка"
 
-#: ../komikku/downloader.py:252 ../komikku/downloader.py:269
+#: ../komikku/downloader.py:254 ../komikku/downloader.py:271
 #, python-brace-format
 msgid "[{0}] Chapter {1}"
 msgstr "[{0} Глава {1}"
 
-#: ../komikku/downloader.py:268
+#: ../komikku/downloader.py:270
 msgid "Download completed"
 msgstr "Завантаження завершено"
 
@@ -1124,20 +1061,20 @@ msgstr ""
 msgid "Last Volume: {}"
 msgstr ""
 
-#: ../komikku/explorer/common.py:175
+#: ../komikku/explorer/common.py:171
 msgid "Comics stored locally as archives in CBZ/CBR formats"
 msgstr "Комікси зберігаються локально у вигляді архівів у форматах CBZ/CBR"
 
-#: ../komikku/explorer/common.py:192 ../komikku/preferences.py:552
-#: ../komikku/preferences.py:646 ../komikku/servers/mangatube/__init__.py:57
+#: ../komikku/explorer/common.py:188 ../komikku/preferences.py:540
+#: ../komikku/preferences.py:634 ../komikku/servers/mangatube/__init__.py:57
 msgid "18+"
 msgstr "18+"
 
-#: ../komikku/explorer/common.py:212
+#: ../komikku/explorer/common.py:208
 msgid "Help"
 msgstr "Довідка"
 
-#: ../komikku/explorer/common.py:217
+#: ../komikku/explorer/common.py:213
 msgid ""
 "A specific folder structure is required for local comics to be properly "
 "processed.\n"
@@ -1158,32 +1095,36 @@ msgstr ""
 "\n"
 "ПРИМІТКА: Для створення архівів у форматі CBR потрібен 'unrar' або 'unar'."
 
-#: ../komikku/explorer/common.py:231
+#: ../komikku/explorer/common.py:227
 msgid "Open local folder"
 msgstr "Відкрити локальну папку"
 
-#: ../komikku/explorer/common.py:239
+#: ../komikku/explorer/common.py:235
 #, fuzzy
 msgid "Toggle pinned status"
 msgstr "Переключити статус закріплення"
 
-#: ../komikku/explorer/search/__init__.py:252
+#: ../komikku/explorer/search/__init__.py:223
+msgid "Filters"
+msgstr ""
+
+#: ../komikku/explorer/search/__init__.py:276
 msgid "Oops, server website URL is unknown."
 msgstr "На жаль, URL-адреса веб-сайту сервера невідома."
 
-#: ../komikku/explorer/search/__init__.py:292
+#: ../komikku/explorer/search/__init__.py:319
 msgid "Search {}"
 msgstr "Пошук {}"
 
-#: ../komikku/explorer/search/__init__.py:294
+#: ../komikku/explorer/search/__init__.py:321
 msgid "Search for Reading"
 msgstr "Пошук для читання"
 
-#: ../komikku/explorer/search/__init__.py:296
+#: ../komikku/explorer/search/__init__.py:323
 msgid "Empty search is allowed."
 msgstr "Допускається порожній пошук."
 
-#: ../komikku/explorer/search/__init__.py:298
+#: ../komikku/explorer/search/__init__.py:325
 msgid ""
 "Alternatively, you can look up specific comics using the syntax:\n"
 "\n"
@@ -1193,19 +1134,19 @@ msgstr ""
 "\n"
 "<b>id:ID з URL коміксу</b>"
 
-#: ../komikku/explorer/search/__init__.py:326
+#: ../komikku/explorer/search/__init__.py:353
 msgid "Global Search"
 msgstr "Глобальний пошук"
 
-#: ../komikku/explorer/search/__init__.py:328
+#: ../komikku/explorer/search/__init__.py:355
 msgid "Search globally by name"
 msgstr ""
 
-#: ../komikku/explorer/search/__init__.py:330
+#: ../komikku/explorer/search/__init__.py:357
 msgid "Search for Comics"
 msgstr ""
 
-#: ../komikku/explorer/search/__init__.py:406
+#: ../komikku/explorer/search/__init__.py:433
 msgid "Oops, failed to retrieve manga's information."
 msgstr "На жаль, не вдалося отримати інформацію про мангу."
 
@@ -1220,7 +1161,7 @@ msgstr "Не знайдено останніх оновлень"
 #: ../komikku/explorer/search/latest_updates.py:113
 #: ../komikku/explorer/search/most_popular.py:113
 #: ../komikku/explorer/search/search.py:127
-#: ../komikku/explorer/search/search_global.py:71
+#: ../komikku/explorer/search/search_global.py:85
 msgid "A request is already in progress."
 msgstr "Запит уже обробляється."
 
@@ -1233,7 +1174,7 @@ msgid "No Most Popular Found"
 msgstr "Найпопулярніших не знайдено"
 
 #: ../komikku/explorer/search/search.py:112
-#: ../komikku/explorer/search/search_global.py:160
+#: ../komikku/explorer/search/search_global.py:174
 msgid "Oops, search failed. Please try again."
 msgstr "На жаль, пошук не вдався. Спробуйте ще раз."
 
@@ -1245,7 +1186,7 @@ msgstr "Нічого не знайдено"
 msgid "Try a different search"
 msgstr "Спробуйте інший пошук"
 
-#: ../komikku/explorer/search/search_global.py:165
+#: ../komikku/explorer/search/search_global.py:179
 msgid "No results"
 msgstr "Немає результатів"
 
@@ -1275,46 +1216,46 @@ msgstr "%A, %B %e"
 msgid "Resume"
 msgstr "Продовжити"
 
-#: ../komikku/library/__init__.py:357
+#: ../komikku/library/__init__.py:361
 msgid "Are you sure you want to delete this manga?"
 msgstr "Ви дійсно хочете видалити цю мангу?"
 
-#: ../komikku/library/__init__.py:359
+#: ../komikku/library/__init__.py:363
 msgid "Are you sure you want to delete selected mangas?"
 msgstr "Ви дійсно хочете видалити вибрані манги?"
 
-#: ../komikku/library/__init__.py:383
+#: ../komikku/library/__init__.py:387
 msgid "Are you sure you want to download all chapters of selected mangas?"
 msgstr "Ви впевнені, що хочете завантажити всі глави вибраних манг?"
 
-#: ../komikku/library/__init__.py:385
+#: ../komikku/library/__init__.py:389
 msgid "Download?"
 msgstr "Завантажити?"
 
-#: ../komikku/library/__init__.py:607
+#: ../komikku/library/__init__.py:613
 msgid "Welcome to Komikku"
 msgstr "Ласкаво просимо до Komikku"
 
-#: ../komikku/library/__init__.py:615
+#: ../komikku/library/__init__.py:621
 msgid "Loading…"
 msgstr "Завантаження…"
 
-#: ../komikku/library/__init__.py:727
+#: ../komikku/library/__init__.py:750
 msgid "Failed to update reading status"
 msgstr "Не вдалося оновити статус читання"
 
-#: ../komikku/library/__init__.py:749
+#: ../komikku/library/__init__.py:772
 msgid "Add New Comic"
 msgstr ""
 
-#: ../komikku/library/__init__.py:779 ../komikku/library/categories_list.py:145
+#: ../komikku/library/__init__.py:803 ../komikku/library/categories_list.py:145
 msgid "Uncategorized"
 msgstr "Без категорії"
 
 #: ../komikku/library/categories_list.py:139
 #: ../komikku/servers/bilibili/__init__.py:39
 #: ../komikku/servers/mangapill/__init__.py:36
-#: ../komikku/servers/multi/manga_stream.py:56
+#: ../komikku/servers/multi/manga_stream.py:59
 #: ../komikku/servers/webtoon/__init__.py:51
 msgid "All"
 msgstr "Всі"
@@ -1339,35 +1280,35 @@ msgstr "Призупинено"
 msgid "Hiatus"
 msgstr "Перерва"
 
-#: ../komikku/models/database.py:1246
+#: ../komikku/models/database.py:1243
 msgid "Download pending"
 msgstr "Очікується завантаження"
 
-#: ../komikku/models/database.py:1247
+#: ../komikku/models/database.py:1244
 msgid "Downloaded"
 msgstr "Завантажено"
 
-#: ../komikku/models/database.py:1248
+#: ../komikku/models/database.py:1245
 msgid "Downloading"
 msgstr "Завантажуємо"
 
-#: ../komikku/models/database.py:1249
+#: ../komikku/models/database.py:1246
 msgid "Download error"
 msgstr "Помилка завантаження"
 
-#: ../komikku/preferences.py:132
+#: ../komikku/preferences.py:128
 msgid "Clear?"
 msgstr "Очистити?"
 
-#: ../komikku/preferences.py:133
+#: ../komikku/preferences.py:129
 msgid "Are you sure you want to clear chapters cache and database?"
 msgstr "Ви впевнені, що хочете очистити кеш глав і базу даних?"
 
-#: ../komikku/preferences.py:161
+#: ../komikku/preferences.py:157
 msgid "Disable animations?"
 msgstr "Вимкнути анімації?"
 
-#: ../komikku/preferences.py:162
+#: ../komikku/preferences.py:158
 msgid ""
 "Are you sure you want to disable animations?\n"
 "\n"
@@ -1377,32 +1318,32 @@ msgstr ""
 "\n"
 "Навігація жестами в читалці більше не буде працювати належним чином."
 
-#: ../komikku/preferences.py:163
+#: ../komikku/preferences.py:159
 msgid "Disable"
 msgstr "Вимкнути"
 
-#: ../komikku/preferences.py:580
+#: ../komikku/preferences.py:568
 msgid "User Account"
 msgstr "Обліковий запис користувача"
 
-#: ../komikku/preferences.py:588
+#: ../komikku/preferences.py:576
 msgid "Address"
 msgstr "Адреса"
 
-#: ../komikku/preferences.py:594
+#: ../komikku/preferences.py:582
 msgid "Username"
 msgstr "Ім'я користувача"
 
-#: ../komikku/preferences.py:598
+#: ../komikku/preferences.py:586
 msgid "Password"
 msgstr "Пароль"
 
-#: ../komikku/preferences.py:610
+#: ../komikku/preferences.py:598
 #, fuzzy
 msgid "System keyring service is disabled. Credential cannot be saved."
 msgstr "Службу зв'язки ключів вимкнено. Обліковий запис не вдається зберегти."
 
-#: ../komikku/preferences.py:615
+#: ../komikku/preferences.py:603
 #, fuzzy
 msgid ""
 "No keyring backends were found to store credential. Use plaintext storage as "
@@ -1411,7 +1352,7 @@ msgstr ""
 "Не знайдено жодного бекенда для зберігання облікових даних. Використовуйте "
 "сховище простого тексту як запасний варіант."
 
-#: ../komikku/preferences.py:620
+#: ../komikku/preferences.py:608
 msgid ""
 "No keyring backends were found to store credential. Plaintext storage will "
 "be used as fallback."
@@ -1419,7 +1360,7 @@ msgstr ""
 "Не було знайдено бекендів для зберігання облікових даних. Як запасний "
 "варіант буде використано сховище простого тексту."
 
-#: ../komikku/preferences.py:628
+#: ../komikku/preferences.py:616
 msgid "Test"
 msgstr "Тест"
 
@@ -1497,6 +1438,7 @@ msgid "Filter by types"
 msgstr "Фільтрувати за типами"
 
 #: ../komikku/servers/dynasty/__init__.py:42
+#: ../komikku/servers/mangadex/__init__.py:104
 msgid "Anthology"
 msgstr "Антологія"
 
@@ -1521,16 +1463,16 @@ msgid "With Tags"
 msgstr "З тегами"
 
 #: ../komikku/servers/dynasty/__init__.py:53
-msgid "Tags to search for"
-msgstr "Теги для пошуку"
+msgid "Comma seperated list of tags to search for"
+msgstr ""
 
 #: ../komikku/servers/dynasty/__init__.py:59
 msgid "Without Tags"
 msgstr "Без тегів"
 
 #: ../komikku/servers/dynasty/__init__.py:60
-msgid "Tags to exclude from search"
-msgstr "Теги, які потрібно виключити з пошуку"
+msgid "Comma seperated list of tags to exclude from search"
+msgstr ""
 
 #: ../komikku/servers/exceptions.py:10
 msgid "Error: {}"
@@ -1623,16 +1565,85 @@ msgstr ""
 msgid "Seinen"
 msgstr ""
 
+#: ../komikku/servers/mangadex/__init__.py:98
+msgid "Tags"
+msgstr ""
+
+#: ../komikku/servers/mangadex/__init__.py:99
+msgid "Filter by formats"
+msgstr ""
+
+#: ../komikku/servers/mangadex/__init__.py:102
+msgid "4-Koma"
+msgstr ""
+
+#: ../komikku/servers/mangadex/__init__.py:103
+msgid "Adaptation"
+msgstr ""
+
+#: ../komikku/servers/mangadex/__init__.py:105
+msgid "Award Winning"
+msgstr ""
+
+#: ../komikku/servers/mangadex/__init__.py:106
+#: ../komikku/servers/mangapill/__init__.py:40
+msgid "Doujinshi"
+msgstr "Додзінсі"
+
+#: ../komikku/servers/mangadex/__init__.py:107
+msgid "Fan Colored"
+msgstr ""
+
+#: ../komikku/servers/mangadex/__init__.py:108
+msgid "Full Color"
+msgstr ""
+
+#: ../komikku/servers/mangadex/__init__.py:109
+msgid "Long Strip"
+msgstr ""
+
+#: ../komikku/servers/mangadex/__init__.py:110
+msgid "Official Colored"
+msgstr ""
+
+#: ../komikku/servers/mangadex/__init__.py:111
+msgid "Oneshot"
+msgstr ""
+
+#: ../komikku/servers/mangadex/__init__.py:112
+msgid "Self-Published"
+msgstr ""
+
+#: ../komikku/servers/mangadex/__init__.py:113
+msgid "Web Comic"
+msgstr ""
+
+#: ../komikku/servers/mangadex/__init__.py:119
+msgid "Tags Inclusion Mode"
+msgstr ""
+
+#: ../komikku/servers/mangadex/__init__.py:120
+msgid "Include manga that match <b>all</b> tags (AND) or <b>any</b> tag (OR)"
+msgstr ""
+
+#: ../komikku/servers/mangadex/__init__.py:124
+msgid "AND"
+msgstr ""
+
+#: ../komikku/servers/mangadex/__init__.py:125
+msgid "OR"
+msgstr ""
+
 #: ../komikku/servers/mangapill/__init__.py:31
 #: ../komikku/servers/mangatube/__init__.py:33
 #: ../komikku/servers/mangaworld/__init__.py:30
-#: ../komikku/servers/multi/manga_stream.py:51
+#: ../komikku/servers/multi/manga_stream.py:54
 #: ../komikku/servers/webtoon/__init__.py:46
 msgid "Type"
 msgstr "Тип"
 
 #: ../komikku/servers/mangapill/__init__.py:32
-#: ../komikku/servers/multi/manga_stream.py:52
+#: ../komikku/servers/multi/manga_stream.py:55
 #: ../komikku/servers/webtoon/__init__.py:47
 msgid "Filter by type"
 msgstr "Фільтрувати за типами"
@@ -1640,7 +1651,7 @@ msgstr "Фільтрувати за типами"
 #: ../komikku/servers/mangapill/__init__.py:37
 #: ../komikku/servers/mangatube/__init__.py:38
 #: ../komikku/servers/mangaworld/__init__.py:34
-#: ../komikku/servers/multi/manga_stream.py:57
+#: ../komikku/servers/multi/manga_stream.py:60
 msgid "Manga"
 msgstr "Манґа"
 
@@ -1654,21 +1665,17 @@ msgstr "Роман"
 msgid "One Shot"
 msgstr "Ваншот"
 
-#: ../komikku/servers/mangapill/__init__.py:40
-msgid "Doujinshi"
-msgstr "Додзінсі"
-
 #: ../komikku/servers/mangapill/__init__.py:41
 #: ../komikku/servers/mangatube/__init__.py:39
 #: ../komikku/servers/mangaworld/__init__.py:36
-#: ../komikku/servers/multi/manga_stream.py:58
+#: ../komikku/servers/multi/manga_stream.py:61
 msgid "Manhwa"
 msgstr "Манхва"
 
 #: ../komikku/servers/mangapill/__init__.py:42
 #: ../komikku/servers/mangatube/__init__.py:40
 #: ../komikku/servers/mangaworld/__init__.py:35
-#: ../komikku/servers/multi/manga_stream.py:59
+#: ../komikku/servers/multi/manga_stream.py:62
 msgid "Manhua"
 msgstr "Манхуа"
 
@@ -1685,7 +1692,7 @@ msgid "Webtoon"
 msgstr "Вебтун"
 
 #: ../komikku/servers/mangatube/__init__.py:42
-#: ../komikku/servers/multi/manga_stream.py:60
+#: ../komikku/servers/multi/manga_stream.py:63
 msgid "Comic"
 msgstr "Комікс"
 
@@ -1733,23 +1740,23 @@ msgstr ""
 msgid "Canvas"
 msgstr ""
 
-#: ../komikku/updater.py:104
+#: ../komikku/updater.py:105
 msgid "Library update completed with errors"
 msgstr "Оновлення бібліотеки завершено з помилками"
 
-#: ../komikku/updater.py:106
+#: ../komikku/updater.py:107
 msgid "Library update completed"
 msgstr "Оновлення бібліотеки завершено"
 
-#: ../komikku/updater.py:109
+#: ../komikku/updater.py:110
 msgid "Update completed with errors"
 msgstr "Оновлення завершено з помилками"
 
-#: ../komikku/updater.py:111
+#: ../komikku/updater.py:112
 msgid "Update completed"
 msgstr "Оновлення завершено"
 
-#: ../komikku/updater.py:115
+#: ../komikku/updater.py:116
 #, python-brace-format
 msgid "{0} successful update"
 msgid_plural "{0} successful updates"
@@ -1757,7 +1764,7 @@ msgstr[0] ""
 msgstr[1] ""
 msgstr[2] ""
 
-#: ../komikku/updater.py:116 ../komikku/updater.py:132
+#: ../komikku/updater.py:117 ../komikku/updater.py:133
 #, python-brace-format
 msgid "{0} new chapter"
 msgid_plural "{0} new chapters"
@@ -1765,11 +1772,11 @@ msgstr[0] ""
 msgstr[1] ""
 msgstr[2] ""
 
-#: ../komikku/updater.py:118 ../komikku/updater.py:140
+#: ../komikku/updater.py:119 ../komikku/updater.py:141
 msgid "No new chapters"
 msgstr ""
 
-#: ../komikku/updater.py:121
+#: ../komikku/updater.py:122
 #, python-brace-format
 msgid "{0} update failed"
 msgid_plural "{0} updates failed"
@@ -1777,11 +1784,11 @@ msgstr[0] ""
 msgstr[1] ""
 msgstr[2] ""
 
-#: ../komikku/updater.py:158
+#: ../komikku/updater.py:159
 msgid "Oops, update has failed. Please try again."
 msgstr "На жаль, оновлення не вдалося. Спробуйте ще раз."
 
-#: ../komikku/updater.py:167
+#: ../komikku/updater.py:168
 msgid "Library update started"
 msgstr "Розпочато оновлення бібліотеки"
 
@@ -1796,6 +1803,32 @@ msgstr "Немає з'єднання з Інтернетом, таймаут а�
 #: ../komikku/webview.py:357
 msgid "Please complete CAPTCHA"
 msgstr "Будь ласка, заповніть CAPTCHA"
+
+#~ msgid "Read your favorite manga"
+#~ msgstr "Читайте свою улюблену мангу"
+
+#~ msgid ""
+#~ "With its simple, elegant and adaptive interface, this manga reader allows "
+#~ "you to search, sort and read all your favorite manga with ease."
+#~ msgstr ""
+#~ "Завдяки простому, елегантному та адаптивному інтерфейсу, ця програма для "
+#~ "читання манги дозволяє легко шукати, сортувати та читати всі ваші "
+#~ "улюблені манги."
+
+#~ msgid "Support for locally stored manga (in CBZ or CBR formats)"
+#~ msgstr "Підтримка локально збереженої манги (у форматах CBZ або CBR)"
+
+#~ msgid "Automatic update of manga"
+#~ msgstr "Автоматичне оновлення манги"
+
+#~ msgid "@authorfullname@"
+#~ msgstr "@authorfullname@"
+
+#~ msgid "Tags to search for"
+#~ msgstr "Теги для пошуку"
+
+#~ msgid "Tags to exclude from search"
+#~ msgstr "Теги, які потрібно виключити з пошуку"
 
 #, python-brace-format
 #~ msgid ""
