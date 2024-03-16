@@ -37,6 +37,10 @@ install_data (
     install_dir: symbolic_dir
 )
 install_data (
+    'filter-symbolic.svg',
+    install_dir: symbolic_dir
+)
+install_data (
     'grid-symbolic.svg',
     install_dir: symbolic_dir
 )
