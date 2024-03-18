@@ -18,6 +18,7 @@ class Scanmanga(Server):
     lang = 'fr'
     is_nsfw = True
     long_strip_genres = ['Webcomic', ]
+    status = 'disabled'  # 2024/03 chapters images URLs have become difficult to extract (no time for that)
 
     base_url = 'https://www.scan-manga.com'
     latest_updates_url = base_url + '/?po'
@@ -110,7 +111,7 @@ class Scanmanga(Server):
         # Chapters
         for element in reversed(soup.find_all('div', class_='chapitre_nom')):
             a_element = element.a
-            if not a_element or element.find('p', class_='typcn'):
+            if not a_element or element.find('p', class_='typcn-lock-closed'):
                 # Skip external chapters
                 continue
 
