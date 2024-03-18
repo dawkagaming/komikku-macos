@@ -9,6 +9,7 @@ class Scanfr(MyMangaReaderCMS):
     id = 'scanfr'
     name = 'Scan FR'
     lang = 'fr'
+    status = 'disabled'  # 2024/03 gone
 
     base_url = 'https://www.scan-fr.org'
     search_url = base_url + '/search'
