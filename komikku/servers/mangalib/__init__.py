@@ -3,7 +3,7 @@
 # Author: GrownNed <grownned@gmail.com>
 
 from bs4 import BeautifulSoup
-import requests
+from curl_cffi import requests
 import json
 
 from komikku.servers import Server
