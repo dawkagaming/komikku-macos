@@ -235,20 +235,23 @@ class Comicbookplus(Server):
         return results
 
     def search(self, term):
-        # Use DuckDuckGo Lite
+        # Use DuckDuckGo
         results = []
-        for ddg_result in search_duckduckgo(urlparse(self.base_url).netloc, term):
+        for ddg_result in search_duckduckgo(urlparse(self.base_url).netloc, term, nb_pages=3):
             qs = parse_qs(urlparse(ddg_result['url']).query)
             if 'cid' not in qs:
                 # Not a comic url
                 continue
 
+            slug = qs['cid'][0]
+            if slug in ('1507',):
+                continue
             # Remove ' - Comic Book Plus' at end of name
             name = ddg_result['name'].replace(' - Comic Book Plus', '')
 
             results.append(dict(
                 name=name,
-                slug=qs['cid'][0],
+                slug=slug,
             ))
 
         return results
