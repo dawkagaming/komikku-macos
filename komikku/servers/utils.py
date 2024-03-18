@@ -9,6 +9,7 @@ import importlib
 import inspect
 from io import BytesIO
 import itertools
+import json
 import logging
 import math
 from operator import itemgetter
@@ -17,14 +18,14 @@ from pkgutil import iter_modules
 import re
 import struct
 import sys
+import time
 
-from bs4 import BeautifulSoup
 from bs4 import NavigableString
+from curl_cffi import requests
 import dateparser
 import emoji
 import magic
 from PIL import Image
-import requests
 
 from komikku.servers.loader import server_finder
 
@@ -295,37 +296,84 @@ def remove_emoji_from_string(text):
     return emoji.replace_emoji(text, replace='').strip()
 
 
-def search_duckduckgo(site, term):
+def search_duckduckgo(site, term, nb_pages=1):
     from komikku.servers import USER_AGENT
 
-    session = requests.Session()
-    session.headers.update({'User-Agent': USER_AGENT})
+    # https://github.com/deedy5/duckduckgo_search/blob/main/duckduckgo_search/duckduckgo_search_async.py
+    session = requests.Session(impersonate='chrome')
+    session.headers.update({'User-Agent': USER_AGENT, 'Referer': 'https://duckduckgo.com/'})
 
-    try:
-        url = 'https://lite.duckduckgo.com'
-        session.get(url)
-        r = session.post(
-            url + '/lite',
-            data={
-                'q': f'site:{site} {term}',
-            },
-            headers={
-                'Content-Type': 'application/x-www-form-urlencoded',
-                'Origin': url,
-                'Referer': url + '/',
-            },
+    def extract_vqd(html_bytes, keywords):
+        """Extract vqd param from HTML bytes"""
+        for c1, c1_len, c2 in (
+            (b'vqd="', 5, b'"'),
+            (b"vqd=", 4, b"&"),
+            (b"vqd='", 5, b"'"),
+        ):
+            try:
+                start = html_bytes.index(c1) + c1_len
+                end = html_bytes.index(c2, start)
+            except ValueError:
+                return None
+            else:
+                return html_bytes[start:end].decode()
+
+    def extract_json(html_bytes, keywords):
+        """Extract JSON from HTML bytes"""
+        try:
+            start = html_bytes.index(b"DDG.pageLayout.load('d',") + 24
+            end = html_bytes.index(b");DDG.duckbar.load(", start)
+            data = html_bytes[start:end]
+            result = json.loads(data)
+        except Exception:
+            return None
+        else:
+            return result
+
+    def get_page(num, q, vqd):
+        url = 'https://links.duckduckgo.com/d.js'
+        s = 23 + 50 * (num - 1) if num > 0 else 0
+
+        r = session.get(
+            url,
+            params={
+                'q': q,
+                'kl': 'wt-wt',
+                "l": 'wt-wt',
+                'vqd': vqd,
+                'bing_market': 'wt-wt',
+                'a': 'ftsa',  # something
+                's': s,
+            }
         )
-    except Exception as error:
-        logger.debug(error)
-        raise
+        if result := extract_json(r.content, q):
+            return result
 
-    soup = BeautifulSoup(r.text, 'html.parser')
+        logger.exception('DuckDuckGo search: failed to extract JSON')
+        return []
+
+    q = f'site:{site} {term}'
+    r = session.get('https://duckduckgo.com', params={'q': q})
+
+    vqd = extract_vqd(r.content, q)
+    if vqd is None:
+        logger.exception('DuckDuckGo search: failed to extract vqd parameter')
+        return []
+
+    data = []
+    for num in range(nb_pages):
+        data += get_page(num, q, vqd)
+        time.sleep(1)
 
     results = []
-    for a_element in soup.find_all('a', class_='result-link'):
+    for item in data:
+        url = item.get('u')
+        if not url or url == f'http://www.google.com/search?q={q}':
+            continue
+
         results.append(dict(
-            name=a_element.text.strip(),
-            url=a_element.get('href'),
+            name=item.get('t'),
+            url=url,
         ))
 
     return results
