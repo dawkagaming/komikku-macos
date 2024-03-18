@@ -10,6 +10,7 @@ class Jpmangas(MyMangaReaderCMS):
     name = 'Jpmangas'
     lang = 'fr'
     is_nsfw = True
+    status = 'disabled'  # 2024/03 gone
 
     base_url = 'https://jpmangas.xyz'
     search_url = base_url + '/search'
