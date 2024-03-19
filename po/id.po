@@ -3,13 +3,14 @@
 # This file is distributed under the same license as the Komikku package.
 # Alifiyan Rosyidi <hello@ar14.works>, 2023, 2024.
 # Alim Satria <alimsatria2017@mail.ugm.ac.id>, 2023.
+# Juan Manuel <juanmanueldilo09@gmail.com>, 2024.
 msgid ""
 msgstr ""
 "Project-Id-Version: Komikku 1.12.1\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-03-16 01:42+0100\n"
-"PO-Revision-Date: 2024-01-17 00:11+0000\n"
-"Last-Translator: Alifiyan Rosyidi <hello@ar14.works>\n"
+"PO-Revision-Date: 2024-03-20 14:01+0000\n"
+"Last-Translator: Juan Manuel <juanmanueldilo09@gmail.com>\n"
 "Language-Team: Indonesian <https://hosted.weblate.org/projects/komikku/main/"
 "id/>\n"
 "Language: id\n"
@@ -17,11 +18,11 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 5.4-dev\n"
+"X-Generator: Weblate 5.5-dev\n"
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:11
 msgid "Discover and read manga, webtoons, comics, and more"
-msgstr ""
+msgstr "Temukan dan baca manga, webtoon, komik, dan banyak lagi"
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:13
 msgid ""
