@@ -43,8 +43,8 @@ endif
 #
 dependency('glib-2.0')
 dependency('gobject-introspection-1.0')
-dependency('gtk4', version: '>=4.12.1')
-dependency('libadwaita-1', version: '>=1.4.0')
+dependency('gtk4', version: '>=4.12')
+dependency('libadwaita-1', version: '>=1.5')
 
 #
 # gschema XML file
