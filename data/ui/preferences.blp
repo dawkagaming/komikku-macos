@@ -146,7 +146,7 @@ template $PreferencesDialog : Adw.PreferencesDialog {
     }
 
     Adw.PreferencesGroup {
-      title: _("Servers");
+      title: _("Explorer");
 
       Adw.ActionRow servers_languages_actionrow {
         title: _("Servers Languages");
@@ -170,7 +170,9 @@ template $PreferencesDialog : Adw.PreferencesDialog {
         title: _("Long Strip Detection");
         subtitle: _("Automatically detect long vertical strip when possible");
       }
+    }
 
+    Adw.PreferencesGroup {
       Adw.SwitchRow nsfw_content_switch {
         title: _("NSFW Content (18+)");
         subtitle: _("Whether to enable servers with NSFW content");
@@ -179,6 +181,18 @@ template $PreferencesDialog : Adw.PreferencesDialog {
       Adw.SwitchRow nsfw_only_content_switch {
         title: _("NSFW Only Content (18+)");
         subtitle: _("Whether to enable servers with NSFW only content");
+      }
+
+      Label {
+        label: _("These settings do not prevent potentially incorrectly flagged servers from surfacing NSFW content.");
+        wrap: true;
+        margin-top: 6;
+        xalign: 0;
+
+        styles [
+          "caption",
+          "dim-label",
+        ]
       }
     }
   }
