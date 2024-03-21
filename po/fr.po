@@ -6,10 +6,10 @@ msgstr ""
 "Project-Id-Version: unnamed project\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-03-21 23:14+0100\n"
-"PO-Revision-Date: 2024-03-17 02:01+0000\n"
+"PO-Revision-Date: 2024-03-21 22:53+0000\n"
 "Last-Translator: Valéry Febvre <vfebvre@easter-eggs.com>\n"
-"Language-Team: French <https://hosted.weblate.org/projects/komikku/main/fr/"
-">\n"
+"Language-Team: French <https://hosted.weblate.org/projects/komikku/main/fr/>"
+"\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -121,23 +121,23 @@ msgstr "La page Historique de lecture en format mobile"
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:106
 msgid ""
 "[UX] Refined visuals taking advantage of the new capabilities of GNOME 46"
-msgstr ""
+msgstr "[UX] Des visuels raffinés profitant des nouvelles capacités de GNOME 46"
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:107
 msgid "[Servers] Added Lelmanga (FR)"
-msgstr ""
+msgstr "[Serveurs] Ajout de Lelmanga (FR)"
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:108
 msgid "[Servers] Added Lelscan (FR)"
-msgstr ""
+msgstr "[Serveurs] Ajout de Lelscan (FR)"
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:109
 msgid "[Servers] Added Night scans (EN)"
-msgstr ""
+msgstr "[Serveurs] Ajout de Night scans (EN)"
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:110
 msgid "[Servers] Comic Book Plus (EN): Fixed search"
-msgstr ""
+msgstr "[Serveurs] Comic Book Plus (EN) : Correction de la recherche"
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:111
 msgid "[Servers] MANGA Plus by SHUEISHA: Update"
@@ -145,31 +145,31 @@ msgstr "[Serveurs] MANGA Plus by SHUEISHA : Mise à jour"
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:112
 msgid "[Servers] MangaDex: Added Tags filter"
-msgstr ""
+msgstr "[Serveurs] MangaDex : Ajout du filtre Étiquettes"
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:113
 msgid "[Servers] MangaLib (RU): Update"
-msgstr ""
+msgstr "[Serveurs] MangaLib (RU) : Mise à jour"
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:114
 msgid "[Servers] Mangaowl (EN): Update"
-msgstr ""
+msgstr "[Serveurs] Mangaowl (EN) : Mise à jour"
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:115
 msgid "[Servers] Jpmangas (FR): Disabled"
-msgstr ""
+msgstr "[Serveurs] Jpmangas (FR) : Désactivé"
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:116
 msgid "[Servers] Reaper Scans (pt_BR): Disabled"
-msgstr ""
+msgstr "[Serveurs] Reaper Scans (pt_BR) : Désactivé"
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:117
 msgid "[Servers] Scan FR: Disabled"
-msgstr ""
+msgstr "[Serveurs] Scan FR : Désactivé"
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:118
 msgid "[Servers] Scan Manga (FR): Disabled"
-msgstr ""
+msgstr "[Serveurs] Scan Manga (FR) : Désactivé"
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:119
 msgid "[L10n] Updated French, Russian, Spanish and Turkish translations"
@@ -566,7 +566,7 @@ msgstr "Télécharger automatiquement les nouveaux chapitres"
 
 #: ../data/ui/preferences.blp:149
 msgid "Explorer"
-msgstr ""
+msgstr "Explorateur"
 
 #: ../data/ui/preferences.blp:152
 #: ../data/ui/preferences_servers_languages.blp:6
@@ -616,6 +616,8 @@ msgid ""
 "These settings do not prevent potentially incorrectly flagged servers from "
 "surfacing NSFW content."
 msgstr ""
+"Ces paramètres n'empêchent pas les serveurs potentiellement incorrectement "
+"signalés d'afficher du contenu NSFW."
 
 #: ../data/ui/preferences.blp:202 ../data/ui/reader.blp:6
 msgid "Reader"
