@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-03-16 01:42+0100\n"
+"POT-Creation-Date: 2024-03-21 23:14+0100\n"
 "PO-Revision-Date: 2024-02-19 22:51+0000\n"
 "Last-Translator: Mikachu <micah.sh@proton.me>\n"
 "Language-Team: Dutch <https://hosted.weblate.org/projects/komikku/main/nl/>\n"
@@ -115,30 +115,63 @@ msgid "The Reading history page in mobile format"
 msgstr "De Leesgeschiedenispagina in mobiel formaat"
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:106
-msgid "[Library] Add an indicator when an partial update is in progress"
+msgid ""
+"[UX] Refined visuals taking advantage of the new capabilities of GNOME 46"
 msgstr ""
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:107
-msgid "[Servers] Added Mangago (EN)"
+msgid "[Servers] Added Lelmanga (FR)"
 msgstr ""
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:108
-msgid "[Serverd] Added Rawdevart (JA)"
+msgid "[Servers] Added Lelscan (FR)"
 msgstr ""
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:109
-msgid "[Servers] Asura Scans (EN): Update"
+msgid "[Servers] Added Night scans (EN)"
 msgstr ""
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:110
-msgid "[Servers] Perf Scan (FR): Update"
+msgid "[Servers] Comic Book Plus (EN): Fixed search"
 msgstr ""
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:111
-msgid "[L10n] Updated Dutch, Spanish and Turkish translations"
+msgid "[Servers] MANGA Plus by SHUEISHA: Update"
+msgstr ""
+
+#: ../data/info.febvre.Komikku.appdata.xml.in.in:112
+msgid "[Servers] MangaDex: Added Tags filter"
 msgstr ""
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:113
+msgid "[Servers] MangaLib (RU): Update"
+msgstr ""
+
+#: ../data/info.febvre.Komikku.appdata.xml.in.in:114
+msgid "[Servers] Mangaowl (EN): Update"
+msgstr ""
+
+#: ../data/info.febvre.Komikku.appdata.xml.in.in:115
+msgid "[Servers] Jpmangas (FR): Disabled"
+msgstr ""
+
+#: ../data/info.febvre.Komikku.appdata.xml.in.in:116
+msgid "[Servers] Reaper Scans (pt_BR): Disabled"
+msgstr ""
+
+#: ../data/info.febvre.Komikku.appdata.xml.in.in:117
+msgid "[Servers] Scan FR: Disabled"
+msgstr ""
+
+#: ../data/info.febvre.Komikku.appdata.xml.in.in:118
+msgid "[Servers] Scan Manga (FR): Disabled"
+msgstr ""
+
+#: ../data/info.febvre.Komikku.appdata.xml.in.in:119
+msgid "[L10n] Updated French, Russian, Spanish and Turkish translations"
+msgstr ""
+
+#: ../data/info.febvre.Komikku.appdata.xml.in.in:121
 msgid "Happy reading."
 msgstr "Vrolijk lezen."
 
@@ -256,7 +289,7 @@ msgstr "Meest populaire"
 msgid "Latest Updates"
 msgstr "Laatste updates"
 
-#: ../data/ui/explorer_servers.blp:6 ../data/ui/preferences.blp:149
+#: ../data/ui/explorer_servers.blp:6
 msgid "Servers"
 msgstr "Servers"
 
@@ -522,6 +555,10 @@ msgstr "Automatisch downloaden van nieuwe hoofdstukken"
 msgid "Automatically download new chapters"
 msgstr "Automatisch nieuwe hoofdstukken downloaden"
 
+#: ../data/ui/preferences.blp:149
+msgid "Explorer"
+msgstr ""
+
 #: ../data/ui/preferences.blp:152
 #: ../data/ui/preferences_servers_languages.blp:6
 #: ../data/ui/preferences_servers_languages.blp:12
@@ -549,117 +586,123 @@ msgstr "Lange strook detectie"
 msgid "Automatically detect long vertical strip when possible"
 msgstr "Detecteert automatisch lange verticale strook indien mogelijk"
 
-#: ../data/ui/preferences.blp:175
+#: ../data/ui/preferences.blp:177
 msgid "NSFW Content (18+)"
 msgstr "NSFW-inhoud (18+)"
 
-#: ../data/ui/preferences.blp:176
+#: ../data/ui/preferences.blp:178
 msgid "Whether to enable servers with NSFW content"
 msgstr "Of servers met NSFW-inhoud moeten worden ingeschakeld"
 
-#: ../data/ui/preferences.blp:180
+#: ../data/ui/preferences.blp:182
 msgid "NSFW Only Content (18+)"
 msgstr "Alleen NSFW-inhoud (18+)"
 
-#: ../data/ui/preferences.blp:181
+#: ../data/ui/preferences.blp:183
 msgid "Whether to enable servers with NSFW only content"
 msgstr "Of servers met alleen NSFW-inhoud moeten worden ingeschakeld"
 
-#: ../data/ui/preferences.blp:188 ../data/ui/reader.blp:6
+#: ../data/ui/preferences.blp:187
+msgid ""
+"These settings do not prevent potentially incorrectly flagged servers from "
+"surfacing NSFW content."
+msgstr ""
+
+#: ../data/ui/preferences.blp:202 ../data/ui/reader.blp:6
 msgid "Reader"
 msgstr "Lezer"
 
-#: ../data/ui/preferences.blp:193
+#: ../data/ui/preferences.blp:207
 msgid "Reading Mode"
 msgstr "Leesmodus"
 
-#: ../data/ui/preferences.blp:196
+#: ../data/ui/preferences.blp:210
 msgid "⬅ Right to Left"
 msgstr "⬅ Rechts naar links"
 
-#: ../data/ui/preferences.blp:197
+#: ../data/ui/preferences.blp:211
 msgid "➡ Left to Right"
 msgstr "➡ Links naar rechts"
 
-#: ../data/ui/preferences.blp:198
+#: ../data/ui/preferences.blp:212
 msgid "⬇ Vertical"
 msgstr "⬇ Verticaal"
 
-#: ../data/ui/preferences.blp:199
+#: ../data/ui/preferences.blp:213
 msgid "⬇ Webtoon"
 msgstr "⬇ Webtoon"
 
-#: ../data/ui/preferences.blp:205
+#: ../data/ui/preferences.blp:219
 msgid "Maximum Width"
 msgstr "Maximale breedte"
 
-#: ../data/ui/preferences.blp:206
+#: ../data/ui/preferences.blp:220
 msgid ""
 "Constrain reader's width to a given maximum size (Webtoon reading mode only)"
 msgstr ""
 "Beperk de breedte van de lezer tot een bepaalde maximumgrootte (alleen voor "
 "Webtoon-leesmodus)"
 
-#: ../data/ui/preferences.blp:217
+#: ../data/ui/preferences.blp:231
 msgid "Scaling"
 msgstr "Schalen"
 
-#: ../data/ui/preferences.blp:218
+#: ../data/ui/preferences.blp:232
 msgid "Type of scaling to adapt image"
 msgstr "Hoe afbeeldingen moeten worden geschaald"
 
-#: ../data/ui/preferences.blp:221
+#: ../data/ui/preferences.blp:235
 msgid "Adapt to Screen"
 msgstr "Aanpassen aan schermformaat"
 
-#: ../data/ui/preferences.blp:222
+#: ../data/ui/preferences.blp:236
 msgid "Adapt to Width"
 msgstr "Inpassen in breedte"
 
-#: ../data/ui/preferences.blp:223
+#: ../data/ui/preferences.blp:237
 msgid "Adapt to Height"
 msgstr "Inpassen in hoogte"
 
-#: ../data/ui/preferences.blp:224
+#: ../data/ui/preferences.blp:238
 msgid "Original Size"
 msgstr "Oorspronkelijke grootte"
 
-#: ../data/ui/preferences.blp:230
+#: ../data/ui/preferences.blp:244
 msgid "Landscape Pages Zoom"
 msgstr "Landschapspagina's Zoom"
 
-#: ../data/ui/preferences.blp:231
+#: ../data/ui/preferences.blp:245
 msgid ""
 "Zoom page to fit height when page is landscape (Adapt to Screen scaling only)"
 msgstr ""
 "Pagina in de hoogte aanpassen wanneer de pagina liggend is (alleen aanpassen "
 "aan de schaal van het scherm)"
 
-#: ../data/ui/preferences.blp:235
+#: ../data/ui/preferences.blp:249
 msgid "Background Color"
 msgstr "Achtergrondkleur"
 
-#: ../data/ui/preferences.blp:238
+#: ../data/ui/preferences.blp:252
 msgid "White"
 msgstr "Wit"
 
-#: ../data/ui/preferences.blp:239
+#: ../data/ui/preferences.blp:253
 msgid "Gray"
 msgstr "Grijs"
 
-#: ../data/ui/preferences.blp:240
+#: ../data/ui/preferences.blp:254
 msgid "Black"
 msgstr "Zwart"
 
-#: ../data/ui/preferences.blp:241
+#: ../data/ui/preferences.blp:255
 msgid "System Style"
 msgstr "Systeemstijl"
 
-#: ../data/ui/preferences.blp:247
+#: ../data/ui/preferences.blp:261
 msgid "Borders Crop"
 msgstr "Randen bijsnijden"
 
-#: ../data/ui/preferences.blp:248
+#: ../data/ui/preferences.blp:262
 msgid ""
 "Crop white borders of images\n"
 "\n"
@@ -671,63 +714,63 @@ msgstr ""
 "OPMERKING: Vereist meer CPU-gebruik en kan render- en animatievertragingen "
 "veroorzaken, vooral op mobiele apparaten."
 
-#: ../data/ui/preferences.blp:252
+#: ../data/ui/preferences.blp:266
 msgid "Page Numbering"
 msgstr "Paginanummering"
 
-#: ../data/ui/preferences.blp:253
+#: ../data/ui/preferences.blp:267
 msgid "Hide the page numbering at the bottom of the screen while reading"
 msgstr "Verberg de paginanummering onderaan het scherm tijdens het lezen"
 
-#: ../data/ui/preferences.blp:257
+#: ../data/ui/preferences.blp:271
 msgid "Fullscreen"
 msgstr "Volledig scherm"
 
-#: ../data/ui/preferences.blp:258
+#: ../data/ui/preferences.blp:272
 msgid "Automatically enter fullscreen mode"
 msgstr "Open de beeldvullende modus automatisch"
 
-#: ../data/ui/preferences.blp:265
+#: ../data/ui/preferences.blp:279
 msgid "Advanced"
 msgstr "Geavanceerd"
 
-#: ../data/ui/preferences.blp:269
+#: ../data/ui/preferences.blp:283
 msgid "Data"
 msgstr "Gegevens"
 
-#: ../data/ui/preferences.blp:270
+#: ../data/ui/preferences.blp:284
 msgid "Data not saved in the library"
 msgstr "Gegevens niet opgeslagen in de bibliotheek"
 
-#: ../data/ui/preferences.blp:273
+#: ../data/ui/preferences.blp:287
 msgid "Clear Chapters Cache and Database"
 msgstr "Wis Hoofdstuk-Cache en Database"
 
-#: ../data/ui/preferences.blp:278
+#: ../data/ui/preferences.blp:292
 msgid "Clear Chapters Cache and Database on Exit"
 msgstr "Wis Hoofdstuk-Cache en Database tijdens Afsluiten"
 
-#: ../data/ui/preferences.blp:283
+#: ../data/ui/preferences.blp:297
 msgid "Credentials Storage"
 msgstr "Referentiegegevensopslag"
 
-#: ../data/ui/preferences.blp:286
+#: ../data/ui/preferences.blp:300
 msgid "Allow Plaintext Storage as Fallback"
 msgstr "Toestaan van plain-textopslag als reserveoptie"
 
-#: ../data/ui/preferences.blp:287
+#: ../data/ui/preferences.blp:301
 msgid "Used when no keyring backends are found"
 msgstr "Gebruikt wanneer er geen sleutelring backends zijn gevonden"
 
-#: ../data/ui/preferences.blp:292
+#: ../data/ui/preferences.blp:306
 msgid "Tweaks"
 msgstr "Afstellingen"
 
-#: ../data/ui/preferences.blp:295
+#: ../data/ui/preferences.blp:309
 msgid "Disable Animations"
 msgstr "Animaties uitschakelen"
 
-#: ../data/ui/preferences.blp:296
+#: ../data/ui/preferences.blp:310
 msgid ""
 "Useful with E Ink e-readers to avoid very choppy and unpleasant animations "
 "(due to the low refresh rate of the screen)"
@@ -735,7 +778,7 @@ msgstr ""
 "Nuttig met E Ink e-readers om zeer hakkerige en onaangename animaties te "
 "vermijden (door de lage vernieuwingsfrequentie van het scherm)"
 
-#: ../data/ui/preferences.blp:300
+#: ../data/ui/preferences.blp:314
 msgid ""
 "This tweak is only intended for users who do not use the GNOME desktop "
 "environment and therefore cannot disable animations globally via GNOME "
@@ -894,27 +937,27 @@ msgstr "Annuleren"
 msgid "Supporters"
 msgstr "Supporters"
 
-#: ../komikku/application.py:431
+#: ../komikku/application.py:439
 msgid "Join Chat"
 msgstr "Deelnemen aan chat"
 
-#: ../komikku/application.py:519
+#: ../komikku/application.py:527
 msgid "Are you sure you want to quit?"
 msgstr "Weet u zeker dat u wilt afsluiten?"
 
-#: ../komikku/application.py:522
+#: ../komikku/application.py:530
 msgid "Some chapters are currently being downloaded."
 msgstr "Er worden nog hoofdstukken gedownload."
 
-#: ../komikku/application.py:524
+#: ../komikku/application.py:532
 msgid "Some mangas are currently being updated."
 msgstr "Er worden nog manga's bijgewerkt."
 
-#: ../komikku/application.py:528
+#: ../komikku/application.py:536
 msgid "Quit?"
 msgstr "Afsluiten?"
 
-#: ../komikku/application.py:530
+#: ../komikku/application.py:538
 msgid "Quit"
 msgstr "Afsluiten"
 
@@ -1061,8 +1104,8 @@ msgstr "Laatste Deel: {}"
 msgid "Comics stored locally as archives in CBZ/CBR formats"
 msgstr "Lokaal als archief opgeslagen strips in CBZ/CBR-formaat"
 
-#: ../komikku/explorer/common.py:188 ../komikku/preferences.py:540
-#: ../komikku/preferences.py:634 ../komikku/servers/mangatube/__init__.py:57
+#: ../komikku/explorer/common.py:188 ../komikku/preferences.py:534
+#: ../komikku/preferences.py:628 ../komikku/servers/mangatube/__init__.py:57
 msgid "18+"
 msgstr "18+"
 
@@ -1320,29 +1363,29 @@ msgstr ""
 msgid "Disable"
 msgstr "Uitschakelen"
 
-#: ../komikku/preferences.py:568
+#: ../komikku/preferences.py:562
 msgid "User Account"
 msgstr "Gebruikersaccount"
 
-#: ../komikku/preferences.py:576
+#: ../komikku/preferences.py:570
 msgid "Address"
 msgstr "Adres"
 
-#: ../komikku/preferences.py:582
+#: ../komikku/preferences.py:576
 msgid "Username"
 msgstr "Gebruikersnaam"
 
-#: ../komikku/preferences.py:586
+#: ../komikku/preferences.py:580
 msgid "Password"
 msgstr "Wachtwoord"
 
-#: ../komikku/preferences.py:598
+#: ../komikku/preferences.py:592
 msgid "System keyring service is disabled. Credential cannot be saved."
 msgstr ""
 "Sleutelbosservice van systeem is uitgeschakeld. Inloggegevens kunnen niet "
 "worden opgeslagen."
 
-#: ../komikku/preferences.py:603
+#: ../komikku/preferences.py:597
 msgid ""
 "No keyring backends were found to store credential. Use plaintext storage as "
 "fallback."
@@ -1350,7 +1393,7 @@ msgstr ""
 "Geen keyringservice gevonden om de inloggegevens op te slaan. Gebruik plain-"
 "textopslag als reserveoptie."
 
-#: ../komikku/preferences.py:608
+#: ../komikku/preferences.py:602
 msgid ""
 "No keyring backends were found to store credential. Plaintext storage will "
 "be used as fallback."
@@ -1358,7 +1401,7 @@ msgstr ""
 "Geen sleutelbosservice gevonden om de inloggegevens op te slaan. Plain-"
 "textopslag zal als reserveoptie worden gebruikt."
 
-#: ../komikku/preferences.py:616
+#: ../komikku/preferences.py:610
 msgid "Test"
 msgstr "Test"
 

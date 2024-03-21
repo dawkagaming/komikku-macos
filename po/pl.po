@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Komikku 1.23.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-03-16 01:42+0100\n"
+"POT-Creation-Date: 2024-03-21 23:14+0100\n"
 "PO-Revision-Date: 2023-12-01 14:49+0000\n"
 "Last-Translator: Lili Kurek <lilikurek@proton.me>\n"
 "Language-Team: Polish <https://hosted.weblate.org/projects/komikku/main/pl/"
@@ -119,30 +119,65 @@ msgid "The Reading history page in mobile format"
 msgstr "Strona Historia czytania w formacie mobilnym"
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:106
-msgid "[Library] Add an indicator when an partial update is in progress"
+msgid ""
+"[UX] Refined visuals taking advantage of the new capabilities of GNOME 46"
 msgstr ""
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:107
-msgid "[Servers] Added Mangago (EN)"
+msgid "[Servers] Added Lelmanga (FR)"
 msgstr ""
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:108
-msgid "[Serverd] Added Rawdevart (JA)"
+msgid "[Servers] Added Lelscan (FR)"
 msgstr ""
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:109
-msgid "[Servers] Asura Scans (EN): Update"
+msgid "[Servers] Added Night scans (EN)"
 msgstr ""
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:110
-msgid "[Servers] Perf Scan (FR): Update"
+msgid "[Servers] Comic Book Plus (EN): Fixed search"
 msgstr ""
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:111
-msgid "[L10n] Updated Dutch, Spanish and Turkish translations"
+msgid "[Servers] MANGA Plus by SHUEISHA: Update"
+msgstr "[Serwery] MANGA Plus by SHUEISHA: aktualizacja"
+
+#: ../data/info.febvre.Komikku.appdata.xml.in.in:112
+msgid "[Servers] MangaDex: Added Tags filter"
 msgstr ""
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:113
+msgid "[Servers] MangaLib (RU): Update"
+msgstr ""
+
+#: ../data/info.febvre.Komikku.appdata.xml.in.in:114
+msgid "[Servers] Mangaowl (EN): Update"
+msgstr ""
+
+#: ../data/info.febvre.Komikku.appdata.xml.in.in:115
+msgid "[Servers] Jpmangas (FR): Disabled"
+msgstr ""
+
+#: ../data/info.febvre.Komikku.appdata.xml.in.in:116
+msgid "[Servers] Reaper Scans (pt_BR): Disabled"
+msgstr ""
+
+#: ../data/info.febvre.Komikku.appdata.xml.in.in:117
+msgid "[Servers] Scan FR: Disabled"
+msgstr ""
+
+#: ../data/info.febvre.Komikku.appdata.xml.in.in:118
+msgid "[Servers] Scan Manga (FR): Disabled"
+msgstr ""
+
+#: ../data/info.febvre.Komikku.appdata.xml.in.in:119
+msgid "[L10n] Updated French, Russian, Spanish and Turkish translations"
+msgstr ""
+"[L10n] Aktualizacja tłumaczeń na język francuski, hiszpański, rosyjski i "
+"turecki"
+
+#: ../data/info.febvre.Komikku.appdata.xml.in.in:121
 msgid "Happy reading."
 msgstr "Miłej lektury."
 
@@ -260,7 +295,7 @@ msgstr "Najpopularniejsze"
 msgid "Latest Updates"
 msgstr "Najnowsze aktualizacje"
 
-#: ../data/ui/explorer_servers.blp:6 ../data/ui/preferences.blp:149
+#: ../data/ui/explorer_servers.blp:6
 msgid "Servers"
 msgstr "Serwery"
 
@@ -526,6 +561,10 @@ msgstr "Automatyczne pobieranie nowych rozdziałów"
 msgid "Automatically download new chapters"
 msgstr "Automatycznie pobierz nowe rozdziały"
 
+#: ../data/ui/preferences.blp:149
+msgid "Explorer"
+msgstr ""
+
 #: ../data/ui/preferences.blp:152
 #: ../data/ui/preferences_servers_languages.blp:6
 #: ../data/ui/preferences_servers_languages.blp:12
@@ -553,117 +592,123 @@ msgstr "Wykrycie long stripu"
 msgid "Automatically detect long vertical strip when possible"
 msgstr "Automatycznie wykrywaj długie pionowe pasy, gdy możliwe"
 
-#: ../data/ui/preferences.blp:175
+#: ../data/ui/preferences.blp:177
 msgid "NSFW Content (18+)"
 msgstr "Treść NSFW (18+)"
 
-#: ../data/ui/preferences.blp:176
+#: ../data/ui/preferences.blp:178
 msgid "Whether to enable servers with NSFW content"
 msgstr "Czy włączyć serwery z treścią NSFW"
 
-#: ../data/ui/preferences.blp:180
+#: ../data/ui/preferences.blp:182
 msgid "NSFW Only Content (18+)"
 msgstr "Treść wyłącznie NSFW (18+)"
 
-#: ../data/ui/preferences.blp:181
+#: ../data/ui/preferences.blp:183
 msgid "Whether to enable servers with NSFW only content"
 msgstr "Czy włączać serwery z treścią wyłącznie NSFW"
 
-#: ../data/ui/preferences.blp:188 ../data/ui/reader.blp:6
+#: ../data/ui/preferences.blp:187
+msgid ""
+"These settings do not prevent potentially incorrectly flagged servers from "
+"surfacing NSFW content."
+msgstr ""
+
+#: ../data/ui/preferences.blp:202 ../data/ui/reader.blp:6
 msgid "Reader"
 msgstr "Czytnik"
 
-#: ../data/ui/preferences.blp:193
+#: ../data/ui/preferences.blp:207
 msgid "Reading Mode"
 msgstr "Tryb czytania"
 
-#: ../data/ui/preferences.blp:196
+#: ../data/ui/preferences.blp:210
 msgid "⬅ Right to Left"
 msgstr "⬅ Z prawej do lewej"
 
-#: ../data/ui/preferences.blp:197
+#: ../data/ui/preferences.blp:211
 msgid "➡ Left to Right"
 msgstr "➡ Z lewej do prawej"
 
-#: ../data/ui/preferences.blp:198
+#: ../data/ui/preferences.blp:212
 msgid "⬇ Vertical"
 msgstr "⬇ Pionowo"
 
-#: ../data/ui/preferences.blp:199
+#: ../data/ui/preferences.blp:213
 msgid "⬇ Webtoon"
 msgstr "⬇ Webtoon"
 
-#: ../data/ui/preferences.blp:205
+#: ../data/ui/preferences.blp:219
 msgid "Maximum Width"
 msgstr "Maksymalna szerokość"
 
-#: ../data/ui/preferences.blp:206
+#: ../data/ui/preferences.blp:220
 msgid ""
 "Constrain reader's width to a given maximum size (Webtoon reading mode only)"
 msgstr ""
 "Ogranicz szerokość czytnika do określonego maksymalnego rozmiaru (tylko tryb "
 "czytania Webtoon)"
 
-#: ../data/ui/preferences.blp:217
+#: ../data/ui/preferences.blp:231
 msgid "Scaling"
 msgstr "Skalowanie"
 
-#: ../data/ui/preferences.blp:218
+#: ../data/ui/preferences.blp:232
 msgid "Type of scaling to adapt image"
 msgstr "Typ skalowania by dostosować obraz"
 
-#: ../data/ui/preferences.blp:221
+#: ../data/ui/preferences.blp:235
 msgid "Adapt to Screen"
 msgstr "Dostosuj do ekranu"
 
-#: ../data/ui/preferences.blp:222
+#: ../data/ui/preferences.blp:236
 msgid "Adapt to Width"
 msgstr "Dostosuj do szerokości"
 
-#: ../data/ui/preferences.blp:223
+#: ../data/ui/preferences.blp:237
 msgid "Adapt to Height"
 msgstr "Dostosuj do wysokości"
 
-#: ../data/ui/preferences.blp:224
+#: ../data/ui/preferences.blp:238
 msgid "Original Size"
 msgstr "Rozmiar oryginalny"
 
-#: ../data/ui/preferences.blp:230
+#: ../data/ui/preferences.blp:244
 msgid "Landscape Pages Zoom"
 msgstr "Przybliżenie szerokich stron"
 
-#: ../data/ui/preferences.blp:231
+#: ../data/ui/preferences.blp:245
 msgid ""
 "Zoom page to fit height when page is landscape (Adapt to Screen scaling only)"
 msgstr ""
 "Powiększanie strony, aby dopasować jej wysokość, gdy strona jest w układzie "
 "poziomym (tylko przy skalowaniu Dopasuj do ekranu)"
 
-#: ../data/ui/preferences.blp:235
+#: ../data/ui/preferences.blp:249
 msgid "Background Color"
 msgstr "Kolor tła"
 
-#: ../data/ui/preferences.blp:238
+#: ../data/ui/preferences.blp:252
 msgid "White"
 msgstr "Biały"
 
-#: ../data/ui/preferences.blp:239
+#: ../data/ui/preferences.blp:253
 msgid "Gray"
 msgstr "Szary"
 
-#: ../data/ui/preferences.blp:240
+#: ../data/ui/preferences.blp:254
 msgid "Black"
 msgstr "Czarny"
 
-#: ../data/ui/preferences.blp:241
+#: ../data/ui/preferences.blp:255
 msgid "System Style"
 msgstr "Styl systemu"
 
-#: ../data/ui/preferences.blp:247
+#: ../data/ui/preferences.blp:261
 msgid "Borders Crop"
 msgstr "Przycinanie krawędzi"
 
-#: ../data/ui/preferences.blp:248
+#: ../data/ui/preferences.blp:262
 msgid ""
 "Crop white borders of images\n"
 "\n"
@@ -675,63 +720,63 @@ msgstr ""
 "UWAGA: Zwiększa użycie procesora i może powodować spowolnienie renderowania "
 "i animacji, zwłaszcza na urządzeniach mobilnych."
 
-#: ../data/ui/preferences.blp:252
+#: ../data/ui/preferences.blp:266
 msgid "Page Numbering"
 msgstr "Numeracja stron"
 
-#: ../data/ui/preferences.blp:253
+#: ../data/ui/preferences.blp:267
 msgid "Hide the page numbering at the bottom of the screen while reading"
 msgstr "Ukryj numerację stron na dole ekranu podczas czytania"
 
-#: ../data/ui/preferences.blp:257
+#: ../data/ui/preferences.blp:271
 msgid "Fullscreen"
 msgstr "Pełny ekran"
 
-#: ../data/ui/preferences.blp:258
+#: ../data/ui/preferences.blp:272
 msgid "Automatically enter fullscreen mode"
 msgstr "Automatycznie włącz tryb pełnego ekranu"
 
-#: ../data/ui/preferences.blp:265
+#: ../data/ui/preferences.blp:279
 msgid "Advanced"
 msgstr "Zaawansowane"
 
-#: ../data/ui/preferences.blp:269
+#: ../data/ui/preferences.blp:283
 msgid "Data"
 msgstr "Dane"
 
-#: ../data/ui/preferences.blp:270
+#: ../data/ui/preferences.blp:284
 msgid "Data not saved in the library"
 msgstr "Dane niezapisane w bibliotece"
 
-#: ../data/ui/preferences.blp:273
+#: ../data/ui/preferences.blp:287
 msgid "Clear Chapters Cache and Database"
 msgstr ""
 
-#: ../data/ui/preferences.blp:278
+#: ../data/ui/preferences.blp:292
 msgid "Clear Chapters Cache and Database on Exit"
 msgstr ""
 
-#: ../data/ui/preferences.blp:283
+#: ../data/ui/preferences.blp:297
 msgid "Credentials Storage"
 msgstr ""
 
-#: ../data/ui/preferences.blp:286
+#: ../data/ui/preferences.blp:300
 msgid "Allow Plaintext Storage as Fallback"
 msgstr ""
 
-#: ../data/ui/preferences.blp:287
+#: ../data/ui/preferences.blp:301
 msgid "Used when no keyring backends are found"
 msgstr "Użyte, jeśli nie znaleziono backendu bazy kluczy"
 
-#: ../data/ui/preferences.blp:292
+#: ../data/ui/preferences.blp:306
 msgid "Tweaks"
 msgstr "Dostrojenia"
 
-#: ../data/ui/preferences.blp:295
+#: ../data/ui/preferences.blp:309
 msgid "Disable Animations"
 msgstr "Wyłącz animacje"
 
-#: ../data/ui/preferences.blp:296
+#: ../data/ui/preferences.blp:310
 msgid ""
 "Useful with E Ink e-readers to avoid very choppy and unpleasant animations "
 "(due to the low refresh rate of the screen)"
@@ -740,7 +785,7 @@ msgstr ""
 "nieprzyjemnych animacji (ze względu na niską częstotliwość odświeżania "
 "ekranu)"
 
-#: ../data/ui/preferences.blp:300
+#: ../data/ui/preferences.blp:314
 msgid ""
 "This tweak is only intended for users who do not use the GNOME desktop "
 "environment and therefore cannot disable animations globally via GNOME "
@@ -898,27 +943,27 @@ msgstr "Anuluj"
 msgid "Supporters"
 msgstr ""
 
-#: ../komikku/application.py:431
+#: ../komikku/application.py:439
 msgid "Join Chat"
 msgstr "Dołącz do czatu"
 
-#: ../komikku/application.py:519
+#: ../komikku/application.py:527
 msgid "Are you sure you want to quit?"
 msgstr "Czy na pewno chcesz wyjść?"
 
-#: ../komikku/application.py:522
+#: ../komikku/application.py:530
 msgid "Some chapters are currently being downloaded."
 msgstr "Niektóre rozdziały są obecnie pobierane."
 
-#: ../komikku/application.py:524
+#: ../komikku/application.py:532
 msgid "Some mangas are currently being updated."
 msgstr "Niektóre mangi są obecnie aktualizowane."
 
-#: ../komikku/application.py:528
+#: ../komikku/application.py:536
 msgid "Quit?"
 msgstr "Wyjść?"
 
-#: ../komikku/application.py:530
+#: ../komikku/application.py:538
 msgid "Quit"
 msgstr "Wyjdź"
 
@@ -1064,8 +1109,8 @@ msgstr ""
 msgid "Comics stored locally as archives in CBZ/CBR formats"
 msgstr "Komiksy przechowywane lokalnie jako archiwa w formatach CBZ/CBR"
 
-#: ../komikku/explorer/common.py:188 ../komikku/preferences.py:540
-#: ../komikku/preferences.py:634 ../komikku/servers/mangatube/__init__.py:57
+#: ../komikku/explorer/common.py:188 ../komikku/preferences.py:534
+#: ../komikku/preferences.py:628 ../komikku/servers/mangatube/__init__.py:57
 msgid "18+"
 msgstr "18+"
 
@@ -1321,29 +1366,29 @@ msgstr ""
 msgid "Disable"
 msgstr "Wyłącz"
 
-#: ../komikku/preferences.py:568
+#: ../komikku/preferences.py:562
 msgid "User Account"
 msgstr "Konto użytkownika"
 
-#: ../komikku/preferences.py:576
+#: ../komikku/preferences.py:570
 msgid "Address"
 msgstr "Adres"
 
-#: ../komikku/preferences.py:582
+#: ../komikku/preferences.py:576
 msgid "Username"
 msgstr "Nazwa użytkownika"
 
-#: ../komikku/preferences.py:586
+#: ../komikku/preferences.py:580
 msgid "Password"
 msgstr "Hasło"
 
-#: ../komikku/preferences.py:598
+#: ../komikku/preferences.py:592
 msgid "System keyring service is disabled. Credential cannot be saved."
 msgstr ""
 "Systemowa usługa bazy kluczy jest wyłączona. Poświadczenia nie mogą być "
 "zapisane."
 
-#: ../komikku/preferences.py:603
+#: ../komikku/preferences.py:597
 msgid ""
 "No keyring backends were found to store credential. Use plaintext storage as "
 "fallback."
@@ -1351,7 +1396,7 @@ msgstr ""
 "Nie znaleziono backendu bazy kluczy do przechowania poświadczeń. Awaryjne "
 "przechowanie zwykłym tekstem."
 
-#: ../komikku/preferences.py:608
+#: ../komikku/preferences.py:602
 msgid ""
 "No keyring backends were found to store credential. Plaintext storage will "
 "be used as fallback."
@@ -1359,7 +1404,7 @@ msgstr ""
 "Nie znaleziono backendu bazy kluczy do przechowania poświadczeń. Awaryjnie "
 "będzie przechowane zwykłym tekstem."
 
-#: ../komikku/preferences.py:616
+#: ../komikku/preferences.py:610
 msgid "Test"
 msgstr "Test"
 
@@ -1941,19 +1986,11 @@ msgstr "Proszę wypełnić Captchę"
 #~ msgid "[Servers] Golden Mangás: Update"
 #~ msgstr "[Serwery] Golden Mangás: aktualizacja"
 
-#~ msgid "[Servers] MANGA Plus by SHUEISHA: Update"
-#~ msgstr "[Serwery] MANGA Plus by SHUEISHA: aktualizacja"
-
 #~ msgid ""
 #~ "[Servers] Reaper Scans [PT-br]: Update (name change to `Yugen Scans`)"
 #~ msgstr ""
 #~ "[Serwery] Reaper Scans [PT-br]: aktualizacja (zmiana nazwy na `Yugen "
 #~ "Scans`)"
-
-#~ msgid "[L10n] Updated French, Russian, Spanish and Turkish translations"
-#~ msgstr ""
-#~ "[L10n] Aktualizacja tłumaczeń na język francuski, hiszpański, rosyjski i "
-#~ "turecki"
 
 #~ msgid ""
 #~ "[Library] Added sorting: Alphabetical, Latest Read First (default), "

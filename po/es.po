@@ -8,11 +8,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Komikku 0.30.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-03-16 01:42+0100\n"
+"POT-Creation-Date: 2024-03-21 23:14+0100\n"
 "PO-Revision-Date: 2024-03-17 02:01+0000\n"
 "Last-Translator: gallegonovato <fran-carro@hotmail.es>\n"
-"Language-Team: Spanish <https://hosted.weblate.org/projects/komikku/main/es/>"
-"\n"
+"Language-Team: Spanish <https://hosted.weblate.org/projects/komikku/main/es/"
+">\n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -122,32 +122,63 @@ msgid "The Reading history page in mobile format"
 msgstr "La página historial de lectura en formato móvil"
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:106
-msgid "[Library] Add an indicator when an partial update is in progress"
+msgid ""
+"[UX] Refined visuals taking advantage of the new capabilities of GNOME 46"
 msgstr ""
-"[Biblioteca] Añadir un indicador cuando una actualización parcial está en "
-"curso"
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:107
-msgid "[Servers] Added Mangago (EN)"
-msgstr "[Servidores] Añadido Mangago (EN)"
+msgid "[Servers] Added Lelmanga (FR)"
+msgstr ""
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:108
-msgid "[Serverd] Added Rawdevart (JA)"
-msgstr "[Servidor] Añadido Rawdevart (JA)"
+msgid "[Servers] Added Lelscan (FR)"
+msgstr ""
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:109
-msgid "[Servers] Asura Scans (EN): Update"
-msgstr "[Servidores] Asura Scans (EN): Actualización"
+msgid "[Servers] Added Night scans (EN)"
+msgstr ""
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:110
-msgid "[Servers] Perf Scan (FR): Update"
-msgstr "[Servidores] Perf Scan (FR): Actualización"
+msgid "[Servers] Comic Book Plus (EN): Fixed search"
+msgstr ""
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:111
-msgid "[L10n] Updated Dutch, Spanish and Turkish translations"
-msgstr "[L10n] Actualizadas las traducciones al neerlandés, español y turco"
+msgid "[Servers] MANGA Plus by SHUEISHA: Update"
+msgstr "[Servidores] MANGA Plus by SHUEISHA: Actualización"
+
+#: ../data/info.febvre.Komikku.appdata.xml.in.in:112
+msgid "[Servers] MangaDex: Added Tags filter"
+msgstr ""
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:113
+msgid "[Servers] MangaLib (RU): Update"
+msgstr ""
+
+#: ../data/info.febvre.Komikku.appdata.xml.in.in:114
+msgid "[Servers] Mangaowl (EN): Update"
+msgstr ""
+
+#: ../data/info.febvre.Komikku.appdata.xml.in.in:115
+msgid "[Servers] Jpmangas (FR): Disabled"
+msgstr ""
+
+#: ../data/info.febvre.Komikku.appdata.xml.in.in:116
+msgid "[Servers] Reaper Scans (pt_BR): Disabled"
+msgstr ""
+
+#: ../data/info.febvre.Komikku.appdata.xml.in.in:117
+msgid "[Servers] Scan FR: Disabled"
+msgstr ""
+
+#: ../data/info.febvre.Komikku.appdata.xml.in.in:118
+msgid "[Servers] Scan Manga (FR): Disabled"
+msgstr ""
+
+#: ../data/info.febvre.Komikku.appdata.xml.in.in:119
+msgid "[L10n] Updated French, Russian, Spanish and Turkish translations"
+msgstr "[L10n] Actualizadas las traducciones al francés, ruso, español y turco"
+
+#: ../data/info.febvre.Komikku.appdata.xml.in.in:121
 msgid "Happy reading."
 msgstr "Feliz lectura."
 
@@ -265,7 +296,7 @@ msgstr "Más populares"
 msgid "Latest Updates"
 msgstr "Últimas actualizaciones"
 
-#: ../data/ui/explorer_servers.blp:6 ../data/ui/preferences.blp:149
+#: ../data/ui/explorer_servers.blp:6
 msgid "Servers"
 msgstr "Servidores"
 
@@ -533,6 +564,10 @@ msgstr "Descarga automática de los capítulos nuevos"
 msgid "Automatically download new chapters"
 msgstr "Descargar automáticamente los nuevos capítulos"
 
+#: ../data/ui/preferences.blp:149
+msgid "Explorer"
+msgstr ""
+
 #: ../data/ui/preferences.blp:152
 #: ../data/ui/preferences_servers_languages.blp:6
 #: ../data/ui/preferences_servers_languages.blp:12
@@ -560,117 +595,123 @@ msgstr "Detección de franjas largas"
 msgid "Automatically detect long vertical strip when possible"
 msgstr "Detecta automáticamente la franja vertical larga cuando es posible"
 
-#: ../data/ui/preferences.blp:175
+#: ../data/ui/preferences.blp:177
 msgid "NSFW Content (18+)"
 msgstr "Contenido NSFW (18+)"
 
-#: ../data/ui/preferences.blp:176
+#: ../data/ui/preferences.blp:178
 msgid "Whether to enable servers with NSFW content"
 msgstr "Activar o no servidores con contenido NSFW"
 
-#: ../data/ui/preferences.blp:180
+#: ../data/ui/preferences.blp:182
 msgid "NSFW Only Content (18+)"
 msgstr "Contenido sólo NSFW (18+)"
 
-#: ../data/ui/preferences.blp:181
+#: ../data/ui/preferences.blp:183
 msgid "Whether to enable servers with NSFW only content"
 msgstr "Si se habilitan los servidores con sólo contenido inapropiado"
 
-#: ../data/ui/preferences.blp:188 ../data/ui/reader.blp:6
+#: ../data/ui/preferences.blp:187
+msgid ""
+"These settings do not prevent potentially incorrectly flagged servers from "
+"surfacing NSFW content."
+msgstr ""
+
+#: ../data/ui/preferences.blp:202 ../data/ui/reader.blp:6
 msgid "Reader"
 msgstr "Lector"
 
-#: ../data/ui/preferences.blp:193
+#: ../data/ui/preferences.blp:207
 msgid "Reading Mode"
 msgstr "Modo lectura"
 
-#: ../data/ui/preferences.blp:196
+#: ../data/ui/preferences.blp:210
 msgid "⬅ Right to Left"
 msgstr "⬅ De derecha a izquierda"
 
-#: ../data/ui/preferences.blp:197
+#: ../data/ui/preferences.blp:211
 msgid "➡ Left to Right"
 msgstr "➡ De izquierda a derecha"
 
-#: ../data/ui/preferences.blp:198
+#: ../data/ui/preferences.blp:212
 msgid "⬇ Vertical"
 msgstr "⬇ Vertical"
 
-#: ../data/ui/preferences.blp:199
+#: ../data/ui/preferences.blp:213
 msgid "⬇ Webtoon"
 msgstr "⬇ Webtoon"
 
-#: ../data/ui/preferences.blp:205
+#: ../data/ui/preferences.blp:219
 msgid "Maximum Width"
 msgstr "Anchura máxima"
 
-#: ../data/ui/preferences.blp:206
+#: ../data/ui/preferences.blp:220
 msgid ""
 "Constrain reader's width to a given maximum size (Webtoon reading mode only)"
 msgstr ""
 "Limitar la anchura del lector a un tamaño máximo determinado (sólo en el "
 "modo de lectura Webtoon)"
 
-#: ../data/ui/preferences.blp:217
+#: ../data/ui/preferences.blp:231
 msgid "Scaling"
 msgstr "Escala"
 
-#: ../data/ui/preferences.blp:218
+#: ../data/ui/preferences.blp:232
 msgid "Type of scaling to adapt image"
 msgstr "Tipo de escalado para adaptar la imagen"
 
-#: ../data/ui/preferences.blp:221
+#: ../data/ui/preferences.blp:235
 msgid "Adapt to Screen"
 msgstr "Adaptar a la pantalla"
 
-#: ../data/ui/preferences.blp:222
+#: ../data/ui/preferences.blp:236
 msgid "Adapt to Width"
 msgstr "Adaptar a la anchura"
 
-#: ../data/ui/preferences.blp:223
+#: ../data/ui/preferences.blp:237
 msgid "Adapt to Height"
 msgstr "Adaptar a la altura"
 
-#: ../data/ui/preferences.blp:224
+#: ../data/ui/preferences.blp:238
 msgid "Original Size"
 msgstr "Tamaño original"
 
-#: ../data/ui/preferences.blp:230
+#: ../data/ui/preferences.blp:244
 msgid "Landscape Pages Zoom"
 msgstr "Zoom de las páginas apaisadas"
 
-#: ../data/ui/preferences.blp:231
+#: ../data/ui/preferences.blp:245
 msgid ""
 "Zoom page to fit height when page is landscape (Adapt to Screen scaling only)"
 msgstr ""
 "Ampliar la página para ajustarla a la altura cuando la página está apaisada "
 "(sólo adaptar a escala de pantalla)"
 
-#: ../data/ui/preferences.blp:235
+#: ../data/ui/preferences.blp:249
 msgid "Background Color"
 msgstr "Color del fondo"
 
-#: ../data/ui/preferences.blp:238
+#: ../data/ui/preferences.blp:252
 msgid "White"
 msgstr "Blanco"
 
-#: ../data/ui/preferences.blp:239
+#: ../data/ui/preferences.blp:253
 msgid "Gray"
 msgstr "Gris"
 
-#: ../data/ui/preferences.blp:240
+#: ../data/ui/preferences.blp:254
 msgid "Black"
 msgstr "Negro"
 
-#: ../data/ui/preferences.blp:241
+#: ../data/ui/preferences.blp:255
 msgid "System Style"
 msgstr "Estilo del sistema"
 
-#: ../data/ui/preferences.blp:247
+#: ../data/ui/preferences.blp:261
 msgid "Borders Crop"
 msgstr "Bordes del ajuste"
 
-#: ../data/ui/preferences.blp:248
+#: ../data/ui/preferences.blp:262
 msgid ""
 "Crop white borders of images\n"
 "\n"
@@ -682,65 +723,65 @@ msgstr ""
 "NOTA: Requiere un mayor uso de la CPU y puede provocar ralentizaciones en el "
 "renderizado y las animaciones, especialmente en dispositivos móviles."
 
-#: ../data/ui/preferences.blp:252
+#: ../data/ui/preferences.blp:266
 msgid "Page Numbering"
 msgstr "Numeración de páginas"
 
-#: ../data/ui/preferences.blp:253
+#: ../data/ui/preferences.blp:267
 msgid "Hide the page numbering at the bottom of the screen while reading"
 msgstr ""
 "Ocultar la numeración de las páginas en la parte inferior de la pantalla "
 "mientras se lee"
 
-#: ../data/ui/preferences.blp:257
+#: ../data/ui/preferences.blp:271
 msgid "Fullscreen"
 msgstr "Pantalla completa"
 
-#: ../data/ui/preferences.blp:258
+#: ../data/ui/preferences.blp:272
 msgid "Automatically enter fullscreen mode"
 msgstr "Entrar automáticamente en el modo de pantalla completa"
 
-#: ../data/ui/preferences.blp:265
+#: ../data/ui/preferences.blp:279
 msgid "Advanced"
 msgstr "Avanzado"
 
-#: ../data/ui/preferences.blp:269
+#: ../data/ui/preferences.blp:283
 msgid "Data"
 msgstr "Datos"
 
-#: ../data/ui/preferences.blp:270
+#: ../data/ui/preferences.blp:284
 msgid "Data not saved in the library"
 msgstr "Datos no guardados en la biblioteca"
 
-#: ../data/ui/preferences.blp:273
+#: ../data/ui/preferences.blp:287
 msgid "Clear Chapters Cache and Database"
 msgstr "Borrar la caché y la base de datos de los capítulos"
 
-#: ../data/ui/preferences.blp:278
+#: ../data/ui/preferences.blp:292
 msgid "Clear Chapters Cache and Database on Exit"
 msgstr "Borrar la caché y la base de datos de los capítulos al salir"
 
-#: ../data/ui/preferences.blp:283
+#: ../data/ui/preferences.blp:297
 msgid "Credentials Storage"
 msgstr "Almacenamiento de credenciales"
 
-#: ../data/ui/preferences.blp:286
+#: ../data/ui/preferences.blp:300
 msgid "Allow Plaintext Storage as Fallback"
 msgstr "Permitir el almacenamiento de texto plano como respaldo"
 
-#: ../data/ui/preferences.blp:287
+#: ../data/ui/preferences.blp:301
 msgid "Used when no keyring backends are found"
 msgstr "Se usa cuando no se encuentran soportes de claves"
 
-#: ../data/ui/preferences.blp:292
+#: ../data/ui/preferences.blp:306
 msgid "Tweaks"
 msgstr "Ajustes"
 
-#: ../data/ui/preferences.blp:295
+#: ../data/ui/preferences.blp:309
 msgid "Disable Animations"
 msgstr "Desactivar animaciones"
 
-#: ../data/ui/preferences.blp:296
+#: ../data/ui/preferences.blp:310
 msgid ""
 "Useful with E Ink e-readers to avoid very choppy and unpleasant animations "
 "(due to the low refresh rate of the screen)"
@@ -749,7 +790,7 @@ msgstr ""
 "entrecortadas y desagradables (debido a la baja frecuencia de actualización "
 "de la pantalla)"
 
-#: ../data/ui/preferences.blp:300
+#: ../data/ui/preferences.blp:314
 msgid ""
 "This tweak is only intended for users who do not use the GNOME desktop "
 "environment and therefore cannot disable animations globally via GNOME "
@@ -907,27 +948,27 @@ msgstr "Cancelar"
 msgid "Supporters"
 msgstr "Apoyos"
 
-#: ../komikku/application.py:431
+#: ../komikku/application.py:439
 msgid "Join Chat"
 msgstr "Unirse al chat"
 
-#: ../komikku/application.py:519
+#: ../komikku/application.py:527
 msgid "Are you sure you want to quit?"
 msgstr "¿Está seguro de que quiere salir?"
 
-#: ../komikku/application.py:522
+#: ../komikku/application.py:530
 msgid "Some chapters are currently being downloaded."
 msgstr "Se están descargando algunos capítulos."
 
-#: ../komikku/application.py:524
+#: ../komikku/application.py:532
 msgid "Some mangas are currently being updated."
 msgstr "Se están actualizando algunos mangas."
 
-#: ../komikku/application.py:528
+#: ../komikku/application.py:536
 msgid "Quit?"
 msgstr "¿Salir?"
 
-#: ../komikku/application.py:530
+#: ../komikku/application.py:538
 msgid "Quit"
 msgstr "Salir"
 
@@ -1076,8 +1117,8 @@ msgstr "Último volumen: {}"
 msgid "Comics stored locally as archives in CBZ/CBR formats"
 msgstr "Cómics almacenados localmente como archivos en formatos CBZ/CBR"
 
-#: ../komikku/explorer/common.py:188 ../komikku/preferences.py:540
-#: ../komikku/preferences.py:634 ../komikku/servers/mangatube/__init__.py:57
+#: ../komikku/explorer/common.py:188 ../komikku/preferences.py:534
+#: ../komikku/preferences.py:628 ../komikku/servers/mangatube/__init__.py:57
 msgid "18+"
 msgstr "18+"
 
@@ -1336,29 +1377,29 @@ msgstr ""
 msgid "Disable"
 msgstr "Desactivar"
 
-#: ../komikku/preferences.py:568
+#: ../komikku/preferences.py:562
 msgid "User Account"
 msgstr "Cuenta del usuario"
 
-#: ../komikku/preferences.py:576
+#: ../komikku/preferences.py:570
 msgid "Address"
 msgstr "Dirección"
 
-#: ../komikku/preferences.py:582
+#: ../komikku/preferences.py:576
 msgid "Username"
 msgstr "Nombre de usuario"
 
-#: ../komikku/preferences.py:586
+#: ../komikku/preferences.py:580
 msgid "Password"
 msgstr "Contraseña"
 
-#: ../komikku/preferences.py:598
+#: ../komikku/preferences.py:592
 msgid "System keyring service is disabled. Credential cannot be saved."
 msgstr ""
 "El servicio de claves del sistema está desactivado. No se puede guardar la "
 "credencial."
 
-#: ../komikku/preferences.py:603
+#: ../komikku/preferences.py:597
 msgid ""
 "No keyring backends were found to store credential. Use plaintext storage as "
 "fallback."
@@ -1366,7 +1407,7 @@ msgstr ""
 "No se han encontrado soportes de claves para almacenar las credenciales. Use "
 "el almacenamiento de texto plano como alternativa."
 
-#: ../komikku/preferences.py:608
+#: ../komikku/preferences.py:602
 msgid ""
 "No keyring backends were found to store credential. Plaintext storage will "
 "be used as fallback."
@@ -1374,7 +1415,7 @@ msgstr ""
 "No se han encontrado soportes de claves para almacenar las credenciales. Se "
 "usará el almacenamiento de texto plano como alternativa."
 
-#: ../komikku/preferences.py:616
+#: ../komikku/preferences.py:610
 msgid "Test"
 msgstr "Prueba"
 
@@ -1820,6 +1861,26 @@ msgstr ""
 msgid "Please complete CAPTCHA"
 msgstr "Por favor, complete el CAPTCHA"
 
+#~ msgid "[Library] Add an indicator when an partial update is in progress"
+#~ msgstr ""
+#~ "[Biblioteca] Añadir un indicador cuando una actualización parcial está en "
+#~ "curso"
+
+#~ msgid "[Servers] Added Mangago (EN)"
+#~ msgstr "[Servidores] Añadido Mangago (EN)"
+
+#~ msgid "[Serverd] Added Rawdevart (JA)"
+#~ msgstr "[Servidor] Añadido Rawdevart (JA)"
+
+#~ msgid "[Servers] Asura Scans (EN): Update"
+#~ msgstr "[Servidores] Asura Scans (EN): Actualización"
+
+#~ msgid "[Servers] Perf Scan (FR): Update"
+#~ msgstr "[Servidores] Perf Scan (FR): Actualización"
+
+#~ msgid "[L10n] Updated Dutch, Spanish and Turkish translations"
+#~ msgstr "[L10n] Actualizadas las traducciones al neerlandés, español y turco"
+
 #~ msgid "Read your favorite manga"
 #~ msgstr "Lea su manga favorito"
 
@@ -2055,18 +2116,11 @@ msgstr "Por favor, complete el CAPTCHA"
 #~ msgid "[Servers] Golden Mangás: Update"
 #~ msgstr "[Servidores] Golden Mangás: Actualización"
 
-#~ msgid "[Servers] MANGA Plus by SHUEISHA: Update"
-#~ msgstr "[Servidores] MANGA Plus by SHUEISHA: Actualización"
-
 #~ msgid ""
 #~ "[Servers] Reaper Scans [PT-br]: Update (name change to `Yugen Scans`)"
 #~ msgstr ""
 #~ "[Servidores] Reaper Scans [PT-br]: Actualización (cambio de nombre a "
 #~ "`Yugen Scans`)"
-
-#~ msgid "[L10n] Updated French, Russian, Spanish and Turkish translations"
-#~ msgstr ""
-#~ "[L10n] Actualizadas las traducciones al francés, ruso, español y turco"
 
 #~ msgid ""
 #~ "[Library] Added sorting: Alphabetical, Latest Read First (default), "

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Komikku 1.12.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-03-16 01:42+0100\n"
+"POT-Creation-Date: 2024-03-21 23:14+0100\n"
 "PO-Revision-Date: 2024-03-20 14:01+0000\n"
 "Last-Translator: Juan Manuel <juanmanueldilo09@gmail.com>\n"
 "Language-Team: Indonesian <https://hosted.weblate.org/projects/komikku/main/"
@@ -117,30 +117,63 @@ msgid "The Reading history page in mobile format"
 msgstr "Halaman Riwayat baca dalam format mobile"
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:106
-msgid "[Library] Add an indicator when an partial update is in progress"
+msgid ""
+"[UX] Refined visuals taking advantage of the new capabilities of GNOME 46"
 msgstr ""
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:107
-msgid "[Servers] Added Mangago (EN)"
+msgid "[Servers] Added Lelmanga (FR)"
 msgstr ""
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:108
-msgid "[Serverd] Added Rawdevart (JA)"
+msgid "[Servers] Added Lelscan (FR)"
 msgstr ""
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:109
-msgid "[Servers] Asura Scans (EN): Update"
+msgid "[Servers] Added Night scans (EN)"
 msgstr ""
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:110
-msgid "[Servers] Perf Scan (FR): Update"
+msgid "[Servers] Comic Book Plus (EN): Fixed search"
 msgstr ""
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:111
-msgid "[L10n] Updated Dutch, Spanish and Turkish translations"
+msgid "[Servers] MANGA Plus by SHUEISHA: Update"
+msgstr "[Server] MANGA Plus by SHUEISHA: Diperbarui"
+
+#: ../data/info.febvre.Komikku.appdata.xml.in.in:112
+msgid "[Servers] MangaDex: Added Tags filter"
 msgstr ""
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:113
+msgid "[Servers] MangaLib (RU): Update"
+msgstr ""
+
+#: ../data/info.febvre.Komikku.appdata.xml.in.in:114
+msgid "[Servers] Mangaowl (EN): Update"
+msgstr ""
+
+#: ../data/info.febvre.Komikku.appdata.xml.in.in:115
+msgid "[Servers] Jpmangas (FR): Disabled"
+msgstr ""
+
+#: ../data/info.febvre.Komikku.appdata.xml.in.in:116
+msgid "[Servers] Reaper Scans (pt_BR): Disabled"
+msgstr ""
+
+#: ../data/info.febvre.Komikku.appdata.xml.in.in:117
+msgid "[Servers] Scan FR: Disabled"
+msgstr ""
+
+#: ../data/info.febvre.Komikku.appdata.xml.in.in:118
+msgid "[Servers] Scan Manga (FR): Disabled"
+msgstr ""
+
+#: ../data/info.febvre.Komikku.appdata.xml.in.in:119
+msgid "[L10n] Updated French, Russian, Spanish and Turkish translations"
+msgstr ""
+
+#: ../data/info.febvre.Komikku.appdata.xml.in.in:121
 msgid "Happy reading."
 msgstr "Selamat membaca."
 
@@ -256,7 +289,7 @@ msgstr "Terpopuler"
 msgid "Latest Updates"
 msgstr "Pembaruan Terkini"
 
-#: ../data/ui/explorer_servers.blp:6 ../data/ui/preferences.blp:149
+#: ../data/ui/explorer_servers.blp:6
 msgid "Servers"
 msgstr "Server"
 
@@ -522,6 +555,10 @@ msgstr "Unduh Otomatis Bab Baru"
 msgid "Automatically download new chapters"
 msgstr "Unduh bab baru secara otomatis"
 
+#: ../data/ui/preferences.blp:149
+msgid "Explorer"
+msgstr ""
+
 #: ../data/ui/preferences.blp:152
 #: ../data/ui/preferences_servers_languages.blp:6
 #: ../data/ui/preferences_servers_languages.blp:12
@@ -550,117 +587,123 @@ msgid "Automatically detect long vertical strip when possible"
 msgstr ""
 "Deteksi strip vertikal yang panjang secara otomatis apabila memungkinkan"
 
-#: ../data/ui/preferences.blp:175
+#: ../data/ui/preferences.blp:177
 msgid "NSFW Content (18+)"
 msgstr "Konten NSFW (18+)"
 
-#: ../data/ui/preferences.blp:176
+#: ../data/ui/preferences.blp:178
 msgid "Whether to enable servers with NSFW content"
 msgstr "Mengatur apakah server dengan konten NSFW akan diaktifkan"
 
-#: ../data/ui/preferences.blp:180
+#: ../data/ui/preferences.blp:182
 msgid "NSFW Only Content (18+)"
 msgstr "Konten Khusus NSFW (18+)"
 
-#: ../data/ui/preferences.blp:181
+#: ../data/ui/preferences.blp:183
 msgid "Whether to enable servers with NSFW only content"
 msgstr "Mengatur apakah akan mengaktifkan server dengan konten NSFW saja"
 
-#: ../data/ui/preferences.blp:188 ../data/ui/reader.blp:6
+#: ../data/ui/preferences.blp:187
+msgid ""
+"These settings do not prevent potentially incorrectly flagged servers from "
+"surfacing NSFW content."
+msgstr ""
+
+#: ../data/ui/preferences.blp:202 ../data/ui/reader.blp:6
 msgid "Reader"
 msgstr "Pembaca"
 
-#: ../data/ui/preferences.blp:193
+#: ../data/ui/preferences.blp:207
 msgid "Reading Mode"
 msgstr "Mode Baca"
 
-#: ../data/ui/preferences.blp:196
+#: ../data/ui/preferences.blp:210
 msgid "⬅ Right to Left"
 msgstr "⬅ Kanan ke Kiri"
 
-#: ../data/ui/preferences.blp:197
+#: ../data/ui/preferences.blp:211
 msgid "➡ Left to Right"
 msgstr "➡ Kiri ke Kanan"
 
-#: ../data/ui/preferences.blp:198
+#: ../data/ui/preferences.blp:212
 msgid "⬇ Vertical"
 msgstr "⬇ Vertikal"
 
-#: ../data/ui/preferences.blp:199
+#: ../data/ui/preferences.blp:213
 msgid "⬇ Webtoon"
 msgstr "⬇ Webtoon"
 
-#: ../data/ui/preferences.blp:205
+#: ../data/ui/preferences.blp:219
 msgid "Maximum Width"
 msgstr "Lebar Maksimum"
 
-#: ../data/ui/preferences.blp:206
+#: ../data/ui/preferences.blp:220
 msgid ""
 "Constrain reader's width to a given maximum size (Webtoon reading mode only)"
 msgstr ""
 "Membatasi lebar pembaca pada ukuran maksimum tertentu (hanya untuk mode "
 "membaca Webtoon)"
 
-#: ../data/ui/preferences.blp:217
+#: ../data/ui/preferences.blp:231
 msgid "Scaling"
 msgstr "Penskalaan"
 
-#: ../data/ui/preferences.blp:218
+#: ../data/ui/preferences.blp:232
 msgid "Type of scaling to adapt image"
 msgstr "Jenis penskalaan untuk menyesuaikan gambar"
 
-#: ../data/ui/preferences.blp:221
+#: ../data/ui/preferences.blp:235
 msgid "Adapt to Screen"
 msgstr "Ikuti Layar"
 
-#: ../data/ui/preferences.blp:222
+#: ../data/ui/preferences.blp:236
 msgid "Adapt to Width"
 msgstr "Ikuti Lebar"
 
-#: ../data/ui/preferences.blp:223
+#: ../data/ui/preferences.blp:237
 msgid "Adapt to Height"
 msgstr "Ikuti Tinggi"
 
-#: ../data/ui/preferences.blp:224
+#: ../data/ui/preferences.blp:238
 msgid "Original Size"
 msgstr "Ukuran Asli"
 
-#: ../data/ui/preferences.blp:230
+#: ../data/ui/preferences.blp:244
 msgid "Landscape Pages Zoom"
 msgstr "Perbesaran Halaman Lanskap"
 
-#: ../data/ui/preferences.blp:231
+#: ../data/ui/preferences.blp:245
 msgid ""
 "Zoom page to fit height when page is landscape (Adapt to Screen scaling only)"
 msgstr ""
 "Perbesar halaman agar sesuai dengan tinggi saat halaman dalam bentuk lanskap "
 "(hanya menyesuaikan dengan penskalaan Layar)"
 
-#: ../data/ui/preferences.blp:235
+#: ../data/ui/preferences.blp:249
 msgid "Background Color"
 msgstr "Warna Latar Belakang"
 
-#: ../data/ui/preferences.blp:238
+#: ../data/ui/preferences.blp:252
 msgid "White"
 msgstr "Putih"
 
-#: ../data/ui/preferences.blp:239
+#: ../data/ui/preferences.blp:253
 msgid "Gray"
 msgstr "Abu-abu"
 
-#: ../data/ui/preferences.blp:240
+#: ../data/ui/preferences.blp:254
 msgid "Black"
 msgstr "Hitam"
 
-#: ../data/ui/preferences.blp:241
+#: ../data/ui/preferences.blp:255
 msgid "System Style"
 msgstr "Gaya Sistem"
 
-#: ../data/ui/preferences.blp:247
+#: ../data/ui/preferences.blp:261
 msgid "Borders Crop"
 msgstr "Pangkas Tepi"
 
-#: ../data/ui/preferences.blp:248
+#: ../data/ui/preferences.blp:262
 msgid ""
 "Crop white borders of images\n"
 "\n"
@@ -672,63 +715,63 @@ msgstr ""
 "CATATAN: Membutuhkan lebih banyak penggunaan CPU dan dapat menyebabkan "
 "lambatnya rendering dan animasi, terutama pada perangkat seluler."
 
-#: ../data/ui/preferences.blp:252
+#: ../data/ui/preferences.blp:266
 msgid "Page Numbering"
 msgstr "Penomoran Halaman"
 
-#: ../data/ui/preferences.blp:253
+#: ../data/ui/preferences.blp:267
 msgid "Hide the page numbering at the bottom of the screen while reading"
 msgstr "Sembunyikan penomoran halaman di bagian bawah layar saat membaca"
 
-#: ../data/ui/preferences.blp:257
+#: ../data/ui/preferences.blp:271
 msgid "Fullscreen"
 msgstr "Layar Penuh"
 
-#: ../data/ui/preferences.blp:258
+#: ../data/ui/preferences.blp:272
 msgid "Automatically enter fullscreen mode"
 msgstr "Masuk ke mode layar penuh secara otomatis"
 
-#: ../data/ui/preferences.blp:265
+#: ../data/ui/preferences.blp:279
 msgid "Advanced"
 msgstr "Tingkat Lanjut"
 
-#: ../data/ui/preferences.blp:269
+#: ../data/ui/preferences.blp:283
 msgid "Data"
 msgstr ""
 
-#: ../data/ui/preferences.blp:270
+#: ../data/ui/preferences.blp:284
 msgid "Data not saved in the library"
 msgstr ""
 
-#: ../data/ui/preferences.blp:273
+#: ../data/ui/preferences.blp:287
 msgid "Clear Chapters Cache and Database"
 msgstr ""
 
-#: ../data/ui/preferences.blp:278
+#: ../data/ui/preferences.blp:292
 msgid "Clear Chapters Cache and Database on Exit"
 msgstr ""
 
-#: ../data/ui/preferences.blp:283
+#: ../data/ui/preferences.blp:297
 msgid "Credentials Storage"
 msgstr ""
 
-#: ../data/ui/preferences.blp:286
+#: ../data/ui/preferences.blp:300
 msgid "Allow Plaintext Storage as Fallback"
 msgstr ""
 
-#: ../data/ui/preferences.blp:287
+#: ../data/ui/preferences.blp:301
 msgid "Used when no keyring backends are found"
 msgstr "Digunakan ketika tidak ada backend keyring yang ditemukan"
 
-#: ../data/ui/preferences.blp:292
+#: ../data/ui/preferences.blp:306
 msgid "Tweaks"
 msgstr "Oprekan"
 
-#: ../data/ui/preferences.blp:295
+#: ../data/ui/preferences.blp:309
 msgid "Disable Animations"
 msgstr "Nonaktifkan Animasi"
 
-#: ../data/ui/preferences.blp:296
+#: ../data/ui/preferences.blp:310
 msgid ""
 "Useful with E Ink e-readers to avoid very choppy and unpleasant animations "
 "(due to the low refresh rate of the screen)"
@@ -736,7 +779,7 @@ msgstr ""
 "Berguna untuk e-reader E Ink, menghindari animasi yang patah-patah dan tidak "
 "elok (karena kecepatan penyegaran layar yang rendah)"
 
-#: ../data/ui/preferences.blp:300
+#: ../data/ui/preferences.blp:314
 msgid ""
 "This tweak is only intended for users who do not use the GNOME desktop "
 "environment and therefore cannot disable animations globally via GNOME "
@@ -885,27 +928,27 @@ msgstr "Batal"
 msgid "Supporters"
 msgstr ""
 
-#: ../komikku/application.py:431
+#: ../komikku/application.py:439
 msgid "Join Chat"
 msgstr "Bergabung dengan Obrolan"
 
-#: ../komikku/application.py:519
+#: ../komikku/application.py:527
 msgid "Are you sure you want to quit?"
 msgstr "Apakah Anda yakin ingin keluar?"
 
-#: ../komikku/application.py:522
+#: ../komikku/application.py:530
 msgid "Some chapters are currently being downloaded."
 msgstr "Beberapa bab saat ini sedang diunduh."
 
-#: ../komikku/application.py:524
+#: ../komikku/application.py:532
 msgid "Some mangas are currently being updated."
 msgstr "Beberapa manga saat ini sedang diperbarui."
 
-#: ../komikku/application.py:528
+#: ../komikku/application.py:536
 msgid "Quit?"
 msgstr "Keluar?"
 
-#: ../komikku/application.py:530
+#: ../komikku/application.py:538
 msgid "Quit"
 msgstr "Keluar"
 
@@ -1047,8 +1090,8 @@ msgstr ""
 msgid "Comics stored locally as archives in CBZ/CBR formats"
 msgstr "Komik yang disimpan secara lokal sebagai arsip dalam format CBZ/CBR"
 
-#: ../komikku/explorer/common.py:188 ../komikku/preferences.py:540
-#: ../komikku/preferences.py:634 ../komikku/servers/mangatube/__init__.py:57
+#: ../komikku/explorer/common.py:188 ../komikku/preferences.py:534
+#: ../komikku/preferences.py:628 ../komikku/servers/mangatube/__init__.py:57
 msgid "18+"
 msgstr "18+"
 
@@ -1299,27 +1342,27 @@ msgstr ""
 msgid "Disable"
 msgstr "Nonaktifkan"
 
-#: ../komikku/preferences.py:568
+#: ../komikku/preferences.py:562
 msgid "User Account"
 msgstr "Akun Pengguna"
 
-#: ../komikku/preferences.py:576
+#: ../komikku/preferences.py:570
 msgid "Address"
 msgstr "Alamat"
 
-#: ../komikku/preferences.py:582
+#: ../komikku/preferences.py:576
 msgid "Username"
 msgstr "Nama Pengguna"
 
-#: ../komikku/preferences.py:586
+#: ../komikku/preferences.py:580
 msgid "Password"
 msgstr "Kata Sandi"
 
-#: ../komikku/preferences.py:598
+#: ../komikku/preferences.py:592
 msgid "System keyring service is disabled. Credential cannot be saved."
 msgstr "Layanan keyring sistem dinonaktifkan. Kredensial tidak dapat disimpan."
 
-#: ../komikku/preferences.py:603
+#: ../komikku/preferences.py:597
 msgid ""
 "No keyring backends were found to store credential. Use plaintext storage as "
 "fallback."
@@ -1327,7 +1370,7 @@ msgstr ""
 "Tidak ada backend keyringyang ditemukan untuk menyimpan kredensial. Gunakan "
 "penyimpanan plaintext sebagai opsi cadangan."
 
-#: ../komikku/preferences.py:608
+#: ../komikku/preferences.py:602
 msgid ""
 "No keyring backends were found to store credential. Plaintext storage will "
 "be used as fallback."
@@ -1335,7 +1378,7 @@ msgstr ""
 "Tidak ada backend keyring yang ditemukan untuk menyimpan kredensial. "
 "Penyimpanan plaintext akan digunakan sebagai opsi cadangan."
 
-#: ../komikku/preferences.py:616
+#: ../komikku/preferences.py:610
 msgid "Test"
 msgstr "Tes"
 
@@ -1848,9 +1891,6 @@ msgstr "Mohon lengkapi CAPTCHA"
 
 #~ msgid "[Servers] Golden Mangás: Update"
 #~ msgstr "[Server] Golden Mangás : Pembaruan"
-
-#~ msgid "[Servers] MANGA Plus by SHUEISHA: Update"
-#~ msgstr "[Server] MANGA Plus by SHUEISHA: Diperbarui"
 
 #~ msgid "[L10n] Updated French translation"
 #~ msgstr "[L10n] Pembaruan terjemahan Bahasa Perancis"
