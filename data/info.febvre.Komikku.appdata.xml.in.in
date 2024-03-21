@@ -100,8 +100,11 @@
     <url type="donation">https://valos.gitlab.io/Komikku/#sponsor</url>
 
     <releases>
-        <release version="1.40.0" date="2024-03-20">
+        <release version="1.40.1" date="2024-03-21">
             <description>
+                <p>This version fixes a bug in Preferences. Switching NFSW content switches caused the application to crash.</p>
+
+                <p>Changes in version 1.40.0</p>
                 <ul>
                     <li>[UX] Refined visuals taking advantage of the new capabilities of GNOME 46</li>
                     <li>[Servers] Added Lelmanga (FR)</li>

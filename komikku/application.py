@@ -417,6 +417,9 @@ class ApplicationWindow(Adw.ApplicationWindow):
         window.set_debug_info(debug_info.generate())
 
         window.set_release_notes("""
+            <p>This version fixes a bug in Preferences. Switching NFSW content switches caused the application to crash.</p>
+
+            <p>Changes in version 1.40.0</p>
             <ul>
                 <li>[UX] Refined visuals taking advantage of the new capabilities of GNOME 46</li>
                 <li>[Servers] Added Lelmanga (FR)</li>
