@@ -220,17 +220,11 @@ class PreferencesDialog(Adw.PreferencesDialog):
         else:
             self.settings.nsfw_content = False
 
-        # Update Servers settings subpage
-        self.servers_settings_subpage.populate()
-
     def on_nsfw_only_content_changed(self, switch_button, _gparam):
         if switch_button.get_active():
             self.settings.nsfw_only_content = True
         else:
             self.settings.nsfw_only_content = False
-
-        # Update Servers settings subpage
-        self.servers_settings_subpage.populate()
 
     def on_page_numbering_changed(self, switch_button, _gparam):
         self.settings.page_numbering = not switch_button.get_active()
