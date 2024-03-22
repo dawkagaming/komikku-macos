@@ -88,6 +88,7 @@ if __name__ == '__main__':
     from @projectname@.application import Application
 
     Application.application_id = '@appid@'
+    Application.author = '@authorfullname@'
     Application.profile = @PROFILE@
     Application.version = '@VERSION@'
     app = Application()

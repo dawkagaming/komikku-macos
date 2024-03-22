@@ -2,6 +2,7 @@
 # SPDX-License-Identifier: GPL-3.0-only or GPL-3.0-or-later
 # Author: Valéry Febvre <vfebvre@easter-eggs.com>
 
+import datetime
 from gettext import gettext as _
 import gi
 import logging
@@ -114,9 +115,11 @@ CREDITS = dict(
 
 class Application(Adw.Application):
     application_id = None
+    author = None
     profile = None
-    logger = None
     version = None
+
+    logger = None
 
     def __init__(self):
         super().__init__(application_id=self.application_id, flags=Gio.ApplicationFlags.HANDLES_COMMAND_LINE)
@@ -403,20 +406,24 @@ class ApplicationWindow(Adw.ApplicationWindow):
         set_color_scheme()
 
     def on_about_menu_clicked(self, _action, _param):
-        builder = Gtk.Builder.new_from_resource('/info/febvre/Komikku/ui/about_window.ui')
-        window = builder.get_object('about_window')
+        dialog = Adw.AboutDialog.new_from_appdata('/info/febvre/Komikku/appdata.xml', self.application.version)
 
-        window.set_artists(CREDITS['artists'])
-        window.set_designers(CREDITS['designers'])
-        window.set_developers(CREDITS['developers'])
-        window.set_translator_credits('\n'.join(CREDITS['translators']))
-        window.add_acknowledgement_section(_('Supporters'), CREDITS['supporters'])
+        dialog.set_copyright(f'© 2019-{datetime.date.today().year} {self.application.author} et al.')
+        dialog.set_comments(_("""A manga, manhwa, manhua, webtoons, webcomics and comics reader for GNOME
 
-        debug_info = DebugInfo(self.application)
-        window.set_debug_info_filename('Komikku-debug-info.txt')
-        window.set_debug_info(debug_info.generate())
+👉 Never forget, you can support the authors
+by buying the official comics when they are
+available in your region/language."""))
+        dialog.set_artists(CREDITS['artists'])
+        dialog.set_designers(CREDITS['designers'])
+        dialog.set_developers(CREDITS['developers'])
+        dialog.set_translator_credits('\n'.join(CREDITS['translators']))
+        dialog.add_acknowledgement_section(_('Supporters'), CREDITS['supporters'])
+        dialog.set_support_url('https://matrix.to/#/#komikku-gnome:matrix.org')
+        dialog.add_link(_('Join Chat'), 'https://matrix.to/#/#komikku-gnome:matrix.org')
 
-        window.set_release_notes("""
+        # Override release notes
+        dialog.set_release_notes("""
             <p>This version fixes a bug in Preferences. Switching NFSW content switches caused the application to crash.</p>
 
             <p>Changes in version 1.40.0</p>
@@ -439,9 +446,11 @@ class ApplicationWindow(Adw.ApplicationWindow):
             <p>Happy reading.</p>
         """)
 
-        window.add_link(_('Join Chat'), 'https://matrix.to/#/#komikku-gnome:matrix.org')
+        debug_info = DebugInfo(self.application)
+        dialog.set_debug_info_filename('Komikku-debug-info.txt')
+        dialog.set_debug_info(debug_info.generate())
 
-        window.present(self)
+        dialog.present(self)
 
     def on_navigation_popped(self, _nav, _page):
         self.last_navigation_action = 'pop'

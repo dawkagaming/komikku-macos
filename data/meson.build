@@ -139,14 +139,16 @@ blueprints = custom_target('blueprints',
 # gresource XML file
 #
 message('Compile gresource XML file')
+conf = configuration_data()
+conf.set('app_id', app_id)
 app_resources = gnome.compile_resources(app_id,
-    base_id + '.gresource.xml',
+    configure_file(
+        input: base_id + '.gresource.xml.in',
+        output: base_id + '.gresource.xml',
+        configuration: conf
+    ),
     gresource_bundle: true,
-    dependencies: [blueprints, configure_file(
-        input: 'ui/about_window.ui.in',
-        output: 'about_window.ui',
-        configuration: glade_conf
-    )],
+    dependencies: blueprints,
     install: true,
     install_dir: pkgdatadir
 )
