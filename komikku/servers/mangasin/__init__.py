@@ -2,12 +2,50 @@
 # SPDX-License-Identifier: GPL-3.0-only or GPL-3.0-or-later
 # Author: Valéry Febvre <vfebvre@easter-eggs.com>
 
-from bs4 import BeautifulSoup
+import base64
 import json
+
+from bs4 import BeautifulSoup
+from cryptography.hazmat.primitives import hashes
+from cryptography.hazmat.primitives import padding
+from cryptography.hazmat.primitives.ciphers import algorithms
+from cryptography.hazmat.primitives.ciphers import Cipher
+from cryptography.hazmat.primitives.ciphers import modes
 
 from komikku.servers.multi.my_manga_reader_cms import MyMangaReaderCMS
 from komikku.servers.utils import convert_date_string
 from komikku.servers.utils import get_buffer_mime_type
+
+
+def md5(text):
+    """
+    Returns the MD5 digest of ``text`` as bytes
+
+    ``text`` is a ``bytes`` instance
+    """
+    digest = hashes.Hash(hashes.MD5())
+    digest.update(text)
+
+    return digest.finalize()
+
+
+def generate_key(passphrase, salt):
+    """
+    Generates the key from ``passphrase`` and ``salt`` as bytes
+
+    ``passphrase`` is a ``bytes`` instance
+    ``salt`` is a ``bytes`` instance
+    """
+    passphrase += salt
+    md5arr = [0] * 3
+    md5arr[0] = md5(passphrase)
+
+    key = md5arr[0]
+    for i in range(1, 3):
+        md5arr[i] = md5(md5arr[i - 1] + passphrase)
+        key += md5arr[i]
+
+    return key[:32]
 
 
 class Mangasin(MyMangaReaderCMS):
@@ -27,39 +65,51 @@ class Mangasin(MyMangaReaderCMS):
     cover_url = base_url + '/uploads/manga/{0}/cover/cover_250x350.jpg'
 
     def get_manga_chapters_data(self, soup):
-        rnd_var = None
-        data = None
-        for script_element in reversed(soup.find_all('script')):
+        chapters_data = None
+        for script_element in soup.select('script'):
             script = script_element.string
-            if script is None:
+            if script is None or 'receivedData' not in script:
                 continue
 
-            for line in reversed(script.split('\n')):
+            for line in script.split('\n'):
                 line = line.strip()
-                if rnd_var is None:
-                    if line.startswith('newChapterList ='):
-                        rnd_var = line.split('(')[-1].split(',')[0]
-                        break
+                if 'receivedData' not in line:
+                    continue
 
-                elif line.startswith(f'var {rnd_var} ='):
-                    data = json.loads(line[len(rnd_var) + 6:-1])
-                    break
+                line = line.split(' = ')[1][1:-2].replace('\\"', '"')
+                received_data = json.loads(line)
 
-            if id is not None and data is not None:
+                # Decrypt
+                passphrase = b'10898WFGefb'  # in js/datachs.js, must be deobfuscated
+                ct = received_data['ct'].replace('\\/', '/')
+                dct = base64.b64decode(ct)
+                iv = bytes.fromhex(received_data['iv'])
+                salt = bytes.fromhex(received_data['s'])
+                key = generate_key(passphrase, salt)
+
+                cipher = Cipher(algorithms.AES(key), modes.CBC(iv))
+                decryptor = cipher.decryptor()
+                chapters_data = decryptor.update(dct) + decryptor.finalize()
+
+                unpadder = padding.PKCS7(128).unpadder()
+                chapters_data = unpadder.update(chapters_data)
+                chapters_data = chapters_data + unpadder.finalize()
+
+                chapters_data = json.loads(json.loads(chapters_data.decode('utf-8')))
                 break
 
-        if data is None:
+        if chapters_data is None:
             return []
 
-        chapters = []
-        for chapter in reversed(data):
-            chapters.append(dict(
+        data = []
+        for chapter in reversed(chapters_data):
+            data.append(dict(
                 slug=chapter['slug'],
-                title=chapter['name'],
+                title=f'Vol {chapter["volume"]} - #{chapter["number"]} {chapter["name"]}',
                 date=convert_date_string(chapter['updated_at'].split()[0], format='%Y-%m-%d'),
             ))
 
-        return chapters
+        return data
 
     def get_latest_updates(self):
         """
