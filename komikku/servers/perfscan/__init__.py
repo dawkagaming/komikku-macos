@@ -122,13 +122,17 @@ class Perfscan(Heancms):
             page = 1
             while more:
                 chapters, more = self.get_manga_chapters_data(post['id'], page)
-                for chapter in chapters:
-                    data['chapters'].append(dict(
-                        slug=chapter['chapter_slug'],
-                        title=chapter['chapter_name'],
-                        date=convert_date_string(chapter['created_at'].split('T')[0], '%Y%m%d'),
-                    ))
-                page += 1
+                if chapters:
+                    for chapter in chapters:
+                        data['chapters'].append(dict(
+                            slug=chapter['chapter_slug'],
+                            title=chapter['chapter_name'],
+                            date=convert_date_string(chapter['created_at'].split('T')[0], '%Y%m%d'),
+                        ))
+                    page += 1
+                elif chapters is None:
+                    # Failed to retrieve a chapters list page, abort
+                    return None
 
         return data
 
@@ -142,11 +146,13 @@ class Perfscan(Heancms):
             )
         )
         if r.status_code != 200:
-            return [], False
+            return None, False
 
         data = r.json()
+        if not data.get('data'):
+            return None, False
 
-        return data['data'], data['meta']['current_page'] != data['meta']['last_page']
+        return data['data'], data.get('meta') and data['meta']['current_page'] != data['meta']['last_page']
 
     def get_manga_chapter_data(self, manga_slug, manga_name, chapter_slug, chapter_url):
         """
