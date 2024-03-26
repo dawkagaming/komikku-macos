@@ -39,9 +39,9 @@ def extract_info_from_script(soup, keyword):
                     break
                 start += 1
 
-            line = line[start:-3].replace('\\"', '"').replace('\\n', '').replace('\\r', '')
+            line = line[start:-3]
             try:
-                info = json.loads(line)
+                info = json.loads(json.loads(f'"{line}"'))
             except Exception as e:
                 logger.debug(f'ERROR: {line}')
                 logger.debug(e)
@@ -57,6 +57,7 @@ class Perfscan(Heancms):
 
     base_url = 'https://perf-scan.fr'
     api_url = 'https://api.perf-scan.fr'
+    api_chapters_url = api_url + '/chapter/query'
 
     def get_manga_data(self, initial_data):
         """
@@ -84,53 +85,68 @@ class Perfscan(Heancms):
             authors=[],
             scanlators=[self.name, ],
             genres=[],
-            status='ongoing',
+            status=None,
             synopsis=None,
             chapters=[],
             server_id=self.id,
             cover=None,
         ))
 
-        def extract_synopsis(info, synopsis=[]):
-            if isinstance(info, list):
-                if info[0] == '$':
-                    if isinstance(info[3].get('children'), str):
-                        # ['$', 'p', None, {'children': 'bla bla bla'}]
-                        synopsis.append(info[3]['children'])
-                    elif isinstance(info[3]['children'], list):
-                        extract_synopsis(info[3]['children'], synopsis)
-                else:
-                    for sinfo in info:
-                        extract_synopsis(sinfo, synopsis)
-            elif isinstance(info, str):
-                if info != '\\':
-                    synopsis.append(info)
-
-            return synopsis
-
         if info := extract_info_from_script(soup, 'series_slug'):
-            info = info[2][3]['children']
+            info = info[3]['children'][3]['children']
 
-            # data['name'] = info[0][3]['children'][3]['children'][3]['children'][1][3]['children'][0][3]['children']
-            data['name'] = info[5][3]['children'][3]['children'][3]['children'][3]['post']['title']
-            data['cover'] = info[0][3]['children'][3]['children'][3]['children'][0][3]['children'][3]['children'][0][3]['src']
+            post = info[2][3]['children'][3]['children'][3]['children'][3]['children'][1][3]['children'][1][3]['children'][3]['post']
+            data['name'] = post['title']
+            data['cover'] = info[0][3]['children'][3]['children'][1][3]['children'][3]['children'][3]['src']
 
-            data['authors'] = info[1][3]['children'][3]['children'][1][3]['children'][2][3]['children'][1][3]['children'][2][3]['children'][2][3]['children'].split(' | ')
+            # Authors
+            for item in info[1][3]['children'][3]['children'][1][3]['children'][1][3]['children']:
+                if not isinstance(item[3]['children'][0], list) or item[3]['children'][0][3].get('children') != 'Auteur':
+                    continue
+                data['authors'] = item[3]['children'][1][3]['children'].split(' | ')
+                break
 
-            synopsis_info = info[1][3]['children'][3]['children'][1][3]['children'][1][3]['children']
-            if synopsis := extract_synopsis(synopsis_info):
-                data['synopsis'] = '\n'.join(synopsis)
+            # Status
+            status = info[0][3]['children'][3]['children'][0][3]['children'][1][3]['children'][0][3]['children'].lower()
+            if status == 'ongoing':
+                data['status'] = 'ongoing'
+            elif status == 'completed':
+                data['status'] = 'complete'
 
-            seasons = info[3][3]['children'][3]['children'][3]['children'][3]['children'][1]
-            for season in reversed(seasons):
-                for chapter in reversed(season[3]['season']['chapters']):
+            # Synopsis
+            html = info[0][3]['children'][3]['children'][0][3]['children'][2][3]['children'][3]['dangerouslySetInnerHTML']['__html']
+            soup = BeautifulSoup(html, 'lxml')
+            data['synopsis'] = soup.text.strip()
+
+            more = True
+            page = 1
+            while more:
+                chapters, more = self.get_manga_chapters_data(post['id'], page)
+                for chapter in chapters:
                     data['chapters'].append(dict(
                         slug=chapter['chapter_slug'],
                         title=chapter['chapter_name'],
                         date=convert_date_string(chapter['created_at'].split('T')[0], '%Y%m%d'),
                     ))
+                page += 1
 
         return data
+
+    def get_manga_chapters_data(self, serie_id, page):
+        r = self.session_get(
+            self.api_chapters_url,
+            params=dict(
+                page=page,
+                perPage=30,
+                series_id=serie_id,
+            )
+        )
+        if r.status_code != 200:
+            return [], False
+
+        data = r.json()
+
+        return data['data'], data['meta']['current_page'] != data['meta']['last_page']
 
     def get_manga_chapter_data(self, manga_slug, manga_name, chapter_slug, chapter_url):
         """
@@ -153,11 +169,11 @@ class Perfscan(Heancms):
 
         soup = BeautifulSoup(r.text, 'lxml')
 
-        if info := extract_info_from_script(soup, 'series_slug'):
+        if info := extract_info_from_script(soup, 'API_Response'):
             data = dict(
                 pages=[],
             )
-            pages = info[2][3]['children'][1][3]['children'][0][3]['API_Response']['data']
+            pages = info[3]['children'][1][3]['children'][0][3]['API_Response']['chapter']['chapter_data']['images']
             for url in pages:
                 data['pages'].append(dict(
                     slug=None,
