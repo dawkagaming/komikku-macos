@@ -5,11 +5,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: unnamed project\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-03-21 23:14+0100\n"
+"POT-Creation-Date: 2024-03-27 00:14+0100\n"
 "PO-Revision-Date: 2024-03-21 22:53+0000\n"
 "Last-Translator: Valéry Febvre <vfebvre@easter-eggs.com>\n"
-"Language-Team: French <https://hosted.weblate.org/projects/komikku/main/fr/>"
-"\n"
+"Language-Team: French <https://hosted.weblate.org/projects/komikku/main/fr/"
+">\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -18,9 +18,8 @@ msgstr ""
 "X-Generator: Weblate 5.5-dev\n"
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:11
-msgid "Discover and read manga, webtoons, comics, and more"
+msgid "Discover and read manga &amp; comics"
 msgstr ""
-"Découvrez et lisez des mangas, webtoons, bandes dessinées, et plus encore"
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:13
 msgid ""
@@ -118,65 +117,76 @@ msgstr "La page Éditeur des catégories en format mobile"
 msgid "The Reading history page in mobile format"
 msgstr "La page Historique de lecture en format mobile"
 
-#: ../data/info.febvre.Komikku.appdata.xml.in.in:106
+#: ../data/info.febvre.Komikku.appdata.xml.in.in:105
 msgid ""
-"[UX] Refined visuals taking advantage of the new capabilities of GNOME 46"
-msgstr "[UX] Des visuels raffinés profitant des nouvelles capacités de GNOME 46"
+"This version fixes a bug in Preferences. Switching NFSW content switches "
+"caused the application to crash."
+msgstr ""
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:107
+msgid "Changes in version 1.40.0"
+msgstr ""
+
+#: ../data/info.febvre.Komikku.appdata.xml.in.in:109
+msgid ""
+"[UX] Refined visuals taking advantage of the new capabilities of GNOME 46"
+msgstr ""
+"[UX] Des visuels raffinés profitant des nouvelles capacités de GNOME 46"
+
+#: ../data/info.febvre.Komikku.appdata.xml.in.in:110
 msgid "[Servers] Added Lelmanga (FR)"
 msgstr "[Serveurs] Ajout de Lelmanga (FR)"
 
-#: ../data/info.febvre.Komikku.appdata.xml.in.in:108
+#: ../data/info.febvre.Komikku.appdata.xml.in.in:111
 msgid "[Servers] Added Lelscan (FR)"
 msgstr "[Serveurs] Ajout de Lelscan (FR)"
 
-#: ../data/info.febvre.Komikku.appdata.xml.in.in:109
+#: ../data/info.febvre.Komikku.appdata.xml.in.in:112
 msgid "[Servers] Added Night scans (EN)"
 msgstr "[Serveurs] Ajout de Night scans (EN)"
 
-#: ../data/info.febvre.Komikku.appdata.xml.in.in:110
+#: ../data/info.febvre.Komikku.appdata.xml.in.in:113
 msgid "[Servers] Comic Book Plus (EN): Fixed search"
 msgstr "[Serveurs] Comic Book Plus (EN) : Correction de la recherche"
 
-#: ../data/info.febvre.Komikku.appdata.xml.in.in:111
+#: ../data/info.febvre.Komikku.appdata.xml.in.in:114
 msgid "[Servers] MANGA Plus by SHUEISHA: Update"
 msgstr "[Serveurs] MANGA Plus by SHUEISHA : Mise à jour"
 
-#: ../data/info.febvre.Komikku.appdata.xml.in.in:112
+#: ../data/info.febvre.Komikku.appdata.xml.in.in:115
 msgid "[Servers] MangaDex: Added Tags filter"
 msgstr "[Serveurs] MangaDex : Ajout du filtre Étiquettes"
 
-#: ../data/info.febvre.Komikku.appdata.xml.in.in:113
+#: ../data/info.febvre.Komikku.appdata.xml.in.in:116
 msgid "[Servers] MangaLib (RU): Update"
 msgstr "[Serveurs] MangaLib (RU) : Mise à jour"
 
-#: ../data/info.febvre.Komikku.appdata.xml.in.in:114
+#: ../data/info.febvre.Komikku.appdata.xml.in.in:117
 msgid "[Servers] Mangaowl (EN): Update"
 msgstr "[Serveurs] Mangaowl (EN) : Mise à jour"
 
-#: ../data/info.febvre.Komikku.appdata.xml.in.in:115
+#: ../data/info.febvre.Komikku.appdata.xml.in.in:118
 msgid "[Servers] Jpmangas (FR): Disabled"
 msgstr "[Serveurs] Jpmangas (FR) : Désactivé"
 
-#: ../data/info.febvre.Komikku.appdata.xml.in.in:116
+#: ../data/info.febvre.Komikku.appdata.xml.in.in:119
 msgid "[Servers] Reaper Scans (pt_BR): Disabled"
 msgstr "[Serveurs] Reaper Scans (pt_BR) : Désactivé"
 
-#: ../data/info.febvre.Komikku.appdata.xml.in.in:117
+#: ../data/info.febvre.Komikku.appdata.xml.in.in:120
 msgid "[Servers] Scan FR: Disabled"
 msgstr "[Serveurs] Scan FR : Désactivé"
 
-#: ../data/info.febvre.Komikku.appdata.xml.in.in:118
+#: ../data/info.febvre.Komikku.appdata.xml.in.in:121
 msgid "[Servers] Scan Manga (FR): Disabled"
 msgstr "[Serveurs] Scan Manga (FR) : Désactivé"
 
-#: ../data/info.febvre.Komikku.appdata.xml.in.in:119
+#: ../data/info.febvre.Komikku.appdata.xml.in.in:122
 msgid "[L10n] Updated French, Russian, Spanish and Turkish translations"
 msgstr ""
 "[L10n] mise à jour des traductions française, russe, espagnole et turque"
 
-#: ../data/info.febvre.Komikku.appdata.xml.in.in:121
+#: ../data/info.febvre.Komikku.appdata.xml.in.in:124
 msgid "Happy reading."
 msgstr "Bonne lecture."
 
@@ -195,20 +205,6 @@ msgid ""
 msgstr ""
 "manga;lecteur;visionneuse;comic;manhwa;manhua;bd;webtoon;webcomic;scan;"
 "offline;gnome;"
-
-#: ../data/ui/about_window.ui.in:28
-msgid ""
-"A manga, manhwa, manhua, webtoons, webcomics and comics reader for GNOME\n"
-"\n"
-"👉 Never forget, you can support the authors\n"
-"by buying the official comics when they are\n"
-"available in your region/language."
-msgstr ""
-"Un lecteur de manga, manhua, webtoons, webcomics et BDs pour GNOME\n"
-"\n"
-"👉 N'oubliez jamais, vous pouvez soutenir les auteurs\n"
-"en achetant les BD officielles lorsqu'elles sont\n"
-"disponibles dans votre région / langue."
 
 #: ../data/ui/card.blp:32 ../data/ui/card.blp:444
 #: ../data/ui/card_chapters_list_row.blp:44 ../data/ui/download_manager.blp:22
@@ -930,46 +926,60 @@ msgstr "Don unique ou mensuel"
 msgid "Webview"
 msgstr "Vue Web"
 
-#: ../komikku/application.py:151
+#: ../komikku/application.py:154
 msgid "Multiple URLs not supported"
 msgstr "Les URL multiples ne sont pas pris en charge"
 
-#: ../komikku/application.py:167
+#: ../komikku/application.py:170
 msgid "Invalid URL {}, not handled by any server."
 msgstr "URL invalide {}, gérée par aucun serveur."
 
-#: ../komikku/application.py:350 ../komikku/card/__init__.py:136
+#: ../komikku/application.py:353 ../komikku/card/__init__.py:136
 #: ../komikku/card/__init__.py:137 ../komikku/categories_editor.py:188
 #: ../komikku/downloader.py:380 ../komikku/downloader.py:381
 #: ../komikku/library/__init__.py:767 ../komikku/library/__init__.py:768
 msgid "Cancel"
 msgstr "Annuler"
 
-#: ../komikku/application.py:413
+#: ../komikku/application.py:412
+msgid ""
+"A manga, manhwa, manhua, webtoons, webcomics and comics reader for GNOME\n"
+"\n"
+"👉 Never forget, you can support the authors\n"
+"by buying the official comics when they are\n"
+"available in your region/language."
+msgstr ""
+"Un lecteur de manga, manhua, webtoons, webcomics et BDs pour GNOME\n"
+"\n"
+"👉 N'oubliez jamais, vous pouvez soutenir les auteurs\n"
+"en achetant les BD officielles lorsqu'elles sont\n"
+"disponibles dans votre région / langue."
+
+#: ../komikku/application.py:421
 msgid "Supporters"
 msgstr "Supporteurs"
 
-#: ../komikku/application.py:439
+#: ../komikku/application.py:423
 msgid "Join Chat"
 msgstr "Rejoindre le salon de discussion"
 
-#: ../komikku/application.py:527
+#: ../komikku/application.py:539
 msgid "Are you sure you want to quit?"
 msgstr "Êtes-vous sûr de vouloir quitter ?"
 
-#: ../komikku/application.py:530
+#: ../komikku/application.py:542
 msgid "Some chapters are currently being downloaded."
 msgstr "Certains chapitres sont en cours de téléchargement."
 
-#: ../komikku/application.py:532
+#: ../komikku/application.py:544
 msgid "Some mangas are currently being updated."
 msgstr "Certains mangas sont en cours de mise à jour."
 
-#: ../komikku/application.py:536
+#: ../komikku/application.py:548
 msgid "Quit?"
 msgstr "Quitter ?"
 
-#: ../komikku/application.py:538
+#: ../komikku/application.py:550
 msgid "Quit"
 msgstr "Quitter"
 
@@ -1861,6 +1871,10 @@ msgstr "Pas de connexion Internet, délai dépassé ou serveur en panne"
 #: ../komikku/webview.py:357
 msgid "Please complete CAPTCHA"
 msgstr "Veuillez compléter le CAPTCHA"
+
+#~ msgid "Discover and read manga, webtoons, comics, and more"
+#~ msgstr ""
+#~ "Découvrez et lisez des mangas, webtoons, bandes dessinées, et plus encore"
 
 #~ msgid "[Library] Add an indicator when an partial update is in progress"
 #~ msgstr ""

@@ -1,6 +1,5 @@
 data/info.febvre.Komikku.appdata.xml.in.in
 data/info.febvre.Komikku.desktop.in
-data/ui/about_window.ui.in
 data/ui/card.blp
 data/ui/card_chapters_list_row.blp
 data/ui/categories_editor.blp

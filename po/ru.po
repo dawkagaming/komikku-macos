@@ -7,11 +7,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-03-21 23:14+0100\n"
+"POT-Creation-Date: 2024-03-27 00:14+0100\n"
 "PO-Revision-Date: 2024-03-23 07:01+0000\n"
 "Last-Translator: Сергей <asvmail.as@gmail.com>\n"
-"Language-Team: Russian <https://hosted.weblate.org/projects/komikku/main/ru/>"
-"\n"
+"Language-Team: Russian <https://hosted.weblate.org/projects/komikku/main/ru/"
+">\n"
 "Language: ru\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -21,8 +21,8 @@ msgstr ""
 "X-Generator: Weblate 5.5-dev\n"
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:11
-msgid "Discover and read manga, webtoons, comics, and more"
-msgstr "Открывайте для себя и читайте мангу, вебтуны, комиксы и многое другое"
+msgid "Discover and read manga &amp; comics"
+msgstr ""
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:13
 msgid ""
@@ -120,66 +120,76 @@ msgstr "Страница редактора категорий в мобильн
 msgid "The Reading history page in mobile format"
 msgstr "Страница истории чтения в мобильном формате"
 
-#: ../data/info.febvre.Komikku.appdata.xml.in.in:106
+#: ../data/info.febvre.Komikku.appdata.xml.in.in:105
+msgid ""
+"This version fixes a bug in Preferences. Switching NFSW content switches "
+"caused the application to crash."
+msgstr ""
+
+#: ../data/info.febvre.Komikku.appdata.xml.in.in:107
+msgid "Changes in version 1.40.0"
+msgstr ""
+
+#: ../data/info.febvre.Komikku.appdata.xml.in.in:109
 msgid ""
 "[UX] Refined visuals taking advantage of the new capabilities of GNOME 46"
 msgstr ""
 "[UX] Улучшены визуальные эффекты, использующие преимущества новых "
 "возможностей GNOME 46"
 
-#: ../data/info.febvre.Komikku.appdata.xml.in.in:107
+#: ../data/info.febvre.Komikku.appdata.xml.in.in:110
 msgid "[Servers] Added Lelmanga (FR)"
 msgstr "[Серверы] Добавлен Lelmanga (FR)"
 
-#: ../data/info.febvre.Komikku.appdata.xml.in.in:108
+#: ../data/info.febvre.Komikku.appdata.xml.in.in:111
 msgid "[Servers] Added Lelscan (FR)"
 msgstr "[Серверы] Добавлен Lelscan (FR)"
 
-#: ../data/info.febvre.Komikku.appdata.xml.in.in:109
+#: ../data/info.febvre.Komikku.appdata.xml.in.in:112
 msgid "[Servers] Added Night scans (EN)"
 msgstr "[Серверы] Добавлен Night scans (EN)"
 
-#: ../data/info.febvre.Komikku.appdata.xml.in.in:110
+#: ../data/info.febvre.Komikku.appdata.xml.in.in:113
 msgid "[Servers] Comic Book Plus (EN): Fixed search"
 msgstr "[Сервер] Comic Book Plus (EN): Исправлен поиск"
 
-#: ../data/info.febvre.Komikku.appdata.xml.in.in:111
+#: ../data/info.febvre.Komikku.appdata.xml.in.in:114
 msgid "[Servers] MANGA Plus by SHUEISHA: Update"
 msgstr "[Серверы] MANGA Plus by SHUEISHA: Обновление"
 
-#: ../data/info.febvre.Komikku.appdata.xml.in.in:112
+#: ../data/info.febvre.Komikku.appdata.xml.in.in:115
 msgid "[Servers] MangaDex: Added Tags filter"
 msgstr "[Серверы] MangaDex: Добавлен фильтр по меткам"
 
-#: ../data/info.febvre.Komikku.appdata.xml.in.in:113
+#: ../data/info.febvre.Komikku.appdata.xml.in.in:116
 msgid "[Servers] MangaLib (RU): Update"
 msgstr "[Серверы] MangaLib (RU): Обновление"
 
-#: ../data/info.febvre.Komikku.appdata.xml.in.in:114
+#: ../data/info.febvre.Komikku.appdata.xml.in.in:117
 msgid "[Servers] Mangaowl (EN): Update"
 msgstr "[Серверы] Mangaowl (EN): Обновление"
 
-#: ../data/info.febvre.Komikku.appdata.xml.in.in:115
+#: ../data/info.febvre.Komikku.appdata.xml.in.in:118
 msgid "[Servers] Jpmangas (FR): Disabled"
 msgstr "[Серверы] Jpmangas (FR): Отключено"
 
-#: ../data/info.febvre.Komikku.appdata.xml.in.in:116
+#: ../data/info.febvre.Komikku.appdata.xml.in.in:119
 msgid "[Servers] Reaper Scans (pt_BR): Disabled"
 msgstr "[Серверы] Reaper Scans (pt_BR): Отключено"
 
-#: ../data/info.febvre.Komikku.appdata.xml.in.in:117
+#: ../data/info.febvre.Komikku.appdata.xml.in.in:120
 msgid "[Servers] Scan FR: Disabled"
 msgstr "[Серверы] Scan FR: Отключено"
 
-#: ../data/info.febvre.Komikku.appdata.xml.in.in:118
+#: ../data/info.febvre.Komikku.appdata.xml.in.in:121
 msgid "[Servers] Scan Manga (FR): Disabled"
 msgstr "[Серверы] Scan Manga (FR): Отключено"
 
-#: ../data/info.febvre.Komikku.appdata.xml.in.in:119
+#: ../data/info.febvre.Komikku.appdata.xml.in.in:122
 msgid "[L10n] Updated French, Russian, Spanish and Turkish translations"
 msgstr "[L10n] Обновлены французский, русский, испанский и турецкий переводы"
 
-#: ../data/info.febvre.Komikku.appdata.xml.in.in:121
+#: ../data/info.febvre.Komikku.appdata.xml.in.in:124
 msgid "Happy reading."
 msgstr "Приятного чтения."
 
@@ -198,21 +208,6 @@ msgid ""
 msgstr ""
 "manga;reader;viewer;comic;manhwa;manhua;bd;webtoon;webcomic;scan;offline;"
 "gnome;манга;читалка;комикс;"
-
-#: ../data/ui/about_window.ui.in:28
-msgid ""
-"A manga, manhwa, manhua, webtoons, webcomics and comics reader for GNOME\n"
-"\n"
-"👉 Never forget, you can support the authors\n"
-"by buying the official comics when they are\n"
-"available in your region/language."
-msgstr ""
-"Приложение для GNOME для чтения манги, манхвы, манхуа, webtoons, веб-"
-"комиксов и комиксов\n"
-"\n"
-"👉 Никогда не забывайте, что вы можете поддержать авторов\n"
-"покупая официальные комиксы, когда они\n"
-"будут доступны в вашем регионе/на вашем языке."
 
 #: ../data/ui/card.blp:32 ../data/ui/card.blp:444
 #: ../data/ui/card_chapters_list_row.blp:44 ../data/ui/download_manager.blp:22
@@ -933,46 +928,61 @@ msgstr "Однократное или ежемесячное пожертвов�
 msgid "Webview"
 msgstr "Webview"
 
-#: ../komikku/application.py:151
+#: ../komikku/application.py:154
 msgid "Multiple URLs not supported"
 msgstr "Множественные URL не поддерживаются"
 
-#: ../komikku/application.py:167
+#: ../komikku/application.py:170
 msgid "Invalid URL {}, not handled by any server."
 msgstr "Недопустимый URL {}, который не обрабатывается ни одним сервером."
 
-#: ../komikku/application.py:350 ../komikku/card/__init__.py:136
+#: ../komikku/application.py:353 ../komikku/card/__init__.py:136
 #: ../komikku/card/__init__.py:137 ../komikku/categories_editor.py:188
 #: ../komikku/downloader.py:380 ../komikku/downloader.py:381
 #: ../komikku/library/__init__.py:767 ../komikku/library/__init__.py:768
 msgid "Cancel"
 msgstr "Отменить"
 
-#: ../komikku/application.py:413
+#: ../komikku/application.py:412
+msgid ""
+"A manga, manhwa, manhua, webtoons, webcomics and comics reader for GNOME\n"
+"\n"
+"👉 Never forget, you can support the authors\n"
+"by buying the official comics when they are\n"
+"available in your region/language."
+msgstr ""
+"Приложение для GNOME для чтения манги, манхвы, манхуа, webtoons, веб-"
+"комиксов и комиксов\n"
+"\n"
+"👉 Никогда не забывайте, что вы можете поддержать авторов\n"
+"покупая официальные комиксы, когда они\n"
+"будут доступны в вашем регионе/на вашем языке."
+
+#: ../komikku/application.py:421
 msgid "Supporters"
 msgstr "Помощники"
 
-#: ../komikku/application.py:439
+#: ../komikku/application.py:423
 msgid "Join Chat"
 msgstr "Присоединиться к чату"
 
-#: ../komikku/application.py:527
+#: ../komikku/application.py:539
 msgid "Are you sure you want to quit?"
 msgstr "Вы уверены что хотите выйти?"
 
-#: ../komikku/application.py:530
+#: ../komikku/application.py:542
 msgid "Some chapters are currently being downloaded."
 msgstr "Некоторые главы загружаются прямо сейчас."
 
-#: ../komikku/application.py:532
+#: ../komikku/application.py:544
 msgid "Some mangas are currently being updated."
 msgstr "Некоторые манги обновляются прямо сейчас."
 
-#: ../komikku/application.py:536
+#: ../komikku/application.py:548
 msgid "Quit?"
 msgstr "Выйти?"
 
-#: ../komikku/application.py:538
+#: ../komikku/application.py:550
 msgid "Quit"
 msgstr "Выход"
 
@@ -1862,6 +1872,10 @@ msgstr "Нет подключения к Интернету, тайм-аут и�
 #: ../komikku/webview.py:357
 msgid "Please complete CAPTCHA"
 msgstr "Пожалуйста, заполните CAPTCHA"
+
+#~ msgid "Discover and read manga, webtoons, comics, and more"
+#~ msgstr ""
+#~ "Открывайте для себя и читайте мангу, вебтуны, комиксы и многое другое"
 
 #~ msgid "[Library] Add an indicator when an partial update is in progress"
 #~ msgstr "[Библиотека] Добавлен индикатор выполнения частичного обновления"
