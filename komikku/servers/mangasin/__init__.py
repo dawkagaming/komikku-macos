@@ -4,6 +4,7 @@
 
 import base64
 import json
+import re
 
 from bs4 import BeautifulSoup
 from cryptography.hazmat.primitives import hashes
@@ -66,37 +67,33 @@ class Mangasin(MyMangaReaderCMS):
 
     def get_manga_chapters_data(self, soup):
         chapters_data = None
+        chapters_re = r'{(?=.*\\"ct\\")(?=.*\\"iv\\")(?=.*\\"s\\").*?}'
+
         for script_element in soup.select('script'):
             script = script_element.string
-            if script is None or 'receivedData' not in script:
+            if script is None or not re.findall(chapters_re, script):
                 continue
 
-            for line in script.split('\n'):
-                line = line.strip()
-                if 'receivedData' not in line:
-                    continue
+            line = re.findall(chapters_re, script)[0]
+            cdata = json.loads(json.loads(f'"{line}"'))
 
-                line = line.split(' = ')[1][1:-2].replace('\\"', '"')
-                received_data = json.loads(line)
+            # Decrypt
+            passphrase = b'X^Ib1O*HLVh%3W2t'  # in js/ads2.js, must be deobfuscated
+            dct = base64.b64decode(cdata['ct'])
+            iv = bytes.fromhex(cdata['iv'])
+            salt = bytes.fromhex(cdata['s'])
+            key = generate_key(passphrase, salt)
 
-                # Decrypt
-                passphrase = b'10898WFGefb'  # in js/datachs.js, must be deobfuscated
-                ct = received_data['ct'].replace('\\/', '/')
-                dct = base64.b64decode(ct)
-                iv = bytes.fromhex(received_data['iv'])
-                salt = bytes.fromhex(received_data['s'])
-                key = generate_key(passphrase, salt)
+            cipher = Cipher(algorithms.AES(key), modes.CBC(iv))
+            decryptor = cipher.decryptor()
+            chapters_data = decryptor.update(dct) + decryptor.finalize()
 
-                cipher = Cipher(algorithms.AES(key), modes.CBC(iv))
-                decryptor = cipher.decryptor()
-                chapters_data = decryptor.update(dct) + decryptor.finalize()
+            unpadder = padding.PKCS7(128).unpadder()
+            chapters_data = unpadder.update(chapters_data)
+            chapters_data = chapters_data + unpadder.finalize()
 
-                unpadder = padding.PKCS7(128).unpadder()
-                chapters_data = unpadder.update(chapters_data)
-                chapters_data = chapters_data + unpadder.finalize()
-
-                chapters_data = json.loads(json.loads(chapters_data.decode('utf-8')))
-                break
+            chapters_data = json.loads(json.loads(chapters_data.decode('utf-8')))
+            break
 
         if chapters_data is None:
             return []
