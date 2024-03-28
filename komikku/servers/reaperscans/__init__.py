@@ -2,9 +2,12 @@
 # SPDX-License-Identifier: GPL-3.0-only or GPL-3.0-or-later
 # Author: Valéry Febvre <vfebvre@easter-eggs.com>
 
-from bs4 import BeautifulSoup
 import json
-import requests
+import random
+import string
+
+from bs4 import BeautifulSoup
+from curl_cffi import requests
 
 from komikku.servers import Server
 from komikku.servers import USER_AGENT
@@ -15,14 +18,287 @@ from komikku.servers.utils import convert_date_string
 from komikku.servers.utils import get_buffer_mime_type
 
 
-class Reaperscans(Madara):
+def generate_id():
+    """ Generate a random 4-5 alpha-num character string """
+    return ''.join(random.choice(string.ascii_lowercase + string.digits) for _ in range(random.randint(4, 5)))
+
+
+class Reaperscans(Server):
     id = 'reaperscans'
     name = 'Reaper Scans'
     lang = 'en'
 
-    series_name = 'series'
-
     base_url = 'https://reaperscans.com'
+    api_url = base_url + '/livewire/message/{0}'
+    latest_updates_url = base_url + '/latest/comics'
+    manga_url = base_url + '/comics/{0}'
+    chapter_url = base_url + '/comics/{0}/chapters/{1}'
+
+    def __init__(self):
+        if self.session is None:
+            self.session = requests.Session()
+            self.session.headers.update({'user-agent': USER_AGENT})
+
+    def get_manga_data(self, initial_data):
+        """
+        Returns manga data by scraping manga HTML page content
+
+        Initial data should contain at least manga's slug (provided by search)
+        """
+        assert 'slug' in initial_data, 'Slug is missing in initial data'
+
+        r = self.session_get(self.manga_url.format(initial_data['slug']))
+        if r.status_code != 200:
+            return None
+
+        soup = BeautifulSoup(r.text, 'lxml')
+
+        data = initial_data.copy()
+        data.update(dict(
+            authors=[],  # not available
+            scanlators=[],  # not available
+            genres=[],  # not available
+            status=None,
+            cover=None,
+            synopsis=None,
+            chapters=[],
+            server_id=self.id,
+        ))
+
+        data['name'] = soup.select_one('img.h-full.w-full').get('alt').strip()
+        data['cover'] = soup.select_one('img.h-full.w-full').get('src')
+
+        # Details
+        status = soup.select_one('dt:-soup-contains("Release Status")').parent.select_one('dd').text
+        if status == 'On hold':
+            data['status'] = 'hiatus'
+        elif status == 'Complete':
+            data['status'] = 'complete'
+        elif status == 'Ongoing':
+            data['status'] = 'ongoing'
+        elif status == 'Dropped':
+            data['status'] = 'Suspended'
+
+        # Synopsis
+        data['synopsis'] = soup.select_one('p.prose').text.strip()
+
+        # Chapters
+        data['chapters'] = self.get_manga_chapters_data(soup, data['slug'])
+
+        return data
+
+    def get_manga_chapters_data(self, soup, slug):
+        csrf_token = None
+        data = []
+        more = True
+        payload = None
+
+        def parse_chapters_page(soup_page):
+            data_page = []
+            for a_element in soup_page.select('li[wire\\:key^="comic-chapter-list"] > a'):
+                p_elements = a_element.select('p')
+                data_page.append(dict(
+                    slug=a_element.get('href').split('/')[-1],
+                    title=p_elements[0].text.strip(),
+                    date=convert_date_string(p_elements[1].text.replace('Released', '').strip()),
+                ))
+
+            more = soup_page.select_one('button[wire\\:click^="nextPage"]') is not None
+
+            return data_page, more
+
+        while more:
+            if csrf_token is None and payload is None:
+                csrf_token = soup.select_one('meta[name="csrf-token"]').get('content')
+
+                payload = None
+                if element := soup.select_one('[wire\\:initial-data*="frontend.comic-chapter-list"]'):
+                    payload = json.loads(element.get('wire:initial-data'))
+
+                if csrf_token is None or payload is None:
+                    return None
+
+                payload.pop('effects')
+                payload['updates'] = [
+                    {
+                        'payload': {
+                            'id': generate_id(),
+                            'method': 'nextPage',
+                            'params': ['page'],
+                        },
+                        'type': 'callMethod',
+                    }
+                ]
+
+                data_page, more = parse_chapters_page(soup)
+            else:
+                r = self.session_post(
+                    self.api_url.format(payload['fingerprint']['name']),
+                    json=payload,
+                    headers={
+                        'Content-Type': 'application/json',
+                        'Referer': self.manga_url.format(slug),
+                        'X-Csrf-Token': csrf_token,
+                        'X-Livewire': 'true',
+                    }
+                )
+                if r.status_code != 200:
+                    break
+
+                resp_data = r.json()
+                if not resp_data.get('effects'):
+                    break
+
+                # Save state
+                payload['serverMemo']['checksum'] = resp_data['serverMemo']['checksum']
+                payload['serverMemo']['data']['page'] = resp_data['serverMemo']['data']['page']
+                payload['serverMemo']['data']['paginators']['page'] = resp_data['serverMemo']['data']['paginators']['page']
+                payload['serverMemo']['htmlHash'] = resp_data['serverMemo']['htmlHash']
+                payload['updates'][0]['payload']['id'] = generate_id()
+
+                data_page, more = parse_chapters_page(BeautifulSoup(resp_data['effects']['html'], 'lxml'))
+
+            data += data_page
+
+        return reversed(data)
+
+    def get_manga_chapter_data(self, manga_slug, manga_name, chapter_slug, chapter_url):
+        """
+        Returns manga chapter data by scraping chapter HTML page content + API
+
+        Currently, only pages are expected.
+        """
+        r = self.session_get(self.chapter_url.format(manga_slug, chapter_slug))
+        if r.status_code != 200:
+            return None
+
+        soup = BeautifulSoup(r.text, 'lxml')
+
+        data = dict(
+            pages=[],
+        )
+        for img_element in soup.select('img.max-w-full'):
+            if img_element.get('data-lazy-src'):
+                url = img_element.get('data-lazy-src')
+            elif img_element.get('data-src'):
+                url = img_element.get('data-src')
+            elif img_element.get('data-cfsrc'):
+                url = img_element.get('data-cfsrc')
+            else:
+                url = img_element.get('src')
+
+            data['pages'].append(dict(
+                slug=None,
+                image=url,
+            ))
+
+        return data
+
+    def get_manga_chapter_page_image(self, manga_slug, manga_name, chapter_slug, page):
+        """
+        Returns chapter page scan (image) content
+        """
+        r = self.session_get(
+            page['image'],
+            headers={
+                'Referer': self.chapter_url.format(manga_slug, chapter_slug),
+            }
+        )
+        if r.status_code != 200:
+            return None
+
+        mime_type = get_buffer_mime_type(r.content)
+        if not mime_type.startswith('image'):
+            return None
+
+        return dict(
+            buffer=r.content,
+            mime_type=mime_type,
+            name=page['image'].split('/')[-1],
+        )
+
+    def get_manga_url(self, slug, url):
+        """
+        Returns manga absolute URL
+        """
+        return self.manga_url.format(slug)
+
+    def get_latest_updates(self):
+        r = self.session_get(self.latest_updates_url)
+        if r.status_code != 200:
+            return None
+
+        soup = BeautifulSoup(r.text, 'lxml')
+
+        results = []
+        for element in soup.select('.grid > div'):
+            a_element = element.select_one('p > a')
+            results.append(dict(
+                slug=a_element.get('href').split('/')[-1],
+                name=a_element.text.strip(),
+                cover=element.select_one('img').get('src'),
+            ))
+
+        return results
+
+    def search(self, term):
+        r = self.session_get(self.base_url)
+        if r.status_code != 200:
+            return None
+
+        soup = BeautifulSoup(r.text, 'lxml')
+
+        csrf_token = soup.select_one('meta[name="csrf-token"]')['content']
+
+        payload = None
+        for element in soup.select('[wire\\:initial-data*="fingerprint"]'):
+            data = json.loads(element.get('wire:initial-data'))
+            if data['fingerprint'].get('name', '').startswith('frontend'):
+                payload = data
+                break
+
+        if payload is None:
+            return None
+
+        payload.pop('effects')
+        payload['updates'] = [
+            {
+                'type': 'syncInput',
+                'payload': {
+                    'id': generate_id(),
+                    'name': 'query',
+                    'value': term,
+                }
+            }
+        ]
+
+        r = self.session_post(
+            self.api_url.format(payload['fingerprint']['name']),
+            json=payload,
+            headers={
+                'Referer': f'{self.base_url}/',
+                'Content-Type': 'application/json',
+                'X-Csrf-Token': csrf_token,
+                'X-Livewire': 'true',
+            }
+        )
+        if r.status_code != 200:
+            return None
+
+        data = r.json()
+
+        soup = BeautifulSoup(data['effects']['html'], 'lxml')
+
+        results = []
+        for a_element in soup.select('a[href*="/comics/"]'):
+            img_element = a_element.select_one('img')
+            results.append(dict(
+                slug=a_element.get('href').split('/')[-1],
+                name=img_element.get('alt'),
+                cover=img_element.get('src'),
+            ))
+
+        return results
 
 
 class Reaperscans_ar(Madara):
