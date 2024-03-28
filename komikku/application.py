@@ -424,23 +424,11 @@ available in your region/language."""))
 
         # Override release notes
         dialog.set_release_notes("""
-            <p>This version fixes a bug in Preferences. Switching NFSW content switches caused the application to crash.</p>
-
-            <p>Changes in version 1.40.0</p>
             <ul>
-                <li>[UX] Refined visuals taking advantage of the new capabilities of GNOME 46</li>
-                <li>[Servers] Added Lelmanga (FR)</li>
-                <li>[Servers] Added Lelscan (FR)</li>
-                <li>[Servers] Added Night scans (EN)</li>
-                <li>[Servers] Comic Book Plus (EN): Fixed search</li>
-                <li>[Servers] MANGA Plus by SHUEISHA: Update</li>
-                <li>[Servers] MangaDex: Added Tags filter</li>
-                <li>[Servers] MangaLib (RU): Update</li>
-                <li>[Servers] Mangaowl (EN): Update</li>
-                <li>[Servers] Jpmangas (FR): Disabled</li>
-                <li>[Servers] Reaper Scans (pt_BR): Disabled</li>
-                <li>[Servers] Scan FR: Disabled</li>
-                <li>[Servers] Scan Manga (FR): Disabled</li>
+                <li>[Servers] Added ComicExtra (EN)</li>
+                <li>[Servers] Perf Scan (FR): Update</li>
+                <li>[Servers] Mangas.in (ES: Update</li>
+                <li>[Servers] Reaper Scans (EN): Update</li>
                 <li>[L10n] Updated French, Russian, Spanish and Turkish translations</li>
             </ul>
             <p>Happy reading.</p>
