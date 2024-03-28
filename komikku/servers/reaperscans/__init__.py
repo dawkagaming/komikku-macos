@@ -41,7 +41,7 @@ class Reaperscans(Server):
 
     def get_manga_data(self, initial_data):
         """
-        Returns manga data by scraping manga HTML page content
+        Returns manga data by scraping manga HTML page content + API for chapters
 
         Initial data should contain at least manga's slug (provided by search)
         """
@@ -164,7 +164,7 @@ class Reaperscans(Server):
 
     def get_manga_chapter_data(self, manga_slug, manga_name, chapter_slug, chapter_url):
         """
-        Returns manga chapter data by scraping chapter HTML page content + API
+        Returns manga chapter data by scraping chapter HTML page content
 
         Currently, only pages are expected.
         """
