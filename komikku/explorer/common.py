@@ -203,22 +203,17 @@ class ExplorerServerRow(Gtk.ListBoxRow):
 
         if data['id'] == 'local':
             # Info button
-            button = Gtk.MenuButton(valign=Gtk.Align.CENTER)
+            button = Gtk.Button(valign=Gtk.Align.CENTER)
             button.set_icon_name('help-about-symbolic')
             button.set_tooltip_text(_('Help'))
-            popover = Gtk.Popover()
-            label = Gtk.Label()
-            label.set_wrap(True)
-            label.set_max_width_chars(32)
-            label.set_text(_("""A specific folder structure is required for local comics to be properly processed.
+            message = _("""A specific folder structure is required for local comics to be properly processed.
 
 Each comic must have its own folder which must contain the chapters/volumes as archive files in CBZ or CBR formats.
 
 The folder's name will be used as name for the comic.
 
-NOTE: The 'unrar' or 'unar' command-line tool is required for CBR archives."""))
-            popover.set_child(label)
-            button.set_popover(popover)
+NOTE: The 'unrar' or 'unar' command-line tool is required for CBR archives.""")
+            button.connect('clicked', lambda x: self.page.window.confirm(_('Local Folder'), message, None, None, cancel_label=_('Close')))
             box.append(button)
 
             # Button to open local folder

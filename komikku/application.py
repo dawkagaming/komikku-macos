@@ -340,7 +340,7 @@ class ApplicationWindow(Adw.ApplicationWindow):
 
         GLib.idle_add(self.library.populate)
 
-    def confirm(self, title, message, confirm_label, confirm_callback, confirm_appearance=None, cancel_callback=None):
+    def confirm(self, title, message, confirm_label, confirm_callback, confirm_appearance=None, cancel_label=None, cancel_callback=None):
         def on_response(dialog, response_id):
             if response_id == 'yes':
                 confirm_callback()
@@ -350,8 +350,9 @@ class ApplicationWindow(Adw.ApplicationWindow):
         dialog = Adw.AlertDialog.new(title)
         dialog.set_body(message)
 
-        dialog.add_response('cancel', _('Cancel'))
-        dialog.add_response('yes', confirm_label)
+        dialog.add_response('cancel', cancel_label or _('Cancel'))
+        if confirm_label is not None:
+            dialog.add_response('yes', confirm_label)
 
         dialog.set_close_response('cancel')
         dialog.set_default_response('cancel')
