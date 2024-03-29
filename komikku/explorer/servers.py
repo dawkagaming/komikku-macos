@@ -40,7 +40,6 @@ class ExplorerServersPage(Adw.NavigationPage):
 
         self.servers = None
 
-        self.connect('hidden', self.on_hidden)
         self.connect('shown', self.on_shown)
 
         self.global_search_button.connect('clicked', self.on_global_search_button_clicked)
@@ -76,6 +75,7 @@ class ExplorerServersPage(Adw.NavigationPage):
 
         self.listbox.remove_all()
 
+    def clear_pinned(self):
         # Clear pinned servers list
         row = self.pinned_listbox.get_first_child()
         while row:
@@ -107,12 +107,6 @@ class ExplorerServersPage(Adw.NavigationPage):
             term in LANGUAGES.get(server_lang, _('Other')).lower() or
             term in server_lang.lower()
         )
-
-    def on_hidden(self, _page):
-        if self.window.previous_page == self.props.tag:
-            return
-
-        self.clear()
 
     def on_global_search_button_clicked(self, _button):
         self.parent.search_page.show()
@@ -149,29 +143,6 @@ class ExplorerServersPage(Adw.NavigationPage):
         path = os.path.join(get_data_dir(), 'local')
         Gio.app_info_launch_default_for_uri(f'file://{path}')
 
-    def populate_pinned(self):
-        count = 0
-        pinned_servers = Settings.get_default().pinned_servers
-        for server_data in self.servers:
-            if server_data['id'] not in pinned_servers:
-                continue
-
-            row = ExplorerServerRow(server_data, self)
-            self.pinned_listbox.append(row)
-            count += 1
-
-        if count:
-            # Add header
-            row = Gtk.ListBoxRow(activatable=False)
-            row.add_css_class('explorer-server-section-listboxrow')
-            label = Gtk.Label(xalign=0)
-            label.add_css_class('subtitle')
-            label.set_text(_('Pinned').upper())
-            row.set_child(label)
-            self.pinned_listbox.prepend(row)
-
-        self.pinned_listbox.set_visible(count > 0)
-
     def populate(self, servers=None):
         self.clear()
 
@@ -207,6 +178,31 @@ class ExplorerServersPage(Adw.NavigationPage):
             self.parent.search_page.show_manga_card(row.manga_data)
         elif self not in self.window.navigationview.get_navigation_stack():
             self.window.navigationview.push(self)
+
+    def populate_pinned(self):
+        self.clear_pinned()
+
+        count = 0
+        pinned_servers = Settings.get_default().pinned_servers
+        for server_data in self.servers:
+            if server_data['id'] not in pinned_servers:
+                continue
+
+            row = ExplorerServerRow(server_data, self)
+            self.pinned_listbox.append(row)
+            count += 1
+
+        if count:
+            # Add header
+            row = Gtk.ListBoxRow(activatable=False)
+            row.add_css_class('explorer-server-section-listboxrow')
+            label = Gtk.Label(xalign=0)
+            label.add_css_class('subtitle')
+            label.set_text(_('Pinned').upper())
+            row.set_child(label)
+            self.pinned_listbox.prepend(row)
+
+        self.pinned_listbox.set_visible(count > 0)
 
     def search(self, _entry):
         self.listbox.invalidate_filter()
