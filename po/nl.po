@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-03-27 00:14+0100\n"
+"POT-Creation-Date: 2024-03-30 00:52+0100\n"
 "PO-Revision-Date: 2024-02-19 22:51+0000\n"
 "Last-Translator: Mikachu <micah.sh@proton.me>\n"
 "Language-Team: Dutch <https://hosted.weblate.org/projects/komikku/main/nl/>\n"
@@ -113,77 +113,6 @@ msgstr "De Categorie-editorpagina in mobiel formaat"
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:82
 msgid "The Reading history page in mobile format"
 msgstr "De Leesgeschiedenispagina in mobiel formaat"
-
-#: ../data/info.febvre.Komikku.appdata.xml.in.in:105
-msgid ""
-"This version fixes a bug in Preferences. Switching NFSW content switches "
-"caused the application to crash."
-msgstr ""
-
-#: ../data/info.febvre.Komikku.appdata.xml.in.in:107
-msgid "Changes in version 1.40.0"
-msgstr ""
-
-#: ../data/info.febvre.Komikku.appdata.xml.in.in:109
-msgid ""
-"[UX] Refined visuals taking advantage of the new capabilities of GNOME 46"
-msgstr ""
-
-#: ../data/info.febvre.Komikku.appdata.xml.in.in:110
-msgid "[Servers] Added Lelmanga (FR)"
-msgstr ""
-
-#: ../data/info.febvre.Komikku.appdata.xml.in.in:111
-msgid "[Servers] Added Lelscan (FR)"
-msgstr ""
-
-#: ../data/info.febvre.Komikku.appdata.xml.in.in:112
-msgid "[Servers] Added Night scans (EN)"
-msgstr ""
-
-#: ../data/info.febvre.Komikku.appdata.xml.in.in:113
-msgid "[Servers] Comic Book Plus (EN): Fixed search"
-msgstr ""
-
-#: ../data/info.febvre.Komikku.appdata.xml.in.in:114
-msgid "[Servers] MANGA Plus by SHUEISHA: Update"
-msgstr ""
-
-#: ../data/info.febvre.Komikku.appdata.xml.in.in:115
-msgid "[Servers] MangaDex: Added Tags filter"
-msgstr ""
-
-#: ../data/info.febvre.Komikku.appdata.xml.in.in:116
-msgid "[Servers] MangaLib (RU): Update"
-msgstr ""
-
-#: ../data/info.febvre.Komikku.appdata.xml.in.in:117
-msgid "[Servers] Mangaowl (EN): Update"
-msgstr ""
-
-#: ../data/info.febvre.Komikku.appdata.xml.in.in:118
-msgid "[Servers] Jpmangas (FR): Disabled"
-msgstr ""
-
-#: ../data/info.febvre.Komikku.appdata.xml.in.in:119
-msgid "[Servers] Reaper Scans (pt_BR): Disabled"
-msgstr ""
-
-#: ../data/info.febvre.Komikku.appdata.xml.in.in:120
-msgid "[Servers] Scan FR: Disabled"
-msgstr ""
-
-#: ../data/info.febvre.Komikku.appdata.xml.in.in:121
-msgid "[Servers] Scan Manga (FR): Disabled"
-msgstr ""
-
-#: ../data/info.febvre.Komikku.appdata.xml.in.in:122
-msgid "[L10n] Updated French, Russian, Spanish and Turkish translations"
-msgstr ""
-
-#: ../data/info.febvre.Komikku.appdata.xml.in.in:124
-msgid "Happy reading."
-msgstr "Vrolijk lezen."
 
 #: ../data/info.febvre.Komikku.desktop.in:3
 msgid "@prettyname@"
@@ -929,7 +858,7 @@ msgstr "Ongeldige URL {}, niet behandeld door een server."
 msgid "Cancel"
 msgstr "Annuleren"
 
-#: ../komikku/application.py:412
+#: ../komikku/application.py:413
 msgid ""
 "A manga, manhwa, manhua, webtoons, webcomics and comics reader for GNOME\n"
 "\n"
@@ -943,31 +872,31 @@ msgstr ""
 "door de officiële strips te kopen wanneer ze\n"
 "beschikbaar zijn in jouw regio/taal."
 
-#: ../komikku/application.py:421
+#: ../komikku/application.py:422
 msgid "Supporters"
 msgstr "Supporters"
 
-#: ../komikku/application.py:423
+#: ../komikku/application.py:424
 msgid "Join Chat"
 msgstr "Deelnemen aan chat"
 
-#: ../komikku/application.py:539
+#: ../komikku/application.py:535
 msgid "Are you sure you want to quit?"
 msgstr "Weet u zeker dat u wilt afsluiten?"
 
-#: ../komikku/application.py:542
+#: ../komikku/application.py:538
 msgid "Some chapters are currently being downloaded."
 msgstr "Er worden nog hoofdstukken gedownload."
 
-#: ../komikku/application.py:544
+#: ../komikku/application.py:540
 msgid "Some mangas are currently being updated."
 msgstr "Er worden nog manga's bijgewerkt."
 
-#: ../komikku/application.py:548
+#: ../komikku/application.py:544
 msgid "Quit?"
 msgstr "Afsluiten?"
 
-#: ../komikku/application.py:550
+#: ../komikku/application.py:546
 msgid "Quit"
 msgstr "Afsluiten"
 
@@ -1123,7 +1052,7 @@ msgstr "18+"
 msgid "Help"
 msgstr "Hulp"
 
-#: ../komikku/explorer/common.py:213
+#: ../komikku/explorer/common.py:209
 msgid ""
 "A specific folder structure is required for local comics to be properly "
 "processed.\n"
@@ -1146,11 +1075,19 @@ msgstr ""
 "OPMERKING: De 'unrar' of 'unar' command-line tool is vereist voor CBR "
 "archieven."
 
-#: ../komikku/explorer/common.py:227
+#: ../komikku/explorer/common.py:216
+msgid "Close"
+msgstr ""
+
+#: ../komikku/explorer/common.py:216
+msgid "Local Folder"
+msgstr ""
+
+#: ../komikku/explorer/common.py:222
 msgid "Open local folder"
 msgstr "Lokale map openen"
 
-#: ../komikku/explorer/common.py:235
+#: ../komikku/explorer/common.py:230
 msgid "Toggle pinned status"
 msgstr "Schakelen vastgepinde status in/uit"
 
@@ -1240,11 +1177,11 @@ msgstr "Probeer een andere zoekopdracht"
 msgid "No results"
 msgstr "Geen zoekresultaat"
 
-#: ../komikku/explorer/servers.py:107 ../komikku/explorer/servers.py:197
+#: ../komikku/explorer/servers.py:107 ../komikku/explorer/servers.py:168
 msgid "Other"
 msgstr "Andere"
 
-#: ../komikku/explorer/servers.py:169
+#: ../komikku/explorer/servers.py:201
 msgid "Pinned"
 msgstr "Vastgezet"
 
@@ -1850,6 +1787,9 @@ msgstr "Geen internetverbinding, time-out of server niet beschikbaar"
 #: ../komikku/webview.py:357
 msgid "Please complete CAPTCHA"
 msgstr "Gelieve CAPTCHA in te vullen"
+
+#~ msgid "Happy reading."
+#~ msgstr "Vrolijk lezen."
 
 #~ msgid "Read your favorite manga"
 #~ msgstr "Lees uw favoriete manga"

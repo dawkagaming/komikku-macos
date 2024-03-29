@@ -7,11 +7,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-03-27 00:14+0100\n"
+"POT-Creation-Date: 2024-03-30 00:52+0100\n"
 "PO-Revision-Date: 2024-03-28 00:02+0000\n"
 "Last-Translator: Сергей <asvmail.as@gmail.com>\n"
-"Language-Team: Russian <https://hosted.weblate.org/projects/komikku/main/ru/>"
-"\n"
+"Language-Team: Russian <https://hosted.weblate.org/projects/komikku/main/ru/"
+">\n"
 "Language: ru\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -119,81 +119,6 @@ msgstr "Страница редактора категорий в мобильн
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:82
 msgid "The Reading history page in mobile format"
 msgstr "Страница истории чтения в мобильном формате"
-
-#: ../data/info.febvre.Komikku.appdata.xml.in.in:105
-msgid ""
-"This version fixes a bug in Preferences. Switching NFSW content switches "
-"caused the application to crash."
-msgstr ""
-"Эта версия исправляет ошибку в настройках. Изменение положения "
-"переключателей содержимого NFSW приводило к аварийному завершению приложения."
-
-#: ../data/info.febvre.Komikku.appdata.xml.in.in:107
-msgid "Changes in version 1.40.0"
-msgstr "Изменения в версии 1.40.0"
-
-#: ../data/info.febvre.Komikku.appdata.xml.in.in:109
-msgid ""
-"[UX] Refined visuals taking advantage of the new capabilities of GNOME 46"
-msgstr ""
-"[UX] Улучшены визуальные эффекты, использующие преимущества новых "
-"возможностей GNOME 46"
-
-#: ../data/info.febvre.Komikku.appdata.xml.in.in:110
-msgid "[Servers] Added Lelmanga (FR)"
-msgstr "[Серверы] Добавлен Lelmanga (FR)"
-
-#: ../data/info.febvre.Komikku.appdata.xml.in.in:111
-msgid "[Servers] Added Lelscan (FR)"
-msgstr "[Серверы] Добавлен Lelscan (FR)"
-
-#: ../data/info.febvre.Komikku.appdata.xml.in.in:112
-msgid "[Servers] Added Night scans (EN)"
-msgstr "[Серверы] Добавлен Night scans (EN)"
-
-#: ../data/info.febvre.Komikku.appdata.xml.in.in:113
-msgid "[Servers] Comic Book Plus (EN): Fixed search"
-msgstr "[Сервер] Comic Book Plus (EN): Исправлен поиск"
-
-#: ../data/info.febvre.Komikku.appdata.xml.in.in:114
-msgid "[Servers] MANGA Plus by SHUEISHA: Update"
-msgstr "[Серверы] MANGA Plus by SHUEISHA: Обновление"
-
-#: ../data/info.febvre.Komikku.appdata.xml.in.in:115
-msgid "[Servers] MangaDex: Added Tags filter"
-msgstr "[Серверы] MangaDex: Добавлен фильтр по меткам"
-
-#: ../data/info.febvre.Komikku.appdata.xml.in.in:116
-msgid "[Servers] MangaLib (RU): Update"
-msgstr "[Серверы] MangaLib (RU): Обновление"
-
-#: ../data/info.febvre.Komikku.appdata.xml.in.in:117
-msgid "[Servers] Mangaowl (EN): Update"
-msgstr "[Серверы] Mangaowl (EN): Обновление"
-
-#: ../data/info.febvre.Komikku.appdata.xml.in.in:118
-msgid "[Servers] Jpmangas (FR): Disabled"
-msgstr "[Серверы] Jpmangas (FR): Отключено"
-
-#: ../data/info.febvre.Komikku.appdata.xml.in.in:119
-msgid "[Servers] Reaper Scans (pt_BR): Disabled"
-msgstr "[Серверы] Reaper Scans (pt_BR): Отключено"
-
-#: ../data/info.febvre.Komikku.appdata.xml.in.in:120
-msgid "[Servers] Scan FR: Disabled"
-msgstr "[Серверы] Scan FR: Отключено"
-
-#: ../data/info.febvre.Komikku.appdata.xml.in.in:121
-msgid "[Servers] Scan Manga (FR): Disabled"
-msgstr "[Серверы] Scan Manga (FR): Отключено"
-
-#: ../data/info.febvre.Komikku.appdata.xml.in.in:122
-msgid "[L10n] Updated French, Russian, Spanish and Turkish translations"
-msgstr "[L10n] Обновлены французский, русский, испанский и турецкий переводы"
-
-#: ../data/info.febvre.Komikku.appdata.xml.in.in:124
-msgid "Happy reading."
-msgstr "Приятного чтения."
 
 #: ../data/info.febvre.Komikku.desktop.in:3
 msgid "@prettyname@"
@@ -945,7 +870,7 @@ msgstr "Недопустимый URL {}, который не обрабатыв�
 msgid "Cancel"
 msgstr "Отменить"
 
-#: ../komikku/application.py:412
+#: ../komikku/application.py:413
 msgid ""
 "A manga, manhwa, manhua, webtoons, webcomics and comics reader for GNOME\n"
 "\n"
@@ -960,31 +885,31 @@ msgstr ""
 "покупая официальные комиксы, когда они\n"
 "будут доступны в вашем регионе/на вашем языке."
 
-#: ../komikku/application.py:421
+#: ../komikku/application.py:422
 msgid "Supporters"
 msgstr "Помощники"
 
-#: ../komikku/application.py:423
+#: ../komikku/application.py:424
 msgid "Join Chat"
 msgstr "Присоединиться к чату"
 
-#: ../komikku/application.py:539
+#: ../komikku/application.py:535
 msgid "Are you sure you want to quit?"
 msgstr "Вы уверены что хотите выйти?"
 
-#: ../komikku/application.py:542
+#: ../komikku/application.py:538
 msgid "Some chapters are currently being downloaded."
 msgstr "Некоторые главы загружаются прямо сейчас."
 
-#: ../komikku/application.py:544
+#: ../komikku/application.py:540
 msgid "Some mangas are currently being updated."
 msgstr "Некоторые манги обновляются прямо сейчас."
 
-#: ../komikku/application.py:548
+#: ../komikku/application.py:544
 msgid "Quit?"
 msgstr "Выйти?"
 
-#: ../komikku/application.py:550
+#: ../komikku/application.py:546
 msgid "Quit"
 msgstr "Выход"
 
@@ -1142,7 +1067,7 @@ msgstr "18+"
 msgid "Help"
 msgstr "Справка"
 
-#: ../komikku/explorer/common.py:213
+#: ../komikku/explorer/common.py:209
 msgid ""
 "A specific folder structure is required for local comics to be properly "
 "processed.\n"
@@ -1165,11 +1090,19 @@ msgstr ""
 "ПРИМЕЧАНИЕ: Для архивов CBR требуется инструмент командной строки 'unrar' "
 "или 'unar'."
 
-#: ../komikku/explorer/common.py:227
+#: ../komikku/explorer/common.py:216
+msgid "Close"
+msgstr ""
+
+#: ../komikku/explorer/common.py:216
+msgid "Local Folder"
+msgstr ""
+
+#: ../komikku/explorer/common.py:222
 msgid "Open local folder"
 msgstr "Открыть локальную папку"
 
-#: ../komikku/explorer/common.py:235
+#: ../komikku/explorer/common.py:230
 msgid "Toggle pinned status"
 msgstr "Переключение статуса «закреплено»"
 
@@ -1259,11 +1192,11 @@ msgstr "Попробуйте изменить поисковой запрос"
 msgid "No results"
 msgstr "Нет результатов"
 
-#: ../komikku/explorer/servers.py:107 ../komikku/explorer/servers.py:197
+#: ../komikku/explorer/servers.py:107 ../komikku/explorer/servers.py:168
 msgid "Other"
 msgstr "Прочие"
 
-#: ../komikku/explorer/servers.py:169
+#: ../komikku/explorer/servers.py:201
 msgid "Pinned"
 msgstr "Закреплённые"
 
@@ -1874,6 +1807,66 @@ msgstr "Нет подключения к Интернету, тайм-аут и�
 #: ../komikku/webview.py:357
 msgid "Please complete CAPTCHA"
 msgstr "Пожалуйста, заполните CAPTCHA"
+
+#~ msgid ""
+#~ "This version fixes a bug in Preferences. Switching NFSW content switches "
+#~ "caused the application to crash."
+#~ msgstr ""
+#~ "Эта версия исправляет ошибку в настройках. Изменение положения "
+#~ "переключателей содержимого NFSW приводило к аварийному завершению "
+#~ "приложения."
+
+#~ msgid "Changes in version 1.40.0"
+#~ msgstr "Изменения в версии 1.40.0"
+
+#~ msgid ""
+#~ "[UX] Refined visuals taking advantage of the new capabilities of GNOME 46"
+#~ msgstr ""
+#~ "[UX] Улучшены визуальные эффекты, использующие преимущества новых "
+#~ "возможностей GNOME 46"
+
+#~ msgid "[Servers] Added Lelmanga (FR)"
+#~ msgstr "[Серверы] Добавлен Lelmanga (FR)"
+
+#~ msgid "[Servers] Added Lelscan (FR)"
+#~ msgstr "[Серверы] Добавлен Lelscan (FR)"
+
+#~ msgid "[Servers] Added Night scans (EN)"
+#~ msgstr "[Серверы] Добавлен Night scans (EN)"
+
+#~ msgid "[Servers] Comic Book Plus (EN): Fixed search"
+#~ msgstr "[Сервер] Comic Book Plus (EN): Исправлен поиск"
+
+#~ msgid "[Servers] MANGA Plus by SHUEISHA: Update"
+#~ msgstr "[Серверы] MANGA Plus by SHUEISHA: Обновление"
+
+#~ msgid "[Servers] MangaDex: Added Tags filter"
+#~ msgstr "[Серверы] MangaDex: Добавлен фильтр по меткам"
+
+#~ msgid "[Servers] MangaLib (RU): Update"
+#~ msgstr "[Серверы] MangaLib (RU): Обновление"
+
+#~ msgid "[Servers] Mangaowl (EN): Update"
+#~ msgstr "[Серверы] Mangaowl (EN): Обновление"
+
+#~ msgid "[Servers] Jpmangas (FR): Disabled"
+#~ msgstr "[Серверы] Jpmangas (FR): Отключено"
+
+#~ msgid "[Servers] Reaper Scans (pt_BR): Disabled"
+#~ msgstr "[Серверы] Reaper Scans (pt_BR): Отключено"
+
+#~ msgid "[Servers] Scan FR: Disabled"
+#~ msgstr "[Серверы] Scan FR: Отключено"
+
+#~ msgid "[Servers] Scan Manga (FR): Disabled"
+#~ msgstr "[Серверы] Scan Manga (FR): Отключено"
+
+#~ msgid "[L10n] Updated French, Russian, Spanish and Turkish translations"
+#~ msgstr ""
+#~ "[L10n] Обновлены французский, русский, испанский и турецкий переводы"
+
+#~ msgid "Happy reading."
+#~ msgstr "Приятного чтения."
 
 #~ msgid "Discover and read manga, webtoons, comics, and more"
 #~ msgstr ""
