@@ -118,21 +118,24 @@ class Perfscan(Heancms):
             soup = BeautifulSoup(html, 'lxml')
             data['synopsis'] = soup.text.strip()
 
+            chapters = []
             more = True
             page = 1
             while more:
-                chapters, more = self.get_manga_chapters_data(post['id'], page)
-                if chapters:
-                    for chapter in chapters:
-                        data['chapters'].append(dict(
+                chapters_page, more = self.get_manga_chapters_data(post['id'], page)
+                if chapters_page:
+                    for chapter in chapters_page:
+                        chapters.append(dict(
                             slug=chapter['chapter_slug'],
                             title=chapter['chapter_name'],
                             date=convert_date_string(chapter['created_at'].split('T')[0], '%Y%m%d'),
                         ))
                     page += 1
-                elif chapters is None:
+                elif chapters_page is None:
                     # Failed to retrieve a chapters list page, abort
                     return None
+
+            data['chapters'] = reversed(chapters)
 
         return data
 
