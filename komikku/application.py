@@ -425,6 +425,13 @@ available in your region/language."""))
 
         # Override release notes
         dialog.set_release_notes("""
+            <p>This version fixes:</p>
+            <ul>
+                <li>A regression in Explorer, pinned servers list was no longer cleared when it was refreshed</li>
+                <li>Wrong chapters order in Perf Scan (FR) server</li>
+            </ul>
+
+            <p>Changes in previous version 1.41.0</p>
             <ul>
                 <li>[Servers] Added ComicExtra (EN)</li>
                 <li>[Servers] Perf Scan (FR): Update</li>

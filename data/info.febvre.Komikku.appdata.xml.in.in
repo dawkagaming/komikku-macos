@@ -100,8 +100,15 @@
     <url type="donation">https://valos.gitlab.io/Komikku/#sponsor</url>
 
     <releases>
-        <release version="1.41.0" date="2024-03-29">
+        <release version="1.41.1" date="2024-03-30">
             <description translate="no">
+                <p>This version fixes:</p>
+                <ul>
+                    <li>A regression in Explorer, pinned servers list was no longer cleared when it was refreshed</li>
+                    <li>Wrong chapters order in Perf Scan (FR) server</li>
+                </ul>
+
+                <p>Changes in previous version 1.41.0</p>
                 <ul>
                     <li>[Servers] Added ComicExtra (EN)</li>
                     <li>[Servers] Perf Scan (FR): Update</li>
