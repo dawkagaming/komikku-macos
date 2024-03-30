@@ -8,10 +8,10 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-03-30 00:52+0100\n"
-"PO-Revision-Date: 2024-03-28 00:02+0000\n"
+"PO-Revision-Date: 2024-03-31 11:01+0000\n"
 "Last-Translator: Сергей <asvmail.as@gmail.com>\n"
-"Language-Team: Russian <https://hosted.weblate.org/projects/komikku/main/ru/"
-">\n"
+"Language-Team: Russian <https://hosted.weblate.org/projects/komikku/main/ru/>"
+"\n"
 "Language: ru\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1092,11 +1092,11 @@ msgstr ""
 
 #: ../komikku/explorer/common.py:216
 msgid "Close"
-msgstr ""
+msgstr "Закрыть"
 
 #: ../komikku/explorer/common.py:216
 msgid "Local Folder"
-msgstr ""
+msgstr "Локальная папка"
 
 #: ../komikku/explorer/common.py:222
 msgid "Open local folder"
