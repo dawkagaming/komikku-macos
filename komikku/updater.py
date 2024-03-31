@@ -134,7 +134,7 @@ class Updater(GObject.GObject):
                 )
 
                 # Auto download new chapters
-                if Settings.get_default().new_chapters_auto_download:
+                if Settings.get_default().new_chapters_auto_download and manga.server_id != 'local':
                     self.window.downloader.add(recent_chapters_ids, emit_signal=True)
                     self.window.downloader.start()
             elif not in_batch:
