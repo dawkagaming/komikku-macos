@@ -19,7 +19,7 @@ class Viewcomics(Server):
     lang = 'en'
     is_nsfw = True
 
-    base_url = 'https://viewcomics.org'
+    base_url = 'https://readcomic.top'
     search_url = base_url + '/search'
     api_search_url = base_url + '/ajax/search'
     latest_updates_url = base_url + '/comic-updates'
