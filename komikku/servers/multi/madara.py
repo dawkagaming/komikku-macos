@@ -159,7 +159,11 @@ class Madara(Server):
         if self.details_synopsis_selector:
             if summary_container := soup.select_one(self.details_synopsis_selector):
                 if p_elements := summary_container.select('p'):
-                    data['synopsis'] = '\n\n'.join([p_element.text.strip() for p_element in p_elements])
+                    synopsis = []
+                    for p_element in p_elements:
+                        if paragraph := p_element.text.strip():
+                            synopsis.append(paragraph)
+                    data['synopsis'] = '\n\n'.join(synopsis) if synopsis else None
                 else:
                     data['synopsis'] = summary_container.text.strip()
 
