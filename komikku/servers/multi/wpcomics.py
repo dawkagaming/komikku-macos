@@ -11,6 +11,7 @@ from komikku.servers import Server
 from komikku.servers import USER_AGENT
 from komikku.servers.utils import convert_date_string
 from komikku.servers.utils import get_buffer_mime_type
+from komikku.servers.utils import get_soup_element_inner_text
 
 # WPComics Wordpress theme
 
@@ -77,9 +78,9 @@ class Wpcomics(Server):
         data['cover'] = soup.select_one(self.details_cover_selector).get('src')
 
         status = soup.select_one(self.details_status_selector).text.strip().lower()
-        if status == 'completed':
+        if status in ('completed', '完結済み'):
             data['status'] = 'complete'
-        elif status == 'ongoing':
+        elif status in ('ongoing', '連載中'):
             data['status'] = 'ongoing'
 
         if elements := soup.select(self.details_authors_selector):
@@ -96,7 +97,7 @@ class Wpcomics(Server):
                 data['genres'].append(a_element.text.strip())
 
         if element := soup.select_one(self.details_synopsis_selector):
-            data['synopsis'] = element.text.strip()
+            data['synopsis'] = get_soup_element_inner_text(element, recursive=False)
 
         # Chapters
         def walk_chapters_pages(num=None, soup=None):

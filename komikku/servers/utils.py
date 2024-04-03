@@ -270,14 +270,14 @@ def get_servers_list(include_disabled=False, order_by=('lang', 'name')):
     return sorted(servers, key=itemgetter(*order_by))
 
 
-def get_soup_element_inner_text(outer, text=None):
+def get_soup_element_inner_text(outer, text=None, recursive=True):
     if text is None:
         text = []
 
     for el in outer:
         if isinstance(el, NavigableString):
             text.append(el.strip())
-        else:
+        elif recursive:
             get_soup_element_inner_text(el, text)
 
     return ' '.join(text).strip()
