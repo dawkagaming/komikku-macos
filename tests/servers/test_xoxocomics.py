@@ -41,7 +41,7 @@ def test_xoxocomics(xoxocomics_server):
     # Search
     print('Search')
     try:
-        response = xoxocomics_server.search('sonic the hedgehog (1993)')
+        response = xoxocomics_server.search(response[0]['name'])
         slug = response[0]['slug']
     except Exception as e:
         slug = None
@@ -54,13 +54,12 @@ def test_xoxocomics(xoxocomics_server):
     print('Get comic data')
     try:
         response = xoxocomics_server.get_manga_data(dict(slug=slug))
-        chapter_slug = response['chapters'][1]['slug']
+        chapter_slug = response['chapters'][0]['slug']
     except Exception as e:
         chapter_slug = None
         log_error_traceback(e)
 
     assert chapter_slug is not None
-    assert len(response['chapters']) > 0
     yield
 
     # Get chapter data
@@ -78,7 +77,7 @@ def test_xoxocomics(xoxocomics_server):
     # Get page image
     print('Get page image')
     try:
-        response = xoxocomics_server.get_manga_chapter_page_image(None, None, None, page)
+        response = xoxocomics_server.get_manga_chapter_page_image(slug, None, chapter_slug, page)
     except Exception as e:
         response = None
         log_error_traceback(e)
