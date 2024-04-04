@@ -192,9 +192,12 @@ class Server(ABC):
         """
         Get a manga cover
 
-        :param str url: The cover image URL
+        :param url: The cover image URL
+        :type url: str
+
         :param etag: The current cover image ETag
         :type etag: str or None
+
         :return: The cover image content + the cover image ETag if exists
         :rtype: tuple
         """
@@ -233,7 +236,7 @@ class Server(ABC):
         In most cases, the URL of the HTML page or the URL of the API endpoint
         are forged using a slug provided by method `search` and available in `initial_data` argument.
 
-        By convention, returned dict must contain the following keys:
+        By convention, returned dict MUST contain the following keys:
         - name: Name of the manga
         - authors: List of authors (str) [optional]
         - scanlators: List of scanlators (str) [optional]
@@ -244,15 +247,14 @@ class Server(ABC):
         - server_id: The server ID
         - cover: Absolute URL of the cover
 
-        By convention, a chapter is a dictionary which must contain the following keys:
+        By convention, a chapter is a dictionary which MUST contain the following keys:
         - slug: A slug (str) allowing to forge HTML page URL of the chapter
-                (usually in conjunction with the manga slug)
+          (usually in conjunction with the manga slug)
         - url: URL of chapter HTML page if `slug` is not usable
         - title: Title of the chapter
         - date: Publish date of the chapter [optional]
         - scanlators: List of scanlators (str) [optional]
         """
-        pass
 
     @abstractmethod
     def get_manga_chapter_data(self, manga_slug, manga_name, chapter_slug, chapter_url):
@@ -264,7 +266,7 @@ class Server(ABC):
 
         The URL of the HTML page or the URL of the API endpoint are forged using 4 provided arguments.
 
-        By convention, each page is a dictionary which must contain one of the 3 keys `slug`, `image` or `url`:
+        By convention, each page is a dictionary which MUST contain one of the 3 keys `slug`, `image` or `url`:
         - slug : A slug (str) allowing to forge image URL of the page
                  (usually in conjunction with the manga slug and the chapter slug)
         - image: Absolute or relative URL of the page image
@@ -275,7 +277,6 @@ class Server(ABC):
 
         The page data are passed to `get_manga_chapter_page_image` method.
         """
-        pass
 
     @abstractmethod
     def get_manga_chapter_page_image(self, manga_slug, manga_name, chapter_slug, page):
@@ -293,12 +294,10 @@ class Server(ABC):
 
         In the second case, we must first retrieve the URL of the image by scraping the HTML page containing the image.
         """
-        pass
 
     @abstractmethod
     def get_manga_url(self, slug, url):
         """This method must return absolute URL of the manga"""
-        pass
 
     def is_long_strip(self, data):
         """
@@ -361,7 +360,7 @@ class Server(ABC):
         - by scrapping an HTML page
         - or by parsing the response of a request to an API.
 
-        By convention, returned dict must contain the following keys:
+        By convention, returned dict MUST contain the following keys:
         - slug: A slug (str) allowing to forge URL of the HTML page of the manga
         - url: URL of manga HTML page if `slug` is not usable
         - name: Name of the manga
@@ -369,11 +368,11 @@ class Server(ABC):
         - last_chapter: last chapter available [optional]
         - nb_chapters: number of chapters available [optional]
 
-        It's of course possible to add any other information if necessary.
-
         The data are passed to `get_manga_data` method.
+
+        .. note:: It's of course possible to add any other information/keys if necessary
+        .. warning:: but these must not be present in the return value of `get_manga_data`.
         """
-        pass
 
     def session_get(self, *args, **kwargs):
         try:

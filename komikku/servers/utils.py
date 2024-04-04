@@ -32,27 +32,48 @@ from komikku.servers.loader import server_finder
 logger = logging.getLogger(__name__)
 
 
-def convert_date_string(date, format=None):
+def convert_date_string(date_string, format=None, languages=None):
+    """
+    Convert a date string into a date object
+
+    :param date_string: A string representing date in a recognizably valid format
+    :type date_string: str
+
+    :param format: A format string using directives as given `here <https://docs.python.org/2/library/datetime.html#strftime-and-strptime-behavior>`_
+    :type format: str
+
+    :param languages: A list of language codes, e.g. ['en', 'es', 'zh-Hant']
+    :type languages: list
+
+    :return: A date object representing parsed date string if successful, `None` otherwise
+    :rtype: datetime.date
+    """
     if format is not None:
         try:
-            d = datetime.datetime.strptime(date, format)
+            d = datetime.datetime.strptime(date_string, format)
         except Exception:
-            d = dateparser.parse(date)
+            d = dateparser.parse(date_string, languages=languages)
     else:
-        d = dateparser.parse(date)
+        d = dateparser.parse(date_string, languages=languages)
 
-    if not d:
-        d = datetime.datetime.now()
-
-    return d.date()
+    return d.date() if d else None
 
 
 def convert_image(im, format='JPEG', ret_type='image'):
-    """Convert an image to a specific format
+    """
+    Convert an image to a specific format
 
-    :param im: PIL.Image.Image or bytes object
-    :param format: convertion format: https://pillow.readthedocs.io/en/stable/handbook/image-file-formats.html
-    :param ret_type: image (PIL.Image.Image) or bytes (bytes object)
+    :param im: A `PIL.Image.Image` or `bytes` object
+    :type im: PIL.Image.Image, bytes
+
+    :param format: Convertion formats documentation is available `here <https://pillow.readthedocs.io/en/stable/handbook/image-file-formats.html>`_
+    :type format: str
+
+    :param ret_type: image or bytes
+    :type ret_type: str
+
+    :return: An new image object in requested format
+    :rtype: PIL.Image.Image, bytes
     """
     if not isinstance(im, Image.Image):
         im = Image.open(BytesIO(im))
@@ -145,6 +166,15 @@ def get_allowed_servers_list(settings):
 
 
 def get_buffer_mime_type(buffer):
+    """
+    Returns the MIME type of a buffer
+
+    :param buffer: A binary string
+    :type buffer: bytes
+
+    :return: The detected MIME type, empty string otherwise
+    :rtype: str
+    """
     try:
         if hasattr(magic, 'detect_from_content'):
             # Using file-magic module: https://github.com/file/file
@@ -157,6 +187,15 @@ def get_buffer_mime_type(buffer):
 
 
 def get_file_mime_type(path):
+    """
+    Returns the MIME type of a file
+
+    :param path: A file path
+    :type path: str
+
+    :return: The detected MIME type, empty string otherwise
+    :rtype: str
+    """
     try:
         if hasattr(magic, 'detect_from_filename'):
             # Using file-magic module: https://github.com/file/file
@@ -169,21 +208,28 @@ def get_file_mime_type(path):
 
 
 def get_server_class_name_by_id(id):
-    """Returns server class name
+    """
+    Returns a server class name from its ID
 
-    id format is:
+    `id` must respect the following format: `name[_lang][_whatever][:module_name]`
 
-    name[_lang][_whatever][:module_name]
+    + `name` is the name of the server.
+    + `lang` is the language of the server (optional).
+        Only useful when server belongs to a multi-languages server.
+    + `whatever` is any string (optional).
+        Only useful when a server must be backed up because it's dead.
+        Beware, if `whatever` is defined, `lang` must be present even if it's empty.
+        Example of value: old, bak, dead,...
+    + `module_name` is the name of the module in which the server is defined (optional).
+        Only useful if `module_name` is different from `name`.
 
-    - `name` is the name of the server.
-    - `lang` is the language of the server (optional).
-      Only useful when server belongs to a multi-languages server.
-    - `whatever` is any string (optional).
-      Only useful when a server must be backed up because it's dead.
-      Beware, if `whatever` is defined, `lang` must be present even if it's empty.
-      Example of value: old, bak, dead,...
-    - `module_name` is the name of the module in which the server is defined (optional).
-      Only useful if `module_name` is different from `name`.
+    Parameters
+    ----------
+    :param id: A server ID
+    :type id: str
+
+    :return: The server class name corresponding to ID
+    :rtype: str
     """
     return id.split(':')[0].capitalize()
 
@@ -270,11 +316,26 @@ def get_servers_list(include_disabled=False, order_by=('lang', 'name')):
     return sorted(servers, key=itemgetter(*order_by))
 
 
-def get_soup_element_inner_text(outer, text=None, recursive=True):
+def get_soup_element_inner_text(tag, text=None, recursive=True):
+    """
+    Returns inner text of a tag
+
+    :param tag: A Tag
+    :type tag: bs4.element.Tag
+
+    :param text: A optional list of text strings to prepend
+    :type text: list of str
+
+    :param recursive: Recursively walk in children or not
+    :type recursive: bool
+
+    :return: The inner text of tag
+    :rtype: str
+    """
     if text is None:
         text = []
 
-    for el in outer:
+    for el in tag:
         if isinstance(el, NavigableString):
             text.append(el.strip())
         elif recursive:
@@ -284,6 +345,15 @@ def get_soup_element_inner_text(outer, text=None, recursive=True):
 
 
 def sojson4_decode(s):
+    """
+    Decodes a Sojson v4 string
+
+    :param s: A string
+    :type s: str
+
+    :return: The decoded string
+    :rtype: str
+    """
     ss = re.split(r'[a-zA-Z]{1,}', s[240:-58])
     sss = ''
     for c in ss:
@@ -293,10 +363,35 @@ def sojson4_decode(s):
 
 
 def remove_emoji_from_string(text):
+    """
+    Removes Emojis from text (use emoji package)
+
+    :param text: A text string
+    :type text: str
+
+    :return: The text string freed from Emojis
+    :rtype: str
+    """
     return emoji.replace_emoji(text, replace='').strip()
 
 
 def search_duckduckgo(site, term, nb_pages=1):
+    """
+    Searches DuckDuckGo lite
+
+    :param site: the site URL
+    :type site: str
+
+    :param term: the term to search for
+    :type term: str
+
+    :param nb_pages: the number of results pages to parse
+    :type nb_pages: int
+
+    :return: A list of dictionaries (name, url)
+    :rtype: list of dict
+    """
+
     from komikku.servers import USER_AGENT
 
     # https://github.com/deedy5/duckduckgo_search/blob/main/duckduckgo_search/duckduckgo_search_async.py
@@ -381,9 +476,14 @@ def search_duckduckgo(site, term, nb_pages=1):
 
 # https://github.com/Harkame/JapScanDownloader
 def unscramble_image(image):
-    """Unscramble an image
+    """
+    Unscrambles an image
 
-    :param image: PIL.Image.Image or bytes object
+    :param image: An image object
+    :type image: PIL.Image.Image, bytes
+
+    :return: A new unscrambled image
+    :rtype: PIL.Image.Image
     """
     if not isinstance(image, Image.Image):
         image = Image.open(BytesIO(image))
@@ -419,6 +519,8 @@ def unscramble_image(image):
 
 
 class RC4:
+    """ RC4 (Rivest Cipher 4) stream cipher"""
+
     def __init__(self, key):
         self.key = key.encode()
         self.keystream = self.PRGA(self.KSA())
@@ -466,9 +568,20 @@ class RC4SeedRandom:
 
 
 def unscramble_image_rc4(image, key, piece_size):
-    """Unscramble an image shuffled with RC4 stream cipher
+    """
+    Unscrambles an image shuffled with RC4 stream cipher
 
-    :param image: PIL.Image.Image or bytes object
+    :param image: An image object
+    :type image: PIL.Image.Image, bytes
+
+    :param key: The key
+    :type key: str
+
+    :param piece_size: The pieces size
+    :type piece_size: int
+
+    :return: A new unscrambled image
+    :rtype: PIL.Image.Image
     """
     if not isinstance(image, Image.Image):
         image = Image.open(BytesIO(image))
