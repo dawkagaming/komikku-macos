@@ -4,13 +4,10 @@
 
 import gc
 from gettext import gettext as _
-from queue import Empty, Queue
 import threading
-import time
 
 from gi.repository import GLib
 
-from komikku.explorer.common import DOWNLOAD_MAX_DELAY
 from komikku.explorer.common import ExplorerSearchResultRow
 from komikku.explorer.common import ExplorerSearchStackPage
 from komikku.utils import log_error_traceback
@@ -44,12 +41,12 @@ class ExplorerSearchStackPageSearch(ExplorerSearchStackPage):
         if not term and self.parent.server.id != 'local':
             return
 
-        def run(server, queue):
+        def run(server):
             self.parent.register_request('search')
 
             try:
                 if results := server.search(term, **self.parent.search_filters):
-                    GLib.idle_add(complete, results, server, queue)
+                    GLib.idle_add(complete, results, server)
                 else:
                     GLib.idle_add(error, results, server)
             except Exception as e:
@@ -58,33 +55,7 @@ class ExplorerSearchStackPageSearch(ExplorerSearchStackPage):
             finally:
                 gc.collect()
 
-        def run_covers(queue):
-            while not queue.empty():
-                try:
-                    row, server = queue.get()
-                except Empty:
-                    continue
-                else:
-                    # Proceed only if current page or previous page is `explorer.search`
-                    proceed = self.window.page == self.parent.props.tag or self.window.previous_page == self.parent.props.tag
-                    # And if search page is `search`
-                    proceed = proceed and self.parent.page == 'search'
-                    if proceed:
-                        start = time.time()
-                        try:
-                            data, _etag = server.get_manga_cover_image(row.manga_data['cover'])
-                        except Exception:
-                            pass
-                        else:
-                            GLib.idle_add(row.set_cover, data)
-
-                            delay = min(2 * (time.time() - start), DOWNLOAD_MAX_DELAY)
-                            if delay:
-                                time.sleep(delay)
-
-                    queue.task_done()
-
-        def complete(results, server, queue):
+        def complete(results, server):
             self.spinner.stop()
 
             if not self.parent.can_page_be_updated_with_results('search', server.id):
@@ -96,11 +67,11 @@ class ExplorerSearchStackPageSearch(ExplorerSearchStackPage):
                 row = ExplorerSearchResultRow(item)
                 self.listbox.append(row)
                 if row.has_cover:
-                    queue.put((row, server))
+                    self.queue.put((row, server))
 
             self.stack.set_visible_child_name('results')
 
-            thread_covers.start()
+            self.render_covers()
 
         def error(results, server, message=None):
             self.spinner.stop()
@@ -127,11 +98,6 @@ class ExplorerSearchStackPageSearch(ExplorerSearchStackPage):
             self.window.show_notification(_('A request is already in progress.'), 2)
             return
 
-        queue = Queue()
-
-        thread = threading.Thread(target=run, args=(self.parent.server, queue))
+        thread = threading.Thread(target=run, args=(self.parent.server, ))
         thread.daemon = True
         thread.start()
-
-        thread_covers = threading.Thread(target=run_covers, args=(queue, ))
-        thread_covers.daemon = True

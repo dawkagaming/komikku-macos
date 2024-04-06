@@ -70,7 +70,6 @@ class ExplorerSearchPage(Adw.NavigationPage):
         self.server_website_button.connect('clicked', self.on_server_website_button_clicked)
         self.filters_button.connect('clicked', self.on_filters_button_clicked)
 
-        self.searchentry.set_key_capture_widget(self)
         self.searchentry.connect('activate', self.search)
         self.searchentry.connect('search-changed', self.on_search_changed)
 
@@ -246,18 +245,29 @@ class ExplorerSearchPage(Adw.NavigationPage):
         self.filters_dialog.present(self.window)
 
     def on_hidden(self, _page):
+        # Told thread covers to stop
+        self.put_covers_rendering_on_hold()
+
         if self.window.previous_page == self.props.tag:
+            # Don't clear on navigation push
+            # The page must remain unchanged if the user comes back to this page
             return
 
         self.clear()
 
     def on_manga_clicked(self, _listbox, row):
+        # Told thread covers to stop
+        self.put_covers_rendering_on_hold()
+
         if self.search_global_mode:
             self.server = getattr(row.server_data['module'], row.server_data['class_name'])()
 
         self.show_manga_card(row.manga_data)
 
     def on_page_changed(self, _stack, _param):
+        # Told thread covers to stop
+        self.put_covers_rendering_on_hold()
+
         self.page = self.stack.props.visible_child_name
 
         if self.page == 'most_popular':
@@ -276,7 +286,31 @@ class ExplorerSearchPage(Adw.NavigationPage):
             self.window.show_notification(_('Oops, server website URL is unknown.'), 2)
 
     def on_shown(self, _page):
-        self.searchentry.grab_focus()
+        if self.window.last_navigation_action != 'pop':
+            return
+
+        # Last page has been popped from the navigation stack (user comes back)
+        # recall render_covers(), some covers may not yet have been processed
+        if self.page == 'search':
+            if self.search_global_mode:
+                self.search_global_page.render_covers()
+            else:
+                self.search_page.render_covers()
+        elif self.page == 'most_popular':
+            self.most_popular_page.render_covers()
+        elif self.page == 'latest_updates':
+            self.latest_updates_page.render_covers()
+
+    def put_covers_rendering_on_hold(self):
+        if self.page == 'search':
+            if self.search_global_mode:
+                self.search_global_page.thread_covers_stop_flag = True
+            else:
+                self.search_page.thread_covers_stop_flag = True
+        elif self.page == 'most_popular':
+            self.most_popular_page.thread_covers_stop_flag = True
+        elif self.page == 'latest_updates':
+            self.latest_updates_page.thread_covers_stop_flag = True
 
     def register_request(self, page):
         if page not in self.requests:

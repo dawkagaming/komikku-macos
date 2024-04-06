@@ -6,9 +6,7 @@ from concurrent.futures import as_completed
 from concurrent.futures import ThreadPoolExecutor
 import gc
 from gettext import gettext as _
-from queue import Empty, Queue
 import threading
-import time
 
 from gi.repository import GLib
 from gi.repository import Gio
@@ -19,7 +17,6 @@ from komikku.models import Settings
 from komikku.servers import LANGUAGES
 from komikku.utils import log_error_traceback
 
-from komikku.explorer.common import DOWNLOAD_MAX_DELAY
 from komikku.explorer.common import ExplorerServerRow
 from komikku.explorer.common import ExplorerSearchResultRow
 from komikku.explorer.common import ExplorerSearchStackPage
@@ -35,8 +32,6 @@ class ExplorerSearchStackPageSearchGlobal(ExplorerSearchStackPage):
     def __init__(self, parent):
         ExplorerSearchStackPage.__init__(self, parent)
 
-        self.parent = parent
-        self.window = self.parent.window
         self.stack = self.parent.search_stack
         self.listbox = self.parent.search_listbox  # shared with explorer.search page
         self.filters_menu_button = self.parent.filters_menu_button
@@ -85,7 +80,7 @@ class ExplorerSearchStackPageSearchGlobal(ExplorerSearchStackPage):
             self.window.show_notification(_('A request is already in progress.'), 2)
             return
 
-        def run(servers, queue):
+        def run(servers):
             with ThreadPoolExecutor(max_workers=len(servers)) as executor:
                 tasks = {}
                 for server_data in servers:
@@ -103,7 +98,7 @@ class ExplorerSearchStackPageSearchGlobal(ExplorerSearchStackPage):
                     except Exception as exc:
                         GLib.idle_add(complete_server, None, server_data, None, message=log_error_traceback(exc))
                     else:
-                        GLib.idle_add(complete_server, results, server_data, queue)
+                        GLib.idle_add(complete_server, results, server_data)
 
                     self.parent.progressbar.set_fraction((index + 1) / len(servers))
 
@@ -111,33 +106,11 @@ class ExplorerSearchStackPageSearchGlobal(ExplorerSearchStackPage):
 
             GLib.idle_add(complete)
 
-        def run_covers(queue):
-            while not queue.empty() or self.lock:
-                try:
-                    row, server = queue.get()
-                except Empty:
-                    continue
-                else:
-                    if self.window.page == self.parent.props.tag or self.window.previous_page == self.parent.props.tag:
-                        start = time.time()
-                        try:
-                            data, _etag = server.get_manga_cover_image(row.manga_data['cover'])
-                        except Exception:
-                            pass
-                        else:
-                            GLib.idle_add(row.set_cover, data)
-
-                            delay = min(2 * (time.time() - start), DOWNLOAD_MAX_DELAY)
-                            if delay:
-                                time.sleep(delay)
-
-                    queue.task_done()
-
         def complete():
             self.lock = False
             self.parent.progressbar.set_fraction(0)
 
-        def complete_server(results, server_data, queue, message=None):
+        def complete_server(results, server_data, message=None):
             server = getattr(server_data['module'], server_data['class_name'])()
 
             # Remove spinner
@@ -159,7 +132,7 @@ class ExplorerSearchStackPageSearchGlobal(ExplorerSearchStackPage):
                     self.listbox.append(row)
 
                     if row.has_cover:
-                        queue.put((row, server))
+                        self.queue.put((row, server))
             else:
                 # Error or no results
                 row = Gtk.ListBoxRow(activatable=False)
@@ -185,8 +158,7 @@ class ExplorerSearchStackPageSearchGlobal(ExplorerSearchStackPage):
 
             self.listbox.invalidate_sort()
 
-            if not thread_covers.is_alive():
-                thread_covers.start()
+            self.render_covers()
 
         def search_server(server_data):
             server = getattr(server_data['module'], server_data['class_name'])()
@@ -271,12 +243,6 @@ class ExplorerSearchStackPageSearchGlobal(ExplorerSearchStackPage):
         self.listbox.set_sort_func(sort_results)
         self.listbox.set_visible(True)
 
-        queue = Queue()
-
-        thread = threading.Thread(target=run, args=(servers, queue))
+        thread = threading.Thread(target=run, args=(servers, ))
         thread.daemon = True
         thread.start()
-
-        thread_covers = threading.Thread(target=run_covers, args=(queue, ))
-        thread_covers.daemon = True
-        thread_covers.start()

@@ -4,8 +4,13 @@
 
 from gettext import gettext as _
 from gettext import ngettext
+from queue import Empty
+from queue import Queue
+import threading
+import time
 
 from gi.repository import Adw
+from gi.repository import GLib
 from gi.repository import Gtk
 from gi.repository import Pango
 
@@ -22,13 +27,28 @@ THUMB_HEIGHT = 58
 
 
 class ExplorerSearchStackPage:
+    """ Superclass for search, lastest updates, most popular and global search pages """
+
     def __init__(self, parent):
         self.parent = parent
         self.window = self.parent.window
 
+        self.queue = Queue()
+        self.thread_covers = None
+        self.thread_covers_stop_flag = False
+
     def clear(self):
         self.listbox.set_visible(False)
 
+        # Empty queue
+        while not self.queue.empty():
+            try:
+                self.queue.get()
+                self.queue.task_done()
+            except Empty:
+                continue
+
+        # Empty listbox
         row = self.listbox.get_first_child()
         while row:
             next_row = row.get_next_sibling()
@@ -37,6 +57,43 @@ class ExplorerSearchStackPage:
             row = next_row
 
         self.listbox.remove_all()
+
+    def render_covers(self):
+        """
+        Fetch and display covers of result rows
+
+        This method is interrupted when the navigation page is changed.
+        It can be recalled when returning to it (when last page has been popped from the navigation stack).
+        Remaining items in queue will be proceeded.
+        """
+        if self.thread_covers and self.thread_covers.is_alive():
+            return
+
+        def run():
+            while not self.queue.empty() and self.thread_covers_stop_flag is False:
+                try:
+                    row, server = self.queue.get()
+                except Empty:
+                    continue
+                else:
+                    start = time.time()
+                    try:
+                        data, _etag = server.get_manga_cover_image(row.manga_data['cover'])
+                    except Exception:
+                        pass
+                    else:
+                        GLib.idle_add(row.set_cover, data)
+
+                        delay = min(2 * (time.time() - start), DOWNLOAD_MAX_DELAY)
+                        if delay:
+                            time.sleep(delay)
+
+                    self.queue.task_done()
+
+        self.thread_covers_stop_flag = False
+        self.thread_covers = threading.Thread(target=run)
+        self.thread_covers.daemon = True
+        self.thread_covers.start()
 
 
 class ExplorerSearchResultRow(Adw.ActionRow):
@@ -69,6 +126,7 @@ class ExplorerSearchResultRow(Adw.ActionRow):
         if self.has_cover:
             self.cover = Gtk.Button()
             self.cover.add_css_class('explorer-search-cover-button')
+            self.cover.props.focus_on_click = False
             self.cover.props.margin_top = 2
             self.cover.props.margin_bottom = 2
             self.cover.set_size_request(THUMB_WIDTH, THUMB_HEIGHT)
