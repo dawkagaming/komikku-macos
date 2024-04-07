@@ -7,20 +7,20 @@ msgstr ""
 "Project-Id-Version: Komikku 1.12.1\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-03-30 00:52+0100\n"
-"PO-Revision-Date: 2024-01-12 21:01+0000\n"
+"PO-Revision-Date: 2024-04-08 15:01+0000\n"
 "Last-Translator: Jiri Grönroos <jiri.gronroos@iki.fi>\n"
-"Language-Team: Finnish <https://hosted.weblate.org/projects/komikku/main/fi/"
-">\n"
+"Language-Team: Finnish <https://hosted.weblate.org/projects/komikku/main/fi/>"
+"\n"
 "Language: fi\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.4-dev\n"
+"X-Generator: Weblate 5.5-dev\n"
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:11
 msgid "Discover and read manga &amp; comics"
-msgstr ""
+msgstr "Löydä ja lue mangaa sekä sarjakuvia"
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:13
 msgid ""
@@ -172,7 +172,7 @@ msgstr "Tiivistelmä"
 #: ../data/ui/card.blp:484 ../data/ui/categories_editor.blp:64
 #: ../data/ui/library.blp:247
 msgid "No Categories"
-msgstr ""
+msgstr "Ei luokkia"
 
 #: ../data/ui/card_chapters_list_row.blp:61
 msgid "New"
@@ -188,11 +188,11 @@ msgstr "Lataushallinta"
 
 #: ../data/ui/download_manager.blp:28
 msgid "Start/Stop Download"
-msgstr ""
+msgstr "Käynnistä/pysäytä lataus"
 
 #: ../data/ui/download_manager.blp:65
 msgid "No Downloads"
-msgstr ""
+msgstr "Ei latauksia"
 
 #: ../data/ui/explorer_search.blp:10 ../data/ui/explorer_search.blp:41
 #: ../data/ui/history.blp:18 ../data/ui/library.blp:36
@@ -221,11 +221,11 @@ msgstr "Palvelimet"
 
 #: ../data/ui/explorer_servers.blp:13
 msgid "Search Comics Across All Servers"
-msgstr ""
+msgstr "Etsi sarjakuvia kaikilta palvelimilta"
 
 #: ../data/ui/explorer_servers.blp:19
 msgid "Search Servers"
-msgstr ""
+msgstr "Etsi palvelimia"
 
 #: ../data/ui/explorer_servers.blp:33
 msgid "Search for servers by name or language"
@@ -237,7 +237,7 @@ msgstr "Historia"
 
 #: ../data/ui/history.blp:69
 msgid "No History"
-msgstr ""
+msgstr "Ei historiaa"
 
 #: ../data/ui/library.blp:6 ../data/ui/preferences.blp:48
 msgid "Library"
@@ -677,11 +677,11 @@ msgstr ""
 
 #: ../data/ui/preferences.blp:297
 msgid "Credentials Storage"
-msgstr ""
+msgstr "Kirjautumistietojen tallennus"
 
 #: ../data/ui/preferences.blp:300
 msgid "Allow Plaintext Storage as Fallback"
-msgstr ""
+msgstr "Salli selkokielinen tallennus varatoimena"
 
 #: ../data/ui/preferences.blp:301
 msgid "Used when no keyring backends are found"
@@ -859,7 +859,7 @@ msgstr ""
 
 #: ../komikku/application.py:422
 msgid "Supporters"
-msgstr ""
+msgstr "Tukijat"
 
 #: ../komikku/application.py:424
 msgid "Join Chat"
@@ -900,6 +900,9 @@ msgid ""
 "{0} is no longer supported.\n"
 "Please switch to another server."
 msgstr ""
+"HUOMIO\n"
+"{0} ei ole enää tuettu.\n"
+"Vaihda toiseen palvelimeen."
 
 #: ../komikku/card/__init__.py:423
 msgid "Unknown author"
@@ -986,7 +989,7 @@ msgstr "Tallenna"
 #: ../komikku/downloader.py:237
 #, python-brace-format
 msgid "Download failure: {0}"
-msgstr ""
+msgstr "Latausvirhe: {0}"
 
 #: ../komikku/downloader.py:248
 #, python-brace-format
@@ -1049,11 +1052,11 @@ msgstr ""
 
 #: ../komikku/explorer/common.py:216
 msgid "Close"
-msgstr ""
+msgstr "Sulje"
 
 #: ../komikku/explorer/common.py:216
 msgid "Local Folder"
-msgstr ""
+msgstr "Paikallinen kansio"
 
 #: ../komikku/explorer/common.py:222
 msgid "Open local folder"
@@ -1065,7 +1068,7 @@ msgstr "Kiinnitä tai poista kiinnitys"
 
 #: ../komikku/explorer/search/__init__.py:223
 msgid "Filters"
-msgstr ""
+msgstr "Suodattimet"
 
 #: ../komikku/explorer/search/__init__.py:276
 msgid "Oops, server website URL is unknown."
@@ -1100,7 +1103,7 @@ msgstr ""
 
 #: ../komikku/explorer/search/__init__.py:357
 msgid "Search for Comics"
-msgstr ""
+msgstr "Etsi sarjakuvia"
 
 #: ../komikku/explorer/search/__init__.py:433
 msgid "Oops, failed to retrieve manga's information."
@@ -1201,7 +1204,7 @@ msgstr "Lukemisen tilan päivittäminen epäonnistui"
 
 #: ../komikku/library/__init__.py:772
 msgid "Add New Comic"
-msgstr ""
+msgstr "Lisää uusi sarjakuva"
 
 #: ../komikku/library/__init__.py:803 ../komikku/library/categories_list.py:145
 msgid "Uncategorized"
@@ -1512,7 +1515,7 @@ msgstr ""
 
 #: ../komikku/servers/mangadex/__init__.py:98
 msgid "Tags"
-msgstr ""
+msgstr "Tunnisteet"
 
 #: ../komikku/servers/mangadex/__init__.py:99
 msgid "Filter by formats"
@@ -1674,7 +1677,7 @@ msgstr "Näytetäänkö NSFW-sisältöistä mangaa"
 #: ../komikku/servers/multi/mangareader.py:102
 #, python-brace-format
 msgid "Not available in {0} language"
-msgstr ""
+msgstr "Ei saatavilla kielellä {0}"
 
 #: ../komikku/servers/webtoon/__init__.py:52
 msgid "Originals"
