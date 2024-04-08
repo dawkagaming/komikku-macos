@@ -720,9 +720,6 @@ class LibraryPage(Adw.NavigationPage):
 
         GLib.timeout_add(250, pulse)
 
-    def toggle_search_mode(self):
-        self.searchbar.set_search_mode(not self.searchbar.get_search_mode())
-
     def toggle_selected_read_status(self, _action, _param, read):
         chapters_ids = []
         chapters_data = []

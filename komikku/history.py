@@ -200,6 +200,3 @@ class HistoryPage(Adw.NavigationPage):
         self.populate()
 
         self.window.navigationview.push(self)
-
-    def toggle_search_mode(self):
-        self.searchbar.set_search_mode(not self.searchbar.get_search_mode())
