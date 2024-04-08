@@ -79,6 +79,7 @@ CREDITS = dict(
         'Heimen Stoffels (Dutch)',
         'Philip Goto (Dutch)',
         'Koen Benne (Dutch)',
+        'Mikachu (Dutch)',
         'Jiri Grönroos (Finnish)',
         'Irénée THIRION (French)',
         'Valéry Febvre (French)',
@@ -89,6 +90,7 @@ CREDITS = dict(
         'Liliana Marie Prikler (German)',
         'Alifiyan Rosyidi (Indonesian)',
         'Alim Satria (Indonesian)',
+        'Juan Manuel (Indonesian)',
         'Mek101 (Italian)',
         'dedocc (Italian)',
         'Lili Kurek (Polish)',
@@ -427,19 +429,19 @@ available in your region/language."""))
 
         # Override release notes
         dialog.set_release_notes("""
-            <p>This version fixes:</p>
             <ul>
-                <li>A regression in Explorer, pinned servers list was no longer cleared when it was refreshed</li>
-                <li>Wrong chapters order in Perf Scan (FR) server</li>
-            </ul>
-
-            <p>Changes in previous version 1.41.0</p>
-            <ul>
-                <li>[Servers] Added ComicExtra (EN)</li>
-                <li>[Servers] Perf Scan (FR): Update</li>
-                <li>[Servers] Mangas.in (ES: Update</li>
-                <li>[Servers] Reaper Scans (EN): Update</li>
-                <li>[L10n] Updated French, Russian, Spanish and Turkish translations</li>
+                <li>[Explorer] Search: Improved covers rendering</li>
+                <li>[Updater] Don't attempt to auto-download chapters when a Local source has an update</li>
+                <li>[Servers] Added DB New Hope (EN/ES/FR/RU/ZH_Hans)</li>
+                <li>[Servers] Added JManga (JA)</li>
+                <li>[Servers] Added MangaZin (EN)</li>
+                <li>[Servers] Added Read Comics Free (EN)</li>
+                <li>[Servers] Apoll Comics (ES): Update</li>
+                <li>[Servers] Mangalek (AR): Update</li>
+                <li>[Servers] View Comics (EN): Update</li>
+                <li>[Servers] Xoxocomics (EN): Update (new site)</li>
+                <li>[Servers] Bilibili Comics (EN/ES/FR/ID): Disabled</li>
+                <li>[L10n] Updated Finnish, Russian, Spanish and Turkish translations</li>
             </ul>
             <p>Happy reading.</p>
         """)

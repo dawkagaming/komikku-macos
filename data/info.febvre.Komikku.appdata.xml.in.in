@@ -100,6 +100,25 @@
     <url type="donation">https://valos.gitlab.io/Komikku/#sponsor</url>
 
     <releases>
+        <release version="1.42.0" date="2024-04-09">
+            <description translate="no">
+                <ul>
+                    <li>[Explorer] Search: Improved covers rendering</li>
+                    <li>[Updater] Don't attempt to auto-download chapters when a Local source has an update</li>
+                    <li>[Servers] Added DB New Hope (EN/ES/FR/RU/ZH_Hans)</li>
+                    <li>[Servers] Added JManga (JA)</li>
+                    <li>[Servers] Added MangaZin (EN)</li>
+                    <li>[Servers] Added Read Comics Free (EN)</li>
+                    <li>[Servers] Apoll Comics (ES): Update</li>
+                    <li>[Servers] Mangalek (AR): Update</li>
+                    <li>[Servers] View Comics (EN): Update</li>
+                    <li>[Servers] Xoxocomics (EN): Update (new site)</li>
+                    <li>[Servers] Bilibili Comics (EN/ES/FR/ID): Disabled</li>
+                    <li>[L10n] Updated Finnish, Russian, Spanish and Turkish translations</li>
+                </ul>
+                <p>Happy reading.</p>
+            </description>
+        </release>
         <release version="1.41.1" date="2024-03-30">
             <description translate="no">
                 <p>This version fixes:</p>
