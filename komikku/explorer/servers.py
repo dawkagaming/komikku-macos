@@ -202,7 +202,7 @@ class ExplorerServersPage(Adw.NavigationPage):
             row.set_child(label)
             self.pinned_listbox.prepend(row)
 
-        self.pinned_listbox.set_visible(count > 0)
+        self.pinned_listbox.set_visible(count > 0 and not self.searchbar.get_search_mode())
 
     def search(self, _entry):
         self.listbox.invalidate_filter()
