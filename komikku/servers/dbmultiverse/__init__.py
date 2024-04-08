@@ -48,7 +48,7 @@ class Dbmultiverse(Server):
         data.update(dict(
             authors=['Gogeta Jr', 'Asura', 'Salagir'],
             scanlators=[],
-            genres=['Shounen', ],
+            genres=['Shōnen', 'Dōjinshi'],
             status='ongoing',
             synopsis=self.synopsis,
             chapters=[],
