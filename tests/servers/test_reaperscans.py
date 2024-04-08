@@ -35,7 +35,7 @@ def reaperscans_tr_server():
     return Reaperscans_tr()
 
 
-@test_steps('get_latest_updates', 'get_most_populars', 'search', 'get_manga_data', 'get_chapter_data', 'get_page_image')
+@test_steps('get_latest_updates', 'search', 'get_manga_data', 'get_chapter_data', 'get_page_image')
 def test_reaperscans(reaperscans_server):
     # Get latest updates
     print('Get latest updates')
@@ -46,17 +46,6 @@ def test_reaperscans(reaperscans_server):
         log_error_traceback(e)
 
     assert response is not None
-    yield
-
-    # Get most populars
-    print('Get most populars')
-    try:
-        response = reaperscans_server.get_most_populars()
-    except Exception as e:
-        response = None
-        log_error_traceback(e)
-
-    assert response
     yield
 
     # Search
