@@ -12,5 +12,10 @@ class Mangalek(Madara):
 
     date_format = '%Y ,%d %B'
 
-    base_url = 'https://manga-leko.com/'
+    base_url = 'https://lekmanga.net'
     chapter_url = base_url + '/manga/{0}/{1}/'
+
+    # Mirrors
+    # https://lekmanga.org
+    # https://lekmanga.com
+    # https://like-manga.net
