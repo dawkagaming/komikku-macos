@@ -100,7 +100,6 @@ Dans ce récit inédit, découvrez une aventure trépidante où les liens entre 
 
         if element := soup.select_one('.anime__details__title h3'):
             nb_pages = int(element.text.split('/')[-1].strip())
-            print(nb_pages)
         else:
             return None
 
@@ -112,9 +111,6 @@ Dans ce récit inédit, découvrez une aventure trépidante où les liens entre 
                 slug=f'{index:02d}',
                 image=None,
             ))
-
-        from pprint import pprint as pp
-        pp(data)
 
         return data
 
