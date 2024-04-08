@@ -18,11 +18,15 @@ logger = logging.getLogger('komikku.servers.bilibili')
 
 SEARCH_RESULTS_LIMIT = 9
 
+# Dead since early 2024
+# A new site, built from a backup, exists https://comicfans.io
+
 
 class Bilibili(Server):
     id = 'bilibili'
     name = 'Bilibili Comics'
     lang = 'en'
+    status = 'disabled'
 
     base_url = 'https://www.bilibilicomics.com'
     manga_url = base_url + '/detail/mc{}'
