@@ -2,6 +2,11 @@
 # SPDX-License-Identifier: GPL-3.0-only or GPL-3.0-or-later
 # Author: Valéry Febvre <vfebvre@easter-eggs.com>
 
+# Supported servers:
+# JManga [JA]
+# Read Comics Free [EN]
+# Xoxocomics [EN]
+
 from bs4 import BeautifulSoup
 import requests
 from urllib.parse import parse_qs
