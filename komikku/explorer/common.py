@@ -241,7 +241,7 @@ class ExplorerServerRow(Gtk.ListBoxRow):
         label.add_css_class('subtitle')
         subtitle_box.append(label)
 
-        if data['is_nsfw']:
+        if data['is_nsfw'] or data['is_nsfw_only']:
             label = Gtk.Label(xalign=0)
             label.set_markup('<b>' + _('18+') + '</b>')
             label.add_css_class('subtitle')
