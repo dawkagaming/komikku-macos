@@ -23,10 +23,9 @@ from komikku.models import create_db_connection
 from komikku.models import Download
 from komikku.models import insert_rows
 from komikku.models import Settings
+from komikku.servers import DOWNLOAD_MAX_DELAY
 from komikku.utils import if_network_available
 from komikku.utils import log_error_traceback
-
-DOWNLOAD_MAX_DELAY = 1  # in seconds
 
 
 class Downloader(GObject.GObject):
@@ -186,9 +185,8 @@ class Downloader(GObject.GObject):
                                 #
                                 # The easiest way to avoid overloading the server is to set a time-out between requests
                                 # equal to 2x the time it took to load the page (responsive delay).
-                                start = time.time()
-                                path = chapter.get_page(index)
-                                delay = min(2 * (time.time() - start), DOWNLOAD_MAX_DELAY)
+                                path, rtime = chapter.get_page(index)
+                                delay = min(2 * rtime, DOWNLOAD_MAX_DELAY)
 
                                 if path is not None:
                                     success_counter += 1

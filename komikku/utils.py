@@ -5,15 +5,16 @@
 from functools import cache
 from functools import wraps
 from gettext import gettext as _
-import gi
 import html
 from io import BytesIO
 import logging
 import os
-from PIL import Image
-import requests
 import subprocess
 import traceback
+
+import gi
+from PIL import Image
+import requests
 
 gi.require_version('Gdk', '4.0')
 gi.require_version('Gsk', '4.0')

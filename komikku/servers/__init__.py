@@ -21,6 +21,8 @@ from komikku.servers.utils import get_server_main_id_by_id
 from komikku.utils import expand_and_resize_cover
 from komikku.utils import get_cache_dir
 
+DOWNLOAD_MAX_DELAY = 1  # in seconds
+
 # https://www.localeplanet.com/icu/
 LANGUAGES = dict(
     ar='العربية',
@@ -198,11 +200,11 @@ class Server(ABC):
         :param etag: The current cover image ETag
         :type etag: str or None
 
-        :return: The cover image content + the cover image ETag if exists
+        :return: The cover image content, the cover image ETag if exists, the request time (seconds)
         :rtype: tuple
         """
         if url is None:
-            return None, None
+            return None, None, None
 
         headers = {
             'Accept': 'image/avif,image/webp,*/*',
@@ -213,17 +215,17 @@ class Server(ABC):
 
         r = self.session.get(url, headers=headers)
         if r.status_code != 200:
-            return None, None
+            return None, None, None
 
         buffer = r.content
         mime_type = get_buffer_mime_type(buffer)
         if not mime_type.startswith('image'):
-            return None, None
+            return None, None, None
 
         if mime_type == 'image/webp':
             buffer = convert_image(buffer, ret_type='bytes')
 
-        return expand_and_resize_cover(buffer), r.headers.get('ETag')
+        return expand_and_resize_cover(buffer), r.headers.get('ETag'), r.elapsed.total_seconds()
 
     @abstractmethod
     def get_manga_data(self, initial_data):

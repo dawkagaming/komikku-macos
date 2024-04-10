@@ -196,7 +196,7 @@ class Page(Gtk.Overlay):
                 page_path = self.chapter.get_page_path(self.index)
                 if page_path is None:
                     try:
-                        page_path = self.chapter.get_page(self.index)
+                        page_path, _rtime = self.chapter.get_page(self.index)
                         if page_path:
                             self.path = page_path
                         else:

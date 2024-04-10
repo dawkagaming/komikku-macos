@@ -2,7 +2,6 @@
 # SPDX-License-Identifier: GPL-3.0-only or GPL-3.0-or-later
 # Author: Valéry Febvre <vfebvre@easter-eggs.com>
 
-from colorthief import ColorThief
 import datetime
 from enum import IntEnum
 from functools import cache
@@ -11,13 +10,15 @@ from gettext import gettext as _
 import importlib
 import json
 import logging
-import natsort
 import os
+import shutil
+import time
+
+from colorthief import ColorThief
+from gi.repository import Gio
+import natsort
 from PIL import Image
 import sqlite3
-import shutil
-
-from gi.repository import Gio
 
 from komikku.servers.utils import convert_image
 from komikku.servers.utils import get_server_class_name_by_id
@@ -660,7 +661,7 @@ class Manga:
                 current_etag = fp.read()
 
         # Save cover image file
-        cover_data, etag = self.server.get_manga_cover_image(url, current_etag)
+        cover_data, etag, _rtime = self.server.get_manga_cover_image(url, current_etag)
         if cover_data is None:
             return
 
@@ -806,7 +807,7 @@ class Manga:
 
             # First, delete chapters that no longer exist on server EXCEPT those marked as downloaded
             # In case of downloaded, we keep track of ranks because they must not be reused
-            chapters_slugs = [chapter_data['slug'] for chapter_data in chapters_data]
+            chapters_slugs = [str(chapter_data['slug']) for chapter_data in chapters_data]
             rows = db_conn.execute('SELECT * FROM chapters WHERE manga_id = ?', (self.id,))
             for row in rows:
                 if row['slug'] not in chapters_slugs:
@@ -1031,15 +1032,17 @@ class Chapter:
     def get_page(self, index):
         page_path = self.get_page_path(index)
         if page_path:
-            return page_path
+            return page_path, None
 
         page = self.pages[index]
 
+        start = time.perf_counter()
         data = self.manga.server.get_manga_chapter_page_image(self.manga.slug, self.manga.name, self.slug, page)
+        rtime = time.perf_counter() - start
         gc.collect()
 
         if data is None:
-            return None
+            return None, None
 
         if not os.path.exists(self.path):
             os.makedirs(self.path, exist_ok=True)
@@ -1078,7 +1081,7 @@ class Chapter:
         if updated_data:
             self.update(updated_data)
 
-        return page_path
+        return page_path, rtime
 
     def get_page_data(self, index):
         """

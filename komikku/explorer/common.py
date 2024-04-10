@@ -15,12 +15,12 @@ from gi.repository import Gtk
 from gi.repository import Pango
 
 from komikku.models import Settings
+from komikku.servers import DOWNLOAD_MAX_DELAY
 from komikku.servers import LANGUAGES
 from komikku.utils import COVER_WIDTH
 from komikku.utils import html_escape
 from komikku.utils import PaintableCover
 
-DOWNLOAD_MAX_DELAY = 1  # in seconds
 LOGO_SIZE = 28
 THUMB_WIDTH = 41
 THUMB_HEIGHT = 58
@@ -76,17 +76,14 @@ class ExplorerSearchStackPage:
                 except Empty:
                     continue
                 else:
-                    start = time.time()
                     try:
-                        data, _etag = server.get_manga_cover_image(row.manga_data['cover'])
+                        data, _etag, rtime = server.get_manga_cover_image(row.manga_data['cover'])
                     except Exception:
                         pass
                     else:
                         GLib.idle_add(row.set_cover, data)
 
-                        delay = min(2 * (time.time() - start), DOWNLOAD_MAX_DELAY)
-                        if delay:
-                            time.sleep(delay)
+                        time.sleep(min(2 * rtime, DOWNLOAD_MAX_DELAY))
 
                     self.queue.task_done()
 
