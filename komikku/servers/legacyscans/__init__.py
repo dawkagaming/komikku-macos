@@ -2,13 +2,16 @@
 # SPDX-License-Identifier: GPL-3.0-only or GPL-3.0-or-later
 # Author: Valéry Febvre <vfebvre@easter-eggs.com>
 
-from bs4 import BeautifulSoup
 import logging
+from urllib.parse import urlparse
+
+from bs4 import BeautifulSoup
+import requests
 
 from komikku.servers import Server
+from komikku.servers import USER_AGENT
 from komikku.servers.utils import convert_date_string
 from komikku.servers.utils import get_buffer_mime_type
-from komikku.webview import bypass_cf
 
 logger = logging.getLogger('komikku.servers.legacyscans')
 
@@ -18,20 +21,27 @@ class Legacyscans(Server):
     name = 'LegacyScans'
     lang = 'fr'
 
-    has_cf = True
-
     base_url = 'https://legacy-scans.com'
-    api_url = 'https://api.legacy-scans.com'
-    api_search_url = api_url + '/misc/home/search'
-    api_latest_updates_url = api_url + '/misc/comic/home/updates'
-    api_most_popular_url = api_url + '/misc/views/monthly'
+    api_base_url = 'https://api.legacy-scans.com'
+    api_search_url = api_base_url + '/misc/home/search'
+    api_latest_updates_url = api_base_url + '/misc/comic/home/updates'
+    api_most_popular_url = api_base_url + '/misc/views/monthly'
     manga_url = base_url + '/comics/{0}'
     chapter_url = base_url + '/comics/{0}/{1}'
 
-    def __init__(self):
-        self.session = None
+    api_headers = {
+        'Host': urlparse(api_base_url).netloc,
+        'Accept': 'image/avif,image/webp,*/*',
+        'Referer': f'{base_url}/'
+    }
 
-    @bypass_cf
+    def __init__(self):
+        if self.session is None:
+            self.session = requests.Session()
+            self.session.headers = {
+                'User-Agent': USER_AGENT,
+            }
+
     def get_manga_data(self, initial_data):
         """
         Returns manga data by scraping manga HTML page content
@@ -90,7 +100,6 @@ class Legacyscans(Server):
 
         return data
 
-    @bypass_cf
     def get_manga_chapter_data(self, manga_slug, manga_name, chapter_slug, chapter_url):
         """
         Returns manga chapter data by scraping chapter HTML page content
@@ -115,7 +124,7 @@ class Legacyscans(Server):
         data = dict(
             pages=[],
         )
-        for img_element in soup.select('.readerComics > img'):
+        for img_element in soup.select('.readerMainContainer.readerComics > img'):
             data['pages'].append(dict(
                 slug=None,
                 image=img_element.get('src'),
@@ -123,16 +132,13 @@ class Legacyscans(Server):
 
         return data
 
-    @bypass_cf
     def get_manga_chapter_page_image(self, manga_slug, manga_name, chapter_slug, page):
         """
         Returns chapter page scan (image) content
         """
         r = self.session_get(
             page['image'],
-            headers={
-                'Referer': self.chapter_url.format(manga_slug, chapter_slug),
-            }
+            headers=self.api_headers,
         )
         if r.status_code != 200:
             return None
@@ -153,7 +159,6 @@ class Legacyscans(Server):
         """
         return self.manga_url.format(slug)
 
-    @bypass_cf
     def get_latest_updates(self):
         r = self.session_get(
             self.api_latest_updates_url,
@@ -161,9 +166,7 @@ class Legacyscans(Server):
                 start=1,
                 end=24,
             ),
-            headers={
-                'Referer': self.base_url,
-            }
+            headers=self.api_headers
         )
         if r.status_code != 200:
             return None
@@ -171,20 +174,18 @@ class Legacyscans(Server):
         results = []
         for item in r.json():
             results.append(dict(
-                cover='{0}/{1}'.format(self.api_url, item['cover']),
+                cover='{0}/{1}'.format(self.api_base_url, item['cover']),
                 slug=item['slug'],
                 name=item['title'],
+                last_chapter=item['chapters'][0]['chapterNumber'],
             ))
 
         return results
 
-    @bypass_cf
     def get_most_populars(self):
         r = self.session_get(
             self.api_most_popular_url,
-            headers={
-                'Referer': self.base_url,
-            }
+            headers=self.api_headers
         )
         if r.status_code != 200:
             return None
@@ -192,25 +193,20 @@ class Legacyscans(Server):
         results = []
         for item in r.json():
             results.append(dict(
-                cover='{0}/{1}'.format(self.api_url, item['cover']),
+                cover='{0}/{1}'.format(self.api_base_url, item['cover']),
                 slug=item['slug'],
                 name=item['title'],
             ))
 
         return results
 
-    @bypass_cf
     def search(self, term=None, orderby=None):
-        params = dict(
-            title=term,
-        )
-
         r = self.session_get(
             self.api_search_url,
-            params=params,
-            headers={
-                'Referer': self.base_url,
-            }
+            params=dict(
+                title=term,
+            ),
+            headers=self.api_headers
         )
         if r.status_code != 200:
             return None
