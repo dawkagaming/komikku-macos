@@ -14,6 +14,7 @@
 # PhenixScans [FR]
 # Rawkuma [JA]
 # Raw Manga [JA]
+# SushiScan [FR]
 
 from bs4 import BeautifulSoup
 from gettext import gettext as _
@@ -139,6 +140,7 @@ class MangaStream(Server):
             labels = (
                 'completed',
                 'fini',  # fr
+                'terminé',  # fr
                 'tamamlandı',  # tr
             )
             if any(re.findall('|'.join(labels), label, re.IGNORECASE)):
@@ -345,6 +347,8 @@ class MangaStream(Server):
             cover_element = a_element.select_one('img.ts-post-image')
             if cover_element.get('data-lazy-src'):
                 cover = cover_element.get('data-lazy-src')
+            elif cover_element.get('data-src'):
+                cover = cover_element.get('data-src')
             else:
                 cover = cover_element.get('src')
 
