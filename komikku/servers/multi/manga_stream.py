@@ -9,6 +9,7 @@
 # Asura Scans [TR]
 # Flam Scans [EN]
 # Lelmanga [FR]
+# Noromax (ID)
 # Night scans [EN]
 # PhenixScans [FR]
 # Rawkuma [JA]
