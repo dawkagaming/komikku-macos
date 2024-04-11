@@ -13,6 +13,7 @@ from komikku.servers import DOWNLOAD_MAX_DELAY
 from komikku.servers import Server
 from komikku.servers import USER_AGENT
 from komikku.servers.utils import get_buffer_mime_type
+from komikku.servers.utils import get_response_elapsed
 
 
 class Comicfans(Server):
@@ -202,7 +203,7 @@ class Comicfans(Server):
             if resp_json['code'] != 0:
                 return None, None
 
-            return resp_json['data'], r.elapsed.total_seconds()
+            return resp_json['data'], get_response_elapsed(r)
 
         delay = None
         more = True

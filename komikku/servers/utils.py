@@ -207,6 +207,26 @@ def get_file_mime_type(path):
         return ''
 
 
+def get_response_elapsed(r):
+    """
+    Returns the response time (in seconds) of a request
+    regardless of the request type (requests, curl_cffi)
+
+    :param r: A response
+    :type r: requests.models.Response or curl_cffi.requests.models.Response
+
+    :return: How many seconds the request cost
+    :rtype: float
+    """
+    elapsed = r.elapsed
+    if isinstance(elapsed, datetime.timedelta):
+        # requests
+        return elapsed.total_seconds()
+
+    # curl_cffi
+    return elapsed
+
+
 def get_server_class_name_by_id(id):
     """
     Returns a server class name from its ID

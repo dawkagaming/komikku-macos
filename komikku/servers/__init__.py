@@ -16,6 +16,7 @@ from requests.adapters import TimeoutSauce
 from komikku.models.keyring import KeyringHelper
 from komikku.servers.loader import server_finder
 from komikku.servers.utils import get_buffer_mime_type
+from komikku.servers.utils import get_response_elapsed
 from komikku.servers.utils import get_server_main_id_by_id
 from komikku.utils import expand_and_resize_cover
 from komikku.utils import get_cache_dir
@@ -221,7 +222,7 @@ class Server(ABC):
         if not mime_type.startswith('image'):
             return None, None, None
 
-        return expand_and_resize_cover(buffer), r.headers.get('ETag'), r.elapsed.total_seconds()
+        return expand_and_resize_cover(buffer), r.headers.get('ETag'), get_response_elapsed(r)
 
     @abstractmethod
     def get_manga_data(self, initial_data):
