@@ -3,11 +3,10 @@
 # Author: Valéry Febvre <vfebvre@easter-eggs.com>
 
 from bs4 import BeautifulSoup
-import requests
 
 from komikku.servers import Server
-from komikku.servers import USER_AGENT
 from komikku.servers.utils import get_buffer_mime_type
+from komikku.webview import bypass_cf
 
 
 class Tcbscans(Server):
@@ -15,17 +14,18 @@ class Tcbscans(Server):
     name = 'TCB Scans'
     lang = 'en'
 
-    base_url = 'https://tcbscans.com'
+    has_cf = True
+
+    base_url = 'https://tcb-backup.bihar-mirchi.com'  # https://tcbscans.com
     most_populars_url = base_url + '/projects'
     manga_url = base_url + '/mangas/{0}'
     chapter_url = base_url + '/chapters/{0}'
     image_url = 'https://cdn.onepiecechapters.com/file/CDN-M-A-N/{0}'
 
     def __init__(self):
-        if self.session is None:
-            self.session = requests.Session()
-            self.session.headers.update({'user-agent': USER_AGENT})
+        self.session = None
 
+    @bypass_cf
     def get_manga_data(self, initial_data):
         """
         Returns manga data by scraping manga HTML page content
@@ -76,6 +76,7 @@ class Tcbscans(Server):
 
         return data
 
+    @bypass_cf
     def get_manga_chapter_data(self, manga_slug, manga_name, chapter_slug, chapter_url):
         """
         Returns manga chapter data by scraping chapter HTML page content
@@ -132,6 +133,7 @@ class Tcbscans(Server):
         """
         return self.manga_url.format(slug)
 
+    @bypass_cf
     def get_most_populars(self):
         """
         Returns manga list
@@ -152,6 +154,7 @@ class Tcbscans(Server):
 
         return results
 
+    @bypass_cf
     def search(self, term):
         results = []
         for item in self.get_most_populars():
