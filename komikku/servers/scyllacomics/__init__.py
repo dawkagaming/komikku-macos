@@ -5,13 +5,13 @@
 from komikku.servers.multi.fuzzydoodle import Fuzzydoodle
 
 
-class Scyllascans(Fuzzydoodle):
-    id = 'scyllascans'
-    name = 'Scylla Scans'
+class Scyllacomics(Fuzzydoodle):
+    id = 'scyllacomics'
+    name = 'Scylla Comics'
     lang = 'en'
     is_nsfw = True
 
-    base_url = 'https://scyllascans.org'
+    base_url = 'https://scyllacomics.xyz'
     search_url = base_url + '/manga'
     manga_url = base_url + '/manga/{0}'
     chapter_url = base_url + '/manga/{0}/{1}'

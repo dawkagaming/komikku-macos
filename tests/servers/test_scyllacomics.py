@@ -8,18 +8,18 @@ logging.basicConfig(level=logging.DEBUG)
 
 
 @pytest.fixture
-def scyllascans_server():
-    from komikku.servers.scyllascans import Scyllascans
+def scyllacomics_server():
+    from komikku.servers.scyllacomics import Scyllacomics
 
-    return Scyllascans()
+    return Scyllacomics()
 
 
 @test_steps('get_latest_updates', 'get_most_populars', 'search', 'get_manga_data', 'get_chapter_data', 'get_page_image')
-def test_scyllascans(scyllascans_server):
+def test_scyllacomics(scyllacomics_server):
     # Get latest updates
     print('Get latest updates')
     try:
-        response = scyllascans_server.get_latest_updates()
+        response = scyllacomics_server.get_latest_updates()
     except Exception as e:
         response = None
         log_error_traceback(e)
@@ -30,7 +30,7 @@ def test_scyllascans(scyllascans_server):
     # Get most popular
     print('Get most popular')
     try:
-        response = scyllascans_server.get_most_populars()
+        response = scyllacomics_server.get_most_populars()
     except Exception as e:
         response = None
         log_error_traceback(e)
@@ -42,7 +42,7 @@ def test_scyllascans(scyllascans_server):
     print('Search')
     try:
         # Use first result of get_most_popular
-        response = scyllascans_server.search(response[0]['name'])
+        response = scyllacomics_server.search(response[0]['name'])
         slug = response[0]['slug']
     except Exception as e:
         slug = None
@@ -54,7 +54,7 @@ def test_scyllascans(scyllascans_server):
     # Get manga data
     print('Get manga data')
     try:
-        response = scyllascans_server.get_manga_data(dict(slug=slug))
+        response = scyllacomics_server.get_manga_data(dict(slug=slug))
         chapter_slug = response['chapters'][0]['slug']
     except Exception as e:
         chapter_slug = None
@@ -67,7 +67,7 @@ def test_scyllascans(scyllascans_server):
     # Get chapter data
     print("Get chapter data")
     try:
-        response = scyllascans_server.get_manga_chapter_data(slug, None, chapter_slug, None)
+        response = scyllacomics_server.get_manga_chapter_data(slug, None, chapter_slug, None)
         page = response['pages'][0]
     except Exception as e:
         page = None
@@ -79,7 +79,7 @@ def test_scyllascans(scyllascans_server):
     # Get page image
     print('Get page image')
     try:
-        response = scyllascans_server.get_manga_chapter_page_image(slug, None, chapter_slug, page)
+        response = scyllacomics_server.get_manga_chapter_page_image(slug, None, chapter_slug, page)
     except Exception as e:
         response = None
         log_error_traceback(e)
