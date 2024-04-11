@@ -2,7 +2,7 @@
 # SPDX-License-Identifier: GPL-3.0-only or GPL-3.0-or-later
 # Author: Valéry Febvre <vfebvre@easter-eggs.com>
 
-# Manga Strean/Manga Reader – WordPress Themes for read manga
+# Manga Strean/Manga Reader/Mamga Themesia – WordPress Themes for read manga
 
 # Supported servers:
 # Asura Scans [EN]
@@ -36,6 +36,7 @@ class MangaStream(Server):
     chapter_url: str = None
 
     date_format: str = '%B %d, %Y'
+    name_re_sub = str = None  # regexp to clean manga name
     series_name: str = 'manga'
     slug_position: int = -2
 
@@ -164,13 +165,16 @@ class MangaStream(Server):
 
         # Name & cover
         data['name'] = soup.select_one(self.name_selector).text.strip()
+        if self.name_re_sub:
+            data['name'] = re.sub(self.name_re_sub, '', data['name']).strip()
+
         data['cover'] = soup.select_one(self.thumbnail_selector).get('data-src')
         if not data['cover']:
             data['cover'] = soup.select_one(self.thumbnail_selector).get('data-lazy-src')
             if not data['cover']:
                 data['cover'] = soup.select_one(self.thumbnail_selector).get('src')
-                if not data['cover'].startswith('http'):
-                    data['cover'] = f'https:{data["cover"]}'
+        if data['cover'] and not data['cover'].startswith('http'):
+            data['cover'] = f'https:{data["cover"]}'
 
         # Details
         if self.authors_selector:
@@ -316,8 +320,16 @@ class MangaStream(Server):
         """
         return self.manga_url.format(slug)
 
-    def get_manga_list(self, type, orderby):
-        r = self.session_get(self.manga_list_url.format(type, orderby))
+    def get_manga_list(self, title=None, type=None, orderby=None):
+        r = self.session_get(
+            self.manga_list_url,
+            params=dict(
+                status=None,
+                type=type,
+                order=orderby,
+                title=title,
+            )
+        )
         if r.status_code != 200:
             return None
 
@@ -325,6 +337,10 @@ class MangaStream(Server):
 
         results = []
         for a_element in soup.select('.listupd .bs a'):
+            name = a_element.get('title')
+            if self.name_re_sub:
+                name = re.sub(self.name_re_sub, '', name).strip()
+
             cover_element = a_element.select_one('img.ts-post-image')
             if cover_element.get('data-lazy-src'):
                 cover = cover_element.get('data-lazy-src')
@@ -333,7 +349,7 @@ class MangaStream(Server):
 
             results.append(dict(
                 slug=a_element.get('href').split('/')[self.slug_position],
-                name=a_element.get('title'),
+                name=name,
                 cover=cover,
             ))
 
@@ -341,38 +357,12 @@ class MangaStream(Server):
 
     @bypass_cf
     def get_latest_updates(self, type):
-        return self.get_manga_list(type, 'update')
+        return self.get_manga_list(type=type, orderby='update')
 
     @bypass_cf
     def get_most_populars(self, type):
-        return self.get_manga_list(type, 'popular')
+        return self.get_manga_list(type=type, orderby='popular')
 
     @bypass_cf
     def search(self, term, type):
-        r = self.session_post(
-            self.api_url,
-            data={
-                'action': 'ts_ac_do_search',
-                'ts_ac_query': term,
-            },
-            headers={
-                'X-Requested-With': 'XMLHttpRequest',
-                'Referer': self.base_url,
-            }
-        )
-        if r.status_code != 200:
-            return None
-
-        results = []
-        for serie in r.json()['series'][0]['all']:
-            if serie['post_type'] == 'Novel':
-                continue
-
-            results.append(dict(
-                slug=serie['post_link'].split('/')[self.slug_position],
-                name=serie['post_title'],
-                cover=serie['post_image'],
-                last_chapter=serie['post_latest'],
-            ))
-
-        return results
+        return self.get_manga_list(title=term, type=type)
