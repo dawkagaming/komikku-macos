@@ -15,7 +15,6 @@ from requests.adapters import TimeoutSauce
 
 from komikku.models.keyring import KeyringHelper
 from komikku.servers.loader import server_finder
-from komikku.servers.utils import convert_image
 from komikku.servers.utils import get_buffer_mime_type
 from komikku.servers.utils import get_server_main_id_by_id
 from komikku.utils import expand_and_resize_cover
@@ -221,9 +220,6 @@ class Server(ABC):
         mime_type = get_buffer_mime_type(buffer)
         if not mime_type.startswith('image'):
             return None, None, None
-
-        if mime_type == 'image/webp':
-            buffer = convert_image(buffer, ret_type='bytes')
 
         return expand_and_resize_cover(buffer), r.headers.get('ETag'), r.elapsed.total_seconds()
 

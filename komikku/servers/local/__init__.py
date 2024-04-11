@@ -13,7 +13,6 @@ from komikku.servers import Server
 from komikku.servers.exceptions import ArchiveError
 from komikku.servers.exceptions import ArchiveUnrarMissingError
 from komikku.servers.exceptions import ServerException
-from komikku.servers.utils import convert_image
 from komikku.servers.utils import get_buffer_mime_type
 from komikku.utils import get_data_dir
 
@@ -173,9 +172,6 @@ class Local(Server):
         mime_type = get_buffer_mime_type(buffer)
         if not mime_type.startswith('image'):
             return None, None, None
-
-        if mime_type == 'image/webp':
-            buffer = convert_image(buffer, ret_type='bytes')
 
         return buffer, None, 0
 

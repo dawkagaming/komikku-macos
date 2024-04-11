@@ -17,10 +17,8 @@ import time
 from colorthief import ColorThief
 from gi.repository import Gio
 import natsort
-from PIL import Image
 import sqlite3
 
-from komikku.servers.utils import convert_image
 from komikku.servers.utils import get_server_class_name_by_id
 from komikku.servers.utils import get_server_dir_name_by_id
 from komikku.servers.utils import get_server_module_name_by_id
@@ -1032,7 +1030,7 @@ class Chapter:
     def get_page(self, index):
         page_path = self.get_page_path(index)
         if page_path:
-            return page_path, None
+            return page_path, 0
 
         page = self.pages[index]
 
@@ -1048,19 +1046,9 @@ class Chapter:
             os.makedirs(self.path, exist_ok=True)
 
         image = data['buffer']
-
-        if data['mime_type'] == 'image/webp':
-            if data['mime_type'] == 'image/webp':
-                data['name'] = os.path.splitext(data['name'])[0] + '.jpg'
-                image = convert_image(image, 'jpeg')
-
         page_path = os.path.join(self.path, data['name'])
-
-        if isinstance(image, Image.Image):
-            image.save(page_path)
-        else:
-            with open(page_path, 'wb') as fp:
-                fp.write(image)
+        with open(page_path, 'wb') as fp:
+            fp.write(image)
 
         updated_data = {}
 
@@ -1085,7 +1073,7 @@ class Chapter:
 
     def get_page_data(self, index):
         """
-        Return page image data: buffer, mime type, name
+        Return page image data: buffer, MIME type, name
 
         Useful for locally stored manga. Image data (bytes) are retrieved directly from archive.
         """
