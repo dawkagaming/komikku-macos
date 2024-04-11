@@ -2,7 +2,7 @@
 # SPDX-License-Identifier: GPL-3.0-only or GPL-3.0-or-later
 # Author: Valéry Febvre <vfebvre@easter-eggs.com>
 
-# Manga Strean/Manga Reader/Mamga Themesia – WordPress Themes for read manga
+# Manga Strean/Manga Reader/Mamga Themesia - WordPress Themes for read manga
 
 # Supported servers:
 # Asura Scans [EN]
@@ -75,7 +75,7 @@ class MangaStream(Server):
             self.api_url = self.base_url + '/wp-admin/admin-ajax.php'
 
         if self.manga_list_url is None:
-            self.manga_list_url = self.base_url + '/' + self.series_name + '/?status=&type={0}&order={1}'
+            self.manga_list_url = self.base_url + '/' + self.series_name + '/'
 
         if self.manga_url is None:
             self.manga_url = self.base_url + '/' + self.series_name + '/{0}/'
@@ -325,9 +325,9 @@ class MangaStream(Server):
         r = self.session_get(
             self.manga_list_url,
             params=dict(
-                status=None,
+                status='',
                 type=type,
-                order=orderby,
+                order=orderby or '',
                 title=title,
             )
         )
