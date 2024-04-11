@@ -15,6 +15,7 @@
 # Rawkuma [JA]
 # Raw Manga [JA]
 # SushiScan [FR]
+# VF Scan [FR]
 
 from bs4 import BeautifulSoup
 from gettext import gettext as _
