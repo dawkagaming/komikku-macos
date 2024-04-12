@@ -8,6 +8,7 @@
 # Asura Scans [EN]
 # Asura Scans [TR]
 # Flam Scans [EN]
+# Iris Scanlator [pt_BR]
 # Lelmanga [FR]
 # Noromax (ID)
 # Night scans [EN]
