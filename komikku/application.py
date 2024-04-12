@@ -430,18 +430,19 @@ available in your region/language."""))
         # Override release notes
         dialog.set_release_notes("""
             <ul>
-                <li>[Explorer] Search: Improved covers rendering</li>
-                <li>[Updater] Don't attempt to auto-download chapters when a Local source has an update</li>
-                <li>[Servers] Added DB New Hope (EN/ES/FR/RU/ZH_Hans)</li>
-                <li>[Servers] Added JManga (JA)</li>
-                <li>[Servers] Added MangaZin (EN)</li>
-                <li>[Servers] Added Read Comics Free (EN)</li>
-                <li>[Servers] Apoll Comics (ES): Update</li>
-                <li>[Servers] Mangalek (AR): Update</li>
-                <li>[Servers] View Comics (EN): Update</li>
-                <li>[Servers] Xoxocomics (EN): Update (new site)</li>
-                <li>[Servers] Bilibili Comics (EN/ES/FR/ID): Disabled</li>
-                <li>[L10n] Updated Finnish, Russian, Spanish and Turkish translations</li>
+                <li>Improved downloads and covers display speed</li>
+                <li>[Servers] Added Comic Fans (EN)</li>
+                <li>[Servers] Added FleksyScans (EN)</li>
+                <li>[Servers] Added Iris Scanlator (pt_BR)</li>
+                <li>[Servers] Added KomikLovers (ID)</li>
+                <li>[Servers] Added Neromax (ID)</li>
+                <li>[Servers] Added Scylla Comics (EN)</li>
+                <li>[Servers] Added SushiScan (FR)</li>
+                <li>[Servers] Added VF Scan (FR)</li>
+                <li>[Servers] Legacy Scans (FR): Update</li>
+                <li>[Servers] Lelscan-VF (FR): Update</li>
+                <li>[Servers] TCB Scans (EN): Update</li>
+                <li>[L10n] Updated French translation</li>
             </ul>
             <p>Happy reading.</p>
         """)
