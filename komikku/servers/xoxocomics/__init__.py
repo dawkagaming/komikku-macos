@@ -2,10 +2,10 @@
 # SPDX-License-Identifier: GPL-3.0-only or GPL-3.0-or-later
 # Author: Valéry Febvre <vfebvre@easter-eggs.com>
 
-from komikku.servers.multi.wpcomics import Wpcomics
+from komikku.servers.multi.wpcomics import WPComics
 
 
-class Xoxocomics(Wpcomics):
+class Xoxocomics(WPComics):
     id = 'xoxocomics'
     name = 'Xoxocomics'
     lang = 'en'

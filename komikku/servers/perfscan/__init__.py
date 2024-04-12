@@ -7,7 +7,7 @@ import logging
 
 from bs4 import BeautifulSoup
 
-from komikku.servers.multi.heancms import Heancms
+from komikku.servers.multi.heancms import HeanCMS
 from komikku.servers.utils import convert_date_string
 from komikku.servers.utils import get_buffer_mime_type
 
@@ -49,7 +49,7 @@ def extract_info_from_script(soup, keyword):
     return info
 
 
-class Perfscan(Heancms):
+class Perfscan(HeanCMS):
     id = 'perfscan'
     name = 'Perf Scan'
     lang = 'fr'

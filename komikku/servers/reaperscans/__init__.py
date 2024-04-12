@@ -11,7 +11,7 @@ from curl_cffi import requests
 
 from komikku.servers import Server
 from komikku.servers import USER_AGENT
-from komikku.servers.multi.heancms import Heancms
+from komikku.servers.multi.heancms import HeanCMS
 from komikku.servers.multi.genkan import GenkanInitial
 from komikku.servers.multi.madara import Madara
 from komikku.servers.utils import convert_date_string
@@ -519,7 +519,7 @@ class Reaperscans_pt(Server):
         return results
 
 
-class Reaperscans_pt_br(Heancms):
+class Reaperscans_pt_br(HeanCMS):
     id = 'reaperscans_pt_br'
     name = 'Yugen Scans (Reaper Scans)'
     lang = 'pt_BR'

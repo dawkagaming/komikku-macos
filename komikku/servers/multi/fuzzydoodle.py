@@ -21,7 +21,7 @@ from komikku.servers.utils import get_soup_element_inner_text
 # https://github.com/jhin1m/fuzzy-doodle
 
 
-class Fuzzydoodle(Server):
+class FuzzyDoodle(Server):
     base_url: str = None
     search_url: str = None
     manga_url: str = None

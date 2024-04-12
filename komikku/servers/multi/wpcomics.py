@@ -21,7 +21,7 @@ from komikku.servers.utils import get_soup_element_inner_text
 # WPComics Wordpress theme
 
 
-class Wpcomics(Server):
+class WPComics(Server):
     base_url: str = None
     search_url: str = None
     latest_updates_url: str = None

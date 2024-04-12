@@ -4,11 +4,11 @@
 
 from bs4 import BeautifulSoup
 
-from komikku.servers.multi.wpcomics import Wpcomics
+from komikku.servers.multi.wpcomics import WPComics
 from komikku.servers.utils import get_buffer_mime_type
 
 
-class Jmanga(Wpcomics):
+class Jmanga(WPComics):
     id = 'jmanga'
     name = 'JManga'
     lang = 'ja'

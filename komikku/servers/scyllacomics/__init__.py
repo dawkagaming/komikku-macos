@@ -2,10 +2,10 @@
 # SPDX-License-Identifier: GPL-3.0-only or GPL-3.0-or-later
 # Author: Valéry Febvre <vfebvre@easter-eggs.com>
 
-from komikku.servers.multi.fuzzydoodle import Fuzzydoodle
+from komikku.servers.multi.fuzzydoodle import FuzzyDoodle
 
 
-class Scyllacomics(Fuzzydoodle):
+class Scyllacomics(FuzzyDoodle):
     id = 'scyllacomics'
     name = 'Scylla Comics'
     lang = 'en'

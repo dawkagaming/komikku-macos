@@ -18,7 +18,7 @@ from komikku.servers.utils import convert_date_string
 from komikku.servers.utils import get_buffer_mime_type
 
 
-class Heancms(Server):
+class HeanCMS(Server):
     base_url: str
     api_url: str
     manga_url: str = None
