@@ -23,9 +23,8 @@ class Readmanga(Server):
     manga_url = base_url + '/{0}'
     chapter_url = manga_url + '/{1}?mtr=1'
 
-    pages_js_start = 'rm_h.readerInit'
-    pages_js_offset = 19
-    remove_image_url_qs = True
+    pages_js_start = 'rm_h.readerDoInit'
+    pages_js_offset = 18
 
     def __init__(self):
         if self.session is None:
@@ -147,15 +146,15 @@ class Readmanga(Server):
                 if not line.startswith(self.pages_js_start):
                     continue
 
-                pages_data = '[{0}]'.format(line[self.pages_js_offset:-2].replace('\'', '"'))
-                urls = json.loads(pages_data)[0]
-                for split_url in urls:
+                pages_data = line.split(', ')[0][self.pages_js_offset:]
+                pages_data = pages_data.replace('\'', '"')
+                pages = json.loads(pages_data)
+
+                for split_url in pages:
                     url = split_url[0] + split_url[2]
                     if not url.startswith('http'):
                         # Required by AllHentai
                         url = self.base_url.split('://')[0] + ':' + url
-                    if self.remove_image_url_qs:
-                        url = url.split('?')[0]
 
                     data['pages'].append(dict(
                         slug=None,
@@ -172,7 +171,7 @@ class Readmanga(Server):
         """
         r = self.session_get(
             page['image'],
-            headers={'Referer': self.base_url}
+            headers={'Referer': f'{self.base_url}/'}
         )
         if r.status_code != 200:
             return None
@@ -239,16 +238,13 @@ class Readmanga(Server):
 class Allhentai(Readmanga):
     id = 'allhentai:readmanga'
     name = 'AllHentai'
-    is_nsfw = False
     is_nsfw_only = True
     # FIXME: requires to be logged in
 
-    base_url = 'http://2023.allhen.online'
+    base_url = 'https://20.allhen.online'
     search_url = base_url + '/search/advanced'
     manga_url = base_url + '/{0}'
     chapter_url = manga_url + '/{1}?mtr=1'
-
-    remove_image_url_qs = False
 
 
 class Mintmanga(Readmanga):
@@ -257,12 +253,10 @@ class Mintmanga(Readmanga):
     is_nsfw = True
 
     # 16
-    base_url = 'https://mintmanga.live'
+    base_url = 'https://24.mintmanga.one'
     search_url = base_url + '/search/advancedResults'
     manga_url = base_url + '/{0}'
     chapter_url = manga_url + '/{1}?mtr=1'
-
-    remove_image_url_qs = False
 
 
 class Selfmanga(Readmanga):
@@ -274,5 +268,3 @@ class Selfmanga(Readmanga):
     search_url = base_url + '/search/advancedResults'
     manga_url = base_url + '/{0}'
     chapter_url = manga_url + '/{1}?mtr=1'
-
-    remove_image_url_qs = False
