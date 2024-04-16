@@ -5,17 +5,54 @@
 # Hean CMS
 
 # Supported servers:
+# Mode Scanlator [pt_BR]
 # Perf scan [FR]
 # Reaper Scans [pt_BR] (disabled)
 
-from bs4 import BeautifulSoup
 import json
+import logging
+import re
+import time
+
+from bs4 import BeautifulSoup
 import requests
 
+from komikku.servers import DOWNLOAD_MAX_DELAY
 from komikku.servers import Server
 from komikku.servers import USER_AGENT
 from komikku.servers.utils import convert_date_string
 from komikku.servers.utils import get_buffer_mime_type
+from komikku.servers.utils import get_response_elapsed
+
+logger = logging.getLogger('komikku.servers.multi.heancms')
+
+
+def extract_info_from_script(soup, keyword):
+    info = None
+
+    for script_element in soup.select('script'):
+        script = script_element.string
+        if not script or not script.startswith('self.__next_f.push([1,') or keyword not in script:
+            continue
+
+        line = script.strip().replace('self.__next_f.push([1,', '')
+
+        start = 0
+        for c in line:
+            if c in ('{', '['):
+                break
+            start += 1
+
+        line = line[start:-3]
+
+        try:
+            info = json.loads(f'"{line}"')
+        except Exception as e:
+            logger.debug(f'ERROR: {line}')
+            logger.debug(e)
+        break
+
+    return info
 
 
 class HeanCMS(Server):
@@ -23,6 +60,9 @@ class HeanCMS(Server):
     api_url: str
     manga_url: str = None
     chapter_url: str = None
+    api_chapter_url: str = None
+
+    date_format = '%m/%d/%Y'
 
     cover_css_path: str
     authors_css_path: str
@@ -33,6 +73,8 @@ class HeanCMS(Server):
             self.manga_url = self.base_url + '/series/{0}'
         if self.chapter_url is None:
             self.chapter_url = self.base_url + '/series/{0}/{1}'
+        if self.api_chapter_url is None:
+            self.api_chapters_url = self.api_url + '/chapter/query'
 
         if self.session is None:
             self.session = requests.Session()
@@ -55,6 +97,13 @@ class HeanCMS(Server):
             return None
 
         soup = BeautifulSoup(r.text, 'lxml')
+
+        if info := extract_info_from_script(soup, 'series_slug'):
+            # Extract serie_id
+            if matches := re.search(r'.*{"id":(\d*).*', info):
+                serie_id = matches.group(1)
+            else:
+                return None
 
         data = initial_data.copy()
         data.update(dict(
@@ -80,46 +129,62 @@ class HeanCMS(Server):
         data['synopsis'] = soup.select_one(self.synopsis_css_path).text.strip()
 
         # Chapters
-        chapters = dict()
-
-        def rwalk(obj):
-            if isinstance(obj, list):
-                for v in obj:
-                    rwalk(v)
-
-            elif isinstance(obj, dict):
-                if 'chapters' in obj:
-                    for chapter in obj['chapters']:
-                        if chapter['id'] in chapters:
-                            continue
-
-                        title = chapter['chapter_name']
-                        if chapter.get('chapter_title'):
-                            title = f'{title} - {chapter["chapter_title"]}'
-
-                        chapters[chapter['id']] = dict(
-                            title=title,
-                            slug=chapter['chapter_slug'],
-                            date=convert_date_string(chapter['created_at'].split('T')[0], '%Y-%m-%d'),
-                        )
-                else:
-                    for _k, v in obj.items():
-                        rwalk(v)
-
-        for script_element in soup.find_all('script'):
-            script = script_element.string
-            if not script or 'self.__next_f.push' not in script or 'chapters' not in script:
-                continue
-
-            json_data = script[19:-1]
-            json_data = json.loads(json_data)
-            json_data = json.loads(json_data[1].split(':', 1)[1])
-            rwalk(json_data)
-
-            data['chapters'] = list(reversed(chapters.values()))
-            break
+        data['chapters'] = self.get_manga_chapters_data(serie_id)
 
         return data
+
+    def get_manga_chapters_data(self, serie_id):
+        """
+        Returns manga chapters list via API
+        """
+        chapters = []
+
+        def get_page(serie_id, page):
+            r = self.session_get(
+                self.api_chapters_url,
+                params=dict(
+                    page=page,
+                    perPage=100,
+                    series_id=serie_id,
+                )
+            )
+            if r.status_code != 200:
+                print('bad status')
+                return None, False, None
+
+            data = r.json()
+            if not data.get('data'):
+                print('no data')
+                return None, False, None
+
+            more = data.get('meta') and data['meta']['current_page'] != data['meta']['last_page']
+
+            return data['data'], more, get_response_elapsed(r)
+
+        chapters = []
+        delay = None
+        more = True
+        page = 1
+        while more:
+            if delay:
+                time.sleep(delay)
+
+            chapters_page, more, rtime = get_page(serie_id, page)
+            if chapters_page:
+                for chapter in chapters_page:
+                    chapters.append(dict(
+                        slug=chapter['chapter_slug'],
+                        title=chapter['chapter_name'],
+                        date=convert_date_string(chapter['created_at'].split('T')[0], self.date_format),
+                    ))
+                page += 1
+                delay = min(rtime * 2, DOWNLOAD_MAX_DELAY) if rtime else None
+
+            elif chapters_page is None:
+                # Failed to retrieve a chapters list page, abort
+                break
+
+        return list(reversed(chapters))
 
     def get_manga_chapter_data(self, manga_slug, manga_name, chapter_slug, chapter_url):
         """
