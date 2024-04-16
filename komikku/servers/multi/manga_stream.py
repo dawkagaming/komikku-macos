@@ -15,6 +15,7 @@
 # PhenixScans [FR]
 # Rawkuma [JA]
 # Raw Manga [JA]
+# Ryujinmanga [ES]
 # SushiScan [FR]
 # VF Scan [FR]
 
