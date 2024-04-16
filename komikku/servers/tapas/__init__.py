@@ -2,15 +2,19 @@
 # SPDX-License-Identifier: GPL-3.0-only or GPL-3.0-or-later
 # Author: Lili Kurek <lilikurek@proton.me>
 
-from bs4 import BeautifulSoup
 import datetime
 import logging
+import time
+
+from bs4 import BeautifulSoup
 import requests
 
+from komikku.servers import DOWNLOAD_MAX_DELAY
 from komikku.servers import Server
 from komikku.servers import USER_AGENT
 from komikku.servers.utils import convert_date_string
 from komikku.servers.utils import get_buffer_mime_type
+from komikku.servers.utils import get_response_elapsed
 
 logger = logging.getLogger('komikku.servers.tapas')
 
@@ -25,7 +29,8 @@ class Tapas(Server):
     lang = 'en'
 
     base_url = 'https://tapas.io'
-    manga_list_url = base_url + '/comics'
+    api_base_url = 'https://story-api.tapas.io'
+    api_manga_list_url = api_base_url + '/cosmos/api/v1/landing/genre'
     search_url = base_url + '/search'
     manga_url = base_url + '/series/{0}'
     manga_info_url = base_url + '/series/{0}/info'
@@ -78,18 +83,68 @@ class Tapas(Server):
         ))
 
         data['name'] = soup.find(class_='section__top--simple').find(class_='title').text
-        data['synopsis'] = soup.find('meta', property='og:description').get('content')
+        data['synopsis'] = soup.select_one('.description__body').text.strip()
         data['cover'] = soup.find(class_='section__top--simple').find(class_='thumb').img.get('src')
 
         for author_element in soup.find(class_='creator').find_all('a'):
             data['authors'].append(author_element.text)
 
-        for genre in soup.find(class_='detail-row__body--genre').find_all('a'):
-            data['genres'].append(genre.text)
+        if element := soup.select_one('.tags'):
+            # Community series
+            for a_element in element.select('a'):
+                data['genres'].append(a_element.text.strip().replace('#', ''))
+        elif elements := soup.select('.detail-row__body--genre a'):
+            for a_element in elements:
+                data['genres'].append(a_element.text.strip())
 
-        data['chapters'] = self.resolve_chapters(initial_data['slug'])
+        data['chapters'] = self.get_manga_chapters_data(initial_data['slug'])
 
         return data
+
+    def get_manga_chapters_data(self, manga_slug):
+        def get_page(page):
+            r = self.session_get(
+                self.chapters_url.format(manga_slug),
+                params=dict(
+                    page=page,
+                    sort='OLDEST',
+                    init_load=0,
+                    max_limit=CHAPTERS_PER_REQUEST,
+                    since=int(datetime.datetime.now().timestamp()) * 1000,
+                    large='true',
+                    last_access=0,
+                )
+            )
+            if r.status_code != 200:
+                return None
+
+            more = r.json()['data']['pagination']['has_next']
+
+            return r.json()['data']['episodes'], more, get_response_elapsed(r)
+
+        chapters = []
+        delay = None
+        more = True
+        page = 1
+        while more:
+            if delay:
+                time.sleep(delay)
+
+            episodes, more, rtime = get_page(page)
+            for episode in episodes:
+                if not episode['free'] or episode['must_pay'] or episode['scheduled']:
+                    continue
+
+                chapters.append(dict(
+                    slug=str(episode['id']),  # slug nust be a string
+                    title=episode["title"],
+                    date=convert_date_string(episode['publish_date'].split('T')[0], format='%Y-%m-%d'),
+                ))
+
+            delay = min(rtime * 2, DOWNLOAD_MAX_DELAY) if rtime else None
+            page += 1
+
+        return chapters
 
     def get_manga_chapter_data(self, manga_slug, manga_name, chapter_slug, chapter_url):
         """
@@ -148,79 +203,76 @@ class Tapas(Server):
         return self.manga_url.format(slug)
 
     def get_manga_list(self, orderby):
-        # g=0 is all genres, no parameter means looking only for romances
-        # F2R means only comics available for free, TODO: premium support
-        params = dict(
-            g=0,
-            f='F2R',
-            b=orderby,
-        )
-        r = self.session_get(self.manga_list_url, params=params)
-        if r.status_code != 200:
-            return None
+        def get_page(page):
+            r = self.session_get(
+                self.api_manga_list_url,
+                params=dict(
+                    category_type='COMIC',
+                    sort_option=orderby,
+                    subtab_id=17,
+                    page=page,
+                    size=25,
+                ),
+                headers={
+                    'Origin': self.base_url,
+                    'Referer': f'{self.base_url}/',
+                }
+            )
+            if r.status_code != 200:
+                return None
 
-        mime_type = get_buffer_mime_type(r.content)
-        if mime_type != 'text/html':
-            return None
+            resp_data = r.json()
 
-        soup = BeautifulSoup(r.text, 'lxml')
+            more = not resp_data['meta']['pagination']['last'] and page < SEARCH_RESULTS_PAGES
 
+            return resp_data['data']['items'], more, get_response_elapsed(r)
+
+        delay = None
+        more = True
+        page = 0
         results = []
-        for div_element in soup.find_all(class_='item__thumb'):
-            results.append(dict(
-                slug=div_element.a.get('data-series-id'),
-                url=div_element.a.get('href'),
-                name=div_element.a.get('data-tiara-event-meta-series'),
-                cover=div_element.a.img.get('src'),
-            ))
+        while more:
+            if delay:
+                time.sleep(delay)
+
+            items, more, rtime = get_page(page)
+            for item in items:
+                if item['bmType'] == 'WAIT_UNTIL_FREE':
+                    continue
+
+                if item['assetProperty'].get('backgroundCharacterImage'):
+                    img_obj = item['assetProperty']['backgroundCharacterImage']
+                else:
+                    img_obj = item['assetProperty'].get('thumbnailImage')
+
+                results.append(dict(
+                    slug=item['seriesId'],
+                    name=item['title'],
+                    cover=img_obj['path'] + '.webp' if img_obj else None,
+                ))
+
+            delay = min(rtime * 2, DOWNLOAD_MAX_DELAY) if rtime else None
+            page += 1
 
         return results
 
     def get_latest_updates(self):
-        return self.get_manga_list(orderby='FRESH')
+        return self.get_manga_list(orderby='NEWEST_EPISODE')
 
     def get_most_populars(self):
         return self.get_manga_list(orderby='POPULAR')
-
-    def resolve_chapters(self, manga_slug, page=1):
-        r = self.session_get(
-            self.chapters_url.format(manga_slug),
-            params=dict(
-                max_limit=CHAPTERS_PER_REQUEST,
-                page=page,
-                since=int(datetime.datetime.now().timestamp()) * 1000,
-                large='true',
-                last_access=0,
-            )
-        )
-        if r.status_code != 200:
-            return None
-
-        chapters = []
-        episodes = r.json()['data']['episodes']
-        for episode in episodes:
-            if episode['early_access'] or episode['must_pay'] or episode['scheduled']:
-                continue
-
-            chapters.append(dict(
-                slug=str(episode['id']),  # slug nust be a string
-                title=episode["title"],
-                date=convert_date_string(episode['publish_date'].split('T')[0], format='%Y-%m-%d'),
-            ))
-
-        if r.json()['data']['pagination']['has_next']:
-            chapters += self.resolve_chapters(manga_slug, page + 1)
-
-        return chapters
 
     def search(self, term, page_number=1):
         r = self.session_get(
             self.search_url,
             params=dict(
+                pageNumber=page_number,
                 q=term,
                 t='COMICS',
-                pageNumber=page_number,
-            )
+            ),
+            headers={
+                'Referer': self.search_url,
+            }
         )
         if r.status_code != 200:
             return None
@@ -235,7 +287,7 @@ class Tapas(Server):
         for li_element in soup.select('.search-item-wrap'):
             a_element = li_element.select_one('.title-section a.link')
 
-            if a_element.get('data-sale-type') not in ('EARLY_ACCESS', 'FREE', 'WAIT_OR_MUST_PAY'):
+            if a_element.get('data-sale-type') not in ('EARLY_ACCESS', 'FREE', 'false', 'WAIT_OR_MUST_PAY'):
                 continue
 
             results.append(dict(
