@@ -16,6 +16,7 @@
 # Night scans [EN]
 # PhenixScans [FR]
 # Ragna Scan [ES]
+# Raiki Scan [ES]
 # Rawkuma [JA]
 # Raw Manga [JA]
 # Rukav Inari [ES]
