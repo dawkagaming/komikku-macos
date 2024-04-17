@@ -7,14 +7,17 @@
 # Supported servers:
 # Asura Scans [EN]
 # Asura Scans [TR]
+# Cartel De Manhwas [ES]
 # Flam Scans [EN]
 # Iris Scanlator [pt_BR]
 # Lelmanga [FR]
 # Noromax (ID)
 # Night scans [EN]
 # PhenixScans [FR]
+# Ragna Scan [ES]
 # Rawkuma [JA]
 # Raw Manga [JA]
+# Rukav Inari [ES]
 # Ryujinmanga [ES]
 # SushiScan [FR]
 # VF Scan [FR]
@@ -174,13 +177,14 @@ class MangaStream(Server):
         if self.name_re_sub:
             data['name'] = re.sub(self.name_re_sub, '', data['name']).strip()
 
-        data['cover'] = soup.select_one(self.thumbnail_selector).get('data-src')
-        if not data['cover']:
-            data['cover'] = soup.select_one(self.thumbnail_selector).get('data-lazy-src')
+        if element := soup.select_one(self.thumbnail_selector):
+            data['cover'] = element.get('data-src')
             if not data['cover']:
-                data['cover'] = soup.select_one(self.thumbnail_selector).get('src')
-        if data['cover'] and not data['cover'].startswith('http'):
-            data['cover'] = f'https:{data["cover"]}'
+                data['cover'] = element.get('data-lazy-src')
+                if not data['cover']:
+                    data['cover'] = element.get('src')
+            if data['cover'] and not data['cover'].startswith('http'):
+                data['cover'] = f'https:{data["cover"]}'
 
         # Details
         if self.authors_selector:
