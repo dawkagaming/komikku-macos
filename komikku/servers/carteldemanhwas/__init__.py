@@ -11,6 +11,7 @@ class Carteldemanhwas(MangaStream):
     lang = 'es'
     is_nsfw = True
 
+    chapters_order = 'asc'
     series_name = 'series'
 
     base_url = 'https://carteldemanhwas.com'

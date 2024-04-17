@@ -46,6 +46,7 @@ class MangaStream(Server):
     manga_url: str = None
     chapter_url: str = None
 
+    chapters_order: str = 'desc'
     date_format: str = '%B %d, %Y'
     name_re_sub = str = None  # regexp to clean manga name
     series_name: str = 'manga'
@@ -222,7 +223,11 @@ class MangaStream(Server):
     def get_manga_chapters_data(self, soup):
         chapters = []
 
-        for li_element in reversed(soup.select('#chapterlist ul li')):
+        li_elements = soup.select('#chapterlist ul li')
+        if self.chapters_order == 'desc':
+            li_elements = reversed(li_elements)
+
+        for li_element in li_elements:
             a_element = li_element.select_one('a')
 
             slug = a_element.get('href').split('/')[-2]
