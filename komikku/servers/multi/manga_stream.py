@@ -21,6 +21,7 @@
 # Raw Manga [JA]
 # Rukav Inari [ES]
 # Ryujinmanga [ES]
+# Senpai Ediciones [ES]
 # SushiScan [FR]
 # VF Scan [FR]
 
@@ -57,6 +58,7 @@ class MangaStream(Server):
     scanlators_selector: str
     status_selector: str
     synopsis_selector: str
+    chapter_pages_selector: str = '#readerarea img'
 
     filters = [
         {
@@ -138,6 +140,7 @@ class MangaStream(Server):
                 'coming soon',
                 'mass released',
                 'daily release',
+                'en curso',  # es
                 'en cours',  # fr
                 'devam ediyor',  # tr
             )
@@ -147,6 +150,7 @@ class MangaStream(Server):
             # Complete
             labels = (
                 'completed',
+                'finalizado',  # es
                 'fini',  # fr
                 'terminé',  # fr
                 'tamamlandı',  # tr
@@ -269,7 +273,7 @@ class MangaStream(Server):
             pages=[],
         )
 
-        img_elements = soup.select('#readerarea img')
+        img_elements = soup.select(self.chapter_pages_selector)
         if not img_elements:
             # Pages images are loaded via javascript
             for script_element in soup.find_all('script'):
