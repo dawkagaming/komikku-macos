@@ -23,6 +23,7 @@
 # Ryujinmanga [ES]
 # Senpai Ediciones [ES]
 # ShadowMangas [ES]
+# SkyMangas [ES]
 # SushiScan [FR]
 # VF Scan [FR]
 
