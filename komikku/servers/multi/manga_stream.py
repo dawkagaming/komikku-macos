@@ -186,15 +186,17 @@ class MangaStream(Server):
         if self.authors_selector:
             if elements := soup.select(self.authors_selector):
                 for element in elements:
-                    author = get_soup_element_inner_text(element)
-                    if author not in data['authors']:
+                    author = get_soup_element_inner_text(element).strip('-')
+                    if author and author not in data['authors']:
                         data['authors'].append(author)
         if self.genres_selector:
             if elements := soup.select(self.genres_selector):
                 data['genres'] = [element.text.strip() for element in elements]
         if self.scanlators_selector:
             if elements := soup.select(self.scanlators_selector):
-                data['scanlators'] = [get_soup_element_inner_text(element) for element in elements]
+                for element in elements:
+                    if scanlator := get_soup_element_inner_text(element).strip('-'):
+                        data['scanlators'].append(scanlator)
         if self.status_selector:
             if element := soup.select_one(self.status_selector):
                 data['status'] = compute_status(get_soup_element_inner_text(element))
@@ -261,7 +263,7 @@ class MangaStream(Server):
             pages=[],
         )
 
-        img_elements = soup.find('div', id='readerarea').find_all('img')
+        img_elements = soup.select('#readerarea img')
         if not img_elements:
             # Pages images are loaded via javascript
             for script_element in soup.find_all('script'):
