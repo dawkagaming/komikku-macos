@@ -11,6 +11,7 @@
 # Flam Scans [EN]
 # Iris Scanlator [pt_BR]
 # Lelmanga [FR]
+# Neko Scans [ES]
 # Noromax (ID)
 # Night scans [EN]
 # PhenixScans [FR]
