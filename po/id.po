@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: Komikku 1.12.1\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-03-30 00:52+0100\n"
-"PO-Revision-Date: 2024-03-20 14:01+0000\n"
+"PO-Revision-Date: 2024-04-18 16:03+0000\n"
 "Last-Translator: Juan Manuel <juanmanueldilo09@gmail.com>\n"
 "Language-Team: Indonesian <https://hosted.weblate.org/projects/komikku/main/"
 "id/>\n"
@@ -22,13 +22,15 @@ msgstr ""
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:11
 msgid "Discover and read manga &amp; comics"
-msgstr ""
+msgstr "Temukan dan baca manga &amp; komik"
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:13
 msgid ""
 "With its simple, elegant and adaptive interface, this reader lets you "
 "search, sort and read your series with ease."
 msgstr ""
+"Dengan antarmuka yang sederhana, elegan, dan adaptif, pembaca ini "
+"memungkinkan Anda mencari, mengurutkan, dan membaca seri Anda dengan mudah."
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:15
 msgid "Why you will love Komikku?"
@@ -41,6 +43,7 @@ msgstr "Baca secara daring dan luring dari lusinan server"
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:18
 msgid "Support for locally stored series (in CBZ or CBR formats)"
 msgstr ""
+"Dukungan untuk seri yang disimpan secara lokal (dalam format CBZ atau CBR)"
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:19
 msgid "RTL, LTR, Vertical and Webtoon reading modes"
@@ -62,7 +65,7 @@ msgstr "Kategori untuk mengelola pustakamu"
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:22
 msgid "Automatic update of series"
-msgstr ""
+msgstr "Pembaruan otomatis seri"
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:23
 msgid "Automatic download of new chapters"
@@ -482,7 +485,7 @@ msgstr "Unduh bab baru secara otomatis"
 
 #: ../data/ui/preferences.blp:149
 msgid "Explorer"
-msgstr ""
+msgstr "Penjelajah"
 
 #: ../data/ui/preferences.blp:152
 #: ../data/ui/preferences_servers_languages.blp:6
@@ -533,6 +536,8 @@ msgid ""
 "These settings do not prevent potentially incorrectly flagged servers from "
 "surfacing NSFW content."
 msgstr ""
+"Pengaturan ini tidak mencegah server yang berpotensi salah ditandai untuk "
+"menampilkan konten NSFW."
 
 #: ../data/ui/preferences.blp:202 ../data/ui/reader.blp:6
 msgid "Reader"
