@@ -22,6 +22,7 @@
 # Rukav Inari [ES]
 # Ryujinmanga [ES]
 # Senpai Ediciones [ES]
+# ShadowMangas [ES]
 # SushiScan [FR]
 # VF Scan [FR]
 
