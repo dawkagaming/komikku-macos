@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-03-30 00:52+0100\n"
-"PO-Revision-Date: 2024-02-19 22:51+0000\n"
+"PO-Revision-Date: 2024-04-18 16:03+0000\n"
 "Last-Translator: Mikachu <micah.sh@proton.me>\n"
 "Language-Team: Dutch <https://hosted.weblate.org/projects/komikku/main/nl/>\n"
 "Language: nl\n"
@@ -19,13 +19,15 @@ msgstr ""
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:11
 msgid "Discover and read manga &amp; comics"
-msgstr ""
+msgstr "Ontdek en lees manga & comics"
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:13
 msgid ""
 "With its simple, elegant and adaptive interface, this reader lets you "
 "search, sort and read your series with ease."
 msgstr ""
+"Met zijn eenvoudige, elegante en aanpasbare interface kunt u met deze lezer "
+"uw series eenvoudig zoeken, sorteren en lezen."
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:15
 msgid "Why you will love Komikku?"
@@ -37,7 +39,7 @@ msgstr "Online en offline lezen van tientallen servers"
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:18
 msgid "Support for locally stored series (in CBZ or CBR formats)"
-msgstr ""
+msgstr "Ondersteund lokaal opgeslagen serie (in CBZ of CBR formaat)"
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:19
 msgid "RTL, LTR, Vertical and Webtoon reading modes"
@@ -60,7 +62,7 @@ msgstr "Categorieën om uw bibliotheek te organiseren"
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:22
 msgid "Automatic update of series"
-msgstr ""
+msgstr "Automatische serie-updates"
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:23
 msgid "Automatic download of new chapters"
@@ -200,7 +202,7 @@ msgstr "Zoek"
 
 #: ../data/ui/explorer_search.blp:28
 msgid "Search Filters"
-msgstr ""
+msgstr "Zoekfilters"
 
 #: ../data/ui/explorer_search.blp:34
 msgid "Open in Browser"
@@ -482,7 +484,7 @@ msgstr "Automatisch nieuwe hoofdstukken downloaden"
 
 #: ../data/ui/preferences.blp:149
 msgid "Explorer"
-msgstr ""
+msgstr "Ontdek"
 
 #: ../data/ui/preferences.blp:152
 #: ../data/ui/preferences_servers_languages.blp:6
@@ -532,6 +534,8 @@ msgid ""
 "These settings do not prevent potentially incorrectly flagged servers from "
 "surfacing NSFW content."
 msgstr ""
+"Deze instellingen voorkomen niet dat mogelijk verkeerd gemarkeerde servers "
+"NSFW-inhoud tonen."
 
 #: ../data/ui/preferences.blp:202 ../data/ui/reader.blp:6
 msgid "Reader"
@@ -1077,11 +1081,11 @@ msgstr ""
 
 #: ../komikku/explorer/common.py:216
 msgid "Close"
-msgstr ""
+msgstr "Sluit"
 
 #: ../komikku/explorer/common.py:216
 msgid "Local Folder"
-msgstr ""
+msgstr "Lokale folder"
 
 #: ../komikku/explorer/common.py:222
 msgid "Open local folder"
@@ -1093,7 +1097,7 @@ msgstr "Schakelen vastgepinde status in/uit"
 
 #: ../komikku/explorer/search/__init__.py:223
 msgid "Filters"
-msgstr ""
+msgstr "Filters"
 
 #: ../komikku/explorer/search/__init__.py:276
 msgid "Oops, server website URL is unknown."
@@ -1452,7 +1456,7 @@ msgstr "Met labels"
 
 #: ../komikku/servers/dynasty/__init__.py:53
 msgid "Comma seperated list of tags to search for"
-msgstr ""
+msgstr "Door komma's gescheiden lijst met tags om te zoeken"
 
 #: ../komikku/servers/dynasty/__init__.py:59
 msgid "Without Tags"
@@ -1461,6 +1465,8 @@ msgstr "Zonder labels"
 #: ../komikku/servers/dynasty/__init__.py:60
 msgid "Comma seperated list of tags to exclude from search"
 msgstr ""
+"Door komma's gescheiden lijst met tags die moeten worden uitgesloten van "
+"zoekopdrachten"
 
 #: ../komikku/servers/exceptions.py:10
 msgid "Error: {}"
@@ -1555,23 +1561,23 @@ msgstr "Seinen"
 
 #: ../komikku/servers/mangadex/__init__.py:98
 msgid "Tags"
-msgstr ""
+msgstr "Tags"
 
 #: ../komikku/servers/mangadex/__init__.py:99
 msgid "Filter by formats"
-msgstr ""
+msgstr "Filter op formaat"
 
 #: ../komikku/servers/mangadex/__init__.py:102
 msgid "4-Koma"
-msgstr ""
+msgstr "4-Koma"
 
 #: ../komikku/servers/mangadex/__init__.py:103
 msgid "Adaptation"
-msgstr ""
+msgstr "Aanpassing"
 
 #: ../komikku/servers/mangadex/__init__.py:105
 msgid "Award Winning"
-msgstr ""
+msgstr "Prijswinnend"
 
 #: ../komikku/servers/mangadex/__init__.py:106
 #: ../komikku/servers/mangapill/__init__.py:40
@@ -1580,47 +1586,49 @@ msgstr "Doujinshi"
 
 #: ../komikku/servers/mangadex/__init__.py:107
 msgid "Fan Colored"
-msgstr ""
+msgstr "Door fans ingekleurd"
 
 #: ../komikku/servers/mangadex/__init__.py:108
 msgid "Full Color"
-msgstr ""
+msgstr "Volledig in kleur"
 
 #: ../komikku/servers/mangadex/__init__.py:109
 msgid "Long Strip"
-msgstr ""
+msgstr "Lange Strook"
 
 #: ../komikku/servers/mangadex/__init__.py:110
 msgid "Official Colored"
-msgstr ""
+msgstr "Officieel Gekleurd"
 
 #: ../komikku/servers/mangadex/__init__.py:111
 msgid "Oneshot"
-msgstr ""
+msgstr "Eenmalig"
 
 #: ../komikku/servers/mangadex/__init__.py:112
 msgid "Self-Published"
-msgstr ""
+msgstr "Zelf uitgegeven"
 
 #: ../komikku/servers/mangadex/__init__.py:113
 msgid "Web Comic"
-msgstr ""
+msgstr "Webcomic"
 
 #: ../komikku/servers/mangadex/__init__.py:119
 msgid "Tags Inclusion Mode"
-msgstr ""
+msgstr "Tags-opnamemodus"
 
 #: ../komikku/servers/mangadex/__init__.py:120
 msgid "Include manga that match <b>all</b> tags (AND) or <b>any</b> tag (OR)"
 msgstr ""
+"Voeg manga toe die overeenkomt met <b>alle</b> tags (EN) of <b>elke</b> tag "
+"(OF)"
 
 #: ../komikku/servers/mangadex/__init__.py:124
 msgid "AND"
-msgstr ""
+msgstr "EN"
 
 #: ../komikku/servers/mangadex/__init__.py:125
 msgid "OR"
-msgstr ""
+msgstr "OF"
 
 #: ../komikku/servers/mangapill/__init__.py:31
 #: ../komikku/servers/mangatube/__init__.py:33
