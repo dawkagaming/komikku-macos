@@ -25,6 +25,7 @@
 # ShadowMangas [ES]
 # SkyMangas [ES]
 # SushiScan [FR]
+# Tecno Scan [ES]
 # VF Scan [FR]
 
 from bs4 import BeautifulSoup
