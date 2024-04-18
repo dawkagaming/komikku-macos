@@ -39,7 +39,7 @@ def convert_date_string(date_string, format=None, languages=None):
     :param date_string: A string representing date in a recognizably valid format
     :type date_string: str
 
-    :param format: A format string using directives as given `here <https://docs.python.org/2/library/datetime.html#strftime-and-strptime-behavior>`_
+    :param format: A format string using directives as given `here <https://docs.python.org/3/library/datetime.html#strftime-and-strptime-behavior>`_
     :type format: str
 
     :param languages: A list of language codes, e.g. ['en', 'es', 'zh-Hant']
