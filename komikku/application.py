@@ -58,6 +58,7 @@ CREDITS = dict(
         'Oleg Kiryazov (CakesTwix)',
         'Lili Kurek',
         'Liliana Prikler',
+        'Sabri Ünal',
         'Romain Vaudois',
         'Arthur Williams (TAAPArthur)',
         'GrownNed',
@@ -84,10 +85,12 @@ CREDITS = dict(
         'Irénée THIRION (French)',
         'Valéry Febvre (French)',
         'Mathieu B. (French)',
+        'rene-coty (French)',
         'Sandor Odor (German)',
         'Liliana Prikler (German)',
         'gregorni (German)',
         'Liliana Marie Prikler (German)',
+        'Scrambled777 (Hindi)',
         'Alifiyan Rosyidi (Indonesian)',
         'Alim Satria (Indonesian)',
         'Juan Manuel (Indonesian)',
@@ -430,19 +433,23 @@ available in your region/language."""))
         # Override release notes
         dialog.set_release_notes("""
             <ul>
-                <li>Improved downloads and covers display speed</li>
-                <li>[Servers] Added Comic Fans (EN)</li>
-                <li>[Servers] Added FleksyScans (EN)</li>
-                <li>[Servers] Added Iris Scanlator (pt_BR)</li>
-                <li>[Servers] Added KomikLovers (ID)</li>
-                <li>[Servers] Added Neromax (ID)</li>
-                <li>[Servers] Added Scylla Comics (EN)</li>
-                <li>[Servers] Added SushiScan (FR)</li>
-                <li>[Servers] Added VF Scan (FR)</li>
-                <li>[Servers] Legacy Scans (FR): Update</li>
-                <li>[Servers] Lelscan-VF (FR): Update</li>
-                <li>[Servers] TCB Scans (EN): Update</li>
-                <li>[L10n] Updated French translation</li>
+                <li>[Servers] Added Cartel De Manhwas (ES)</li>
+                <li>[Servers] Added F/OSS Comics (EN)</li>
+                <li>[Servers] Added Mode Scanlator (pt_BR)</li>
+                <li>[Servers] Added Neko Scans (ES)</li>
+                <li>[Servers] Added Ragna Scan (ES)</li>
+                <li>[Servers] Added Raiki Scan (ES)</li>
+                <li>[Servers] Added Rukav Inari (ES)</li>
+                <li>[Servers] Added Ryujinmanga (ES)</li>
+                <li>[Servers] Added Senpai Ediciones (ES)</li>
+                <li>[Servers] Added ShadowMangas (ES)</li>
+                <li>[Servers] Added SkyMangas (ES)</li>
+                <li>[Servers] Added Tecno Scan (ES)</li>
+                <li>[Servers] Added Tres Daos (ES)</li>
+                <li>[Servers] Read Manga, Mint Manga, Self Manga (RU): Update</li>
+                <li>[Servers] Tapas (EN): Update</li>
+                <li>[L10n] Added translation using Weblate (Hindi)</li>
+                <li>[L10n] Updated Dutch, French and Indonesian translations</li>
             </ul>
             <p>Happy reading.</p>
         """)

@@ -27,8 +27,8 @@
     </description>
 
     <branding>
-      <color type="primary" scheme_preference="light">#faa298</color>
-      <color type="primary" scheme_preference="dark">#7f2c22</color>
+        <color type="primary" scheme_preference="light">#51e6f6</color> <!-- Complementary color of accent color #f66151 -->
+        <color type="primary" scheme_preference="dark">#0aa9bb</color>  <!-- Light color with 40% of darkening -->
     </branding>
 
     <requires>
@@ -84,8 +84,6 @@
         </screenshot>
     </screenshots>
 
-    <!-- developer_name tag deprecated with Appstream 1.0 -->
-    <developer_name translate="no">@authorfullname@</developer_name>
     <developer id="codeberg.org">
         <name translate="no">@authorfullname@</name>
     </developer>
@@ -100,6 +98,30 @@
     <url type="donation">https://valos.gitlab.io/Komikku/#sponsor</url>
 
     <releases>
+        <release version="1.44.0" date="2024-04-19">
+            <description translate="no">
+                <ul>
+                    <li>[Servers] Added Cartel De Manhwas (ES)</li>
+                    <li>[Servers] Added F/OSS Comics (EN)</li>
+                    <li>[Servers] Added Mode Scanlator (pt_BR)</li>
+                    <li>[Servers] Added Neko Scans (ES)</li>
+                    <li>[Servers] Added Ragna Scan (ES)</li>
+                    <li>[Servers] Added Raiki Scan (ES)</li>
+                    <li>[Servers] Added Rukav Inari (ES)</li>
+                    <li>[Servers] Added Ryujinmanga (ES)</li>
+                    <li>[Servers] Added Senpai Ediciones (ES)</li>
+                    <li>[Servers] Added ShadowMangas (ES)</li>
+                    <li>[Servers] Added SkyMangas (ES)</li>
+                    <li>[Servers] Added Tecno Scan (ES)</li>
+                    <li>[Servers] Added Tres Daos (ES)</li>
+                    <li>[Servers] Read Manga, Mint Manga, Self Manga (RU): Update</li>
+                    <li>[Servers] Tapas (EN): Update</li>
+                    <li>[L10n] Added translation using Weblate (Hindi)</li>
+                    <li>[L10n] Updated Dutch, French and Indonesian translations</li>
+                </ul>
+                <p>Happy reading.</p>
+            </description>
+        </release>
         <release version="1.43.0" date="2024-04-12">
             <description translate="no">
                 <ul>

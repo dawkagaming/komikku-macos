@@ -7,7 +7,7 @@ The application is built using Python, GTK4, Libadwaita and other GNOME technolo
 Here are a few links to help you get started with Python, the GTK Python bindings and GNOME Builder:
 
 - [Learn Python](https://www.learnpython.org/)
-- [Python API Reference](https://amolenaar.github.io/pgi-docgen/)
+- [Python API Reference](https://amolenaar.pages.gitlab.gnome.org/pygobject-docs/)
 - [C API Reference](https://docs.gtk.org/)
 - [Tutorials](https://developer.gnome.org/documentation/tutorials.html)
 - [PyGObject Guide](https://rafaelmardojai.pages.gitlab.gnome.org/pygobject-guide/)
