@@ -4,14 +4,15 @@
 
 from functools import wraps
 from gettext import gettext as _
-import gi
 import inspect
 import logging
 import os
 import platform
-import requests
 import time
 import tzlocal
+
+import gi
+import requests
 
 gi.require_version('WebKit', '6.0')
 
@@ -237,7 +238,7 @@ def bypass_cf(func):
             else:
                 logger.debug(f'{server.id}: Session has no CF cookie. Loading page in webview...')
 
-        cf_reload_count = -1
+        cf_reload_count = 0
         done = False
         error = None
         load_event = None
@@ -251,8 +252,6 @@ def bypass_cf(func):
                 return GLib.SOURCE_CONTINUE
 
         def on_load_changed(_webkit_webview, event):
-            nonlocal cf_reload_count
-            nonlocal error
             nonlocal load_event
             nonlocal load_events_monitor_id
             nonlocal load_events_monitor_ts
@@ -273,14 +272,6 @@ def bypass_cf(func):
 
             elif event == WebKit.LoadEvent.FINISHED:
                 unmonitor_load_events()
-
-                cf_reload_count += 1
-                if cf_reload_count > CF_RELOAD_MAX:
-                    error = 'Max CF reload exceeded'
-                    webview.close()
-                    webview.exit()
-                    return
-
                 monitor_challenge()
 
         def monitor_challenge():
@@ -319,6 +310,7 @@ def bypass_cf(func):
                 # Page is considered to be loaded, if COMMITTED event has occurred, after load_event_finished_timeout seconds
                 if load_event == WebKit.LoadEvent.COMMITTED and time.time() - load_events_monitor_ts > load_event_finished_timeout:
                     logger.debug(f'Event FINISHED timeout ({load_event_finished_timeout}s)')
+                    unmonitor_load_events()
                     monitor_challenge()
                 else:
                     return GLib.SOURCE_CONTINUE
@@ -336,6 +328,7 @@ def bypass_cf(func):
             webview.exit()
 
         def on_title_changed(_webkit_webview, _title):
+            nonlocal cf_reload_count
             nonlocal error
 
             title = webview.webkit_webview.props.title
@@ -345,14 +338,19 @@ def bypass_cf(func):
                 # CF error message detected
                 # Bad extensions have been loaded, preventing the challenge from running?
                 error = 'CF challenge bypass error'
-
                 webview.close()
                 webview.exit()
-
                 return
 
             if title.startswith('captcha'):
-                logger.debug(f'{server.id}: Captcha `{title}` detected')
+                cf_reload_count += 1
+                if cf_reload_count > CF_RELOAD_MAX:
+                    error = 'Max CF reload exceeded'
+                    webview.close()
+                    webview.exit()
+                    return
+
+                logger.debug(f'{server.id}: Captcha `{title}` detected, try #{cf_reload_count}')
                 # Show webview, user must complete a CAPTCHA
                 webview.title.set_title(_('Please complete CAPTCHA'))
                 webview.title.set_subtitle(server.name)
