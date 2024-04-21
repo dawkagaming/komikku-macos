@@ -72,7 +72,7 @@ class Peppercarrot(Server):
             authors=['David Revoy', ],
             scanlators=[],
             genres=[],
-            status='complete',
+            status='ongoing',
             synopsis=self.synopsis,
             chapters=[],
             server_id=self.id,
