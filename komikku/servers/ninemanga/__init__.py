@@ -25,7 +25,7 @@ class Ninemanga(Server):
     latest_updates_url = base_url + '/list/New-Update/'
     most_populars_url = base_url + '/list/Hot-Book/'
     manga_url = base_url + '/manga/{0}.html?waring=1'
-    chapter_url = base_url + '/chapter/{0}/{1}'
+    chapter_url = base_url + '/chapter/{0}/{1}-1-1.html'
     page_url = chapter_url
     base_cover_url = 'https://img11.niadd.com'
 
@@ -108,8 +108,7 @@ class Ninemanga(Server):
             data['synopsis'] = synopsis_element.text.strip()
 
         # Chapters
-        div_element = soup.find('div', class_='chapterbox')
-        if div_element:
+        if div_element := soup.find('div', class_='chapterbox'):
             li_elements = div_element.find_all('li')
             for li_element in reversed(li_elements):
                 slug = li_element.a.get('href').split('/')[-1].replace('.html', '')
@@ -263,12 +262,6 @@ class Ninemanga_br(Ninemanga):
     lang = 'pt_BR'
 
     base_url = 'https://br.ninemanga.com'
-    search_url = base_url + '/search/ajax/'
-    latest_updates_url = base_url + '/list/New-Update/'
-    most_populars_url = base_url + '/list/Hot-Book/'
-    manga_url = base_url + '/manga/{0}.html?waring=1'
-    chapter_url = base_url + '/chapter/{0}/{1}'
-    page_url = chapter_url
 
 
 class Ninemanga_de(Ninemanga):
@@ -276,12 +269,6 @@ class Ninemanga_de(Ninemanga):
     lang = 'de'
 
     base_url = 'https://de.ninemanga.com'
-    search_url = base_url + '/search/ajax/'
-    latest_updates_url = base_url + '/list/New-Update/'
-    most_populars_url = base_url + '/list/Hot-Book/'
-    manga_url = base_url + '/manga/{0}.html?waring=1'
-    chapter_url = base_url + '/chapter/{0}/{1}'
-    page_url = chapter_url
 
 
 class Ninemanga_es(Ninemanga):
@@ -289,12 +276,6 @@ class Ninemanga_es(Ninemanga):
     lang = 'es'
 
     base_url = 'https://es.ninemanga.com'
-    search_url = base_url + '/search/ajax/'
-    latest_updates_url = base_url + '/list/New-Update/'
-    most_populars_url = base_url + '/list/Hot-Book/'
-    manga_url = base_url + '/manga/{0}.html?waring=1'
-    chapter_url = base_url + '/chapter/{0}/{1}'
-    page_url = chapter_url
 
 
 class Ninemanga_fr(Ninemanga):
@@ -302,12 +283,6 @@ class Ninemanga_fr(Ninemanga):
     lang = 'fr'
 
     base_url = 'https://fr.ninemanga.com'
-    search_url = base_url + '/search/ajax/'
-    latest_updates_url = base_url + '/list/New-Update/'
-    most_populars_url = base_url + '/list/Hot-Book/'
-    manga_url = base_url + '/manga/{0}.html?waring=1'
-    chapter_url = base_url + '/chapter/{0}/{1}'
-    page_url = chapter_url
 
 
 class Ninemanga_it(Ninemanga):
@@ -315,12 +290,6 @@ class Ninemanga_it(Ninemanga):
     lang = 'it'
 
     base_url = 'https://it.ninemanga.com'
-    search_url = base_url + '/search/ajax/'
-    latest_updates_url = base_url + '/list/New-Update/'
-    most_populars_url = base_url + '/list/Hot-Book/'
-    manga_url = base_url + '/manga/{0}.html?waring=1'
-    chapter_url = base_url + '/chapter/{0}/{1}'
-    page_url = chapter_url
 
 
 class Ninemanga_ru(Ninemanga):
@@ -328,9 +297,3 @@ class Ninemanga_ru(Ninemanga):
     lang = 'ru'
 
     base_url = 'https://ru.ninemanga.com'
-    search_url = base_url + '/search/ajax/'
-    latest_updates_url = base_url + '/list/New-Update/'
-    most_populars_url = base_url + '/list/Hot-Book/'
-    manga_url = base_url + '/manga/{0}.html?waring=1'
-    chapter_url = base_url + '/chapter/{0}/{1}'
-    page_url = chapter_url
