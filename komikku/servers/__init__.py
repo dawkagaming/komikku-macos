@@ -215,12 +215,12 @@ class Server(ABC):
 
         r = self.session.get(url, headers=headers)
         if r.status_code != 200:
-            return None, None, None
+            return None, None, get_response_elapsed(r)
 
         buffer = r.content
         mime_type = get_buffer_mime_type(buffer)
         if not mime_type.startswith('image'):
-            return None, None, None
+            return None, None, get_response_elapsed(r)
 
         return expand_and_resize_cover(buffer), r.headers.get('ETag'), get_response_elapsed(r)
 

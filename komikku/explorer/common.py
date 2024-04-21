@@ -83,7 +83,8 @@ class ExplorerSearchStackPage:
                     else:
                         GLib.idle_add(row.set_cover, data)
 
-                        time.sleep(min(2 * rtime, DOWNLOAD_MAX_DELAY))
+                        if rtime:
+                            time.sleep(min(2 * rtime, DOWNLOAD_MAX_DELAY))
 
                     self.queue.task_done()
 

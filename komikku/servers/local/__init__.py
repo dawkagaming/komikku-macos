@@ -173,7 +173,7 @@ class Local(Server):
         if not mime_type.startswith('image'):
             return None, None, None
 
-        return buffer, None, 0
+        return buffer, None, None
 
     def get_manga_data(self, initial_data):
         data = initial_data.copy()
