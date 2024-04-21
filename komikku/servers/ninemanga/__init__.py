@@ -21,7 +21,7 @@ class Ninemanga(Server):
     is_nsfw = True
 
     base_url = 'https://www.ninemanga.com'
-    search_url = base_url + '/search/ajax/'
+    search_url = base_url + '/search/'
     latest_updates_url = base_url + '/list/New-Update/'
     most_populars_url = base_url + '/list/Hot-Book/'
     manga_url = base_url + '/manga/{0}.html?waring=1'
@@ -88,17 +88,17 @@ class Ninemanga(Server):
         for element in elements:
             label = element.b.text
 
-            if label.startswith(('Author', 'Auteur', 'Autor')):
+            if label.startswith(('Author', 'Auteur', 'Autor', 'Автор')):
                 data['authors'] = [element.a.text.strip(), ]
-            elif label.startswith(('Genre', 'Genre', 'Género', 'Genere', 'Gênero')):
+            elif label.startswith(('Genre', 'Género', 'Genere', 'Gênero', 'Жанры')):
                 for a_element in element.find_all('a'):
                     data['genres'].append(a_element.text)
-            elif label.startswith(('Status', 'Statut', 'Estado', 'Stato')):
+            elif label.startswith(('Status', 'Statut', 'Estado', 'Stato', 'статус')):
                 value = element.find_all('a')[0].text.strip().lower()
 
-                if value in ('ongoing', 'en cours', 'laufende', 'en curso', 'in corso', 'em tradução'):
+                if value in ('ongoing', 'en cours', 'laufende', 'en curso', 'in corso', 'em tradução', 'постоянный'):
                     data['status'] = 'ongoing'
-                elif value in ('complete', 'complété', 'abgeschlossen', 'completado', 'completato', 'completo'):
+                elif value in ('complete', 'completed', 'complété', 'abgeschlossen', 'completado', 'completato', 'completo', 'завершенный'):
                     data['status'] = 'complete'
 
         # Synopsis
@@ -196,11 +196,17 @@ class Ninemanga(Server):
         soup = BeautifulSoup(r.text, 'lxml')
 
         results = []
-        for a_element in soup.select('.direlist .bookinfo > dt > a'):
+        for element in soup.select('.direlist .bookinfo'):
+            a_element = element.select_one('.bookname')
+            img_element = element.select_one('img')
+            last_chapter_a_element = element.select_one('.chaptername')
+
+            name = a_element.text.strip()
             results.append(dict(
-                name=a_element.img.get('alt').strip(),
+                name=name,
                 slug=unquote_plus(a_element.get('href')).split('/')[-1][:-5],
-                cover=a_element.img.get('src'),
+                cover=img_element.get('src'),
+                last_chapter=last_chapter_a_element.text.replace(name, '').strip(),
             ))
 
         return results
@@ -220,40 +226,55 @@ class Ninemanga(Server):
         soup = BeautifulSoup(r.text, 'lxml')
 
         results = []
-        for a_element in soup.select('.direlist .bookinfo > dt > a'):
+        for element in soup.select('.direlist .bookinfo'):
+            a_element = element.select_one('.bookname')
+            img_element = element.select_one('img')
+            last_chapter_a_element = element.select_one('.chaptername')
+
+            name = a_element.text.strip()
             results.append(dict(
-                name=a_element.img.get('alt').strip(),
+                name=name,
                 slug=unquote_plus(a_element.get('href')).split('/')[-1][:-5],
-                cover=a_element.img.get('src'),
+                cover=img_element.get('src'),
+                last_chapter=last_chapter_a_element.text.replace(name, '').strip(),
             ))
 
         return results
 
     def search(self, term):
-        r = self.session_get(self.search_url, params=dict(term=term))
-        if r.status_code == 200:
-            try:
-                # Returned data for each manga:
-                # 0: cover path
-                # 1: name of the manga
-                # 2: slug of the manga
-                # 3: UNUSED
-                # 4: UNUSED
-                data = r.json(strict=False)
+        r = self.session_get(
+            self.search_url,
+            params={
+                'wd': term,
+            },
+            headers={
+                'Referer': f'{self.base_url}/',
+            }
+        )
+        if r.status_code != 200:
+            return None
 
-                results = []
-                for item in data:
-                    results.append(dict(
-                        slug=item[2],
-                        name=item[1],
-                        cover=self.base_cover_url + item[0],
-                    ))
-            except Exception:
-                return None
-            else:
-                return results
+        mime_type = get_buffer_mime_type(r.content)
+        if mime_type != 'text/html':
+            return None
 
-        return None
+        soup = BeautifulSoup(r.text, 'lxml')
+
+        results = []
+        for element in soup.select('.direlist .bookinfo'):
+            a_element = element.select_one('.bookname')
+            img_element = element.select_one('img')
+            last_chapter_a_element = element.select_one('.chaptername')
+
+            name = a_element.text.strip()
+            results.append(dict(
+                name=name,
+                slug=unquote_plus(a_element.get('href')).split('/')[-1][:-5],
+                cover=img_element.get('src'),
+                last_chapter=last_chapter_a_element.text.replace(name, '').strip(),
+            ))
+
+        return results
 
 
 class Ninemanga_br(Ninemanga):
@@ -262,6 +283,12 @@ class Ninemanga_br(Ninemanga):
     lang = 'pt_BR'
 
     base_url = 'https://br.ninemanga.com'
+    search_url = base_url + '/search/'
+    latest_updates_url = base_url + '/list/New-Update/'
+    most_populars_url = base_url + '/list/Hot-Book/'
+    manga_url = base_url + '/manga/{0}.html?waring=1'
+    chapter_url = base_url + '/chapter/{0}/{1}-1-1.html'
+    page_url = chapter_url
 
 
 class Ninemanga_de(Ninemanga):
@@ -269,6 +296,12 @@ class Ninemanga_de(Ninemanga):
     lang = 'de'
 
     base_url = 'https://de.ninemanga.com'
+    search_url = base_url + '/search/'
+    latest_updates_url = base_url + '/list/New-Update/'
+    most_populars_url = base_url + '/list/Hot-Book/'
+    manga_url = base_url + '/manga/{0}.html?waring=1'
+    chapter_url = base_url + '/chapter/{0}/{1}-1-1.html'
+    page_url = chapter_url
 
 
 class Ninemanga_es(Ninemanga):
@@ -276,6 +309,12 @@ class Ninemanga_es(Ninemanga):
     lang = 'es'
 
     base_url = 'https://es.ninemanga.com'
+    search_url = base_url + '/search/'
+    latest_updates_url = base_url + '/list/New-Update/'
+    most_populars_url = base_url + '/list/Hot-Book/'
+    manga_url = base_url + '/manga/{0}.html?waring=1'
+    chapter_url = base_url + '/chapter/{0}/{1}-1-1.html'
+    page_url = chapter_url
 
 
 class Ninemanga_fr(Ninemanga):
@@ -283,6 +322,12 @@ class Ninemanga_fr(Ninemanga):
     lang = 'fr'
 
     base_url = 'https://fr.ninemanga.com'
+    search_url = base_url + '/search/'
+    latest_updates_url = base_url + '/list/New-Update/'
+    most_populars_url = base_url + '/list/Hot-Book/'
+    manga_url = base_url + '/manga/{0}.html?waring=1'
+    chapter_url = base_url + '/chapter/{0}/{1}-1-1.html'
+    page_url = chapter_url
 
 
 class Ninemanga_it(Ninemanga):
@@ -290,6 +335,12 @@ class Ninemanga_it(Ninemanga):
     lang = 'it'
 
     base_url = 'https://it.ninemanga.com'
+    search_url = base_url + '/search/'
+    latest_updates_url = base_url + '/list/New-Update/'
+    most_populars_url = base_url + '/list/Hot-Book/'
+    manga_url = base_url + '/manga/{0}.html?waring=1'
+    chapter_url = base_url + '/chapter/{0}/{1}-1-1.html'
+    page_url = chapter_url
 
 
 class Ninemanga_ru(Ninemanga):
@@ -297,3 +348,9 @@ class Ninemanga_ru(Ninemanga):
     lang = 'ru'
 
     base_url = 'https://ru.ninemanga.com'
+    search_url = base_url + '/search/'
+    latest_updates_url = base_url + '/list/New-Update/'
+    most_populars_url = base_url + '/list/Hot-Book/'
+    manga_url = base_url + '/manga/{0}.html?waring=1'
+    chapter_url = base_url + '/chapter/{0}/{1}-1-1.html'
+    page_url = chapter_url
