@@ -2,6 +2,7 @@
 # SPDX-License-Identifier: GPL-3.0-only or GPL-3.0-or-later
 # Author: Valéry Febvre <vfebvre@easter-eggs.com>
 
+from komikku.servers.multi.madara import Madara
 from komikku.servers.multi.manga_stream import MangaStream
 
 
@@ -42,19 +43,11 @@ class Asurascans(MangaStream):
         return MangaStream.get_manga_data(self, initial_data)
 
 
-class Asurascans_tr(MangaStream):
+class Asurascans_tr(Madara):
     id = 'asurascans_tr'
     name = 'Armoni Scans (Asura Scans)'
     lang = 'tr'
-    status = 'disabled'
 
-    base_url = 'https://armoniscans.com'
+    date_format = '%d %B %Y'
 
-    authors_selector = '.infox .fmed:-soup-contains("Yazar") span, .infox .fmed:-soup-contains("Çizer") span'
-    genres_selector = '.infox .mgen a'
-    scanlators_selector = '.infox .fmed:-soup-contains("Seri Yayını") span'
-    status_selector = '.tsinfo .imptdt:-soup-contains("Durum") i'
-    synopsis_selector = '.summary__content, [itemprop="description"]'  # 2 selectors exist at least
-
-    ignored_chapters_keywords = ['tanitim', ]
-    ignored_pages = ['page100-10.jpg', 'zzzzzzz999999.jpg', ]
+    base_url = 'https://asurascans.com.tr'
