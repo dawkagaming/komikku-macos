@@ -2,13 +2,14 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the Komikku package.
 # ssantos <ssantos@web.de>, 2023, 2024.
+# Ademario Cunha <d.k.foz90@gmail.com>, 2024.
 msgid ""
 msgstr ""
 "Project-Id-Version: Komikku 1.17.1\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-03-30 00:52+0100\n"
-"PO-Revision-Date: 2024-01-07 15:06+0000\n"
-"Last-Translator: ssantos <ssantos@web.de>\n"
+"PO-Revision-Date: 2024-04-25 00:07+0000\n"
+"Last-Translator: Ademario Cunha <d.k.foz90@gmail.com>\n"
 "Language-Team: Portuguese <https://hosted.weblate.org/projects/komikku/main/"
 "pt/>\n"
 "Language: pt\n"
@@ -16,21 +17,23 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 5.4-dev\n"
+"X-Generator: Weblate 5.5.1-dev\n"
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:11
 msgid "Discover and read manga &amp; comics"
-msgstr ""
+msgstr "Descubra e leia mangás e histórias em quadrinhos"
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:13
 msgid ""
 "With its simple, elegant and adaptive interface, this reader lets you "
 "search, sort and read your series with ease."
 msgstr ""
+"Com sua interface simples, elegante e adaptável, este leitor permite "
+"pesquisar, classificar e ler suas séries com facilidade."
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:15
 msgid "Why you will love Komikku?"
-msgstr "Por que vai amar o Komikku?"
+msgstr "Por que você vai adorar o Komikku?"
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:17
 msgid "Online and offline reading from dozens of servers"
@@ -38,7 +41,7 @@ msgstr "Leitura online e offline de dezenas de servidores"
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:18
 msgid "Support for locally stored series (in CBZ or CBR formats)"
-msgstr ""
+msgstr "Suporte para séries armazenadas localmente (nos formatos CBZ ou CBR)"
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:19
 msgid "RTL, LTR, Vertical and Webtoon reading modes"
@@ -61,7 +64,7 @@ msgstr "Categorias para organizar a sua biblioteca"
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:22
 msgid "Automatic update of series"
-msgstr ""
+msgstr "Atualização automática de séries"
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:23
 msgid "Automatic download of new chapters"
@@ -172,7 +175,7 @@ msgstr "Sinopse"
 #: ../data/ui/card.blp:484 ../data/ui/categories_editor.blp:64
 #: ../data/ui/library.blp:247
 msgid "No Categories"
-msgstr ""
+msgstr "Sem Categorias"
 
 #: ../data/ui/card_chapters_list_row.blp:61
 msgid "New"
@@ -188,11 +191,11 @@ msgstr "Gestor de Descargas"
 
 #: ../data/ui/download_manager.blp:28
 msgid "Start/Stop Download"
-msgstr ""
+msgstr "Iniciar/Parar Download"
 
 #: ../data/ui/download_manager.blp:65
 msgid "No Downloads"
-msgstr ""
+msgstr "Sem Downloads"
 
 #: ../data/ui/explorer_search.blp:10 ../data/ui/explorer_search.blp:41
 #: ../data/ui/history.blp:18 ../data/ui/library.blp:36
@@ -201,7 +204,7 @@ msgstr "Pesquisar"
 
 #: ../data/ui/explorer_search.blp:28
 msgid "Search Filters"
-msgstr ""
+msgstr "Filtros de Pesquisa"
 
 #: ../data/ui/explorer_search.blp:34
 msgid "Open in Browser"
@@ -221,11 +224,11 @@ msgstr "Servidores"
 
 #: ../data/ui/explorer_servers.blp:13
 msgid "Search Comics Across All Servers"
-msgstr ""
+msgstr "Pesquise em todos os servidores"
 
 #: ../data/ui/explorer_servers.blp:19
 msgid "Search Servers"
-msgstr ""
+msgstr "Pesquisar Servidores"
 
 #: ../data/ui/explorer_servers.blp:33
 msgid "Search for servers by name or language"
