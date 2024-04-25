@@ -40,7 +40,7 @@ from komikku.servers import USER_AGENT
 from komikku.servers.utils import convert_date_string
 from komikku.servers.utils import get_buffer_mime_type
 from komikku.servers.utils import get_soup_element_inner_text
-from komikku.webview import bypass_cf
+from komikku.webview import BypassCF
 
 
 class MangaStream(Server):
@@ -103,7 +103,7 @@ class MangaStream(Server):
             self.session = requests.Session()
             self.session.headers.update({'User-Agent': USER_AGENT})
 
-    @bypass_cf
+    @BypassCF()
     def get_manga_data(self, initial_data):
         """
         Returns manga data by scraping manga HTML page content
@@ -257,7 +257,7 @@ class MangaStream(Server):
 
         return chapters
 
-    @bypass_cf
+    @BypassCF()
     def get_manga_chapter_data(self, manga_slug, manga_name, chapter_slug, chapter_url):
         """
         Returns manga chapter data by scraping chapter HTML page content
@@ -319,7 +319,7 @@ class MangaStream(Server):
 
         return data
 
-    @bypass_cf
+    @BypassCF()
     def get_manga_chapter_page_image(self, manga_slug, manga_name, chapter_slug, page):
         """
         Returns chapter page scan (image) content
@@ -384,14 +384,14 @@ class MangaStream(Server):
 
         return results
 
-    @bypass_cf
+    @BypassCF()
     def get_latest_updates(self, type):
         return self.get_manga_list(type=type, orderby='update')
 
-    @bypass_cf
+    @BypassCF()
     def get_most_populars(self, type):
         return self.get_manga_list(type=type, orderby='popular')
 
-    @bypass_cf
+    @BypassCF()
     def search(self, term, type):
         return self.get_manga_list(title=term, type=type)

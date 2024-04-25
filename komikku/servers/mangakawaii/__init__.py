@@ -12,7 +12,7 @@ from komikku.servers import Server
 from komikku.servers import USER_AGENT
 from komikku.servers.utils import convert_date_string
 from komikku.servers.utils import get_buffer_mime_type
-from komikku.webview import bypass_cf
+from komikku.webview import BypassCF
 
 SERVER_NAME = 'MangaKawaii'
 
@@ -78,7 +78,7 @@ class Mangakawaii(Server):
 
             self.session.headers.update({'User-Agent': USER_AGENT})
 
-    @bypass_cf
+    @BypassCF()
     @set_lang
     def get_manga_data(self, initial_data):
         """
@@ -192,7 +192,7 @@ class Mangakawaii(Server):
 
         return data
 
-    @bypass_cf
+    @BypassCF()
     def get_manga_chapter_data(self, manga_slug, manga_name, chapter_slug, chapter_url):
         """
         Returns manga chapter data by scraping chapter HTML page content
@@ -280,7 +280,7 @@ class Mangakawaii(Server):
 
         return chapters
 
-    @bypass_cf
+    @BypassCF()
     def get_manga_chapter_page_image(self, manga_slug, manga_name, chapter_slug, page):
         """
         Returns chapter page scan (image) content
@@ -357,7 +357,7 @@ class Mangakawaii(Server):
 
         return results
 
-    @bypass_cf
+    @BypassCF()
     @set_lang
     def get_latest_updates(self):
         """
@@ -365,7 +365,7 @@ class Mangakawaii(Server):
         """
         return self.get_manga_list('latest')
 
-    @bypass_cf
+    @BypassCF()
     @set_lang
     def get_most_populars(self):
         """
@@ -373,7 +373,7 @@ class Mangakawaii(Server):
         """
         return self.get_manga_list('populars')
 
-    @bypass_cf
+    @BypassCF()
     @set_lang
     def search(self, term):
         r = self.session_get(

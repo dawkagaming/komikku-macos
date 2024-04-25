@@ -608,7 +608,7 @@ class Chapter:
     def get_page(self, index):
         page_path = self.get_page_path(index)
         if page_path:
-            return page_path, 0
+            return page_path, None
 
         page = self.pages[index]
 

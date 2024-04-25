@@ -259,13 +259,14 @@ class Page(Gtk.Overlay):
                     self.data['buffer'], self.reader.scaling, self.reader.borders_crop, self.reader.landscape_zoom, can_zoom
                 )
 
+        if (self.path is None and self.data is None) or picture is None:
+            self.show_retry_button()
+
             if picture is None:
                 if self.path:
                     GLib.unlink(self.path)
 
-                self.show_retry_button()
                 self.window.show_notification(_('Failed to load image'), 2)
-
                 self.error = 'corrupt_file'
                 picture = KImage.new_from_resource('/info/febvre/Komikku/images/missing_file.png')
 

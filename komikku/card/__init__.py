@@ -297,7 +297,7 @@ class CardPage(Adw.NavigationPage):
             # Operation is resource intensive and could disrupt page transition
             self.populate()
 
-        if Settings.get_default().disable_animations:
+        if not Gtk.Settings.get_default().get_property('gtk-enable-animations'):
             # When animations are disabled, popped/pushed events are sent after `shown` event (bug?)
             # Use idle_add to be sure that last `popped` or `pushed` event has been received
             GLib.idle_add(do_populate)

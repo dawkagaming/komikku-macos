@@ -7,7 +7,7 @@ from bs4 import BeautifulSoup
 from komikku.servers.multi.manga_stream import MangaStream
 from komikku.servers.utils import convert_date_string
 from komikku.servers.utils import get_buffer_mime_type
-from komikku.webview import bypass_cf
+from komikku.webview import BypassCF
 
 
 class Rawmanga(MangaStream):
@@ -53,7 +53,7 @@ class Rawmanga(MangaStream):
 
         return chapters
 
-    @bypass_cf
+    @BypassCF()
     def get_manga_chapter_data(self, manga_slug, manga_name, chapter_slug, chapter_url):
         """
         Returns manga chapter data by scraping chapter HTML page content
@@ -86,7 +86,7 @@ class Rawmanga(MangaStream):
 
         return data
 
-    @bypass_cf
+    @BypassCF()
     def get_manga_chapter_page_image(self, manga_slug, manga_name, chapter_slug, page):
         """
         Returns chapter page scan (image) content
@@ -127,7 +127,7 @@ class Rawmanga(MangaStream):
         """
         return self.search('', type, orderby='populars')
 
-    @bypass_cf
+    @BypassCF()
     def search(self, term, type, orderby=None):
         if orderby:
             data = dict(

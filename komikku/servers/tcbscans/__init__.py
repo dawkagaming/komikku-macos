@@ -6,7 +6,7 @@ from bs4 import BeautifulSoup
 
 from komikku.servers import Server
 from komikku.servers.utils import get_buffer_mime_type
-from komikku.webview import bypass_cf
+from komikku.webview import BypassCF
 
 
 class Tcbscans(Server):
@@ -25,7 +25,7 @@ class Tcbscans(Server):
     def __init__(self):
         self.session = None
 
-    @bypass_cf
+    @BypassCF()
     def get_manga_data(self, initial_data):
         """
         Returns manga data by scraping manga HTML page content
@@ -76,7 +76,7 @@ class Tcbscans(Server):
 
         return data
 
-    @bypass_cf
+    @BypassCF()
     def get_manga_chapter_data(self, manga_slug, manga_name, chapter_slug, chapter_url):
         """
         Returns manga chapter data by scraping chapter HTML page content
@@ -133,7 +133,7 @@ class Tcbscans(Server):
         """
         return self.manga_url.format(slug)
 
-    @bypass_cf
+    @BypassCF()
     def get_most_populars(self):
         """
         Returns manga list
@@ -154,7 +154,7 @@ class Tcbscans(Server):
 
         return results
 
-    @bypass_cf
+    @BypassCF()
     def search(self, term):
         results = []
         for item in self.get_most_populars():

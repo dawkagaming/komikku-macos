@@ -2,7 +2,6 @@
 # SPDX-License-Identifier: GPL-3.0-only or GPL-3.0-or-later
 # Author: Valéry Febvre <vfebvre@easter-eggs.com>
 
-from functools import wraps
 from gettext import gettext as _
 import inspect
 import logging
@@ -19,7 +18,6 @@ gi.require_version('WebKit', '6.0')
 from gi.repository import Adw
 from gi.repository import Gio
 from gi.repository import GLib
-from gi.repository import GObject
 from gi.repository import Gtk
 from gi.repository import WebKit
 
@@ -35,23 +33,20 @@ logger = logging.getLogger('komikku.webview')
 @Gtk.Template.from_resource('/info/febvre/Komikku/ui/webview.ui')
 class WebviewPage(Adw.NavigationPage):
     __gtype_name__ = 'WebviewPage'
-    __gsignals__ = {
-        'exited': (GObject.SignalFlags.RUN_FIRST, None, ()),
-    }
 
     toolbarview = Gtk.Template.Child('toolbarview')
     title = Gtk.Template.Child('title')
 
-    auto_exited = False
-    exited = False
-    lock = False
-    user_agent = None
+    cf_request = None  # Current CF request
+    cf_request_handlers_ids = []  # List of hendlers IDs (connected events) of current CF request
+    cf_requests = []  # List of pending CF requests
+    exited = True  # Whether webview has been exited (page has been popped)
+    exited_auto = False  # Whether webview has been automatically left (no user interaction)
+    lock = False  # Whether webview is locked (in use)
 
     def __init__(self, window):
         Adw.NavigationPage.__init__(self)
 
-        self.__handlers_ids = []
-        self.__handlers_webview_ids = []
         self.window = window
 
         self.connect('hidden', self.on_hidden)
@@ -62,7 +57,7 @@ class WebviewPage(Adw.NavigationPage):
         custom_part = f'{session_type}; Linux {cpu_arch}'
         self.user_agent = f'Mozilla/5.0 ({custom_part}) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.0 Safari/605.1.15'
 
-        # WebKit WebView
+        # Settings
         self.settings = WebKit.Settings.new()
         self.settings.set_enable_developer_extras(DEBUG)
         self.settings.set_enable_write_console_messages_to_stdout(DEBUG)
@@ -108,10 +103,12 @@ class WebviewPage(Adw.NavigationPage):
             if feature.get_identifier() in extra_features_enabled and not feature.get_default_value():
                 self.settings.set_feature_enabled(feature, True)
 
+        # Context
         self.web_context = WebKit.WebContext(time_zone_override=tzlocal.get_localzone_name())
         self.web_context.set_cache_model(WebKit.CacheModel.DOCUMENT_VIEWER)
         self.web_context.set_preferred_languages(['en-US', 'en'])
 
+        # Network session
         self.network_session = WebKit.NetworkSession.new(
             os.path.join(get_cache_dir(), 'webview', 'data'),
             os.path.join(get_cache_dir(), 'webview', 'cache')
@@ -124,6 +121,7 @@ class WebviewPage(Adw.NavigationPage):
             WebKit.CookiePersistentStorage.SQLITE
         )
 
+        # Create Webview
         self.webkit_webview = WebKit.WebView(
             web_context=self.web_context,
             network_session=self.network_session,
@@ -133,304 +131,317 @@ class WebviewPage(Adw.NavigationPage):
         self.toolbarview.set_content(self.webkit_webview)
         self.window.navigationview.add(self)
 
-    def close(self, blank=True):
+    def close_page(self, blank=True):
         self.disconnect_all_signals()
 
         if blank:
             self.webkit_webview.stop_loading()
             GLib.idle_add(self.webkit_webview.load_uri, 'about:blank')
 
-        self.lock = False
+        def do_next():
+            if not self.exited:
+                return GLib.SOURCE_CONTINUE
+
+            self.lock = False
+            self.pop_cf_request()
+
+            return GLib.SOURCE_REMOVE
+
+        if self.cf_request:
+            # Wait page is exited to unlock and load next pending CF request (if exists)
+            GLib.idle_add(do_next)
+        else:
+            self.exited = True
+            self.lock = False
+
         logger.debug('Page closed')
 
     def connect_signal(self, *args):
-        handler_id = self.connect(*args)
-        self.__handlers_ids.append(handler_id)
-
-    def connect_webview_signal(self, *args):
         handler_id = self.webkit_webview.connect(*args)
-        self.__handlers_webview_ids.append(handler_id)
+        self.cf_request_handlers_ids.append(handler_id)
 
     def disconnect_all_signals(self):
-        for handler_id in self.__handlers_ids:
-            self.disconnect(handler_id)
-
-        self.__handlers_ids = []
-
-        for handler_id in self.__handlers_webview_ids:
+        for handler_id in self.cf_request_handlers_ids:
             self.webkit_webview.disconnect(handler_id)
 
-        self.__handlers_webview_ids = []
+        self.cf_request_handlers_ids = []
 
     def exit(self):
-        if self.window.page != self.props.tag or self.exited:
+        if self.window.page != self.props.tag:
             return
 
-        self.exited = True
-        self.auto_exited = True
-
+        self.exited_auto = True
         self.window.navigationview.pop()
 
-    def on_hidden(self, _page):
-        self.exited = True
-        if not self.auto_exited:
-            # Emit exited signal only if webview page is left via a user interaction
-            self.emit('exited')
-
-    def open(self, uri, user_agent=None):
-        if self.lock:
+    def load_page(self, uri=None, cf_request=None, user_agent=None):
+        if self.lock or not self.exited:
+            # Already in use or page exiting is not ended (pop animation not ended)
             return False
+
+        self.exited = False
+        self.exited_auto = False
+        self.lock = True
 
         self.webkit_webview.get_settings().set_user_agent(user_agent or self.user_agent)
         self.webkit_webview.get_settings().set_auto_load_images(True)
 
-        self.auto_exited = False
-        self.exited = False
-        self.lock = True
+        self.cf_request = cf_request
+        if self.cf_request:
+            self.connect_signal('load-changed', self.cf_request.on_load_changed)
+            self.connect_signal('load-failed', self.cf_request.on_load_failed)
+            self.connect_signal('notify::title', self.cf_request.on_title_changed)
+            uri = self.cf_request.url
 
         logger.debug('Load page %s', uri)
 
-        self.webkit_webview.load_uri(uri)
+        GLib.idle_add(self.webkit_webview.load_uri, uri)
 
         return True
+
+    def on_hidden(self, _page):
+        self.exited = True
+
+        if not self.exited_auto:
+            # Webview has been left via a user interaction (back button, <ESC> key)
+            self.cf_request.cancel()
+
+        if self.cf_request and self.cf_request.error:
+            # Cancel all pending CF requests with same URL if challenge was not completed
+            for cf_request in self.cf_requests[:]:
+                if cf_request.url == self.cf_request.url:
+                    cf_request.cancel()
+                    self.cf_requests.remove(cf_request)
+
+        if not self.exited_auto:
+            self.close_page()
+
+    def pop_cf_request(self):
+        if not self.cf_requests:
+            return
+
+        if self.load_page(cf_request=self.cf_requests[0]):
+            self.cf_requests.pop(0)
+
+    def push_cf_request(self, cf_request):
+        self.cf_requests.append(cf_request)
+        self.pop_cf_request()
 
     def show(self):
         self.window.navigationview.push(self)
 
 
-def bypass_cf(func):
-    """Allows to bypass CF challenge using headless browser"""
+class BypassCF:
+    """Allows user to complete a server CF challenge using the Webview
 
-    @wraps(func)
-    def wrapper(*args, **kwargs):
-        bound_args = inspect.signature(func).bind(*args, **kwargs)
-        args_dict = dict(bound_args.arguments)
+    Several calls to this decorator can be concurrent. But only one will be honored at a time.
+    """
 
-        server = args_dict['self']
-        url = server.bypass_cf_url or server.base_url
+    def __init__(self, *args):
+        self.webview = Gio.Application.get_default().window.webview
 
-        if not server.has_cf:
-            return func(*args, **kwargs)
+    def __call__(self, func):
+        self.func = func
 
-        if server.session is None:
-            # Try loading a previous session
-            server.load_session()
+        def wrapper(*args, **kwargs):
+            self.cf_reload_count = 0
+            self.done = False
+            self.error = None
+            self.load_event = None
+            self.load_event_finished_timeout = 10
+            self.load_events_monitor_id = None
+            self.load_events_monitor_ts = None
 
-        if server.session:
-            logger.debug(f'{server.id}: Previous session found')
-            # Locate CF cookie
-            bypassed = False
-            for cookie in server.session.cookies:
-                if cookie.name == 'cf_clearance':
-                    # CF cookie is there
-                    bypassed = True
-                    break
+            bound_args = inspect.signature(self.func).bind(*args, **kwargs)
+            args_dict = dict(bound_args.arguments)
 
-            if bypassed:
-                logger.debug(f'{server.id}: Session has CF cookie. Checking...')
-                # Check session validity
-                r = server.session_get(url)
-                if r.ok:
-                    logger.debug(f'{server.id}: Session OK')
-                    return func(*args, **kwargs)
+            self.server = args_dict['self']
+            self.url = self.server.bypass_cf_url or self.server.base_url
 
-                logger.debug(f'{server.id}: Session KO ({r.status_code})')
-            else:
-                logger.debug(f'{server.id}: Session has no CF cookie. Loading page in webview...')
+            if not self.server.has_cf:
+                return self.func(*args, **kwargs)
 
-        cf_reload_count = 0
-        done = False
-        error = None
-        load_event = None
-        load_event_finished_timeout = 10
-        load_events_monitor_id = None
-        load_events_monitor_ts = None
-        webview = Gio.Application.get_default().window.webview
+            if self.server.session is None:
+                # Try loading a previous session
+                self.server.load_session()
 
-        def load_page():
-            if not webview.open(url):
-                return GLib.SOURCE_CONTINUE
+            if self.server.session:
+                logger.debug(f'{self.server.id}: Previous session found')
+                # Locate CF cookie
+                bypassed = False
+                for cookie in self.server.session.cookies:
+                    if cookie.name == 'cf_clearance':
+                        # CF cookie is there
+                        bypassed = True
+                        break
 
-        def on_load_changed(_webkit_webview, event):
-            nonlocal load_event
-            nonlocal load_events_monitor_id
-            nonlocal load_events_monitor_ts
+                if bypassed:
+                    logger.debug(f'{self.server.id}: Session has CF cookie. Checking...')
+                    # Check session validity
+                    r = self.server.session_get(self.url)
+                    if r.ok:
+                        logger.debug(f'{self.server.id}: Session OK')
+                        return self.func(*args, **kwargs)
 
-            load_event = event
-            logger.debug(f'Load changed: {event}')
-
-            if event != WebKit.LoadEvent.REDIRECTED and '__cf_chl_tk' in webview.webkit_webview.get_uri():
-                # Challenge has been passed
-                # Disable images auto-load
-                logger.debug('Disable images automatic loading')
-                webview.webkit_webview.get_settings().set_auto_load_images(False)
-
-            elif event == WebKit.LoadEvent.COMMITTED:
-                # Sometime FINISHED event never appends
-                load_events_monitor_ts = time.time()
-                load_events_monitor_id = GLib.idle_add(monitor_load_events)
-
-            elif event == WebKit.LoadEvent.FINISHED:
-                unmonitor_load_events()
-                monitor_challenge()
-
-        def monitor_challenge():
-            # Detect CF challenge via JavaScript in current page
-            # - No challenge found: change title to 'ready'
-            # - A captcha is detected: change title to 'captcha 1' or 'captcha 2'
-            # - An error occurs during challenge: change title to 'error'
-            js = """
-                let checkCF = setInterval(() => {
-                    if (document.getElementById('challenge-error-title')) {
-                        // Your browser is outdated!
-                        document.title = 'error';
-                        clearInterval(checkCF);
-                    }
-                    else if (!document.getElementById('challenge-running')) {
-                        document.title = 'ready';
-                        clearInterval(checkCF);
-                    }
-                    else if (document.querySelector('input.pow-button')) {
-                        // button
-                        document.title = 'captcha 1';
-                    }
-                    else if (document.querySelector('iframe[id^="cf-chl-widget"]')) {
-                        // checkbox in an iframe
-                        document.title = 'captcha 2';
-                    }
-                }, 100);
-            """
-            webview.webkit_webview.evaluate_javascript(js, -1)
-
-        def monitor_load_events():
-            nonlocal load_events_monitor_id
-
-            if load_event != WebKit.LoadEvent.FINISHED:
-                # Sometime FINISHED event never appends
-                # Page is considered to be loaded, if COMMITTED event has occurred, after load_event_finished_timeout seconds
-                if load_event == WebKit.LoadEvent.COMMITTED and time.time() - load_events_monitor_ts > load_event_finished_timeout:
-                    logger.debug(f'Event FINISHED timeout ({load_event_finished_timeout}s)')
-                    unmonitor_load_events()
-                    monitor_challenge()
+                    logger.debug(f'{self.server.id}: Session KO ({r.status_code})')
                 else:
-                    return GLib.SOURCE_CONTINUE
+                    logger.debug(f'{self.server.id}: Session has no CF cookie. Loading page in webview...')
 
-            load_events_monitor_id = None
+            self.webview.push_cf_request(self)
 
+            while not self.done and self.error is None:
+                time.sleep(1)
+
+            if self.error:
+                logger.warning(self.error)
+                raise CfBypassError()
+            else:
+                return self.func(*args, **kwargs)
+
+        return wrapper
+
+    def cancel(self):
+        self.unmonitor_load_events()
+        self.error = 'CF challenge bypass aborted'
+
+    def monitor_challenge(self):
+        # Detect CF challenge via JavaScript in current page
+        # - No challenge found: change title to 'ready'
+        # - A captcha is detected: change title to 'captcha 1' or 'captcha 2'
+        # - An error occurs during challenge: change title to 'error'
+        js = """
+            let checkCF = setInterval(() => {
+                if (document.getElementById('challenge-error-title')) {
+                    // Your browser is outdated!
+                    document.title = 'error';
+                    clearInterval(checkCF);
+                }
+                else if (!document.getElementById('challenge-running')) {
+                    document.title = 'ready';
+                    clearInterval(checkCF);
+                }
+                else if (document.querySelector('input.pow-button')) {
+                    // button
+                    document.title = 'captcha 1';
+                }
+                else if (document.querySelector('iframe[id^="cf-chl-widget"]')) {
+                    // checkbox in an iframe
+                    document.title = 'captcha 2';
+                }
+            }, 100);
+        """
+        self.webview.webkit_webview.evaluate_javascript(js, -1)
+
+    def monitor_load_events(self):
+        # In case FINISHED event never appends
+        # Page is considered to be loaded, if COMMITTED event has occurred, after load_event_finished_timeout seconds
+        if self.load_event == WebKit.LoadEvent.COMMITTED and time.time() - self.load_events_monitor_ts > self.load_event_finished_timeout:
+            logger.debug(f'Event FINISHED timeout ({self.load_event_finished_timeout}s)')
+            self.monitor_challenge()
+            self.load_events_monitor_id = None
             return GLib.SOURCE_REMOVE
 
-        def on_load_failed(_webkit_webview, _event, uri, _gerror):
-            nonlocal error
+        return GLib.SOURCE_CONTINUE
 
-            error = f'CF challenge bypass failure: {uri}'
+    def on_load_changed(self, _webkit_webview, event):
+        self.load_event = event
+        logger.debug(f'Load changed: {event}')
 
-            webview.close()
-            webview.exit()
-
-        def on_title_changed(_webkit_webview, _title):
-            nonlocal cf_reload_count
-            nonlocal error
-
-            title = webview.webkit_webview.props.title
-            logger.debug(f'Title changed: {title}')
-
-            if title == 'error':
-                # CF error message detected
-                # Bad extensions have been loaded, preventing the challenge from running?
-                error = 'CF challenge bypass error'
-                webview.close()
-                webview.exit()
-                return
-
-            if title.startswith('captcha'):
-                cf_reload_count += 1
-                if cf_reload_count > CF_RELOAD_MAX:
-                    error = 'Max CF reload exceeded'
-                    webview.close()
-                    webview.exit()
-                    return
-
-                logger.debug(f'{server.id}: Captcha `{title}` detected, try #{cf_reload_count}')
-                # Show webview, user must complete a CAPTCHA
-                webview.title.set_title(_('Please complete CAPTCHA'))
-                webview.title.set_subtitle(server.name)
-                if webview.window.page != webview.props.tag:
-                    webview.show()
-
-            if title != 'ready':
-                return
-
+        if event != WebKit.LoadEvent.REDIRECTED and '__cf_chl_tk' in self.webview.webkit_webview.get_uri():
             # Challenge has been passed
-            # Exit from webview if end of chalenge has not been detected in on_load_changed
-            # Webview should not be closed, we need to store cookies first
-            webview.exit()
+            # Disable images auto-load
+            logger.debug('Disable images automatic loading')
+            self.webview.webkit_webview.get_settings().set_auto_load_images(False)
 
-            logger.debug(f'{server.id}: Page loaded, getting cookies...')
-            webview.network_session.get_cookie_manager().get_cookies(server.base_url, None, on_get_cookies_finished, None)
+        elif event == WebKit.LoadEvent.COMMITTED:
+            # In case FINISHED event never appends
+            self.unmonitor_load_events()
+            logger.debug('Monitor load events')
+            self.load_events_monitor_ts = time.time()
+            self.load_events_monitor_id = GLib.idle_add(self.monitor_load_events)
 
-        def on_get_cookies_finished(cookie_manager, result, _user_data):
-            nonlocal done
+        elif event == WebKit.LoadEvent.FINISHED:
+            self.unmonitor_load_events()
+            self.monitor_challenge()
 
-            server.session = requests.Session()
-            server.session.headers.update({'User-Agent': webview.user_agent})
+    def on_load_failed(self, _webkit_webview, _event, uri, _gerror):
+        self.error = f'CF challenge bypass failure: {uri}'
 
-            # Copy libsoup cookies in session cookies jar
-            for cookie in cookie_manager.get_cookies_finish(result):
-                rcookie = requests.cookies.create_cookie(
-                    name=cookie.get_name(),
-                    value=cookie.get_value(),
-                    domain=cookie.get_domain(),
-                    path=cookie.get_path(),
-                    expires=cookie.get_expires().to_unix() if cookie.get_expires() else None,
-                    rest={'HttpOnly': cookie.get_http_only()},
-                    secure=cookie.get_secure(),
-                )
-                server.session.cookies.set_cookie(rcookie)
+        self.unmonitor_load_events()
+        self.webview.exit()
+        self.webview.close_page()
 
-            logger.debug(f'{server.id}: Webview cookies successully copied in requests session')
-            server.save_session()
+    def on_title_changed(self, _webkit_webview, _title):
+        title = self.webview.webkit_webview.props.title
+        logger.debug(f'Title changed: {title}')
 
-            done = True
-            webview.close()
+        if title == 'error':
+            # CF error message detected
+            # settings or a features related?
+            self.error = 'CF challenge bypass error'
+            self.webview.exit()
+            self.webview.close_page()
+            return
 
-        def on_webview_exited(_webkit_webview):
-            nonlocal error
-
-            error = 'CF challenge bypass aborted'
-
-            webview.close()
-
-        def unmonitor_load_events():
-            nonlocal load_events_monitor_id
-
-            if not load_events_monitor_id:
+        if title.startswith('captcha'):
+            self.cf_reload_count += 1
+            if self.cf_reload_count > CF_RELOAD_MAX:
+                self.error = 'Max CF reload exceeded'
+                self.webview.exit()
+                self.webview.close_page()
                 return
 
-            logger.debug('Unmonitor load events')
-            try:
-                GLib.source_remove(load_events_monitor_id)
-            except Exception:
-                pass
-            finally:
-                load_events_monitor_id = None
+            logger.debug(f'{self.server.id}: Captcha `{title}` detected, try #{self.cf_reload_count}')
+            # Show webview, user must complete a CAPTCHA
+            if self.webview.window.page != self.webview.props.tag:
+                self.webview.title.set_title(_('Please complete CAPTCHA'))
+                self.webview.title.set_subtitle(self.server.name)
+                self.webview.show()
 
-        webview.connect_signal('exited', on_webview_exited)
-        webview.connect_webview_signal('load-changed', on_load_changed)
-        webview.connect_webview_signal('load-failed', on_load_failed)
-        webview.connect_webview_signal('notify::title', on_title_changed)
+        if title != 'ready':
+            return
 
-        GLib.timeout_add(100, load_page)
+        # Challenge has been passed
+        # Exit from webview if end of challenge has not been detected in on_load_changed()
+        # Webview should not be closed, we need to store cookies first
+        self.webview.exit()
 
-        while not done and error is None:
-            time.sleep(.1)
+        logger.debug(f'{self.server.id}: Page loaded, getting cookies...')
+        self.webview.network_session.get_cookie_manager().get_cookies(self.server.base_url, None, self.on_get_cookies_finished, None)
 
-        if error:
-            logger.warning(error)
-            raise CfBypassError
+    def on_get_cookies_finished(self, cookie_manager, result, _user_data):
+        self.server.session = requests.Session()
+        self.server.session.headers.update({'User-Agent': self.webview.user_agent})
 
-        return func(*args, **kwargs)
+        # Copy libsoup cookies in session cookies jar
+        for cookie in cookie_manager.get_cookies_finish(result):
+            rcookie = requests.cookies.create_cookie(
+                name=cookie.get_name(),
+                value=cookie.get_value(),
+                domain=cookie.get_domain(),
+                path=cookie.get_path(),
+                expires=cookie.get_expires().to_unix() if cookie.get_expires() else None,
+                rest={'HttpOnly': cookie.get_http_only()},
+                secure=cookie.get_secure(),
+            )
+            self.server.session.cookies.set_cookie(rcookie)
 
-    return wrapper
+        logger.debug(f'{self.server.id}: Webview cookies successully copied in requests session')
+        self.server.save_session()
+
+        self.done = True
+        self.webview.close_page()
+
+    def unmonitor_load_events(self):
+        if not self.load_events_monitor_id:
+            return
+
+        logger.debug('Unmonitor load events')
+        try:
+            GLib.source_remove(self.load_events_monitor_id)
+        except Exception:
+            pass
+        finally:
+            self.load_events_monitor_id = None
 
 
 def eval_js(code):
@@ -439,10 +450,10 @@ def eval_js(code):
     webview = Gio.Application.get_default().window.webview
 
     def load_page():
-        if not webview.open('about:blank'):
+        if not webview.load_page(uri='about:blank'):
             return True
 
-        webview.connect_webview_signal('load-changed', on_load_changed)
+        webview.connect_signal('load-changed', on_load_changed)
 
         if DEBUG:
             webview.show()
@@ -462,7 +473,7 @@ def eval_js(code):
             if res is None:
                 error = 'Failed to eval JS code'
 
-        webview.close()
+        webview.close_page()
 
     def on_load_changed(_webkit_webview, event):
         if event != WebKit.LoadEvent.FINISHED:
@@ -473,7 +484,7 @@ def eval_js(code):
     GLib.timeout_add(100, load_page)
 
     while res is None and error is None:
-        time.sleep(.1)
+        time.sleep(1)
 
     if error:
         logger.warning(error)
@@ -488,12 +499,12 @@ def get_page_html(url, user_agent=None, wait_js_code=None):
     webview = Gio.Application.get_default().window.webview
 
     def load_page():
-        if not webview.open(url, user_agent=user_agent):
+        if not webview.load_page(uri=url, user_agent=user_agent):
             return True
 
-        webview.connect_webview_signal('load-changed', on_load_changed)
-        webview.connect_webview_signal('load-failed', on_load_failed)
-        webview.connect_webview_signal('notify::title', on_title_changed)
+        webview.connect_signal('load-changed', on_load_changed)
+        webview.connect_signal('load-failed', on_load_failed)
+        webview.connect_signal('notify::title', on_title_changed)
 
         if DEBUG:
             webview.show()
@@ -509,7 +520,7 @@ def get_page_html(url, user_agent=None, wait_js_code=None):
         if html is None:
             error = f'Failed to get chapter page html: {url}'
 
-        webview.close()
+        webview.close_page()
 
     def on_load_changed(_webkit_webview, event):
         if event != WebKit.LoadEvent.FINISHED:
@@ -526,7 +537,7 @@ def get_page_html(url, user_agent=None, wait_js_code=None):
 
         error = f'Failed to load chapter page: {url}'
 
-        webview.close()
+        webview.close_page()
 
     def on_title_changed(_webkit_webview, _title):
         nonlocal error
@@ -537,12 +548,12 @@ def get_page_html(url, user_agent=None, wait_js_code=None):
 
         elif webview.webkit_webview.props.title == 'abort':
             error = f'Failed to get chapter page html: {url}'
-            webview.close()
+            webview.close_page()
 
     GLib.timeout_add(100, load_page)
 
     while html is None and error is None:
-        time.sleep(.1)
+        time.sleep(1)
 
     if error:
         logger.warning(error)

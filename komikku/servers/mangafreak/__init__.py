@@ -10,7 +10,7 @@ from komikku.servers import Server
 from komikku.servers import USER_AGENT
 from komikku.servers.utils import convert_date_string
 from komikku.servers.utils import get_buffer_mime_type
-from komikku.webview import bypass_cf
+from komikku.webview import BypassCF
 
 logger = logging.getLogger('komikku.servers.mangafreak')
 
@@ -37,7 +37,7 @@ class Mangafreak(Server):
             self.session = requests.Session()
             self.session.headers.update({'User-Agent': USER_AGENT})
 
-    @bypass_cf
+    @BypassCF()
     def get_manga_data(self, initial_data):
         """
         Returns manga data by scraping manga HTML page content
@@ -220,7 +220,7 @@ class Mangafreak(Server):
 
         return results
 
-    @bypass_cf
+    @BypassCF()
     def search(self, term):
         r = self.session_get(self.search_url.format(term=term))
         if r.status_code != 200:

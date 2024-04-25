@@ -8,7 +8,7 @@ from bs4 import BeautifulSoup
 
 from komikku.servers.multi.madara import Madara
 from komikku.servers.utils import get_buffer_mime_type
-from komikku.webview import bypass_cf
+from komikku.webview import BypassCF
 
 
 class Manhwahentai(Madara):
@@ -30,7 +30,7 @@ class Manhwahentai(Madara):
     details_status_selector = None
     details_synopsis_selector = '.post-meta:nth-child(9) > span:nth-child(2)'
 
-    @bypass_cf
+    @BypassCF()
     def get_manga_chapter_data(self, manga_slug, manga_name, chapter_slug, chapter_url):
         """
         Returns manga chapter data by scraping chapter HTML page content

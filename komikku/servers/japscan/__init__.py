@@ -10,7 +10,7 @@ from komikku.servers import Server
 from komikku.servers.utils import convert_date_string
 from komikku.servers.utils import get_buffer_mime_type
 from komikku.servers.utils import search_duckduckgo
-from komikku.webview import bypass_cf
+from komikku.webview import BypassCF
 from komikku.webview import get_page_html
 
 logger = logging.getLogger('komikku.servers.japscan')
@@ -40,7 +40,7 @@ class Japscan(Server):
     def get_manga_initial_data_from_url(cls, url):
         return dict(slug=url.split('/')[-2])
 
-    @bypass_cf
+    @BypassCF()
     def get_manga_data(self, initial_data):
         """
         Returns manga data by scraping manga HTML page content
@@ -130,7 +130,7 @@ class Japscan(Server):
 
         return data
 
-    @bypass_cf
+    @BypassCF()
     def get_manga_chapter_data(self, manga_slug, manga_name, chapter_slug, chapter_url, decode=True):
         """
         Returns manga chapter data by scraping chapter HTML page content
@@ -167,7 +167,7 @@ class Japscan(Server):
 
         raise requests.exceptions.RequestException
 
-    @bypass_cf
+    @BypassCF()
     def get_manga_chapter_page_image(self, manga_slug, manga_name, chapter_slug, page):
         """
         Returns chapter page scan (image) content
@@ -207,7 +207,7 @@ class Japscan(Server):
         """
         return self.manga_url.format(slug)
 
-    @bypass_cf
+    @BypassCF()
     def get_latest_updates(self):
         """
         Returns recent manga
@@ -223,15 +223,16 @@ class Japscan(Server):
         soup = BeautifulSoup(r.text, 'lxml')
 
         results = []
-        for a_element in soup.select_one('div.card:nth-child(3) > div:nth-child(2) > ul').find_all('a'):
+        for a_element in soup.select('#chapters > div.tab-pane:not(:last-child) > .row > div > div.row > div > a:first-child'):
             results.append(dict(
-                name=a_element.text.strip(),
+                name=a_element.get('title').strip(),
                 slug=a_element.get('href').split('/')[-2],
+                cover=self.base_url + a_element.img.get('src') if a_element.img else None,
             ))
 
         return results
 
-    @bypass_cf
+    @BypassCF()
     def get_most_populars(self):
         """
         Returns TOP manga
@@ -256,7 +257,7 @@ class Japscan(Server):
 
         return results
 
-    @bypass_cf
+    @BypassCF()
     def search(self, term):
         r = self.session_post(self.api_search_url, data=dict(search=term), headers={
             'X-Requested-With': 'XMLHttpRequest',
@@ -275,6 +276,7 @@ class Japscan(Server):
                     results.append(dict(
                         slug=item['url'].split('/')[-2],
                         name=item['name'],
+                        cover=self.base_url + item['image'],
                     ))
             except Exception:
                 pass  # noqa: TC202

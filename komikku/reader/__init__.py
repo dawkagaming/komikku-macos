@@ -230,6 +230,9 @@ class ReaderPage(Adw.NavigationPage):
             self.fullscreen_button.set_icon_name('view-fullscreen-symbolic')
 
     def on_hidden(self, _page):
+        if self.window.previous_page == self.props.tag:
+            return
+
         if self.pager:
             self.pager.dispose()
             self.pager = None
@@ -310,9 +313,20 @@ class ReaderPage(Adw.NavigationPage):
         self.pager.rescale_pages()
 
     def on_shown(self, _page):
-        # Wait page is shown (transition is ended) to init pager
-        # Operation is resource intensive and could disrupt page transition
-        self.init_pager(self.init_chapter)
+        def do_init_pager():
+            if self.window.last_navigation_action != 'push':
+                return
+
+            # Wait page is shown (transition is ended) to init pager
+            # Operation is resource intensive and could disrupt page transition
+            self.init_pager(self.init_chapter)
+
+        if not Gtk.Settings.get_default().get_property('gtk-enable-animations'):
+            # When animations are disabled, popped/pushed events are sent after `shown` event (bug?)
+            # Use idle_add to be sure that last `popped` or `pushed` event has been received
+            GLib.idle_add(do_init_pager)
+        else:
+            do_init_pager()
 
     def save_page(self, _action, _gparam):
         if self.window.page != self.props.tag:
