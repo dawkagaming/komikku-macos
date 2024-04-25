@@ -236,21 +236,10 @@ class BypassCF:
     Several calls to this decorator can be concurrent. But only one will be honored at a time.
     """
 
-    def __init__(self, *args):
-        self.webview = Gio.Application.get_default().window.webview
-
     def __call__(self, func):
         self.func = func
 
         def wrapper(*args, **kwargs):
-            self.cf_reload_count = 0
-            self.done = False
-            self.error = None
-            self.load_event = None
-            self.load_event_finished_timeout = 10
-            self.load_events_monitor_id = None
-            self.load_events_monitor_ts = None
-
             bound_args = inspect.signature(self.func).bind(*args, **kwargs)
             args_dict = dict(bound_args.arguments)
 
@@ -286,6 +275,15 @@ class BypassCF:
                 else:
                     logger.debug(f'{self.server.id}: Session has no CF cookie. Loading page in webview...')
 
+            self.cf_reload_count = 0
+            self.done = False
+            self.error = None
+            self.load_event = None
+            self.load_event_finished_timeout = 10
+            self.load_events_monitor_id = None
+            self.load_events_monitor_ts = None
+
+            self.webview = Gio.Application.get_default().window.webview
             self.webview.push_cf_request(self)
 
             while not self.done and self.error is None:
