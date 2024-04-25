@@ -12,7 +12,7 @@
 # Apoll Comics [ES]
 # ArazNovel [TR] (disabled)
 # Argos Scan [PT] (disabled)
-# Atikrost [TR] (disabled)
+# Atikrost [TR]
 # Best Manga [RU]
 # Colored Council [EN] (disabled)
 # Fr-Scan (Id frdashscan) [FR]
@@ -209,7 +209,7 @@ class Madara(Server):
                 view_element.extract()
 
             if date := date_element.text.strip():
-                date = convert_date_string(date, format=self.date_format)
+                date = convert_date_string(date, format=self.date_format, languages=[self.lang])
             else:
                 date = datetime.date.today().strftime('%Y-%m-%d')
 
