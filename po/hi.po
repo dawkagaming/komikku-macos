@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Komikku 1.41.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-03-30 00:52+0100\n"
+"POT-Creation-Date: 2024-04-25 23:18+0200\n"
 "PO-Revision-Date: 2024-04-16 17:57+0000\n"
 "Last-Translator: Scrambled777 <weblate.scrambled777@simplelogin.com>\n"
 "Language-Team: Hindi <https://hosted.weblate.org/projects/komikku/main/hi/>\n"
@@ -26,8 +26,8 @@ msgid ""
 "With its simple, elegant and adaptive interface, this reader lets you "
 "search, sort and read your series with ease."
 msgstr ""
-"अपने सरल, सुरुचिपूर्ण और अनुकूली इंटरफ़ेस के साथ, यह रीडर आपको अपनी श्रृंखला "
-"को आसानी से खोजने, क्रमबद्ध करने और पढ़ने की सुविधा देता है।"
+"अपने सरल, सुरुचिपूर्ण और अनुकूली इंटरफ़ेस के साथ, यह रीडर आपको अपनी श्रृंखला को आसानी से "
+"खोजने, क्रमबद्ध करने और पढ़ने की सुविधा देता है।"
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:15
 msgid "Why you will love Komikku?"
@@ -51,9 +51,9 @@ msgid ""
 "navigation layout via mouse click or tapping (touchpad/touch screen), mouse "
 "wheel, 2-fingers swipe gesture (touchpad), swipe gesture (touch screen)"
 msgstr ""
-"कई प्रकार के नेविगेशन का समर्थन करें: कीबोर्ड तीर कुंजी, माउस क्लिक या टैपिं"
-"ग (टचपैड/टच स्क्रीन), माउस व्हील, 2-उंगली स्वाइप जेस्चर (टचपैड), स्वाइप जेस्"
-"चर (टच स्क्रीन) के माध्यम से दाएं और बाएं नेविगेशन लेआउट"
+"कई प्रकार के नेविगेशन का समर्थन करें: कीबोर्ड तीर कुंजी, माउस क्लिक या टैपिंग (टचपैड/टच "
+"स्क्रीन), माउस व्हील, 2-उंगली स्वाइप जेस्चर (टचपैड), स्वाइप जेस्चर (टच स्क्रीन) के माध्यम से "
+"दाएं और बाएं नेविगेशन लेआउट"
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:21
 msgid "Categories to organize your library"
@@ -125,10 +125,9 @@ msgstr "@विवरण@"
 
 #: ../data/info.febvre.Komikku.desktop.in:13
 msgid ""
-"manga;reader;viewer;comic;manhwa;manhua;bd;webtoon;webcomic;scan;offline;"
-"gnome;"
+"manga;reader;viewer;comic;manhwa;manhua;bd;webtoon;webcomic;scan;offline;GTK;"
+"GNOME;"
 msgstr ""
-"मंगा;पाठक;दर्शक;कॉमिक;मैनहवा;मैनहुआ;बीडी;वेबटून;वेब कॉमिक;स्कैन;ऑफलाइन;gnome;"
 
 #: ../data/ui/card.blp:32 ../data/ui/card.blp:444
 #: ../data/ui/card_chapters_list_row.blp:44 ../data/ui/download_manager.blp:22
@@ -532,8 +531,8 @@ msgid ""
 "These settings do not prevent potentially incorrectly flagged servers from "
 "surfacing NSFW content."
 msgstr ""
-"ये सेटिंग्स संभावित रूप से गलत तरीके से फ़्लैग किए गए सर्वर को NSFW सामग्री "
-"को सामने आने से नहीं रोकती हैं।"
+"ये सेटिंग्स संभावित रूप से गलत तरीके से फ़्लैग किए गए सर्वर को NSFW सामग्री को सामने आने से "
+"नहीं रोकती हैं।"
 
 #: ../data/ui/preferences.blp:202 ../data/ui/reader.blp:6
 msgid "Reader"
@@ -567,8 +566,7 @@ msgstr "अधिकतम चौड़ाई"
 msgid ""
 "Constrain reader's width to a given maximum size (Webtoon reading mode only)"
 msgstr ""
-"पाठक की चौड़ाई को किसी दिए गए अधिकतम आकार तक सीमित करें (केवल वेबटून पाठक "
-"मोड)"
+"पाठक की चौड़ाई को किसी दिए गए अधिकतम आकार तक सीमित करें (केवल वेबटून पाठक मोड)"
 
 #: ../data/ui/preferences.blp:231
 msgid "Scaling"
@@ -602,8 +600,8 @@ msgstr "लैंडस्केप पृष्ठ ज़ूम करें"
 msgid ""
 "Zoom page to fit height when page is landscape (Adapt to Screen scaling only)"
 msgstr ""
-"जब पृष्ठ लैंडस्केप हो तो ऊंचाई में फिट होने के लिए पेज को ज़ूम करें (केवल "
-"स्क्रीन स्केलिंग के लिए अनुकूलित)"
+"जब पृष्ठ लैंडस्केप हो तो ऊंचाई में फिट होने के लिए पेज को ज़ूम करें (केवल स्क्रीन स्केलिंग के लिए "
+"अनुकूलित)"
 
 #: ../data/ui/preferences.blp:249
 msgid "Background Color"
@@ -638,8 +636,8 @@ msgid ""
 msgstr ""
 "छवियों की सफ़ेद सीमाएँ काटें\n"
 "\n"
-"ध्यान दें: अधिक CPU उपयोग की आवश्यकता होती है और विशेष रूप से मोबाइल उपकरणों "
-"पर प्रतिपादन और सजीवता धीमी हो सकती है।"
+"ध्यान दें: अधिक CPU उपयोग की आवश्यकता होती है और विशेष रूप से मोबाइल उपकरणों पर "
+"प्रतिपादन और सजीवता धीमी हो सकती है।"
 
 #: ../data/ui/preferences.blp:266
 msgid "Page Numbering"
@@ -702,8 +700,8 @@ msgid ""
 "Useful with E Ink e-readers to avoid very choppy and unpleasant animations "
 "(due to the low refresh rate of the screen)"
 msgstr ""
-"बहुत अस्थिर और अप्रिय सजीवता (स्क्रीन की कम ताज़ा दर के कारण) से बचने के लिए "
-"ई इंक ई-रीडर्स के साथ उपयोगी"
+"बहुत अस्थिर और अप्रिय सजीवता (स्क्रीन की कम ताज़ा दर के कारण) से बचने के लिए ई इंक ई-"
+"रीडर्स के साथ उपयोगी"
 
 #: ../data/ui/preferences.blp:314
 msgid ""
@@ -711,9 +709,9 @@ msgid ""
 "environment and therefore cannot disable animations globally via GNOME "
 "Settings (Accessibility ⇨ Seeing ⇨ Reduce Animation)."
 msgstr ""
-"यह बदलाव केवल उन उपयोगकर्ताओं के लिए है जो GNOME डेस्कटॉप वातावरण का उपयोग "
-"नहीं करते हैं और इसलिए GNOME सेटिंग्स (अभिगम्यता ⇨ देखना ⇨ सजीवता कम करें) के"
-" माध्यम से विश्व स्तर पर एनिमेशन को अक्षम नहीं कर सकते हैं।"
+"यह बदलाव केवल उन उपयोगकर्ताओं के लिए है जो GNOME डेस्कटॉप वातावरण का उपयोग नहीं करते "
+"हैं और इसलिए GNOME सेटिंग्स (अभिगम्यता ⇨ देखना ⇨ सजीवता कम करें) के माध्यम से विश्व स्तर "
+"पर एनिमेशन को अक्षम नहीं कर सकते हैं।"
 
 #: ../data/ui/reader.blp:19
 msgid "Back"
@@ -806,22 +804,20 @@ msgid ""
 "Developing and maintaining Komikku is a challenging task that takes up most "
 "of my free time."
 msgstr ""
-"Komikku का विकास और रखरखाव एक चुनौतीपूर्ण कार्य है जिसमें मेरा अधिकांश खाली "
-"समय खर्च हो जाता है।"
+"Komikku का विकास और रखरखाव एक चुनौतीपूर्ण कार्य है जिसमें मेरा अधिकांश खाली समय खर्च "
+"हो जाता है।"
 
 #: ../data/ui/support.blp:61
 msgid "Komikku will always be free and open-source and will never contain ads."
-msgstr ""
-"Komikku हमेशा स्वतंत्र और खुला-स्रोत रहेगा और इसमें कभी भी विज्ञापन नहीं "
-"होंगे।"
+msgstr "Komikku हमेशा स्वतंत्र और खुला-स्रोत रहेगा और इसमें कभी भी विज्ञापन नहीं होंगे।"
 
 #: ../data/ui/support.blp:68
 msgid ""
 "So if you like it, and you are able, please consider a one-time or recurring "
 "donation to support me, it will be hugely appreciated."
 msgstr ""
-"इसलिए यदि आपको यह पसंद है, और आप सक्षम हैं, तो कृपया मुझे समर्थन देने के लिए "
-"एक बार या पुनरावर्ती दान पर विचार करें, इसकी अत्यधिक सराहना की जाएगी।"
+"इसलिए यदि आपको यह पसंद है, और आप सक्षम हैं, तो कृपया मुझे समर्थन देने के लिए एक बार या "
+"पुनरावर्ती दान पर विचार करें, इसकी अत्यधिक सराहना की जाएगी।"
 
 #: ../data/ui/support.blp:82
 msgid "Weekly, monthly or yearly donation"
@@ -844,22 +840,22 @@ msgstr "एकमुश्त या मासिक दान"
 msgid "Webview"
 msgstr "वेब-दृश्य"
 
-#: ../komikku/application.py:154
+#: ../komikku/application.py:159
 msgid "Multiple URLs not supported"
 msgstr "एकाधिक URL समर्थित नहीं हैं"
 
-#: ../komikku/application.py:170
+#: ../komikku/application.py:175
 msgid "Invalid URL {}, not handled by any server."
 msgstr "अमान्य URL {}, किसी भी सर्वर द्वारा नियंत्रित नहीं किया जा रहा है।"
 
-#: ../komikku/application.py:353 ../komikku/card/__init__.py:136
+#: ../komikku/application.py:358 ../komikku/card/__init__.py:136
 #: ../komikku/card/__init__.py:137 ../komikku/categories_editor.py:188
-#: ../komikku/downloader.py:380 ../komikku/downloader.py:381
-#: ../komikku/library/__init__.py:767 ../komikku/library/__init__.py:768
+#: ../komikku/downloader.py:378 ../komikku/downloader.py:379
+#: ../komikku/library/__init__.py:764 ../komikku/library/__init__.py:765
 msgid "Cancel"
 msgstr "रद्द"
 
-#: ../komikku/application.py:413
+#: ../komikku/application.py:420
 msgid ""
 "A manga, manhwa, manhua, webtoons, webcomics and comics reader for GNOME\n"
 "\n"
@@ -869,34 +865,34 @@ msgid ""
 msgstr ""
 "GNOME के लिए एक मंगा, मनहवा, मनहुआ, वेबटून, वेबकॉमिक्स और कॉमिक्स पाठक\n"
 "\n"
-"👉 कभी न भूलें, जब आपके क्षेत्र/भाषा में आधिकारिक कॉमिक्स उपलब्ध हों तो आप "
-"उन्हें खरीदकर लेखकों का समर्थन कर सकते हैं।"
+"👉 कभी न भूलें, जब आपके क्षेत्र/भाषा में आधिकारिक कॉमिक्स उपलब्ध हों तो आप उन्हें खरीदकर "
+"लेखकों का समर्थन कर सकते हैं।"
 
-#: ../komikku/application.py:422
+#: ../komikku/application.py:429
 msgid "Supporters"
 msgstr "समर्थक"
 
-#: ../komikku/application.py:424
+#: ../komikku/application.py:431
 msgid "Join Chat"
 msgstr "चैट से जुड़ें"
 
-#: ../komikku/application.py:535
+#: ../komikku/application.py:547
 msgid "Are you sure you want to quit?"
 msgstr "क्या आप वाकई छोड़ना चाहते हैं?"
 
-#: ../komikku/application.py:538
+#: ../komikku/application.py:550
 msgid "Some chapters are currently being downloaded."
 msgstr "कुछ अध्याय अभी डाउनलोड किये जा रहे हैं।"
 
-#: ../komikku/application.py:540
+#: ../komikku/application.py:552
 msgid "Some mangas are currently being updated."
 msgstr "कुछ मंगा वर्तमान में अद्यतन किए जा रहे हैं।"
 
-#: ../komikku/application.py:544
+#: ../komikku/application.py:556
 msgid "Quit?"
 msgstr "छोड़ें?"
 
-#: ../komikku/application.py:546
+#: ../komikku/application.py:558
 msgid "Quit"
 msgstr "छोड़ें"
 
@@ -927,7 +923,7 @@ msgstr "अज्ञात लेखक"
 msgid "Unknown status"
 msgstr "अज्ञात स्थिति"
 
-#: ../komikku/card/__init__.py:439 ../komikku/explorer/common.py:170
+#: ../komikku/card/__init__.py:439 ../komikku/explorer/common.py:226
 msgid "Local"
 msgstr "स्थानीय"
 
@@ -935,8 +931,8 @@ msgstr "स्थानीय"
 msgid "%m/%d/%Y"
 msgstr "%m/%d/%Y"
 
-#: ../komikku/card/chapters_list.py:309 ../komikku/downloader.py:525
-#: ../komikku/library/__init__.py:799
+#: ../komikku/card/chapters_list.py:309 ../komikku/downloader.py:523
+#: ../komikku/library/__init__.py:796
 #, python-brace-format
 msgid "{0} selected"
 msgid_plural "{0} selected"
@@ -1001,58 +997,58 @@ msgstr "संपादन"
 msgid "Save"
 msgstr "सहेजें"
 
-#: ../komikku/downloader.py:237
+#: ../komikku/downloader.py:235
 #, python-brace-format
 msgid "Download failure: {0}"
 msgstr "डाउनलोड विफलता: {0}"
 
-#: ../komikku/downloader.py:248
+#: ../komikku/downloader.py:246
 #, python-brace-format
 msgid "{0}/{1} pages downloaded"
 msgstr "{0}/{1} पृष्ठ डाउनलोड किए गए"
 
-#: ../komikku/downloader.py:250
+#: ../komikku/downloader.py:248
 msgid "error"
 msgstr "त्रुटि"
 
-#: ../komikku/downloader.py:254 ../komikku/downloader.py:271
+#: ../komikku/downloader.py:252 ../komikku/downloader.py:269
 #, python-brace-format
 msgid "[{0}] Chapter {1}"
 msgstr "[{0}] अध्याय {1}"
 
-#: ../komikku/downloader.py:270
+#: ../komikku/downloader.py:268
 msgid "Download completed"
 msgstr "डाउनलोड पूरा हुआ"
 
-#: ../komikku/explorer/common.py:59
+#: ../komikku/explorer/common.py:114
 #, python-brace-format
 msgid "{0} chapter"
 msgid_plural "{0} chapters"
 msgstr[0] "{0} अध्याय"
 msgstr[1] "{0} अध्याय"
 
-#: ../komikku/explorer/common.py:61
+#: ../komikku/explorer/common.py:116
 msgid "Last Chapter: {}"
 msgstr "अंतिम अध्याय: {}"
 
-#: ../komikku/explorer/common.py:63
+#: ../komikku/explorer/common.py:118
 msgid "Last Volume: {}"
 msgstr "अंतिम वॉल्यूम: {}"
 
-#: ../komikku/explorer/common.py:171
+#: ../komikku/explorer/common.py:227
 msgid "Comics stored locally as archives in CBZ/CBR formats"
 msgstr "कॉमिक्स को CBZ/CBR प्रारूपों में स्थानीय रूप से संग्रहित किया गया है"
 
-#: ../komikku/explorer/common.py:188 ../komikku/preferences.py:534
+#: ../komikku/explorer/common.py:244 ../komikku/preferences.py:534
 #: ../komikku/preferences.py:628 ../komikku/servers/mangatube/__init__.py:57
 msgid "18+"
 msgstr "18+"
 
-#: ../komikku/explorer/common.py:208
+#: ../komikku/explorer/common.py:264
 msgid "Help"
 msgstr "सहायता"
 
-#: ../komikku/explorer/common.py:209
+#: ../komikku/explorer/common.py:265
 msgid ""
 "A specific folder structure is required for local comics to be properly "
 "processed.\n"
@@ -1064,116 +1060,115 @@ msgid ""
 "\n"
 "NOTE: The 'unrar' or 'unar' command-line tool is required for CBR archives."
 msgstr ""
-"स्थानीय कॉमिक्स को ठीक से संसाधित करने के लिए एक विशिष्ट फोल्डर संरचना की "
-"आवश्यकता होती है।\n"
+"स्थानीय कॉमिक्स को ठीक से संसाधित करने के लिए एक विशिष्ट फोल्डर संरचना की आवश्यकता "
+"होती है।\n"
 "\n"
-"प्रत्येक कॉमिक का अपना स्वयं का फोल्डर होना चाहिए जिसमें CBZ या CBR प्रारूपों"
-" में संग्रह फाइलों के रूप में अध्याय/खंड शामिल होने चाहिए।\n"
+"प्रत्येक कॉमिक का अपना स्वयं का फोल्डर होना चाहिए जिसमें CBZ या CBR प्रारूपों में संग्रह "
+"फाइलों के रूप में अध्याय/खंड शामिल होने चाहिए।\n"
 "\n"
 "फोल्डर का नाम कॉमिक के नाम के रूप में उपयोग किया जाएगा।\n"
 "\n"
 "नोट: CBR अभिलेखागार के लिए 'unrar' या 'rar' कमांड-लाइन टूल आवश्यक है।"
 
-#: ../komikku/explorer/common.py:216
+#: ../komikku/explorer/common.py:272
 msgid "Close"
 msgstr "बंद"
 
-#: ../komikku/explorer/common.py:216
+#: ../komikku/explorer/common.py:272
 msgid "Local Folder"
 msgstr "स्थानीय फोल्डर"
 
-#: ../komikku/explorer/common.py:222
+#: ../komikku/explorer/common.py:278
 msgid "Open local folder"
 msgstr "स्थानीय फोल्डर खोलें"
 
-#: ../komikku/explorer/common.py:230
+#: ../komikku/explorer/common.py:286
 msgid "Toggle pinned status"
 msgstr "पिन की गई स्थिति टॉगल करें"
 
-#: ../komikku/explorer/search/__init__.py:223
+#: ../komikku/explorer/search/__init__.py:222
 msgid "Filters"
 msgstr "फिल्टर"
 
-#: ../komikku/explorer/search/__init__.py:276
+#: ../komikku/explorer/search/__init__.py:286
 msgid "Oops, server website URL is unknown."
 msgstr "उफ़, सर्वर वेबसाइट का URL अज्ञात है।"
 
-#: ../komikku/explorer/search/__init__.py:319
+#: ../komikku/explorer/search/__init__.py:353
 msgid "Search {}"
 msgstr "खोजें {}"
 
-#: ../komikku/explorer/search/__init__.py:321
+#: ../komikku/explorer/search/__init__.py:355
 msgid "Search for Reading"
 msgstr "पढ़ने हेतु खोजें"
 
-#: ../komikku/explorer/search/__init__.py:323
+#: ../komikku/explorer/search/__init__.py:357
 msgid "Empty search is allowed."
 msgstr "रिक्त खोज की अनुमति है।"
 
-#: ../komikku/explorer/search/__init__.py:325
+#: ../komikku/explorer/search/__init__.py:359
 msgid ""
 "Alternatively, you can look up specific comics using the syntax:\n"
 "\n"
 "<b>id:ID from comic URL</b>"
 msgstr ""
-"वैकल्पिक रूप से, आप वाक्यविन्यास का उपयोग करके विशिष्ट कॉमिक्स देख सकते हैं:"
-"\n"
+"वैकल्पिक रूप से, आप वाक्यविन्यास का उपयोग करके विशिष्ट कॉमिक्स देख सकते हैं:\n"
 "\n"
 "<b>ID: कॉमिक URL से ID</b>"
 
-#: ../komikku/explorer/search/__init__.py:353
+#: ../komikku/explorer/search/__init__.py:387
 msgid "Global Search"
 msgstr "वैश्विक खोज"
 
-#: ../komikku/explorer/search/__init__.py:355
+#: ../komikku/explorer/search/__init__.py:389
 msgid "Search globally by name"
 msgstr "नाम से वैश्विक स्तर पर खोजें"
 
-#: ../komikku/explorer/search/__init__.py:357
+#: ../komikku/explorer/search/__init__.py:391
 msgid "Search for Comics"
 msgstr "कॉमिक्स खोजें"
 
-#: ../komikku/explorer/search/__init__.py:433
+#: ../komikku/explorer/search/__init__.py:467
 msgid "Oops, failed to retrieve manga's information."
 msgstr "उफ़, मंगा की जानकारी पुनर्प्राप्त करने में विफल रहा।"
 
-#: ../komikku/explorer/search/latest_updates.py:100
+#: ../komikku/explorer/search/latest_updates.py:71
 msgid "Oops, failed to retrieve latest updates."
 msgstr "उफ़, नवीनतम अपडेट पुनर्प्राप्त करने में विफल रहा।"
 
-#: ../komikku/explorer/search/latest_updates.py:104
+#: ../komikku/explorer/search/latest_updates.py:75
 msgid "No Latest Updates Found"
 msgstr "कोई नवीनतम अपडेट नहीं मिला"
 
-#: ../komikku/explorer/search/latest_updates.py:113
-#: ../komikku/explorer/search/most_popular.py:113
-#: ../komikku/explorer/search/search.py:127
-#: ../komikku/explorer/search/search_global.py:85
+#: ../komikku/explorer/search/latest_updates.py:84
+#: ../komikku/explorer/search/most_popular.py:84
+#: ../komikku/explorer/search/search.py:98
+#: ../komikku/explorer/search/search_global.py:80
 msgid "A request is already in progress."
 msgstr "एक अनुरोध पहले से ही प्रगति पर है।"
 
-#: ../komikku/explorer/search/most_popular.py:100
+#: ../komikku/explorer/search/most_popular.py:71
 msgid "Oops, failed to retrieve most popular."
 msgstr "उफ़, सर्वाधिक लोकप्रिय को पुनः प्राप्त करने में विफल।"
 
-#: ../komikku/explorer/search/most_popular.py:104
+#: ../komikku/explorer/search/most_popular.py:75
 msgid "No Most Popular Found"
 msgstr "कोई सर्वाधिक लोकप्रिय नहीं मिला"
 
-#: ../komikku/explorer/search/search.py:112
-#: ../komikku/explorer/search/search_global.py:174
+#: ../komikku/explorer/search/search.py:83
+#: ../komikku/explorer/search/search_global.py:147
 msgid "Oops, search failed. Please try again."
 msgstr "उफ़, खोज विफल रही। कृपया पुन: प्रयास करें।"
 
-#: ../komikku/explorer/search/search.py:116
+#: ../komikku/explorer/search/search.py:87
 msgid "No Results Found"
 msgstr "कोई परिणाम नहीं मिला"
 
-#: ../komikku/explorer/search/search.py:117
+#: ../komikku/explorer/search/search.py:88
 msgid "Try a different search"
 msgstr "भिन्न खोज का प्रयास करें"
 
-#: ../komikku/explorer/search/search_global.py:179
+#: ../komikku/explorer/search/search_global.py:152
 msgid "No results"
 msgstr "कोई परिणाम नहीं"
 
@@ -1225,61 +1220,62 @@ msgstr "Komikku में आपका स्वागत है"
 msgid "Loading…"
 msgstr "लोड हो रहा है…"
 
-#: ../komikku/library/__init__.py:750
+#: ../komikku/library/__init__.py:747
 msgid "Failed to update reading status"
 msgstr "पठन स्थिति अपडेट करने में विफल"
 
-#: ../komikku/library/__init__.py:772
+#: ../komikku/library/__init__.py:769
 msgid "Add New Comic"
 msgstr "नई कॉमिक जोड़ें"
 
-#: ../komikku/library/__init__.py:803 ../komikku/library/categories_list.py:145
+#: ../komikku/library/__init__.py:800 ../komikku/library/categories_list.py:145
 msgid "Uncategorized"
 msgstr "अवर्गीकृत"
 
 #: ../komikku/library/categories_list.py:139
-#: ../komikku/servers/bilibili/__init__.py:39
+#: ../komikku/servers/bilibili/__init__.py:43
 #: ../komikku/servers/mangapill/__init__.py:36
-#: ../komikku/servers/multi/manga_stream.py:59
+#: ../komikku/servers/multi/manga_stream.py:77
 #: ../komikku/servers/webtoon/__init__.py:51
 msgid "All"
 msgstr "सभी"
 
-#: ../komikku/models/database.py:458
+#: ../komikku/models/database/downloads.py:19
+msgid "Download pending"
+msgstr "डाउनलोड लंबित है"
+
+#: ../komikku/models/database/downloads.py:20
+msgid "Downloaded"
+msgstr "डाउनलोड किए गए"
+
+#: ../komikku/models/database/downloads.py:21
+msgid "Downloading"
+msgstr "डाउनलोड हो रहा है"
+
+#: ../komikku/models/database/downloads.py:22
+msgid "Download error"
+msgstr "डाउनलोड त्रुटि"
+
+#: ../komikku/models/database/mangas.py:35
 #: ../komikku/servers/mangaworld/__init__.py:50
 msgid "Complete"
 msgstr "पूर्ण"
 
-#: ../komikku/models/database.py:459 ../komikku/servers/mangadex/__init__.py:76
+#: ../komikku/models/database/mangas.py:36
+#: ../komikku/servers/mangadex/__init__.py:76
 #: ../komikku/servers/mangaworld/__init__.py:49
 msgid "Ongoing"
 msgstr "चालू"
 
-#: ../komikku/models/database.py:460
+#: ../komikku/models/database/mangas.py:37
 #: ../komikku/servers/mangaworld/__init__.py:51
 msgid "Suspended"
 msgstr "निलंबित"
 
-#: ../komikku/models/database.py:461
+#: ../komikku/models/database/mangas.py:38
 #: ../komikku/servers/mangaworld/__init__.py:52
 msgid "Hiatus"
 msgstr "अंतराल"
-
-#: ../komikku/models/database.py:1243
-msgid "Download pending"
-msgstr "डाउनलोड लंबित है"
-
-#: ../komikku/models/database.py:1244
-msgid "Downloaded"
-msgstr "डाउनलोड किए गए"
-
-#: ../komikku/models/database.py:1245
-msgid "Downloading"
-msgstr "डाउनलोड हो रहा है"
-
-#: ../komikku/models/database.py:1246
-msgid "Download error"
-msgstr "डाउनलोड त्रुटि"
 
 #: ../komikku/preferences.py:128
 msgid "Clear?"
@@ -1332,31 +1328,30 @@ msgid ""
 "No keyring backends were found to store credential. Use plaintext storage as "
 "fallback."
 msgstr ""
-"प्रमाण पत्र संग्रहीत करने के लिए कोई कीरिंग बैकेंड नहीं मिला। फ़ॉलबैक के रूप "
-"में सादापाठ स्टोरेज का उपयोग करें।"
+"प्रमाण पत्र संग्रहीत करने के लिए कोई कीरिंग बैकेंड नहीं मिला। फ़ॉलबैक के रूप में सादापाठ "
+"स्टोरेज का उपयोग करें।"
 
 #: ../komikku/preferences.py:602
 msgid ""
 "No keyring backends were found to store credential. Plaintext storage will "
 "be used as fallback."
 msgstr ""
-"प्रमाण पत्र संग्रहीत करने के लिए कोई कीरिंग बैकएंड नहीं मिला। सादापाठ स्टोरे"
-"ज का उपयोग फ़ॉलबैक के रूप में किया जाएगा।"
+"प्रमाण पत्र संग्रहीत करने के लिए कोई कीरिंग बैकएंड नहीं मिला। सादापाठ स्टोरेज का उपयोग "
+"फ़ॉलबैक के रूप में किया जाएगा।"
 
 #: ../komikku/preferences.py:610
 msgid "Test"
 msgstr "परीक्षण"
 
-#: ../komikku/reader/__init__.py:327
+#: ../komikku/reader/__init__.py:341
 #, python-brace-format
 msgid "Page successfully saved to {0}"
 msgstr "पृष्ठ सफलतापूर्वक {0} पर सहेजा गया"
 
-#: ../komikku/reader/__init__.py:354
+#: ../komikku/reader/__init__.py:368
 msgid ""
 "Failed to save page: missing permission to access the XDG pictures directory"
-msgstr ""
-"पृष्ठ सहेजने में विफल: XDG चित्र निर्देशिका तक पहुँचने की अनुमति अनुपलब्ध है"
+msgstr "पृष्ठ सहेजने में विफल: XDG चित्र निर्देशिका तक पहुँचने की अनुमति अनुपलब्ध है"
 
 #: ../komikku/reader/pager/__init__.py:163
 #, python-brace-format
@@ -1386,27 +1381,27 @@ msgstr "यह अंतिम अध्याय था।"
 msgid "This chapter is inaccessible."
 msgstr "यह अध्याय अप्राप्य है।"
 
-#: ../komikku/reader/pager/page.py:267
+#: ../komikku/reader/pager/page.py:269
 msgid "Failed to load image"
 msgstr "छवि लोड करने में विफल"
 
-#: ../komikku/reader/pager/page.py:299
+#: ../komikku/reader/pager/page.py:300
 msgid "Retry"
 msgstr "पुन: प्रयास"
 
-#: ../komikku/servers/bilibili/__init__.py:34
+#: ../komikku/servers/bilibili/__init__.py:38
 msgid "Price"
 msgstr "मूल्य"
 
-#: ../komikku/servers/bilibili/__init__.py:35
+#: ../komikku/servers/bilibili/__init__.py:39
 msgid "Filter by price"
 msgstr "मूल्य के अनुसार फिल्टर करें"
 
-#: ../komikku/servers/bilibili/__init__.py:40
+#: ../komikku/servers/bilibili/__init__.py:44
 msgid "Free"
 msgstr "मुफ़्त"
 
-#: ../komikku/servers/bilibili/__init__.py:41
+#: ../komikku/servers/bilibili/__init__.py:45
 msgid "Paid"
 msgstr "सशुल्क"
 
@@ -1607,8 +1602,7 @@ msgstr "टैग समावेशन मोड"
 #: ../komikku/servers/mangadex/__init__.py:120
 msgid "Include manga that match <b>all</b> tags (AND) or <b>any</b> tag (OR)"
 msgstr ""
-"वह मंगा शामिल करें जो <b>सभी</b> टैग (और) या <b>किसी</b> टैग (या) से मेल खाता"
-" हो"
+"वह मंगा शामिल करें जो <b>सभी</b> टैग (और) या <b>किसी</b> टैग (या) से मेल खाता हो"
 
 #: ../komikku/servers/mangadex/__init__.py:124
 msgid "AND"
@@ -1621,13 +1615,13 @@ msgstr "या"
 #: ../komikku/servers/mangapill/__init__.py:31
 #: ../komikku/servers/mangatube/__init__.py:33
 #: ../komikku/servers/mangaworld/__init__.py:30
-#: ../komikku/servers/multi/manga_stream.py:54
+#: ../komikku/servers/multi/manga_stream.py:72
 #: ../komikku/servers/webtoon/__init__.py:46
 msgid "Type"
 msgstr "प्रकार"
 
 #: ../komikku/servers/mangapill/__init__.py:32
-#: ../komikku/servers/multi/manga_stream.py:55
+#: ../komikku/servers/multi/manga_stream.py:73
 #: ../komikku/servers/webtoon/__init__.py:47
 msgid "Filter by type"
 msgstr "प्रकार के अनुसार फिल्टर"
@@ -1635,7 +1629,7 @@ msgstr "प्रकार के अनुसार फिल्टर"
 #: ../komikku/servers/mangapill/__init__.py:37
 #: ../komikku/servers/mangatube/__init__.py:38
 #: ../komikku/servers/mangaworld/__init__.py:34
-#: ../komikku/servers/multi/manga_stream.py:60
+#: ../komikku/servers/multi/manga_stream.py:78
 msgid "Manga"
 msgstr "मंगा"
 
@@ -1652,14 +1646,14 @@ msgstr "एक बार में"
 #: ../komikku/servers/mangapill/__init__.py:41
 #: ../komikku/servers/mangatube/__init__.py:39
 #: ../komikku/servers/mangaworld/__init__.py:36
-#: ../komikku/servers/multi/manga_stream.py:61
+#: ../komikku/servers/multi/manga_stream.py:79
 msgid "Manhwa"
 msgstr "मैनहवा"
 
 #: ../komikku/servers/mangapill/__init__.py:42
 #: ../komikku/servers/mangatube/__init__.py:40
 #: ../komikku/servers/mangaworld/__init__.py:35
-#: ../komikku/servers/multi/manga_stream.py:62
+#: ../komikku/servers/multi/manga_stream.py:80
 msgid "Manhua"
 msgstr "मैनहुआ"
 
@@ -1676,7 +1670,7 @@ msgid "Webtoon"
 msgstr "वेबटून"
 
 #: ../komikku/servers/mangatube/__init__.py:42
-#: ../komikku/servers/multi/manga_stream.py:63
+#: ../komikku/servers/multi/manga_stream.py:81
 msgid "Comic"
 msgstr "कॉमिक"
 
@@ -1700,12 +1694,12 @@ msgstr "बिना"
 msgid "16+"
 msgstr "16+"
 
-#: ../komikku/servers/multi/madara.py:379
+#: ../komikku/servers/multi/madara.py:384
 #: ../komikku/servers/readmanhwa/__init__.py:44
 msgid "NSFW Content"
 msgstr "NSFW सामग्री"
 
-#: ../komikku/servers/multi/madara.py:380
+#: ../komikku/servers/multi/madara.py:385
 #: ../komikku/servers/readmanhwa/__init__.py:45
 msgid "Whether to show manga containing NSFW content"
 msgstr "क्या NSFW सामग्री वाला मंगा दिखाना है"
@@ -1772,14 +1766,19 @@ msgstr "उफ़, अद्यतन विफल हो गया है। �
 msgid "Library update started"
 msgstr "लाइब्रेरी अद्यतन प्रारंभ हुआ"
 
-#: ../komikku/utils.py:175
+#: ../komikku/utils.py:176
 msgid "You are currently offline"
 msgstr "आप अभी ऑफ़लाइन हैं"
 
-#: ../komikku/utils.py:191
+#: ../komikku/utils.py:192
 msgid "No Internet connection, timeout or server down"
 msgstr "कोई इंटरनेट कनेक्शन नहीं, समय समाप्त या सर्वर डाउन"
 
-#: ../komikku/webview.py:357
+#: ../komikku/webview.py:394
 msgid "Please complete CAPTCHA"
 msgstr "कृपया CAPTCHA पूर्ण करें"
+
+#~ msgid ""
+#~ "manga;reader;viewer;comic;manhwa;manhua;bd;webtoon;webcomic;scan;offline;"
+#~ "gnome;"
+#~ msgstr "मंगा;पाठक;दर्शक;कॉमिक;मैनहवा;मैनहुआ;बीडी;वेबटून;वेब कॉमिक;स्कैन;ऑफलाइन;gnome;"

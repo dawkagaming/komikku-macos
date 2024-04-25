@@ -38,7 +38,8 @@ komikku/explorer/servers.py
 komikku/history.py
 komikku/library/categories_list.py
 komikku/library/__init__.py
-komikku/models/database.py
+komikku/models/database/downloads.py
+komikku/models/database/mangas.py
 komikku/preferences.py
 komikku/reader/__init__.py
 komikku/reader/pager/__init__.py
