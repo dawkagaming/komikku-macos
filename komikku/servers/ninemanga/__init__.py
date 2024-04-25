@@ -25,16 +25,15 @@ class Ninemanga(Server):
     latest_updates_url = base_url + '/list/New-Update/'
     most_populars_url = base_url + '/list/Hot-Book/'
     manga_url = base_url + '/manga/{0}.html?waring=1'
-    chapter_url = base_url + '/chapter/{0}/{1}-1-1.html'
-    page_url = chapter_url
-    base_cover_url = 'https://img11.niadd.com'
+    chapter_url = base_url + '/chapter/{0}/{1}-1.html'
+    page_url = base_url + '/chapter/{0}/{1}'
 
     def __init__(self):
         if self.session is None:
             self.session = requests.Session()
             self.session.headers = {
                 'User-Agent': USER_AGENT,
-                'Accept-Language': 'en-US,en;q=0.5',
+                'Accept-Language': 'fr-FR,fr;q=0.9,en;q=0.8,gl;q=0.7',
             }
 
             retry = Retry(total=3, backoff_factor=1, respect_retry_after_header=False, status_forcelist=Retry.RETRY_AFTER_STATUS_CODES)
@@ -153,15 +152,31 @@ class Ninemanga(Server):
         Returns chapter page scan (image) content
         """
         # Scrap HTML page to get image url
-        r = self.session_get(self.page_url.format(manga_slug, page['slug']))
+
+        # Don't use `Referer` in headers, otherwise we are redirected to a page to select a mirror
+        r = self.session_get(
+            self.page_url.format(manga_slug, page['slug']),
+            headers={
+                'Accept':
+                'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7',
+                'Accept-Encoding': 'gzip, deflate, br',
+                'Accept-Language': 'en-US,en;q=0.9,fr;q=0.8,fr-FR;q=0.7',
+            }
+        )
         if r.status_code != 200:
             return None
 
         soup = BeautifulSoup(r.text, 'lxml')
-        url = soup.find('img', id='manga_pic_1').get('src')
+        url = soup.select_one('#manga_pic_1').get('src')
 
         # Get scan image
-        r = self.session_get(url, timeout=30)
+        r = self.session_get(
+            url,
+            headers={
+                'Referer': 'f{self.base_url}/',
+            },
+            timeout=30
+        )
         if r.status_code != 200:
             return None
 
@@ -246,6 +261,7 @@ class Ninemanga(Server):
             self.search_url,
             params={
                 'wd': term,
+                # 'type': 'high',  # Advanced search
             },
             headers={
                 'Referer': f'{self.base_url}/',
@@ -287,8 +303,8 @@ class Ninemanga_br(Ninemanga):
     latest_updates_url = base_url + '/list/New-Update/'
     most_populars_url = base_url + '/list/Hot-Book/'
     manga_url = base_url + '/manga/{0}.html?waring=1'
-    chapter_url = base_url + '/chapter/{0}/{1}-1-1.html'
-    page_url = chapter_url
+    chapter_url = base_url + '/chapter/{0}/{1}-1.html'
+    page_url = base_url + '/chapter/{0}/{1}'
 
 
 class Ninemanga_de(Ninemanga):
@@ -300,8 +316,8 @@ class Ninemanga_de(Ninemanga):
     latest_updates_url = base_url + '/list/New-Update/'
     most_populars_url = base_url + '/list/Hot-Book/'
     manga_url = base_url + '/manga/{0}.html?waring=1'
-    chapter_url = base_url + '/chapter/{0}/{1}-1-1.html'
-    page_url = chapter_url
+    chapter_url = base_url + '/chapter/{0}/{1}-1.html'
+    page_url = base_url + '/chapter/{0}/{1}'
 
 
 class Ninemanga_es(Ninemanga):
@@ -313,8 +329,8 @@ class Ninemanga_es(Ninemanga):
     latest_updates_url = base_url + '/list/New-Update/'
     most_populars_url = base_url + '/list/Hot-Book/'
     manga_url = base_url + '/manga/{0}.html?waring=1'
-    chapter_url = base_url + '/chapter/{0}/{1}-1-1.html'
-    page_url = chapter_url
+    chapter_url = base_url + '/chapter/{0}/{1}-1.html'
+    page_url = base_url + '/chapter/{0}/{1}'
 
 
 class Ninemanga_fr(Ninemanga):
@@ -326,8 +342,8 @@ class Ninemanga_fr(Ninemanga):
     latest_updates_url = base_url + '/list/New-Update/'
     most_populars_url = base_url + '/list/Hot-Book/'
     manga_url = base_url + '/manga/{0}.html?waring=1'
-    chapter_url = base_url + '/chapter/{0}/{1}-1-1.html'
-    page_url = chapter_url
+    chapter_url = base_url + '/chapter/{0}/{1}-1.html'
+    page_url = base_url + '/chapter/{0}/{1}'
 
 
 class Ninemanga_it(Ninemanga):
@@ -339,8 +355,8 @@ class Ninemanga_it(Ninemanga):
     latest_updates_url = base_url + '/list/New-Update/'
     most_populars_url = base_url + '/list/Hot-Book/'
     manga_url = base_url + '/manga/{0}.html?waring=1'
-    chapter_url = base_url + '/chapter/{0}/{1}-1-1.html'
-    page_url = chapter_url
+    chapter_url = base_url + '/chapter/{0}/{1}-1.html'
+    page_url = base_url + '/chapter/{0}/{1}'
 
 
 class Ninemanga_ru(Ninemanga):
@@ -352,5 +368,5 @@ class Ninemanga_ru(Ninemanga):
     latest_updates_url = base_url + '/list/New-Update/'
     most_populars_url = base_url + '/list/Hot-Book/'
     manga_url = base_url + '/manga/{0}.html?waring=1'
-    chapter_url = base_url + '/chapter/{0}/{1}-1-1.html'
-    page_url = chapter_url
+    chapter_url = base_url + '/chapter/{0}/{1}-1.html'
+    page_url = base_url + '/chapter/{0}/{1}'
