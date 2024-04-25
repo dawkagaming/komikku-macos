@@ -33,7 +33,7 @@ class Mangago(Server):
     base_url = 'https://www.mangago.me'
     search_url = base_url + '/r/l_search/'
     latest_updates_url = base_url + '/list/latest/all/{0}/'
-    most_populars_url = base_url + '/genre/All/'
+    most_populars_url = base_url + '/topmanga/'
     manga_url = base_url + '/read-manga/{0}/'
     chapter_url = base_url + '/read-manga/{0}/{1}/'
 
