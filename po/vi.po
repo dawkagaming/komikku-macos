@@ -7,40 +7,44 @@ msgstr ""
 "Project-Id-Version: Komikku 1.44.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-04-25 23:18+0200\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: Automatically generated\n"
-"Language-Team: none\n"
+"PO-Revision-Date: 2024-04-26 15:37+0000\n"
+"Last-Translator: niyaki hayyashi <animedaytime@gmail.com>\n"
+"Language-Team: Vietnamese <https://hosted.weblate.org/projects/komikku/main/"
+"vi/>\n"
 "Language: vi\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Weblate 5.5.1\n"
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:11
 msgid "Discover and read manga &amp; comics"
-msgstr ""
+msgstr "Khám phá, đọc manga và truyện tranh"
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:13
 msgid ""
 "With its simple, elegant and adaptive interface, this reader lets you "
 "search, sort and read your series with ease."
 msgstr ""
+"Với giao diện đơn giản, thân thuộc và dễ làm quen, trình đọc này cho phép "
+"bạn tìm kiếm, sắp xếp và đọc bộ truyện của mình một cách dễ dàng."
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:15
 msgid "Why you will love Komikku?"
-msgstr ""
+msgstr "Vì sao bạn yêu thích Komikku?"
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:17
 msgid "Online and offline reading from dozens of servers"
-msgstr ""
+msgstr "Đọc trực tuyến và ngoại tuyến từ hàng chục máy chủ"
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:18
 msgid "Support for locally stored series (in CBZ or CBR formats)"
-msgstr ""
+msgstr "Hỗ trợ các chuỗi được lưu trữ cục bộ (ở định dạng CBZ hoặc CBR)"
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:19
 msgid "RTL, LTR, Vertical and Webtoon reading modes"
-msgstr ""
+msgstr "Chế độ đọc RTL, LTR, Dọc và Webtoon"
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:20
 msgid ""
@@ -48,573 +52,585 @@ msgid ""
 "navigation layout via mouse click or tapping (touchpad/touch screen), mouse "
 "wheel, 2-fingers swipe gesture (touchpad), swipe gesture (touch screen)"
 msgstr ""
+"Hỗ trợ một số loại điều hướng: phím mũi tên trên bàn phím, bố cục điều hướng "
+"phải và trái thông qua nhấp chuột hoặc chạm (bàn di chuột/màn hình cảm ứng), "
+"con lăn chuột, cử chỉ vuốt 2 ngón tay (bàn di chuột), cử chỉ vuốt (màn hình "
+"cảm ứng)"
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:21
 msgid "Categories to organize your library"
-msgstr ""
+msgstr "Tạo các danh mục trong thư viện của bạn"
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:22
 msgid "Automatic update of series"
-msgstr ""
+msgstr "Tự động cập nhật tất cả các chương"
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:23
 msgid "Automatic download of new chapters"
-msgstr ""
+msgstr "Tự động tải xuống các chương mới"
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:24
 msgid "Reading history"
-msgstr ""
+msgstr "Xem lại lịch sử đọc"
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:25
 msgid "Light and dark themes"
-msgstr ""
+msgstr "Chủ đề sáng và tối"
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:46
 msgid "The Library page"
-msgstr ""
+msgstr "Lưu truyện vào thư viện"
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:50
 msgid "The Library page with the category sidebar open"
-msgstr ""
+msgstr "Trang Thư viện với thanh bên danh mục đang mở"
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:54
 msgid "The Preferences page (Library settings)"
-msgstr ""
+msgstr "Trang Tùy chọn (Cài đặt thư viện)"
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:58
 msgid "The Explorer page in mobile format (Servers list)"
-msgstr ""
+msgstr "Trang Explorer ở định dạng di động (danh sách Máy chủ)"
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:62
 msgid "The Details page"
-msgstr ""
+msgstr "Trang chi tiết"
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:66
 msgid "The Details page (chapters list)"
-msgstr ""
+msgstr "Trang Chi tiết (danh sách chương)"
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:70
 msgid "The Reader page"
-msgstr ""
+msgstr "Trang Người đọc"
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:74
 msgid "The Reader page in mobile format"
-msgstr ""
+msgstr "Trang Reader ở định dạng di động"
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:78
 msgid "The Category editor page in mobile format"
-msgstr ""
+msgstr "Trang biên tập Danh mục ở định dạng di động"
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:82
 msgid "The Reading history page in mobile format"
-msgstr ""
+msgstr "Trang Lịch sử đọc ở định dạng di động"
 
 #: ../data/info.febvre.Komikku.desktop.in:3
 msgid "@prettyname@"
-msgstr ""
+msgstr "@cái_tên_đẹp@"
 
 #: ../data/info.febvre.Komikku.desktop.in:4
 msgid "@description@"
-msgstr ""
+msgstr "@Mô_tả@"
 
 #: ../data/info.febvre.Komikku.desktop.in:13
 msgid ""
 "manga;reader;viewer;comic;manhwa;manhua;bd;webtoon;webcomic;scan;offline;GTK;"
 "GNOME;"
 msgstr ""
+"truyện tranh;người đọc;người xem;truyện "
+"tranh;manhwa;manhua;bd;webtoon;webcomic;scan;ngoại tuyến;GTK;Gnome;"
 
 #: ../data/ui/card.blp:32 ../data/ui/card.blp:444
 #: ../data/ui/card_chapters_list_row.blp:44 ../data/ui/download_manager.blp:22
 #: ../data/ui/library.blp:142 ../data/ui/reader.blp:33
 msgid "Menu"
-msgstr ""
+msgstr "Menu"
 
 #: ../data/ui/card.blp:53
 msgid "Info"
-msgstr ""
+msgstr "Thông tin"
 
 #: ../data/ui/card.blp:141
 msgid "Add to Library"
-msgstr ""
+msgstr "Thêm vào thư viện"
 
 #: ../data/ui/card.blp:171
 msgid "Details"
-msgstr ""
+msgstr "Chi tiết"
 
 #: ../data/ui/card.blp:202
 msgid "Genres"
-msgstr ""
+msgstr "Thể loại"
 
 #: ../data/ui/card.blp:235
 msgid "Scanlators"
-msgstr ""
+msgstr "Máy scan"
 
 #: ../data/ui/card.blp:298
 msgid "Last Update"
-msgstr ""
+msgstr "Cập nhật cuối cùng"
 
 #: ../data/ui/card.blp:330
 msgid "Size on Disk"
-msgstr ""
+msgstr "Kích thước trên đĩa"
 
 #: ../data/ui/card.blp:356
 msgid "Synopsis"
-msgstr ""
+msgstr "Tóm tắt"
 
 #: ../data/ui/card.blp:484 ../data/ui/categories_editor.blp:64
 #: ../data/ui/library.blp:247
 msgid "No Categories"
-msgstr ""
+msgstr "Không có danh mục"
 
 #: ../data/ui/card_chapters_list_row.blp:61
 msgid "New"
-msgstr ""
+msgstr "Mới"
 
 #: ../data/ui/categories_editor.blp:33
 msgid "Add"
-msgstr ""
+msgstr "Thêm"
 
 #: ../data/ui/download_manager.blp:6 ../data/ui/download_manager.blp:16
 msgid "Download Manager"
-msgstr ""
+msgstr "Quản lý tải xuống"
 
 #: ../data/ui/download_manager.blp:28
 msgid "Start/Stop Download"
-msgstr ""
+msgstr "Bắt đầu/Dừng tải xuống"
 
 #: ../data/ui/download_manager.blp:65
 msgid "No Downloads"
-msgstr ""
+msgstr "Không có gì hết =}}}"
 
 #: ../data/ui/explorer_search.blp:10 ../data/ui/explorer_search.blp:41
 #: ../data/ui/history.blp:18 ../data/ui/library.blp:36
 msgid "Search"
-msgstr ""
+msgstr "Tìm kiếm"
 
 #: ../data/ui/explorer_search.blp:28
 msgid "Search Filters"
-msgstr ""
+msgstr "Bộ lọc tìm kiếm"
 
 #: ../data/ui/explorer_search.blp:34
 msgid "Open in Browser"
-msgstr ""
+msgstr "Mở trong trình duyệt"
 
 #: ../data/ui/explorer_search.blp:152
 msgid "Most Popular"
-msgstr ""
+msgstr "Phổ biến nhất"
 
 #: ../data/ui/explorer_search.blp:226
 msgid "Latest Updates"
-msgstr ""
+msgstr "Cập nhật mới nhất"
 
 #: ../data/ui/explorer_servers.blp:6
 msgid "Servers"
-msgstr ""
+msgstr "Máy chủ"
 
 #: ../data/ui/explorer_servers.blp:13
 msgid "Search Comics Across All Servers"
-msgstr ""
+msgstr "Tìm kiếm truyện tranh trên tất cả các máy chủ"
 
 #: ../data/ui/explorer_servers.blp:19
 msgid "Search Servers"
-msgstr ""
+msgstr "Tìm kiếm Máy chủ"
 
 #: ../data/ui/explorer_servers.blp:33
 msgid "Search for servers by name or language"
-msgstr ""
+msgstr "Tìm kiếm máy chủ theo tên hoặc ngôn ngữ"
 
 #: ../data/ui/history.blp:6 ../data/ui/history.blp:12
 msgid "History"
-msgstr ""
+msgstr "Lịch sử"
 
 #: ../data/ui/history.blp:69
 msgid "No History"
-msgstr ""
+msgstr "Không có gì hết =}}}"
 
 #: ../data/ui/library.blp:6 ../data/ui/preferences.blp:48
 msgid "Library"
-msgstr ""
+msgstr "Thư viện"
 
 #: ../data/ui/library.blp:19
 msgid "Toggle Categories Sidebar"
-msgstr ""
+msgstr "Chuyển đổi danh mục Thanh bên"
 
 #: ../data/ui/library.blp:23
 msgid "Komikku"
-msgstr ""
+msgstr "Komikku"
 
 #: ../data/ui/library.blp:30
 msgid "Main Menu"
-msgstr ""
+msgstr "Menu chính"
 
 #: ../data/ui/library.blp:74
 msgid "Search by name, server or genre"
-msgstr ""
+msgstr "Tìm kiếm theo tên, máy chủ hoặc thể loại"
 
 #: ../data/ui/library.blp:121 ../data/ui/preferences.blp:135
 msgid "Update"
-msgstr ""
+msgstr "Cập nhật"
 
 #: ../data/ui/library.blp:196
 msgid "Discover Comics"
-msgstr ""
+msgstr "Khám phá truyện tranh"
 
 #: ../data/ui/library.blp:269
 msgid "OK"
-msgstr ""
+msgstr "Vâng"
 
 #: ../data/ui/menu/card.xml:25
 msgid "Order of Chapters"
-msgstr ""
+msgstr "Thứ tự các chương"
 
 #: ../data/ui/menu/card.xml:30
 msgid "⬆ By Source"
-msgstr ""
+msgstr "⬆ Theo nguồn"
 
 #: ../data/ui/menu/card.xml:35
 msgid "⬇ By Source"
-msgstr ""
+msgstr "⬇ Theo nguồn"
 
 #: ../data/ui/menu/card.xml:41
 msgid "⬆ By Date"
-msgstr ""
+msgstr "⬆ Theo ngày"
 
 #: ../data/ui/menu/card.xml:46
 msgid "⬇ By Date"
-msgstr ""
+msgstr "⬇ Theo ngày"
 
 #: ../data/ui/menu/card.xml:52
 msgid "⬆ By Title"
-msgstr ""
+msgstr "⬆ Theo tiêu đề"
 
 #: ../data/ui/menu/card.xml:57
 msgid "⬇ By Title"
-msgstr ""
+msgstr "⬇ Theo tiêu đề"
 
 #: ../data/ui/menu/card_selection_mode.xml:18
 #: ../data/ui/menu/library_selection_mode.xml:25
 msgid "Select All"
-msgstr ""
+msgstr "Chọn tất cả"
 
 #: ../data/ui/menu/download_manager.xml:7
 msgid "Delete All"
-msgstr ""
+msgstr "Xóa tất cả"
 
 #: ../data/ui/menu/explorer_search_global_search.xml:7
 msgid "Pinned Servers Only"
-msgstr ""
+msgstr "Chỉ máy chủ được ghim"
 
 #: ../data/ui/menu/library_search.xml:7
 msgid "Unread"
-msgstr ""
+msgstr "Chưa đọc"
 
 #: ../data/ui/menu/library_search.xml:15
 msgid "Recents"
-msgstr ""
+msgstr "Gần đây"
 
 #: ../data/ui/menu/library_selection_mode.xml:7
 msgid "Edit Categories"
-msgstr ""
+msgstr "Chỉnh sửa danh mục"
 
 #: ../data/ui/menu/main.xml:7
 msgid "Update Library"
-msgstr ""
+msgstr "Cập nhật thư viện"
 
 #: ../data/ui/menu/main.xml:11
 msgid "Sort"
-msgstr ""
+msgstr "Loại"
 
 #: ../data/ui/menu/main.xml:16
 msgid "Alphabetical"
-msgstr ""
+msgstr "theo bảng chữ cái"
 
 #: ../data/ui/menu/main.xml:21
 msgid "Latest Read First"
-msgstr ""
+msgstr "Đọc mới nhất đầu tiên"
 
 #: ../data/ui/menu/main.xml:26
 msgid "Latest Updated First"
-msgstr ""
+msgstr "Cập nhật mới nhất Đầu tiên"
 
 #: ../data/ui/menu/main.xml:55
 msgid "Keyboard Shortcuts"
-msgstr ""
+msgstr "Các phím tắt bàn phím"
 
 #: ../data/ui/menu/main.xml:59
 msgid "Donate"
-msgstr ""
+msgstr "Ủng hộ"
 
 #: ../data/ui/menu/main.xml:63
 msgid "About Komikku"
-msgstr ""
+msgstr "Giới thiệu về Komikku"
 
 #: ../data/ui/menu/reader.xml:35
 msgid "Type of Scaling"
-msgstr ""
+msgstr "Loại tỷ lệ"
 
 #: ../data/ui/menu/reader.xml:91
 msgid "Zoom Landscape Pages"
-msgstr ""
+msgstr "Thu phóng trang ngang"
 
 #: ../data/ui/menu/reader.xml:95
 msgid "Crop Borders"
-msgstr ""
+msgstr "Cắt viền"
 
 #: ../data/ui/menu/reader.xml:99
 msgid "Hide Page Numbering"
-msgstr ""
+msgstr "Ẩn đánh số trang"
 
 #: ../data/ui/menu/reader.xml:106
 msgid "Save Page"
-msgstr ""
+msgstr "Lưu trang"
 
 #: ../data/ui/preferences.blp:9 ../data/ui/preferences_servers_languages.blp:11
 #: ../data/ui/preferences_servers_settings.blp:11
 msgid "Preferences"
-msgstr ""
+msgstr "Sở thích"
 
 #: ../data/ui/preferences.blp:14
 msgid "General"
-msgstr ""
+msgstr "Tổng quan"
 
 #: ../data/ui/preferences.blp:19
 msgid "Theme"
-msgstr ""
+msgstr "Chủ đề"
 
 #: ../data/ui/preferences.blp:22
 msgid "Light"
-msgstr ""
+msgstr "Sáng"
 
 #: ../data/ui/preferences.blp:23
 msgid "Dark"
-msgstr ""
+msgstr "Tối"
 
 #: ../data/ui/preferences.blp:24
 msgid "Follow System"
-msgstr ""
+msgstr "Theo dõi hệ thống"
 
 #: ../data/ui/preferences.blp:30
 msgid "Night Light"
-msgstr ""
+msgstr "Ánh sáng ban đêm"
 
 #: ../data/ui/preferences.blp:31
 msgid "Automatically enable dark theme at night"
-msgstr ""
+msgstr "Tự động bật chủ đề tối vào ban đêm"
 
 #: ../data/ui/preferences.blp:35
 msgid "Desktop Notifications"
-msgstr ""
+msgstr "Thông báo trên màn hình"
 
 #: ../data/ui/preferences.blp:36
 msgid "Use desktop notifications for downloads and library updates"
-msgstr ""
+msgstr "Sử dụng thông báo trên màn hình để tải xuống và cập nhật thư viện"
 
 #: ../data/ui/preferences.blp:40
 msgid "Backdrop in Details Page"
-msgstr ""
+msgstr "Phông nền trong trang chi tiết"
 
 #: ../data/ui/preferences.blp:41
 msgid "Enable background recoloring to match cover"
-msgstr ""
+msgstr "Cho phép đổi màu nền để phù hợp với bìa"
 
 #: ../data/ui/preferences.blp:52
 msgid "Display"
-msgstr ""
+msgstr "Trưng bày"
 
 #: ../data/ui/preferences.blp:55
 msgid "Display Mode"
-msgstr ""
+msgstr "Chế độ hiển thị"
 
 #: ../data/ui/preferences.blp:58
 msgid "Grid"
-msgstr ""
+msgstr "Lưới"
 
 #: ../data/ui/preferences.blp:59
 msgid "Compact Grid"
-msgstr ""
+msgstr "Lưới nhỏ gọn"
 
 #: ../data/ui/preferences.blp:65
 msgid "Servers Logo"
-msgstr ""
+msgstr "Logo máy chủ"
 
 #: ../data/ui/preferences.blp:66
 msgid "Display servers logo"
-msgstr ""
+msgstr "Hiển thị logo máy chủ"
 
 #: ../data/ui/preferences.blp:70
 msgid "Badges"
-msgstr ""
+msgstr "danh hiệu"
 
 #: ../data/ui/preferences.blp:73
 msgid "Number of Unread Chapters"
-msgstr ""
+msgstr "Số chương chưa đọc"
 
 #: ../data/ui/preferences.blp:93
 msgid "Number of Downloaded Chapters"
-msgstr ""
+msgstr "Số lượng chương đã tải xuống"
 
 #: ../data/ui/preferences.blp:113
 msgid "Number of Recent and Unread Chapters"
-msgstr ""
+msgstr "Số chương gần đây và chưa đọc"
 
 #: ../data/ui/preferences.blp:138
 msgid "Update at Startup"
-msgstr ""
+msgstr "Cập nhật lúc khởi động"
 
 #: ../data/ui/preferences.blp:139
 msgid "Automatically update library at startup"
-msgstr ""
+msgstr "Tự động cập nhật thư viện khi khởi động"
 
 #: ../data/ui/preferences.blp:143
 msgid "Auto Download of New Chapters"
-msgstr ""
+msgstr "Tự động tải xuống các chương mới"
 
 #: ../data/ui/preferences.blp:144
 msgid "Automatically download new chapters"
-msgstr ""
+msgstr "Tự động tải chương mới"
 
 #: ../data/ui/preferences.blp:149
 msgid "Explorer"
-msgstr ""
+msgstr "Khám phá"
 
 #: ../data/ui/preferences.blp:152
 #: ../data/ui/preferences_servers_languages.blp:6
 #: ../data/ui/preferences_servers_languages.blp:12
 msgid "Servers Languages"
-msgstr ""
+msgstr "Ngôn ngữ máy chủ"
 
 #: ../data/ui/preferences.blp:153
 msgid "Restrict servers to selected languages"
-msgstr ""
+msgstr "Hạn chế máy chủ ở các ngôn ngữ đã chọn"
 
 #: ../data/ui/preferences.blp:161 ../data/ui/preferences_servers_settings.blp:6
 #: ../data/ui/preferences_servers_settings.blp:12
 msgid "Servers Settings"
-msgstr ""
+msgstr "Cài đặt máy chủ"
 
 #: ../data/ui/preferences.blp:162
 msgid "Enable/disable and configure servers"
-msgstr ""
+msgstr "Bật/tắt và định cấu hình máy chủ"
 
 #: ../data/ui/preferences.blp:170
 msgid "Long Strip Detection"
-msgstr ""
+msgstr "Phát hiện dải dài"
 
 #: ../data/ui/preferences.blp:171
 msgid "Automatically detect long vertical strip when possible"
-msgstr ""
+msgstr "Tự động phát hiện dải dọc dài khi có thể"
 
 #: ../data/ui/preferences.blp:177
 msgid "NSFW Content (18+)"
-msgstr ""
+msgstr "Nội dung NSFW (18+)"
 
 #: ../data/ui/preferences.blp:178
 msgid "Whether to enable servers with NSFW content"
-msgstr ""
+msgstr "Có bật máy chủ có nội dung NSFW hay không"
 
 #: ../data/ui/preferences.blp:182
 msgid "NSFW Only Content (18+)"
-msgstr ""
+msgstr "Nội dung chỉ NSFW (18+)"
 
 #: ../data/ui/preferences.blp:183
 msgid "Whether to enable servers with NSFW only content"
-msgstr ""
+msgstr "Có bật máy chủ chỉ có nội dung NSFW hay không"
 
 #: ../data/ui/preferences.blp:187
 msgid ""
 "These settings do not prevent potentially incorrectly flagged servers from "
 "surfacing NSFW content."
 msgstr ""
+"Các cài đặt này không ngăn các máy chủ bị gắn cờ có khả năng không chính xác "
+"hiển thị nội dung NSFW."
 
 #: ../data/ui/preferences.blp:202 ../data/ui/reader.blp:6
 msgid "Reader"
-msgstr ""
+msgstr "Người đọc"
 
 #: ../data/ui/preferences.blp:207
 msgid "Reading Mode"
-msgstr ""
+msgstr "Chế độ người đọc"
 
 #: ../data/ui/preferences.blp:210
 msgid "⬅ Right to Left"
-msgstr ""
+msgstr "⬅ Phải sang trái"
 
 #: ../data/ui/preferences.blp:211
 msgid "➡ Left to Right"
-msgstr ""
+msgstr "➡ Trái sang phải"
 
 #: ../data/ui/preferences.blp:212
 msgid "⬇ Vertical"
-msgstr ""
+msgstr "⬇ Dọc"
 
 #: ../data/ui/preferences.blp:213
 msgid "⬇ Webtoon"
-msgstr ""
+msgstr "⬇ cuộn theo chiều dọc."
 
 #: ../data/ui/preferences.blp:219
 msgid "Maximum Width"
-msgstr ""
+msgstr "Chiều rộng tối đa"
 
 #: ../data/ui/preferences.blp:220
 msgid ""
 "Constrain reader's width to a given maximum size (Webtoon reading mode only)"
 msgstr ""
+"Giới hạn chiều rộng của trình đọc ở một kích thước tối đa nhất định (chỉ ở "
+"chế độ đọc Webtoon)"
 
 #: ../data/ui/preferences.blp:231
 msgid "Scaling"
-msgstr ""
+msgstr "Chia tỷ lệ"
 
 #: ../data/ui/preferences.blp:232
 msgid "Type of scaling to adapt image"
-msgstr ""
+msgstr "Kiểu chia tỷ lệ để điều chỉnh hình ảnh"
 
 #: ../data/ui/preferences.blp:235
 msgid "Adapt to Screen"
-msgstr ""
+msgstr "Thích ứng với màn hình"
 
 #: ../data/ui/preferences.blp:236
 msgid "Adapt to Width"
-msgstr ""
+msgstr "Thích ứng với chiều rộng"
 
 #: ../data/ui/preferences.blp:237
 msgid "Adapt to Height"
-msgstr ""
+msgstr "Thích nghi với chiều cao"
 
 #: ../data/ui/preferences.blp:238
 msgid "Original Size"
-msgstr ""
+msgstr "Kích thước ban đầu"
 
 #: ../data/ui/preferences.blp:244
 msgid "Landscape Pages Zoom"
-msgstr ""
+msgstr "Thu phóng trang ngang"
 
 #: ../data/ui/preferences.blp:245
 msgid ""
 "Zoom page to fit height when page is landscape (Adapt to Screen scaling only)"
 msgstr ""
+"Thu phóng trang để vừa với chiều cao khi trang ở chế độ ngang (Chỉ thích ứng "
+"với tỷ lệ màn hình)"
 
 #: ../data/ui/preferences.blp:249
 msgid "Background Color"
-msgstr ""
+msgstr "Màu nền"
 
 #: ../data/ui/preferences.blp:252
 msgid "White"
-msgstr ""
+msgstr "Màu Trắng"
 
 #: ../data/ui/preferences.blp:253
 msgid "Gray"
-msgstr ""
+msgstr "Màu Xám"
 
 #: ../data/ui/preferences.blp:254
 msgid "Black"
-msgstr ""
+msgstr "Màu Đen"
 
 #: ../data/ui/preferences.blp:255
 msgid "System Style"
-msgstr ""
+msgstr "Kiểu hệ thống"
 
 #: ../data/ui/preferences.blp:261
 msgid "Borders Crop"
-msgstr ""
+msgstr "Cắt viền"
 
 #: ../data/ui/preferences.blp:262
 msgid ""
@@ -623,68 +639,74 @@ msgid ""
 "NOTE: Requires more CPU usage and can cause rendering and animation "
 "slowdowns, especially on mobile devices."
 msgstr ""
+"Cắt viền trắng của hình ảnh\n"
+"\n"
+"LƯU Ý: Yêu cầu sử dụng nhiều CPU hơn và có thể gây ra tình trạng chậm hiển "
+"thị và hoạt ảnh, đặc biệt là trên thiết bị di động."
 
 #: ../data/ui/preferences.blp:266
 msgid "Page Numbering"
-msgstr ""
+msgstr "Đánh số trang"
 
 #: ../data/ui/preferences.blp:267
 msgid "Hide the page numbering at the bottom of the screen while reading"
-msgstr ""
+msgstr "Ẩn đánh số trang cuối màn hình khi đọc"
 
 #: ../data/ui/preferences.blp:271
 msgid "Fullscreen"
-msgstr ""
+msgstr "Toàn màn hình"
 
 #: ../data/ui/preferences.blp:272
 msgid "Automatically enter fullscreen mode"
-msgstr ""
+msgstr "Tự động vào chế độ toàn màn hình"
 
 #: ../data/ui/preferences.blp:279
 msgid "Advanced"
-msgstr ""
+msgstr "Trình độ cao"
 
 #: ../data/ui/preferences.blp:283
 msgid "Data"
-msgstr ""
+msgstr "Dữ liệu"
 
 #: ../data/ui/preferences.blp:284
 msgid "Data not saved in the library"
-msgstr ""
+msgstr "Dữ liệu chưa được lưu trong thư viện"
 
 #: ../data/ui/preferences.blp:287
 msgid "Clear Chapters Cache and Database"
-msgstr ""
+msgstr "Xóa bộ nhớ cache và cơ sở dữ liệu của chương"
 
 #: ../data/ui/preferences.blp:292
 msgid "Clear Chapters Cache and Database on Exit"
-msgstr ""
+msgstr "Xóa bộ nhớ cache và cơ sở dữ liệu của chương khi thoát"
 
 #: ../data/ui/preferences.blp:297
 msgid "Credentials Storage"
-msgstr ""
+msgstr "Lưu trữ thông tin xác thực"
 
 #: ../data/ui/preferences.blp:300
 msgid "Allow Plaintext Storage as Fallback"
-msgstr ""
+msgstr "Cho phép lưu trữ văn bản gốc dưới dạng dự phòng"
 
 #: ../data/ui/preferences.blp:301
 msgid "Used when no keyring backends are found"
-msgstr ""
+msgstr "Được sử dụng khi không tìm thấy phần phụ trợ khóa"
 
 #: ../data/ui/preferences.blp:306
 msgid "Tweaks"
-msgstr ""
+msgstr "Tinh chỉnh"
 
 #: ../data/ui/preferences.blp:309
 msgid "Disable Animations"
-msgstr ""
+msgstr "Tắt ảnh động"
 
 #: ../data/ui/preferences.blp:310
 msgid ""
 "Useful with E Ink e-readers to avoid very choppy and unpleasant animations "
 "(due to the low refresh rate of the screen)"
 msgstr ""
+"Hữu ích với trình đọc sách điện tử E Ink để tránh các hình ảnh động bị giật "
+"và khó chịu (do tốc độ làm mới màn hình thấp)"
 
 #: ../data/ui/preferences.blp:314
 msgid ""
@@ -692,144 +714,151 @@ msgid ""
 "environment and therefore cannot disable animations globally via GNOME "
 "Settings (Accessibility ⇨ Seeing ⇨ Reduce Animation)."
 msgstr ""
+"Tinh chỉnh này chỉ dành cho người dùng không sử dụng môi trường máy tính để "
+"bàn Gnome và do đó không thể tắt hoạt ảnh trên toàn cầu thông qua Cài đặt "
+"Gnome (Khả năng truy cập ⇨ Xem ⇨ Giảm hoạt ảnh)."
 
 #: ../data/ui/reader.blp:19
 msgid "Back"
-msgstr ""
+msgstr "Quay lại"
 
 #: ../data/ui/reader.blp:27
 msgid "Toggle Fullscreen Mode"
-msgstr ""
+msgstr "Bật chế độ toàn màn hình"
 
 #: ../data/ui/shortcuts_overview.blp:11
 msgctxt "Shortcut window description"
 msgid "Application"
-msgstr ""
+msgstr "Ứng dụng"
 
 #: ../data/ui/shortcuts_overview.blp:14
 msgctxt "Shortcut window description"
 msgid "Open Preferences"
-msgstr ""
+msgstr "Mở tùy chọn"
 
 #: ../data/ui/shortcuts_overview.blp:19
 msgctxt "Shortcut window description"
 msgid "Toggle Fullscreen Mode"
-msgstr ""
+msgstr "Bật chế độ toàn màn hình"
 
 #: ../data/ui/shortcuts_overview.blp:24
 msgctxt "Shortcut window description"
 msgid "Open Keyboard Shortcuts"
-msgstr ""
+msgstr "Mở phím tắt"
 
 #: ../data/ui/shortcuts_overview.blp:30
 msgctxt "Shortcut window description"
 msgid "Library"
-msgstr ""
+msgstr "Thư viện"
 
 #: ../data/ui/shortcuts_overview.blp:33
 msgctxt "Shortcut window description"
 msgid "Add Manga"
-msgstr ""
+msgstr "Thêm Manga"
 
 #: ../data/ui/shortcuts_overview.blp:38
 msgctxt "Shortcut window description"
 msgid "Select All"
-msgstr ""
+msgstr "Chọn tất cả"
 
 #: ../data/ui/shortcuts_overview.blp:43
 msgctxt "Shortcut window description"
 msgid "Search"
-msgstr ""
+msgstr "Tìm kiếm"
 
 #: ../data/ui/shortcuts_overview.blp:49
 msgctxt "Shortcut window description"
 msgid "Manga Card"
-msgstr ""
+msgstr "Thẻ Truyện Tranh"
 
 #: ../data/ui/shortcuts_overview.blp:52
 msgctxt "Shortcut window description"
 msgid "Select All Chapters"
-msgstr ""
+msgstr "Chọn tất cả các chương"
 
 #: ../data/ui/shortcuts_overview.blp:58
 msgctxt "Shortcut window description"
 msgid "Reader"
-msgstr ""
+msgstr "Người đọc"
 
 #: ../data/ui/shortcuts_overview.blp:61
 msgctxt "Shortcut window description"
 msgid "Save Page"
-msgstr ""
+msgstr "Lưu trang"
 
 #: ../data/ui/shortcuts_overview.blp:67
 msgctxt "Shortcut window description"
 msgid "Download Manager"
-msgstr ""
+msgstr "Quản lý tải xuống"
 
 #: ../data/ui/shortcuts_overview.blp:70
 msgctxt "Shortcut window description"
 msgid "Select All Downloads"
-msgstr ""
+msgstr "Chọn tất cả tải xuống"
 
 #: ../data/ui/support.blp:6 ../data/ui/support.blp:12
 msgid "Support Development"
-msgstr ""
+msgstr "Hỗ trợ phát triển"
 
 #: ../data/ui/support.blp:46
 msgid "How can you support?"
-msgstr ""
+msgstr "Bạn có thể hỗ trợ bằng cách nào?"
 
 #: ../data/ui/support.blp:54
 msgid ""
 "Developing and maintaining Komikku is a challenging task that takes up most "
 "of my free time."
 msgstr ""
+"Phát triển và duy trì Komikku là một nhiệm vụ đầy thách thức chiếm phần lớn "
+"thời gian rảnh của tôi."
 
 #: ../data/ui/support.blp:61
 msgid "Komikku will always be free and open-source and will never contain ads."
-msgstr ""
+msgstr "Komikku sẽ luôn miễn phí, có nguồn mở và không bao giờ chứa quảng cáo."
 
 #: ../data/ui/support.blp:68
 msgid ""
 "So if you like it, and you are able, please consider a one-time or recurring "
 "donation to support me, it will be hugely appreciated."
 msgstr ""
+"Vì vậy, nếu bạn thích nó và có khả năng, vui lòng cân nhắc quyên góp một lần "
+"hoặc định kỳ để hỗ trợ tôi, nó sẽ được đánh giá rất cao."
 
 #: ../data/ui/support.blp:82
 msgid "Weekly, monthly or yearly donation"
-msgstr ""
+msgstr "Đóng góp hàng tuần, hàng tháng hoặc hàng năm"
 
 #: ../data/ui/support.blp:88 ../data/ui/support.blp:104
 #: ../data/ui/support.blp:120
 msgid "Donate and Support"
-msgstr ""
+msgstr "Đóng góp và hỗ trợ"
 
 #: ../data/ui/support.blp:98
 msgid "One-time donation"
-msgstr ""
+msgstr "Đóng góp một lần"
 
 #: ../data/ui/support.blp:114
 msgid "One-time or monthly donation"
-msgstr ""
+msgstr "Đóng góp một lần hoặc hàng tháng"
 
 #: ../data/ui/webview.blp:6
 msgid "Webview"
-msgstr ""
+msgstr "Chế độ xem web"
 
 #: ../komikku/application.py:159
 msgid "Multiple URLs not supported"
-msgstr ""
+msgstr "Nhiều URL không được hỗ trợ"
 
 #: ../komikku/application.py:175
 msgid "Invalid URL {}, not handled by any server."
-msgstr ""
+msgstr "URL không hợp lệ {}, không được xử lý bởi bất kỳ máy chủ nào."
 
 #: ../komikku/application.py:358 ../komikku/card/__init__.py:136
 #: ../komikku/card/__init__.py:137 ../komikku/categories_editor.py:188
 #: ../komikku/downloader.py:378 ../komikku/downloader.py:379
 #: ../komikku/library/__init__.py:764 ../komikku/library/__init__.py:765
 msgid "Cancel"
-msgstr ""
+msgstr "Hủy bỏ"
 
 #: ../komikku/application.py:420
 msgid ""
@@ -839,42 +868,47 @@ msgid ""
 "by buying the official comics when they are\n"
 "available in your region/language."
 msgstr ""
+"Một trình đọc truyện tranh, manhwa, manhua, webtoons, webcomics và truyện "
+"tranh cho Gnome\n"
+"-Đừng bao giờ quên, các bạn có thể ủng hộ tác giả\n"
+"-bằng cách mua truyện tranh chính thức khi chúng có sẵn ở khu vực/ngôn ngữ "
+"của bạn."
 
 #: ../komikku/application.py:429
 msgid "Supporters"
-msgstr ""
+msgstr "Hỗ trợ"
 
 #: ../komikku/application.py:431
 msgid "Join Chat"
-msgstr ""
+msgstr "Tham gia trò chuyện"
 
 #: ../komikku/application.py:547
 msgid "Are you sure you want to quit?"
-msgstr ""
+msgstr "Bạn có chắc bạn muốn thoát khỏi?"
 
 #: ../komikku/application.py:550
 msgid "Some chapters are currently being downloaded."
-msgstr ""
+msgstr "Một số chương hiện đang được tải xuống."
 
 #: ../komikku/application.py:552
 msgid "Some mangas are currently being updated."
-msgstr ""
+msgstr "Một số manga hiện đang được cập nhật."
 
 #: ../komikku/application.py:556
 msgid "Quit?"
-msgstr ""
+msgstr "Rời khỏi?"
 
 #: ../komikku/application.py:558
 msgid "Quit"
-msgstr ""
+msgstr "Thoát"
 
 #: ../komikku/card/__init__.py:251
 msgid "Read progress synchronization with server completed successfully"
-msgstr ""
+msgstr "Đồng bộ hóa tiến trình đọc với máy chủ đã hoàn tất thành công"
 
 #: ../komikku/card/__init__.py:262
 msgid "Failed to get manga URL"
-msgstr ""
+msgstr "Không lấy được URL truyện tranh"
 
 #: ../komikku/card/__init__.py:287
 #, python-brace-format
@@ -883,66 +917,68 @@ msgid ""
 "{0} is no longer supported.\n"
 "Please switch to another server."
 msgstr ""
+"ĐỂ Ý\n"
+"{0} không còn được hỗ trợ.\n"
+"Vui lòng chuyển sang máy chủ khác."
 
 #: ../komikku/card/__init__.py:423
 msgid "Unknown author"
-msgstr ""
+msgstr "Không rõ tác giả"
 
 #: ../komikku/card/__init__.py:429 ../komikku/card/__init__.py:438
 msgid "Unknown status"
-msgstr ""
+msgstr "Trạng thái không xác định"
 
 #: ../komikku/card/__init__.py:439 ../komikku/explorer/common.py:226
 msgid "Local"
-msgstr ""
+msgstr "Môi trường"
 
 #: ../komikku/card/__init__.py:465 ../komikku/card/chapters_list.py:607
 msgid "%m/%d/%Y"
-msgstr ""
+msgstr "Ngày/Tháng/Năm"
 
 #: ../komikku/card/chapters_list.py:309 ../komikku/downloader.py:523
 #: ../komikku/library/__init__.py:796
 #, python-brace-format
 msgid "{0} selected"
 msgid_plural "{0} selected"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "{0}Đã chọn"
 
 #: ../komikku/card/chapters_list.py:381 ../komikku/card/chapters_list.py:476
 msgid "Failed to update chapters reading status"
-msgstr ""
+msgstr "Không thể cập nhật trạng thái đọc chương"
 
 #: ../komikku/card/chapters_list.py:664 ../komikku/library/__init__.py:391
 msgid "Download"
-msgstr ""
+msgstr "Tải xuống"
 
 #: ../komikku/card/chapters_list.py:674 ../komikku/preferences.py:130
 msgid "Clear"
-msgstr ""
+msgstr "Dọn dẹp"
 
 #: ../komikku/card/chapters_list.py:678
 msgid "Clear and Reset"
-msgstr ""
+msgstr "Xóa và đặt lại"
 
 #: ../komikku/card/chapters_list.py:678
 msgid "Reset"
-msgstr ""
+msgstr "Cài Đặt lại"
 
 #: ../komikku/card/chapters_list.py:688
 msgid "Mark as Read"
-msgstr ""
+msgstr "Đánh dấu là đã đọc"
 
 #: ../komikku/card/chapters_list.py:692
 msgid "Mark as Unread"
-msgstr ""
+msgstr "Đánh dấu là chưa đọc"
 
 #: ../komikku/card/chapters_list.py:696
 msgid "Mark Previous Chapters as Read"
-msgstr ""
+msgstr "Đánh dấu các chương trước là đã đọc"
 
 #: ../komikku/categories_editor.py:77 ../komikku/library/__init__.py:365
 msgid "Delete?"
-msgstr ""
+msgstr "Xóa bỏ?"
 
 #: ../komikku/categories_editor.py:78
 #, python-brace-format
