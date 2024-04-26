@@ -286,20 +286,28 @@ class ExplorerSearchPage(Adw.NavigationPage):
             self.window.show_notification(_('Oops, server website URL is unknown.'), 2)
 
     def on_shown(self, _page):
-        if self.window.last_navigation_action != 'pop':
-            return
+        def do_render_covers():
+            if self.window.last_navigation_action != 'pop':
+                return
 
-        # Last page has been popped from the navigation stack (user comes back)
-        # recall render_covers(), some covers may not yet have been processed
-        if self.page == 'search':
-            if self.search_global_mode:
-                self.search_global_page.render_covers()
-            else:
-                self.search_page.render_covers()
-        elif self.page == 'most_popular':
-            self.most_popular_page.render_covers()
-        elif self.page == 'latest_updates':
-            self.latest_updates_page.render_covers()
+            # Last page has been popped from the navigation stack (user comes back)
+            # Recall render_covers(), some covers may not yet have been processed
+            if self.page == 'search':
+                if self.search_global_mode:
+                    self.search_global_page.render_covers()
+                else:
+                    self.search_page.render_covers()
+            elif self.page == 'most_popular':
+                self.most_popular_page.render_covers()
+            elif self.page == 'latest_updates':
+                self.latest_updates_page.render_covers()
+
+        if not Gtk.Settings.get_default().get_property('gtk-enable-animations'):
+            # When animations are disabled, popped/pushed events are sent after `shown` event (bug?)
+            # Use idle_add to be sure that last `popped` or `pushed` event has been received
+            GLib.idle_add(do_render_covers)
+        else:
+            do_render_covers()
 
     def put_covers_rendering_on_hold(self):
         if self.page == 'search':
