@@ -2,21 +2,22 @@
 # Liliana Prikler <liliana.prikler@gmail.com>, 2020-2023.
 # gregorni <gregorniehl@web.de>, 2023.
 # Liliana Marie Prikler <liliana.prikler@gmail.com>, 2023.
+# Tim <RC2225@users.noreply.github.com>, 2024.
 msgid ""
 msgstr ""
 "Project-Id-Version: Komikku 0.19.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-04-25 23:18+0200\n"
-"PO-Revision-Date: 2023-04-03 17:41+0000\n"
-"Last-Translator: Liliana Marie Prikler <liliana.prikler@gmail.com>\n"
-"Language-Team: German <https://hosted.weblate.org/projects/komikku/main/de/"
-">\n"
+"PO-Revision-Date: 2024-04-27 16:41+0000\n"
+"Last-Translator: Tim <RC2225@users.noreply.github.com>\n"
+"Language-Team: German <https://hosted.weblate.org/projects/komikku/main/de/>"
+"\n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.17-dev\n"
+"X-Generator: Weblate 5.5.1\n"
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:11
 msgid "Discover and read manga &amp; comics"
@@ -171,7 +172,7 @@ msgstr "Inhalt"
 #: ../data/ui/card.blp:484 ../data/ui/categories_editor.blp:64
 #: ../data/ui/library.blp:247
 msgid "No Categories"
-msgstr ""
+msgstr "Keine Kategorien"
 
 #: ../data/ui/card_chapters_list_row.blp:61
 msgid "New"
@@ -202,7 +203,7 @@ msgstr "Suche"
 
 #: ../data/ui/explorer_search.blp:28
 msgid "Search Filters"
-msgstr ""
+msgstr "Suchfilter"
 
 #: ../data/ui/explorer_search.blp:34
 msgid "Open in Browser"
@@ -268,7 +269,7 @@ msgstr "Aktualisieren"
 
 #: ../data/ui/library.blp:196
 msgid "Discover Comics"
-msgstr ""
+msgstr "Comics entdecken"
 
 #: ../data/ui/library.blp:269
 msgid "OK"
@@ -333,11 +334,11 @@ msgstr "Bibliothek aktualisieren"
 
 #: ../data/ui/menu/main.xml:11
 msgid "Sort"
-msgstr ""
+msgstr "Sortieren"
 
 #: ../data/ui/menu/main.xml:16
 msgid "Alphabetical"
-msgstr ""
+msgstr "Alphabetisch"
 
 #: ../data/ui/menu/main.xml:21
 msgid "Latest Read First"
@@ -353,7 +354,7 @@ msgstr "Tastenkürzel"
 
 #: ../data/ui/menu/main.xml:59
 msgid "Donate"
-msgstr ""
+msgstr "Spenden"
 
 #: ../data/ui/menu/main.xml:63
 msgid "About Komikku"
@@ -391,7 +392,7 @@ msgstr "Allgemein"
 
 #: ../data/ui/preferences.blp:19
 msgid "Theme"
-msgstr ""
+msgstr "Thema"
 
 #: ../data/ui/preferences.blp:22
 msgid "Light"
@@ -459,7 +460,7 @@ msgstr "Embleme"
 
 #: ../data/ui/preferences.blp:73
 msgid "Number of Unread Chapters"
-msgstr "Anzahl gelesener Kapitel"
+msgstr "Anzahl ungelesener Kapitel"
 
 #: ../data/ui/preferences.blp:93
 msgid "Number of Downloaded Chapters"
@@ -569,7 +570,7 @@ msgstr "Webtoon ⬇"
 
 #: ../data/ui/preferences.blp:219
 msgid "Maximum Width"
-msgstr "Maximale Weite"
+msgstr "Maximale Breite"
 
 #: ../data/ui/preferences.blp:220
 msgid ""
@@ -732,7 +733,7 @@ msgstr "Anwendung"
 #: ../data/ui/shortcuts_overview.blp:14
 msgctxt "Shortcut window description"
 msgid "Open Preferences"
-msgstr ""
+msgstr "Einstellungen öffnen"
 
 #: ../data/ui/shortcuts_overview.blp:19
 msgctxt "Shortcut window description"
@@ -752,12 +753,12 @@ msgstr "Bibliothek"
 #: ../data/ui/shortcuts_overview.blp:33
 msgctxt "Shortcut window description"
 msgid "Add Manga"
-msgstr ""
+msgstr "Manga hinzufügen"
 
 #: ../data/ui/shortcuts_overview.blp:38
 msgctxt "Shortcut window description"
 msgid "Select All"
-msgstr ""
+msgstr "Alle auswählen"
 
 #: ../data/ui/shortcuts_overview.blp:43
 msgctxt "Shortcut window description"
@@ -772,7 +773,7 @@ msgstr "Manga"
 #: ../data/ui/shortcuts_overview.blp:52
 msgctxt "Shortcut window description"
 msgid "Select All Chapters"
-msgstr ""
+msgstr "Alle Kapitel auswählen"
 
 #: ../data/ui/shortcuts_overview.blp:58
 msgctxt "Shortcut window description"
@@ -829,11 +830,11 @@ msgstr ""
 
 #: ../data/ui/support.blp:98
 msgid "One-time donation"
-msgstr ""
+msgstr "Einmalige Spende"
 
 #: ../data/ui/support.blp:114
 msgid "One-time or monthly donation"
-msgstr ""
+msgstr "Einmalige oder monatliche Spende"
 
 #: ../data/ui/webview.blp:6
 msgid "Webview"
@@ -1070,11 +1071,11 @@ msgstr ""
 
 #: ../komikku/explorer/common.py:272
 msgid "Close"
-msgstr ""
+msgstr "Schliessen"
 
 #: ../komikku/explorer/common.py:272
 msgid "Local Folder"
-msgstr ""
+msgstr "Lokaler Ordner"
 
 #: ../komikku/explorer/common.py:278
 msgid "Open local folder"
@@ -1086,7 +1087,7 @@ msgstr "Anheften/abheften"
 
 #: ../komikku/explorer/search/__init__.py:222
 msgid "Filters"
-msgstr ""
+msgstr "Filter"
 
 #: ../komikku/explorer/search/__init__.py:286
 msgid "Oops, server website URL is unknown."
