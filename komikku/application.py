@@ -98,6 +98,7 @@ CREDITS = dict(
         'dedocc (Italian)',
         'Lili Kurek (Polish)',
         'ssantos (Portuguese)',
+        'Ademario Cunha (Portuguese)',
         'YXH (Romanian)',
         'shima (Russian)',
         'Valentin Chernetsov (Russian)',
@@ -110,6 +111,7 @@ CREDITS = dict(
         'Sabri Ünal (Turkish)',
         'Volkan Yıldırım (Turkish)',
         'CakesTwix (Ukrainian)',
+        'niyaki hayyashi (Vietnamese)',
     ),
     supporters=(
         'gondolyr',
@@ -433,23 +435,18 @@ available in your region/language."""))
         # Override release notes
         dialog.set_release_notes("""
             <ul>
-                <li>[Servers] Added Cartel De Manhwas (ES)</li>
-                <li>[Servers] Added F/OSS Comics (EN)</li>
-                <li>[Servers] Added Mode Scanlator (pt_BR)</li>
-                <li>[Servers] Added Neko Scans (ES)</li>
-                <li>[Servers] Added Ragna Scan (ES)</li>
-                <li>[Servers] Added Raiki Scan (ES)</li>
-                <li>[Servers] Added Rukav Inari (ES)</li>
-                <li>[Servers] Added Ryujinmanga (ES)</li>
-                <li>[Servers] Added Senpai Ediciones (ES)</li>
-                <li>[Servers] Added ShadowMangas (ES)</li>
-                <li>[Servers] Added SkyMangas (ES)</li>
-                <li>[Servers] Added Tecno Scan (ES)</li>
-                <li>[Servers] Added Tres Daos (ES)</li>
-                <li>[Servers] Read Manga, Mint Manga, Self Manga (RU): Update</li>
-                <li>[Servers] Tapas (EN): Update</li>
-                <li>[L10n] Added translation using Weblate (Hindi)</li>
-                <li>[L10n] Updated Dutch, French and Indonesian translations</li>
+                <li>[Webview] Improved Cloudflare user challenge completion</li>
+                <li>[Servers] Added Existential Comics (EN)</li>
+                <li>[Servers] Added Manga Demon (EN)</li>
+                <li>[Servers] Added MangaWeebs (EN)</li>
+                <li>[Servers] Added Webtoon TR</li>
+                <li>[Servers] Armoni Scans (Asura Scans TR): Reenabled</li>
+                <li>[Servers] Atikrost (TR): Reenabled</li>
+                <li>[Servers] Mangago (EN): Update</li>
+                <li>[Servers] MangaFreak (EN): Update</li>
+                <li>[Servers] Nine Manga (EN/PT_BR/DE/ES/FR/IT/RU): Update</li>
+                <li>[L10n] Added Vietnamese translation</li>
+                <li>[L10n] Updated French, Portuguese, Spanish and Russian translations</li>
             </ul>
             <p>Happy reading.</p>
         """)

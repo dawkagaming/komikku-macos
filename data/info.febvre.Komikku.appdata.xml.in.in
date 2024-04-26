@@ -98,6 +98,25 @@
     <url type="donation">https://valos.gitlab.io/Komikku/#sponsor</url>
 
     <releases>
+        <release version="1.45.0" date="2024-04-26">
+            <description translate="no">
+                <ul>
+                    <li>[Webview] Improved Cloudflare user challenge completion</li>
+                    <li>[Servers] Added Existential Comics (EN)</li>
+                    <li>[Servers] Added Manga Demon (EN)</li>
+                    <li>[Servers] Added MangaWeebs (EN)</li>
+                    <li>[Servers] Added Webtoon TR</li>
+                    <li>[Servers] Armoni Scans (Asura Scans TR): Reenabled</li>
+                    <li>[Servers] Atikrost (TR): Reenabled</li>
+                    <li>[Servers] Mangago (EN): Update</li>
+                    <li>[Servers] MangaFreak (EN): Update</li>
+                    <li>[Servers] Nine Manga (EN/PT_BR/DE/ES/FR/IT/RU): Update</li>
+                    <li>[L10n] Added Vietnamese translation</li>
+                    <li>[L10n] Updated French, Portuguese, Spanish and Russian translations</li>
+                </ul>
+                <p>Happy reading.</p>
+            </description>
+        </release>
         <release version="1.44.0" date="2024-04-19">
             <description translate="no">
                 <ul>
