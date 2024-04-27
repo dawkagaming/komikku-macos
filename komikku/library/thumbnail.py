@@ -143,9 +143,8 @@ class ThumbnailCover(GObject.GObject, Gdk.Paintable):
         if logo_path is None:
             return
 
-        paintable = CoverLoader.new_from_file(logo_path, self.server_logo_size, self.server_logo_size, True)
-
-        self.server_logo_texture = paintable.texture
+        if paintable := CoverLoader.new_from_file(logo_path, self.server_logo_size, self.server_logo_size):
+            self.server_logo_texture = paintable.texture
 
     def __get_badges_values(self):
         badges = Settings.get_default().library_badges

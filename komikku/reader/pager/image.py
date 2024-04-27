@@ -131,8 +131,9 @@ class KImage(Gtk.Widget, Gtk.Scrollable):
 
     @classmethod
     def new_from_file(cls, path, scaling='screen', crop=False, landscape_zoom=False, can_zoom=False, static_animation=False):
-        mime_type, _result_uncertain = Gio.content_type_guess(path, None)
-        if not mime_type:
+        gfile = Gio.File.new_for_path(path)
+        mime_type = gfile.query_info('standard::content-type', Gio.FileQueryInfoFlags.NONE, None).get_content_type()
+        if not mime_type or not mime_type.startswith('image'):
             return None
 
         try:
@@ -141,7 +142,7 @@ class KImage(Gtk.Widget, Gtk.Scrollable):
                 texture = None
             else:
                 pixbuf = None
-                texture = Gdk.Texture.new_from_filename(path)
+                texture = Gdk.Texture.new_from_file(gfile)
         except Exception:
             # Invalid image, corrupted image, unsupported image format,...
             return None
