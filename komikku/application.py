@@ -434,6 +434,9 @@ available in your region/language."""))
 
         # Override release notes
         dialog.set_release_notes("""
+            <p>This version fixes a bug that prevented some server logos from being displayed.</p>
+
+            <p>Changes in version 1.45.0</p>
             <ul>
                 <li>[Webview] Improved Cloudflare user challenge completion</li>
                 <li>[Servers] Added Existential Comics (EN)</li>
@@ -446,7 +449,7 @@ available in your region/language."""))
                 <li>[Servers] MangaFreak (EN): Update</li>
                 <li>[Servers] Nine Manga (EN/PT_BR/DE/ES/FR/IT/RU): Update</li>
                 <li>[L10n] Added Vietnamese translation</li>
-                <li>[L10n] Updated French, Portuguese, Spanish and Russian translations</li>
+                <li>[L10n] Updated French, German, Portuguese, Spanish and Russian translations</li>
             </ul>
             <p>Happy reading.</p>
         """)
