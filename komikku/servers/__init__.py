@@ -153,7 +153,7 @@ class Server(ABC):
     def logo_path(self):
         module_path = os.path.dirname(os.path.abspath(inspect.getfile(self.__class__)))
 
-        path = os.path.join(module_path, get_server_main_id_by_id(self.id) + '.ico')
+        path = os.path.join(module_path, get_server_main_id_by_id(self.id) + '.png')
         if not os.path.exists(path):
             return None
 

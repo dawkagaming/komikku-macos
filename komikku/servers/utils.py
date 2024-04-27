@@ -319,7 +319,7 @@ def get_servers_list(include_disabled=False, order_by=('lang', 'name')):
                 continue
 
             if inspect.isclass(obj):
-                logo_path = os.path.join(os.path.dirname(os.path.abspath(module.__file__)), get_server_main_id_by_id(obj.id) + '.ico')
+                logo_path = os.path.join(os.path.dirname(os.path.abspath(module.__file__)), get_server_main_id_by_id(obj.id) + '.png')
 
                 servers.append(dict(
                     id=obj.id,
