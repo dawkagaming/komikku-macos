@@ -10,7 +10,7 @@ class Tecnoscan(MangaStream):
     name = 'Tecno Scan'
     lang = 'es'
 
-    base_url = 'https://tecnoscann.com'
+    base_url = 'https://visortecno.com'
 
     authors_selector = '.infox .fmed:-soup-contains("Artista") span, .infox .fmed:-soup-contains("Autor") span'
     genres_selector = '.infox .mgen a'
