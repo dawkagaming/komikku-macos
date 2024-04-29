@@ -15,6 +15,9 @@ import traceback
 import gi
 from PIL import Image
 import requests
+from requests.adapters import HTTPAdapter
+from requests.adapters import TimeoutSauce
+from urllib3.util.retry import Retry
 
 gi.require_version('Gdk', '4.0')
 gi.require_version('Gsk', '4.0')
@@ -32,6 +35,7 @@ from gi.repository.GdkPixbuf import PixbufAnimation
 
 COVER_WIDTH = 180
 COVER_HEIGHT = 256
+REQUESTS_TIMEOUT = 5
 
 logger = logging.getLogger('komikku')
 
@@ -198,6 +202,29 @@ def log_error_traceback(e):
     return None
 
 
+def retry_session(session=None, retries=3, allowed_methods=['GET'], backoff_factor=0.3, status_forcelist=None):
+    if session is None:
+        session = requests.Session()
+    elif session.adapters['https://'].max_retries.total == retries:
+        # Retry adapter is already modified
+        return session
+
+    retry = Retry(
+        total=retries,
+        read=retries,
+        connect=retries,
+        allowed_methods=allowed_methods,
+        backoff_factor=backoff_factor,
+        status_forcelist=status_forcelist,
+    )
+    adapter = HTTPAdapter(max_retries=retry)
+
+    session.mount('http://', adapter)
+    session.mount('https://', adapter)
+
+    return session
+
+
 def skip_past(haystack, needle):
     if (idx := haystack.find(needle)) >= 0:
         return idx + len(needle)
@@ -208,6 +235,19 @@ def skip_past(haystack, needle):
 def trunc_filename(filename):
     """Reduce filename length to 255 (common FS limit) if it's too long"""
     return filename.encode('utf-8')[:255].decode().strip()
+
+
+class CustomTimeout(TimeoutSauce):
+    def __init__(self, *args, **kwargs):
+        if kwargs['connect'] is None:
+            kwargs['connect'] = REQUESTS_TIMEOUT
+        if kwargs['read'] is None:
+            kwargs['read'] = REQUESTS_TIMEOUT * 2
+        super().__init__(*args, **kwargs)
+
+
+# Set requests timeout globally, instead of specifying ``timeout=..`` kwarg on each call
+requests.adapters.TimeoutSauce = CustomTimeout
 
 
 class CoverLoader(GObject.GObject):

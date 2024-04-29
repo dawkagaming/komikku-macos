@@ -4,14 +4,14 @@
 
 from abc import ABC
 from abc import abstractmethod
-from bs4 import BeautifulSoup
 from functools import cached_property
 import inspect
 import logging
 import os
 import pickle
+
+from bs4 import BeautifulSoup
 import requests
-from requests.adapters import TimeoutSauce
 
 from komikku.models.keyring import KeyringHelper
 from komikku.servers.loader import server_finder
@@ -20,6 +20,7 @@ from komikku.servers.utils import get_response_elapsed
 from komikku.servers.utils import get_server_main_id_by_id
 from komikku.utils import expand_and_resize_cover
 from komikku.utils import get_cache_dir
+from komikku.utils import retry_session
 
 DOWNLOAD_MAX_DELAY = 1  # in seconds
 
@@ -51,8 +52,6 @@ LANGUAGES = dict(
     zh_Hant='中文 (繁體)',
 )
 
-REQUESTS_TIMEOUT = 5
-
 USER_AGENT = 'Mozilla/5.0 (X11; Linux x86_64; rv:86.0) Gecko/20100101 Firefox/86.0'
 USER_AGENT_MOBILE = 'Mozilla/5.0 (Linux; U; Android 4.1.1; en-gb; Build/KLP) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Safari/534.30'
 
@@ -60,19 +59,6 @@ VERSION = 1
 
 logger = logging.getLogger('komikku.servers')
 server_finder.install()
-
-
-class CustomTimeout(TimeoutSauce):
-    def __init__(self, *args, **kwargs):
-        if kwargs['connect'] is None:
-            kwargs['connect'] = REQUESTS_TIMEOUT
-        if kwargs['read'] is None:
-            kwargs['read'] = REQUESTS_TIMEOUT * 3
-        super().__init__(*args, **kwargs)
-
-
-# Set requests timeout globally, instead of specifying ``timeout=..`` kwarg on each call
-requests.adapters.TimeoutSauce = CustomTimeout
 
 
 class Server(ABC):
@@ -375,7 +361,7 @@ class Server(ABC):
 
     def session_get(self, *args, **kwargs):
         try:
-            r = self.session.get(*args, **kwargs)
+            r = retry_session(session=self.session).get(*args, **kwargs)
         except Exception as error:
             logger.debug(error)
             raise

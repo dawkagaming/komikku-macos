@@ -10,10 +10,9 @@ from gettext import gettext as _
 from functools import lru_cache
 import html
 import logging
-import requests
-from requests.adapters import HTTPAdapter
-from urllib3.util import Retry
 from uuid import UUID
+
+import requests
 
 from komikku.servers import Server
 from komikku.servers import USER_AGENT
@@ -131,9 +130,6 @@ class Mangadex(Server):
         if self.session is None:
             self.session = requests.Session()
             self.session.headers.update({'user-agent': USER_AGENT})
-
-            retry = Retry(total=5, backoff_factor=1, respect_retry_after_header=False, status_forcelist=Retry.RETRY_AFTER_STATUS_CODES)
-            self.session.mount(self.api_base_url, HTTPAdapter(max_retries=retry))
 
     @staticmethod
     def get_group_name(group_id, groups_list):

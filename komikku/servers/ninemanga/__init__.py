@@ -2,11 +2,10 @@
 # SPDX-License-Identifier: GPL-3.0-only or GPL-3.0-or-later
 # Author: Valéry Febvre <vfebvre@easter-eggs.com>
 
+from urllib.parse import unquote_plus
+
 from bs4 import BeautifulSoup
 import requests
-from requests.adapters import HTTPAdapter
-from urllib3.util import Retry
-from urllib.parse import unquote_plus
 
 from komikku.servers import Server
 from komikku.servers import USER_AGENT
@@ -35,9 +34,6 @@ class Ninemanga(Server):
                 'User-Agent': USER_AGENT,
                 'Accept-Language': 'fr-FR,fr;q=0.9,en;q=0.8,gl;q=0.7',
             }
-
-            retry = Retry(total=3, backoff_factor=1, respect_retry_after_header=False, status_forcelist=Retry.RETRY_AFTER_STATUS_CODES)
-            self.session.mount(self.base_url, HTTPAdapter(max_retries=retry))
 
     @classmethod
     def get_manga_initial_data_from_url(cls, url):
