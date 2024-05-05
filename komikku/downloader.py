@@ -186,7 +186,6 @@ class Downloader(GObject.GObject):
                                 # The easiest way to avoid overloading the server is to set a time-out between requests
                                 # equal to 2x the time it took to load the page (responsive delay).
                                 path, rtime = chapter.get_page(index)
-                                delay = min(2 * rtime, DOWNLOAD_MAX_DELAY)
 
                                 if path is not None:
                                     success_counter += 1
@@ -197,8 +196,8 @@ class Downloader(GObject.GObject):
 
                                 GLib.idle_add(notify_download_progress, download, success_counter, error_counter)
 
-                                if index < len(chapter.pages) - 1 and not self.stop_flag:
-                                    time.sleep(delay)
+                                if index < len(chapter.pages) - 1 and not self.stop_flag and rtime:
+                                    time.sleep(min(2 * rtime, DOWNLOAD_MAX_DELAY))
                             else:
                                 success_counter += 1
 
