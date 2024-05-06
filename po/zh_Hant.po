@@ -3,13 +3,14 @@
 # This file is distributed under the same license as the Komikku package.
 # randint <lancameb@hotmail.com>, 2023.
 # Zhao Se <zhaose233@zhaose.cyou>, 2024.
+# happylittle7 <Lance20501@gmail.com>, 2024.
 msgid ""
 msgstr ""
 "Project-Id-Version: Komikku 1.25.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-04-25 23:18+0200\n"
-"PO-Revision-Date: 2024-02-03 02:01+0000\n"
-"Last-Translator: Zhao Se <zhaose233@zhaose.cyou>\n"
+"PO-Revision-Date: 2024-05-07 02:07+0000\n"
+"Last-Translator: happylittle7 <Lance20501@gmail.com>\n"
 "Language-Team: Chinese (Traditional) <https://hosted.weblate.org/projects/"
 "komikku/main/zh_Hant/>\n"
 "Language: zh_Hant\n"
@@ -17,7 +18,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 5.4-dev\n"
+"X-Generator: Weblate 5.5.4-dev\n"
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:11
 msgid "Discover and read manga &amp; comics"
@@ -116,11 +117,11 @@ msgstr "行動裝置格式的閱讀歷史頁"
 
 #: ../data/info.febvre.Komikku.desktop.in:3
 msgid "@prettyname@"
-msgstr ""
+msgstr "@prettyname@"
 
 #: ../data/info.febvre.Komikku.desktop.in:4
 msgid "@description@"
-msgstr ""
+msgstr "@description@"
 
 #: ../data/info.febvre.Komikku.desktop.in:13
 msgid ""
@@ -800,7 +801,7 @@ msgstr ""
 
 #: ../data/ui/support.blp:61
 msgid "Komikku will always be free and open-source and will never contain ads."
-msgstr ""
+msgstr "Komikku 將永遠保持免費、開源，而且永遠不會有廣告。"
 
 #: ../data/ui/support.blp:68
 msgid ""
