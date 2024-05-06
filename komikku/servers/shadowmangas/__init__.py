@@ -13,8 +13,8 @@ class Shadowmangas(MangaStream):
 
     base_url = 'https://shadowmangas.com'
 
-    authors_selector = '.tsinfo .imptdt:-soup-contains("Author") i, .tsinfo .imptdt:-soup-contains("Artist") i'
+    authors_selector = '.infox .fmed:-soup-contains("Author") span, .infox .fmed:-soup-contains("Artist") span'
     genres_selector = '.mgen a'
-    scanlators_selector = '.tsinfo .imptdt:-soup-contains("Serialization") i'
+    scanlators_selector = None
     status_selector = '.tsinfo .imptdt:-soup-contains("Status") i'
     synopsis_selector = '[itemprop="description"]'
