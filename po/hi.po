@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: Komikku 1.41.1\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-04-25 23:18+0200\n"
-"PO-Revision-Date: 2024-04-29 08:07+0000\n"
+"PO-Revision-Date: 2024-05-07 02:07+0000\n"
 "Last-Translator: Scrambled777 <weblate.scrambled777@simplelogin.com>\n"
 "Language-Team: Hindi <https://hosted.weblate.org/projects/komikku/main/hi/>\n"
 "Language: hi\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 5.5.2\n"
+"X-Generator: Weblate 5.5.4-dev\n"
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:11
 msgid "Discover and read manga &amp; comics"
@@ -117,11 +117,11 @@ msgstr "मोबाइल प्रारूप में पठन इति�
 
 #: ../data/info.febvre.Komikku.desktop.in:3
 msgid "@prettyname@"
-msgstr "@सुंदरनाम@"
+msgstr "@prettyname@"
 
 #: ../data/info.febvre.Komikku.desktop.in:4
 msgid "@description@"
-msgstr "@विवरण@"
+msgstr "@description@"
 
 #: ../data/info.febvre.Komikku.desktop.in:13
 msgid ""
@@ -366,11 +366,11 @@ msgstr "लैंडस्केप पेज ज़ूम करें"
 
 #: ../data/ui/menu/reader.xml:95
 msgid "Crop Borders"
-msgstr "बॉर्डर्स को काटें"
+msgstr "सीमाएं काटें"
 
 #: ../data/ui/menu/reader.xml:99
 msgid "Hide Page Numbering"
-msgstr "पेज क्रमांकन छुपाएं"
+msgstr "पृष्ठ क्रमांकन छुपाएं"
 
 #: ../data/ui/menu/reader.xml:106
 msgid "Save Page"
