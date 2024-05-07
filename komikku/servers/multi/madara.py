@@ -57,7 +57,9 @@ class Madara(Server):
     series_name: str = 'manga'
 
     chapters_list_selector = '#manga-chapters-holder'
+    chapters_selector = '.wp-manga-chapter'
     details_name_selector = 'h1'
+    details_cover_selector = '.summary_image > a > img'
     details_authors_selector = '.author-content a, .artist-content a'
     details_scanlators_selector = None
     details_genres_selector = '.genres-content a'
@@ -116,17 +118,17 @@ class Madara(Server):
             data['slug'] = r.url.split('/')[-2]
 
         data['name'] = get_soup_element_inner_text(soup.select_one(self.details_name_selector))
-        if cover_div := soup.find('div', class_='summary_image'):
-            data['cover'] = cover_div.a.img.get('data-src')
+        if cover_element := soup.select_one(self.details_cover_selector):
+            data['cover'] = cover_element.get('data-src')
             if data['cover'] is None:
-                data['cover'] = cover_div.a.img.get('data-lazy-src')
+                data['cover'] = cover_element.get('data-lazy-src')
                 if data['cover'] is None:
-                    data['cover'] = cover_div.a.img.get('data-lazy-srcset')
+                    data['cover'] = cover_element.get('data-lazy-srcset')
                     if data['cover']:
                         # data-lazy-srcset can contain several covers with sizes: url1 size1 url2 size2...
                         data['cover'] = data['cover'].split()[0]
                     else:
-                        data['cover'] = cover_div.a.img.get('src')
+                        data['cover'] = cover_element.get('src')
 
         # Details
         for element in soup.select(self.details_authors_selector):
@@ -150,11 +152,13 @@ class Madara(Server):
                 # Remove emoji
                 status = remove_emoji_from_string(status)
 
-                if status in ('Completed', 'Terminé', 'Completé', 'Completo', 'Concluído', 'Tamamlandı', 'مكتملة', 'Закончена'):
+                if status in ('Completed', 'Terminé', 'Completé', 'Completo', 'Finalizado', 'Concluído', 'Tamamlandı', 'مكتملة', 'Закончена'):
                     data['status'] = 'complete'
-                elif status in ('OnGoing', 'En Cours', 'En cours', 'Updating', 'Devam Ediyor', 'Em Lançamento', 'Em andamento', 'مستمرة', 'Продолжается', 'Выпускается'):
+                elif status in ('OnGoing', 'En Cours', 'En cours', 'Updating', 'Devam Ediyor', 'Em Lançamento', 'Em andamento', 'En Emision', 'مستمرة', 'Продолжается', 'Выпускается'):
                     data['status'] = 'ongoing'
-                elif status in ('On Hold', 'En pause'):
+                elif status in ('Cancelada'):
+                    data['status'] = 'suspended'
+                elif status in ('On Hold', 'En pause', 'En Hiatus'):
                     data['status'] = 'hiatus'
 
         if self.details_synopsis_selector:
@@ -197,7 +201,7 @@ class Madara(Server):
 
             soup = BeautifulSoup(r.text, 'lxml')
 
-        elements = soup.find_all('li', class_='wp-manga-chapter')
+        elements = soup.select(self.chapters_selector)
         for element in reversed(elements):
             if element.select_one('i.fa-lock'):
                 # Skip premium chapter (LeviatanScans ES for ex.)
