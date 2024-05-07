@@ -168,6 +168,9 @@ class WebviewPage(Adw.NavigationPage):
 
     def exit(self):
         if self.window.page != self.props.tag:
+            # Page has already been popped or has never been pushed (no CF chanllenge)
+            # No need to wait `hidden` event to flag it as exited
+            self.exited = True
             return
 
         self.exited_auto = True
