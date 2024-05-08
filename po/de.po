@@ -3,13 +3,14 @@
 # gregorni <gregorniehl@web.de>, 2023.
 # Liliana Marie Prikler <liliana.prikler@gmail.com>, 2023.
 # Tim <RC2225@users.noreply.github.com>, 2024.
+# Tim <rc2225@ghueder-schrott.com>, 2024.
 msgid ""
 msgstr ""
 "Project-Id-Version: Komikku 0.19.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-04-25 23:18+0200\n"
-"PO-Revision-Date: 2024-04-27 16:41+0000\n"
-"Last-Translator: Tim <RC2225@users.noreply.github.com>\n"
+"PO-Revision-Date: 2024-05-09 15:07+0000\n"
+"Last-Translator: Tim <rc2225@ghueder-schrott.com>\n"
 "Language-Team: German <https://hosted.weblate.org/projects/komikku/main/de/>"
 "\n"
 "Language: de\n"
@@ -17,11 +18,11 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.5.1\n"
+"X-Generator: Weblate 5.5.4-rc\n"
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:11
 msgid "Discover and read manga &amp; comics"
-msgstr ""
+msgstr "Mangas &amp; comics entdecken und lesen"
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:13
 msgid ""
@@ -41,7 +42,7 @@ msgstr ""
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:18
 msgid "Support for locally stored series (in CBZ or CBR formats)"
-msgstr ""
+msgstr "Unterstützung für lokal gespeicherte Serien (im CBZ und CBR Format)"
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:19
 msgid "RTL, LTR, Vertical and Webtoon reading modes"
@@ -193,7 +194,7 @@ msgstr ""
 
 #: ../data/ui/download_manager.blp:65
 msgid "No Downloads"
-msgstr ""
+msgstr "Keine Downloads"
 
 #: ../data/ui/explorer_search.blp:10 ../data/ui/explorer_search.blp:41
 #: ../data/ui/history.blp:18 ../data/ui/library.blp:36
@@ -223,11 +224,11 @@ msgstr "Servers"
 
 #: ../data/ui/explorer_servers.blp:13
 msgid "Search Comics Across All Servers"
-msgstr ""
+msgstr "Suche Comics über alle Server"
 
 #: ../data/ui/explorer_servers.blp:19
 msgid "Search Servers"
-msgstr ""
+msgstr "Suche Server"
 
 #: ../data/ui/explorer_servers.blp:33
 msgid "Search for servers by name or language"
