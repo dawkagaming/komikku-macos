@@ -2,11 +2,13 @@
 # SPDX-License-Identifier: GPL-3.0-only or GPL-3.0-or-later
 # Author: Valéry Febvre <vfebvre@easter-eggs.com>
 
-from bs4 import BeautifulSoup
 import logging
-import requests
+import re
 from urllib.parse import parse_qs
 from urllib.parse import urlparse
+
+from bs4 import BeautifulSoup
+import requests
 
 from komikku.servers import Server
 from komikku.servers import USER_AGENT
@@ -96,20 +98,26 @@ class Comicbookplus(Server):
 
             chapters_element = soup.find('table', class_='catlistings')
             if chapters_element:
+                re_date = r'[a-zA-Z]{3} \d{1,2}, \d{4}'
+
                 for tr_element in chapters_element.find_all('tr', class_='overrow'):
-                    tds_elements = tr_element.find_all('td')
+                    date = None
+                    for td in tr_element.select('td'):
+                        if re.match(re_date, td.text):
+                            date = td.text
+                        if td.a and td.a.get('itemprop') == 'url':
+                            a_element = td.a
 
                     data['chapters'].append(dict(
-                        title=tds_elements[2].a.text.strip(),
-                        slug=parse_qs(urlparse(tds_elements[2].a.get('href')).query)['dlid'][0],
-                        date=convert_date_string(tds_elements[5].text.strip(), format='%b %d, %Y'),
+                        title=a_element.text.strip(),
+                        slug=parse_qs(urlparse(a_element.get('href')).query)['dlid'][0],
+                        date=convert_date_string(date, format='%b %d, %Y') if date else None,
                     ))
 
         get_volumes()
 
         # Parse next volumes list pages if exist
-        paging_element = soup.find('table', class_='catlistings').find('tr', class_='tablefooter')
-        if paging_element:
+        if paging_element := soup.select_one('table.catlistings tr.tablefooter'):
             for page in range(1, len(paging_element.find_all('a')) + 1):
                 get_volumes(page)
 
