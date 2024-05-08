@@ -7,7 +7,7 @@ import random
 import string
 
 from bs4 import BeautifulSoup
-from curl_cffi import requests
+import requests
 
 from komikku.servers import Server
 from komikku.servers import USER_AGENT
@@ -16,6 +16,7 @@ from komikku.servers.multi.genkan import GenkanInitial
 from komikku.servers.multi.madara import Madara
 from komikku.servers.utils import convert_date_string
 from komikku.servers.utils import get_buffer_mime_type
+from komikku.webview import BypassCF
 
 
 def generate_id():
@@ -28,6 +29,8 @@ class Reaperscans(Server):
     name = 'Reaper Scans'
     lang = 'en'
 
+    has_cf = True
+
     base_url = 'https://reaperscans.com'
     api_url = base_url + '/livewire/message/{0}'
     latest_updates_url = base_url + '/latest/comics'
@@ -35,10 +38,9 @@ class Reaperscans(Server):
     chapter_url = base_url + '/comics/{0}/chapters/{1}'
 
     def __init__(self):
-        if self.session is None:
-            self.session = requests.Session()
-            self.session.headers.update({'user-agent': USER_AGENT})
+        self.session = None
 
+    @BypassCF()
     def get_manga_data(self, initial_data):
         """
         Returns manga data by scraping manga HTML page content + API for chapters
@@ -162,6 +164,7 @@ class Reaperscans(Server):
 
         return reversed(data)
 
+    @BypassCF()
     def get_manga_chapter_data(self, manga_slug, manga_name, chapter_slug, chapter_url):
         """
         Returns manga chapter data by scraping chapter HTML page content
@@ -223,6 +226,7 @@ class Reaperscans(Server):
         """
         return self.manga_url.format(slug)
 
+    @BypassCF()
     def get_latest_updates(self):
         r = self.session_get(self.latest_updates_url)
         if r.status_code != 200:
@@ -241,6 +245,7 @@ class Reaperscans(Server):
 
         return results
 
+    @BypassCF()
     def search(self, term):
         r = self.session_get(self.base_url)
         if r.status_code != 200:
