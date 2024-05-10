@@ -80,6 +80,7 @@ Komikku can be built in a Python virtual environment. However, some tools and de
 
     # Install dependencies
     pip install -r requirements.txt
+    pip install -r requirements-optional.txt
     pip install -r requirements-dev.txt
 
     # Install pre-commit hooks

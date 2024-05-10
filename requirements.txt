@@ -1,7 +1,6 @@
 beautifulsoup4
 brotli >= 1.1.0
 colorthief
-curl_cffi >= 0.6.3
 dateparser >= 1.1.4
 emoji
 keyring >= 21.6.0
@@ -14,3 +13,6 @@ python_magic
 rarfile
 requests >= 2.31.0
 Unidecode
+
+# Optional dependencies
+-r requirements-optional.txt

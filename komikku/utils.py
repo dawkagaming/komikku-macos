@@ -205,8 +205,8 @@ def log_error_traceback(e):
 def retry_session(session=None, retries=3, allowed_methods=['GET'], backoff_factor=0.3, status_forcelist=None):
     if session is None:
         session = requests.Session()
-    elif session.adapters['https://'].max_retries.total == retries:
-        # Retry adapter is already modified
+    elif not getattr(session, 'adapters', None) or session.adapters['https://'].max_retries.total == retries:
+        # Retry adapter is already modified or session is not a `requests` session
         return session
 
     retry = Retry(
