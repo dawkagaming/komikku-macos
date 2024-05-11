@@ -3,7 +3,7 @@
 # Author: Valéry Febvre <vfebvre@easter-eggs.com>
 
 # Supported servers:
-# JManga [JA]
+# JManga [JA] (disabled)
 # Read Comics Free [EN]
 # Xoxocomics [EN]
 

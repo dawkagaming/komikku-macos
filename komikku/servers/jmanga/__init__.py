@@ -13,6 +13,7 @@ class Jmanga(WPComics):
     name = 'JManga'
     lang = 'ja'
     is_nsfw = True
+    status = 'disabled'  # 2024/05 new site https://mangaraw.onl
 
     base_url = 'https://jmanga.vip'
     search_url = base_url + '/search/manga'
