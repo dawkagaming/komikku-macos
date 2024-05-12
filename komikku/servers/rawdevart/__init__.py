@@ -23,6 +23,7 @@ class Rawdevart(Server):
     base_url = 'https://rawdevart.art'
     manga_url = base_url + '/{0}'
     api_search_url = base_url + '/ajax/search-manga'
+    latest_updates_url = base_url + '/latest'
     api_latest_updates_url = base_url + '/spa/latest-manga'
     api_manga_url = base_url + '/spa/manga/{0}'
     api_chapter_url = api_manga_url + '/{1}'
@@ -120,7 +121,12 @@ class Rawdevart(Server):
         """
         Returns latest updates
         """
-        r = self.session_get(self.api_latest_updates_url)
+        r = self.session_get(
+            self.api_latest_updates_url,
+            headers={
+                'Referer': self.latest_updates_url,
+            }
+        )
         if r.status_code != 200:
             return None
 
@@ -131,7 +137,10 @@ class Rawdevart(Server):
             slug = manga_info['manga_id']
             name = manga_info['manga_name']
             cover = manga_info['manga_cover_img']
-            last_chapter = 'Chapter ' + str(manga_info['manga_chapters'][0]['chapter_number'])
+            if chapters := manga_info.get('manga_chapters'):
+                last_chapter = 'Chapter ' + str(chapters[0]['chapter_number'])
+            else:
+                last_chapter = None
 
             results.append(dict(
                 slug=str(slug),
