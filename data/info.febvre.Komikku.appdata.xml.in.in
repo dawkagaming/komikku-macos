@@ -98,6 +98,23 @@
     <url type="donation">https://valos.gitlab.io/Komikku/#sponsor</url>
 
     <releases>
+        <release version="1.46.0" date="2024-05-13">
+            <description translate="no">
+                <ul>
+                    <li>[Webview] Fixed exiting when there is no Cloudflare challenge</li>
+                    <li>[Servers] Added MangaCrab (ES)</li>
+                    <li>[Servers] Comic Book Plus (EN): Update</li>
+                    <li>[Servers] Mode Scanlator (pt_BR): Update</li>
+                    <li>[Servers] Rawdevart (JA): Update</li>
+                    <li>[Servers] Reaper Scans (EN): Update</li>
+                    <li>[Servers] ShadowMangas (ES): Update</li>
+                    <li>[Servers] Tecno Scan (ES): Update</li>
+                    <li>[Servers] JManga (JA): Disabled</li>
+                    <li>[L10n] Updated Chinese (Traditional), Dutch, German, Hindi, Italian and Turkish translations</li>
+                </ul>
+                <p>Happy reading.</p>
+            </description>
+        </release>
         <release version="1.45.1" date="2024-04-27">
             <description translate="no">
                 <p>This version fixes a bug that prevented some server logos from being displayed.</p>

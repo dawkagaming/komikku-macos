@@ -434,22 +434,17 @@ available in your region/language."""))
 
         # Override release notes
         dialog.set_release_notes("""
-            <p>This version fixes a bug that prevented some server logos from being displayed.</p>
-
-            <p>Changes in version 1.45.0</p>
             <ul>
-                <li>[Webview] Improved Cloudflare user challenge completion</li>
-                <li>[Servers] Added Existential Comics (EN)</li>
-                <li>[Servers] Added Manga Demon (EN)</li>
-                <li>[Servers] Added MangaWeebs (EN)</li>
-                <li>[Servers] Added Webtoon TR</li>
-                <li>[Servers] Armoni Scans (Asura Scans TR): Reenabled</li>
-                <li>[Servers] Atikrost (TR): Reenabled</li>
-                <li>[Servers] Mangago (EN): Update</li>
-                <li>[Servers] MangaFreak (EN): Update</li>
-                <li>[Servers] Nine Manga (EN/PT_BR/DE/ES/FR/IT/RU): Update</li>
-                <li>[L10n] Added Vietnamese translation</li>
-                <li>[L10n] Updated French, German, Portuguese, Spanish and Russian translations</li>
+                <li>[Webview] Fixed exiting when there is no Cloudflare challenge</li>
+                <li>[Servers] Added MangaCrab (ES)</li>
+                <li>[Servers] Comic Book Plus (EN): Update</li>
+                <li>[Servers] Mode Scanlator (pt_BR): Update</li>
+                <li>[Servers] Rawdevart (JA): Update</li>
+                <li>[Servers] Reaper Scans (EN): Update</li>
+                <li>[Servers] ShadowMangas (ES): Update</li>
+                <li>[Servers] Tecno Scan (ES): Update</li>
+                <li>[Servers] JManga (JA): Disabled</li>
+                <li>[L10n] Updated Chinese (Traditional), Dutch, German, Hindi, Italian and Turkish translations</li>
             </ul>
             <p>Happy reading.</p>
         """)
