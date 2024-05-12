@@ -362,13 +362,13 @@ class Pager(Adw.Bin, BasePager):
             keyval = Gdk.KEY_Left if self.reader.reading_mode == 'right-to-left' else Gdk.KEY_Right
 
         page = self.current_page
-        if keyval in (Gdk.KEY_Left, Gdk.KEY_KP_Left, Gdk.KEY_Right, Gdk.KEY_KP_Right):
+        if keyval in (Gdk.KEY_Left, Gdk.KEY_KP_Left, Gdk.KEY_j, Gdk.KEY_Right, Gdk.KEY_KP_Right, Gdk.KEY_k):
             # Hide mouse cursor when using keyboard navigation
             self.hide_cursor()
 
             hadj = page.scrolledwindow.get_hadjustment()
 
-            if keyval in (Gdk.KEY_Left, Gdk.KEY_KP_Left):
+            if keyval in (Gdk.KEY_Left, Gdk.KEY_KP_Left, Gdk.KEY_j):
                 if hadj.get_value() == 0:
                     self.scroll_to_direction('left')
                     return Gdk.EVENT_STOP

@@ -332,12 +332,12 @@ class KInfiniteCanvas(Gtk.Widget, Gtk.Scrollable):
         if (state & modifiers) != 0:
             return Gdk.EVENT_PROPAGATE
 
-        if keyval in (Gdk.KEY_Down, Gdk.KEY_KP_Down, Gdk.KEY_Right, Gdk.KEY_KP_Right, Gdk.KEY_space):
+        if keyval in (Gdk.KEY_Down, Gdk.KEY_KP_Down, Gdk.KEY_Right, Gdk.KEY_KP_Right, Gdk.KEY_space, Gdk.KEY_k):
             self.emit('keyboard-navigation')
             self.scroll_by_type(Gtk.ScrollType.STEP_DOWN)
             return Gdk.EVENT_STOP
 
-        elif keyval in (Gdk.KEY_Up, Gdk.KEY_KP_Up, Gdk.KEY_Left, Gdk.KEY_KP_Left):
+        elif keyval in (Gdk.KEY_Up, Gdk.KEY_KP_Up, Gdk.KEY_Left, Gdk.KEY_KP_Left, Gdk.KEY_j):
             self.emit('keyboard-navigation')
             self.scroll_by_type(Gtk.ScrollType.STEP_UP)
             return Gdk.EVENT_STOP
