@@ -149,12 +149,10 @@ class HeanCMS(Server):
                 )
             )
             if r.status_code != 200:
-                print('bad status')
                 return None, False, None
 
             data = r.json()
             if not data.get('data'):
-                print('no data')
                 return None, False, None
 
             more = data.get('meta') and data['meta']['current_page'] != data['meta']['last_page']
