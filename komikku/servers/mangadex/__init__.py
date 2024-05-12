@@ -325,15 +325,61 @@ class Mangadex(Server):
         return self.manga_url.format(slug)
 
     def get_latest_updates(self, ratings=None, statuses=None, publication_demographics=None, tags=None, tags_mode=None):
-        return self.search(
-            None,
-            ratings=ratings,
-            statuses=statuses,
-            publication_demographics=publication_demographics,
-            tags=tags,
-            tags_mode=tags_mode,
-            orderby='latest'
-        )
+        params = {
+            'limit': CHAPTERS_PER_REQUEST,
+            'contentRating[]': ratings,
+            'includes[]': ['manga'],
+            'translatedLanguage[]': [self.lang_code],
+            'order[readableAt]': 'desc',
+        }
+
+        r = self.session_get(self.api_chapter_base, params=params)
+        if r.status_code != 200:
+            return None
+
+        manga_ids = set()
+        for chapter in r.json()['data']:
+            for relationship in chapter['relationships']:
+                if relationship['type'] == 'manga':
+                    manga_ids.add(relationship['id'])
+
+        params = {
+            'ids[]': list(manga_ids),
+            'limit': SEARCH_RESULTS_LIMIT,
+            'contentRating[]': ratings,
+            'status[]': statuses,
+            'includes[]': ['cover_art'],
+            'includedTags[]': tags,
+            'includedTagsMode': tags_mode,
+            'publicationDemographic[]': publication_demographics,
+            'availableTranslatedLanguage[]': [self.lang_code],
+            'order[latestUploadedChapter]': 'desc',
+        }
+
+        r = self.session_get(self.api_manga_base, params=params)
+        if r.status_code != 200:
+            return None
+
+        results = []
+        for manga in r.json()['data']:
+            name = self.__get_manga_title(manga['attributes'])
+
+            cover = None
+            for relationship in manga['relationships']:
+                if relationship['type'] == 'cover_art':
+                    cover = self.cover_url.format(manga['id'], relationship['attributes']['fileName'])
+                    break
+
+            if name:
+                results.append({
+                    'slug': manga['id'],
+                    'name': name,
+                    'cover': cover,
+                })
+            else:
+                logger.warning('Ignoring result {}, missing name'.format(manga['id']))
+
+        return results
 
     def get_most_populars(self, ratings=None, statuses=None, publication_demographics=None, tags=None, tags_mode=None):
         return self.search(
