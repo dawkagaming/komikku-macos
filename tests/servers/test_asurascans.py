@@ -51,6 +51,7 @@ def test_asurascans(asurascans_server):
         # Use first result of get_most_populars
         response = asurascans_server.search(response[0]['name'].replace('’', "'"), '')
         slug = response[0]['slug']
+        name = response[0]['name']
     except Exception as e:
         slug = None
         log_error_traceback(e)
@@ -61,7 +62,7 @@ def test_asurascans(asurascans_server):
     # Get manga data
     print('Get manga data')
     try:
-        response = asurascans_server.get_manga_data(dict(slug=slug))
+        response = asurascans_server.get_manga_data(dict(slug=slug, name=name))
         chapter_slug = response['chapters'][0]['slug']
     except Exception as e:
         chapter_slug = None
