@@ -7,7 +7,6 @@
 # Supported servers
 # Edelgarde Scans [EN] (disabled)
 # Hatigarm Scans [EN] (disabled)
-# Hunlight Scans [EN] (disabled)
 # Leviatan Scans [EN/ES] (disabled)
 # One Shot Scans [EN] (disabled)
 # Reaper Scans [EN] (disabled)

@@ -2,18 +2,13 @@
 # SPDX-License-Identifier: GPL-3.0-only or GPL-3.0-or-later
 # Author: Valéry Febvre <vfebvre@easter-eggs.com>
 
-from komikku.servers.multi.genkan import Genkan
+from komikku.servers.multi.madara import Madara
 
 
-class Hunlightscans(Genkan):
+class Hunlightscans(Madara):
     id = 'hunlightscans'
     name = 'Hunlight Scans'
     lang = 'en'
-    status = 'disabled'
 
-    base_url = 'https://hunlight-scans.info'
-    search_url = base_url + '/comics?query={0}'
-    most_populars_url = base_url + '/home'
-    manga_url = base_url + '/comics/{0}'
-    chapter_url = base_url + '/comics/{0}/{1}'
-    image_url = base_url + '{0}'
+    base_url = 'https://hunlight.com'
+    chapters_url = base_url + '/manga/{0}/ajax/chapters/'
