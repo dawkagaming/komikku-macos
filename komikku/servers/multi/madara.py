@@ -25,6 +25,7 @@
 # Phoenix Fansub [ES] (disabled)
 # Reaperscans [EN/AR/FR/ID/TR]
 # Submanga [ES] (disabled)
+# Tecno Scan [ES]
 # ToonGod [EN]
 # Toonily [EN]
 # Wakascan [FR] (disabled)
@@ -156,7 +157,7 @@ class Madara(Server):
                     data['status'] = 'complete'
                 elif status in ('OnGoing', 'En Cours', 'En cours', 'Updating', 'Devam Ediyor', 'Em Lançamento', 'Em andamento', 'En Emision', 'مستمرة', 'Продолжается', 'Выпускается'):
                     data['status'] = 'ongoing'
-                elif status in ('Cancelada'):
+                elif status in ('Canceled', 'Cancelada'):
                     data['status'] = 'suspended'
                 elif status in ('On Hold', 'En pause', 'En Hiatus'):
                     data['status'] = 'hiatus'

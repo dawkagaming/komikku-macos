@@ -25,7 +25,6 @@
 # ShadowMangas [ES]
 # SkyMangas [ES]
 # SushiScan [FR]
-# Tecno Scan [ES]
 # Tres Daos [ES]
 # VF Scan [FR]
 

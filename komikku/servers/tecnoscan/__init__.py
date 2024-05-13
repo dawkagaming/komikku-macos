@@ -2,18 +2,13 @@
 # SPDX-License-Identifier: GPL-3.0-only or GPL-3.0-or-later
 # Author: Valéry Febvre <vfebvre@easter-eggs.com>
 
-from komikku.servers.multi.manga_stream import MangaStream
+from komikku.servers.multi.madara import Madara
 
 
-class Tecnoscan(MangaStream):
+class Tecnoscan(Madara):
     id = 'tecnoscan'
     name = 'Tecno Scan'
     lang = 'es'
 
     base_url = 'https://visortecno.com'
-
-    authors_selector = '.infox .fmed:-soup-contains("Artista") span, .infox .fmed:-soup-contains("Autor") span'
-    genres_selector = '.infox .mgen a'
-    scanlators_selector = '.infox .fmed:-soup-contains("Serialización") span'
-    status_selector = '.tsinfo .imptdt:-soup-contains("Estado") i'
-    synopsis_selector = '[itemprop="description"]'
+    chapters_url = base_url + '/manga/{0}/ajax/chapters/'
