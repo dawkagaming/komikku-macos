@@ -5,6 +5,7 @@
 # My Manga Reader CMS
 
 # Supported servers:
+# Bentoscan [FR]
 # FR Scan [FR] (Disabled)
 # Jpmangas [FR] (Disabled)
 # Mangadoor [ES] (Disabled)
