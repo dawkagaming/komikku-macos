@@ -6,12 +6,12 @@
 
 # Supported servers:
 # FR Scan [FR] (Disabled)
-# Jpmangas [FR]
-# Lelscan-VF [FR]
+# Jpmangas [FR] (Disabled)
 # Mangadoor [ES] (Disabled)
+# Manga Scan [FR]
 # Mangasin [ES]
 # Read Comics Online [EN]
-# Scan FR [FR]
+# Scan FR [FR] (Disabled)
 # Scan OP [FR] (Disabled)
 # ScanOnePiece [FR]
 
@@ -37,6 +37,8 @@ class MyMangaReaderCMS(Server):
     cover_url: str
 
     search_query_param: str = 'query'
+
+    details_name_selector: str = None
 
     def __init__(self):
         if self.session is None:
@@ -74,7 +76,10 @@ class MyMangaReaderCMS(Server):
             cover=None,
         ))
 
-        data['name'] = soup.find('img', class_=['lazyload', 'img-responsive']).get('alt').strip()
+        if self.details_name_selector:
+            data['name'] = soup.select_one(self.details_name_selector).text.strip()
+        else:
+            data['name'] = soup.find('img', class_=['lazyload', 'img-responsive']).get('alt').strip()
         data['cover'] = self.cover_url.format(data['slug'])
 
         # Details
@@ -93,7 +98,7 @@ class MyMangaReaderCMS(Server):
                     t = t.strip()
                     if t not in data['authors']:
                         data['authors'].append(t)
-            elif label.startswith(('Categories', 'Catégories', 'Categorías', 'Género', 'Tags')):
+            elif label.startswith(('Categories', 'Catégories', 'Categorías', 'Genres', 'Género', 'Tags')):
                 data['genres'] = [a_element.text.strip() for a_element in element.find_all('a')]
             elif label.startswith(('Status', 'Statut', 'Estado')):
                 value = element.text.strip().lower()
@@ -102,10 +107,12 @@ class MyMangaReaderCMS(Server):
                 elif value in ('complete', 'terminé', 'completa'):
                     data['status'] = 'complete'
 
-        if synopsis_element := soup.find('div', class_='well'):
+        if synopsis_element := soup.select_one('.well'):
+            if synopsis_element.h5:
+                synopsis_element.h5.extract()
+
             data['synopsis'] = synopsis_element.text.strip()
-            alert_element = soup.find('div', class_='alert-danger')
-            if alert_element:
+            if alert_element := soup.select_one('.alert-danger'):
                 data['synopsis'] += '\n\n' + alert_element.text.strip()
 
         data['chapters'] = self.get_manga_chapters_data(soup)
