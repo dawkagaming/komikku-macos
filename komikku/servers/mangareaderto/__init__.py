@@ -7,7 +7,7 @@ from komikku.servers.multi.mangareader import Mangareader
 
 class Mangareaderto(Mangareader):
     id = 'mangareaderto'
-    name = 'MangaReader'
+    name = 'MangaReader (to)'
     lang = 'en'
     is_nsfw = True
 
