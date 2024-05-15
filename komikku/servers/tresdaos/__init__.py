@@ -2,20 +2,15 @@
 # SPDX-License-Identifier: GPL-3.0-only or GPL-3.0-or-later
 # Author: Valéry Febvre <vfebvre@easter-eggs.com>
 
-from komikku.servers.multi.manga_stream import MangaStream
+from komikku.servers.multi.madara import Madara
 
 
-class Tresdaos(MangaStream):
+class Tresdaos(Madara):
     id = 'tresdaos'
     name = 'Tres Daos'
     lang = 'es'
 
-    chapters_order = 'asc'
-
     base_url = 'https://tresdaos.com'
+    chapters_url = base_url + '/manga/{0}/ajax/chapters/'
 
-    authors_selector = '.tsinfo .imptdt:-soup-contains("Author") i, .tsinfo .imptdt:-soup-contains("Artist") i'
-    genres_selector = '.info-desc .mgen a'
-    scanlators_selector = '.tsinfo .imptdt:-soup-contains("Serialization") i'
-    status_selector = '.tsinfo .imptdt:-soup-contains("Status") i'
-    synopsis_selector = '[itemprop="description"]'
+    details_synopsis_selector = '.manga-excerpt'
