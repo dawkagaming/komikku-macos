@@ -2,6 +2,9 @@
 # SPDX-License-Identifier: GPL-3.0-only or GPL-3.0-or-later
 # Author: Valéry Febvre <vfebvre@easter-eggs.com>
 
+# Supported servers:
+# Aurora Scan [pt_BR]
+
 import base64
 from io import BytesIO
 from zipfile import ZipFile
