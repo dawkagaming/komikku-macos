@@ -14,6 +14,7 @@ import traceback
 
 import gi
 from PIL import Image
+import pillow_heif
 import requests
 from requests.adapters import HTTPAdapter
 from requests.adapters import TimeoutSauce
@@ -38,6 +39,9 @@ COVER_HEIGHT = 256
 REQUESTS_TIMEOUT = 5
 
 logger = logging.getLogger('komikku')
+
+pillow_heif.register_avif_opener()
+pillow_heif.register_heif_opener()
 
 
 def check_cmdline_tool(cmd):
