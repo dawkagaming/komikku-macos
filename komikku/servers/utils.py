@@ -42,19 +42,52 @@ def convert_date_string(date_string, format=None, languages=None):
     :param format: A format string using directives as given `here <https://docs.python.org/3/library/datetime.html#strftime-and-strptime-behavior>`_
     :type format: str
 
-    :param languages: A list of language codes, e.g. ['en', 'es', 'zh-Hant']
+    :param languages: A list of language codes, e.g. ['en', 'es', 'pt_BR']
     :type languages: list
 
     :return: A date object representing parsed date string if successful, `None` otherwise
     :rtype: datetime.date
     """
+
+    # Check if languages are supported by dateparser
+    # And detect whether a language code should be treated as a locale code
+    if languages:
+        language_locale = dateparser.data.language_locale_dict
+        supported_languages = set()
+        supported_locales = set()
+
+        for code in languages:
+            # Some codes should not be treated as locales
+            if code.startswith(('zh_',)):
+                code = code.replace('_', '-', 1)
+
+            if '_' in code:
+                lang, country = code.split('_')
+            else:
+                lang, country = code, None
+
+            if lang not in language_locale:
+                # Not supported
+                continue
+
+            if country and f'{lang}-{country}' in language_locale[lang]:
+                # Code is a locale code
+                supported_locales.add(f'{lang}-{country}')
+
+            supported_languages.add(lang)
+
+        languages = list(supported_languages)
+        locales = list(supported_locales)
+    else:
+        locales = None
+
     if format is not None:
         try:
             d = datetime.datetime.strptime(date_string, format)
         except Exception:
-            d = dateparser.parse(date_string, languages=languages)
+            d = dateparser.parse(date_string, languages=languages, locales=locales)
     else:
-        d = dateparser.parse(date_string, languages=languages)
+        d = dateparser.parse(date_string, languages=languages, locales=locales)
 
     return d.date() if d else None
 
