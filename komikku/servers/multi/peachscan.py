@@ -5,6 +5,7 @@
 # Supported servers:
 # Aurora Scan [pt_BR]
 # Cerise Scan [pt_BR]
+# Dango Scan [pt_BR]
 
 import base64
 from io import BytesIO
