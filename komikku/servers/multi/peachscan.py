@@ -131,7 +131,7 @@ class Peachscan(Server):
             data['chapters'].append(dict(
                 slug=element.get('href').split('/')[-2],
                 title=element.select_one('.numero__capitulo').text.strip(),
-                date=convert_date_string(date, format=self.date_format, languages=['pt']),
+                date=convert_date_string(date, format=self.date_format, languages=[self.lang]),
             ))
 
         return data
