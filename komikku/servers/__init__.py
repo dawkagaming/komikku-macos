@@ -194,7 +194,7 @@ class Server(ABC):
 
         headers = {
             'Accept': 'image/avif,image/webp,*/*',
-            'Referer': self.base_url,
+            'Referer': f'{self.base_url}/',
         }
         if etag:
             headers['If-None-Match'] = etag
