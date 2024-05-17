@@ -8,6 +8,7 @@
 # Dango Scan [pt_BR]
 # Luratoon Scan [pt_BR]
 # Nazarick Scan [pt_BR]
+# RF Dragon Scan [pt_BR]
 
 import base64
 from io import BytesIO
