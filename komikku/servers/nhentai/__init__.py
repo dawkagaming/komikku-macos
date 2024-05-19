@@ -60,7 +60,8 @@ class Nhentai(Server):
         data['name'] = soup.find('meta', property='og:title')['content']
         data['cover'] = soup.find('meta', property='og:image')['content']
 
-        # Genres & Artists
+        # Genres & Artists + chapter date
+        chapter_date = None
         info = soup.select_one('#info')
         for tag_container in info.select('#tags .tag-container'):
             category = tag_container.text.split(':')[0].strip()
