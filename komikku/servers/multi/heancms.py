@@ -188,7 +188,7 @@ class HeanCMS(Server):
         """
         Returns manga chapter data by scraping chapter HTML page content
 
-        Currently, only pages are expected.
+        Pages URLs are available in a <script> element
         """
         r = self.session_get(
             self.chapter_url.format(manga_slug, chapter_slug),
@@ -205,16 +205,21 @@ class HeanCMS(Server):
 
         soup = BeautifulSoup(r.text, 'lxml')
 
-        data = dict(
-            pages=[],
-        )
-        for img_element in soup.select('p.flex.flex-col > img'):
-            data['pages'].append(dict(
-                slug=None,
-                image=img_element.get('src') or img_element.get('data-src'),
-            ))
+        if info := extract_info_from_script(soup, 'API_Response'):
+            info = json.loads(info)
 
-        return data
+            data = dict(
+                pages=[],
+            )
+            for url in info[1][3]['children'][1][3]['children'][1][3]['API_Response']['chapter']['chapter_data']['images']:
+                data['pages'].append(dict(
+                    slug=None,
+                    image=url,
+                ))
+
+            return data
+
+        return None
 
     def get_manga_chapter_page_image(self, manga_slug, manga_name, chapter_slug, page):
         """
