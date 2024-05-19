@@ -44,38 +44,30 @@ class Nhentai(Server):
         if mime_type != 'text/html':
             return None
 
-        soup = BeautifulSoup(r.text, 'lxml')
-
-        title = soup.find('meta', property='og:title')['content']
-        image_url = soup.find('meta', property='og:image')['content']
-        all_tags = soup.find('meta', property='og:description')['content']
-        tags = [t.strip() for t in all_tags.split(',')]
-
         data = initial_data.copy()
         data.update(dict(
-            name=title,
-            cover=image_url,
             authors=[],
-            scanlators=[],
-            genres=tags,
-            status=None,
-            synopsis=None,
+            scanlators=[],  # Not available
+            genres=[],
+            status=None,    # Not available
+            synopsis=None,  # Not available
             chapters=[],
             server_id=self.id,
         ))
 
-        info = soup.find('div', id='info')
-        data['chapters'].append(dict(
-           slug=image_url.rstrip('/').split('/')[-2],
-           title=title,
-        ))
+        soup = BeautifulSoup(r.text, 'lxml')
 
+        data['name'] = soup.find('meta', property='og:title')['content']
+        data['cover'] = soup.find('meta', property='og:image')['content']
+
+        # Genres & Artists
+        info = soup.select_one('#info')
         for tag_container in info.select('#tags .tag-container'):
             category = tag_container.text.split(':')[0].strip()
 
             if category == 'Uploaded':
-                time = tag_container.find('time').get('datetime')
-                data['chapters'][0]['date'] = convert_date_string(time.split('T')[0], '%Y-%m-%d')
+                if time_element := tag_container.select_one('time'):
+                    chapter_date = time_element.get('datetime').split('T')[0]
 
             for tag in tag_container.select('.tag'):
                 clean_tag = tag.select_one('span.name').text.strip()
@@ -83,6 +75,13 @@ class Nhentai(Server):
                     data['authors'].append(clean_tag)
                 if category in ['Tags', ]:
                     data['genres'].append(clean_tag)
+
+        # Single chapter
+        data['chapters'].append(dict(
+            slug=data['cover'].rstrip('/').split('/')[-2],
+            title=data['name'],
+            date=convert_date_string(chapter_date, '%Y-%m-%d') if chapter_date else None,
+        ))
 
         return data
 
