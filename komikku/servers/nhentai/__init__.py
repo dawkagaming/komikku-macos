@@ -46,26 +46,28 @@ class Nhentai(Server):
 
         soup = BeautifulSoup(r.text, 'lxml')
 
+        title = soup.find('meta', property='og:title')['content']
+        image_url = soup.find('meta', property='og:image')['content']
+        all_tags = soup.find('meta', property='og:description')['content']
+        tags = [t.strip() for t in all_tags.split(',')]
+
         data = initial_data.copy()
         data.update(dict(
+            name=title,
+            cover=image_url,
             authors=[],
             scanlators=[],
-            genres=[],
+            genres=tags,
             status=None,
             synopsis=None,
             chapters=[],
             server_id=self.id,
-            cover=None,
         ))
 
         info = soup.find('div', id='info')
-        cover_el = soup.find('div', id='cover')
-        cover_img = cover_el.find('img').get('data-src')
-        data['cover'] = cover_img
-
         data['chapters'].append(dict(
-            slug=cover_img.rstrip('/').split('/')[-2],
-            title=info.find('h1').text.strip(),
+           slug=image_url.rstrip('/').split('/')[-2],
+           title=title,
         ))
 
         for tag_container in info.select('#tags .tag-container'):
