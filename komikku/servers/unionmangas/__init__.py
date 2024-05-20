@@ -18,6 +18,7 @@ class Unionmangas(Server):
     lang = 'pt'
     is_nsfw = True
     long_strip_genres = ['Webtoon', ]
+    status = 'disabled'
 
     base_url = 'https://guimah.com'
     api_search_url = base_url + '/assets/busca.php?nomeManga={0}'
