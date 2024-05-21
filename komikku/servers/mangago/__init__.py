@@ -4,16 +4,22 @@
 
 import base64
 import logging
+import time
 
 from bs4 import BeautifulSoup
 from cryptography.hazmat.primitives.ciphers import algorithms
 from cryptography.hazmat.primitives.ciphers import Cipher
 from cryptography.hazmat.primitives.ciphers import modes
-import requests
+try:
+    # This server requires an impersonate browsers' TLS signatures or JA3 fingerprints
+    from curl_cffi import requests
+except Exception:
+    # Server will be disabled
+    requests = None
 import unidecode
 
 from komikku.servers import Server
-from komikku.servers import USER_AGENT
+from komikku.servers import USER_AGENT_CHROME
 from komikku.servers.utils import convert_date_string
 from komikku.servers.utils import get_buffer_mime_type
 from komikku.servers.utils import sojson4_decode
@@ -29,6 +35,7 @@ class Mangago(Server):
     id = 'mangago'
     name = 'Mangago'
     lang = 'en'
+    status = 'enabled' if requests is not None else 'disabled'
 
     base_url = 'https://www.mangago.me'
     search_url = base_url + '/r/l_search/'
@@ -38,9 +45,12 @@ class Mangago(Server):
     chapter_url = base_url + '/read-manga/{0}/{1}/'
 
     def __init__(self):
-        if self.session is None:
-            self.session = requests.Session()
-            self.session.headers.update({'User-Agent': USER_AGENT})
+        if self.session is None and requests is not None:
+            self.session = requests.Session(allow_redirects=True, timeout=(5, 10))
+            self.session.headers.update({
+                'User-Agent': USER_AGENT_CHROME,
+                'Accept-Encoding': 'gzip, deflate',  # br is not supported with curl_cffi
+            })
 
     def get_manga_data(self, initial_data):
         """
@@ -230,7 +240,7 @@ class Mangago(Server):
 
     def get_latest_updates(self):
         """
-        Returns Latest Upadtes list
+        Returns Latest Updates list
         """
         def get_page(page):
             r = self.session_get(self.latest_updates_url.format(page))
@@ -264,11 +274,21 @@ class Mangago(Server):
             return items, page < min(LATEST_UPDATES_RESULTS_PAGES, nb_pages)
 
         results = []
+        delay = None
         for page in range(1, LATEST_UPDATES_RESULTS_PAGES + 1):
+            if delay:
+                time.sleep(delay)
+
             items, more = get_page(page)
-            results += items
+            if items is not None:
+                results += items
+            else:
+                return None
+
             if not more:
                 break
+
+            delay = 1
 
         return results
 
@@ -307,11 +327,21 @@ class Mangago(Server):
             return items, page < min(MOST_POPULAR_RESULTS_PAGES, nb_pages)
 
         results = []
+        delay = None
         for page in range(1, MOST_POPULAR_RESULTS_PAGES + 1):
+            if delay:
+                time.sleep(delay)
+
             items, more = get_page(page)
-            results += items
+            if items is not None:
+                results += items
+            else:
+                return None
+
             if not more:
                 break
+
+            delay = 1
 
         return results
 
@@ -346,10 +376,20 @@ class Mangago(Server):
             return items, page < min(SEARCH_RESULTS_PAGES, nb_pages)
 
         results = []
+        delay = None
         for page in range(1, SEARCH_RESULTS_PAGES + 1):
+            if delay:
+                time.sleep(delay)
+
             items, more = get_page(term, page)
-            results += items
+            if items is not None:
+                results += items
+            else:
+                return None
+
             if not more:
                 break
+
+            delay = 1
 
         return results

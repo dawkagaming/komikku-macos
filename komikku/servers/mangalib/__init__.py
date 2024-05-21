@@ -7,11 +7,12 @@ try:
     # This server requires an impersonate browsers' TLS signatures or JA3 fingerprints
     from curl_cffi import requests
 except Exception:
+    # Server will be disabled
     requests = None
 import json
 
 from komikku.servers import Server
-from komikku.servers import USER_AGENT
+from komikku.servers import USER_AGENT_CHROME
 from komikku.servers.utils import convert_date_string
 from komikku.servers.utils import get_buffer_mime_type
 
@@ -20,7 +21,7 @@ class Mangalib(Server):
     id = 'mangalib'
     name = 'MangaLib'
     lang = 'ru'
-    status = 'enabled' if requests else 'disabled'
+    status = 'enabled' if requests is not None else 'disabled'
 
     base_url = 'https://mangalib.org'
     search_url = base_url + '/manga-list'
@@ -29,11 +30,11 @@ class Mangalib(Server):
     image_url = '{0}/{1}/{2}'
 
     def __init__(self):
-        if self.session is None and requests:
-            self.session = requests.Session()
+        if self.session is None and requests is not None:
+            self.session = requests.Session(allow_redirects=True, timeout=(5, 10))
             self.session.headers = {
-                'User-Agent': USER_AGENT,
-                'Accept-Encoding': 'gzip, deflate',
+                'User-Agent': USER_AGENT_CHROME,
+                'Accept-Encoding': 'gzip, deflate',  # br is not supported with curl_cffi
             }
 
     def get_manga_data(self, initial_data):
@@ -43,7 +44,7 @@ class Mangalib(Server):
         Initial data should contain at least manga's slug (provided by search)
         """
         assert 'slug' in initial_data, 'Manga slug is missing in initial data'
-        r = self.session_get(self.manga_url.format(initial_data['slug']), timeout=(5, 10))
+        r = self.session_get(self.manga_url.format(initial_data['slug']))
         if r.status_code != 200:
             return None
 
@@ -130,7 +131,7 @@ class Mangalib(Server):
 
         Currently, only pages are expected.
         """
-        r = self.session_get(self.chapter_url.format(manga_slug, chapter_slug), timeout=(5, 10))
+        r = self.session_get(self.chapter_url.format(manga_slug, chapter_slug))
         if r.status_code != 200:
             return None
 
@@ -176,7 +177,7 @@ class Mangalib(Server):
         """
         Returns chapter page scan (image) content
         """
-        r = self.session_get(page['image'], timeout=(5, 10))
+        r = self.session_get(page['image'])
         if r.status_code != 200:
             return None
 
@@ -216,7 +217,7 @@ class Mangalib(Server):
         else:
             params = dict(name=term)
 
-        r = self.session_get(self.search_url, params=params, timeout=(5, 10))
+        r = self.session_get(self.search_url, params=params)
         if r.status_code != 200:
             return None
 
