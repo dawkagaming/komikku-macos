@@ -28,7 +28,10 @@ class Manhwahentai(Madara):
     details_authors_selector = '.post-tax-wp-manga-artist .post-tags .tag-name'
     details_genres_selector = '.post-tax-wp-manga-category .post-tags .tag-name'
     details_status_selector = None
-    details_synopsis_selector = '.post-meta:nth-child(9) > span:nth-child(2)'
+    details_synopsis_selector = '.summary_content .post-meta:-soup-contains("Description") .post-tag .tag-name'
+    results_selector = '.manga'
+    result_name_slug_selector = '.post-title a'
+    result_cover_selector = '.item-thumb img'
 
     @BypassCF()
     def get_manga_chapter_data(self, manga_slug, manga_name, chapter_slug, chapter_url):
