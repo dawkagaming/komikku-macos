@@ -98,6 +98,36 @@
     <url type="donation">https://valos.gitlab.io/Komikku/#sponsor</url>
 
     <releases>
+        <release version="1.47.0" date="2024-06-22">
+            <description translate="no">
+                <ul>
+                    <li>[Reader] Added navigation with J and K keyboard keys</li>
+                    <li>[Servers] Added Aurora Scan (pt_BR)</li>
+                    <li>[Servers] Added Bentoscan (FR)</li>
+                    <li>[Servers] Added Cerise Scan (pt_BR)</li>
+                    <li>[Servers] Added Dango Scan (pt_BR)</li>
+                    <li>[Servers] Added Luratoon Scan (pt_BR)</li>
+                    <li>[Servers] Added Manga Reader (cc) [EN]</li>
+                    <li>[Servers] Added Manga Scan (FR)</li>
+                    <li>[Servers] Added Nazarick Scan (pt_BR)</li>
+                    <li>[Servers] Added RF Dragon Scan (pt_BR)</li>
+                    <li>[Servers] Added Scanvf (FR)</li>
+                    <li>[Servers] Added Sinensistoon (pt_BR)</li>
+                    <li>[Servers] Added Wicked Witch Scan (pt_BR)</li>
+                    <li>[Servers] Hunlight Scans (EN): Reenabled</li>
+                    <li>[Servers] MangaDex: Improved Latest Updates fetching</li>
+                    <li>[Servers] Mangago (EN): Update</li>
+                    <li>[Servers] Manhwa Hentai (EN): Update</li>
+                    <li>[Servers] NHentai (EN/ZH/JA): Update</li>
+                    <li>[Servers] Night scans (EN): Update</li>
+                    <li>[Servers] Perf Scan (FR): Update</li>
+                    <li>[Servers] Tecno Scan (ES): Update</li>
+                    <li>[Servers] Tres Daos (ES): Update</li>
+                    <li>[Servers] Union Mangás (PT): Disabled</li>
+                </ul>
+                <p>Happy reading.</p>
+            </description>
+        </release>
         <release version="1.46.0" date="2024-05-13">
             <description translate="no">
                 <ul>

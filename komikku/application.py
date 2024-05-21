@@ -435,16 +435,29 @@ available in your region/language."""))
         # Override release notes
         dialog.set_release_notes("""
             <ul>
-                <li>[Webview] Fixed exiting when there is no Cloudflare challenge</li>
-                <li>[Servers] Added MangaCrab (ES)</li>
-                <li>[Servers] Comic Book Plus (EN): Update</li>
-                <li>[Servers] Mode Scanlator (pt_BR): Update</li>
-                <li>[Servers] Rawdevart (JA): Update</li>
-                <li>[Servers] Reaper Scans (EN): Update</li>
-                <li>[Servers] ShadowMangas (ES): Update</li>
+                <li>[Reader] Added navigation with J and K keyboard keys</li>
+                <li>[Servers] Added Aurora Scan (pt_BR)</li>
+                <li>[Servers] Added Bentoscan (FR)</li>
+                <li>[Servers] Added Cerise Scan (pt_BR)</li>
+                <li>[Servers] Added Dango Scan (pt_BR)</li>
+                <li>[Servers] Added Luratoon Scan (pt_BR)</li>
+                <li>[Servers] Added Manga Reader (cc) [EN]</li>
+                <li>[Servers] Added Manga Scan (FR)</li>
+                <li>[Servers] Added Nazarick Scan (pt_BR)</li>
+                <li>[Servers] Added RF Dragon Scan (pt_BR)</li>
+                <li>[Servers] Added Scanvf (FR)</li>
+                <li>[Servers] Added Sinensistoon (pt_BR)</li>
+                <li>[Servers] Added Wicked Witch Scan (pt_BR)</li>
+                <li>[Servers] Hunlight Scans (EN): Reenabled</li>
+                <li>[Servers] MangaDex: Improved Latest Updates fetching</li>
+                <li>[Servers] Mangago (EN): Update</li>
+                <li>[Servers] Manhwa Hentai (EN): Update</li>
+                <li>[Servers] NHentai (EN/ZH/JA): Update</li>
+                <li>[Servers] Night scans (EN): Update</li>
+                <li>[Servers] Perf Scan (FR): Update</li>
                 <li>[Servers] Tecno Scan (ES): Update</li>
-                <li>[Servers] JManga (JA): Disabled</li>
-                <li>[L10n] Updated Chinese (Traditional), Dutch, German, Hindi, Italian and Turkish translations</li>
+                <li>[Servers] Tres Daos (ES): Update</li>
+                <li>[Servers] Union Mangás (PT): Disabled</li>
             </ul>
             <p>Happy reading.</p>
         """)
