@@ -23,6 +23,7 @@ class Mangainua(Server):
     base_url = 'https://manga.in.ua'
     search_url = base_url + '/mangas/'
     api_chapters_url = base_url + '/engine/ajax/controller.php?mod=load_chapters'
+    api_page_url = base_url + '/engine/ajax/controller.php?mod=load_chapters_image'
 
     def __init__(self):
         if self.session is None:
@@ -147,15 +148,33 @@ class Mangainua(Server):
         soup = BeautifulSoup(r.text, features='lxml')
 
         pages = soup.find('div', class_='comics')
-        image_paths = [tag['data-src'] for tag in pages.find_all('img')]
+        news = pages.attrs['data-news_id']
+        for script_element in soup.find_all('script'):
+                 script = script_element.string
+                 if not script or 'var site_login_hash' not in script:
+                     continue
 
+                 hash = None
+                 for line in script.split('\n'):
+                     line = line.strip()
+
+                     if 'var site_login_hash' in line:
+                         hash = line.split("'")[-2]
+                         break
+        r = self.session_get(self.api_page_url + '&news_id=' + news + '&action=show' + '&user_hash=' + hash)
+        if r.status_code != 200:
+           return None
+
+        soup = BeautifulSoup(r.text, features='lxml')
+        pages = soup.find_all('img')
+        image_paths = [tag['data-src'] for tag in pages]
         data = dict(
             pages=[],
         )
         for path in image_paths:
             data['pages'].append(dict(
                 slug=None,
-                image=self.base_url + path,
+                image=path,
             ))
 
         return data
