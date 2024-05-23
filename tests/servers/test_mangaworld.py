@@ -27,8 +27,8 @@ def test_mangaworld(mangaworld_server):
     assert response is not None
     yield
 
-    # Get most populars
-    print('Get most populars')
+    # Get most popular
+    print('Get most popular')
     try:
         response = mangaworld_server.get_most_populars()
     except Exception as e:

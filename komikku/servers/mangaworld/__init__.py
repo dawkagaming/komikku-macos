@@ -101,7 +101,7 @@ class Mangaworld(Server):
             if label.startswith('Generi'):
                 for a_element in element.find_all('a'):
                     data['genres'].append(a_element.text.strip())
-            elif label.startswith(('Autore', 'Artista')):
+            elif label.startswith(('Autore', 'Artista', 'Autori', 'Artisti')):
                 for a_element in element.find_all('a'):
                     author = a_element.text.strip()
                     if author not in data['authors']:
