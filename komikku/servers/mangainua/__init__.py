@@ -150,31 +150,39 @@ class Mangainua(Server):
         pages = soup.find('div', class_='comics')
         news = pages.attrs['data-news_id']
         for script_element in soup.find_all('script'):
-                 script = script_element.string
-                 if not script or 'var site_login_hash' not in script:
-                     continue
+            script = script_element.string
+            if not script or 'var site_login_hash' not in script:
+                continue
 
-                 hash = None
-                 for line in script.split('\n'):
-                     line = line.strip()
+            hash = None
+            for line in script.split('\n'):
+                line = line.strip()
 
-                     if 'var site_login_hash' in line:
-                         hash = line.split("'")[-2]
-                         break
-        r = self.session_get(self.api_page_url + '&news_id=' + news + '&action=show' + '&user_hash=' + hash)
+                if 'var site_login_hash' in line:
+                    hash = line.split("'")[-2]
+                    break
+
+        r = self.session_get(
+            self.api_page_url,
+            params={
+                'news_id': news,
+                'action': 'show',
+                'user_hash': hash
+            }
+        )
         if r.status_code != 200:
-           return None
+            return None
 
         soup = BeautifulSoup(r.text, features='lxml')
-        pages = soup.find_all('img')
-        image_paths = [tag['data-src'] for tag in pages]
+
         data = dict(
             pages=[],
         )
-        for path in image_paths:
+        urls = [tag['data-src'] for tag in soup.select('img')]
+        for url in urls:
             data['pages'].append(dict(
                 slug=None,
-                image=path,
+                image=url,
             ))
 
         return data
