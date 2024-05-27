@@ -14,7 +14,7 @@ class Mangacrab(Madara):
     date_format = '%d/%m/%Y'
     series_name = 'series'
 
-    base_url = 'https://visorcrab.com'
+    base_url = 'https://wikicrab.xyz'
 
     details_name_selector = '.titulodetalles'
     details_cover_selector = '#miniatura > a > img'
