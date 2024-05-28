@@ -4,13 +4,14 @@
 # Rafael Fontenelle <rafaelff@gnome.org>, 2022-2023.
 # Infinitive Witch <infinitivewitch@disroot.org>, 2023.
 # Unidealistic Raccoon <me@ursuslotor.xyz>, 2023, 2024.
+# Alex Carvalho <gameplayalex160@gmail.com>, 2024.
 msgid ""
 msgstr ""
 "Project-Id-Version: Komikku\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-04-25 23:18+0200\n"
-"PO-Revision-Date: 2024-01-04 15:06+0000\n"
-"Last-Translator: Unidealistic Raccoon <me@ursuslotor.xyz>\n"
+"PO-Revision-Date: 2024-05-28 19:17+0000\n"
+"Last-Translator: Alex Carvalho <gameplayalex160@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) <https://hosted.weblate.org/projects/"
 "komikku/main/pt_BR/>\n"
 "Language: pt_BR\n"
@@ -18,17 +19,19 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 5.4-dev\n"
+"X-Generator: Weblate 5.6-dev\n"
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:11
 msgid "Discover and read manga &amp; comics"
-msgstr ""
+msgstr "Descubra e leia mangás &amp; HQs"
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:13
 msgid ""
 "With its simple, elegant and adaptive interface, this reader lets you "
 "search, sort and read your series with ease."
 msgstr ""
+"Com uma interface simples, elegante e adaptável, este leitor permitirá a "
+"você pesquisar, classificar e ler suas séries com facilidade."
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:15
 msgid "Why you will love Komikku?"
@@ -40,7 +43,7 @@ msgstr "Leitura online e offline de dezenas de servidores"
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:18
 msgid "Support for locally stored series (in CBZ or CBR formats)"
-msgstr ""
+msgstr "Suporta séries armazenadas localmente (em formatos CBZ ou CBR)"
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:19
 msgid "RTL, LTR, Vertical and Webtoon reading modes"
@@ -63,11 +66,11 @@ msgstr "Categorias para organizar sua biblioteca"
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:22
 msgid "Automatic update of series"
-msgstr ""
+msgstr "Atualização automática de séries"
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:23
 msgid "Automatic download of new chapters"
-msgstr "Download automático de novos capítulos"
+msgstr "Baixar novos capítulos automaticamente"
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:24
 msgid "Reading history"
@@ -75,7 +78,7 @@ msgstr "Histórico de leitura"
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:25
 msgid "Light and dark themes"
-msgstr "Temas claros e escuros"
+msgstr "Temas claro e escuro"
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:46
 msgid "The Library page"
@@ -87,7 +90,7 @@ msgstr "A página da Biblioteca com a barra lateral de categoria aberta"
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:54
 msgid "The Preferences page (Library settings)"
-msgstr "A página de Preferências (Configurações da Biblioteca)"
+msgstr "Preferências da página (Configurações da Biblioteca)"
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:58
 msgid "The Explorer page in mobile format (Servers list)"
@@ -130,6 +133,8 @@ msgid ""
 "manga;reader;viewer;comic;manhwa;manhua;bd;webtoon;webcomic;scan;offline;GTK;"
 "GNOME;"
 msgstr ""
+"mangá;leitor;visualizador;comic;manhwa;manhua;bd;webtoon;webcomic;scan;off-"
+"line;GTK;GNOME;"
 
 #: ../data/ui/card.blp:32 ../data/ui/card.blp:444
 #: ../data/ui/card_chapters_list_row.blp:44 ../data/ui/download_manager.blp:22
@@ -172,7 +177,7 @@ msgstr "Sinopse"
 #: ../data/ui/card.blp:484 ../data/ui/categories_editor.blp:64
 #: ../data/ui/library.blp:247
 msgid "No Categories"
-msgstr ""
+msgstr "Sem Categorias"
 
 #: ../data/ui/card_chapters_list_row.blp:61
 msgid "New"
@@ -188,11 +193,11 @@ msgstr "Gerenciador de Download"
 
 #: ../data/ui/download_manager.blp:28
 msgid "Start/Stop Download"
-msgstr ""
+msgstr "Iniciar/Parar Download"
 
 #: ../data/ui/download_manager.blp:65
 msgid "No Downloads"
-msgstr ""
+msgstr "Sem Downloads"
 
 #: ../data/ui/explorer_search.blp:10 ../data/ui/explorer_search.blp:41
 #: ../data/ui/history.blp:18 ../data/ui/library.blp:36
@@ -201,7 +206,7 @@ msgstr "Pesquisar"
 
 #: ../data/ui/explorer_search.blp:28
 msgid "Search Filters"
-msgstr ""
+msgstr "Filtros de Pesquisa"
 
 #: ../data/ui/explorer_search.blp:34
 msgid "Open in Browser"
@@ -221,11 +226,11 @@ msgstr "Servidores"
 
 #: ../data/ui/explorer_servers.blp:13
 msgid "Search Comics Across All Servers"
-msgstr ""
+msgstr "Pesquisar em todos os servidores"
 
 #: ../data/ui/explorer_servers.blp:19
 msgid "Search Servers"
-msgstr ""
+msgstr "Pesquisar Servidores"
 
 #: ../data/ui/explorer_servers.blp:33
 msgid "Search for servers by name or language"
@@ -237,7 +242,7 @@ msgstr "Histórico"
 
 #: ../data/ui/history.blp:69
 msgid "No History"
-msgstr ""
+msgstr "Sem Histórico"
 
 #: ../data/ui/library.blp:6 ../data/ui/preferences.blp:48
 msgid "Library"
@@ -245,7 +250,7 @@ msgstr "Biblioteca"
 
 #: ../data/ui/library.blp:19
 msgid "Toggle Categories Sidebar"
-msgstr ""
+msgstr "Ativar barra lateral de categorias"
 
 #: ../data/ui/library.blp:23
 msgid "Komikku"
@@ -485,7 +490,7 @@ msgstr "Baixa automaticamente novos capítulos"
 
 #: ../data/ui/preferences.blp:149
 msgid "Explorer"
-msgstr ""
+msgstr "Explorador"
 
 #: ../data/ui/preferences.blp:152
 #: ../data/ui/preferences_servers_languages.blp:6
@@ -535,6 +540,8 @@ msgid ""
 "These settings do not prevent potentially incorrectly flagged servers from "
 "surfacing NSFW content."
 msgstr ""
+"Esta configuração não impede que conteúdo NSFW seja mostrado nos servidores "
+"mal categorizados."
 
 #: ../data/ui/preferences.blp:202 ../data/ui/reader.blp:6
 msgid "Reader"
@@ -673,19 +680,19 @@ msgstr "Dados não salvos na biblioteca"
 
 #: ../data/ui/preferences.blp:287
 msgid "Clear Chapters Cache and Database"
-msgstr ""
+msgstr "Limpar Cache de Capítulos e do Banco de dados"
 
 #: ../data/ui/preferences.blp:292
 msgid "Clear Chapters Cache and Database on Exit"
-msgstr ""
+msgstr "Limpar Cache de Capítulos e do Banco de dados ao Sair"
 
 #: ../data/ui/preferences.blp:297
 msgid "Credentials Storage"
-msgstr ""
+msgstr "Armazenamento de Credenciais"
 
 #: ../data/ui/preferences.blp:300
 msgid "Allow Plaintext Storage as Fallback"
-msgstr ""
+msgstr "Permitir armazenar como arquivo de texto como substituto"
 
 #: ../data/ui/preferences.blp:301
 msgid "Used when no keyring backends are found"
@@ -843,7 +850,7 @@ msgstr "Doação única ou recorrente"
 
 #: ../data/ui/webview.blp:6
 msgid "Webview"
-msgstr "Webview"
+msgstr "Vista da web"
 
 #: ../komikku/application.py:159
 msgid "Multiple URLs not supported"
@@ -877,7 +884,7 @@ msgstr ""
 
 #: ../komikku/application.py:429
 msgid "Supporters"
-msgstr ""
+msgstr "Apoiadores"
 
 #: ../komikku/application.py:431
 msgid "Join Chat"
@@ -919,6 +926,9 @@ msgid ""
 "{0} is no longer supported.\n"
 "Please switch to another server."
 msgstr ""
+"AVISO\n"
+"{0} Não é mais suportado.\n"
+"Por favor, mude para outro servidor."
 
 #: ../komikku/card/__init__.py:423
 msgid "Unknown author"
@@ -1005,7 +1015,7 @@ msgstr "Salvar"
 #: ../komikku/downloader.py:235
 #, python-brace-format
 msgid "Download failure: {0}"
-msgstr ""
+msgstr "Falha no download: {0}"
 
 #: ../komikku/downloader.py:246
 #, python-brace-format
@@ -1078,11 +1088,11 @@ msgstr ""
 
 #: ../komikku/explorer/common.py:272
 msgid "Close"
-msgstr ""
+msgstr "Fechar"
 
 #: ../komikku/explorer/common.py:272
 msgid "Local Folder"
-msgstr ""
+msgstr "Pasta Local"
 
 #: ../komikku/explorer/common.py:278
 msgid "Open local folder"
@@ -1094,7 +1104,7 @@ msgstr "Alternar o status de fixado"
 
 #: ../komikku/explorer/search/__init__.py:222
 msgid "Filters"
-msgstr ""
+msgstr "Filtros"
 
 #: ../komikku/explorer/search/__init__.py:286
 msgid "Oops, server website URL is unknown."
@@ -1132,7 +1142,7 @@ msgstr "Pesquisar globalmente pelo nome"
 
 #: ../komikku/explorer/search/__init__.py:391
 msgid "Search for Comics"
-msgstr ""
+msgstr "Pesquisar por Comics"
 
 #: ../komikku/explorer/search/__init__.py:467
 msgid "Oops, failed to retrieve manga's information."
@@ -1233,7 +1243,7 @@ msgstr "Falha ao atualizar o status de leitura"
 
 #: ../komikku/library/__init__.py:769
 msgid "Add New Comic"
-msgstr ""
+msgstr "Adicionar um Novo Comic"
 
 #: ../komikku/library/__init__.py:800 ../komikku/library/categories_list.py:145
 msgid "Uncategorized"
@@ -1562,7 +1572,7 @@ msgstr ""
 
 #: ../komikku/servers/mangadex/__init__.py:99
 msgid "Filter by formats"
-msgstr ""
+msgstr "Filtrar por formatos"
 
 #: ../komikku/servers/mangadex/__init__.py:102
 msgid "4-Koma"
@@ -1570,7 +1580,7 @@ msgstr ""
 
 #: ../komikku/servers/mangadex/__init__.py:103
 msgid "Adaptation"
-msgstr ""
+msgstr "Adaptação"
 
 #: ../komikku/servers/mangadex/__init__.py:105
 msgid "Award Winning"
@@ -1583,11 +1593,11 @@ msgstr "Doujinshi"
 
 #: ../komikku/servers/mangadex/__init__.py:107
 msgid "Fan Colored"
-msgstr ""
+msgstr "Colorido por Fã"
 
 #: ../komikku/servers/mangadex/__init__.py:108
 msgid "Full Color"
-msgstr ""
+msgstr "Colorido"
 
 #: ../komikku/servers/mangadex/__init__.py:109
 msgid "Long Strip"
@@ -1720,7 +1730,7 @@ msgstr "Se deve mostrar mangá com conteúdo NSFW"
 #: ../komikku/servers/multi/mangareader.py:102
 #, python-brace-format
 msgid "Not available in {0} language"
-msgstr ""
+msgstr "Não disponível em {0} idioma"
 
 #: ../komikku/servers/webtoon/__init__.py:52
 msgid "Originals"
