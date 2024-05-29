@@ -3,13 +3,14 @@
 # This file is distributed under the same license as the Komikku package.
 # CakesTwix <cakestwix1@gmail.com>, 2023.
 # "Kislotniy (Acela)" <mylittleponyg5@gmail.com>, 2024.
+# mondstern <mondstern@monocles.de>, 2024.
 msgid ""
 msgstr ""
 "Project-Id-Version: Komikku 1.17.1\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-04-25 23:18+0200\n"
-"PO-Revision-Date: 2024-05-24 11:09+0000\n"
-"Last-Translator: \"Kislotniy (Acela)\" <mylittleponyg5@gmail.com>\n"
+"PO-Revision-Date: 2024-05-29 19:42+0000\n"
+"Last-Translator: mondstern <mondstern@monocles.de>\n"
 "Language-Team: Ukrainian <https://hosted.weblate.org/projects/komikku/main/"
 "uk/>\n"
 "Language: uk\n"
@@ -89,7 +90,7 @@ msgstr "Бібліотека із відкритою бічною панеллю
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:54
 msgid "The Preferences page (Library settings)"
-msgstr "Налаштування (Налаштування бібліотеки)"
+msgstr "Сторінка Параметри (налаштування бібліотеки)"
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:58
 msgid "The Explorer page in mobile format (Servers list)"
@@ -484,7 +485,7 @@ msgstr "Автоматично оновлювати бібліотеку під 
 
 #: ../data/ui/preferences.blp:143
 msgid "Auto Download of New Chapters"
-msgstr "Автоматичне завантаження нових глав"
+msgstr "Автоматичне завантаження нових розділів"
 
 #: ../data/ui/preferences.blp:144
 msgid "Automatically download new chapters"
@@ -1282,7 +1283,7 @@ msgstr "Помилка завантаження"
 #: ../komikku/models/database/mangas.py:35
 #: ../komikku/servers/mangaworld/__init__.py:50
 msgid "Complete"
-msgstr "Завершено"
+msgstr "Виконати"
 
 #: ../komikku/models/database/mangas.py:36
 #: ../komikku/servers/mangadex/__init__.py:76
@@ -1533,7 +1534,7 @@ msgstr "Фільтрувати за статусами"
 
 #: ../komikku/servers/mangadex/__init__.py:77
 msgid "Completed"
-msgstr "Завершено"
+msgstr "Виконано"
 
 #: ../komikku/servers/mangadex/__init__.py:78
 msgid "Paused"
