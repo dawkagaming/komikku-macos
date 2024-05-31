@@ -12,4 +12,4 @@ class Luratoonscan(Peachscan):
 
     has_cf = True
 
-    base_url = 'https://lura-toons.com'
+    base_url = 'https://luratoons.com'
