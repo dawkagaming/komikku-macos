@@ -5,9 +5,10 @@ data/#*#
 po/*.mo
 resources
 subprojects/blueprint-compiler
-_build
+_build/
 .buildconfig
 flatpak/*Devel*
-.venv
+.venv/
 .flatpak/
 .flatpak-builder/
+.safety-policy.yml
