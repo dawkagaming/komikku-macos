@@ -10,7 +10,7 @@ class Flamescans(MangaStream):
     name = 'Flame Comics (Flame Scans)'
     lang = 'en'
 
-    base_url = 'https://flamecomics.com'
+    base_url = 'https://flamecomics.me'
 
     series_name = 'series'
 
