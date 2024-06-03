@@ -1,5 +1,57 @@
 [
   {
+    "file": "multi/peachscan/__init__.py",
+    "hash": "f1e98bbf3a85ebc6499d03485fc8ad65d33d38cc051bf9708f058edba974913d"
+  },
+  {
+    "file": "multi/guya/__init__.py",
+    "hash": "8a8f6e509c5faea62cf20a73b53613c08ed3cd179772eede7ce8f0954d3c8c2b"
+  },
+  {
+    "file": "multi/paprika/__init__.py",
+    "hash": "78bc57cbd6d2f5e4cbc874650d72b5534f4b4df85bc1631a4495393f757340f0"
+  },
+  {
+    "file": "multi/manga_stream/__init__.py",
+    "hash": "6195b1efa76a217e1732e96375f0b6c6e46f706b5242ec1c9d34984eba5ff693"
+  },
+  {
+    "file": "multi/madara/__init__.py",
+    "hash": "fe2a46857dd358640b34281f5daec9a72bba022eb394c10804403d4cf3456c5a"
+  },
+  {
+    "file": "multi/my_manga_reader_cms/__init__.py",
+    "hash": "c63472ebc6bb71b27df69274b99007c8af07ef8d01c4ce5c3f0cf667aefa6d81"
+  },
+  {
+    "file": "multi/foolslide/__init__.py",
+    "hash": "e7fdff45587692e32a27d07c6fbe3ce8bd486f71fc223d4a15c21100a6951d9f"
+  },
+  {
+    "file": "multi/mangareader/__init__.py",
+    "hash": "82ffd456d9ea9e7d321ef598a69361742613953dc3a75c707a8b84a2245b55ab"
+  },
+  {
+    "file": "multi/pizzareader/__init__.py",
+    "hash": "0f0efaf14cbe02ea9c6587ade7eab0e7714112ec0546203b0fea8f12da5c8180"
+  },
+  {
+    "file": "multi/fuzzydoodle/__init__.py",
+    "hash": "0fd47c228ff8ae3a35a42f8b8d67f41298eca5517c8003523105967db2848b0f"
+  },
+  {
+    "file": "multi/heancms/__init__.py",
+    "hash": "0f7b000afc82f2752cb4fdc63a42d80cc6702ef697893bda8d16e3810d4b6a33"
+  },
+  {
+    "file": "multi/genkan/__init__.py",
+    "hash": "34e84b724acfcefe688d6846e21f15f4d5d51b76329aed2a7b6c4ccc51e5eee7"
+  },
+  {
+    "file": "multi/wpcomics/__init__.py",
+    "hash": "153fd07d41c0243c4235bf3371fbc9fb2799322bb9b99663d92836db2aead7d8"
+  },
+  {
     "file": "mangapill/__init__.py",
     "hash": "c52c04fea16458f2b3db294807217998a99f036b40e8b3be5e7679edf2886d78"
   },
@@ -529,7 +581,7 @@
   },
   {
     "file": "flamescans/__init__.py",
-    "hash": "6f79444f2b3541968cc35149bf60feae0f66135811fd339fc2db401c90056c56"
+    "hash": "3d9c36918a42dd2b012e860f566db48928b3dccd40d847e62e1e3dcd0ba93900"
   },
   {
     "file": "scanop/__init__.py",
@@ -574,62 +626,6 @@
   {
     "file": "edelgardescans/__init__.py",
     "hash": "65b80342d804bf7570cd25e3b7f6128cb1a2a91949893366a232df758f10a4f7"
-  },
-  {
-    "file": "multi/mangareader.py",
-    "hash": "82ffd456d9ea9e7d321ef598a69361742613953dc3a75c707a8b84a2245b55ab"
-  },
-  {
-    "file": "multi/peachscan.py",
-    "hash": "f1e98bbf3a85ebc6499d03485fc8ad65d33d38cc051bf9708f058edba974913d"
-  },
-  {
-    "file": "multi/wpcomics.py",
-    "hash": "153fd07d41c0243c4235bf3371fbc9fb2799322bb9b99663d92836db2aead7d8"
-  },
-  {
-    "file": "multi/paprika.py",
-    "hash": "78bc57cbd6d2f5e4cbc874650d72b5534f4b4df85bc1631a4495393f757340f0"
-  },
-  {
-    "file": "multi/__init__.py",
-    "hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
-  },
-  {
-    "file": "multi/pizzareader.py",
-    "hash": "0f0efaf14cbe02ea9c6587ade7eab0e7714112ec0546203b0fea8f12da5c8180"
-  },
-  {
-    "file": "multi/madara.py",
-    "hash": "fe2a46857dd358640b34281f5daec9a72bba022eb394c10804403d4cf3456c5a"
-  },
-  {
-    "file": "multi/foolslide.py",
-    "hash": "e7fdff45587692e32a27d07c6fbe3ce8bd486f71fc223d4a15c21100a6951d9f"
-  },
-  {
-    "file": "multi/manga_stream.py",
-    "hash": "6195b1efa76a217e1732e96375f0b6c6e46f706b5242ec1c9d34984eba5ff693"
-  },
-  {
-    "file": "multi/guya.py",
-    "hash": "8a8f6e509c5faea62cf20a73b53613c08ed3cd179772eede7ce8f0954d3c8c2b"
-  },
-  {
-    "file": "multi/genkan.py",
-    "hash": "34e84b724acfcefe688d6846e21f15f4d5d51b76329aed2a7b6c4ccc51e5eee7"
-  },
-  {
-    "file": "multi/heancms.py",
-    "hash": "0f7b000afc82f2752cb4fdc63a42d80cc6702ef697893bda8d16e3810d4b6a33"
-  },
-  {
-    "file": "multi/fuzzydoodle.py",
-    "hash": "0fd47c228ff8ae3a35a42f8b8d67f41298eca5517c8003523105967db2848b0f"
-  },
-  {
-    "file": "multi/my_manga_reader_cms.py",
-    "hash": "c63472ebc6bb71b27df69274b99007c8af07ef8d01c4ce5c3f0cf667aefa6d81"
   },
   {
     "file": "frdashscan/__init__.py",
