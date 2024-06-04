@@ -3,22 +3,23 @@
 # This file is distributed under the same license as the Komikku package.
 # abidin toumi <abidin24@disroot.org>, 2023.
 # Rayen Ghanmi <ghanmirayen12@gmail.com>, 2023.
+# Mohamed Abdalah Noh <ahnue200572@gmail.com>, 2024.
 msgid ""
 msgstr ""
 "Project-Id-Version: Komikku 1.18.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-04-25 23:18+0200\n"
-"PO-Revision-Date: 2023-12-11 08:03+0000\n"
-"Last-Translator: abidin toumi <abidin24@disroot.org>\n"
-"Language-Team: Arabic <https://hosted.weblate.org/projects/komikku/main/ar/"
-">\n"
+"PO-Revision-Date: 2024-06-05 07:09+0000\n"
+"Last-Translator: Mohamed Abdalah Noh <ahnue200572@gmail.com>\n"
+"Language-Team: Arabic <https://hosted.weblate.org/projects/komikku/main/ar/>"
+"\n"
 "Language: ar\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
 "&& n%100<=10 ? 3 : n%100>=11 ? 4 : 5;\n"
-"X-Generator: Weblate 5.3-dev\n"
+"X-Generator: Weblate 5.6-dev\n"
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:11
 msgid "Discover and read manga &amp; comics"
@@ -1509,11 +1510,11 @@ msgstr ""
 
 #: ../komikku/servers/mangadex/__init__.py:91
 msgid "Josei"
-msgstr ""
+msgstr "جوسي"
 
 #: ../komikku/servers/mangadex/__init__.py:92
 msgid "Seinen"
-msgstr ""
+msgstr "سينين"
 
 #: ../komikku/servers/mangadex/__init__.py:98
 msgid "Tags"
@@ -1529,11 +1530,11 @@ msgstr ""
 
 #: ../komikku/servers/mangadex/__init__.py:103
 msgid "Adaptation"
-msgstr ""
+msgstr "اقتباس"
 
 #: ../komikku/servers/mangadex/__init__.py:105
 msgid "Award Winning"
-msgstr ""
+msgstr "حاصل على جائزة"
 
 #: ../komikku/servers/mangadex/__init__.py:106
 #: ../komikku/servers/mangapill/__init__.py:40
@@ -1542,11 +1543,11 @@ msgstr "دوجينشي"
 
 #: ../komikku/servers/mangadex/__init__.py:107
 msgid "Fan Colored"
-msgstr ""
+msgstr "تلوين معجبين"
 
 #: ../komikku/servers/mangadex/__init__.py:108
 msgid "Full Color"
-msgstr ""
+msgstr "تلوين كامل"
 
 #: ../komikku/servers/mangadex/__init__.py:109
 msgid "Long Strip"
@@ -1554,7 +1555,7 @@ msgstr ""
 
 #: ../komikku/servers/mangadex/__init__.py:110
 msgid "Official Colored"
-msgstr ""
+msgstr "تلوين رسمي"
 
 #: ../komikku/servers/mangadex/__init__.py:111
 msgid "Oneshot"
@@ -1578,7 +1579,7 @@ msgstr ""
 
 #: ../komikku/servers/mangadex/__init__.py:124
 msgid "AND"
-msgstr ""
+msgstr "و"
 
 #: ../komikku/servers/mangadex/__init__.py:125
 msgid "OR"
@@ -1644,7 +1645,7 @@ msgstr "ويبتون"
 #: ../komikku/servers/mangatube/__init__.py:42
 #: ../komikku/servers/multi/manga_stream.py:81
 msgid "Comic"
-msgstr ""
+msgstr "قصة مصورة"
 
 #: ../komikku/servers/mangatube/__init__.py:44
 msgid "Light Novel"
