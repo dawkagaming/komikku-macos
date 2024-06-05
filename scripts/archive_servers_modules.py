@@ -1,4 +1,4 @@
-#! /usr/bin/env python
+#! /usr/bin/env python3
 
 # Create a ZIP archive of all modules: {dirpath}/servers.zip
 
