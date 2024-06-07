@@ -4,14 +4,16 @@
 
 from komikku.servers.multi.madara import Madara
 
-# BEWARE: Argosscan server is disabled
-# Don't use Madara multi-server anymore
-
 
 class Argosscan(Madara):
     id = 'argosscan'
-    name = 'Argos Scan'
+    name = 'Argos Comics'
     lang = 'pt'
-    status = 'disabled'
 
-    base_url = 'https://argosscan.com'
+    series_name = 'comics'
+
+    base_url = 'https://argoscomics.com'
+    chapters_url = base_url + '/comics/{0}/ajax/chapters/'
+
+    details_synopsis_selector = '.manga-excerpt'
+    chapters_selector = '.wp-manga-chapter.free-chap'
