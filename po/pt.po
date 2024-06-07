@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Komikku 1.17.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-06-08 00:16+0200\n"
+"POT-Creation-Date: 2024-06-08 01:47+0200\n"
 "PO-Revision-Date: 2024-04-25 00:07+0000\n"
 "Last-Translator: Ademario Cunha <d.k.foz90@gmail.com>\n"
 "Language-Team: Portuguese <https://hosted.weblate.org/projects/komikku/main/"
@@ -685,13 +685,13 @@ msgid "Servers Modules"
 msgstr ""
 
 #: ../data/ui/preferences.blp:300
-msgid "Use Up-To-Date Servers Modules"
+msgid "Use Up-to-date Servers Modules"
 msgstr ""
 
 #: ../data/ui/preferences.blp:301
 msgid ""
 "An alternative version of the servers modules, installed from the source "
-"code repository and updated at each startup, is used instead of those "
+"code repository and updated at each startup, is used instead of the one "
 "delivered with the application."
 msgstr ""
 
