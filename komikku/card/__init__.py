@@ -124,6 +124,12 @@ class CardPage(Adw.NavigationPage):
 
         self.chapters_list.add_actions()
 
+    def clear_server(self):
+        """Used when servers modules origin change: servers modules needs to be re-instantiated"""
+
+        if self.manga:
+            self.manga._server = None
+
     def enter_selection_mode(self, init=False):
         if self.selection_mode:
             return

@@ -294,6 +294,15 @@ template $PreferencesDialog : Adw.PreferencesDialog {
     }
 
     Adw.PreferencesGroup {
+      title: _("Servers Modules");
+
+      Adw.SwitchRow external_servers_modules_switch {
+        title: _("Use Up-To-Date Servers Modules");
+        subtitle: _("An alternative version of the servers modules, installed from the source code repository and updated at each startup, is used instead of those delivered with the application.");
+      }
+    }
+
+    Adw.PreferencesGroup {
       title: _("Credentials Storage");
 
       Adw.SwitchRow credentials_storage_plaintext_fallback_switch {

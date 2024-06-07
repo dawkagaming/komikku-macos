@@ -3,8 +3,8 @@
 # Author: Valéry Febvre <vfebvre@easter-eggs.com>
 
 import datetime
-from functools import cache
 from functools import wraps
+import glob
 import importlib
 import inspect
 from io import BytesIO
@@ -27,7 +27,7 @@ import magic
 from PIL import Image
 import requests
 
-from komikku.servers.loader import server_finder
+from komikku.servers.loader import ServerFinder
 
 logger = logging.getLogger(__name__)
 
@@ -303,45 +303,9 @@ def get_server_module_name_by_id(id):
     return id.split(':')[-1].split('_')[0]
 
 
-@cache
 def get_servers_list(include_disabled=False, order_by=('lang', 'name')):
-    def iter_namespace(ns_pkg):
-        # Specifying the second argument (prefix) to iter_modules makes the
-        # returned name an absolute name instead of a relative one. This allows
-        # import_module to work without having to do additional modification to
-        # the name.
-        return iter_modules(ns_pkg.__path__, ns_pkg.__name__ + '.')
-
-    modules = []
-    if server_finder in sys.meta_path:
-        # Load servers from external folders defined in KOMIKKU_SERVERS_PATH environment variable
-        for servers_path in server_finder.paths:
-            if not os.path.exists(servers_path):
-                continue
-
-            count = 0
-            for path, _dirs, _files in os.walk(servers_path):
-                relpath = path[len(servers_path):]
-                if not relpath:
-                    continue
-
-                relname = relpath.replace(os.path.sep, '.')
-                if relname == '.multi':
-                    continue
-
-                modules.append(importlib.import_module(relname, package='komikku.servers'))
-                count += 1
-
-            logger.info('Load {0} servers from external folder: {1}'.format(count, servers_path))
-    else:
-        # fallback to local exploration
-        import komikku.servers
-
-        for _finder, name, _ispkg in iter_namespace(komikku.servers):
-            modules.append(importlib.import_module(name))
-
     servers = []
-    for module in modules:
+    for module in get_servers_modules():
         for _name, obj in dict(inspect.getmembers(module)).items():
             if not hasattr(obj, 'id') or not hasattr(obj, 'name') or not hasattr(obj, 'lang'):
                 continue
@@ -367,6 +331,96 @@ def get_servers_list(include_disabled=False, order_by=('lang', 'name')):
                 ))
 
     return sorted(servers, key=itemgetter(*order_by))
+
+
+def get_servers_modules(reload=False):
+    def import_external_modules(servers_path, modules, modules_names, multi=False):
+        if multi:
+            servers_path = os.path.join(servers_path, 'multi')
+
+        count = 0
+        for path in glob.glob(os.path.join(servers_path, '*')):
+            if not multi and os.path.isfile(path):
+                continue
+
+            name = os.path.basename(path)
+            module_name = f'komikku.servers.multi.{name}' if multi else f'komikku.servers.{name}'
+            if module_name in modules_names:
+                continue
+
+            if name == 'multi':
+                continue
+
+            module = importlib.import_module(f'.{name}', package='komikku.servers.multi' if multi else 'komikku.servers')
+            if reload:
+                module = importlib.reload(module)
+            modules.append(module)
+            modules_names.append(module_name)
+            count += 1
+
+        if count > 0:
+            logger.info('Import {0} servers modules from external folder: {1}'.format(count, servers_path))
+
+        return count
+
+    def import_internal_modules(namespace, modules, modules_names):
+        count = 0
+        for _finder, module_name, ispkg in iter_namespace(namespace):
+            if module_name in modules_names or not ispkg or module_name.endswith('.multi'):
+                continue
+
+            module = importlib.import_module(module_name)
+            if reload:
+                module = importlib.reload(module)
+            modules.append(module)
+            modules_names.append(module_name)
+            count += 1
+
+        if count > 0:
+            logger.info('Import {0} servers modules from internal folder'.format(count))
+
+        return count
+
+    def iter_namespace(ns_pkg):
+        # Specifying the second argument (prefix) to iter_modules makes the
+        # returned name an absolute name instead of a relative one. This allows
+        # import_module to work without having to do additional modification to
+        # the name.
+        return iter_modules(ns_pkg.__path__, ns_pkg.__name__ + '.')
+
+    internal_done = False
+    modules = []
+    modules_names = []
+    for finder in sys.meta_path:
+        if isinstance(finder, ServerFinder):
+            # Import servers from external folders
+            for servers_path in finder.paths:
+                if not os.path.exists(servers_path):
+                    # Not very likely
+                    continue
+
+                if reload:
+                    # Multi-servers must be imported first
+                    import_external_modules(servers_path, modules, modules_names, multi=True)
+
+                import_external_modules(servers_path, modules, modules_names, multi=False)
+
+        elif not internal_done:
+            # Import internal servers
+            import komikku.servers
+
+            count = 0
+            if reload:
+                # Multi-servers must be imported first
+                import komikku.servers.multi
+                count += import_internal_modules(komikku.servers.multi, modules, modules_names)
+
+            count += import_internal_modules(komikku.servers, modules, modules_names)
+
+            if count > 0:
+                internal_done = True
+
+    return modules
 
 
 def get_soup_element_inner_text(tag, text=None, recursive=True):

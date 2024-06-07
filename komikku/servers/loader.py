@@ -1,7 +1,9 @@
 # Copyright (C) 2021-2024 Liliana Prikler
 # SPDX-License-Identifier: GPL-3.0-only or GPL-3.0-or-later
+# Author: Valéry Febvre <vfebvre@easter-eggs.com>
 # Author: Liliana Prikler <liliana.prikler@gmail.com>
 
+from enum import IntEnum
 import importlib.abc
 import importlib.machinery
 import os
@@ -9,18 +11,32 @@ import sys
 import types
 
 
+class ServerFinderPriority(IntEnum):
+    # Defines the position of the Finder in the meta path finder list
+    LOW = 1   # added at end
+    HIGH = 2  # added at beginning
+
+
 class ServerFinder(importlib.abc.MetaPathFinder):
     _PREFIX = 'komikku.servers.'
 
-    def __init__(self, path=None):
-        if isinstance(path, str):
-            self._paths = [os.path.abspath(p) for p in path.split(os.pathsep)]
-        else:
-            self._paths = []
+    def __init__(self, priority=ServerFinderPriority.LOW):
+        self._paths = []
+        self.priority = priority
 
     @property
     def paths(self):
         return self._paths
+
+    def add_path(self, path):
+        if not isinstance(path, str):
+            return
+
+        path = os.path.abspath(path)
+        if not os.path.exists(path):
+            return
+
+        self._paths.append(path)
 
     def find_spec(self, fullname, path, target=None):
         """Attempt to locate the requested module
@@ -47,7 +63,10 @@ class ServerFinder(importlib.abc.MetaPathFinder):
 
     def install(self):
         if self._paths and self not in sys.meta_path:
-            sys.meta_path.append(self)
+            if self.priority == ServerFinderPriority.HIGH:
+                sys.meta_path = [self] + sys.meta_path
+            else:
+                sys.meta_path = sys.meta_path + [self]
 
 
 class ServerLoader(importlib.machinery.SourceFileLoader):
@@ -67,4 +86,9 @@ class ServerLoader(importlib.machinery.SourceFileLoader):
         return module
 
 
-server_finder = ServerFinder(os.environ.get('KOMIKKU_SERVERS_PATH'))
+def clear_servers_finders():
+    for finder in reversed(sys.meta_path):
+        if not isinstance(finder, ServerFinder):
+            continue
+
+        sys.meta_path.remove(finder)

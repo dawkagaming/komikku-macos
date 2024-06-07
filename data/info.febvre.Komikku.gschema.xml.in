@@ -207,6 +207,10 @@
             <default>true</default>
             <summary>Clear chapters cache and database on application close</summary>
         </key>
+        <key type="b" name="external-servers-modules">
+            <default>false</default>
+            <summary>Allow usage of alternative versions of servers modules</summary>
+        </key>
         <key type="b" name="credentials-storage-plaintext-fallback">
             <default>false</default>
             <summary>Allow plaintext storage as fallback</summary>

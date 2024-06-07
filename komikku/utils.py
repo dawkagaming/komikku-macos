@@ -149,18 +149,6 @@ def get_data_dir():
         if not os.path.exists(data_dir_path):
             os.mkdir(data_dir_path)
 
-            # Until version 0.11.0, data files (chapters, database) were stored in a wrong place
-            from komikku.servers.utils import get_servers_list
-
-            must_be_moved = ['komikku.db', 'komikku_backup.db', ]
-            for server in get_servers_list(include_disabled=True):
-                must_be_moved.append(server['id'])
-
-            for name in must_be_moved:
-                data_path = os.path.join(base_path, name)
-                if os.path.exists(data_path):
-                    os.rename(data_path, os.path.join(data_dir_path, name))
-
     # Create folder for 'local' server
     data_local_dir_path = os.path.join(data_dir_path, 'local')
     if not os.path.exists(data_local_dir_path):

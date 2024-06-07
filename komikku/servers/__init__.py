@@ -5,19 +5,26 @@
 from abc import ABC
 from abc import abstractmethod
 from functools import cached_property
+import hashlib
 import inspect
+from io import BytesIO
+import json
 import logging
 import os
 import pickle
+import zipfile
 
 from bs4 import BeautifulSoup
 import requests
 
 from komikku.models.keyring import KeyringHelper
-from komikku.servers.loader import server_finder
+from komikku.servers.loader import clear_servers_finders
+from komikku.servers.loader import ServerFinder
+from komikku.servers.loader import ServerFinderPriority
 from komikku.servers.utils import get_buffer_mime_type
 from komikku.servers.utils import get_response_elapsed
 from komikku.servers.utils import get_server_main_id_by_id
+from komikku.servers.utils import get_servers_modules
 from komikku.utils import expand_and_resize_cover
 from komikku.utils import get_cache_dir
 from komikku.utils import retry_session
@@ -60,7 +67,6 @@ USER_AGENT_MOBILE = 'Mozilla/5.0 (Linux; U; Android 4.1.1; en-gb; Build/KLP) App
 VERSION = 1
 
 logger = logging.getLogger('komikku.servers')
-server_finder.install()
 
 
 class Server(ABC):
@@ -390,3 +396,101 @@ class Server(ABC):
 
     def update_chapter_read_progress(self, data, manga_slug, manga_name, chapter_slug, chapter_url):
         return NotImplemented
+
+
+def init_servers_modules(use_external_servers_modules, reload_modules=False):
+    clear_servers_finders()
+
+    # Add a first Finder with HIGH priority
+    server_finder = ServerFinder(priority=ServerFinderPriority.HIGH)
+    server_finder.add_path(os.environ.get('KOMIKKU_SERVERS_PATH'))
+
+    if use_external_servers_modules:
+        # A single Finder is sufficient
+        server_finder.add_path(os.path.join(get_cache_dir(), 'servers/repo'))
+        server_finder.install()
+    else:
+        # Install first Finder
+        server_finder.install()
+
+        # Add a second Finder with LOW priority
+        # Once installed, external servers modules must still be accessible, as one or more new servers modules
+        # (not present in the application servers modules) may potentially have been used
+        # (i.e. comics from these server module have been added to the library).
+        server_finder = ServerFinder(ServerFinderPriority.LOW)
+        server_finder.add_path(os.path.join(get_cache_dir(), 'servers/repo'))
+        server_finder.install()
+
+    if reload_modules:
+        get_servers_modules(reload=reload_modules)
+
+
+def install_servers_modules_from_repo(app_version):
+    """
+    Installs (or updates) a alternative version of servers modules from the source code repository.
+
+    The intention is to be able to use the most up-to-date versions of servers modules,
+    including new servers, without waiting for a new version of the application.
+
+    Can only work if the application version is greater than or equal to the minimum version
+    required in the index.json file.
+    """
+    repo_url = 'https://febvre.info'
+    dest_path = os.path.join(get_cache_dir(), 'servers/repo')
+    index_path = os.path.join(dest_path, 'index.json')
+
+    session = retry_session()
+    session.headers.update({'User-Agent': f'komikku-{app_version}'})
+
+    def install_zip(current_hash=None):
+        # Get remote index.json
+        url = repo_url + '/komikku/index.json'
+        try:
+            r = session.get(url)
+        except Exception:
+            return None, None
+
+        if r.status_code != 200:
+            return None, None
+
+        try:
+            app_min_version = json.loads(r.content)['app_min_version']
+        except Exception:
+            return None, None
+
+        if app_min_version and app_version < app_min_version:
+            return False, 'forbidden'
+
+        if current_hash:
+            remote_hash = hashlib.sha256(r.content).hexdigest()
+            if current_hash == remote_hash:
+                return False, 'unchanged'
+
+        url = repo_url + '/komikku/servers.zip'
+        try:
+            r = session.get(url)
+        except Exception:
+            return None, None
+
+        if r.status_code != 200:
+            return None, None
+
+        with zipfile.ZipFile(BytesIO(r.content)) as zip:
+            for zip_info in zip.infolist():
+                if zip_info.is_dir():
+                    continue
+
+                zip.extract(zip_info, dest_path)
+
+        return True, 'updated' if current_hash else 'created'
+
+    if not os.path.exists(dest_path) or not os.path.exists(index_path):
+        os.makedirs(dest_path, exist_ok=True)
+
+        return install_zip()
+
+    # Compute current index.json hash
+    with open(index_path, 'rb') as fp:
+        current_hash = hashlib.sha256(fp.read()).hexdigest()
+
+    return install_zip(current_hash)

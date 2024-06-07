@@ -7,7 +7,7 @@ from gettext import gettext as _
 import gi
 import logging
 import sys
-from threading import Timer
+import threading
 
 gi.require_version('Gtk', '4.0')
 gi.require_version('Adw', '1')
@@ -35,6 +35,8 @@ from komikku.models import Settings
 from komikku.models.database import clear_cached_data
 from komikku.preferences import PreferencesDialog
 from komikku.reader import ReaderPage
+from komikku.servers import init_servers_modules
+from komikku.servers import install_servers_modules_from_repo
 from komikku.servers.utils import get_allowed_servers_list
 from komikku.support import SupportPage
 from komikku.updater import Updater
@@ -186,6 +188,7 @@ class Application(Adw.Application):
         Adw.Application.do_startup(self)
 
         init_db()
+        init_servers_modules(Settings.get_default().external_servers_modules)
         Notify.init('Komikku')
 
 
@@ -195,6 +198,7 @@ class ApplicationWindow(Adw.ApplicationWindow):
 
     network_available = False
     last_navigation_action = None
+    external_servers_modules_update_at_startup_done = False
 
     overlay = Gtk.Template.Child('overlay')
     navigationview = Gtk.Template.Child('navigationview')
@@ -355,6 +359,7 @@ class ApplicationWindow(Adw.ApplicationWindow):
                 cancel_callback()
 
         dialog = Adw.AlertDialog.new(title)
+        dialog.set_body_use_markup(True)
         dialog.set_body(message)
 
         dialog.add_response('cancel', cancel_label or _('Cancel'))
@@ -381,6 +386,41 @@ class ApplicationWindow(Adw.ApplicationWindow):
 
     def hide_notification(self):
         self.notification_revealer.set_reveal_child(False)
+
+    def install_servers_modules(self, reinit=False):
+        def run():
+            res, status = install_servers_modules_from_repo(self.application.version)
+            GLib.idle_add(complete, res, status)
+
+        def complete(res, status):
+            if res is True:
+                if status == 'updated':
+                    self.show_notification(_('Servers modules have been updated'))
+                self.reinit_servers_modules()
+
+            elif res is False:
+                if status == 'unchanged':
+                    self.application.logger.info('No servers modules updates')
+                elif status == 'forbidden':
+                    self.confirm(
+                        _('External Servers Modules Update'),
+                        _('Updating of external server modules is temporarily suspended, as changes are currently making them incompatible with the current version of the application. Please update it if a more recent version exists.'),
+                        None,
+                        None,
+                        cancel_label=_('Close'),
+                    )
+                    self.application.logger.info('Failed to updates servers modules: incompatible app version')
+                if reinit:
+                    self.reinit_servers_modules()
+
+            else:
+                self.application.logger.info('Failed to update servers modules')
+                if reinit:
+                    self.reinit_servers_modules()
+
+        thread = threading.Thread(target=run)
+        thread.daemon = True
+        thread.start()
 
     def init_theme(self):
         def set_color_scheme():
@@ -483,6 +523,11 @@ available in your region/language."""))
         self.network_available = connectivity == Gio.NetworkConnectivity.FULL
 
         if self.network_available:
+            # Install external servers modules
+            if Settings.get_default().external_servers_modules and not self.external_servers_modules_update_at_startup_done:
+                self.external_servers_modules_update_at_startup_done = True
+                self.install_servers_modules()
+
             # Automatically update library at startup
             if Settings.get_default().update_at_startup and not self.updater.update_at_startup_done:
                 self.updater.update_library(startup=True)
@@ -573,6 +618,16 @@ available in your region/language."""))
 
         return Gdk.EVENT_STOP
 
+    def reinit_servers_modules(self):
+        """Used when origin of servers modules change"""
+
+        # Reload servers modules
+        init_servers_modules(Settings.get_default().external_servers_modules, reload_modules=True)
+
+        # Force re-instantiation of servers
+        self.library.clear_servers()
+        self.card.clear_server()
+
     def save_window_size(self):
         if self.is_fullscreen():
             return
@@ -603,7 +658,7 @@ available in your region/language."""))
         if self.notification_timer:
             self.notification_timer.cancel()
 
-        self.notification_timer = Timer(timeout, GLib.idle_add, args=[self.hide_notification])
+        self.notification_timer = threading.Timer(timeout, GLib.idle_add, args=[self.hide_notification])
         self.notification_timer.start()
 
     def toggle_fullscreen(self, _object, _gparam):

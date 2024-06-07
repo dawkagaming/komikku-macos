@@ -307,6 +307,13 @@ class LibraryPage(Adw.NavigationPage):
         select_all_action.connect('activate', self.select_all)
         self.window.application.add_action(select_all_action)
 
+    def clear_servers(self):
+        """Used when servers modules origin change: servers modules need to be re-instantiated"""
+
+        # Clear thumbnails servers
+        for thumbnail in self.flowbox:
+            thumbnail.manga._server = None
+
     def compute_thumbnails_cover_size(self):
         default_width = Thumbnail.default_width
         default_height = Thumbnail.default_height

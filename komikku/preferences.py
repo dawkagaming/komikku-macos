@@ -52,6 +52,7 @@ class PreferencesDialog(Adw.PreferencesDialog):
 
     clear_cached_data_actionrow = Gtk.Template.Child('clear_cached_data_actionrow')
     clear_cached_data_on_app_close_switch = Gtk.Template.Child('clear_cached_data_on_app_close_switch')
+    external_servers_modules_switch = Gtk.Template.Child('external_servers_modules_switch')
     credentials_storage_plaintext_fallback_switch = Gtk.Template.Child('credentials_storage_plaintext_fallback_switch')
     disable_animations_switch = Gtk.Template.Child('disable_animations_switch')
 
@@ -160,9 +161,29 @@ class PreferencesDialog(Adw.PreferencesDialog):
                 on_confirm,
                 cancel_callback=on_cancel
             )
-        else:
+        elif self.settings.disable_animations:
             self.settings.disable_animations = False
             Gtk.Settings.get_default().set_property('gtk-enable-animations', True)
+
+    def on_external_servers_modules_changed(self, switch_button, _gparam):
+        def on_cancel():
+            switch_button.set_active(False)
+
+        def on_confirm():
+            self.settings.external_servers_modules = True
+            self.window.install_servers_modules(reinit=True)
+
+        if switch_button.get_active():
+            self.window.confirm(
+                _('Use up-to-date servers modules?'),
+                _(''),
+                _('Confirm'),
+                on_confirm,
+                cancel_callback=on_cancel
+            )
+        elif self.settings.external_servers_modules:
+            self.settings.external_servers_modules = False
+            self.window.reinit_servers_modules()
 
     def on_fullscreen_changed(self, switch_button, _gparam):
         self.settings.fullscreen = switch_button.get_active()
@@ -382,6 +403,10 @@ class PreferencesDialog(Adw.PreferencesDialog):
         # Clear chapters cache and database on app close
         self.clear_cached_data_on_app_close_switch.set_active(self.settings.clear_cached_data_on_app_close)
         self.clear_cached_data_on_app_close_switch.connect('notify::active', self.on_clear_cached_data_on_app_close_changed)
+
+        # External servers modules
+        self.external_servers_modules_switch.set_active(self.settings.external_servers_modules)
+        self.external_servers_modules_switch.connect('notify::active', self.on_external_servers_modules_changed)
 
         # Credentials storage: allow plaintext as fallback
         self.credentials_storage_plaintext_fallback_switch.set_active(self.settings.credentials_storage_plaintext_fallback)
