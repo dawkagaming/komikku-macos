@@ -416,7 +416,7 @@ def init_servers_modules(use_external_servers_modules, reload_modules=False):
         # Add a second Finder with LOW priority
         # Once installed, external servers modules must still be accessible, as one or more new servers modules
         # (not present in the application servers modules) may potentially have been used
-        # (i.e. comics from these server module have been added to the library).
+        # (i.e. comics from these servers modules have been added to the library).
         server_finder = ServerFinder(ServerFinderPriority.LOW)
         server_finder.add_path(os.path.join(get_cache_dir(), 'servers/repo'))
         server_finder.install()
