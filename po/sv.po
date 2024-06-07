@@ -7,40 +7,44 @@ msgstr ""
 "Project-Id-Version: Komikku 1.47.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-06-08 00:16+0200\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: Automatically generated\n"
-"Language-Team: none\n"
+"PO-Revision-Date: 2024-06-08 23:09+0000\n"
+"Last-Translator: Jesper <93771679+Bjorkan@users.noreply.github.com>\n"
+"Language-Team: Swedish <https://hosted.weblate.org/projects/komikku/main/sv/>"
+"\n"
 "Language: sv\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 5.6-dev\n"
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:11
 msgid "Discover and read manga &amp; comics"
-msgstr ""
+msgstr "Upptäck och läs Manga &amp; serier"
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:13
 msgid ""
 "With its simple, elegant and adaptive interface, this reader lets you "
 "search, sort and read your series with ease."
 msgstr ""
+"Med sitt enkla, eleganta och adaptiva gränssnitt låter den här läsaren dig "
+"söka, sortera och läsa dina serier på ett smidigt sätt."
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:15
 msgid "Why you will love Komikku?"
-msgstr ""
+msgstr "Varför du kommer älska Komikku?"
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:17
 msgid "Online and offline reading from dozens of servers"
-msgstr ""
+msgstr "Online och offline läsning från dussintals servrar"
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:18
 msgid "Support for locally stored series (in CBZ or CBR formats)"
-msgstr ""
+msgstr "Stöd för lokalt lagrade serier (i CBZ- eller CBR-format)"
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:19
 msgid "RTL, LTR, Vertical and Webtoon reading modes"
-msgstr ""
+msgstr "RTL, LTR, Vertikal och Webtoon läslägen"
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:20
 msgid ""
@@ -48,74 +52,77 @@ msgid ""
 "navigation layout via mouse click or tapping (touchpad/touch screen), mouse "
 "wheel, 2-fingers swipe gesture (touchpad), swipe gesture (touch screen)"
 msgstr ""
+"Stöd för flera typer av navigering: piltangenter, höger och vänster "
+"navigationslayout via musklick eller trycka (touchpad / touchskärm), "
+"mushjul, 2-finger swipe gest (touchpad), swipe gest (touchskärm)"
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:21
 msgid "Categories to organize your library"
-msgstr ""
+msgstr "Kategorier för att organisera ditt bibliotek"
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:22
 msgid "Automatic update of series"
-msgstr ""
+msgstr "Automatisk uppdatering av serier"
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:23
 msgid "Automatic download of new chapters"
-msgstr ""
+msgstr "Automatisk nedladdning av nya kapitel"
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:24
 msgid "Reading history"
-msgstr ""
+msgstr "Läshistorik"
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:25
 msgid "Light and dark themes"
-msgstr ""
+msgstr "Ljust och mörkt tema"
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:46
 msgid "The Library page"
-msgstr ""
+msgstr "Bibliotekssidan"
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:50
 msgid "The Library page with the category sidebar open"
-msgstr ""
+msgstr "Bibliotekssidan med kategorisidmenyn öppen"
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:54
 msgid "The Preferences page (Library settings)"
-msgstr ""
+msgstr "Preferenssidan (biblioteksinställningar)"
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:58
 msgid "The Explorer page in mobile format (Servers list)"
-msgstr ""
+msgstr "Utforskarsidan i mobilformat (Server lista)"
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:62
 msgid "The Details page"
-msgstr ""
+msgstr "Detaljer sidan"
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:66
 msgid "The Details page (chapters list)"
-msgstr ""
+msgstr "Detaljsidan (kapitellista)"
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:70
 msgid "The Reader page"
-msgstr ""
+msgstr "Läsarsidan"
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:74
 msgid "The Reader page in mobile format"
-msgstr ""
+msgstr "Läsarsidan i mobilformat"
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:78
 msgid "The Category editor page in mobile format"
-msgstr ""
+msgstr "Kategoriredigerarsidan i mobilformat"
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:82
 msgid "The Reading history page in mobile format"
-msgstr ""
+msgstr "Läshistoriksidan i mobilformat"
 
 #: ../data/info.febvre.Komikku.desktop.in:3
 msgid "@prettyname@"
-msgstr ""
+msgstr "@prettyname@"
 
 #: ../data/info.febvre.Komikku.desktop.in:4
 msgid "@description@"
-msgstr ""
+msgstr "@description@"
 
 #: ../data/info.febvre.Komikku.desktop.in:13
 msgid ""
@@ -127,234 +134,234 @@ msgstr ""
 #: ../data/ui/card_chapters_list_row.blp:44 ../data/ui/download_manager.blp:22
 #: ../data/ui/library.blp:142 ../data/ui/reader.blp:33
 msgid "Menu"
-msgstr ""
+msgstr "Meny"
 
 #: ../data/ui/card.blp:53
 msgid "Info"
-msgstr ""
+msgstr "Info"
 
 #: ../data/ui/card.blp:141
 msgid "Add to Library"
-msgstr ""
+msgstr "Lägg till i biblioteket"
 
 #: ../data/ui/card.blp:171
 msgid "Details"
-msgstr ""
+msgstr "Detaljer"
 
 #: ../data/ui/card.blp:202
 msgid "Genres"
-msgstr ""
+msgstr "Genrer"
 
 #: ../data/ui/card.blp:235
 msgid "Scanlators"
-msgstr ""
+msgstr "Scanlators"
 
 #: ../data/ui/card.blp:298
 msgid "Last Update"
-msgstr ""
+msgstr "Senaste uppdateringen"
 
 #: ../data/ui/card.blp:330
 msgid "Size on Disk"
-msgstr ""
+msgstr "Storlek på hårddisken"
 
 #: ../data/ui/card.blp:356
 msgid "Synopsis"
-msgstr ""
+msgstr "Synopsis"
 
 #: ../data/ui/card.blp:484 ../data/ui/categories_editor.blp:64
 #: ../data/ui/library.blp:247
 msgid "No Categories"
-msgstr ""
+msgstr "Inga kategorier"
 
 #: ../data/ui/card_chapters_list_row.blp:61
 msgid "New"
-msgstr ""
+msgstr "Ny"
 
 #: ../data/ui/categories_editor.blp:33
 msgid "Add"
-msgstr ""
+msgstr "Lägg till"
 
 #: ../data/ui/download_manager.blp:6 ../data/ui/download_manager.blp:16
 msgid "Download Manager"
-msgstr ""
+msgstr "Nerladdningshanterare"
 
 #: ../data/ui/download_manager.blp:28
 msgid "Start/Stop Download"
-msgstr ""
+msgstr "Starta/Stoppa nedladdning"
 
 #: ../data/ui/download_manager.blp:65
 msgid "No Downloads"
-msgstr ""
+msgstr "Inga nedladdningar"
 
 #: ../data/ui/explorer_search.blp:10 ../data/ui/explorer_search.blp:41
 #: ../data/ui/history.blp:18 ../data/ui/library.blp:36
 msgid "Search"
-msgstr ""
+msgstr "Sök"
 
 #: ../data/ui/explorer_search.blp:28
 msgid "Search Filters"
-msgstr ""
+msgstr "Sök filter"
 
 #: ../data/ui/explorer_search.blp:34
 msgid "Open in Browser"
-msgstr ""
+msgstr "Öppna i webbläsare"
 
 #: ../data/ui/explorer_search.blp:152
 msgid "Most Popular"
-msgstr ""
+msgstr "Mest populära"
 
 #: ../data/ui/explorer_search.blp:226
 msgid "Latest Updates"
-msgstr ""
+msgstr "Senaste uppdateringar"
 
 #: ../data/ui/explorer_servers.blp:6
 msgid "Servers"
-msgstr ""
+msgstr "Servrar"
 
 #: ../data/ui/explorer_servers.blp:13
 msgid "Search Comics Across All Servers"
-msgstr ""
+msgstr "Sök serier över alla serverar"
 
 #: ../data/ui/explorer_servers.blp:19
 msgid "Search Servers"
-msgstr ""
+msgstr "Sök servrar"
 
 #: ../data/ui/explorer_servers.blp:33
 msgid "Search for servers by name or language"
-msgstr ""
+msgstr "Sök efter servrar med hjälp av namn eller språk"
 
 #: ../data/ui/history.blp:6 ../data/ui/history.blp:12
 msgid "History"
-msgstr ""
+msgstr "Historik"
 
 #: ../data/ui/history.blp:69
 msgid "No History"
-msgstr ""
+msgstr "Ingen historik"
 
 #: ../data/ui/library.blp:6 ../data/ui/preferences.blp:48
 msgid "Library"
-msgstr ""
+msgstr "Bibliotek"
 
 #: ../data/ui/library.blp:19
 msgid "Toggle Categories Sidebar"
-msgstr ""
+msgstr "Växla kategorisidmeny"
 
 #: ../data/ui/library.blp:23
 msgid "Komikku"
-msgstr ""
+msgstr "Komikku"
 
 #: ../data/ui/library.blp:30
 msgid "Main Menu"
-msgstr ""
+msgstr "Huvudmeny"
 
 #: ../data/ui/library.blp:74
 msgid "Search by name, server or genre"
-msgstr ""
+msgstr "Sök efter namn, server eller genre"
 
 #: ../data/ui/library.blp:121 ../data/ui/preferences.blp:135
 msgid "Update"
-msgstr ""
+msgstr "Uppdatera"
 
 #: ../data/ui/library.blp:196
 msgid "Discover Comics"
-msgstr ""
+msgstr "Upptäck serier"
 
 #: ../data/ui/library.blp:269
 msgid "OK"
-msgstr ""
+msgstr "OK"
 
 #: ../data/ui/menu/card.xml:25
 msgid "Order of Chapters"
-msgstr ""
+msgstr "Ordning av kapitel"
 
 #: ../data/ui/menu/card.xml:30
 msgid "⬆ By Source"
-msgstr ""
+msgstr "⬆ Enligt källa"
 
 #: ../data/ui/menu/card.xml:35
 msgid "⬇ By Source"
-msgstr ""
+msgstr "⬇ Enligt källa"
 
 #: ../data/ui/menu/card.xml:41
 msgid "⬆ By Date"
-msgstr ""
+msgstr "⬆ Enligt datum"
 
 #: ../data/ui/menu/card.xml:46
 msgid "⬇ By Date"
-msgstr ""
+msgstr "⬇ Enligt datum"
 
 #: ../data/ui/menu/card.xml:52
 msgid "⬆ By Title"
-msgstr ""
+msgstr "⬆ Enligt titel"
 
 #: ../data/ui/menu/card.xml:57
 msgid "⬇ By Title"
-msgstr ""
+msgstr "⬇ Enligt titel"
 
 #: ../data/ui/menu/card_selection_mode.xml:18
 #: ../data/ui/menu/library_selection_mode.xml:25
 msgid "Select All"
-msgstr ""
+msgstr "Välj alla"
 
 #: ../data/ui/menu/download_manager.xml:7
 msgid "Delete All"
-msgstr ""
+msgstr "Ta bort alla"
 
 #: ../data/ui/menu/explorer_search_global_search.xml:7
 msgid "Pinned Servers Only"
-msgstr ""
+msgstr "Enbart fästa serverar"
 
 #: ../data/ui/menu/library_search.xml:7
 msgid "Unread"
-msgstr ""
+msgstr "Olästa"
 
 #: ../data/ui/menu/library_search.xml:15
 msgid "Recents"
-msgstr ""
+msgstr "Nyligen"
 
 #: ../data/ui/menu/library_selection_mode.xml:7
 msgid "Edit Categories"
-msgstr ""
+msgstr "Redigera kategorier"
 
 #: ../data/ui/menu/main.xml:7
 msgid "Update Library"
-msgstr ""
+msgstr "Uppdatera bibliotek"
 
 #: ../data/ui/menu/main.xml:11
 msgid "Sort"
-msgstr ""
+msgstr "Sortera"
 
 #: ../data/ui/menu/main.xml:16
 msgid "Alphabetical"
-msgstr ""
+msgstr "Alfabetiskt"
 
 #: ../data/ui/menu/main.xml:21
 msgid "Latest Read First"
-msgstr ""
+msgstr "Senast läst först"
 
 #: ../data/ui/menu/main.xml:26
 msgid "Latest Updated First"
-msgstr ""
+msgstr "Senast uppdaterad först"
 
 #: ../data/ui/menu/main.xml:55
 msgid "Keyboard Shortcuts"
-msgstr ""
+msgstr "Tangentbordsgenvägar"
 
 #: ../data/ui/menu/main.xml:59
 msgid "Donate"
-msgstr ""
+msgstr "Donera"
 
 #: ../data/ui/menu/main.xml:63
 msgid "About Komikku"
-msgstr ""
+msgstr "Om Komikku"
 
 #: ../data/ui/menu/reader.xml:35
 msgid "Type of Scaling"
-msgstr ""
+msgstr "Typ av skalning"
 
 #: ../data/ui/menu/reader.xml:91
 msgid "Zoom Landscape Pages"
-msgstr ""
+msgstr "Zooma horisontella sidor"
 
 #: ../data/ui/menu/reader.xml:95
 msgid "Crop Borders"
@@ -366,44 +373,44 @@ msgstr ""
 
 #: ../data/ui/menu/reader.xml:106
 msgid "Save Page"
-msgstr ""
+msgstr "Spara sida"
 
 #: ../data/ui/preferences.blp:9 ../data/ui/preferences_servers_languages.blp:11
 #: ../data/ui/preferences_servers_settings.blp:11
 msgid "Preferences"
-msgstr ""
+msgstr "Preferenser"
 
 #: ../data/ui/preferences.blp:14
 msgid "General"
-msgstr ""
+msgstr "Allmänt"
 
 #: ../data/ui/preferences.blp:19
 msgid "Theme"
-msgstr ""
+msgstr "Tema"
 
 #: ../data/ui/preferences.blp:22
 msgid "Light"
-msgstr ""
+msgstr "Ljus"
 
 #: ../data/ui/preferences.blp:23
 msgid "Dark"
-msgstr ""
+msgstr "Mörk"
 
 #: ../data/ui/preferences.blp:24
 msgid "Follow System"
-msgstr ""
+msgstr "Följ systeminställningar"
 
 #: ../data/ui/preferences.blp:30
 msgid "Night Light"
-msgstr ""
+msgstr "Nattljus"
 
 #: ../data/ui/preferences.blp:31
 msgid "Automatically enable dark theme at night"
-msgstr ""
+msgstr "Automatiskt aktivera mörkt tema på natten"
 
 #: ../data/ui/preferences.blp:35
 msgid "Desktop Notifications"
-msgstr ""
+msgstr "Skrivbordsnotiser"
 
 #: ../data/ui/preferences.blp:36
 msgid "Use desktop notifications for downloads and library updates"
