@@ -19,7 +19,6 @@ LANGUAGES = dict(
     ml='Malayalam',
     pl='Polish',
     pt='Portuguese',
-    ro='Romanian',
     ru='Russian',
     es='Spanish',
     tr='Turkish',

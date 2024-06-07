@@ -49,12 +49,13 @@ komikku/servers/bilibili/__init__.py
 komikku/servers/dynasty/__init__.py
 komikku/servers/exceptions.py
 komikku/servers/mangadex/__init__.py
+komikku/servers/mangafire/__init__.py
 komikku/servers/mangapill/__init__.py
 komikku/servers/mangatube/__init__.py
 komikku/servers/mangaworld/__init__.py
-komikku/servers/multi/madara.py
-komikku/servers/multi/mangareader.py
-komikku/servers/multi/manga_stream.py
+komikku/servers/multi/madara/__init__.py
+komikku/servers/multi/mangareader/__init__.py
+komikku/servers/multi/manga_stream/__init__.py
 komikku/servers/readmanhwa/__init__.py
 komikku/servers/webtoon/__init__.py
 komikku/updater.py

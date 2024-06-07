@@ -176,7 +176,7 @@ class PreferencesDialog(Adw.PreferencesDialog):
         if switch_button.get_active():
             self.window.confirm(
                 _('Use up-to-date servers modules?'),
-                _(''),
+                '',
                 _('Confirm'),
                 on_confirm,
                 cancel_callback=on_cancel
