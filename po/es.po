@@ -690,7 +690,7 @@ msgstr "Borrar la caché y la base de datos de los capítulos al salir"
 
 #: ../data/ui/preferences.blp:297
 msgid "Servers Modules"
-msgstr ""
+msgstr "Servidores Módulos"
 
 #: ../data/ui/preferences.blp:300
 msgid "Use Up-to-date Servers Modules"
@@ -888,11 +888,11 @@ msgstr "Cancelar"
 
 #: ../komikku/application.py:405
 msgid "Servers modules have been updated"
-msgstr ""
+msgstr "Se han actualizado los módulos de los servidores"
 
 #: ../komikku/application.py:413
 msgid "External Servers Modules Update"
-msgstr ""
+msgstr "Actualización de módulos de servidores externos"
 
 #: ../komikku/application.py:414
 msgid ""
@@ -900,6 +900,10 @@ msgid ""
 "currently making them incompatible with the current version of the "
 "application. Please update it if a more recent version exists."
 msgstr ""
+"Se suspende temporalmente la actualización de los módulos externos del "
+"servidor, ya que los cambios actuales los hacen incompatibles con la versión "
+"actual de la aplicación. Por favor, actualícela si existe una versión más "
+"reciente."
 
 #: ../komikku/application.py:417 ../komikku/explorer/common.py:272
 msgid "Close"
@@ -1360,11 +1364,11 @@ msgstr "Desactivar"
 
 #: ../komikku/preferences.py:178
 msgid "Use up-to-date servers modules?"
-msgstr ""
+msgstr "¿Utilizar módulos de servidores actualizados?"
 
 #: ../komikku/preferences.py:180
 msgid "Confirm"
-msgstr ""
+msgstr "Confirmar"
 
 #: ../komikku/preferences.py:587
 msgid "User Account"
@@ -1734,11 +1738,11 @@ msgstr "Manhua"
 
 #: ../komikku/servers/mangafire/__init__.py:61
 msgid "Releasing"
-msgstr ""
+msgstr "Liberando"
 
 #: ../komikku/servers/mangafire/__init__.py:63
 msgid "Discontinued"
-msgstr ""
+msgstr "Descatalogado"
 
 #: ../komikku/servers/mangapill/__init__.py:32
 #: ../komikku/servers/multi/manga_stream/__init__.py:72
@@ -1868,6 +1872,20 @@ msgstr ""
 #: ../komikku/webview.py:397
 msgid "Please complete CAPTCHA"
 msgstr "Por favor, complete el CAPTCHA"
+
+#: ../data/ui/preferences.blp:300
+msgid "Use Up-To-Date Servers Modules"
+msgstr "Utilizar módulos de servidor actualizados"
+
+#: ../data/ui/preferences.blp:301
+msgid ""
+"An alternative version of the servers modules, installed from the source "
+"code repository and updated at each startup, is used instead of those "
+"delivered with the application."
+msgstr ""
+"Se utiliza una versión alternativa de los módulos del servidor, instalada "
+"desde el repositorio de código fuente y actualizada en cada inicio, en lugar "
+"de los que se entregan con la aplicación."
 
 #~ msgid ""
 #~ "manga;reader;viewer;comic;manhwa;manhua;bd;webtoon;webcomic;scan;offline;"
