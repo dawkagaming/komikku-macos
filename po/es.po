@@ -9,10 +9,10 @@ msgstr ""
 "Project-Id-Version: Komikku 0.30.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-06-08 01:47+0200\n"
-"PO-Revision-Date: 2024-05-29 11:50+0000\n"
+"PO-Revision-Date: 2024-06-10 00:09+0000\n"
 "Last-Translator: gallegonovato <fran-carro@hotmail.es>\n"
-"Language-Team: Spanish <https://hosted.weblate.org/projects/komikku/main/es/"
-">\n"
+"Language-Team: Spanish <https://hosted.weblate.org/projects/komikku/main/es/>"
+"\n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -694,7 +694,7 @@ msgstr "Servidores Módulos"
 
 #: ../data/ui/preferences.blp:300
 msgid "Use Up-to-date Servers Modules"
-msgstr ""
+msgstr "Utilizar módulos de servidores actualizados"
 
 #: ../data/ui/preferences.blp:301
 msgid ""
@@ -702,6 +702,9 @@ msgid ""
 "code repository and updated at each startup, is used instead of the one "
 "delivered with the application."
 msgstr ""
+"Se utiliza una versión alternativa de los módulos del servidor, instalada "
+"desde el repositorio de código fuente y actualizada en cada inicio, en lugar "
+"de la que se entrega con la aplicación."
 
 #: ../data/ui/preferences.blp:306
 msgid "Credentials Storage"
