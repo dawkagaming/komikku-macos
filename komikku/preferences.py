@@ -166,23 +166,11 @@ class PreferencesDialog(Adw.PreferencesDialog):
             Gtk.Settings.get_default().set_property('gtk-enable-animations', True)
 
     def on_external_servers_modules_changed(self, switch_button, _gparam):
-        def on_cancel():
-            switch_button.set_active(False)
-
-        def on_confirm():
-            self.settings.external_servers_modules = True
-            self.window.install_servers_modules(reinit=True)
+        self.settings.external_servers_modules = switch_button.get_active()
 
         if switch_button.get_active():
-            self.window.confirm(
-                _('Use up-to-date servers modules?'),
-                '',
-                _('Confirm'),
-                on_confirm,
-                cancel_callback=on_cancel
-            )
-        elif self.settings.external_servers_modules:
-            self.settings.external_servers_modules = False
+            self.window.install_servers_modules(reinit=True)
+        else:
             self.window.reinit_servers_modules()
 
     def on_fullscreen_changed(self, switch_button, _gparam):

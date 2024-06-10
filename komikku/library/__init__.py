@@ -307,13 +307,6 @@ class LibraryPage(Adw.NavigationPage):
         select_all_action.connect('activate', self.select_all)
         self.window.application.add_action(select_all_action)
 
-    def clear_servers(self):
-        """Used when servers modules origin change: servers modules need to be re-instantiated"""
-
-        # Clear thumbnails servers
-        for thumbnail in self.flowbox:
-            thumbnail.manga._server = None
-
     def compute_thumbnails_cover_size(self):
         default_width = Thumbnail.default_width
         default_height = Thumbnail.default_height
@@ -671,6 +664,13 @@ class LibraryPage(Adw.NavigationPage):
         # Update filtering if filters are selected
         if self.selected_filters:
             self.flowbox.invalidate_filter()
+
+    def reinstantiate_servers(self):
+        """Used when servers modules origin change: servers variables need to be re-instantiated"""
+
+        # Clear thumbnails servers
+        for thumbnail in self.flowbox:
+            thumbnail.manga._server = None
 
     def remove_thumbnail(self, manga):
         # Remove manga thumbnail in flowbox

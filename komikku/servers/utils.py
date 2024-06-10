@@ -325,9 +325,9 @@ def get_servers_list(include_disabled=False, order_by=('lang', 'name')):
                     has_login=obj.has_login,
                     is_nsfw=obj.is_nsfw,
                     is_nsfw_only=obj.is_nsfw_only,
-                    class_name=get_server_class_name_by_id(obj.id),
                     logo_path=logo_path if os.path.exists(logo_path) else None,
                     module=module,
+                    class_name=get_server_class_name_by_id(obj.id),
                 ))
 
     return sorted(servers, key=itemgetter(*order_by))

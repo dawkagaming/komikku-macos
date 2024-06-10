@@ -326,6 +326,19 @@ class ExplorerSearchPage(Adw.NavigationPage):
 
         self.requests[page].append(self.server.id)
 
+    def reinstantiate_server(self, servers):
+        """Used when servers modules origin change: server variable needs to be re-instantiated"""
+
+        if self.server is None:
+            return
+
+        for server in servers:
+            if server['id'] != self.server.id:
+                continue
+
+            self.server = getattr(server['module'], server['class_name'])()
+            break
+
     def search(self, _entry=None):
         term = self.searchentry.get_text().strip()
 

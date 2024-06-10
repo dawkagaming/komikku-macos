@@ -15,5 +15,11 @@ class Explorer:
         self.search_page = ExplorerSearchPage(self)
         self.window.navigationview.add(self.search_page)
 
+    def reinstantiate_servers(self):
+        """Used when servers modules origin change: servers variables need to be re-instantiated"""
+
+        self.servers_page.populate()
+        self.search_page.reinstantiate_server(self.servers_page.servers)
+
     def show(self, servers=None):
         self.servers_page.show(servers)

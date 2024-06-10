@@ -124,12 +124,6 @@ class CardPage(Adw.NavigationPage):
 
         self.chapters_list.add_actions()
 
-    def clear_server(self):
-        """Used when servers modules origin change: servers modules needs to be re-instantiated"""
-
-        if self.manga:
-            self.manga._server = None
-
     def enter_selection_mode(self, init=False):
         if self.selection_mode:
             return
@@ -324,6 +318,12 @@ class CardPage(Adw.NavigationPage):
     def refresh(self, chapters):
         self.info_box.refresh()
         self.chapters_list.refresh(chapters)
+
+    def reinstantiate_server(self):
+        """Used when servers modules origin change: server variable needs to be re-instantiated"""
+
+        if self.manga:
+            self.manga._server = None
 
     def remove_backdrop(self):
         self.remove_css_class('backdrop')

@@ -631,9 +631,14 @@ available in your region/language."""))
         # Reload servers modules
         init_servers_modules(Settings.get_default().external_servers_modules, reload_modules=True)
 
-        # Force re-instantiation of servers
-        self.library.clear_servers()
-        self.card.clear_server()
+        # Force re-instantiation of server instance variables
+        self.library.reinstantiate_servers()
+        self.card.reinstantiate_server()
+
+        for page in self.navigationview.get_navigation_stack():
+            if page.props.tag.startswith('explorer'):
+                self.explorer.reinstantiate_servers()
+                break
 
     def save_window_size(self):
         if self.is_fullscreen():
