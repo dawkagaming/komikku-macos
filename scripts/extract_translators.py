@@ -21,6 +21,7 @@ LANGUAGES = dict(
     pt='Portuguese',
     ru='Russian',
     es='Spanish',
+    sv='Swedish',
     tr='Turkish',
     uk='Ukrainian',
     vi='Vietnamese',

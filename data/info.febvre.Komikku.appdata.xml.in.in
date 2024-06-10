@@ -98,7 +98,25 @@
     <url type="donation">https://valos.gitlab.io/Komikku/#sponsor</url>
 
     <releases>
-        <release version="1.47.0" date="2024-06-22">
+        <release version="1.48.0" date="2024-06-10">
+            <description translate="no">
+                <ul>
+                    <li>New feature: Continuously updated servers modules</li>
+                    <li>[Servers] Added MangaFire (EN/ES/ES_LA/FR/JA/PT/pt_BR)</li>
+                    <li>[Servers] Reenabled Argos Comics (PT)</li>
+                    <li>[Servers] Flame Comics (EN): Update</li>
+                    <li>[Servers] Fr-Scan (FR): Update</li>
+                    <li>[Servers] Luratoon Scan (pt_BR): Update</li>
+                    <li>[Servers] MangaCrab (ES): Update</li>
+                    <li>[Servers] MangaWorld (IT): Update</li>
+                    <li>[Servers] Manga/in/ua (UK): Update</li>
+                    <li>[L10n] Added Swedish translation</li>
+                    <li>[L10n] Updated Arabic, French, German, Portuguese (Brazil), Spanish and Ukrainian translations</li>
+                </ul>
+                <p>Happy reading.</p>
+            </description>
+        </release>
+        <release version="1.47.0" date="2024-05-22">
             <description translate="no">
                 <ul>
                     <li>[Reader] Added navigation with J and K keyboard keys</li>

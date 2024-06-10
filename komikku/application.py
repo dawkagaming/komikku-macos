@@ -114,6 +114,7 @@ CREDITS = dict(
         'Сергей (Russian)',
         'Óscar Fernández Díaz (Spanish)',
         'gallegonovato (Spanish)',
+        'Jesper (Swedish)',
         'Ege Çelikçi (Turkish)',
         'Sabri Ünal (Turkish)',
         'Volkan Yıldırım (Turkish)',
@@ -482,29 +483,17 @@ available in your region/language."""))
         # Override release notes
         dialog.set_release_notes("""
             <ul>
-                <li>[Reader] Added navigation with J and K keyboard keys</li>
-                <li>[Servers] Added Aurora Scan (pt_BR)</li>
-                <li>[Servers] Added Bentoscan (FR)</li>
-                <li>[Servers] Added Cerise Scan (pt_BR)</li>
-                <li>[Servers] Added Dango Scan (pt_BR)</li>
-                <li>[Servers] Added Luratoon Scan (pt_BR)</li>
-                <li>[Servers] Added Manga Reader (cc) [EN]</li>
-                <li>[Servers] Added Manga Scan (FR)</li>
-                <li>[Servers] Added Nazarick Scan (pt_BR)</li>
-                <li>[Servers] Added RF Dragon Scan (pt_BR)</li>
-                <li>[Servers] Added Scanvf (FR)</li>
-                <li>[Servers] Added Sinensistoon (pt_BR)</li>
-                <li>[Servers] Added Wicked Witch Scan (pt_BR)</li>
-                <li>[Servers] Hunlight Scans (EN): Reenabled</li>
-                <li>[Servers] MangaDex: Improved Latest Updates fetching</li>
-                <li>[Servers] Mangago (EN): Update</li>
-                <li>[Servers] Manhwa Hentai (EN): Update</li>
-                <li>[Servers] NHentai (EN/ZH/JA): Update</li>
-                <li>[Servers] Night scans (EN): Update</li>
-                <li>[Servers] Perf Scan (FR): Update</li>
-                <li>[Servers] Tecno Scan (ES): Update</li>
-                <li>[Servers] Tres Daos (ES): Update</li>
-                <li>[Servers] Union Mangás (PT): Disabled</li>
+                <li>New feature: Continuously updated servers modules</li>
+                <li>[Servers] Added MangaFire (EN/ES/ES_LA/FR/JA/PT/pt_BR)</li>
+                <li>[Servers] Reenabled Argos Comics (PT)</li>
+                <li>[Servers] Flame Comics (EN): Update</li>
+                <li>[Servers] Fr-Scan (FR): Update</li>
+                <li>[Servers] Luratoon Scan (pt_BR): Update</li>
+                <li>[Servers] MangaCrab (ES): Update</li>
+                <li>[Servers] MangaWorld (IT): Update</li>
+                <li>[Servers] Manga/in/ua (UK): Update</li>
+                <li>[L10n] Added Swedish translation</li>
+                <li>[L10n] Updated Arabic, French, German, Portuguese (Brazil), Spanish and Ukrainian translations</li>
             </ul>
             <p>Happy reading.</p>
         """)
