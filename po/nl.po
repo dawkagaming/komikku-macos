@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-06-08 01:47+0200\n"
-"PO-Revision-Date: 2024-05-03 14:07+0000\n"
+"PO-Revision-Date: 2024-06-12 14:09+0000\n"
 "Last-Translator: Philip Goto <philip.goto@gmail.com>\n"
 "Language-Team: Dutch <https://hosted.weblate.org/projects/komikku/main/nl/>\n"
 "Language: nl\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.5.3\n"
+"X-Generator: Weblate 5.6-dev\n"
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:11
 msgid "Discover and read manga &amp; comics"
@@ -681,11 +681,11 @@ msgstr "Wis Hoofdstuk-Cache en Database tijdens Afsluiten"
 
 #: ../data/ui/preferences.blp:297
 msgid "Servers Modules"
-msgstr ""
+msgstr "Server­modules"
 
 #: ../data/ui/preferences.blp:300
 msgid "Use Up-to-date Servers Modules"
-msgstr ""
+msgstr "Up-to-date server­modules gebruiken"
 
 #: ../data/ui/preferences.blp:301
 msgid ""
@@ -693,6 +693,9 @@ msgid ""
 "code repository and updated at each startup, is used instead of the one "
 "delivered with the application."
 msgstr ""
+"Er wordt een alternatieve versie van de server­modules gebruikt, "
+"geïnstalleerd vanuit de broncode-repository en bĳgewerkt bĳ elke start, in "
+"plaats van de versie die bĳ de app wordt geleverd."
 
 #: ../data/ui/preferences.blp:306
 msgid "Credentials Storage"
@@ -879,11 +882,11 @@ msgstr "Annuleren"
 
 #: ../komikku/application.py:405
 msgid "Servers modules have been updated"
-msgstr ""
+msgstr "Server­modules zĳn bĳgewerkt"
 
 #: ../komikku/application.py:413
 msgid "External Servers Modules Update"
-msgstr ""
+msgstr "Update van externe server­modules"
 
 #: ../komikku/application.py:414
 msgid ""
@@ -891,6 +894,9 @@ msgid ""
 "currently making them incompatible with the current version of the "
 "application. Please update it if a more recent version exists."
 msgstr ""
+"Het bĳwerken van externe servermodules is tĳdelĳk opgeschort, omdat "
+"wĳzigingen deze momenteel incompatibel maken met de huidige versie van de "
+"app. Update deze als er een recentere versie bestaat."
 
 #: ../komikku/application.py:417 ../komikku/explorer/common.py:272
 msgid "Close"
@@ -1348,11 +1354,11 @@ msgstr "Uitschakelen"
 
 #: ../komikku/preferences.py:178
 msgid "Use up-to-date servers modules?"
-msgstr ""
+msgstr "Up-to-date server­modules gebruiken?"
 
 #: ../komikku/preferences.py:180
 msgid "Confirm"
-msgstr ""
+msgstr "Bevestigen"
 
 #: ../komikku/preferences.py:587
 msgid "User Account"
@@ -1722,11 +1728,11 @@ msgstr "Manhua"
 
 #: ../komikku/servers/mangafire/__init__.py:61
 msgid "Releasing"
-msgstr ""
+msgstr "Lopend"
 
 #: ../komikku/servers/mangafire/__init__.py:63
 msgid "Discontinued"
-msgstr ""
+msgstr "Beëindigd"
 
 #: ../komikku/servers/mangapill/__init__.py:32
 #: ../komikku/servers/multi/manga_stream/__init__.py:72
