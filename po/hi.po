@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: Komikku 1.41.1\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-06-08 01:47+0200\n"
-"PO-Revision-Date: 2024-05-07 02:07+0000\n"
+"PO-Revision-Date: 2024-06-12 14:09+0000\n"
 "Last-Translator: Scrambled777 <weblate.scrambled777@simplelogin.com>\n"
 "Language-Team: Hindi <https://hosted.weblate.org/projects/komikku/main/hi/>\n"
 "Language: hi\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 5.5.4-dev\n"
+"X-Generator: Weblate 5.6-dev\n"
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:11
 msgid "Discover and read manga &amp; comics"
@@ -678,11 +678,11 @@ msgstr "बाहर निकलने पर अध्याय कैश औ�
 
 #: ../data/ui/preferences.blp:297
 msgid "Servers Modules"
-msgstr ""
+msgstr "सर्वर मॉड्यूल"
 
 #: ../data/ui/preferences.blp:300
 msgid "Use Up-to-date Servers Modules"
-msgstr ""
+msgstr "नवीनतम सर्वर मॉड्यूल का उपयोग करें"
 
 #: ../data/ui/preferences.blp:301
 msgid ""
@@ -690,6 +690,9 @@ msgid ""
 "code repository and updated at each startup, is used instead of the one "
 "delivered with the application."
 msgstr ""
+"अनुप्रयोग के साथ दिए गए संस्करण के स्थान पर, सर्वर मॉड्यूल का एक वैकल्पिक "
+"संस्करण प्रयोग किया जाता है, जिसे स्रोत कोड रिपोजिटरी से स्थापित किया जाता है"
+" और प्रत्येक स्टार्टअप पर अद्यतित किया जाता है।"
 
 #: ../data/ui/preferences.blp:306
 msgid "Credentials Storage"
@@ -873,11 +876,11 @@ msgstr "रद्द"
 
 #: ../komikku/application.py:405
 msgid "Servers modules have been updated"
-msgstr ""
+msgstr "सर्वर मॉड्यूल अद्यतित किया गया"
 
 #: ../komikku/application.py:413
 msgid "External Servers Modules Update"
-msgstr ""
+msgstr "बाहरी सर्वर मॉड्यूल अद्यतन"
 
 #: ../komikku/application.py:414
 msgid ""
@@ -885,6 +888,9 @@ msgid ""
 "currently making them incompatible with the current version of the "
 "application. Please update it if a more recent version exists."
 msgstr ""
+"बाहरी सर्वर मॉड्यूल का अद्यतन अस्थायी रूप से निलंबित कर दिया गया है, क्योंकि "
+"वर्तमान में किए गए परिवर्तन उन्हें अनुप्रयोग के वर्तमान संस्करण के साथ असंगत "
+"बना रहे हैं। यदि कोई नवीनतम संस्करण मौजूद है तो कृपया उसे अद्यतन करें।"
 
 #: ../komikku/application.py:417 ../komikku/explorer/common.py:272
 msgid "Close"
@@ -1337,11 +1343,11 @@ msgstr "अक्षम"
 
 #: ../komikku/preferences.py:178
 msgid "Use up-to-date servers modules?"
-msgstr ""
+msgstr "अद्यतित सर्वर मॉड्यूल का उपयोग करें?"
 
 #: ../komikku/preferences.py:180
 msgid "Confirm"
-msgstr ""
+msgstr "पुष्टि करें"
 
 #: ../komikku/preferences.py:587
 msgid "User Account"
@@ -1704,11 +1710,11 @@ msgstr "मैनहुआ"
 
 #: ../komikku/servers/mangafire/__init__.py:61
 msgid "Releasing"
-msgstr ""
+msgstr "जारी"
 
 #: ../komikku/servers/mangafire/__init__.py:63
 msgid "Discontinued"
-msgstr ""
+msgstr "बंद"
 
 #: ../komikku/servers/mangapill/__init__.py:32
 #: ../komikku/servers/multi/manga_stream/__init__.py:72
