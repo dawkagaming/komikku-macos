@@ -252,9 +252,10 @@ class Manga:
             os.remove(cover_etag_fs_path)
 
     def add_in_library(self):
+        old_path = self.path
+
         self.update(dict(in_library=True))
 
-        old_path = self.path
         if self.server_id == 'local':
             # Move files
             for filename in os.listdir(old_path):
