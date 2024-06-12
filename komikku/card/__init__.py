@@ -334,7 +334,7 @@ class CardPage(Adw.NavigationPage):
         self.sort_order_action.set_enabled(enabled)
 
     def set_backdrop(self):
-        if Adw.StyleManager.get_default().get_high_contrast() or not Settings.get_default().card_backdrop:
+        if not self.manga or Adw.StyleManager.get_default().get_high_contrast() or not Settings.get_default().card_backdrop:
             return
 
         if backdrop_colors_css := self.manga.backdrop_colors_css:
