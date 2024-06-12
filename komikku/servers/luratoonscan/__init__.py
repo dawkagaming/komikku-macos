@@ -9,6 +9,7 @@ class Luratoonscan(Peachscan):
     id = 'luratoonscan'
     name = 'Luratoon Scan'
     lang = 'pt_BR'
+    status = 'disabled'  # 2024/06 closed
 
     has_cf = True
 
