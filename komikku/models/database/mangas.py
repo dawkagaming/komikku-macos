@@ -252,9 +252,16 @@ class Manga:
             os.remove(cover_etag_fs_path)
 
     def add_in_library(self):
-        old_path = self.path
         self.update(dict(in_library=True))
-        shutil.move(old_path, self.path)
+
+        old_path = self.path
+        if self.server_id == 'local':
+            # Move files
+            for filename in os.listdir(old_path):
+                shutil.move(os.path.join(old_path, filename), self.path)
+        else:
+            # Move folder
+            shutil.move(old_path, self.path)
 
     def delete(self):
         db_conn = create_db_connection()
