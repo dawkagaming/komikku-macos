@@ -98,8 +98,17 @@
     <url type="donation">https://valos.gitlab.io/Komikku/#sponsor</url>
 
     <releases>
-        <release version="1.48.0" date="2024-06-10">
+        <release version="1.48.1" date="2024-06-13">
             <description translate="no">
+                <p>This is a bugfix version.</p>
+                <ul>
+                    <li>[Card] Fixed backdrop bug</li>
+                    <li>[Servers] Local: Fixed wrong location of cover files</li>
+                    <li>[Servers] Luratoon Scan (pt_BR): Disabled</li>
+                    <li>[L10n] Updated Dutch, Hindi and Russian translations</li>
+                </ul>
+
+                <p>Changes in previous version 1.48.0</p>
                 <ul>
                     <li>New feature: Continuously updated servers modules</li>
                     <li>[Servers] Added MangaFire (EN/ES/ES_LA/FR/JA/PT/pt_BR)</li>
