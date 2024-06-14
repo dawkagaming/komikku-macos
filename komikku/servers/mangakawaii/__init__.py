@@ -22,7 +22,12 @@ def set_lang(func):
     def wrapper(*args, **kwargs):
         server = args[0]
         if not server.is_lang_set:
-            server.session_get(server.base_url + '/lang/' + server.lang)
+            server.session_get(
+                server.base_url + '/lang/' + server.lang,
+                params={
+                    'Referer': f'{server.base_url}/',
+                }
+            )
             server.is_lang_set = True
 
         return func(*args, **kwargs)
