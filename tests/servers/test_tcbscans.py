@@ -8,18 +8,24 @@ logging.basicConfig(level=logging.DEBUG)
 
 
 @pytest.fixture
-def tcbscans_server():
+def server():
     from komikku.servers.tcbscans import Tcbscans
 
     return Tcbscans()
 
 
 @test_steps('get_most_popular', 'search', 'get_manga_data', 'get_chapter_data', 'get_page_image')
-def test_tcbscans(tcbscans_server):
+def test_tcbscans(server):
+    if server.status == 'disabled':
+        pytest.skip('Server is disabled')
+
+    if server.has_cf:
+        pytest.skip('Server uses Cloudflare challenge')
+
     # Get most popular
     print('Get most popular')
     try:
-        response = tcbscans_server.get_most_populars()
+        response = server.get_most_populars()
     except Exception as e:
         response = None
         log_error_traceback(e)
@@ -30,7 +36,7 @@ def test_tcbscans(tcbscans_server):
     # Search
     print('Search')
     try:
-        response = tcbscans_server.search(response[0]['name'])
+        response = server.search(response[0]['name'])
         slug = response[0]['slug']
     except Exception as e:
         slug = None
@@ -42,7 +48,7 @@ def test_tcbscans(tcbscans_server):
     # Get manga data
     print('Get manga data')
     try:
-        response = tcbscans_server.get_manga_data(dict(slug=slug))
+        response = server.get_manga_data(dict(slug=slug))
         chapter_slug = response['chapters'][0]['slug']
     except Exception as e:
         chapter_slug = None
@@ -54,7 +60,7 @@ def test_tcbscans(tcbscans_server):
     # Get chapter data
     print("Get chapter data")
     try:
-        response = tcbscans_server.get_manga_chapter_data(None, None, chapter_slug, None)
+        response = server.get_manga_chapter_data(None, None, chapter_slug, None)
         page = response['pages'][0]
     except Exception as e:
         page = None
@@ -66,7 +72,7 @@ def test_tcbscans(tcbscans_server):
     # Get page image
     print('Get page image')
     try:
-        response = tcbscans_server.get_manga_chapter_page_image(None, None, chapter_slug, page)
+        response = server.get_manga_chapter_page_image(None, None, chapter_slug, page)
     except Exception as e:
         response = None
         log_error_traceback(e)
