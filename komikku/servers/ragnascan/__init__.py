@@ -9,6 +9,7 @@ class Ragnascan(MangaStream):
     id = 'ragnascan'
     name = 'Ragna Scan'
     lang = 'es'
+    status = 'disabled'
 
     base_url = 'https://ragnascan.com'
 

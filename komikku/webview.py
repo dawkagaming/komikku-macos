@@ -13,6 +13,7 @@ import tzlocal
 import gi
 import requests
 
+gi.require_version('Adw', '1')
 gi.require_version('WebKit', '6.0')
 
 from gi.repository import Adw
