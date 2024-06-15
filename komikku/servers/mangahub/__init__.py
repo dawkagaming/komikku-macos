@@ -5,7 +5,13 @@
 from functools import wraps
 import json
 import logging
-import requests
+
+try:
+    # This server requires an impersonate browsers' TLS signatures or JA3 fingerprints
+    from curl_cffi import requests
+except Exception:
+    # Server will be disabled
+    requests = None
 
 from komikku.servers import Server
 from komikku.servers import USER_AGENT
@@ -21,9 +27,9 @@ def get_api_key(func):
         server = args[0]
         if not server.api_key:
             server.session_get(server.base_url)
-            for cookie in server.session.cookies:
-                if cookie.name == 'mhub_access':
-                    server.api_key = cookie.value
+            for name, value in server.session.cookies.items():
+                if name == 'mhub_access':
+                    server.api_key = value
                     break
 
         return func(*args, **kwargs)
@@ -37,22 +43,23 @@ class Mangahub(Server):
     lang = 'en'
     is_nsfw = True
     long_strip_genres = ['Webtoon', 'Webtoons', 'LONG STRIP', 'LONG STRIP ROMANCE', ]
+    status = 'enabled' if requests is not None else 'disabled'
 
     base_url = 'https://mangahub.io'
-    search_url = base_url + '/search'
+    api_url = 'https://api.mghcdn.com/graphql'
     manga_url = base_url + '/manga/{0}'
     chapter_url = base_url + '/chapter/{0}/{1}'
-    api_url = 'https://api2.mangahub.io/graphql'
     image_url = 'https://imgx.mghcdn.com/{0}'
     cover_url = 'https://thumb.mghcdn.com/{0}'
 
     def __init__(self):
         self.api_key = None
 
-        if self.session is None:
+        if self.session is None and requests is not None:
             self.session = requests.Session()
             self.session.headers = {
                 'User-Agent': USER_AGENT,
+                'accept-encoding': 'gzip, deflate',  # br is not supported with curl_cffi
             }
 
     @get_api_key
@@ -219,12 +226,12 @@ class Mangahub(Server):
                 'query': '{search(x:m01,q:"%s",limit:10){rows{id,title,slug,image,rank,latestChapter,createdDate}}}' % term
             }
 
-        r = self.session.post(self.api_url, json=query, headers={
+        r = self.session_post(self.api_url, json=query, headers={
             'Accept': 'application/json',
             'Content-Type': 'application/json',
-            'Referer': self.base_url + '/',
             'Origin': self.base_url,
-            'X-Mhub-Access': self.api_key,
+            'Referer': self.base_url + '/',
+            'x-mhub-Access': self.api_key,
         })
         if r.status_code != 200:
             return None
