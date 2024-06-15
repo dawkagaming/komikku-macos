@@ -177,7 +177,7 @@ class WebviewPage(Adw.NavigationPage):
         self.exited_auto = True
         self.window.navigationview.pop()
 
-    def load_page(self, uri=None, cf_request=None, user_agent=None):
+    def load_page(self, uri=None, cf_request=None, user_agent=None, auto_load_images=True):
         if self.lock or not self.exited:
             # Already in use or page exiting is not ended (pop animation not ended)
             return False
@@ -187,7 +187,7 @@ class WebviewPage(Adw.NavigationPage):
         self.lock = True
 
         self.webkit_webview.get_settings().set_user_agent(user_agent or self.user_agent)
-        self.webkit_webview.get_settings().set_auto_load_images(True)
+        self.webkit_webview.get_settings().set_auto_load_images(auto_load_images)
 
         self.cf_request = cf_request
         if self.cf_request:
@@ -495,13 +495,14 @@ def eval_js(code):
     return res
 
 
-def get_page_html(url, user_agent=None, wait_js_code=None):
+def get_page_html(url, user_agent=None, wait_js_code=None, with_cookies=False):
+    cookies = None
     error = None
     html = None
     webview = Gio.Application.get_default().window.webview
 
     def load_page():
-        if not webview.load_page(uri=url, user_agent=user_agent):
+        if not webview.load_page(uri=url, user_agent=user_agent, auto_load_images=False):
             return True
 
         webview.connect_signal('load-changed', on_load_changed)
@@ -511,6 +512,27 @@ def get_page_html(url, user_agent=None, wait_js_code=None):
         if DEBUG:
             webview.show()
 
+    def on_get_cookies_finished(cookie_manager, result, _user_data):
+        nonlocal cookies
+
+        rcookies = []
+        # Get libsoup cookies
+        for cookie in cookie_manager.get_cookies_finish(result):
+            rcookie = requests.cookies.create_cookie(
+                name=cookie.get_name(),
+                value=cookie.get_value(),
+                domain=cookie.get_domain(),
+                path=cookie.get_path(),
+                expires=cookie.get_expires().to_unix() if cookie.get_expires() else None,
+                rest={'HttpOnly': cookie.get_http_only()},
+                secure=cookie.get_secure(),
+            )
+            rcookies.append(rcookie)
+
+        cookies = rcookies
+
+        webview.close_page()
+
     def on_get_html_finish(_webkit_webview, result, _user_data=None):
         nonlocal error
         nonlocal html
@@ -519,10 +541,15 @@ def get_page_html(url, user_agent=None, wait_js_code=None):
         if js_result:
             html = js_result.to_string()
 
-        if html is None:
+        if html is not None:
+            if with_cookies:
+                logger.debug('Page loaded, getting cookies...')
+                webview.network_session.get_cookie_manager().get_cookies(url, None, on_get_cookies_finished, None)
+            else:
+                webview.close_page()
+        else:
             error = f'Failed to get chapter page html: {url}'
-
-        webview.close_page()
+            webview.close_page()
 
     def on_load_changed(_webkit_webview, event):
         if event != WebKit.LoadEvent.FINISHED:
@@ -554,11 +581,11 @@ def get_page_html(url, user_agent=None, wait_js_code=None):
 
     GLib.timeout_add(100, load_page)
 
-    while html is None and error is None:
+    while (html is None or (with_cookies and cookies is None)) and error is None:
         time.sleep(1)
 
     if error:
         logger.warning(error)
         raise requests.exceptions.RequestException()
 
-    return html
+    return html if not with_cookies else (html, cookies)
