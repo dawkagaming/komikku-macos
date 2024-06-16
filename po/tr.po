@@ -11,16 +11,16 @@ msgstr ""
 "Project-Id-Version: Komikku main\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-06-08 01:47+0200\n"
-"PO-Revision-Date: 2024-05-05 11:07+0000\n"
+"PO-Revision-Date: 2024-06-17 07:48+0000\n"
 "Last-Translator: Sabri Ünal <yakushabb@gmail.com>\n"
-"Language-Team: Turkish <https://hosted.weblate.org/projects/komikku/main/tr/"
-">\n"
+"Language-Team: Turkish <https://hosted.weblate.org/projects/komikku/main/tr/>"
+"\n"
 "Language: tr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.5.3\n"
+"X-Generator: Weblate 5.6-dev\n"
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:11
 msgid "Discover and read manga &amp; comics"
@@ -690,11 +690,11 @@ msgstr "Çıkışta Bölüm Önbelleğini ve Veri Tabanını Temizle"
 
 #: ../data/ui/preferences.blp:297
 msgid "Servers Modules"
-msgstr ""
+msgstr "Sunucu Modülleri"
 
 #: ../data/ui/preferences.blp:300
 msgid "Use Up-to-date Servers Modules"
-msgstr ""
+msgstr "Güncel Sunucu Modüllerini Kullan"
 
 #: ../data/ui/preferences.blp:301
 msgid ""
@@ -702,6 +702,8 @@ msgid ""
 "code repository and updated at each startup, is used instead of the one "
 "delivered with the application."
 msgstr ""
+"Sunucu modüllerinin kaynak kod deposundan yüklenen ve her başlangıçta "
+"güncellenen alternatif sürümü, uygulamayla birlikte gelen yerine kullanılır."
 
 #: ../data/ui/preferences.blp:306
 msgid "Credentials Storage"
@@ -887,11 +889,11 @@ msgstr "İptal"
 
 #: ../komikku/application.py:405
 msgid "Servers modules have been updated"
-msgstr ""
+msgstr "Sunucu modülleri güncellendi"
 
 #: ../komikku/application.py:413
 msgid "External Servers Modules Update"
-msgstr ""
+msgstr "Harici Sunucu Modülleri Güncellemesi"
 
 #: ../komikku/application.py:414
 msgid ""
@@ -899,6 +901,9 @@ msgid ""
 "currently making them incompatible with the current version of the "
 "application. Please update it if a more recent version exists."
 msgstr ""
+"Harici sunucu modüllerinin güncellenmesi değişiklikler mevcut uygulamanın "
+"geçerli sürümüyle uyumsuz olduğu için geçici olarak askıya alındı. Daha yeni "
+"bir sürüm varsa lütfen güncelleyin."
 
 #: ../komikku/application.py:417 ../komikku/explorer/common.py:272
 msgid "Close"
@@ -1357,11 +1362,11 @@ msgstr "Devre Dışı Bırak"
 
 #: ../komikku/preferences.py:178
 msgid "Use up-to-date servers modules?"
-msgstr ""
+msgstr "Güncel sunucu modülleri kullanılsın mı?"
 
 #: ../komikku/preferences.py:180
 msgid "Confirm"
-msgstr ""
+msgstr "Onayla"
 
 #: ../komikku/preferences.py:587
 msgid "User Account"
@@ -1727,11 +1732,11 @@ msgstr "Manhua"
 
 #: ../komikku/servers/mangafire/__init__.py:61
 msgid "Releasing"
-msgstr ""
+msgstr "Yayın"
 
 #: ../komikku/servers/mangafire/__init__.py:63
 msgid "Discontinued"
-msgstr ""
+msgstr "Devam etmiyor"
 
 #: ../komikku/servers/mangapill/__init__.py:32
 #: ../komikku/servers/multi/manga_stream/__init__.py:72
