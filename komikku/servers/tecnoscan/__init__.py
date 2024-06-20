@@ -9,6 +9,7 @@ class Tecnoscan(Madara):
     id = 'tecnoscan'
     name = 'Tecno Scan'
     lang = 'es'
+    status = 'disabled'  # dead 2024/06
 
     base_url = 'https://visortecno.com'
     chapters_url = base_url + '/manga/{0}/ajax/chapters/'
