@@ -12,7 +12,7 @@ class Argosscan(Madara):
 
     series_name = 'comics'
 
-    base_url = 'https://argoscomics.com'
+    base_url = 'https://argoscomic.com'
     chapters_url = base_url + '/comics/{0}/ajax/chapters/'
 
     details_synopsis_selector = '.manga-excerpt'
