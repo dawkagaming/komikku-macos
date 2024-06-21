@@ -317,7 +317,7 @@ class BypassCF:
                     document.title = 'error';
                     clearInterval(checkCF);
                 }
-                else if (!document.getElementById('challenge-running')) {
+                else if (!document.querySelector('.ray-id')) {
                     document.title = 'ready';
                     clearInterval(checkCF);
                 }
