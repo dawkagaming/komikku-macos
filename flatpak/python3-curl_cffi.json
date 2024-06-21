@@ -7,20 +7,8 @@
     "sources": [
         {
             "type": "file",
-            "url": "https://files.pythonhosted.org/packages/ba/06/a07f096c664aeb9f01624f858c3add0a4e913d6c96257acb4fce61e7de14/certifi-2024.2.2-py3-none-any.whl",
-            "sha256": "dc383c07b76109f368f6106eee2b593b04a011ea4d55f652c6ca24a754d1cdd1"
-        },
-        {
-            "type": "file",
-            "url": "https://files.pythonhosted.org/packages/a2/94/26f49de4ddc1085c71acefa9fbc8ecabc5b949055ab53217b8400a95012c/curl_cffi-0.6.3-cp38-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl",
-            "sha256": "4b4712bc9a8a0d933aef7051eaa5448b9a1c662f25dd83967dbdd46aa3e418c0",
-            "only-arches": ["x86_64"]
-        },
-        {
-            "type": "file",
-            "url": "https://files.pythonhosted.org/packages/0f/86/9a507111ae9d520126d48745cb44cbed66b509576d01a957d9cdab7fb4bd/curl_cffi-0.6.3-cp38-abi3-manylinux_2_17_aarch64.manylinux2014_aarch64.whl",
-            "sha256": "760b7b837c86626f2c9518c3bad42aad3b6ccb455499b648bc98e8dee9f73891",
-            "only-arches": ["aarch64"]
+            "url": "https://files.pythonhosted.org/packages/7d/c6/05e9461a666c80a5082ee0bd44b323e4156b690b746bbffe7375f31e5f75/curl_cffi-0.6.4.tar.gz",
+            "sha256": "fe721c39926ef69d47c4c1b00c40cf269efb712261b631210fb05801b448f957"
         }
     ]
 }

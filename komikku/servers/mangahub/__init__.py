@@ -7,14 +7,13 @@ import json
 import logging
 
 try:
-    # This server requires an impersonate browsers' TLS signatures or JA3 fingerprints
+    # This server requires JA3/TLS and HTTP2 fingerprints impersonation
     from curl_cffi import requests
 except Exception:
     # Server will be disabled
     requests = None
 
 from komikku.servers import Server
-from komikku.servers import USER_AGENT
 from komikku.servers.utils import get_buffer_mime_type
 from komikku.servers.utils import convert_date_string
 
@@ -56,11 +55,7 @@ class Mangahub(Server):
         self.api_key = None
 
         if self.session is None and requests is not None:
-            self.session = requests.Session()
-            self.session.headers = {
-                'User-Agent': USER_AGENT,
-                'accept-encoding': 'gzip, deflate',  # br is not supported with curl_cffi
-            }
+            self.session = requests.Session(allow_redirects=True, impersonate='chrome', timeout=(5, 10))
 
     @get_api_key
     def get_manga_data(self, initial_data):

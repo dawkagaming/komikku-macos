@@ -4,7 +4,7 @@
 
 from bs4 import BeautifulSoup
 try:
-    # This server requires an impersonate browsers' TLS signatures or JA3 fingerprints
+    # This server requires JA3/TLS and HTTP2 fingerprints impersonation
     from curl_cffi import requests
 except Exception:
     # Server will be disabled
@@ -12,7 +12,6 @@ except Exception:
 import json
 
 from komikku.servers import Server
-from komikku.servers import USER_AGENT_CHROME
 from komikku.servers.utils import convert_date_string
 from komikku.servers.utils import get_buffer_mime_type
 
@@ -31,11 +30,7 @@ class Mangalib(Server):
 
     def __init__(self):
         if self.session is None and requests is not None:
-            self.session = requests.Session(allow_redirects=True, timeout=(5, 10))
-            self.session.headers = {
-                'User-Agent': USER_AGENT_CHROME,
-                'Accept-Encoding': 'gzip, deflate',  # br is not supported with curl_cffi
-            }
+            self.session = requests.Session(allow_redirects=True, impersonate='chrome', timeout=(5, 10))
 
     def get_manga_data(self, initial_data):
         """

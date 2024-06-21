@@ -9,6 +9,9 @@ import logging
 import sys
 import threading
 
+# Required for `curl_cffi` to work, no real explanation and no other solution at present
+from curl_cffi import requests  # noqa: F401
+
 gi.require_version('Gtk', '4.0')
 gi.require_version('Adw', '1')
 gi.require_version('Notify', '0.7')
