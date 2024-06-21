@@ -10,7 +10,7 @@ class Phenixscans(MangaStream):
     name = 'PhenixScans'
     lang = 'fr'
 
-    # has_cf = True
+    has_cf = True
 
     base_url = 'https://phenixscans.fr'
 
