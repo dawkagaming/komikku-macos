@@ -482,27 +482,15 @@ available in your region/language."""))
 
         # Override release notes
         dialog.set_release_notes("""
-            <p>This is a bugfix version.</p>
             <ul>
-                <li>[Card] Fixed backdrop bug</li>
-                <li>[Servers] Local: Fixed wrong location of cover files</li>
-                <li>[Servers] Luratoon Scan (pt_BR): Disabled</li>
-                <li>[L10n] Updated Dutch, Hindi and Russian translations</li>
-            </ul>
-
-            <p>Changes in previous version 1.48.0</p>
-            <ul>
-                <li>New feature: Continuously updated servers modules</li>
-                <li>[Servers] Added MangaFire (EN/ES/ES_LA/FR/JA/PT/pt_BR)</li>
-                <li>[Servers] Reenabled Argos Comics (PT)</li>
-                <li>[Servers] Flame Comics (EN): Update</li>
-                <li>[Servers] Fr-Scan (FR): Update</li>
-                <li>[Servers] Luratoon Scan (pt_BR): Update</li>
-                <li>[Servers] MangaCrab (ES): Update</li>
-                <li>[Servers] MangaWorld (IT): Update</li>
-                <li>[Servers] Manga/in/ua (UK): Update</li>
-                <li>[L10n] Added Swedish translation</li>
-                <li>[L10n] Updated Arabic, French, German, Portuguese (Brazil), Spanish and Ukrainian translations</li>
+                <li>[Servers] Fixed the page to complete Cloudflare challenges</li>
+                <li>[Servers] Argos Comics (pt_BR): Update</li>
+                <li>[Servers] MangaHub (EN): Update</li>
+                <li>[Servers] PhenixScans (FR): Update</li>
+                <li>[Servers] TCB Scans (EN): Update</li>
+                <li>[Servers] Ragna Scan (ES): Disabled</li>
+                <li>[Servers] Tecno Scan (ES): Disabled</li>
+                <li>[L10n] Updated Turkish translation</li>
             </ul>
             <p>Happy reading.</p>
         """)

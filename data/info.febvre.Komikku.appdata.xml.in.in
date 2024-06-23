@@ -98,6 +98,21 @@
     <url type="donation">https://valos.gitlab.io/Komikku/#sponsor</url>
 
     <releases>
+        <release version="1.49.0" date="2024-06-24">
+            <description translate="no">
+                <ul>
+                    <li>[Servers] Fixed the page to complete Cloudflare challenges</li>
+                    <li>[Servers] Argos Comics (pt_BR): Update</li>
+                    <li>[Servers] MangaHub (EN): Update</li>
+                    <li>[Servers] PhenixScans (FR): Update</li>
+                    <li>[Servers] TCB Scans (EN): Update</li>
+                    <li>[Servers] Ragna Scan (ES): Disabled</li>
+                    <li>[Servers] Tecno Scan (ES): Disabled</li>
+                    <li>[L10n] Updated Turkish translation</li>
+                </ul>
+                <p>Happy reading.</p>
+            </description>
+        </release>
         <release version="1.48.1" date="2024-06-13">
             <description translate="no">
                 <p>This is a bugfix version.</p>
