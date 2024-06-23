@@ -3,38 +3,33 @@
 # Author: Valéry Febvre <vfebvre@easter-eggs.com>
 
 from bs4 import BeautifulSoup
-import requests
 
 from komikku.servers import Server
-from komikku.servers import USER_AGENT
 from komikku.servers.utils import get_buffer_mime_type
-
-SERVER_NAME = 'Scan Manga'
+from komikku.webview import BypassCF
 
 
 class Scanmanga(Server):
     id = 'scanmanga'
-    name = SERVER_NAME
+    name = 'Scan Manga'
     lang = 'fr'
     is_nsfw = True
     long_strip_genres = ['Webcomic', ]
-    status = 'disabled'  # 2024/03 chapters images URLs have become difficult to extract (no time for that)
+    status = 'disabled'  # 2024/03 chapters and chapters images URLs have become difficult to extract (no time for that)
+
+    has_cf = True
+    http_client = 'curl_cffi'
 
     base_url = 'https://www.scan-manga.com'
     latest_updates_url = base_url + '/?po'
-    most_populars_url = base_url + '/TOP-Manga-Webtoon-24.html'
-    search_url = base_url + '/qsearch.json'
+    most_populars_url = base_url + '/TOP-Manga-Webtoon-25.html'
+    api_search_url = base_url + '/api/search/quick.json'
     manga_url = base_url + '{0}'
     chapter_url = base_url + '/lecture-en-ligne/{0}{1}.html'
-    cover_url = base_url + '/img{0}'
+    cover_url = 'https://cdn.scanmanga.eu/img/manga/{0}'
 
     def __init__(self):
-        if self.session is None:
-            self.create_session()
-
-    def create_session(self):
-        self.session = requests.Session()
-        self.session.headers.update({'User-Agent': USER_AGENT})
+        self.session = None
 
     @classmethod
     def get_manga_initial_data_from_url(cls, url):
@@ -43,6 +38,7 @@ class Scanmanga(Server):
             slug=url.split('/')[-1].replace('.html', ''),
         )
 
+    @BypassCF()
     def get_manga_data(self, initial_data):
         """
         Returns manga data by scraping manga HTML page content
@@ -51,18 +47,8 @@ class Scanmanga(Server):
         """
         assert 'url' in initial_data and 'slug' in initial_data, 'Manga url or slug are missing in initial data'
 
-        r = self.session_get(
-            self.manga_url.format(initial_data['url']),
-            headers={
-                'Referer': self.base_url + '/?sm',
-                'Accept-Language': 'fr-FR,fr;q=0.9,en-US;q=0.8,en;q=0.7',
-            }
-        )
+        r = self.session_get(self.manga_url.format(initial_data['url']))
         if r.status_code != 200:
-            return None
-
-        mime_type = get_buffer_mime_type(r.content)
-        if mime_type != 'text/html':
             return None
 
         soup = BeautifulSoup(r.text, 'lxml')
@@ -109,9 +95,9 @@ class Scanmanga(Server):
         data['synopsis'] = p_element.text.strip()
 
         # Chapters
-        for element in reversed(soup.find_all('div', class_='chapitre_nom')):
+        for element in reversed(soup.select('.chapitre_nom')):
             a_element = element.a
-            if not a_element or element.find('p', class_='typcn-lock-closed'):
+            if not a_element or element.select_one('.typcn-lock-closed') or element.select_one('.typcn-lock-open'):
                 # Skip external chapters
                 continue
 
@@ -123,14 +109,13 @@ class Scanmanga(Server):
 
         return data
 
+    @BypassCF()
     def get_manga_chapter_data(self, manga_slug, manga_name, chapter_slug, chapter_url):
         """
         Returns manga chapter data by scraping chapter HTML page content
 
         Currently, only pages are expected.
         """
-        self.create_session()  # Session must be refrehed each time
-
         r = self.session_get(self.chapter_url.format(manga_slug, chapter_slug))
         if r.status_code != 200:
             return None
@@ -209,16 +194,13 @@ class Scanmanga(Server):
         """
         return self.manga_url.format(url)
 
+    @BypassCF()
     def get_latest_updates(self):
         """
         Returns latest updates
         """
         r = self.session_get(self.latest_updates_url)
         if r.status_code != 200:
-            return None
-
-        mime_type = get_buffer_mime_type(r.content)
-        if mime_type != 'text/html':
             return None
 
         soup = BeautifulSoup(r.text, 'lxml')
@@ -237,66 +219,64 @@ class Scanmanga(Server):
 
         return results
 
+    @BypassCF()
     def get_most_populars(self):
         """
         Returns list of top manga
         """
-        r = self.session_get(
-            self.most_populars_url,
-            headers={
-                'Referer': self.base_url
-            }
-        )
+        r = self.session_get(self.most_populars_url)
         if r.status_code != 200:
-            return None
-
-        mime_type = get_buffer_mime_type(r.content)
-        if mime_type != 'text/html':
             return None
 
         soup = BeautifulSoup(r.text, 'lxml')
 
         results = []
-        for element in soup.find_all('div', class_='titre_fiche_technique'):
+        for cover_element in soup.select('.image_manga'):
+            element = cover_element.find_next_siblings()[0]
+
             a_element = element.h3.a
             name = a_element.text.strip()
             if 'Novel' in name:
-                # Ignored, it's a novel
+                # Skip
                 continue
 
             results.append(dict(
                 name=a_element.text.strip(),
                 slug=a_element.get('href').split('/')[-1].replace('.html', ''),
                 url=a_element.get('href').replace(self.base_url, ''),
+                cover=cover_element.select_one('img').get('data-original'),
             ))
 
         return results
 
+    @BypassCF()
     def search(self, term):
         r = self.session_get(
-            self.search_url,
+            self.api_search_url,
             params=dict(term=term),
+            default_headers=True,
             headers={
-                'X-Requested-With': 'XMLHttpRequest',
-                'Referer': self.base_url,
+                'Accept': '*/*',
+                'Content-Type': 'application/json; charset=UTF-8',
+                'Referer': f'{self.base_url}/',
             }
         )
 
         if r.status_code == 200:
             try:
                 data = r.json()
-
                 results = []
-                for item in data:
-                    if 'Novel' in item[0]:
-                        # Ignored, it's a novel
+                for item in data['title']:
+                    if item['type'] == 'Novel':
+                        # Skip
                         continue
 
                     results.append(dict(
-                        url=item[1].replace(self.base_url, ''),
-                        slug=item[1].split('/')[-1].replace('.html', ''),
-                        name=item[0],
-                        cover=self.cover_url.format(item[4]),
+                        url=item['url'],
+                        slug=item['url'].split('/')[-1].replace('.html', ''),
+                        name=item['nom_match'],
+                        cover=self.cover_url.format(item['image']),
+                        last_chapter=str(item['l_ch']),
                     ))
             except Exception:
                 return None
