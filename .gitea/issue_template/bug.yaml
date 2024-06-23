@@ -1,0 +1,96 @@
+name: Bug report
+about: File a bug report
+title: '[BUG] '
+labels:
+  - 'bug'
+  - 'unconfirmed'
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time to fill out this bug report!
+        
+        **If this is about a security vulnerability, please disclose it responsibly instead.**
+    visible: [form]  # This is only visible in the form and not in the issue itself.
+  - type: textarea
+    id: description
+    attributes:
+      label: What problem did you encounter?
+      value:
+  - type: textarea
+    id: actual
+    attributes:
+      label: What is the actual behavior?
+      value:
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: What is the expected behavior?
+      value:
+    validations:
+      required: true
+  - type: textarea
+    id: steps-to-reproduce
+    attributes:
+      label: How to reproduce
+      description: |
+        Please provide steps to reproduce the issue. If it's a graphical issue, please attach screenshots.
+      value:
+    validations:
+      required: true
+  - type: textarea
+    id: system-information
+    attributes:
+      label: Debugging information
+      description: |
+        Please paste here information available in `☰ Menu` ⇨ `About Komikku` ⇨ `Troubleshooting` ⇨ `Debugging Information`.
+
+        This will be automatically formatted into code, so no need for backticks.
+      render: shell
+    validations:
+      required: true
+  - type: dropdown
+    id: hardware
+    attributes:
+      label: What hardware are you running Komikku on?
+      options:
+        - Computer/laptop
+        - PinePhone
+        - Librem 5
+        - Other (please elaborate)
+    validations:
+      required: true
+  - type: input
+    id: other-hardware
+    attributes:
+      label: Other hardware
+      description: If "Other" was selected, please elaborate.
+  - type: textarea
+    id: logs
+    attributes:
+      label: Relevant logs
+      description: |
+        Please provide any relevant logs like Python stack tracebacks.
+
+        This will be automatically formatted into code, so no need for backticks.
+      render: shell
+  - type: textarea
+    id: extra-info
+    attributes:
+      label: Additional Information
+      description: Anything else that we need to know?
+      value:
+  - type: checkboxes
+    id: terms
+    attributes:
+      label: Code of Conduct
+      description: By submitting this issue, you agree to follow our [Code of Conduct](https://conduct.gnome.org/).
+      options:
+        - label: I agree to follow this project's Code of Conduct
+          required: true
+          visible: [form]
+        - label: I have read the [CONTRIBUTING.MD](https://codeberg.org/valos/Komikku/src/branch/main/CONTRIBUTING.md) guidelines
+          required: true
+          visible: [form]
