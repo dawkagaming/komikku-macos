@@ -22,6 +22,7 @@ from komikku.servers import Server
 from komikku.servers.utils import convert_date_string
 from komikku.servers.utils import get_buffer_mime_type
 from komikku.servers.utils import sojson4_decode
+from komikku.utils import REQUESTS_TIMEOUT
 
 SEARCH_RESULTS_PAGES = 5
 MOST_POPULAR_RESULTS_PAGES = 2
@@ -36,6 +37,8 @@ class Mangago(Server):
     lang = 'en'
     status = 'enabled' if requests is not None else 'disabled'
 
+    http_client = 'curl_cffi'
+
     base_url = 'https://www.mangago.me'
     search_url = base_url + '/r/l_search/'
     latest_updates_url = base_url + '/list/latest/all/{0}/'
@@ -45,7 +48,7 @@ class Mangago(Server):
 
     def __init__(self):
         if self.session is None and requests is not None:
-            self.session = requests.Session(allow_redirects=True, impersonate='chrome', timeout=(5, 10))
+            self.session = requests.Session(allow_redirects=True, impersonate='chrome', timeout=(REQUESTS_TIMEOUT, REQUESTS_TIMEOUT * 2))
 
     def get_manga_data(self, initial_data):
         """

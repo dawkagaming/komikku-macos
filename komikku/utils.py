@@ -198,7 +198,7 @@ def retry_session(session=None, retries=3, allowed_methods=['GET'], backoff_fact
     if session is None:
         session = requests.Session()
     elif not getattr(session, 'adapters', None) or session.adapters['https://'].max_retries.total == retries:
-        # Retry adapter is already modified or session is not a `requests` session
+        # Retry adapter is already modified or session is not a `requests (HTTP client)` session
         return session
 
     retry = Retry(

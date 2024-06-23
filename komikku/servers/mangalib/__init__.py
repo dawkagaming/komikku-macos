@@ -14,6 +14,7 @@ import json
 from komikku.servers import Server
 from komikku.servers.utils import convert_date_string
 from komikku.servers.utils import get_buffer_mime_type
+from komikku.servers import REQUESTS_TIMEOUT
 
 
 class Mangalib(Server):
@@ -21,6 +22,8 @@ class Mangalib(Server):
     name = 'MangaLib'
     lang = 'ru'
     status = 'enabled' if requests is not None else 'disabled'
+
+    http_client = 'curl_cffi'
 
     base_url = 'https://mangalib.org'
     search_url = base_url + '/manga-list'
@@ -30,7 +33,7 @@ class Mangalib(Server):
 
     def __init__(self):
         if self.session is None and requests is not None:
-            self.session = requests.Session(allow_redirects=True, impersonate='chrome', timeout=(5, 10))
+            self.session = requests.Session(allow_redirects=True, impersonate='chrome', timeout=(REQUESTS_TIMEOUT, REQUESTS_TIMEOUT * 2))
 
     def get_manga_data(self, initial_data):
         """

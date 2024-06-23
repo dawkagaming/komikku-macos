@@ -16,6 +16,7 @@ except Exception:
 from komikku.servers import Server
 from komikku.servers.utils import get_buffer_mime_type
 from komikku.servers.utils import convert_date_string
+from komikku.servers import REQUESTS_TIMEOUT
 
 logger = logging.getLogger('komikku.servers.mangahub')
 
@@ -44,6 +45,8 @@ class Mangahub(Server):
     long_strip_genres = ['Webtoon', 'Webtoons', 'LONG STRIP', 'LONG STRIP ROMANCE', ]
     status = 'enabled' if requests is not None else 'disabled'
 
+    http_client = 'curl_cffi'
+
     base_url = 'https://mangahub.io'
     api_url = 'https://api.mghcdn.com/graphql'
     manga_url = base_url + '/manga/{0}'
@@ -55,7 +58,7 @@ class Mangahub(Server):
         self.api_key = None
 
         if self.session is None and requests is not None:
-            self.session = requests.Session(allow_redirects=True, impersonate='chrome', timeout=(5, 10))
+            self.session = requests.Session(allow_redirects=True, impersonate='chrome', timeout=(REQUESTS_TIMEOUT, REQUESTS_TIMEOUT * 2))
 
     @get_api_key
     def get_manga_data(self, initial_data):

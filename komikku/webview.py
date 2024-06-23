@@ -10,6 +10,10 @@ import platform
 import time
 import tzlocal
 
+try:
+    from curl_cffi import requests as crequests
+except Exception:
+    crequests = None
 import gi
 import requests
 
@@ -23,7 +27,9 @@ from gi.repository import Gtk
 from gi.repository import WebKit
 
 from komikku.servers.exceptions import CfBypassError
+from komikku.servers.utils import get_session_cookies
 from komikku.utils import get_cache_dir
+from komikku.utils import REQUESTS_TIMEOUT
 
 CF_RELOAD_MAX = 3
 DEBUG = False
@@ -261,7 +267,7 @@ class BypassCF:
                 logger.debug(f'{self.server.id}: Previous session found')
                 # Locate CF cookie
                 bypassed = False
-                for cookie in self.server.session.cookies:
+                for cookie in get_session_cookies(self.server.session):
                     if cookie.name == 'cf_clearance':
                         # CF cookie is there
                         bypassed = True
@@ -411,8 +417,20 @@ class BypassCF:
         self.webview.network_session.get_cookie_manager().get_cookies(self.server.base_url, None, self.on_get_cookies_finished, None)
 
     def on_get_cookies_finished(self, cookie_manager, result, _user_data):
-        self.server.session = requests.Session()
-        self.server.session.headers.update({'User-Agent': self.webview.user_agent})
+        if self.server.http_client == 'requests':
+            self.server.session = requests.Session()
+            self.server.session.headers.update({'User-Agent': self.webview.user_agent})
+
+        elif crequests is not None and self.server.http_client == 'curl_cffi':
+            self.server.session = crequests.Session(
+                allow_redirects=True,
+                impersonate='chrome',
+                timeout=(REQUESTS_TIMEOUT, REQUESTS_TIMEOUT * 2)
+            )
+        else:
+            self.error = f'{self.server.id}: Failed to copy Webview cookies in session (no HTTP client found)'
+            self.webview.close_page()
+            return
 
         # Copy libsoup cookies in session cookies jar
         for cookie in cookie_manager.get_cookies_finish(result):
@@ -425,9 +443,14 @@ class BypassCF:
                 rest={'HttpOnly': cookie.get_http_only()},
                 secure=cookie.get_secure(),
             )
-            self.server.session.cookies.set_cookie(rcookie)
 
-        logger.debug(f'{self.server.id}: Webview cookies successully copied in requests session')
+            if self.server.http_client == 'requests':
+                self.server.session.cookies.set_cookie(rcookie)
+
+            elif self.server.http_client == 'curl_cffi':
+                self.server.session.cookies.jar.set_cookie(rcookie)
+
+        logger.debug(f'{self.server.id}: Webview cookies successully copied in session')
         self.server.save_session()
 
         self.done = True

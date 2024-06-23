@@ -253,10 +253,10 @@ def get_response_elapsed(r):
     """
     elapsed = r.elapsed
     if isinstance(elapsed, datetime.timedelta):
-        # requests
+        # requests HTTP client
         return elapsed.total_seconds()
 
-    # curl_cffi
+    # curl_cffi HTTP client
     return elapsed
 
 
@@ -421,6 +421,20 @@ def get_servers_modules(reload=False):
                 internal_done = True
 
     return modules
+
+
+def get_session_cookies(s):
+    """
+    Returns the cookies of a session
+    regardless of the HTTP client (requests, curl_cffi)
+
+    :param s: A session
+    :type s: requests.sessions.Session or curl_cffi.requests.session.Session
+
+    :return: a cookies Jar
+    :rtype: requests.cookies.RequestsCookieJar or http.cookiejar.CookieJar
+    """
+    return s.cookies.jar if hasattr(s.cookies, 'jar') else s.cookies
 
 
 def get_soup_element_inner_text(tag, text=None, recursive=True):

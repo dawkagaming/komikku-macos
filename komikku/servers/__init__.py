@@ -15,6 +15,11 @@ import pickle
 import zipfile
 
 from bs4 import BeautifulSoup
+try:
+    from curl_cffi import requests as crequests
+except Exception:
+    crequests = None
+from http.cookiejar import CookieJar
 import requests
 
 from komikku.models.keyring import KeyringHelper
@@ -27,6 +32,7 @@ from komikku.servers.utils import get_server_main_id_by_id
 from komikku.servers.utils import get_servers_modules
 from komikku.utils import expand_and_resize_cover
 from komikku.utils import get_cache_dir
+from komikku.utils import REQUESTS_TIMEOUT
 from komikku.utils import retry_session
 
 APP_MIN_VERSION = None  # Mininum app version required to use current servers modules
@@ -80,15 +86,15 @@ class Server(ABC):
     has_cf = False
     has_login = False
     headers = None
+    http_client = 'requests'  # Used HTTP client
     is_nsfw = False
     is_nsfw_only = False
+    logged_in = False
     long_strip_genres = []
     manga_title_css_selector = None  # Used to extract manga title in a manga URL
-    true_search = True  # If False, hide search in Explorer search page (XKCD, DBM, pepper&carotte…)
     status = 'enabled'
     sync = False
-
-    logged_in = False
+    true_search = True  # If False, hide search in Explorer search page (XKCD, DBM, pepper&carotte…)
 
     __sessions = {}  # to cache all existing sessions
 
@@ -315,26 +321,24 @@ class Server(ABC):
             return False
 
         with open(file_path, 'rb') as f:
-            session = pickle.load(f)
+            if self.http_client == 'requests':
+                self.session = pickle.load(f)
 
-        # Check session validity
-        # Expired cookies must be deleted
-        clearables = []
-        for cookie in session.cookies:
-            if cookie.is_expired():
-                clearables.append((cookie.domain, cookie.path, cookie.name))
+            elif crequests is not None and self.http_client == 'curl_cffi':
+                cookie_jar = CookieJar()
+                for _domain, dcookies in pickle.load(f).items():
+                    for _path, pcookies in dcookies.items():
+                        for _name, cookie in pcookies.items():
+                            cookie_jar.set_cookie(cookie)
 
-        for domain, path, name in clearables:
-            session.cookies.clear(domain, path, name)
-
-        if len(session.cookies) == 0:
-            self.clear_session(all=True)
-            return False
-
-        self.session = session
-
-        if clearables:
-            self.save_session()
+                self.session = crequests.Session(
+                    allow_redirects=True,
+                    impersonate='chrome',
+                    timeout=(REQUESTS_TIMEOUT, REQUESTS_TIMEOUT * 2),
+                    cookies=cookie_jar
+                )
+            else:
+                return False
 
         return True
 
@@ -343,7 +347,11 @@ class Server(ABC):
 
         file_path = os.path.join(self.sessions_dir, '{0}.pickle'.format(get_server_main_id_by_id(self.id)))
         with open(file_path, 'wb') as f:
-            pickle.dump(self.session, f)
+            if self.http_client == 'requests':
+                pickle.dump(self.session, f)
+
+            elif self.http_client == 'curl_cffi':
+                pickle.dump(self.session.cookies.jar._cookies, f)
 
     @abstractmethod
     def search(self, term=None):
