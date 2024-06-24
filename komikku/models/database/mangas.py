@@ -396,13 +396,14 @@ class Manga:
             chapters_data = data.pop('chapters')
 
             # First, delete chapters that no longer exist on server EXCEPT those marked as downloaded
-            # In case of downloaded, we keep track of ranks because they must not be reused
+            # If server is 'local', chapters are always deleted
             chapters_slugs = [str(chapter_data['slug']) for chapter_data in chapters_data]
             rows = db_conn.execute('SELECT * FROM chapters WHERE manga_id = ?', (self.id,))
             for row in rows:
                 if row['slug'] not in chapters_slugs:
                     gone_chapter = Chapter.get(row['id'], manga=self, db_conn=db_conn)
-                    if not gone_chapter.downloaded:
+                    if not gone_chapter.downloaded or self.server_id == 'local':
+                        # Chapter is not dowmloaded or server is 'local'
                         # Delete chapter
                         gone_chapter.delete(db_conn)
                         nb_deleted_chapters += 1
@@ -413,7 +414,8 @@ class Manga:
                             )
                         )
                     else:
-                        # Keep track of rank freed
+                        # Chapter is downloaded
+                        # Keep track of rank because it must not be reused
                         gone_chapters_ranks.append(gone_chapter.rank)
 
             # Then, add or update chapters
