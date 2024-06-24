@@ -144,7 +144,7 @@ class Updater(GObject.GObject):
                 'manga-updated',
                 manga,
                 dict(
-                    nb_deleted_chapters=nb_recent_chapters,
+                    nb_deleted_chapters=nb_deleted_chapters,
                     nb_recent_chapters=nb_recent_chapters,
                     synced=synced,
                 )
