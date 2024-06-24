@@ -53,6 +53,7 @@ class Archive:
         data = dict(
             title=None,
             volume=None,
+            number=None,
             authors=set(),
             translators=set(),
             genres=set(),
@@ -72,10 +73,12 @@ class Archive:
             if not info.text:
                 continue
 
-            if info.tag in ('Series', 'Title', ):
+            if info.tag == 'Title':
                 data['title'] = info.text
             elif info.tag == 'Volume':
                 data['volume'] = info.text.strip()
+            elif info.tag == 'Number':
+                data['number'] = info.text.strip()
             elif info.tag in ('Colorist', 'CoverArtist', 'Inker', 'Letterer', 'Penciller', 'Writer'):
                 for author in info.text.split(','):
                     data['authors'].add(author.strip())
@@ -226,8 +229,11 @@ class Local(Server):
                             )
 
                         title = info['title'] or os.path.splitext(file)[0]
+                        if info['number']:
+                            title = f'{info["number"]} - {title}'
                         if info['volume']:
-                            title = f'{info["volume"]} - {title}'
+                            title = f'{title} ({info["volume"]})'
+
                         date = datetime.date(info['year'], info['month'] or 1, info['day'] or 1) if info['year'] else None
 
                         chapter = dict(
