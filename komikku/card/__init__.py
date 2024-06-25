@@ -37,6 +37,9 @@ class CardPage(Adw.NavigationPage):
     chapters_scrolledwindow = Gtk.Template.Child('chapters_scrolledwindow')
     chapters_listview = Gtk.Template.Child('chapters_listview')
     chapters_selection_mode_actionbar = Gtk.Template.Child('chapters_selection_mode_actionbar')
+    chapters_selection_mode_download_button = Gtk.Template.Child('chapters_selection_mode_download_button')
+    chapters_selection_mode_clear_button = Gtk.Template.Child('chapters_selection_mode_clear_button')
+    chapters_selection_mode_clear_reset_button = Gtk.Template.Child('chapters_selection_mode_clear_reset_button')
     chapters_selection_mode_menubutton = Gtk.Template.Child('chapters_selection_mode_menubutton')
     info_scrolledwindow = Gtk.Template.Child('info_scrolledwindow')
     cover_box = Gtk.Template.Child('cover_box')
@@ -343,8 +346,14 @@ class CardPage(Adw.NavigationPage):
 
     def show(self):
         self.props.title = self.manga.name  # Adw.NavigationPage title
+
         self.title.set_title(self.manga.name)
         self.info_box.populate()
+
+        # Adjust some buttons of action bar (visible in selection mode)
+        self.chapters_selection_mode_download_button.set_sensitive(not self.manga.is_local)
+        self.chapters_selection_mode_clear_button.set_sensitive(not self.manga.is_local)
+        self.chapters_selection_mode_clear_reset_button.set_tooltip_text(_('Clear and Reset') if not self.manga.is_local else _('Reset'))
 
         self.open_in_browser_action.set_enabled(not self.manga.is_local)
 
