@@ -605,7 +605,7 @@ class ChaptersListRow(Gtk.Box):
                 download_status = item.download.status
 
         text = [self.chapter.date.strftime(_('%m/%d/%Y'))] if self.chapter.date else []
-        if download_status is not None and download_status != 'downloading':
+        if download_status is not None and download_status != 'downloading' and not self.card.manga.is_local:
             text.append(_(Download.STATUSES[download_status]).upper())
 
         self.subtitle_label.set_text(' · '.join(text))
@@ -659,7 +659,7 @@ class ChaptersListRow(Gtk.Box):
         position = self.position
         self.menubutton_model.remove_all()
 
-        if not self.chapter.downloaded:
+        if not self.chapter.downloaded and not self.card.manga.is_local:
             section_menu_model = Gio.Menu()
             menu_item = Gio.MenuItem.new(_('Download'))
             menu_item.set_action_and_target_value('app.card.download-chapter', GLib.Variant.new_uint16(position))

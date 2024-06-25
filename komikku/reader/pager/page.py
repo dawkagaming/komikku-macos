@@ -192,7 +192,7 @@ class Page(Gtk.Overlay):
 
             self.loadable = True
 
-            if self.reader.manga.server_id != 'local':
+            if not self.reader.manga.is_local:
                 page_path = self.chapter.get_page_path(self.index)
                 if page_path is None:
                     try:
@@ -222,7 +222,7 @@ class Page(Gtk.Overlay):
         if self.reader.reading_mode != 'webtoon':
             self.activity_indicator.start()
 
-        if self.reader.manga.server_id != 'local':
+        if not self.reader.manga.is_local:
             thread = threading.Thread(target=run)
             thread.daemon = True
             thread.start()

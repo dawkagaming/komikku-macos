@@ -241,7 +241,6 @@ class Local(Server):
                             title=title,
                             date=date,
                             scanlators=list(info['translators']),
-                            downloaded=1,
                         )
 
                         data['chapters'].append(chapter)

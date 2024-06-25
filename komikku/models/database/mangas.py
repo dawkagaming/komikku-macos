@@ -181,6 +181,10 @@ class Manga:
         return get_server_dir_name_by_id(self.server_id)
 
     @property
+    def is_local(self):
+        return self.server_id == 'local'
+
+    @property
     def module_name(self):
         return get_server_module_name_by_id(self.server_id)
 
@@ -256,7 +260,7 @@ class Manga:
 
         self.update(dict(in_library=True))
 
-        if self.server_id == 'local':
+        if self.is_local:
             # Move files
             for filename in os.listdir(tmp_path):
                 dst_path = os.path.join(self.path, filename)
@@ -279,7 +283,7 @@ class Manga:
         db_conn.close()
 
         # Delete folder except when server is 'local'
-        if os.path.exists(self.path) and self.server_id != 'local':
+        if os.path.exists(self.path) and not self.is_local:
             shutil.rmtree(self.path)
 
     def get_next_chapter(self, chapter, direction=1):
@@ -402,7 +406,7 @@ class Manga:
             for row in rows:
                 if row['slug'] not in chapters_slugs:
                     gone_chapter = Chapter.get(row['id'], manga=self, db_conn=db_conn)
-                    if not gone_chapter.downloaded or self.server_id == 'local':
+                    if not gone_chapter.downloaded or self.is_local:
                         # Chapter is not dowmloaded or server is 'local'
                         # Delete chapter
                         gone_chapter.delete(db_conn)
@@ -533,7 +537,11 @@ class Chapter:
     @property
     def clearable(self):
         # Not clearable if server is 'local'
-        return os.path.exists(self.path) and self.manga.server_id != 'local'
+        return os.path.exists(self.path) and not self.is_local
+
+    @property
+    def is_local(self):
+        return self.manga.is_local
 
     @property
     def manga(self):
@@ -583,7 +591,7 @@ class Chapter:
 
         for chapter in chapters:
             # Delete folder except when server is 'local'
-            if os.path.exists(chapter.path) and manga.server_id != 'local':
+            if os.path.exists(chapter.path) and not manga.is_local:
                 shutil.rmtree(chapter.path)
 
             ids.append(chapter.id)

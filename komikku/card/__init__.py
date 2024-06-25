@@ -346,7 +346,7 @@ class CardPage(Adw.NavigationPage):
         self.title.set_title(self.manga.name)
         self.info_box.populate()
 
-        self.open_in_browser_action.set_enabled(self.manga.server_id != 'local')
+        self.open_in_browser_action.set_enabled(not self.manga.is_local)
 
         # Reset scrolling in all pages
         for page in self.stack.get_pages():
@@ -429,7 +429,7 @@ class InfoBox:
         authors = html_escape(', '.join(manga.authors)) if manga.authors else _('Unknown author')
         self.authors_label.set_markup(authors)
 
-        if manga.server_id != 'local':
+        if not manga.is_local:
             self.status_server_label.set_markup(
                 '{0} · <a href="{1}">{2}</a> ({3})'.format(
                     _(manga.STATUSES[manga.status]) if manga.status else _('Unknown status'),

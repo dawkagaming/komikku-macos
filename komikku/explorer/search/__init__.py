@@ -466,7 +466,7 @@ class ExplorerSearchPage(Adw.NavigationPage):
 
             if nb_recent_chapters > 0:
                 # Auto download new chapters
-                if Settings.get_default().new_chapters_auto_download and manga.server_id != 'local':
+                if Settings.get_default().new_chapters_auto_download and not manga.is_local:
                     self.window.downloader.add(recent_chapters_ids, emit_signal=True)
                     self.window.downloader.start()
 
