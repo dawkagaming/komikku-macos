@@ -18,7 +18,7 @@ class Mangaworld(Server):
     lang = 'it'
     is_nsfw = True
 
-    base_url = 'https://mangaworld.bz'
+    base_url = 'https://www.mangaworld.ac'
     search_url = base_url + '/archive'
     manga_url = base_url + '/manga/{0}'
     chapter_url = base_url + '/manga/{0}/read/{1}/1?style=list'
