@@ -47,7 +47,7 @@ class Updater(GObject.GObject):
             if manga.id not in self.queue and manga.id != self.current_id and manga.server.status == 'enabled':
                 self.queue.append((manga.id, batch))
 
-    @if_network_available
+    @if_network_available(only_notify=True)
     def start(self):
         def show_notification(id, title, body=None):
             if Settings.get_default().desktop_notifications:
@@ -71,7 +71,8 @@ class Updater(GObject.GObject):
 
                 manga_id, in_batch = self.queue.pop(0)
                 manga = Manga.get(manga_id)
-                if manga is None:
+                if manga is None or (not manga.is_local and not self.window.network_available):
+                    # Skip manga if not found or if network is not available (except for local which don't require an Internet connection)
                     continue
 
                 self.current_id = manga_id
@@ -94,8 +95,8 @@ class Updater(GObject.GObject):
             self.current_id = None
             self.running = False
 
-            if not self.update_library_flag and total_successes + total_errors == 1:
-                # If only one comic has been updated, it's not necessary to send end notification
+            if not self.update_library_flag and total_successes + total_errors <= 1:
+                # If only one or no comic has been updated, it's not necessary to send end notification
                 return
 
             # End notification
@@ -185,16 +186,22 @@ class Updater(GObject.GObject):
         if self.running:
             self.stop_flag = True
 
-    @if_network_available
     def update_library(self, startup=False):
-        self.update_library_flag = True
         if startup:
             self.update_at_startup_done = True
 
         db_conn = create_db_connection()
-        rows = db_conn.execute('SELECT * FROM mangas WHERE in_library = 1 ORDER BY last_read DESC').fetchall()
+        if self.window.network_available:
+            # Update all manga in library
+            rows = db_conn.execute('SELECT * FROM mangas WHERE in_library = 1 ORDER BY last_read DESC').fetchall()
+        else:
+            # Offline, update local manga only
+            rows = db_conn.execute('SELECT * FROM mangas WHERE in_library = 1 AND server_id = "local" ORDER BY last_read DESC').fetchall()
         db_conn.close()
 
-        self.add([Manga.get(row['id']) for row in rows])
+        if rows:
+            self.update_library_flag = True
+            self.add([Manga.get(row['id']) for row in rows])
+            return self.start()
 
-        return self.start()
+        return False

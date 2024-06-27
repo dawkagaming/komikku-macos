@@ -161,20 +161,28 @@ def html_escape(s):
     return html.escape(html.unescape(s), quote=False)
 
 
-def if_network_available(func):
+def if_network_available(func_=None, only_notify=False):
     """Decorator to disable an action when network is not avaibable"""
 
-    @wraps(func)
-    def wrapper(*args, **kwargs):
+    def _decorator(func):
 
-        window = args[0].parent if hasattr(args[0], 'parent') else args[0].window
-        if not window.network_available:
-            window.show_notification(_('You are currently offline'))
-            return None
+        @wraps(func)
+        def wrapper(*args, **kwargs):
+            window = args[0].parent if hasattr(args[0], 'parent') else args[0].window
+            if not window.network_available:
+                window.show_notification(_('You are currently offline'))
+                if not only_notify:
+                    return None
 
-        return func(*args, **kwargs)
+            return func(*args, **kwargs)
+        return wrapper
 
-    return wrapper
+    if callable(func_):
+        return _decorator(func_)
+    elif func_ is None:
+        return _decorator
+    else:
+        raise RuntimeWarning('Positional arguments are not supported')
 
 
 def is_flatpak():
