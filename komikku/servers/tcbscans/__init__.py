@@ -99,7 +99,9 @@ class Tcbscans(Server):
         data = dict(
             pages=[],
         )
-        for img_element in soup.select('picture > img'):
+        # Two different selectors are required
+        # Some chapters page requests (last chapter of One piece) are redirected (https://jkstudyupdates.in/latestchapter.html)
+        for img_element in soup.select('picture img, .image-container img'):
             data['pages'].append(dict(
                 slug=img_element.get('src').split('/')[-1],
                 image=None,
