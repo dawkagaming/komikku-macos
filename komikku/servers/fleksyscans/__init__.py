@@ -10,6 +10,7 @@ class Fleksyscans(FuzzyDoodle):
     name = 'FleksyScans'
     lang = 'en'
     is_nsfw_only = True
+    status = 'disabled'  # Dead 06/2024 DMCA
 
     base_url = 'https://flexscans.com'
     search_url = base_url + '/manga'
