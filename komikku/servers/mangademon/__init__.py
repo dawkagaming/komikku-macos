@@ -24,7 +24,7 @@ class Mangademon(Server):
 
     slugs_postfix = '-VA54'
 
-    base_url = 'https://comicdemons.com'
+    base_url = 'https://mgdemon.org'
     search_url = base_url + '/search.php'
     latest_updates_url = base_url + '/updates.php'
     most_populars_url = base_url + '/browse.php'
