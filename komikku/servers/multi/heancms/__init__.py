@@ -23,6 +23,7 @@ from komikku.servers import USER_AGENT
 from komikku.servers.utils import convert_date_string
 from komikku.servers.utils import get_buffer_mime_type
 from komikku.servers.utils import get_response_elapsed
+from komikku.webview import BypassCF
 
 logger = logging.getLogger('komikku.servers.multi.heancms')
 
@@ -76,10 +77,11 @@ class HeanCMS(Server):
         if self.api_chapter_url is None:
             self.api_chapters_url = self.api_url + '/chapter/query'
 
-        if self.session is None:
+        if self.session is None and not self.has_cf:
             self.session = requests.Session()
             self.session.headers.update({'User-Agent': USER_AGENT})
 
+    @BypassCF()
     def get_manga_data(self, initial_data):
         """
         Returns manga data by scraping manga HTML page content
@@ -184,6 +186,7 @@ class HeanCMS(Server):
 
         return list(reversed(chapters))
 
+    @BypassCF()
     def get_manga_chapter_data(self, manga_slug, manga_name, chapter_slug, chapter_url):
         """
         Returns manga chapter data by scraping chapter HTML page content
@@ -221,6 +224,7 @@ class HeanCMS(Server):
 
         return None
 
+    @BypassCF()
     def get_manga_chapter_page_image(self, manga_slug, manga_name, chapter_slug, page):
         """
         Returns chapter page scan (image) content
@@ -256,9 +260,12 @@ class HeanCMS(Server):
         """
         return self.get_manga_list(orderby='latest')
 
+    @BypassCF()
     def get_manga_list(self, term=None, orderby=None):
         params = dict(
+            adult='true',
             series_type='Comic',
+            status='All',
         )
         if term:
             params['query_string'] = term
@@ -267,7 +274,7 @@ class HeanCMS(Server):
                 visibility='Public',
                 order='desc',
                 page=1,
-                perPage=12
+                perPage=20,
             ))
             if orderby == 'latest':
                 params['orderBy'] = 'latest'
@@ -278,7 +285,9 @@ class HeanCMS(Server):
             self.api_url + '/query',
             params=params,
             headers={
-                'Referer': self.base_url,
+                'Accept': 'application/json, text/plain, */*',
+                'Origin': self.base_url,
+                'Referer': f'{self.base_url}/',
             }
         )
         if r.status_code != 200:
