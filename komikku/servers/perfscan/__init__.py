@@ -17,6 +17,8 @@ class Perfscan(HeanCMS):
     name = 'Perf Scan'
     lang = 'fr'
 
+    has_cf = True
+
     base_url = 'https://perf-scan.fr'
     api_url = 'https://api.perf-scan.fr'
 
