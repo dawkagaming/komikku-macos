@@ -58,7 +58,7 @@ class Updater(GObject.GObject):
                 self.window.application.send_notification(id, notification)
             else:
                 # Use in-app notification
-                self.window.show_notification(f'{title}\n{body}' if body else title)
+                self.window.add_notification(f'{title}\n{body}' if body else title)
 
         def run():
             total_chapters = 0
@@ -122,7 +122,7 @@ class Updater(GObject.GObject):
             if total_errors > 0:
                 messages.append(ngettext('{0} update failed', '{0} updates failed', total_errors).format(total_errors))
 
-            GLib.timeout_add(2000, show_notification, 'updater.0', title, '\n'.join(messages))
+            show_notification('updater.0', title, '\n'.join(messages))
 
         def complete(manga, in_batch, recent_chapters_ids, nb_deleted_chapters, synced):
             nb_recent_chapters = len(recent_chapters_ids)

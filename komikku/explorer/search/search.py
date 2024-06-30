@@ -95,7 +95,7 @@ class ExplorerSearchStackPageSearch(ExplorerSearchStackPage):
         self.listbox.set_sort_func(None)
 
         if self.parent.requests.get('search') and self.parent.server.id in self.parent.requests['search']:
-            self.window.show_notification(_('A request is already in progress.'), 2)
+            self.window.add_notification(_('A request is already in progress.'), timeout=2)
             return
 
         thread = threading.Thread(target=run, args=(self.parent.server, ))

@@ -170,7 +170,7 @@ def if_network_available(func_=None, only_notify=False):
         def wrapper(*args, **kwargs):
             window = args[0].parent if hasattr(args[0], 'parent') else args[0].window
             if not window.network_available:
-                window.show_notification(_('You are currently offline'))
+                window.add_notification(_('You are currently offline'), timeout=3, priority=1)
                 if not only_notify:
                     return None
 

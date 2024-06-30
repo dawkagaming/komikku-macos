@@ -338,7 +338,7 @@ class ReaderPage(Adw.NavigationPage):
 
         def do_save(dest_path):
             shutil.copy(page.path, dest_path)
-            self.window.show_notification(_('Page successfully saved to {0}').format(dest_path.replace(os.path.expanduser('~'), '~')))
+            self.window.add_notification(_('Page successfully saved to {0}').format(dest_path.replace(os.path.expanduser('~'), '~')))
 
         def on_ready(dialog, result):
             try:
@@ -365,7 +365,7 @@ class ReaderPage(Adw.NavigationPage):
             if xdg_pictures_dir is not None:
                 do_save(os.path.join(xdg_pictures_dir, filename))
             else:
-                self.window.show_notification(_('Failed to save page: missing permission to access the XDG pictures directory'))
+                self.window.add_notification(_('Failed to save page: missing permission to access the XDG pictures directory'))
 
     def set_action_background_color(self):
         self.background_color_action.set_state(GLib.Variant('s', self.background_color))

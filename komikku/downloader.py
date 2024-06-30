@@ -234,7 +234,7 @@ class Downloader(GObject.GObject):
             lines = [_('Download failure: {0}').format(download.chapter.manga.server.name)]
             if message:
                 lines.append(message)
-            self.window.show_notification('\n'.join(lines))
+            self.window.add_notification('\n'.join(lines))
 
             self.emit('download-changed', download, None)
 

@@ -751,7 +751,7 @@ class LibraryPage(Adw.NavigationPage):
         self.window.activity_indicator.stop()
 
         if not res:
-            self.window.show_notification(_('Failed to update reading status'))
+            self.window.add_notification(_('Failed to update reading status'))
         else:
             if Settings.get_default().library_badges:
                 for thumbnail in self.flowbox.get_selected_children():

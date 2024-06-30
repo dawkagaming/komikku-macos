@@ -378,7 +378,7 @@ class ChaptersList:
             self.card.window.library.refresh_on_manga_state_changed(self.card.manga)
         else:
             self.card.window.activity_indicator.stop()
-            self.card.window.show_notification(_('Failed to update chapters reading status'))
+            self.card.window.add_notification(_('Failed to update chapters reading status'))
 
     def set_sort_order(self, invalidate=True):
         self.card.sort_order_action.set_state(GLib.Variant('s', self.sort_order))
@@ -473,7 +473,7 @@ class ChaptersList:
         else:
             self.card.window.activity_indicator.stop()
             self.card.leave_selection_mode()
-            self.card.window.show_notification(_('Failed to update chapters reading status'))
+            self.card.window.add_notification(_('Failed to update chapters reading status'))
 
     def update_chapter_item(self, _downloader=None, download=None, chapter=None):
         """

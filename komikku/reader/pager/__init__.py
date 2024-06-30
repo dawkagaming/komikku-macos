@@ -160,9 +160,9 @@ class BasePager:
 
         def on_error(_kind, message=None):
             if message is not None:
-                self.window.show_notification(_(f'Failed to sync read progress with server:\n{message}'), 2)
+                self.window.add_notification(_(f'Failed to sync read progress with server:\n{message}'), timeout=2)
             else:
-                self.window.show_notification(_('Failed to sync read progress with server'), 2)
+                self.window.add_notification(_('Failed to sync read progress with server'), timeout=2)
 
         thread = threading.Thread(target=run)
         thread.daemon = True
@@ -432,7 +432,7 @@ class Pager(Adw.Bin, BasePager):
                 message = _('There is no previous chapter.')
             else:
                 message = _('It was the last chapter.')
-            self.window.show_notification(message, 2)
+            self.window.add_notification(message, timeout=2)
 
             return
 
@@ -591,11 +591,11 @@ class Pager(Adw.Bin, BasePager):
             self.current_chapter_id = page.chapter.id
 
             self.reader.update_title(page.chapter)
-            self.window.show_notification(page.chapter.title, 3)
+            self.window.add_notification(page.chapter.title, timeout=3)
             self.reader.controls.init(page.chapter)
 
         if not page.loadable:
-            self.window.show_notification(_('This chapter is inaccessible.'), 2)
+            self.window.add_notification(_('This chapter is inaccessible.'), timeout=2)
 
         # Update page number and controls page slider
         self.reader.update_page_numbering(page.index + 1, len(page.chapter.pages) if page.loadable else None)

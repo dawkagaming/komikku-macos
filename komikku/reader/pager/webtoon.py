@@ -99,7 +99,7 @@ class WebtoonPager(Adw.Bin, BasePager):
             message = _('It was the last chapter.')
         else:
             message = _('There is no previous chapter.')
-        self.window.show_notification(message, 1)
+        self.window.add_notification(message, timeout=1)
 
     def on_page_requested(self, _canvas, position):
         """
@@ -151,11 +151,11 @@ class WebtoonPager(Adw.Bin, BasePager):
             self.current_chapter_id = page.chapter.id
 
             self.reader.update_title(page.chapter)
-            self.window.show_notification(page.chapter.title, 2)
+            self.window.add_notification(page.chapter.title, timeout=2)
             self.reader.controls.init(page.chapter)
 
         if not page.loadable:
-            self.window.show_notification(_('This chapter is inaccessible.'), 2)
+            self.window.add_notification(_('This chapter is inaccessible.'), timeout=2)
 
         # Update page number and controls page slider
         self.reader.update_page_numbering(page.index + 1, len(page.chapter.pages) if page.loadable else None)

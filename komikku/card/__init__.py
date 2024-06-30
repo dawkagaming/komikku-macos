@@ -251,7 +251,7 @@ class CardPage(Adw.NavigationPage):
             self.manga = manga
 
             if manga.server.sync:
-                self.window.show_notification(_('Read progress synchronization with server completed successfully'))
+                self.window.add_notification(_('Read progress synchronization with server completed successfully'))
 
             if result['nb_recent_chapters'] > 0 or result['nb_deleted_chapters'] > 0 or result['synced']:
                 self.chapters_list.populate()
@@ -262,7 +262,7 @@ class CardPage(Adw.NavigationPage):
         if uri := self.manga.server.get_manga_url(self.manga.slug, self.manga.url):
             Gtk.UriLauncher.new(uri=uri).launch()
         else:
-            self.window.show_notification(_('Failed to get manga URL'))
+            self.window.add_notification(_('Failed to get manga URL'))
 
     def on_resume_button_clicked(self, *args):
         chapters = []
@@ -286,7 +286,7 @@ class CardPage(Adw.NavigationPage):
     def on_shown(self, _page):
         def do_populate():
             if self.manga.server.status == 'disabled':
-                self.window.show_notification(
+                self.window.add_notification(
                     _('NOTICE\n{0} is no longer supported.\nPlease switch to another server.').format(self.manga.server.name)
                 )
 

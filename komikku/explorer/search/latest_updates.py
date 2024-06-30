@@ -81,7 +81,7 @@ class ExplorerSearchStackPageLatestUpdates(ExplorerSearchStackPage):
         self.stack.set_visible_child_name('loading')
 
         if self.parent.requests.get('latest_updates') and self.parent.server.id in self.parent.requests['latest_updates']:
-            self.window.show_notification(_('A request is already in progress.'), 2)
+            self.window.add_notification(_('A request is already in progress.'), timeout=2)
             return
 
         thread = threading.Thread(target=run, args=(self.parent.server, ))

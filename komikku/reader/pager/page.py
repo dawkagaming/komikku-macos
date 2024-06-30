@@ -178,7 +178,7 @@ class Page(Gtk.Overlay):
             assert kind in ('connection', 'server', ), 'Invalid error kind'
 
             if message is not None:
-                self.window.show_notification(message, 2)
+                self.window.add_notification(message, timeout=2)
 
             self.error = kind
 
@@ -266,7 +266,7 @@ class Page(Gtk.Overlay):
                 if self.path:
                     GLib.unlink(self.path)
 
-                self.window.show_notification(_('Failed to load image'), 2)
+                self.window.add_notification(_('Failed to load image'), timeout=2)
                 self.error = 'corrupt_file'
                 picture = KImage.new_from_resource('/info/febvre/Komikku/images/missing_file.png')
 

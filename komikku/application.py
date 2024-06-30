@@ -2,6 +2,7 @@
 # SPDX-License-Identifier: GPL-3.0-only or GPL-3.0-or-later
 # Author: Valéry Febvre <vfebvre@easter-eggs.com>
 
+from collections import deque
 import datetime
 from gettext import gettext as _
 import gi
@@ -170,7 +171,7 @@ class Application(Adw.Application):
         if len(urls) > 1:
             msg = _('Multiple URLs not supported')
             self.logger.warning(msg)
-            self.window.show_notification(msg)
+            self.window.add_notification(msg)
 
         url = urls[0]
         servers = []
@@ -186,7 +187,7 @@ class Application(Adw.Application):
         if not servers:
             msg = _('Invalid URL {}, not handled by any server.').format(url)
             self.logger.info(msg)
-            self.window.show_notification(msg)
+            self.window.add_notification(msg)
         else:
             self.window.explorer.show(servers=servers)
 
@@ -212,6 +213,8 @@ class ApplicationWindow(Adw.ApplicationWindow):
     navigationview = Gtk.Template.Child('navigationview')
     breakpoint = Gtk.Template.Child('breakpoint')
 
+    notification_active = False
+    notification_queue = deque()
     notification_timer = None
     notification_label = Gtk.Template.Child('notification_label')
     notification_revealer = Gtk.Template.Child('notification_revealer')
@@ -310,6 +313,23 @@ class ApplicationWindow(Adw.ApplicationWindow):
         self.reader.add_actions()
         self.download_manager.add_actions()
 
+    def add_notification(self, message, timeout=5, priority=0):
+        # We use a custom in-app notification solution (Gtk.Revealer)
+        # until Adw.ToastOverlay/Adw.Toast is fixed
+        # see https://gitlab.gnome.org/GNOME/libadwaita/-/issues/440
+
+        item = {
+            'message': message,
+            'timeout': timeout,
+        }
+
+        if priority == 1:
+            self.notification_queue.append(item)
+        else:
+            self.notification_queue.appendleft(item)
+
+        GLib.idle_add(self.show_notification)
+
     def assemble_window(self):
         # Restore window previous state (width/height and maximized) or use default
         self.set_default_size(*Settings.get_default().window_size)
@@ -393,7 +413,10 @@ class ApplicationWindow(Adw.ApplicationWindow):
         searchbar.set_search_mode(not searchbar.get_search_mode())
 
     def hide_notification(self):
+        self.notification_active = False
         self.notification_revealer.set_reveal_child(False)
+
+        GLib.idle_add(self.show_notification)
 
     def install_servers_modules(self, reinit=False):
         def run():
@@ -403,7 +426,7 @@ class ApplicationWindow(Adw.ApplicationWindow):
         def complete(res, status):
             if res is True:
                 if status == 'updated':
-                    self.show_notification(_('Servers modules have been updated'))
+                    self.add_notification(_('Servers modules have been updated'))
                 self.reinit_servers_modules()
 
             elif res is False:
@@ -644,20 +667,25 @@ available in your region/language."""))
         elif self.page == 'download_manager':
             self.download_manager.select_all()
 
-    def show_notification(self, message, timeout=5):
-        # We use a custom in-app notification solution (Gtk.Revealer)
-        # until Adw.ToastOverlay/Adw.Toast is fixed
-        # see https://gitlab.gnome.org/GNOME/libadwaita/-/issues/440
+    def show_notification(self):
+        if len(self.notification_queue) == 0:
+            return GLib.SOURCE_REMOVE
+
+        if self.notification_revealer.get_child_revealed() or self.notification_active:
+            return GLib.SOURCE_CONTINUE
+
+        self.notification_active = True
+
         self.notification_revealer.set_margin_top(self.library.get_child().get_top_bar_height())
 
-        self.notification_label.set_text(message)
+        notification = self.notification_queue.pop()
+        self.notification_label.set_text(notification['message'])
         self.notification_revealer.set_reveal_child(True)
 
-        if self.notification_timer:
-            self.notification_timer.cancel()
-
-        self.notification_timer = threading.Timer(timeout, GLib.idle_add, args=[self.hide_notification])
+        self.notification_timer = threading.Timer(notification['timeout'], GLib.idle_add, args=[self.hide_notification])
         self.notification_timer.start()
+
+        return GLib.SOURCE_REMOVE
 
     def toggle_fullscreen(self, _object, _gparam):
         if self.page != 'reader':

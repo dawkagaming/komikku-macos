@@ -77,7 +77,7 @@ class ExplorerSearchStackPageSearchGlobal(ExplorerSearchStackPage):
 
     def search(self, term):
         if self.lock:
-            self.window.show_notification(_('A request is already in progress.'), 2)
+            self.window.add_notification(_('A request is already in progress.'), timeout=2)
             return
 
         def run(servers):

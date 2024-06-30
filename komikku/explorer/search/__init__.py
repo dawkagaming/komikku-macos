@@ -283,7 +283,7 @@ class ExplorerSearchPage(Adw.NavigationPage):
         if self.server.base_url:
             Gtk.UriLauncher.new(uri=self.server.base_url).launch()
         else:
-            self.window.show_notification(_('Oops, server website URL is unknown.'), 2)
+            self.window.add_notification(_('Oops, server website URL is unknown.'), timeout=2)
 
     def on_shown(self, _page):
         def do_render_covers():
@@ -485,7 +485,7 @@ class ExplorerSearchPage(Adw.NavigationPage):
 
             self.window.activity_indicator.stop()
 
-            self.window.show_notification(message or _("Oops, failed to retrieve manga's information."), 2)
+            self.window.add_notification(message or _("Oops, failed to retrieve manga's information."), timeout=2)
 
             return False
 
