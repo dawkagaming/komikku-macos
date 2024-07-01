@@ -98,6 +98,19 @@
     <url type="donation">https://valos.gitlab.io/Komikku/#sponsor</url>
 
     <releases>
+        <release version="1.50.0" date="2024-07-02">
+            <description translate="no">
+                <ul>
+                    <li>[Servers] Perf Scan (FR): Update</li>
+                    <li>[Servers] Local: Several bug fixes and improvements</li>
+                    <li>[Servers] Manga Demon (EN): Update</li>
+                    <li>[Servers] MangaWorld (IT): Update</li>
+                    <li>[Servers] TCB Scans (EN): Update</li>
+                    <li>[Servers] FleksyScans (EN): Disabled</li>
+                </ul>
+                <p>Happy reading.</p>
+            </description>
+        </release>
         <release version="1.49.0" date="2024-06-24">
             <description translate="no">
                 <ul>

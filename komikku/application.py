@@ -506,14 +506,12 @@ available in your region/language."""))
         # Override release notes
         dialog.set_release_notes("""
             <ul>
-                <li>[Servers] Fixed the page to complete Cloudflare challenges</li>
-                <li>[Servers] Argos Comics (pt_BR): Update</li>
-                <li>[Servers] MangaHub (EN): Update</li>
-                <li>[Servers] PhenixScans (FR): Update</li>
+                <li>[Servers] Perf Scan (FR): Update</li>
+                <li>[Servers] Local: Several bug fixes and improvements</li>
+                <li>[Servers] Manga Demon (EN): Update</li>
+                <li>[Servers] MangaWorld (IT): Update</li>
                 <li>[Servers] TCB Scans (EN): Update</li>
-                <li>[Servers] Ragna Scan (ES): Disabled</li>
-                <li>[Servers] Tecno Scan (ES): Disabled</li>
-                <li>[L10n] Updated Turkish translation</li>
+                <li>[Servers] FleksyScans (EN): Disabled</li>
             </ul>
             <p>Happy reading.</p>
         """)
