@@ -11,7 +11,7 @@ class Senpaiediciones(MangaStream):
     lang = 'es'
     is_nsfw = True
 
-    base_url = 'https://senpaiediciones.com'
+    base_url = 'https://senpaimangas.online'
 
     authors_selector = '.tsinfo .imptdt:-soup-contains("Autor") i, .tsinfo .imptdt:-soup-contains("Artista") i'
     genres_selector = '.info-desc .mgen a'
