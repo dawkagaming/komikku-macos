@@ -15,7 +15,7 @@
 # Noromax (ID)
 # Night scans [EN]
 # PhenixScans [FR]
-# Ragna Scan [ES]
+# Ragna Scan [ES] (Disabled)
 # Raiki Scan [ES]
 # Rawkuma [JA]
 # Raw Manga [JA]
@@ -54,6 +54,7 @@ class MangaStream(Server):
     name_re_sub = str = None  # regexp to clean manga name
     series_name: str = 'manga'
     slug_position: int = -2
+    chapter_images_re = r'\"images\":(.*?)}'
 
     name_selector: str = '.entry-title'
     thumbnail_selector: str = '.thumb img'
@@ -292,15 +293,16 @@ class MangaStream(Server):
                 for line in script.split('\n'):
                     line = line.strip()
                     if line.startswith('ts_reader'):
-                        json_data = json.loads(line[14:-2])
-                        for image in json_data['sources'][0]['images']:
-                            if image.split('/')[-1] in self.ignored_pages:
-                                continue
+                        if matches := re.compile(self.chapter_images_re).search(line):
+                            for image in json.loads(matches.group(1)):
+                                if image.split('/')[-1] in self.ignored_pages:
+                                    continue
 
-                            data['pages'].append(dict(
-                                slug=None,
-                                image=image,
-                            ))
+                                data['pages'].append(dict(
+                                    slug=None,
+                                    image=image,
+                                ))
+                            break
         else:
             for img_element in img_elements:
                 image = img_element.get('data-src')
