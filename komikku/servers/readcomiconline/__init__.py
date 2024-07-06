@@ -2,19 +2,15 @@
 # SPDX-License-Identifier: GPL-3.0-only or GPL-3.0-or-later
 # Author: Valéry Febvre <vfebvre@easter-eggs.com>
 
+import base64
 from bs4 import BeautifulSoup
 import logging
-import requests
+from urllib.parse import unquote
 
 from komikku.servers import Server
-from komikku.servers import USER_AGENT_MOBILE
+from komikku.servers.utils import convert_date_string
 from komikku.servers.utils import get_buffer_mime_type
-from komikku.webview import get_page_html
-
-headers = {
-    'User-Agent': USER_AGENT_MOBILE,
-    'Origin': 'https://readcomiconline.li',
-}
+from komikku.webview import BypassCF
 
 logger = logging.getLogger('komikku.servers.readcomiconline')
 
@@ -25,6 +21,8 @@ class Readcomiconline(Server):
     lang = 'en'
     is_nsfw = True
 
+    has_cf = True
+
     base_url = 'https://readcomiconline.li'
     latest_updates_url = base_url + '/ComicList/LatestUpdate'
     most_populars_url = base_url + '/ComicList/MostPopular'
@@ -33,10 +31,9 @@ class Readcomiconline(Server):
     chapter_url = base_url + '/Comic/{0}/{1}?readType=1'
 
     def __init__(self):
-        if self.session is None:
-            self.session = requests.Session()
-            self.session.headers.update({'user-agent': USER_AGENT_MOBILE})
+        self.session = None
 
+    @BypassCF()
     def get_manga_data(self, initial_data):
         """
         Returns comic data by scraping manga HTML page content
@@ -67,16 +64,16 @@ class Readcomiconline(Server):
 
         soup = BeautifulSoup(r.text, 'lxml')
 
-        info_elements = soup.select_one('div.col.info')
+        info_element = soup.select_one('#leftside .barContent')
 
-        data['name'] = soup.select('.heading h3')[0].text.strip()
-        cover_path = soup.select_one('div.col.cover img').get('src')
+        data['name'] = info_element.select_one('.bigChar').text.strip()
+        cover_path = soup.select_one('#rightside img').get('src')
         if cover_path.startswith('http'):
             data['cover'] = cover_path
         else:
             data['cover'] = '{0}{1}'.format(self.base_url, cover_path)
 
-        for p_element in info_elements.find_all('p'):
+        for p_element in info_element.select('p'):
             if not p_element.span:
                 continue
 
@@ -84,10 +81,10 @@ class Readcomiconline(Server):
             label = span_element.text.strip()
 
             if label.startswith('Genres'):
-                data['genres'] = [a_element.text.strip() for a_element in p_element.find_all('a')]
+                data['genres'] = [a_element.text.strip() for a_element in p_element.select('a')]
 
             elif label.startswith(('Writer', 'Artist')):
-                for a_element in p_element.find_all('a'):
+                for a_element in p_element.select('a'):
                     value = a_element.text.strip()
                     if value not in data['authors']:
                         data['authors'].append(value)
@@ -99,50 +96,79 @@ class Readcomiconline(Server):
                 elif 'Ongoing' in value:
                     data['status'] = 'ongoing'
 
-        data['synopsis'] = soup.select_one('div.main > div > div:nth-child(4) > div:nth-child(3)').text.strip()
+        if p_element := info_element.select_one('p:-soup-contains("Summary") + p'):
+            data['synopsis'] = p_element.text.strip()
 
         # Chapters (Issues)
-        for li_element in reversed(soup.find('ul', class_='list').find_all('li')):
+        for tr_element in reversed(soup.select('.listing tr')):
+            td_elements = tr_element.select('td')
+            if not td_elements:
+                continue
+
             data['chapters'].append(dict(
-                slug=li_element.a.get('href').split('?')[0].split('/')[-1],
-                title=li_element.a.text.strip(),
-                date=None,  # Not available in mobile version
+                slug=td_elements[0].a.get('href').split('?')[0].split('/')[-1],
+                title=td_elements[0].a.text.strip(),
+                date=convert_date_string(td_elements[1].text.strip(), format='%m/%d/%Y'),
             ))
 
         return data
 
+    @BypassCF()
     def get_manga_chapter_data(self, manga_slug, manga_name, chapter_slug, chapter_url):
         """
         Returns comic chapter data
+        """
+        def decode_url(url, server):
+            url = url.replace('pw_.g28x', 'b').replace('d2pr.x_27', 'h')
 
-        Currently, only pages are expected.
-        """
-        # Code to wait until all images URLs are inserted in DOM
-        js = """
-            let count = 0;
-            const checkReady = setInterval(() => {
-                count += 1;
-                if (count > 100) {
-                    // Abort after 100 iterations (10s)
-                    clearInterval(checkReady);
-                    document.title = 'abort';
-                    return;
-                }
-                if (document.querySelectorAll('#divImage img[src^="http"]').length === document.querySelectorAll('#divImage img').length) {
-                    clearInterval(checkReady);
-                    document.title = 'ready';
-                }
-            }, 100);
-        """
-        html = get_page_html(self.chapter_url.format(manga_slug, chapter_slug), user_agent=USER_AGENT_MOBILE, wait_js_code=js)
-        soup = BeautifulSoup(html, 'lxml')
+            if not url.startswith('https'):
+                url, qs = url.split('?')
+
+                if '=s0' in url:
+                    url = url.replace('=s0', '')
+                    s = '=s0'
+                elif '=s1600' in url:
+                    url = url.replace('=s1600', '')
+                    s = '=s1600'
+
+                url = url[8:26] + url[35:]
+                url = url[0:len(url) - 7] + url[len(url) - 2] + url[len(url) - 1]
+                url = unquote(unquote(base64.b64decode(url)))
+                url = 'https://2.bp.blogspot.com/' + url[0:13] + url[17:-2] + s + '?' + qs
+
+            if server:
+                url = url.replace('https://2.bp.blogspot.com', server)
+
+            return url
+
+        r = self.session_get(self.chapter_url.format(manga_slug, chapter_slug))
+        if r.status_code != 200:
+            return None
+
+        soup = BeautifulSoup(r.text, 'lxml')
+
+        encoded_urls = []
+        media_server = None
+        for script_element in soup.select('script'):
+            script = script_element.string
+            if not script or 'lstImages' not in script:
+                continue
+
+            for line in script.split('\n'):
+                line = line.strip()
+                if line.startswith('lstImages.push'):
+                    encoded_urls.append(line[16:-3])
+                elif line.startswith('beau'):
+                    media_server = line[17:-3]
+            break
 
         data = dict(
             pages=[],
         )
-        for index, img_element in enumerate(soup.select('#divImage img')):
+
+        for index, url in enumerate(encoded_urls):
             data['pages'].append(dict(
-                image=img_element.get('src'),
+                image=decode_url(url, media_server),
                 slug=None,
                 index=index + 1,
             ))
@@ -173,13 +199,28 @@ class Readcomiconline(Server):
         """
         return self.manga_url.format(slug)
 
-    def get_manga_list(self, orderby):
+    @BypassCF()
+    def get_manga_list(self, term=None, orderby=None):
         results = []
 
-        if orderby == 'populars':
-            r = self.session.get(self.most_populars_url)
-        else:
-            r = self.session.get(self.latest_updates_url)
+        if term:
+            r = self.session_get(
+                self.search_url,
+                params=dict(
+                    comicName=term,
+                    ig='',
+                    eg='',
+                    status='',
+                    pubDate='',
+                ),
+                headers={
+                    'Referer': self.search_url,
+                }
+            )
+        elif orderby == 'populars':
+            r = self.session_get(self.most_populars_url)
+        elif orderby == 'latest':
+            r = self.session_get(self.latest_updates_url)
         if r.status_code != 200:
             return None
 
@@ -189,14 +230,18 @@ class Readcomiconline(Server):
 
         soup = BeautifulSoup(r.text, 'lxml')
 
-        for a_element in soup.select('.item-list .cover a'):
+        for a_element in soup.select('.item > a:first-child'):
             if not a_element.get('href'):
                 continue
 
+            cover = a_element.img.get('src')
+            if not cover.startswith('http'):
+                cover = self.base_url + cover
+
             results.append(dict(
-                name=a_element.img.get('title').strip(),
+                name=a_element.span.text.strip(),
                 slug=a_element.get('href').split('/')[-1],
-                cover=self.base_url + a_element.img.get('src'),
+                cover=cover,
             ))
 
         return results
@@ -214,36 +259,4 @@ class Readcomiconline(Server):
         return self.get_manga_list(orderby='populars')
 
     def search(self, term):
-        r = self.session.get(
-            self.search_url,
-            params=dict(
-                comicName=term,
-                ig='',
-                eg='',
-                status='',
-            ),
-            headers={
-                'Referer': self.search_url,
-            }
-        )
-        if r.status_code != 200:
-            return None
-
-        mime_type = get_buffer_mime_type(r.content)
-        if mime_type != 'text/html':
-            return None
-
-        soup = BeautifulSoup(r.text, 'lxml')
-
-        results = []
-        for a_element in soup.select('.item-list > .section > .cover > a'):
-            if not a_element.get('href'):
-                continue
-
-            results.append(dict(
-                name=a_element.img.get('title').strip(),
-                slug=a_element.get('href').split('/')[-1],
-                cover=self.base_url + a_element.img.get('src'),
-            ))
-
-        return results
+        return self.get_manga_list(term=term)
