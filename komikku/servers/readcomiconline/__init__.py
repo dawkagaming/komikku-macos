@@ -8,6 +8,7 @@ import logging
 from urllib.parse import unquote
 
 from komikku.servers import Server
+from komikku.servers import USER_AGENT
 from komikku.servers.utils import convert_date_string
 from komikku.servers.utils import get_buffer_mime_type
 from komikku.webview import BypassCF
@@ -29,6 +30,11 @@ class Readcomiconline(Server):
     search_url = base_url + '/AdvanceSearch'
     manga_url = base_url + '/Comic/{0}'
     chapter_url = base_url + '/Comic/{0}/{1}?readType=1'
+
+    # To be sure that HTML pages are not rendered in mobile version
+    headers = {
+        'User-Agent': USER_AGENT,  # used in @BypassCF when session is created
+    }
 
     def __init__(self):
         self.session = None
@@ -75,6 +81,8 @@ class Readcomiconline(Server):
 
         for p_element in info_element.select('p'):
             if not p_element.span:
+                if not data['synopsis']:
+                    data['synopsis'] = p_element.text.strip()
                 continue
 
             span_element = p_element.span.extract()
@@ -96,9 +104,6 @@ class Readcomiconline(Server):
                 elif 'Ongoing' in value:
                     data['status'] = 'ongoing'
 
-        if p_element := info_element.select_one('p:-soup-contains("Summary") + p'):
-            data['synopsis'] = p_element.text.strip()
-
         # Chapters (Issues)
         for tr_element in reversed(soup.select('.listing tr')):
             td_elements = tr_element.select('td')
@@ -119,6 +124,7 @@ class Readcomiconline(Server):
         Returns comic chapter data
         """
         def decode_url(url, server):
+            # Scripts/rguard.min.js?v=1.3
             url = url.replace('pw_.g28x', 'b').replace('d2pr.x_27', 'h')
 
             if not url.startswith('https'):

@@ -419,7 +419,7 @@ class BypassCF:
     def on_get_cookies_finished(self, cookie_manager, result, _user_data):
         if self.server.http_client == 'requests':
             self.server.session = requests.Session()
-            self.server.session.headers.update({'User-Agent': self.webview.user_agent})
+            self.server.session.headers.update(self.server.headers or {'User-Agent': self.webview.user_agent})
 
         elif crequests is not None and self.server.http_client == 'curl_cffi':
             self.server.session = crequests.Session(
