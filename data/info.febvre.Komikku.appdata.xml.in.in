@@ -98,6 +98,17 @@
     <url type="donation">https://valos.gitlab.io/Komikku/#sponsor</url>
 
     <releases>
+        <release version="1.51.0" date="2024-07-10">
+            <description translate="no">
+                <ul>
+                    <li>[Servers] Read Comic Online (EN): Update</li>
+                    <li>[Servers] Senpai Ediciones (ES): Update</li>
+                    <li>[Servers] SushiScan (FR): Update</li>
+                    <li>[L10n] Added Croatian translation</li>
+                </ul>
+                <p>Happy reading.</p>
+            </description>
+        </release>
         <release version="1.50.0" date="2024-07-02">
             <description translate="no">
                 <ul>

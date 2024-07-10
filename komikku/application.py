@@ -98,6 +98,7 @@ CREDITS = dict(
         'Liliana Marie Prikler (German)',
         'Tim (German)',
         'Scrambled777 (Hindi)',
+        'Milo Ivir (Croatian)',
         'Alifiyan Rosyidi (Indonesian)',
         'Alim Satria (Indonesian)',
         'Juan Manuel (Indonesian)',
@@ -506,12 +507,10 @@ available in your region/language."""))
         # Override release notes
         dialog.set_release_notes("""
             <ul>
-                <li>[Servers] Perf Scan (FR): Update</li>
-                <li>[Servers] Local: Several bug fixes and improvements</li>
-                <li>[Servers] Manga Demon (EN): Update</li>
-                <li>[Servers] MangaWorld (IT): Update</li>
-                <li>[Servers] TCB Scans (EN): Update</li>
-                <li>[Servers] FleksyScans (EN): Disabled</li>
+                <li>[Servers] Read Comic Online (EN): Update</li>
+                <li>[Servers] Senpai Ediciones (ES): Update</li>
+                <li>[Servers] SushiScan (FR): Update</li>
+                <li>[L10n] Added Croatian translation</li>
             </ul>
             <p>Happy reading.</p>
         """)
