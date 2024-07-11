@@ -4,21 +4,22 @@
 # Liliana Marie Prikler <liliana.prikler@gmail.com>, 2023.
 # Tim <RC2225@users.noreply.github.com>, 2024.
 # Tim <rc2225@ghueder-schrott.com>, 2024.
+# Sear Gasor <tefffd@proton.me>, 2024.
 msgid ""
 msgstr ""
 "Project-Id-Version: Komikku 0.19.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-06-08 01:47+0200\n"
-"PO-Revision-Date: 2024-05-28 19:17+0000\n"
-"Last-Translator: Tim <rc2225@ghueder-schrott.com>\n"
-"Language-Team: German <https://hosted.weblate.org/projects/komikku/main/de/"
-">\n"
+"PO-Revision-Date: 2024-07-12 00:09+0000\n"
+"Last-Translator: Sear Gasor <tefffd@proton.me>\n"
+"Language-Team: German <https://hosted.weblate.org/projects/komikku/main/de/>"
+"\n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.6-dev\n"
+"X-Generator: Weblate 5.7-dev\n"
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:11
 msgid "Discover and read manga &amp; comics"
@@ -29,6 +30,8 @@ msgid ""
 "With its simple, elegant and adaptive interface, this reader lets you "
 "search, sort and read your series with ease."
 msgstr ""
+"Mit seinem einfachen, eleganten und adaptiven Interface lässt dieser Reader "
+"sie ihre Serien einfach suchen, sortieren und lesen."
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:15
 msgid "Why you will love Komikku?"
@@ -79,7 +82,7 @@ msgstr "Helle und dunkle Farbschemen"
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:46
 msgid "The Library page"
-msgstr ""
+msgstr "Die Bibliotheksseite"
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:50
 msgid "The Library page with the category sidebar open"
