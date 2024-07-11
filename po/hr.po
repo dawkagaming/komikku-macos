@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: Komikku 1.47.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-06-08 01:47+0200\n"
-"PO-Revision-Date: 2024-07-10 22:01+0000\n"
+"PO-Revision-Date: 2024-07-12 00:09+0000\n"
 "Last-Translator: Milo Ivir <mail@milotype.de>\n"
 "Language-Team: Croatian <https://hosted.weblate.org/projects/komikku/main/hr/"
 ">\n"
@@ -479,11 +479,11 @@ msgstr "Automatski aktualiziraj biblioteku prilikom pokretanja"
 
 #: ../data/ui/preferences.blp:143
 msgid "Auto Download of New Chapters"
-msgstr "Automatski preuzimi nova poglavlja"
+msgstr "Automatski preuzmi nova poglavlja"
 
 #: ../data/ui/preferences.blp:144
 msgid "Automatically download new chapters"
-msgstr "Automatski preuzimi nova poglavlja"
+msgstr "Automatski preuzmi nova poglavlja"
 
 #: ../data/ui/preferences.blp:149
 msgid "Explorer"
@@ -710,7 +710,7 @@ msgstr "Dopusti spremanje običnog teksta kao rezervnu verziju"
 
 #: ../data/ui/preferences.blp:310
 msgid "Used when no keyring backends are found"
-msgstr ""
+msgstr "Koristi se kada se ne pronađe nijedno spremište za privjesak ključeva"
 
 #: ../data/ui/preferences.blp:315
 msgid "Tweaks"
@@ -1378,18 +1378,25 @@ msgstr "Lozinka"
 #: ../komikku/preferences.py:617
 msgid "System keyring service is disabled. Credential cannot be saved."
 msgstr ""
+"Usluga sustava za privjesak ključeva je deaktivirana. Nije moguće spremiti "
+"podatke za prijavu."
 
 #: ../komikku/preferences.py:622
 msgid ""
 "No keyring backends were found to store credential. Use plaintext storage as "
 "fallback."
 msgstr ""
+"Nije pronađeno nijedno spremište privjesaka ključeva za spremanje podataka "
+"za prijavu. Koristi spremanje podataka u običnom tekstualnom formatu kao "
+"zamjenu."
 
 #: ../komikku/preferences.py:627
 msgid ""
 "No keyring backends were found to store credential. Plaintext storage will "
 "be used as fallback."
 msgstr ""
+"Nije pronađeno nijedno spremište za spremanje podataka za prijavu. Kao "
+"zamjena će se koristiti spremanje podataka u običnom tekstualnom formatu."
 
 #: ../komikku/preferences.py:635
 msgid "Test"
@@ -1694,7 +1701,7 @@ msgstr "Manga"
 #: ../komikku/servers/mangatube/__init__.py:43
 #: ../komikku/servers/mangaworld/__init__.py:37
 msgid "One Shot"
-msgstr "Jedno izdanje bez nastavka"
+msgstr "Izdanje bez nastavka"
 
 #: ../komikku/servers/mangafire/__init__.py:49
 #: ../komikku/servers/mangapill/__init__.py:38
@@ -1719,11 +1726,11 @@ msgstr "Manhua"
 
 #: ../komikku/servers/mangafire/__init__.py:61
 msgid "Releasing"
-msgstr "Objavljivanje"
+msgstr "Izdavanje"
 
 #: ../komikku/servers/mangafire/__init__.py:63
 msgid "Discontinued"
-msgstr "Prekinuto"
+msgstr "Obustavljeno"
 
 #: ../komikku/servers/mangapill/__init__.py:32
 #: ../komikku/servers/multi/manga_stream/__init__.py:72
