@@ -61,7 +61,7 @@ class WebviewPage(Adw.NavigationPage):
         # User agent: Gnome Web like
         cpu_arch = platform.machine()
         session_type = GLib.getenv('XDG_SESSION_TYPE').capitalize()
-        custom_part = f'{session_type}; Linux {cpu_arch}'
+        custom_part = f'{session_type}; Linux {cpu_arch}'  # noqa: E702
         self.user_agent = f'Mozilla/5.0 ({custom_part}) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.0 Safari/605.1.15'
 
         # Settings
@@ -323,17 +323,12 @@ class BypassCF:
                     document.title = 'error';
                     clearInterval(checkCF);
                 }
-                else if (!document.querySelector('.ray-id')) {
+                else if (document.querySelector('.ray-id')) {
+                    document.title = 'captcha';
+                }
+                else {
                     document.title = 'ready';
                     clearInterval(checkCF);
-                }
-                else if (document.querySelector('input.pow-button')) {
-                    // button
-                    document.title = 'captcha 1';
-                }
-                else if (document.querySelector('iframe[id^="cf-chl-widget"]')) {
-                    // checkbox in an iframe
-                    document.title = 'captcha 2';
                 }
             }, 100);
         """
@@ -365,7 +360,7 @@ class BypassCF:
             self.unmonitor_load_events()
             logger.debug('Monitor load events')
             self.load_events_monitor_ts = time.time()
-            self.load_events_monitor_id = GLib.idle_add(self.monitor_load_events)
+            self.load_events_monitor_id = GLib.timeout_add(100, self.monitor_load_events)
 
         elif event == WebKit.LoadEvent.FINISHED:
             self.unmonitor_load_events()
@@ -390,7 +385,7 @@ class BypassCF:
             self.webview.close_page()
             return
 
-        if title.startswith('captcha'):
+        if title == 'captcha':
             self.cf_reload_count += 1
             if self.cf_reload_count > CF_RELOAD_MAX:
                 self.error = 'Max CF reload exceeded'
@@ -398,7 +393,7 @@ class BypassCF:
                 self.webview.close_page()
                 return
 
-            logger.debug(f'{self.server.id}: Captcha `{title}` detected, try #{self.cf_reload_count}')
+            logger.debug(f'{self.server.id}: Captcha detected, try #{self.cf_reload_count}')
             # Show webview, user must complete a CAPTCHA
             if self.webview.window.page != self.webview.props.tag:
                 self.webview.title.set_title(_('Please complete CAPTCHA'))
