@@ -98,6 +98,17 @@
     <url type="donation">https://valos.gitlab.io/Komikku/#sponsor</url>
 
     <releases>
+        <release version="1.51.1" date="2024-07-13">
+            <description translate="no">
+                <ul>
+                    <li>[Servers] Fixed the page to complete Cloudflare challenges</li>
+                    <li>[Servers] Japscan (FR): Disabled</li>
+                    <li>[Servers] Neko Scans (ES): Disabled</li>
+                    <li>[L10n] Updated Croatian, French and German translations</li>
+                </ul>
+                <p>Happy reading.</p>
+            </description>
+        </release>
         <release version="1.51.0" date="2024-07-10">
             <description translate="no">
                 <ul>

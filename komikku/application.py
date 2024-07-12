@@ -507,10 +507,10 @@ available in your region/language."""))
         # Override release notes
         dialog.set_release_notes("""
             <ul>
-                <li>[Servers] Read Comic Online (EN): Update</li>
-                <li>[Servers] Senpai Ediciones (ES): Update</li>
-                <li>[Servers] SushiScan (FR): Update</li>
-                <li>[L10n] Added Croatian translation</li>
+                <li>[Servers] Fixed the page to complete Cloudflare challenges</li>
+                <li>[Servers] Japscan (FR): Disabled</li>
+                <li>[Servers] Neko Scans (ES): Disabled</li>
+                <li>[L10n] Updated Croatian, French and German translations</li>
             </ul>
             <p>Happy reading.</p>
         """)
