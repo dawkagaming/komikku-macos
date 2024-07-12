@@ -16,10 +16,11 @@ class Nekoscans(MangaStream):
     name = 'Neko Scans'
     lang = 'es'
     is_nsfw = True
+    status = 'disabled'
 
     series_name = 'proyecto'
 
-    base_url = 'https://nekoscans.com'
+    base_url = 'https://nekoscans.com'  # https://nekoscanlationlector.blogspot.com
 
     authors_selector = '.tsinfo .imptdt:-soup-contains("Autor") i, .tsinfo .imptdt:-soup-contains("Artista") i'
     genres_selector = '.info-desc .mgen a'

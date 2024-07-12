@@ -16,6 +16,12 @@ def nekoscans_server():
 
 @test_steps('get_latest_updates', 'get_most_populars', 'search', 'get_manga_data', 'get_chapter_data', 'get_page_image')
 def test_nekoscans(nekoscans_server):
+    if nekoscans_server.status == 'disabled':
+        pytest.skip('Server is disabled')
+
+    if nekoscans_server.has_cf:
+        pytest.skip('Server uses Cloudflare challenge')
+
     # Get latest updates
     print('Get latest updates')
     try:
