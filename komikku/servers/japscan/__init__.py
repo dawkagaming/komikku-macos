@@ -21,6 +21,7 @@ class Japscan(Server):
     name = 'JapScan'
     lang = 'fr'
     long_strip_genres = ['Webtoon', ]
+    status = 'disabled'
 
     has_cf = True
 
