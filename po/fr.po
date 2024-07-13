@@ -3,13 +3,15 @@
 # "Mathieu B." <mathieu.bousquet2@gmail.com>, 2023.
 # rene-coty <irenee.thirion@e.email>, 2024.
 # paul verot <paulverot@free.fr>, 2024.
+# "Hinata NekoNya (ひなたねこにゃ)" <nicolasmkz30960@gmail.com>, 2024.
 msgid ""
 msgstr ""
 "Project-Id-Version: unnamed project\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-06-08 01:47+0200\n"
-"PO-Revision-Date: 2024-07-12 00:09+0000\n"
-"Last-Translator: paul verot <paulverot@free.fr>\n"
+"PO-Revision-Date: 2024-07-14 12:09+0000\n"
+"Last-Translator: \"Hinata NekoNya (ひなたねこにゃ)\" <nicolasmkz30960@gmail."
+"com>\n"
 "Language-Team: French <https://hosted.weblate.org/projects/komikku/main/fr/>"
 "\n"
 "Language: fr\n"
@@ -701,6 +703,9 @@ msgid ""
 "code repository and updated at each startup, is used instead of the one "
 "delivered with the application."
 msgstr ""
+"Une version alternative des modules serveurs, installée depuis le "
+"référentiel de code source et mise à jour à chaque démarrage, est utilisé à "
+"la place de celui livré avec l'application."
 
 #: ../data/ui/preferences.blp:306
 msgid "Credentials Storage"
