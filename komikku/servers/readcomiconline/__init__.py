@@ -30,6 +30,7 @@ class Readcomiconline(Server):
     search_url = base_url + '/AdvanceSearch'
     manga_url = base_url + '/Comic/{0}'
     chapter_url = base_url + '/Comic/{0}/{1}?readType=1'
+    bypass_cf_url = base_url + '/ComicList'
 
     # To be sure that HTML pages are not rendered in mobile version
     headers = {
@@ -124,11 +125,14 @@ class Readcomiconline(Server):
         Returns comic chapter data
         """
         def decode_url(url, server):
-            # Scripts/rguard.min.js?v=1.3
+            # Scripts/rguard.min.js?v=1.5.1
             url = url.replace('pw_.g28x', 'b').replace('d2pr.x_27', 'h')
 
             if not url.startswith('https'):
-                url, qs = url.split('?')
+                if '?' in url:
+                    url, qs = url.split('?')
+                else:
+                    qs = None
 
                 if '=s0' in url:
                     url = url.replace('=s0', '')
@@ -137,10 +141,12 @@ class Readcomiconline(Server):
                     url = url.replace('=s1600', '')
                     s = '=s1600'
 
-                url = url[8:26] + url[35:]
-                url = url[0:len(url) - 7] + url[len(url) - 2] + url[len(url) - 1]
+                url = url[15:33] + url[50:]
+                url = url[0:len(url) - 11] + url[len(url) - 2] + url[len(url) - 1]
                 url = unquote(unquote(base64.b64decode(url)))
-                url = 'https://2.bp.blogspot.com/' + url[0:13] + url[17:-2] + s + '?' + qs
+                url = 'https://2.bp.blogspot.com/' + url[0:13] + url[17:-2] + s
+                if qs:
+                    url += '?' + qs
 
             if server:
                 url = url.replace('https://2.bp.blogspot.com', server)
@@ -162,8 +168,14 @@ class Readcomiconline(Server):
 
             for line in script.split('\n'):
                 line = line.strip()
-                if line.startswith('lstImages.push'):
-                    encoded_urls.append(line[16:-3])
+                if line.startswith('var pth'):
+                    pth = line[11:-2]
+                    pth = pth.replace('v6f5S__YOy__', 'g')
+                    pth = pth.replace('pVse_m__Vd9', 'd')
+                    pth = pth.replace('b', 'pw_.g28x')
+                    pth = pth.replace('h', 'd2pr.x_27')
+
+                    encoded_urls.append(pth)
                 elif line.startswith('beau'):
                     media_server = line[17:-3]
             break
