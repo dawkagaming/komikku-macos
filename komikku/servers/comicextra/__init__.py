@@ -18,7 +18,7 @@ class Comicextra(Server):
     name = 'ComicExtra'
     lang = 'en'
 
-    base_url = 'https://comicextra.org'
+    base_url = 'https://comixextra.com'
     latest_updates_url = base_url + '/comic-updates'
     most_populars_url = base_url + '/popular-comic'
     search_url = base_url + '/search'
