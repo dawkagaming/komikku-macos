@@ -10,8 +10,8 @@ class Modescanlator(HeanCMS):
     name = 'Mode Scanlator'
     lang = 'pt_BR'
 
-    base_url = 'https://modescanlator.com'
-    api_url = 'https://api.modescanlator.com'
+    base_url = 'https://site.modescanlator.net'
+    api_url = 'https://api.modescanlator.net'
 
     cover_css_path = '#content div.container:first-child > div > div:last-child img'
     authors_css_path = 'div.flex:-soup-contains("Author") > span:last-child'
