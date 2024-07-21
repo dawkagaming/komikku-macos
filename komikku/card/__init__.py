@@ -273,10 +273,15 @@ class CardPage(Adw.NavigationPage):
             chapters.reverse()
 
         chapter = None
+        last_read = 0
         for chapter_ in chapters:
-            if not chapter_.read:
+            if not chapter_.last_read:
+                continue
+
+            timestamp = chapter_.last_read.timestamp()
+            if timestamp > last_read:
+                last_read = timestamp
                 chapter = chapter_
-                break
 
         if not chapter:
             chapter = chapters[0]
