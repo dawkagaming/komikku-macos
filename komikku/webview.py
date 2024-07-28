@@ -9,6 +9,7 @@ import os
 import platform
 import time
 import tzlocal
+from urllib.parse import urlsplit
 
 try:
     from curl_cffi import requests as crequests
@@ -308,42 +309,39 @@ class BypassCF:
         return wrapper
 
     def cancel(self):
-        self.unmonitor_load_events()
         self.error = 'CF challenge bypass aborted'
 
     def monitor_challenge(self):
         # Detect CF challenge via JavaScript in current page
         # - No challenge found: change title to 'ready'
-        # - A captcha is detected: change title to 'captcha 1' or 'captcha 2'
+        # - A captcha is detected: change title to 'captcha'
         # - An error occurs during challenge: change title to 'error'
         js = """
-            let checkCF = setInterval(() => {
-                if (document.getElementById('challenge-error-title')) {
-                    // Your browser is outdated!
-                    document.title = 'error';
-                    clearInterval(checkCF);
-                }
-                else if (document.querySelector('.ray-id')) {
-                    document.title = 'captcha';
-                }
-                else {
-                    document.title = 'ready';
-                    clearInterval(checkCF);
-                }
-            }, 100);
+            function check() {
+                let checkCF = setInterval(() => {
+                    if (document.getElementById('challenge-error-title')) {
+                        // Browser is outdated?
+                        document.title = 'error';
+                        clearInterval(checkCF);
+                    }
+                    else if (document.querySelector('.ray-id')) {
+                        document.title = 'captcha';
+                    }
+                    else {
+                        document.title = 'ready';
+                        clearInterval(checkCF);
+                    }
+                }, 100);
+            };
+
+            if (document.readyState === 'complete' || document.readyState === 'interactive') {
+                check();
+            }
+            else {
+                document.addEventListener('DOMContentLoaded', check);
+            }
         """
         self.webview.webkit_webview.evaluate_javascript(js, -1)
-
-    def monitor_load_events(self):
-        # In case FINISHED event never appends
-        # Page is considered to be loaded, if COMMITTED event has occurred, after load_event_finished_timeout seconds
-        if self.load_event == WebKit.LoadEvent.COMMITTED and time.time() - self.load_events_monitor_ts > self.load_event_finished_timeout:
-            logger.debug(f'Event FINISHED timeout ({self.load_event_finished_timeout}s)')
-            self.monitor_challenge()
-            self.load_events_monitor_id = None
-            return GLib.SOURCE_REMOVE
-
-        return GLib.SOURCE_CONTINUE
 
     def on_load_changed(self, _webkit_webview, event):
         self.load_event = event
@@ -356,20 +354,11 @@ class BypassCF:
             self.webview.webkit_webview.get_settings().set_auto_load_images(False)
 
         elif event == WebKit.LoadEvent.COMMITTED:
-            # In case FINISHED event never appends
-            self.unmonitor_load_events()
-            logger.debug('Monitor load events')
-            self.load_events_monitor_ts = time.time()
-            self.load_events_monitor_id = GLib.timeout_add(100, self.monitor_load_events)
-
-        elif event == WebKit.LoadEvent.FINISHED:
-            self.unmonitor_load_events()
             self.monitor_challenge()
 
     def on_load_failed(self, _webkit_webview, _event, uri, _gerror):
         self.error = f'CF challenge bypass failure: {uri}'
 
-        self.unmonitor_load_events()
         self.webview.exit()
         self.webview.close_page()
 
@@ -414,7 +403,6 @@ class BypassCF:
     def on_get_cookies_finished(self, cookie_manager, result, _user_data):
         if self.server.http_client == 'requests':
             self.server.session = requests.Session()
-            self.server.session.headers.update(self.server.headers or {'User-Agent': self.webview.user_agent})
 
         elif crequests is not None and self.server.http_client == 'curl_cffi':
             self.server.session = crequests.Session(
@@ -422,14 +410,20 @@ class BypassCF:
                 impersonate='chrome',
                 timeout=(REQUESTS_TIMEOUT, REQUESTS_TIMEOUT * 2)
             )
+
         else:
             self.error = f'{self.server.id}: Failed to copy Webview cookies in session (no HTTP client found)'
             self.webview.close_page()
             return
 
+        # Set default headers
+        self.server.session.headers.update(self.server.headers or {'User-Agent': self.webview.user_agent})
+
         # Copy libsoup cookies in session cookies jar
+        cf_cookie_found = False
+        rcookies = []
         for cookie in cookie_manager.get_cookies_finish(result):
-            rcookie = requests.cookies.create_cookie(
+            rcookies.append(requests.cookies.create_cookie(
                 name=cookie.get_name(),
                 value=cookie.get_value(),
                 domain=cookie.get_domain(),
@@ -437,8 +431,21 @@ class BypassCF:
                 expires=cookie.get_expires().to_unix() if cookie.get_expires() else None,
                 rest={'HttpOnly': cookie.get_http_only()},
                 secure=cookie.get_secure(),
-            )
+            ))
+            if cookie.get_name() == 'cf_clearance':
+                cf_cookie_found = True
 
+        if not cf_cookie_found:
+            # Server don't used Cloudflare (temporarily or not at all)
+            # Create a fake `cf_clearance` cookie, so as not to try to detect the challenge next time
+            rcookies.append(requests.cookies.create_cookie(
+                name='cf_clearance',
+                value='74k3',
+                domain=urlsplit(self.url).netloc,
+                path='/',
+            ))
+
+        for rcookie in rcookies:
             if self.server.http_client == 'requests':
                 self.server.session.cookies.set_cookie(rcookie)
 
@@ -450,18 +457,6 @@ class BypassCF:
 
         self.done = True
         self.webview.close_page()
-
-    def unmonitor_load_events(self):
-        if not self.load_events_monitor_id:
-            return
-
-        logger.debug('Unmonitor load events')
-        try:
-            GLib.source_remove(self.load_events_monitor_id)
-        except Exception:
-            pass
-        finally:
-            self.load_events_monitor_id = None
 
 
 def eval_js(code):
