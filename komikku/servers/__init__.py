@@ -67,7 +67,6 @@ LANGUAGES = dict(
 )
 
 USER_AGENT = 'Mozilla/5.0 (X11; Linux x86_64; rv:86.0) Gecko/20100101 Firefox/86.0'
-USER_AGENT_CHROME = 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.6099.109 Safari/537.36'
 USER_AGENT_MOBILE = 'Mozilla/5.0 (Linux; U; Android 4.1.1; en-gb; Build/KLP) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Safari/534.30'
 
 VERSION = 1
@@ -314,19 +313,22 @@ class Server(ABC):
         return False
 
     def load_session(self):
-        """ Load session from disk """
+        """ Load ptevious session from disk """
 
         file_path = os.path.join(self.sessions_dir, '{0}.pickle'.format(get_server_main_id_by_id(self.id)))
         if not os.path.exists(file_path):
             return False
 
         with open(file_path, 'rb') as f:
-            if self.http_client == 'requests':
-                self.session = pickle.load(f)
+            unpickled_session = pickle.load(f)
+            if self.http_client == 'requests' and isinstance(unpickled_session, requests.sessions.Session):
+                # Pickle data is a `requests` session
+                self.session = unpickled_session
 
-            elif crequests is not None and self.http_client == 'curl_cffi':
+            elif self.http_client == 'curl_cffi' and isinstance(unpickled_session, dict):
+                # Pickle data is `dict` object containing cookies and headers
                 cookie_jar = CookieJar()
-                for _domain, dcookies in pickle.load(f).items():
+                for _domain, dcookies in unpickled_session['cookies'].items():
                     for _path, pcookies in dcookies.items():
                         for _name, cookie in pcookies.items():
                             cookie_jar.set_cookie(cookie)
@@ -335,8 +337,10 @@ class Server(ABC):
                     allow_redirects=True,
                     impersonate='chrome',
                     timeout=(REQUESTS_TIMEOUT, REQUESTS_TIMEOUT * 2),
-                    cookies=cookie_jar
+                    cookies=cookie_jar,
+                    headers=unpickled_session['headers']
                 )
+
             else:
                 return False
 
@@ -351,7 +355,7 @@ class Server(ABC):
                 pickle.dump(self.session, f)
 
             elif self.http_client == 'curl_cffi':
-                pickle.dump(self.session.cookies.jar._cookies, f)
+                pickle.dump({'cookies': self.session.cookies.jar._cookies, 'headers': self.session.headers}, f)
 
     @abstractmethod
     def search(self, term=None):
