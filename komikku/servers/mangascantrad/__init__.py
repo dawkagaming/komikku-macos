@@ -2,6 +2,13 @@
 # SPDX-License-Identifier: GPL-3.0-only or GPL-3.0-or-later
 # Author: Valéry Febvre <vfebvre@easter-eggs.com>
 
+try:
+    # This server requires JA3/TLS and HTTP2 fingerprints impersonation
+    from curl_cffi import requests
+except Exception:
+    # Server will be disabled
+    requests = None
+
 from komikku.servers.multi.madara import Madara
 
 
@@ -10,8 +17,10 @@ class Mangascantrad(Madara):
     name = 'Manga-Scantrad'
     lang = 'fr'
     is_nsfw = True
+    status = 'enabled' if requests is not None else 'disabled'
 
     has_cf = True
+    http_client = 'curl_cffi'
 
     date_format = None
 
