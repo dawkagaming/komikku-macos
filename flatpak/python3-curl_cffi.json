@@ -7,8 +7,15 @@
     "sources": [
         {
             "type": "file",
-            "url": "https://files.pythonhosted.org/packages/7d/c6/05e9461a666c80a5082ee0bd44b323e4156b690b746bbffe7375f31e5f75/curl_cffi-0.6.4.tar.gz",
-            "sha256": "fe721c39926ef69d47c4c1b00c40cf269efb712261b631210fb05801b448f957"
+            "url": "https://files.pythonhosted.org/packages/25/25/56cbb1fc9cff46999a11ccb75dab1ee62be629d6e871142c37d26ed460d7/curl_cffi-0.7.1-cp38-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl",
+            "sha256": "1e53ab76259b575017d3260854456ba6a3fbe31cee9b44edd275d4ea9f0f20e1",
+            "only-arches": ["x86_64"]
+        },
+        {
+            "type": "file",
+            "url": "https://files.pythonhosted.org/packages/ae/61/8015cfcfdd7487f2cfeca90a18fd5504d29192b4700af93494d6915f508d/curl_cffi-0.7.1-cp38-abi3-manylinux_2_17_aarch64.manylinux2014_aarch64.whl",
+            "sha256": "99a5cc1d9ca59692cc5c175da0b397104283a0fea7515045fd22a7296296d82b",
+            "only-arches": ["aarch64"]
         }
     ]
 }
