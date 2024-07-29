@@ -23,6 +23,12 @@ def asurascans_tr_server():
 
 @test_steps('get_latest_updates', 'get_most_populars', 'search', 'get_manga_data', 'get_chapter_data', 'get_page_image')
 def test_asurascans(asurascans_server):
+    if asurascans_server.status == 'disabled':
+        pytest.skip('Server is disabled')
+
+    if asurascans_server.has_cf:
+        pytest.skip('Server uses Cloudflare challenge')
+
     # Get latest updates
     print('Get latest updates')
     try:

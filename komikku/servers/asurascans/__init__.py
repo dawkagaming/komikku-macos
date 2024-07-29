@@ -10,8 +10,9 @@ class Asurascans(MangaStream):
     id = 'asurascans'
     name = 'Asura Scans'
     lang = 'en'
+    status = 'disabled'
 
-    base_url = 'https://asura-scan.com'
+    base_url = 'https://asuratoon.com'  # 07/2024 new site https://asuracomic.net
 
     authors_selector = '.infox .fmed:-soup-contains("Artist") span, .infox .fmed:-soup-contains("Author") span'
     genres_selector = '.infox .mgen a'
