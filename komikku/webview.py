@@ -242,7 +242,7 @@ class WebviewPage(Adw.NavigationPage):
 
 
 class BypassCF:
-    """Allows user to complete a server CF challenge using the Webview
+    """Allows user to complete a server Cloudflare challenge and/or Google ReCAPTCHA using the Webview
 
     Several calls to this decorator can be concurrent. But only one will be honored at a time.
     """
@@ -257,7 +257,7 @@ class BypassCF:
             self.server = args_dict['self']
             self.url = self.server.bypass_cf_url or self.server.base_url
 
-            if not self.server.has_cf:
+            if not self.server.has_cf and not self.server.has_recaptcha:
                 return self.func(*args, **kwargs)
 
             if self.server.session is None:
@@ -266,16 +266,24 @@ class BypassCF:
 
             if self.server.session:
                 logger.debug(f'{self.server.id}: Previous session found')
-                # Locate CF cookie
-                bypassed = False
+
+                # Locate CF and/or ReCAPTCHA cookies
+                cf_bypassed = False
+                recaptcha_bypassed = False
                 for cookie in get_session_cookies(self.server.session):
                     if cookie.name == 'cf_clearance':
-                        # CF cookie is there
-                        bypassed = True
-                        break
+                        # CF
+                        logger.debug(f'{self.server.id}: Session has CF cookie')
+                        cf_bypassed = True
+                    elif cookie.name == 'b_token':
+                        # ReCAPTCHA
+                        logger.debug(f'{self.server.id}: Session has ReCAPTCHA cookie')
+                        recaptcha_bypassed = True
+
+                bypassed = (not self.server.has_cf or cf_bypassed) and (not self.server.has_recaptcha or recaptcha_bypassed)
 
                 if bypassed:
-                    logger.debug(f'{self.server.id}: Session has CF cookie. Checking...')
+                    logger.debug(f'{self.server.id}: Checking session...')
                     # Check session validity
                     r = self.server.session_get(self.url)
                     if r.ok:
@@ -284,7 +292,11 @@ class BypassCF:
 
                     logger.debug(f'{self.server.id}: Session KO ({r.status_code})')
                 else:
-                    logger.debug(f'{self.server.id}: Session has no CF cookie. Loading page in webview...')
+                    if self.server.has_cf and not cf_bypassed:
+                        logger.debug(f'{self.server.id}: Session has no CF cookie')
+                    if self.server.has_recaptcha and not recaptcha_bypassed:
+                        logger.debug(f'{self.server.id}: Session has no ReCAPTCHA cookie')
+                    logger.debug('Loading page in webview...')
 
             self.cf_reload_count = 0
             self.done = False
@@ -309,27 +321,30 @@ class BypassCF:
         return wrapper
 
     def cancel(self):
-        self.error = 'CF challenge bypass aborted'
+        self.error = 'Captcha challenge bypass aborted'
 
     def monitor_challenge(self):
-        # Detect CF challenge via JavaScript in current page
+        # Detect Cloudflare or Google ReCAPTCHA challenge via JavaScript in current page
         # - No challenge found: change title to 'ready'
-        # - A captcha is detected: change title to 'captcha'
+        # - A captcha is detected: change title to 'cf_captcha' or 're_captcha'
         # - An error occurs during challenge: change title to 'error'
         js = """
             function check() {
-                let checkCF = setInterval(() => {
+                let intervalID = setInterval(() => {
                     if (document.getElementById('challenge-error-title')) {
-                        // Browser is outdated?
+                        // CF error: Browser is outdated?
                         document.title = 'error';
-                        clearInterval(checkCF);
+                        clearInterval(intervalID);
                     }
                     else if (document.querySelector('.ray-id')) {
-                        document.title = 'captcha';
+                        document.title = 'cf_captcha';
+                    }
+                    else if (document.querySelector('.g-recaptcha')) {
+                        document.title = 're_captcha';
                     }
                     else {
                         document.title = 'ready';
-                        clearInterval(checkCF);
+                        clearInterval(intervalID);
                     }
                 }, 100);
             };
@@ -345,7 +360,7 @@ class BypassCF:
 
     def on_load_changed(self, _webkit_webview, event):
         self.load_event = event
-        logger.debug(f'Load changed: {event}')
+        logger.debug(f'Load changed: {event} {self.webview.webkit_webview.get_uri()}')
 
         if event != WebKit.LoadEvent.REDIRECTED and '__cf_chl_tk' in self.webview.webkit_webview.get_uri():
             # Challenge has been passed
@@ -357,7 +372,7 @@ class BypassCF:
             self.monitor_challenge()
 
     def on_load_failed(self, _webkit_webview, _event, uri, _gerror):
-        self.error = f'CF challenge bypass failure: {uri}'
+        self.error = f'Captcha challenge bypass failure: {uri}'
 
         self.webview.exit()
         self.webview.close_page()
@@ -374,15 +389,20 @@ class BypassCF:
             self.webview.close_page()
             return
 
-        if title == 'captcha':
-            self.cf_reload_count += 1
+        if title in ('cf_captcha', 're_captcha'):
+            if title == 'cf_captcha':
+                self.cf_reload_count += 1
             if self.cf_reload_count > CF_RELOAD_MAX:
                 self.error = 'Max CF reload exceeded'
                 self.webview.exit()
                 self.webview.close_page()
                 return
 
-            logger.debug(f'{self.server.id}: Captcha detected, try #{self.cf_reload_count}')
+            if title == 'cf_captcha':
+                logger.debug(f'{self.server.id}: CF captcha detected, try #{self.cf_reload_count}')
+            elif title == 're_captcha':
+                logger.debug(f'{self.server.id}: ReCAPTCHA detected')
+
             # Show webview, user must complete a CAPTCHA
             if self.webview.window.page != self.webview.props.tag:
                 self.webview.title.set_title(_('Please complete CAPTCHA'))
