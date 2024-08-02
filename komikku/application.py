@@ -507,10 +507,15 @@ available in your region/language."""))
         # Override release notes
         dialog.set_release_notes("""
             <ul>
-                <li>[Servers] Fixed the page to complete Cloudflare challenges</li>
-                <li>[Servers] Japscan (FR): Disabled</li>
-                <li>[Servers] Neko Scans (ES): Disabled</li>
-                <li>[L10n] Updated Croatian, French and German translations</li>
+                <li>[Servers] Improved webview to complete Cloudflare challenges</li>
+                <li>[Servers] Improved webview to support Google ReCAPTCHA completion</li>
+                <li>[Servers] ComicExtra (EN): Update</li>
+                <li>[Servers] Manga-Scantrad (FR): Update</li>
+                <li>[Servers] Mode Scanlator (pt_BR): Update</li>
+                <li>[Servers] Read Comic Online (EN): Update</li>
+                <li>[Servers] Asura Scans (EN): Disabled</li>
+                <li>[Servers] Mangas Origines (FR): Disabled</li>
+                <li>[L10n] Updated French and Ukrainian translations</li>
             </ul>
             <p>Happy reading.</p>
         """)

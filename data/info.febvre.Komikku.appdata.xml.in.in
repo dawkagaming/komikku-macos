@@ -98,6 +98,22 @@
     <url type="donation">https://valos.gitlab.io/Komikku/#sponsor</url>
 
     <releases>
+        <release version="1.52.0" date="2024-08-02">
+            <description translate="no">
+                <ul>
+                    <li>[Servers] Improved webview to complete Cloudflare challenges</li>
+                    <li>[Servers] Improved webview to support Google ReCAPTCHA completion</li>
+                    <li>[Servers] ComicExtra (EN): Update</li>
+                    <li>[Servers] Manga-Scantrad (FR): Update</li>
+                    <li>[Servers] Mode Scanlator (pt_BR): Update</li>
+                    <li>[Servers] Read Comic Online (EN): Update</li>
+                    <li>[Servers] Asura Scans (EN): Disabled</li>
+                    <li>[Servers] Mangas Origines (FR): Disabled</li>
+                    <li>[L10n] Updated French and Ukrainian translations</li>
+                </ul>
+                <p>Happy reading.</p>
+            </description>
+        </release>
         <release version="1.51.1" date="2024-07-13">
             <description translate="no">
                 <ul>
