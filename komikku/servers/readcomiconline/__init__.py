@@ -5,10 +5,10 @@
 import base64
 from bs4 import BeautifulSoup
 import logging
+import re
 from urllib.parse import unquote
 
 from komikku.servers import Server
-from komikku.servers import USER_AGENT
 from komikku.servers.utils import convert_date_string
 from komikku.servers.utils import get_buffer_mime_type
 from komikku.webview import CompleteChallenge
@@ -23,6 +23,8 @@ class Readcomiconline(Server):
     is_nsfw = True
 
     has_cf = True
+    has_recaptcha = True
+    http_client = 'curl_cffi'
 
     base_url = 'https://readcomiconline.li'
     latest_updates_url = base_url + '/ComicList/LatestUpdate'
@@ -30,12 +32,7 @@ class Readcomiconline(Server):
     search_url = base_url + '/AdvanceSearch'
     manga_url = base_url + '/Comic/{0}'
     chapter_url = base_url + '/Comic/{0}/{1}?readType=1'
-    bypass_cf_url = base_url + '/ComicList'
-
-    # To be sure that HTML pages are not rendered in mobile version
-    headers = {
-        'User-Agent': USER_AGENT,  # used in @BypassCF when session is created
-    }
+    bypass_cf_url = base_url + '/Comic/Invincible/Issue-1'
 
     def __init__(self):
         self.session = None
@@ -126,8 +123,6 @@ class Readcomiconline(Server):
         """
         def decode_url(url, server):
             # Scripts/rguard.min.js?v=1.5.1
-            url = url.replace('pw_.g28x', 'b').replace('d2pr.x_27', 'h')
-
             if not url.startswith('https'):
                 if '?' in url:
                     url, qs = url.split('?')
@@ -163,21 +158,18 @@ class Readcomiconline(Server):
         media_server = None
         for script_element in soup.select('script'):
             script = script_element.string
-            if not script or 'lstImages' not in script:
+            if not script or "var pth" not in script:
                 continue
 
             for line in script.split('\n'):
                 line = line.strip()
-                if line.startswith('var pth'):
-                    pth = line[11:-2]
-                    pth = pth.replace('v6f5S__YOy__', 'g')
-                    pth = pth.replace('pVse_m__Vd9', 'd')
-                    pth = pth.replace('b', 'pw_.g28x')
-                    pth = pth.replace('h', 'd2pr.x_27')
+                if line.startswith("pth = '"):
+                    pth = line[7:-2]
 
                     encoded_urls.append(pth)
-                elif line.startswith('beau'):
-                    media_server = line[17:-3]
+
+                elif matches := re.search(r".*replace\(\/(.*)\/g, '([a-z])'\);", line):
+                    encoded_urls[-1] = encoded_urls[-1].replace(matches.group(1), matches.group(2))
             break
 
         data = dict(

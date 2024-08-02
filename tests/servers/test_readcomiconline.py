@@ -16,6 +16,12 @@ def readcomiconline_server():
 
 @test_steps('get_latest_updates', 'get_most_populars', 'search', 'get_manga_data')
 def test_readcomiconline(readcomiconline_server):
+    if readcomiconline_server.status == 'disabled':
+        pytest.skip('Server is disabled')
+
+    if readcomiconline_server.has_cf:
+        pytest.skip('Server uses Cloudflare challenge')
+
     # Get latest updates
     print('Get latest updates')
     try:
