@@ -8,7 +8,7 @@ from bs4 import BeautifulSoup
 
 from komikku.servers.multi.madara import Madara
 from komikku.servers.utils import get_buffer_mime_type
-from komikku.webview import BypassCF
+from komikku.webview import CompleteChallenge
 
 
 class Manhwahentai(Madara):
@@ -33,7 +33,7 @@ class Manhwahentai(Madara):
     result_name_slug_selector = '.post-title a'
     result_cover_selector = '.item-thumb img'
 
-    @BypassCF()
+    @CompleteChallenge()
     def get_manga_chapter_data(self, manga_slug, manga_name, chapter_slug, chapter_url):
         """
         Returns manga chapter data by scraping chapter HTML page content

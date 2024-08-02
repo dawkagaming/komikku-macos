@@ -25,7 +25,7 @@ from komikku.servers import USER_AGENT
 from komikku.servers.utils import convert_date_string
 from komikku.servers.utils import get_buffer_mime_type
 from komikku.servers.utils import get_soup_element_inner_text
-from komikku.webview import BypassCF
+from komikku.webview import CompleteChallenge
 
 
 class Peachscan(Server):
@@ -57,7 +57,7 @@ class Peachscan(Server):
         if self.image_url is None:
             self.image_url = self.base_url + '{0}#page'
 
-    @BypassCF()
+    @CompleteChallenge()
     def get_manga_data(self, initial_data):
         """
         Returns manga data by scraping manga HTML page content
@@ -136,7 +136,7 @@ class Peachscan(Server):
 
         return data
 
-    @BypassCF()
+    @CompleteChallenge()
     def get_manga_chapter_data(self, manga_slug, manga_name, chapter_slug, chapter_url):
         r = self.session_get(self.chapter_url.format(manga_slug, chapter_slug))
         if r.status_code != 200:
@@ -173,7 +173,7 @@ class Peachscan(Server):
 
         return data
 
-    @BypassCF()
+    @CompleteChallenge()
     def get_manga_chapter_page_image(self, manga_slug, manga_name, chapter_slug, page):
         """
         Returns chapter page scan (image) content
@@ -239,7 +239,7 @@ class Peachscan(Server):
         return dict(
             buffer=buffer,
             mime_type=mime_type,
-            name=f'{page["index"]:03d}.{ext}',
+            name=f'{page["index"]:03d}.{ext}',  # noqa: E231
         )
 
     def get_manga_url(self, slug, url):
@@ -248,7 +248,7 @@ class Peachscan(Server):
         """
         return self.manga_url.format(slug)
 
-    @BypassCF()
+    @CompleteChallenge()
     def get_latest_updates(self):
         r = self.session_get(self.latest_updates_url)
         if r.status_code != 200:
@@ -269,7 +269,7 @@ class Peachscan(Server):
 
         return results
 
-    @BypassCF()
+    @CompleteChallenge()
     def get_most_populars(self):
         r = self.session_get(self.most_populars_url)
         if r.status_code != 200:
@@ -290,7 +290,7 @@ class Peachscan(Server):
 
         return results
 
-    @BypassCF()
+    @CompleteChallenge()
     def search(self, term):
         r = self.session_get(
             self.search_url,

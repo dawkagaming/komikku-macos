@@ -7,7 +7,7 @@ from bs4 import BeautifulSoup
 from komikku.servers import Server
 from komikku.servers.utils import convert_date_string
 from komikku.servers.utils import get_buffer_mime_type
-from komikku.webview import BypassCF
+from komikku.webview import CompleteChallenge
 
 
 class Goldenmangas(Server):
@@ -25,7 +25,7 @@ class Goldenmangas(Server):
     chapter_url = base_url + '/mangas/{0}/{1}'
     image_url = base_url + '/mm-admin/uploads/mangas/{0}/{1}/{2}'
 
-    @BypassCF()
+    @CompleteChallenge()
     def get_manga_data(self, initial_data):
         """
         Returns manga data by scraping manga HTML page content
@@ -103,7 +103,7 @@ class Goldenmangas(Server):
 
         return data
 
-    @BypassCF()
+    @CompleteChallenge()
     def get_manga_chapter_data(self, manga_slug, manga_name, chapter_slug, chapter_url):
         """
         Returns manga chapter data by scraping chapter HTML page content
@@ -152,7 +152,7 @@ class Goldenmangas(Server):
         """
         return self.manga_url.format(slug)
 
-    @BypassCF()
+    @CompleteChallenge()
     def get_latest_updates(self):
         r = self.session_get(self.base_url)
         if r.status_code != 200:
@@ -169,7 +169,7 @@ class Goldenmangas(Server):
 
         return results
 
-    @BypassCF()
+    @CompleteChallenge()
     def get_most_populars(self, types=None, statuses=None):
         r = self.session_get(self.base_url)
         if r.status_code != 200:
@@ -186,7 +186,7 @@ class Goldenmangas(Server):
 
         return results
 
-    @BypassCF()
+    @CompleteChallenge()
     def search(self, term, types=None, statuses=None, orderby=None):
         r = self.session_get(self.search_url, params=dict(busca=term))
         if r.status_code != 200:

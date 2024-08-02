@@ -39,7 +39,7 @@ from komikku.servers import USER_AGENT
 from komikku.servers.utils import convert_date_string
 from komikku.servers.utils import get_buffer_mime_type
 from komikku.servers.utils import get_soup_element_inner_text
-from komikku.webview import BypassCF
+from komikku.webview import CompleteChallenge
 
 
 class MangaStream(Server):
@@ -103,7 +103,7 @@ class MangaStream(Server):
             self.session = requests.Session()
             self.session.headers.update({'User-Agent': USER_AGENT})
 
-    @BypassCF()
+    @CompleteChallenge()
     def get_manga_data(self, initial_data):
         """
         Returns manga data by scraping manga HTML page content
@@ -195,7 +195,7 @@ class MangaStream(Server):
                 if not data['cover']:
                     data['cover'] = element.get('src')
             if data['cover'] and not data['cover'].startswith('http'):
-                data['cover'] = f'https:{data["cover"]}'
+                data['cover'] = f'https:{data["cover"]}'  # noqa: E231
 
         # Details
         if self.authors_selector:
@@ -257,7 +257,7 @@ class MangaStream(Server):
 
         return chapters
 
-    @BypassCF()
+    @CompleteChallenge()
     def get_manga_chapter_data(self, manga_slug, manga_name, chapter_slug, chapter_url):
         """
         Returns manga chapter data by scraping chapter HTML page content
@@ -309,7 +309,7 @@ class MangaStream(Server):
                 if not image:
                     image = img_element.get('src')
                     if not image.startswith('http'):
-                        image = f'https:{image}'
+                        image = f'https:{image}'  # noqa: E231
                 if image.split('/')[-1] in self.ignored_pages:
                     continue
 
@@ -320,7 +320,7 @@ class MangaStream(Server):
 
         return data
 
-    @BypassCF()
+    @CompleteChallenge()
     def get_manga_chapter_page_image(self, manga_slug, manga_name, chapter_slug, page):
         """
         Returns chapter page scan (image) content
@@ -385,14 +385,14 @@ class MangaStream(Server):
 
         return results
 
-    @BypassCF()
+    @CompleteChallenge()
     def get_latest_updates(self, type):
         return self.get_manga_list(type=type, orderby='update')
 
-    @BypassCF()
+    @CompleteChallenge()
     def get_most_populars(self, type):
         return self.get_manga_list(type=type, orderby='popular')
 
-    @BypassCF()
+    @CompleteChallenge()
     def search(self, term, type):
         return self.get_manga_list(title=term, type=type)

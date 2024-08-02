@@ -44,7 +44,7 @@ from komikku.servers.utils import convert_date_string
 from komikku.servers.utils import get_buffer_mime_type
 from komikku.servers.utils import get_soup_element_inner_text
 from komikku.servers.utils import remove_emoji_from_string
-from komikku.webview import BypassCF
+from komikku.webview import CompleteChallenge
 
 logger = logging.getLogger('komikku.servers.madara')
 
@@ -81,7 +81,7 @@ class Madara(Server):
             self.session = requests.Session()
             self.session.headers.update({'User-Agent': USER_AGENT})
 
-    @BypassCF()
+    @CompleteChallenge()
     def get_manga_data(self, initial_data):
         """
         Returns manga data by scraping manga HTML page content
@@ -227,7 +227,7 @@ class Madara(Server):
 
         return data
 
-    @BypassCF()
+    @CompleteChallenge()
     def get_manga_chapter_data(self, manga_slug, manga_name, chapter_slug, chapter_url):
         """
         Returns manga chapter data by scraping chapter HTML page content
@@ -270,7 +270,7 @@ class Madara(Server):
 
         return data
 
-    @BypassCF()
+    @CompleteChallenge()
     def get_manga_chapter_page_image(self, manga_slug, manga_name, chapter_slug, page):
         """
         Returns chapter page scan (image) content
@@ -312,7 +312,7 @@ class Madara(Server):
         """
         return self.search('', orderby='populars')
 
-    @BypassCF()
+    @CompleteChallenge()
     def search(self, term, orderby=None):
         data = {
             'action': 'madara_load_more',
@@ -400,7 +400,7 @@ class Madara2(Madara):
         if Settings.instance:
             self.filters[0]['default'] = Settings.get_default().nsfw_content
 
-    @BypassCF()
+    @CompleteChallenge()
     def get_latest_updates(self, nsfw):
         """
         Returns list of latest updates manga
@@ -435,7 +435,7 @@ class Madara2(Madara):
 
         return results
 
-    @BypassCF()
+    @CompleteChallenge()
     def get_most_populars(self, nsfw):
         """
         Returns list of most viewed manga
@@ -470,7 +470,7 @@ class Madara2(Madara):
 
         return results
 
-    @BypassCF()
+    @CompleteChallenge()
     def search(self, term, nsfw):
         r = self.session_post(
             self.api_url,

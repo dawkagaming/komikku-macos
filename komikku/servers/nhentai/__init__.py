@@ -8,7 +8,7 @@ import json
 from komikku.servers import Server
 from komikku.servers.utils import convert_date_string
 from komikku.servers.utils import get_buffer_mime_type
-from komikku.webview import BypassCF
+from komikku.webview import CompleteChallenge
 
 IMAGES_EXTS = dict(g='gif', j='jpg', p='png')
 
@@ -27,7 +27,7 @@ class Nhentai(Server):
     manga_url = base_url + '/g/{0}'
     page_image_url = 'https://i.nhentai.net/galleries/{0}/{1}'
 
-    @BypassCF()
+    @CompleteChallenge()
     def get_manga_data(self, initial_data):
         """
         Returns manga data by scraping manga HTML page content
@@ -86,7 +86,7 @@ class Nhentai(Server):
 
         return data
 
-    @BypassCF()
+    @CompleteChallenge()
     def get_manga_chapter_data(self, manga_slug, manga_name, chapter_slug, chapter_url):
         """
         Returns manga chapter data by scraping chapter HTML page content
@@ -173,14 +173,14 @@ class Nhentai(Server):
 
         return None
 
-    @BypassCF()
+    @CompleteChallenge()
     def get_most_populars(self):
         """
         Returns most popular mangas (bayesian rating)
         """
         return self._search_common({'q': 'language:' + self.lang_code, 'sort': 'popular'})
 
-    @BypassCF()
+    @CompleteChallenge()
     def search(self, term):
         term = term + ' language:' + self.lang_code
         return self._search_common({'q': term})

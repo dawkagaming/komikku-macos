@@ -23,7 +23,7 @@ from komikku.servers import USER_AGENT
 from komikku.servers.utils import convert_date_string
 from komikku.servers.utils import get_buffer_mime_type
 from komikku.servers.utils import get_response_elapsed
-from komikku.webview import BypassCF
+from komikku.webview import CompleteChallenge
 
 logger = logging.getLogger('komikku.servers.multi.heancms')
 
@@ -81,7 +81,7 @@ class HeanCMS(Server):
             self.session = requests.Session()
             self.session.headers.update({'User-Agent': USER_AGENT})
 
-    @BypassCF()
+    @CompleteChallenge()
     def get_manga_data(self, initial_data):
         """
         Returns manga data by scraping manga HTML page content
@@ -186,7 +186,7 @@ class HeanCMS(Server):
 
         return list(reversed(chapters))
 
-    @BypassCF()
+    @CompleteChallenge()
     def get_manga_chapter_data(self, manga_slug, manga_name, chapter_slug, chapter_url):
         """
         Returns manga chapter data by scraping chapter HTML page content
@@ -224,7 +224,7 @@ class HeanCMS(Server):
 
         return None
 
-    @BypassCF()
+    @CompleteChallenge()
     def get_manga_chapter_page_image(self, manga_slug, manga_name, chapter_slug, page):
         """
         Returns chapter page scan (image) content
@@ -260,7 +260,7 @@ class HeanCMS(Server):
         """
         return self.get_manga_list(orderby='latest')
 
-    @BypassCF()
+    @CompleteChallenge()
     def get_manga_list(self, term=None, orderby=None):
         params = dict(
             adult='true',

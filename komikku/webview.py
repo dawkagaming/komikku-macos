@@ -241,7 +241,7 @@ class WebviewPage(Adw.NavigationPage):
         self.window.navigationview.push(self)
 
 
-class BypassCF:
+class CompleteChallenge:
     """Allows user to complete a server Cloudflare challenge and/or Google ReCAPTCHA using the Webview
 
     Several calls to this decorator can be concurrent. But only one will be honored at a time.

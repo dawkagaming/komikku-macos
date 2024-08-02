@@ -11,7 +11,7 @@ from komikku.servers import Server
 from komikku.servers import USER_AGENT
 from komikku.servers.utils import convert_date_string
 from komikku.servers.utils import get_buffer_mime_type
-from komikku.webview import BypassCF
+from komikku.webview import CompleteChallenge
 
 logger = logging.getLogger('komikku.servers.readcomiconline')
 
@@ -40,7 +40,7 @@ class Readcomiconline(Server):
     def __init__(self):
         self.session = None
 
-    @BypassCF()
+    @CompleteChallenge()
     def get_manga_data(self, initial_data):
         """
         Returns comic data by scraping manga HTML page content
@@ -119,7 +119,7 @@ class Readcomiconline(Server):
 
         return data
 
-    @BypassCF()
+    @CompleteChallenge()
     def get_manga_chapter_data(self, manga_slug, manga_name, chapter_slug, chapter_url):
         """
         Returns comic chapter data
@@ -217,7 +217,7 @@ class Readcomiconline(Server):
         """
         return self.manga_url.format(slug)
 
-    @BypassCF()
+    @CompleteChallenge()
     def get_manga_list(self, term=None, orderby=None):
         results = []
 

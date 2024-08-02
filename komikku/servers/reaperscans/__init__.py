@@ -16,7 +16,7 @@ from komikku.servers.multi.genkan import GenkanInitial
 from komikku.servers.multi.madara import Madara
 from komikku.servers.utils import convert_date_string
 from komikku.servers.utils import get_buffer_mime_type
-from komikku.webview import BypassCF
+from komikku.webview import CompleteChallenge
 
 
 def generate_id():
@@ -40,7 +40,7 @@ class Reaperscans(Server):
     def __init__(self):
         self.session = None
 
-    @BypassCF()
+    @CompleteChallenge()
     def get_manga_data(self, initial_data):
         """
         Returns manga data by scraping manga HTML page content + API for chapters
@@ -164,7 +164,7 @@ class Reaperscans(Server):
 
         return reversed(data)
 
-    @BypassCF()
+    @CompleteChallenge()
     def get_manga_chapter_data(self, manga_slug, manga_name, chapter_slug, chapter_url):
         """
         Returns manga chapter data by scraping chapter HTML page content
@@ -226,7 +226,7 @@ class Reaperscans(Server):
         """
         return self.manga_url.format(slug)
 
-    @BypassCF()
+    @CompleteChallenge()
     def get_latest_updates(self):
         r = self.session_get(self.latest_updates_url)
         if r.status_code != 200:
@@ -245,7 +245,7 @@ class Reaperscans(Server):
 
         return results
 
-    @BypassCF()
+    @CompleteChallenge()
     def search(self, term):
         r = self.session_get(self.base_url)
         if r.status_code != 200:

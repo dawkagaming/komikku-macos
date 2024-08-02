@@ -84,6 +84,7 @@ class Server(ABC):
     bypass_cf_url = None
     has_cf = False
     has_login = False
+    has_recaptcha = False
     headers = None
     http_client = 'requests'  # Used HTTP client
     is_nsfw = False
