@@ -8,6 +8,13 @@ import logging
 import re
 from urllib.parse import unquote
 
+try:
+    # This server requires JA3/TLS and HTTP2 fingerprints impersonation
+    from curl_cffi import requests
+except Exception:
+    # Server will be disabled
+    requests = None
+
 from komikku.servers import Server
 from komikku.servers.utils import convert_date_string
 from komikku.servers.utils import get_buffer_mime_type
@@ -21,6 +28,7 @@ class Readcomiconline(Server):
     name = 'Read Comic Online'
     lang = 'en'
     is_nsfw = True
+    status = 'enabled' if requests is not None else 'disabled'
 
     has_cf = True
     has_recaptcha = True
