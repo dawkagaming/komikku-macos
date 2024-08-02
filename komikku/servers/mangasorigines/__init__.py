@@ -10,6 +10,7 @@ class Mangasorigines(Madara):
     name = 'Mangas Origines'
     lang = 'fr'
     is_nsfw = True
+    status = 'disabled'  # 2024/07 new site https://crunchyscan.fr/
 
     base_url = 'https://mangas-origines.xyz'
     chapters_url = base_url + '/manga/{0}/ajax/chapters/'
