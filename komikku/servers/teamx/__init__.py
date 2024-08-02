@@ -3,11 +3,10 @@
 # Author: Valéry Febvre <vfebvre@easter-eggs.com>
 
 from bs4 import BeautifulSoup
-import requests
 
 from komikku.servers import Server
-from komikku.servers import USER_AGENT
 from komikku.servers.utils import get_buffer_mime_type
+from komikku.webview import CompleteChallenge
 
 
 class Teamx(Server):
@@ -15,16 +14,17 @@ class Teamx(Server):
     name = 'Team-X'
     lang = 'ar'
 
-    base_url = 'https://teamxnovel.com'
+    has_cf = True
+
+    base_url = 'https://teamoney.site'
     search_url = base_url + '/ajax/search'
     manga_url = base_url + '/series/{0}'
     chapter_url = base_url + '/series/{0}/{1}'
 
     def __init__(self):
-        if self.session is None:
-            self.session = requests.Session()
-            self.session.headers.update({'user-agent': USER_AGENT})
+        self.session = None
 
+    @CompleteChallenge()
     def get_manga_data(self, initial_data):
         """
         Returns manga data by scraping manga HTML page content
@@ -109,6 +109,7 @@ class Teamx(Server):
 
         return data
 
+    @CompleteChallenge()
     def get_manga_chapter_data(self, manga_slug, manga_name, chapter_slug, chapter_url):
         """
         Returns manga chapter data by scraping chapter HTML page content
@@ -165,6 +166,7 @@ class Teamx(Server):
         """
         return self.manga_url.format(slug)
 
+    @CompleteChallenge()
     def get_latest_updates(self):
         """
         Returns latest updates
@@ -185,6 +187,7 @@ class Teamx(Server):
 
         return results
 
+    @CompleteChallenge()
     def get_most_populars(self):
         """
         Returns most viewed mangas
@@ -205,6 +208,7 @@ class Teamx(Server):
 
         return results
 
+    @CompleteChallenge()
     def search(self, term):
         r = self.session_get(self.search_url, params=dict(keyword=term))
         if r.status_code != 200:

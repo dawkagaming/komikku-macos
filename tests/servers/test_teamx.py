@@ -16,6 +16,12 @@ def teamx_server():
 
 @test_steps('get_most_popular', 'search', 'get_manga_data', 'get_chapter_data', 'get_page_image')
 def test_teamx(teamx_server):
+    if teamx_server.status == 'disabled':
+        pytest.skip('Server is disabled')
+
+    if teamx_server.has_cf:
+        pytest.skip('Server uses Cloudflare challenge')
+
     # Get most popular
     print('Get most popular')
     try:
