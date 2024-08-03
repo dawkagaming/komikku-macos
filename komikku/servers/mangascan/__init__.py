@@ -12,7 +12,7 @@ class Mangascan(MyMangaReaderCMS):
     name = 'Manga Scan'
     lang = 'fr'
 
-    base_url = 'https://mangascan-fr.co'
+    base_url = 'https://mangascan-fr.net'
     search_url = base_url + '/search'
     most_populars_url = base_url + '/filterList?page=1&cat=&alpha=&sortBy=views&asc=false&author=&tag=&artist='
     manga_url = base_url + '/manga/{0}'
