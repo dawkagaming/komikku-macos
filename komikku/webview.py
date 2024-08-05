@@ -349,11 +349,11 @@ class CompleteChallenge:
                 }, 100);
             };
 
-            if (document.readyState === 'complete' || document.readyState === 'interactive') {
-                check();
+            if (document.readyState === 'loading') {
+                document.addEventListener('DOMContentLoaded', check);
             }
             else {
-                document.addEventListener('DOMContentLoaded', check);
+                check();
             }
         """
         self.webview.webkit_webview.evaluate_javascript(js, -1)
