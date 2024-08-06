@@ -123,7 +123,7 @@ class Manga:
 
         colors = []
         for index, color in enumerate(ColorThief(cover_path).get_palette(color_count=2, quality=1)[:2]):
-            colors.append(f'@define-color background_color_{index} rgba({color[0]}, {color[1]}, {color[2]}, 1);\n')
+            colors.append(f'@define-color background_color_{index} rgba({color[0]}, {color[1]}, {color[2]}, 1);\n')  # noqa: E702, E231
         colors.append('@define-color background_color_2 @window_bg_color;')
 
         with open(path, 'w') as fp:
@@ -433,9 +433,16 @@ class Manga:
                 if row:
                     # Update changes
                     changes = {}
+
+                    # Common fields
                     for key in ('title', 'url', 'date', 'scanlators'):
                         if row[key] != chapter_data.get(key):
                             changes[key] = chapter_data.get(key)
+
+                    # Sync fields
+                    for key in ('last_page_read_index', 'last_read', 'read'):
+                        if chapter_data.get(key) and row[key] != chapter_data[key]:
+                            changes[key] = chapter_data[key]
 
                     if row['rank'] != rank:
                         changes['rank'] = rank

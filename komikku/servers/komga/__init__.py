@@ -155,11 +155,12 @@ class Komga(Server):
             )
 
             if item.get('readProgress'):
-                last_modified = datetime.strptime(item['readProgress']['lastModified'], '%Y-%m-%dT%H:%M:%SZ')
-                if not last_read or last_modified > last_read:
-                    last_read = last_modified
+                read_date = datetime.strptime(item['readProgress']['readDate'], '%Y-%m-%dT%H:%M:%SZ')
+                if not last_read or read_date > last_read:
+                    last_read = read_date
                     chapter_data.update(dict(
                         read=item['readProgress']['completed'],
+                        last_read=read_date,
                         last_page_read_index=item['readProgress']['page'] - 1,
                     ))
 
