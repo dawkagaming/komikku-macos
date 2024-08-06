@@ -254,7 +254,10 @@ class CardPage(Adw.NavigationPage):
                 self.window.add_notification(_('Read progress synchronization with server completed successfully'))
 
             if result['nb_recent_chapters'] > 0 or result['nb_deleted_chapters'] > 0 or result['synced']:
-                self.chapters_list.populate()
+                if self.chapters_list.populate():
+                    self.toggle_resume(True)
+                else:
+                    self.toggle_resume(False)
 
             self.info_box.populate()
 
@@ -296,7 +299,7 @@ class CardPage(Adw.NavigationPage):
                 )
 
             # Show update indicator (in case an update is in progress)
-            self.toggle_activity_indicator()
+            self.show_activity_indicator()
 
             if self.window.last_navigation_action != 'push':
                 return
@@ -316,11 +319,16 @@ class CardPage(Adw.NavigationPage):
         self.window.updater.add(self.manga)
         if self.window.updater.start():
             # Start update indicator
-            self.toggle_activity_indicator()
+            self.show_activity_indicator()
 
     def populate(self):
         self.chapters_list.set_sort_order(invalidate=False)
-        self.chapters_list.populate()
+
+        if self.chapters_list.populate():
+            self.toggle_resume(True)
+        else:
+            self.toggle_resume(False)
+
         self.categories_list.populate()
 
     def refresh(self, chapters):
@@ -369,7 +377,7 @@ class CardPage(Adw.NavigationPage):
 
         self.window.navigationview.push(self)
 
-    def toggle_activity_indicator(self):
+    def show_activity_indicator(self):
         def pulse(manga_id):
             if self.window.page != self.props.tag:
                 # Page left, stop indicator
@@ -385,6 +393,10 @@ class CardPage(Adw.NavigationPage):
             return GLib.SOURCE_REMOVE
 
         GLib.timeout_add(250, pulse, self.manga.id)
+
+    def toggle_resume(self, state):
+        self.resume_action.set_enabled(state)
+        self.resume_button.set_sensitive(state)
 
 
 class InfoBox:

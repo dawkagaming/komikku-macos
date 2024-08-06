@@ -319,7 +319,11 @@ class ChaptersList:
         self.set_sort_order()
 
     def populate(self):
-        self.list_model.populate(self.card.manga.chapters)
+        if chapters := self.card.manga.chapters:
+            self.list_model.populate(chapters)
+            return True
+
+        return False
 
     def refresh(self, chapters):
         for chapter in chapters:

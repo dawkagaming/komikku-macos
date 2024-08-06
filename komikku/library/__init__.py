@@ -570,7 +570,7 @@ class LibraryPage(Adw.NavigationPage):
         if self.searchbar.get_search_mode():
             self.search_entry.grab_focus()
 
-        self.toggle_activity_indicator()
+        self.show_activity_indicator()
 
     def on_sort_order_changed(self, _action, variant):
         value = variant.get_string()
@@ -701,16 +701,7 @@ class LibraryPage(Adw.NavigationPage):
         if invalidate:
             self.flowbox.invalidate_sort()
 
-    def show_page(self, name):
-        if self.page == name:
-            return
-
-        self.page = name
-
-        self.stack.set_visible_child_name(name)
-        self.update_headerbar_buttons()
-
-    def toggle_activity_indicator(self):
+    def show_activity_indicator(self):
         def pulse():
             if self.window.page != self.props.tag or self.window.updater.update_library_flag:
                 # Stop indicator
@@ -726,6 +717,15 @@ class LibraryPage(Adw.NavigationPage):
             return GLib.SOURCE_REMOVE
 
         GLib.timeout_add(250, pulse)
+
+    def show_page(self, name):
+        if self.page == name:
+            return
+
+        self.page = name
+
+        self.stack.set_visible_child_name(name)
+        self.update_headerbar_buttons()
 
     def toggle_selected_read_status(self, _action, _param, read):
         chapters_ids = []
@@ -787,7 +787,7 @@ class LibraryPage(Adw.NavigationPage):
     def update_selected(self, _action, _param):
         self.window.updater.add([thumbnail.manga for thumbnail in self.flowbox.get_selected_children()])
         if self.window.updater.start():
-            self.toggle_activity_indicator()
+            self.show_activity_indicator()
 
         self.leave_selection_mode()
 
