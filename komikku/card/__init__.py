@@ -268,28 +268,15 @@ class CardPage(Adw.NavigationPage):
             self.window.add_notification(_('Failed to get manga URL'))
 
     def on_resume_button_clicked(self, *args):
-        chapters = []
-        for i in range(self.chapters_list.list_model.get_n_items()):
-            chapters.append(self.chapters_list.list_model.get_item(i).chapter)
+        last_read_chapter = self.manga.last_read_chapter
+        if last_read_chapter is None:
+            # Use first chapter
+            if self.chapters_list.sort_order.endswith('desc'):
+                last_read_chapter = self.chapters_list.list_model.get_item(self.chapters_list.list_model.get_n_items() - 1).chapter
+            else:
+                last_read_chapter = self.chapters_list.list_model.get_item(0).chapter
 
-        if self.chapters_list.sort_order.endswith('desc'):
-            chapters.reverse()
-
-        chapter = None
-        last_read = 0
-        for chapter_ in chapters:
-            if not chapter_.last_read:
-                continue
-
-            timestamp = chapter_.last_read.timestamp()
-            if timestamp > last_read:
-                last_read = timestamp
-                chapter = chapter_
-
-        if not chapter:
-            chapter = chapters[0]
-
-        self.window.reader.init(self.manga, chapter)
+        self.window.reader.init(self.manga, last_read_chapter)
 
     def on_shown(self, _page):
         def do_populate():

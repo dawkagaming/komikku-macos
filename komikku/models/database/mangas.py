@@ -214,6 +214,16 @@ class Manga:
         return row['unread']
 
     @property
+    def last_read_chapter(self):
+        db_conn = create_db_connection()
+        row = db_conn.execute(
+            'SELECT * FROM chapters WHERE manga_id = ? AND last_read IS NOT NULL ORDER BY last_read DESC LIMIT 1', (self.id,)
+        ).fetchone()
+        db_conn.close()
+
+        return Chapter(row=row, manga=self) if row else None
+
+    @property
     def path(self):
         if self.in_library:
             return os.path.join(get_data_dir(), self.dir_name, trunc_filename(self.name))
