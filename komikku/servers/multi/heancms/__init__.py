@@ -7,6 +7,7 @@
 # Supported servers:
 # Mode Scanlator [pt_BR]
 # Perf scan [FR]
+# Reaper Scans [EN]
 # Reaper Scans [pt_BR] (disabled)
 
 import json
@@ -62,6 +63,7 @@ class HeanCMS(Server):
     manga_url: str = None
     chapter_url: str = None
     api_chapter_url: str = None
+    media_url: str = None
 
     date_format = '%m/%d/%Y'
 
@@ -121,7 +123,12 @@ class HeanCMS(Server):
 
         data['name'] = soup.find('h1').text.strip()
         if img_element := soup.select_one(self.cover_css_path):
-            data['cover'] = self.base_url + img_element.get('src')
+            data['cover'] = img_element.get('src')
+            if not data['cover'].startswith('http'):
+                if self.media_url:
+                    data['cover'] = self.media_url + data['cover']
+                else:
+                    data['cover'] = self.base_url + data['cover']
 
         # Details
         if element := soup.select_one(self.authors_css_path):
@@ -298,7 +305,7 @@ class HeanCMS(Server):
             results.append(dict(
                 slug=item['series_slug'],
                 name=item['title'],
-                cover=item['thumbnail'],
+                cover=f'{self.media_url}/{item["thumbnail"]}' if self.media_url else item['thumbnail'],
                 last_chapter=item['chapters'][0]['chapter_name'] if item.get('chapters') else None,
             ))
 
