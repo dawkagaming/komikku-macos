@@ -12,6 +12,7 @@
 # Apoll Comics [ES]
 # ArazNovel [TR] (disabled)
 # Argos Scan / Argos Comics [PT]
+# Asura Scans [TR]
 # Atikrost [TR]
 # Best Manga [RU]
 # Colored Council [EN] (disabled)
@@ -58,8 +59,10 @@ class Madara(Server):
     medium: str = 'manga'
     series_name: str = 'manga'
 
-    chapters_list_selector = '#manga-chapters-holder'
-    chapters_selector = '.wp-manga-chapter'
+    results_selector = '.row'
+    result_name_slug_selector = '.post-title a'
+    result_cover_selector = '.tab-thumb img'
+
     details_name_selector = 'h1'
     details_cover_selector = '.summary_image > a > img'
     details_authors_selector = '.author-content a, .artist-content a'
@@ -67,9 +70,11 @@ class Madara(Server):
     details_genres_selector = '.genres-content a'
     details_status_selector = '.post-status .summary-content'
     details_synopsis_selector = '.summary__content'
-    results_selector = '.row'
-    result_name_slug_selector = '.post-title a'
-    result_cover_selector = '.tab-thumb img'
+
+    chapters_list_selector = '#manga-chapters-holder'
+    chapters_selector = '.wp-manga-chapter'
+    chapters_slug_range = (-2, -1)
+    chapters_order = 'desc'
 
     def __init__(self):
         self.api_url = self.base_url + '/wp-admin/admin-ajax.php'
@@ -204,7 +209,10 @@ class Madara(Server):
             soup = BeautifulSoup(r.text, 'lxml')
 
         elements = soup.select(self.chapters_selector)
-        for element in reversed(elements):
+        if self.chapters_order == 'desc':
+            elements = reversed(elements)
+
+        for element in elements:
             if element.select_one('i.fa-lock'):
                 # Skip premium chapter (LeviatanScans ES for ex.)
                 continue
@@ -252,7 +260,7 @@ class Madara(Server):
         data = dict(
             pages=[],
         )
-        for img_element in soup.select_one('.read-container, .reading-content').select('img'):
+        for index, img_element in enumerate(soup.select_one('.read-container, .reading-content').select('img')):
             if img_element.parent.name == 'noscript':
                 # In case server uses a second <img> encapsulated in a <noscript> element
                 continue
@@ -266,6 +274,7 @@ class Madara(Server):
             data['pages'].append(dict(
                 slug=None,
                 image=img_url.strip(),
+                index=index + 1,
             ))
 
         return data
@@ -291,7 +300,7 @@ class Madara(Server):
         return dict(
             buffer=r.content,
             mime_type=mime_type,
-            name=page['image'].split('/')[-1],
+            name='{0:03d}.{1}'.format(page['index'], mime_type.split('/')[-1]),
         )
 
     def get_manga_url(self, slug, url):

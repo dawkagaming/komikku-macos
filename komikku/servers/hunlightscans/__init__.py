@@ -12,3 +12,4 @@ class Hunlightscans(Madara):
 
     base_url = 'https://hunlight.com'
     chapters_url = base_url + '/manga/{0}/ajax/chapters/'
+    chapters_order = 'asc'
