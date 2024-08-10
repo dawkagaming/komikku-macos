@@ -316,7 +316,7 @@ class Coloredcouncil(Server):
             last_chapter_title = None
             if item.get('chapters'):
                 last = item['chapters'][-1]
-                last_chapter_title = f'{last["number"]} - {last['title']}' if last['title'] else last['number']
+                last_chapter_title = f'{last["number"]} - {last["title"]}' if last['title'] else last['number']
 
             data = dict(
                 slug=item['id'],
