@@ -507,15 +507,17 @@ available in your region/language."""))
         # Override release notes
         dialog.set_release_notes("""
             <ul>
-                <li>[Servers] Improved webview to complete Cloudflare challenges</li>
-                <li>[Servers] Improved webview to support Google ReCAPTCHA completion</li>
-                <li>[Servers] ComicExtra (EN): Update</li>
-                <li>[Servers] Manga-Scantrad (FR): Update</li>
-                <li>[Servers] Mode Scanlator (pt_BR): Update</li>
-                <li>[Servers] Read Comic Online (EN): Update</li>
-                <li>[Servers] Asura Scans (EN): Disabled</li>
-                <li>[Servers] Mangas Origines (FR): Disabled</li>
-                <li>[L10n] Updated French and Ukrainian translations</li>
+                <li>[Card] Disabled `Resume` on empty chapters list</li>
+                <li>[Reader] Changed interpolation method used to resize images</li>
+                <li>[Reader] Improved `Resume`</li>
+                <li>[Servers] Asura Scans (EN): Re-enabled</li>
+                <li>[Servers] Colored Manga (EN): Re-enabled</li>
+                <li>[Servers] Asura Scans (EN): Update</li>
+                <li>[Servers] Hunlight Scans (EN): Update</li>
+                <li>[Servers] Manga Scan (FR): Update</li>
+                <li>[Servers] Reaper Scans (EN): Update</li>
+                <li>[Servers] Team-X (AR): Update</li>
+                <li>[Servers] Komga: Fixed synchronization</li>
             </ul>
             <p>Happy reading.</p>
         """)

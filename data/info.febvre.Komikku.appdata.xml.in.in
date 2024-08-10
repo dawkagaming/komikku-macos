@@ -98,6 +98,24 @@
     <url type="donation">https://valos.gitlab.io/Komikku/#sponsor</url>
 
     <releases>
+        <release version="1.53.0" date="2024-08-10">
+            <description translate="no">
+                <ul>
+                    <li>[Card] Disabled `Resume` on empty chapters list</li>
+                    <li>[Reader] Changed interpolation method used to resize images</li>
+                    <li>[Reader] Improved `Resume`</li>
+                    <li>[Servers] Asura Scans (EN): Re-enabled</li>
+                    <li>[Servers] Colored Manga (EN): Re-enabled</li>
+                    <li>[Servers] Asura Scans (EN): Update</li>
+                    <li>[Servers] Hunlight Scans (EN): Update</li>
+                    <li>[Servers] Manga Scan (FR): Update</li>
+                    <li>[Servers] Reaper Scans (EN): Update</li>
+                    <li>[Servers] Team-X (AR): Update</li>
+                    <li>[Servers] Komga: Fixed synchronization</li>
+                </ul>
+                <p>Happy reading.</p>
+            </description>
+        </release>
         <release version="1.52.0" date="2024-08-02">
             <description translate="no">
                 <ul>
