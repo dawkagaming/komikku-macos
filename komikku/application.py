@@ -680,7 +680,10 @@ available in your region/language."""))
 
         self.notification_active = True
 
-        self.notification_revealer.set_margin_top(self.library.get_child().get_top_bar_height())
+        if self.is_fullscreen():
+            self.notification_revealer.set_margin_top(0)
+        else:
+            self.notification_revealer.set_margin_top(self.library.get_child().get_top_bar_height())
 
         notification = self.notification_queue.pop()
         self.notification_label.set_text(notification['message'])
