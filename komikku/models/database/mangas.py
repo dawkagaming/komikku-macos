@@ -704,17 +704,17 @@ class Chapter:
 
         page = self.pages[index]
 
+        # Get image name
         if page.get('name'):
             name = page['name']
 
-        elif page.get('image'):
-            # Extract filename
+        elif page.get('image') and page['image'].split('/')[-1]:
+            # Extract from URL (relative or absolute)
             name = page['image'].split('/')[-1]
             # Remove query string
             name = name.split('?')[0]
 
-        elif page.get('slug'):
-            # Extract filename
+        elif page.get('slug') and page['slug'].split('/')[-1]:
             name = page['slug'].split('/')[-1]
 
         else:
