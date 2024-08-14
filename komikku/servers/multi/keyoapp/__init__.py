@@ -4,6 +4,7 @@
 
 # Supported servers:
 # Anteiku Scans [FR]
+# ED Scanlation [FR]
 # Starbound Scans [FR]
 
 import logging
