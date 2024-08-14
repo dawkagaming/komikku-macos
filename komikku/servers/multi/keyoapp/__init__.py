@@ -86,8 +86,8 @@ class Keyoapp(Server):
         if element := soup.select_one('div[style*="--photoURL"]'):
             url = element.get('style').split('url')[-1][1:-1]
             data['cover'] = url
-        if element := soup.select_one('div[style*="--posterurl"]'):
-            url = element.get('style').split('url')[-1][1:-1]
+        elif element := soup.select_one('div[style*="--posterurl"]'):
+            url = element.get('style').split(';')[0].split('url')[-1][1:-1]
             data['cover'] = url
 
         # Details
