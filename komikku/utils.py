@@ -75,7 +75,11 @@ def expand_and_resize_cover(buffer):
 
         return Image.alpha_composite(background, img)
 
-    img = Image.open(BytesIO(buffer))
+    try:
+        img = Image.open(BytesIO(buffer))
+    except Exception as exc:
+        logger.error('Failed to open image (Pillow)', exc_info=exc)
+        return None
 
     if img.format == 'GIF' and img.is_animated:
         return buffer
