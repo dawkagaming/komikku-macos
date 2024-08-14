@@ -5,6 +5,7 @@
 # Supported servers:
 # Anteiku Scans [FR]
 # ED Scanlation [FR]
+# EZmanga [EN]
 # Starbound Scans [FR]
 
 import logging
