@@ -3,6 +3,7 @@
 # Author: Valéry Febvre <vfebvre@easter-eggs.com>
 
 # Supported servers:
+# Anteiku Scans [FR]
 # Starbound Scans [FR]
 
 import logging
