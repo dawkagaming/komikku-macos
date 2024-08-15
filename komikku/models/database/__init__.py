@@ -18,7 +18,7 @@ from komikku.utils import is_flatpak
 
 logger = logging.getLogger(__name__)
 
-VERSION = 12
+VERSION = 13
 
 
 def adapt_json(data):
@@ -173,6 +173,7 @@ def init_db():
         page_numbering integer,
         reading_mode text,
         scaling text,
+        scaling_filter text,
         sort_order text,
         last_read timestamp,
         last_update timestamp,
@@ -307,7 +308,7 @@ def init_db():
             )
             res = True
             for new, old in ids_mapping.items():
-                res &= execute_sql(db_conn, f"UPDATE mangas SET server_id = '{new}' WHERE server_id = '{old}';")
+                res &= execute_sql(db_conn, f"UPDATE mangas SET server_id = '{new}' WHERE server_id = '{old}';")  # noqa: E702, E231
 
             if res:
                 db_conn.execute('PRAGMA user_version = {0}'.format(8))
@@ -358,6 +359,11 @@ def init_db():
             execute_sql(db_conn, 'ALTER TABLE mangas ADD COLUMN in_library integer;')
             execute_sql(db_conn, 'UPDATE mangas SET in_library = 1;')
             db_conn.execute('PRAGMA user_version = {0}'.format(12))
+
+        if 0 < db_version <= 12:
+            # Version 1.54.0
+            execute_sql(db_conn, 'ALTER TABLE mangas ADD COLUMN scaling_filter text;')
+            db_conn.execute('PRAGMA user_version = {0}'.format(13))
 
         logger.info('DB version {0}'.format(db_conn.execute('PRAGMA user_version').fetchone()[0]))
 

@@ -456,6 +456,34 @@ class Settings(Gio.Settings):
             self.set_enum('scaling', 3)
 
     @property
+    def scaling_filter(self):
+        """Return the pages' scaling filter in reader"""
+        value = self.scaling_filter_value
+
+        if value == 0:
+            return 'linear'
+        if value == 1:
+            return 'trilinear'
+
+    @property
+    def scaling_filter_value(self):
+        """Return the pages' scaling filter value in reader"""
+        return self.get_enum('scaling-filter')
+
+    @scaling_filter.setter
+    def scaling_filter(self, value):
+        """
+        Set the pages' scaling filter in reader
+
+        :param value: pages' scaling_filter
+        :type value: string
+        """
+        if value == 'linear':
+            self.set_enum('scaling-filter', 0)
+        elif value == 'trilinear':
+            self.set_enum('scaling-filter', 1)
+
+    @property
     def selected_category(self):
         return self.get_int('selected-category')
 

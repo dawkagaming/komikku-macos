@@ -33,6 +33,10 @@
         <value nick="height" value="2" />
         <value nick="original" value="3" />
     </enum>
+    <enum id="@appid@.ScalingFilter">
+        <value nick="linear" value="0" />
+        <value nick="trilinear" value="1" />
+    </enum>
     <schema path="/@apppath@/" id="@appid@" gettext-domain="@projectname@">
         <key type="ai" name="window-size">
             <default>[720, 600]</default>
@@ -198,8 +202,13 @@
         </key>
         <key enum="@appid@.Scaling" name="scaling">
             <default>"screen"</default>
-            <summary>Type of Scaling</summary>
-            <description>Image adjustment</description>
+            <summary>Scaling</summary>
+            <description>Images adjustment</description>
+        </key>
+        <key enum="@appid@.ScalingFilter" name="scaling-filter">
+            <default>"linear"</default>
+            <summary>Scaling Filter</summary>
+            <description>Interpolation method used when scaling images</description>
         </key>
 
         <!-- Preferences: Advanced -->

@@ -121,6 +121,10 @@ class ReaderPage(Adw.NavigationPage):
         return self.manga.scaling or Settings.get_default().scaling
 
     @property
+    def scaling_filter(self):
+        return self.manga.scaling_filter or Settings.get_default().scaling_filter
+
+    @property
     def size(self):
         size = self.window.get_allocation()
 
@@ -144,6 +148,12 @@ class ReaderPage(Adw.NavigationPage):
         self.scaling_action = Gio.SimpleAction.new_stateful('reader.scaling', variant.get_type(), variant)
         self.scaling_action.connect('activate', self.on_scaling_changed)
         self.window.application.add_action(self.scaling_action)
+
+        # Scaling filter
+        variant = GLib.Variant.new_string('linear')
+        self.scaling_filter_action = Gio.SimpleAction.new_stateful('reader.scaling-filter', variant.get_type(), variant)
+        self.scaling_filter_action.connect('activate', self.on_scaling_filter_changed)
+        self.window.application.add_action(self.scaling_filter_action)
 
         # Landscape Pages Zoom
         self.landscape_zoom_action = Gio.SimpleAction.new_stateful('reader.landscape-zoom', None, GLib.Variant('b', False))
@@ -181,6 +191,7 @@ class ReaderPage(Adw.NavigationPage):
         # Init settings
         self.set_action_reading_mode()
         self.set_action_scaling()
+        self.set_action_scaling_filter()
         self.set_action_landscape_zoom()
         self.set_action_borders_crop()
         self.set_action_page_numbering()
@@ -312,6 +323,16 @@ class ReaderPage(Adw.NavigationPage):
 
         self.pager.rescale_pages()
 
+    def on_scaling_filter_changed(self, _action, variant):
+        value = variant.get_string()
+        if value == self.scaling:
+            return
+
+        self.manga.update(dict(scaling_filter=value))
+        self.set_action_scaling_filter()
+
+        self.pager.rescale_pages()
+
     def on_shown(self, _page):
         def do_init_pager():
             if self.window.last_navigation_action != 'push':
@@ -396,7 +417,7 @@ class ReaderPage(Adw.NavigationPage):
         self.scaling_action.set_enabled(self.reading_mode != 'webtoon')
         # Landscape pages zoom is enabled in RTL/LTR/Vertical reading modes only and when scaling is 'screen'
         self.landscape_zoom_action.set_enabled(self.reading_mode != 'webtoon' and self.scaling == 'screen')
-        # Borders crop is enabled in RTL/LTR/Vertical reading mode only
+        # Borders crop is enabled in RTL/LTR/Vertical reading modes only
         self.borders_crop_action.set_enabled(self.reading_mode != 'webtoon')
 
         # Additionally, direction of page slider in controls must be updated
@@ -407,6 +428,9 @@ class ReaderPage(Adw.NavigationPage):
 
         # Landscape pages zoom is enabled in RTL/LTR/Vertical reading modes only and when scaling is 'screen'
         self.landscape_zoom_action.set_enabled(self.reading_mode != 'webtoon' and self.scaling == 'screen')
+
+    def set_action_scaling_filter(self, scaling_filter=None):
+        self.scaling_filter_action.set_state(GLib.Variant('s', scaling_filter or self.scaling_filter))
 
     def set_orientation(self):
         if self.reading_mode in ('right-to-left', 'left-to-right'):

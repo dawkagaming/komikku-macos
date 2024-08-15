@@ -41,7 +41,7 @@ class KImage(Gtk.Widget, Gtk.Scrollable):
         'zoom-end': (GObject.SignalFlags.RUN_FIRST, None, ()),
     }
 
-    def __init__(self, path, data, texture, pixbuf, scaling='screen', crop=False, landscape_zoom=False, can_zoom=False):
+    def __init__(self, path, data, texture, pixbuf, scaling='screen', scaling_filter='linear', crop=False, landscape_zoom=False, can_zoom=False):
         super().__init__()
 
         self.__rendered = False
@@ -50,6 +50,7 @@ class KImage(Gtk.Widget, Gtk.Scrollable):
         self.__hadj = None
         self.__landscape_zoom = self.__can_zoom and landscape_zoom
         self.__scaling = scaling
+        self.__scaling_filter = scaling_filter
         self.__vadj = None
         self.__zoom = 1
 
@@ -109,7 +110,7 @@ class KImage(Gtk.Widget, Gtk.Scrollable):
             self.animation_tick_callback_id = self.add_tick_callback(self.__animation_tick_callback)
 
     @classmethod
-    def new_from_data(cls, data, scaling='screen', crop=False, landscape_zoom=False, can_zoom=False, static_animation=False):
+    def new_from_data(cls, data, scaling='screen', scaling_filter='linear', crop=False, landscape_zoom=False, can_zoom=False, static_animation=False):
         mime_type, _result_uncertain = Gio.content_type_guess(None, data)
         if not mime_type:
             return None
@@ -127,10 +128,10 @@ class KImage(Gtk.Widget, Gtk.Scrollable):
             # Invalid image, corrupted image, unsupported image format,...
             return None
 
-        return cls(None, data, texture, pixbuf, scaling=scaling, crop=crop, landscape_zoom=landscape_zoom, can_zoom=can_zoom)
+        return cls(None, data, texture, pixbuf, scaling=scaling, scaling_filter=scaling_filter, crop=crop, landscape_zoom=landscape_zoom, can_zoom=can_zoom)
 
     @classmethod
-    def new_from_file(cls, path, scaling='screen', crop=False, landscape_zoom=False, can_zoom=False, static_animation=False):
+    def new_from_file(cls, path, scaling='screen', scaling_filter='linear', crop=False, landscape_zoom=False, can_zoom=False, static_animation=False):
         gfile = Gio.File.new_for_path(path)
         mime_type = gfile.query_info('standard::content-type', Gio.FileQueryInfoFlags.NONE, None).get_content_type()
         if not mime_type or not mime_type.startswith('image'):
@@ -147,7 +148,7 @@ class KImage(Gtk.Widget, Gtk.Scrollable):
             # Invalid image, corrupted image, unsupported image format,...
             return None
 
-        return cls(path, None, texture, pixbuf, scaling=scaling, crop=crop, landscape_zoom=landscape_zoom, can_zoom=can_zoom)
+        return cls(path, None, texture, pixbuf, scaling=scaling, scaling_filter=scaling_filter, crop=crop, landscape_zoom=landscape_zoom, can_zoom=can_zoom)
 
     @classmethod
     def new_from_resource(cls, path):
@@ -186,6 +187,7 @@ class KImage(Gtk.Widget, Gtk.Scrollable):
     def crop(self, value):
         if self.__crop == value or self.animation_iter:
             return
+
         self.__crop = value
         self.queue_resize()
 
@@ -197,6 +199,7 @@ class KImage(Gtk.Widget, Gtk.Scrollable):
     def hadjustment(self, adj):
         if not adj:
             return
+
         adj.connect('value-changed', lambda adj: self.queue_draw())
         self.__hadj = adj
         self.configure_adjustments()
@@ -245,6 +248,7 @@ class KImage(Gtk.Widget, Gtk.Scrollable):
     def landscape_zoom(self, value):
         if self.__landscape_zoom == value:
             return
+
         self.__landscape_zoom = value
         self.queue_resize()
 
@@ -270,7 +274,24 @@ class KImage(Gtk.Widget, Gtk.Scrollable):
     def scaling(self, value):
         if self.__scaling == value:
             return
+
         self.__scaling = value
+        self.queue_resize()
+
+    @GObject.Property(type=str, default='linear')
+    def scaling_filter(self):
+        """ Scaling filters:
+        - linear
+        - trilinear
+        """
+        return self.__scaling_filter
+
+    @scaling_filter.setter
+    def scaling_filter(self, value):
+        if self.__scaling_filter == value:
+            return
+
+        self.__scaling_filter = value
         self.queue_resize()
 
     @property
@@ -498,7 +519,7 @@ class KImage(Gtk.Widget, Gtk.Scrollable):
             # GSK renderer GL bug?
             filter = Gsk.ScalingFilter.NEAREST
         else:
-            filter = Gsk.ScalingFilter.LINEAR
+            filter = Gsk.ScalingFilter.LINEAR if self.scaling_filter == 'linear' else Gsk.ScalingFilter.TRILINEAR
         if scale_factor != 1:
             snapshot.scale(1 / scale_factor, 1 / scale_factor)
         snapshot.append_scaled_texture(self.texture_crop if self.crop else self.texture, filter, rect)

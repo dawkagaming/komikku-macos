@@ -240,6 +240,17 @@ template $PreferencesDialog : Adw.PreferencesDialog {
         };
       }
 
+      Adw.ComboRow scaling_filter_row {
+        title: _("Scaling Filter");
+        subtitle: _("Interpolation method used when scaling images");
+        model: StringList {
+          strings [
+            _("Linear"),
+            _("Trilinear"),
+          ]
+        };
+      }
+
       Adw.SwitchRow landscape_zoom_switch {
         title: _("Landscape Pages Zoom");
         subtitle: _("Zoom page to fit height when page is landscape (Adapt to Screen scaling only)");

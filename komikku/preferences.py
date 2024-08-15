@@ -44,6 +44,7 @@ class PreferencesDialog(Adw.PreferencesDialog):
     reading_mode_row = Gtk.Template.Child('reading_mode_row')
     clamp_size_adjustment = Gtk.Template.Child('clamp_size_adjustment')
     scaling_row = Gtk.Template.Child('scaling_row')
+    scaling_filter_row = Gtk.Template.Child('scaling_filter_row')
     landscape_zoom_switch = Gtk.Template.Child('landscape_zoom_switch')
     background_color_row = Gtk.Template.Child('background_color_row')
     borders_crop_switch = Gtk.Template.Child('borders_crop_switch')
@@ -262,6 +263,14 @@ class PreferencesDialog(Adw.PreferencesDialog):
         elif index == 3:
             self.settings.scaling = 'original'
 
+    def on_scaling_filter_changed(self, row, _gparam):
+        index = row.get_selected()
+
+        if index == 0:
+            self.settings.scaling_filter = 'linear'
+        elif index == 1:
+            self.settings.scaling_filter = 'trilinear'
+
     def on_update_at_startup_changed(self, switch_button, _gparam):
         if switch_button.get_active():
             self.settings.update_at_startup = True
@@ -360,6 +369,10 @@ class PreferencesDialog(Adw.PreferencesDialog):
         # Image scaling
         self.scaling_row.set_selected(self.settings.scaling_value)
         self.scaling_row.connect('notify::selected', self.on_scaling_changed)
+
+        # Image scaling filter
+        self.scaling_filter_row.set_selected(self.settings.scaling_filter_value)
+        self.scaling_filter_row.connect('notify::selected', self.on_scaling_filter_changed)
 
         # Landscape pages zoom ('LTR/RTL/Vertical' reading modes with 'Adapt to Screen' scaling only)
         self.landscape_zoom_switch.set_active(self.settings.landscape_zoom)

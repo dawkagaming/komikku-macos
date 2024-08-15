@@ -234,6 +234,7 @@ class Page(Gtk.Overlay):
             return
 
         self.picture.scaling = self.reader.scaling
+        self.picture.scaling_filter = self.reader.scaling_filter
         self.picture.landscape_zoom = self.reader.landscape_zoom
 
     def set_allow_zooming(self, allow):
@@ -252,11 +253,11 @@ class Page(Gtk.Overlay):
             can_zoom = self.scrollable
             if self.path:
                 picture = KImage.new_from_file(
-                    self.path, self.reader.scaling, self.reader.borders_crop, self.reader.landscape_zoom, can_zoom
+                    self.path, self.reader.scaling, self.reader.scaling_filter, self.reader.borders_crop, self.reader.landscape_zoom, can_zoom
                 )
             else:
                 picture = KImage.new_from_data(
-                    self.data['buffer'], self.reader.scaling, self.reader.borders_crop, self.reader.landscape_zoom, can_zoom
+                    self.data['buffer'], self.reader.scaling, self.reader.scaling_filter, self.reader.borders_crop, self.reader.landscape_zoom, can_zoom
                 )
 
         if (self.path is None and self.data is None) or picture is None:
