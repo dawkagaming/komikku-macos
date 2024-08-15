@@ -98,6 +98,21 @@
     <url type="donation">https://valos.gitlab.io/Komikku/#sponsor</url>
 
     <releases>
+        <release version="1.54.0" date="2024-08-16">
+            <description translate="no">
+                <ul>
+                    <li>[Preferences] Reader: Added `Scaling Filter` parameter</li>
+                    <li>Fixed in-app notification position in fullscreen</li>
+                    <li>[Servers] Added Anteiku Scans (FR</li>
+                    <li>[Servers] Added ED Scanlation (FR)</li>
+                    <li>[Servers] Added EZmanga (EN)</li>
+                    <li>[Servers] Added Kewn Scans (EN)</li>
+                    <li>[Servers] Added Starbound Scans (FR)</li>
+                    <li>[L10n] Updated French translation</li>
+                </ul>
+                <p>Happy reading.</p>
+            </description>
+        </release>
         <release version="1.53.0" date="2024-08-10">
             <description translate="no">
                 <ul>

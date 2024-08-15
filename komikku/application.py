@@ -507,17 +507,14 @@ available in your region/language."""))
         # Override release notes
         dialog.set_release_notes("""
             <ul>
-                <li>[Card] Disabled `Resume` on empty chapters list</li>
-                <li>[Reader] Changed interpolation method used to resize images</li>
-                <li>[Reader] Improved `Resume`</li>
-                <li>[Servers] Asura Scans (EN): Re-enabled</li>
-                <li>[Servers] Colored Manga (EN): Re-enabled</li>
-                <li>[Servers] Asura Scans (EN): Update</li>
-                <li>[Servers] Hunlight Scans (EN): Update</li>
-                <li>[Servers] Manga Scan (FR): Update</li>
-                <li>[Servers] Reaper Scans (EN): Update</li>
-                <li>[Servers] Team-X (AR): Update</li>
-                <li>[Servers] Komga: Fixed synchronization</li>
+                <li>[Preferences] Reader: Added `Scaling Filter` parameter</li>
+                <li>Fixed in-app notification position in fullscreen</li>
+                <li>[Servers] Added Anteiku Scans (FR</li>
+                <li>[Servers] Added ED Scanlation (FR)</li>
+                <li>[Servers] Added EZmanga (EN)</li>
+                <li>[Servers] Added Kewn Scans (EN)</li>
+                <li>[Servers] Added Starbound Scans (FR)</li>
+                <li>[L10n] Updated French translation</li>
             </ul>
             <p>Happy reading.</p>
         """)
