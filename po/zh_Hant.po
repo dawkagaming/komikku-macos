@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Komikku 1.25.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-06-08 01:47+0200\n"
+"POT-Creation-Date: 2024-08-15 23:02+0200\n"
 "PO-Revision-Date: 2024-05-07 02:07+0000\n"
 "Last-Translator: happylittle7 <Lance20501@gmail.com>\n"
 "Language-Team: Chinese (Traditional) <https://hosted.weblate.org/projects/"
@@ -354,23 +354,19 @@ msgstr "支援"
 msgid "About Komikku"
 msgstr "關於 Komikku"
 
-#: ../data/ui/menu/reader.xml:35
-msgid "Type of Scaling"
-msgstr "縮放方式"
-
-#: ../data/ui/menu/reader.xml:91
+#: ../data/ui/menu/reader.xml:109
 msgid "Zoom Landscape Pages"
 msgstr "縮放橫向頁"
 
-#: ../data/ui/menu/reader.xml:95
+#: ../data/ui/menu/reader.xml:113
 msgid "Crop Borders"
 msgstr "切割邊緣"
 
-#: ../data/ui/menu/reader.xml:99
+#: ../data/ui/menu/reader.xml:117
 msgid "Hide Page Numbering"
 msgstr "隠藏頁數"
 
-#: ../data/ui/menu/reader.xml:106
+#: ../data/ui/menu/reader.xml:124
 msgid "Save Page"
 msgstr "存儲頁面"
 
@@ -591,39 +587,55 @@ msgid "Original Size"
 msgstr "原始尺寸"
 
 #: ../data/ui/preferences.blp:244
+msgid "Scaling Filter"
+msgstr ""
+
+#: ../data/ui/preferences.blp:245
+msgid "Interpolation method used when scaling images"
+msgstr ""
+
+#: ../data/ui/preferences.blp:248
+msgid "Linear"
+msgstr ""
+
+#: ../data/ui/preferences.blp:249
+msgid "Trilinear"
+msgstr ""
+
+#: ../data/ui/preferences.blp:255
 msgid "Landscape Pages Zoom"
 msgstr "橫向頁面縮放"
 
-#: ../data/ui/preferences.blp:245
+#: ../data/ui/preferences.blp:256
 msgid ""
 "Zoom page to fit height when page is landscape (Adapt to Screen scaling only)"
 msgstr "橫向頁面時縮放頁面以適應高度（僅適應熒幕時）"
 
-#: ../data/ui/preferences.blp:249
+#: ../data/ui/preferences.blp:260
 msgid "Background Color"
 msgstr "背景顏色"
 
-#: ../data/ui/preferences.blp:252
+#: ../data/ui/preferences.blp:263
 msgid "White"
 msgstr "白色"
 
-#: ../data/ui/preferences.blp:253
+#: ../data/ui/preferences.blp:264
 msgid "Gray"
 msgstr "灰色"
 
-#: ../data/ui/preferences.blp:254
+#: ../data/ui/preferences.blp:265
 msgid "Black"
 msgstr "黑色"
 
-#: ../data/ui/preferences.blp:255
+#: ../data/ui/preferences.blp:266
 msgid "System Style"
 msgstr "跟隨系統"
 
-#: ../data/ui/preferences.blp:261
+#: ../data/ui/preferences.blp:272
 msgid "Borders Crop"
 msgstr "邊框裁剪"
 
-#: ../data/ui/preferences.blp:262
+#: ../data/ui/preferences.blp:273
 msgid ""
 "Crop white borders of images\n"
 "\n"
@@ -635,85 +647,85 @@ msgstr ""
 "注意：將消耗更多的處理器資源，有可能會造成動畫或者渲染緩慢，尤其是對於行動設"
 "備。"
 
-#: ../data/ui/preferences.blp:266
+#: ../data/ui/preferences.blp:277
 msgid "Page Numbering"
 msgstr "頁碼"
 
-#: ../data/ui/preferences.blp:267
+#: ../data/ui/preferences.blp:278
 msgid "Hide the page numbering at the bottom of the screen while reading"
 msgstr "在閱讀時隠藏熒幕下方的頁碼"
 
-#: ../data/ui/preferences.blp:271
+#: ../data/ui/preferences.blp:282
 msgid "Fullscreen"
 msgstr "全熒幕"
 
-#: ../data/ui/preferences.blp:272
+#: ../data/ui/preferences.blp:283
 msgid "Automatically enter fullscreen mode"
 msgstr "自動進入全熒幕模式"
 
-#: ../data/ui/preferences.blp:279
+#: ../data/ui/preferences.blp:290
 msgid "Advanced"
 msgstr "進階"
 
-#: ../data/ui/preferences.blp:283
+#: ../data/ui/preferences.blp:294
 msgid "Data"
 msgstr ""
 
-#: ../data/ui/preferences.blp:284
+#: ../data/ui/preferences.blp:295
 msgid "Data not saved in the library"
 msgstr ""
 
-#: ../data/ui/preferences.blp:287
+#: ../data/ui/preferences.blp:298
 msgid "Clear Chapters Cache and Database"
 msgstr "清除章節快取和資料庫"
 
-#: ../data/ui/preferences.blp:292
+#: ../data/ui/preferences.blp:303
 msgid "Clear Chapters Cache and Database on Exit"
 msgstr "在退出時清除章節快取和資料庫"
 
-#: ../data/ui/preferences.blp:297
+#: ../data/ui/preferences.blp:308
 msgid "Servers Modules"
 msgstr ""
 
-#: ../data/ui/preferences.blp:300
+#: ../data/ui/preferences.blp:311
 msgid "Use Up-to-date Servers Modules"
 msgstr ""
 
-#: ../data/ui/preferences.blp:301
+#: ../data/ui/preferences.blp:312
 msgid ""
 "An alternative version of the servers modules, installed from the source "
 "code repository and updated at each startup, is used instead of the one "
 "delivered with the application."
 msgstr ""
 
-#: ../data/ui/preferences.blp:306
+#: ../data/ui/preferences.blp:317
 msgid "Credentials Storage"
 msgstr "憑證儲存"
 
-#: ../data/ui/preferences.blp:309
+#: ../data/ui/preferences.blp:320
 msgid "Allow Plaintext Storage as Fallback"
 msgstr "允許使用明文作為候補方案"
 
-#: ../data/ui/preferences.blp:310
+#: ../data/ui/preferences.blp:321
 msgid "Used when no keyring backends are found"
 msgstr "當找不到金鑰環後端時使用"
 
-#: ../data/ui/preferences.blp:315
+#: ../data/ui/preferences.blp:326
 msgid "Tweaks"
 msgstr "調教"
 
-#: ../data/ui/preferences.blp:318
+#: ../data/ui/preferences.blp:329
 msgid "Disable Animations"
 msgstr "禁用動畫"
 
-#: ../data/ui/preferences.blp:319
+#: ../data/ui/preferences.blp:330
 msgid ""
 "Useful with E Ink e-readers to avoid very choppy and unpleasant animations "
 "(due to the low refresh rate of the screen)"
 msgstr ""
 "對於 E-Ink 設備很有用，可以防止卡頓和令人不快的動畫表現（由於熒幕的低更新率）"
 
-#: ../data/ui/preferences.blp:323
+#: ../data/ui/preferences.blp:334
 msgid ""
 "This tweak is only intended for users who do not use the GNOME desktop "
 "environment and therefore cannot disable animations globally via GNOME "
@@ -845,41 +857,41 @@ msgstr ""
 msgid "Webview"
 msgstr ""
 
-#: ../komikku/application.py:170
+#: ../komikku/application.py:173
 msgid "Multiple URLs not supported"
 msgstr ""
 
-#: ../komikku/application.py:186
+#: ../komikku/application.py:189
 msgid "Invalid URL {}, not handled by any server."
 msgstr ""
 
-#: ../komikku/application.py:372 ../komikku/card/__init__.py:142
-#: ../komikku/card/__init__.py:143 ../komikku/categories_editor.py:188
+#: ../komikku/application.py:394 ../komikku/card/__init__.py:139
+#: ../komikku/card/__init__.py:140 ../komikku/categories_editor.py:188
 #: ../komikku/downloader.py:377 ../komikku/downloader.py:378
 #: ../komikku/library/__init__.py:771 ../komikku/library/__init__.py:772
 msgid "Cancel"
 msgstr ""
 
-#: ../komikku/application.py:405
+#: ../komikku/application.py:430
 msgid "Servers modules have been updated"
 msgstr ""
 
-#: ../komikku/application.py:413
+#: ../komikku/application.py:438
 msgid "External Servers Modules Update"
 msgstr ""
 
-#: ../komikku/application.py:414
+#: ../komikku/application.py:439
 msgid ""
 "Updating of external server modules is temporarily suspended, as changes are "
 "currently making them incompatible with the current version of the "
 "application. Please update it if a more recent version exists."
 msgstr ""
 
-#: ../komikku/application.py:417 ../komikku/explorer/common.py:272
+#: ../komikku/application.py:442 ../komikku/explorer/common.py:272
 msgid "Close"
 msgstr ""
 
-#: ../komikku/application.py:469
+#: ../komikku/application.py:494
 msgid ""
 "A manga, manhwa, manhua, webtoons, webcomics and comics reader for GNOME\n"
 "\n"
@@ -891,35 +903,35 @@ msgstr ""
 "\n"
 "👉 不要忘記，你可以通過購買正版漫畫來支援作者。"
 
-#: ../komikku/application.py:478
+#: ../komikku/application.py:503
 msgid "Supporters"
 msgstr ""
 
-#: ../komikku/application.py:480
+#: ../komikku/application.py:505
 msgid "Join Chat"
 msgstr ""
 
-#: ../komikku/application.py:607
+#: ../komikku/application.py:620
 msgid "Are you sure you want to quit?"
 msgstr ""
 
-#: ../komikku/application.py:610
+#: ../komikku/application.py:623
 msgid "Some chapters are currently being downloaded."
 msgstr ""
 
-#: ../komikku/application.py:612
+#: ../komikku/application.py:625
 msgid "Some mangas are currently being updated."
 msgstr "有漫畫正在更新中。"
 
-#: ../komikku/application.py:616
+#: ../komikku/application.py:629
 msgid "Quit?"
 msgstr "退出？"
 
-#: ../komikku/application.py:618
+#: ../komikku/application.py:631
 msgid "Quit"
 msgstr "退出"
 
-#: ../komikku/card/__init__.py:257
+#: ../komikku/card/__init__.py:254
 msgid "Read progress synchronization with server completed successfully"
 msgstr "成功與伺服器同步讀取進度"
 
@@ -927,7 +939,7 @@ msgstr "成功與伺服器同步讀取進度"
 msgid "Failed to get manga URL"
 msgstr "無法取得漫畫地址"
 
-#: ../komikku/card/__init__.py:293
+#: ../komikku/card/__init__.py:285
 #, python-brace-format
 msgid ""
 "NOTICE\n"
@@ -935,19 +947,27 @@ msgid ""
 "Please switch to another server."
 msgstr ""
 
-#: ../komikku/card/__init__.py:429
+#: ../komikku/card/__init__.py:356 ../komikku/card/chapters_list.py:682
+msgid "Clear and Reset"
+msgstr ""
+
+#: ../komikku/card/__init__.py:356 ../komikku/card/chapters_list.py:682
+msgid "Reset"
+msgstr ""
+
+#: ../komikku/card/__init__.py:442
 msgid "Unknown author"
 msgstr "未知作者"
 
-#: ../komikku/card/__init__.py:435 ../komikku/card/__init__.py:444
+#: ../komikku/card/__init__.py:448 ../komikku/card/__init__.py:457
 msgid "Unknown status"
 msgstr "未知狀態"
 
-#: ../komikku/card/__init__.py:445 ../komikku/explorer/common.py:226
+#: ../komikku/card/__init__.py:458 ../komikku/explorer/common.py:226
 msgid "Local"
 msgstr "本機"
 
-#: ../komikku/card/__init__.py:471 ../komikku/card/chapters_list.py:607
+#: ../komikku/card/__init__.py:484 ../komikku/card/chapters_list.py:611
 msgid "%m/%d/%Y"
 msgstr ""
 
@@ -959,39 +979,31 @@ msgid_plural "{0} selected"
 msgstr[0] ""
 msgstr[1] ""
 
-#: ../komikku/card/chapters_list.py:381 ../komikku/card/chapters_list.py:476
+#: ../komikku/card/chapters_list.py:385 ../komikku/card/chapters_list.py:480
 msgid "Failed to update chapters reading status"
 msgstr ""
 
-#: ../komikku/card/chapters_list.py:664 ../komikku/library/__init__.py:398
+#: ../komikku/card/chapters_list.py:668 ../komikku/library/__init__.py:391
 msgid "Download"
 msgstr ""
 
-#: ../komikku/card/chapters_list.py:674 ../komikku/preferences.py:131
+#: ../komikku/card/chapters_list.py:678 ../komikku/preferences.py:132
 msgid "Clear"
 msgstr ""
 
-#: ../komikku/card/chapters_list.py:678
-msgid "Clear and Reset"
-msgstr ""
-
-#: ../komikku/card/chapters_list.py:678
-msgid "Reset"
-msgstr ""
-
-#: ../komikku/card/chapters_list.py:688
+#: ../komikku/card/chapters_list.py:692
 msgid "Mark as Read"
 msgstr ""
 
-#: ../komikku/card/chapters_list.py:692
+#: ../komikku/card/chapters_list.py:696
 msgid "Mark as Unread"
 msgstr ""
 
-#: ../komikku/card/chapters_list.py:696
+#: ../komikku/card/chapters_list.py:700
 msgid "Mark Previous Chapters as Read"
 msgstr ""
 
-#: ../komikku/categories_editor.py:77 ../komikku/library/__init__.py:372
+#: ../komikku/categories_editor.py:77 ../komikku/library/__init__.py:365
 msgid "Delete?"
 msgstr ""
 
@@ -1003,7 +1015,7 @@ msgid ""
 msgstr ""
 
 #: ../komikku/categories_editor.py:79 ../komikku/categories_editor.py:177
-#: ../komikku/library/__init__.py:374
+#: ../komikku/library/__init__.py:367
 msgid "Delete"
 msgstr ""
 
@@ -1056,8 +1068,8 @@ msgstr ""
 msgid "Comics stored locally as archives in CBZ/CBR formats"
 msgstr ""
 
-#: ../komikku/explorer/common.py:244 ../komikku/preferences.py:559
-#: ../komikku/preferences.py:653 ../komikku/servers/mangatube/__init__.py:57
+#: ../komikku/explorer/common.py:244 ../komikku/preferences.py:560
+#: ../komikku/preferences.py:654 ../komikku/servers/mangatube/__init__.py:57
 msgid "18+"
 msgstr ""
 
@@ -1105,19 +1117,19 @@ msgstr ""
 msgid "Oops, server website URL is unknown."
 msgstr "糟糕，伺服器頁面 URL 未知。"
 
-#: ../komikku/explorer/search/__init__.py:361
+#: ../komikku/explorer/search/__init__.py:374
 msgid "Search {}"
 msgstr "搜索 {}"
 
-#: ../komikku/explorer/search/__init__.py:363
+#: ../komikku/explorer/search/__init__.py:376
 msgid "Search for Reading"
 msgstr ""
 
-#: ../komikku/explorer/search/__init__.py:365
+#: ../komikku/explorer/search/__init__.py:378
 msgid "Empty search is allowed."
 msgstr "允許進行空搜尋。"
 
-#: ../komikku/explorer/search/__init__.py:367
+#: ../komikku/explorer/search/__init__.py:380
 #, fuzzy
 msgid ""
 "Alternatively, you can look up specific comics using the syntax:\n"
@@ -1128,19 +1140,19 @@ msgstr ""
 "\n"
 "<b>id:ID from comic URL</b>"
 
-#: ../komikku/explorer/search/__init__.py:395
+#: ../komikku/explorer/search/__init__.py:408
 msgid "Global Search"
 msgstr "全域搜尋"
 
-#: ../komikku/explorer/search/__init__.py:397
+#: ../komikku/explorer/search/__init__.py:410
 msgid "Search globally by name"
 msgstr "按名稱全域搜尋"
 
-#: ../komikku/explorer/search/__init__.py:399
+#: ../komikku/explorer/search/__init__.py:412
 msgid "Search for Comics"
 msgstr "搜尋漫畫"
 
-#: ../komikku/explorer/search/__init__.py:475
+#: ../komikku/explorer/search/__init__.py:488
 msgid "Oops, failed to retrieve manga's information."
 msgstr "糟糕，未能檢索到漫畫資訊。"
 
@@ -1208,27 +1220,27 @@ msgstr ""
 msgid "Resume"
 msgstr ""
 
-#: ../komikku/library/__init__.py:368
+#: ../komikku/library/__init__.py:361
 msgid "Are you sure you want to delete this manga?"
 msgstr "你確定要刪除此漫畫嗎？"
 
-#: ../komikku/library/__init__.py:370
+#: ../komikku/library/__init__.py:363
 msgid "Are you sure you want to delete selected mangas?"
 msgstr "你確定要刪除已選中的漫畫嗎？"
 
-#: ../komikku/library/__init__.py:394
+#: ../komikku/library/__init__.py:387
 msgid "Are you sure you want to download all chapters of selected mangas?"
 msgstr "你確定要下載已選中漫畫的所有章節嗎？"
 
-#: ../komikku/library/__init__.py:396
+#: ../komikku/library/__init__.py:389
 msgid "Download?"
 msgstr "下載？"
 
-#: ../komikku/library/__init__.py:620
+#: ../komikku/library/__init__.py:613
 msgid "Welcome to Komikku"
 msgstr "歡迎來到 Komikku"
 
-#: ../komikku/library/__init__.py:628
+#: ../komikku/library/__init__.py:621
 msgid "Loading…"
 msgstr "載入中…"
 
@@ -1245,9 +1257,12 @@ msgid "Uncategorized"
 msgstr "未分類"
 
 #: ../komikku/library/categories_list.py:139
+#: ../komikku/servers/asurascans/__init__.py:38
 #: ../komikku/servers/bilibili/__init__.py:43
+#: ../komikku/servers/coloredcouncil/__init__.py:69
+#: ../komikku/servers/coloredcouncil/__init__.py:82
 #: ../komikku/servers/mangapill/__init__.py:36
-#: ../komikku/servers/multi/manga_stream/__init__.py:76
+#: ../komikku/servers/multi/manga_stream/__init__.py:75
 #: ../komikku/servers/webtoon/__init__.py:51
 msgid "All"
 msgstr "全部"
@@ -1290,19 +1305,19 @@ msgstr ""
 msgid "Hiatus"
 msgstr ""
 
-#: ../komikku/preferences.py:129
+#: ../komikku/preferences.py:130
 msgid "Clear?"
 msgstr "清理？"
 
-#: ../komikku/preferences.py:130
+#: ../komikku/preferences.py:131
 msgid "Are you sure you want to clear chapters cache and database?"
 msgstr "確定要清除章節快取與資料庫嗎？"
 
-#: ../komikku/preferences.py:158
+#: ../komikku/preferences.py:159
 msgid "Disable animations?"
 msgstr "禁用動書？"
 
-#: ../komikku/preferences.py:159
+#: ../komikku/preferences.py:160
 msgid ""
 "Are you sure you want to disable animations?\n"
 "\n"
@@ -1312,60 +1327,52 @@ msgstr ""
 "\n"
 "手勢導航將不再可用。"
 
-#: ../komikku/preferences.py:160
+#: ../komikku/preferences.py:161
 msgid "Disable"
 msgstr "禁用"
 
-#: ../komikku/preferences.py:178
-msgid "Use up-to-date servers modules?"
-msgstr ""
-
-#: ../komikku/preferences.py:180
-msgid "Confirm"
-msgstr ""
-
-#: ../komikku/preferences.py:587
+#: ../komikku/preferences.py:588
 msgid "User Account"
 msgstr "帳戶"
 
-#: ../komikku/preferences.py:595
+#: ../komikku/preferences.py:596
 msgid "Address"
 msgstr "地址"
 
-#: ../komikku/preferences.py:601
+#: ../komikku/preferences.py:602
 msgid "Username"
 msgstr "用戶名"
 
-#: ../komikku/preferences.py:605
+#: ../komikku/preferences.py:606
 msgid "Password"
 msgstr "密碼"
 
-#: ../komikku/preferences.py:617
+#: ../komikku/preferences.py:618
 msgid "System keyring service is disabled. Credential cannot be saved."
 msgstr "系統金鑰環服務被禁用。無法儲存憑證。"
 
-#: ../komikku/preferences.py:622
+#: ../komikku/preferences.py:623
 msgid ""
 "No keyring backends were found to store credential. Use plaintext storage as "
 "fallback."
 msgstr "沒有金鑰環可用於存取憑證。作為替代使用明文儲存。"
 
-#: ../komikku/preferences.py:627
+#: ../komikku/preferences.py:628
 msgid ""
 "No keyring backends were found to store credential. Plaintext storage will "
 "be used as fallback."
 msgstr "沒有金鑰環可用於存取憑證。作為替代將使用明文儲存。"
 
-#: ../komikku/preferences.py:635
+#: ../komikku/preferences.py:636
 msgid "Test"
 msgstr "測試"
 
-#: ../komikku/reader/__init__.py:341
+#: ../komikku/reader/__init__.py:362
 #, python-brace-format
 msgid "Page successfully saved to {0}"
 msgstr "成功儲存頁面至 {0}"
 
-#: ../komikku/reader/__init__.py:368
+#: ../komikku/reader/__init__.py:389
 msgid ""
 "Failed to save page: missing permission to access the XDG pictures directory"
 msgstr "儲存頁面失敗：沒有權限存取 XDG 圖片目錄"
@@ -1398,13 +1405,58 @@ msgstr "這是最後一章。"
 msgid "This chapter is inaccessible."
 msgstr "此章節無法訪問。"
 
-#: ../komikku/reader/pager/page.py:269
+#: ../komikku/reader/pager/page.py:270
 msgid "Failed to load image"
 msgstr "無法載入圖檔"
 
-#: ../komikku/reader/pager/page.py:300
+#: ../komikku/reader/pager/page.py:301
 msgid "Retry"
 msgstr "重試"
+
+#: ../komikku/servers/asurascans/__init__.py:33
+#: ../komikku/servers/mangafire/__init__.py:42
+#: ../komikku/servers/mangapill/__init__.py:31
+#: ../komikku/servers/mangatube/__init__.py:33
+#: ../komikku/servers/mangaworld/__init__.py:30
+#: ../komikku/servers/multi/manga_stream/__init__.py:70
+#: ../komikku/servers/webtoon/__init__.py:46
+msgid "Type"
+msgstr ""
+
+#: ../komikku/servers/asurascans/__init__.py:34
+#: ../komikku/servers/mangapill/__init__.py:32
+#: ../komikku/servers/multi/manga_stream/__init__.py:71
+#: ../komikku/servers/webtoon/__init__.py:47
+msgid "Filter by type"
+msgstr ""
+
+#: ../komikku/servers/asurascans/__init__.py:39
+#: ../komikku/servers/coloredcouncil/__init__.py:71
+#: ../komikku/servers/mangafire/__init__.py:46
+#: ../komikku/servers/mangapill/__init__.py:37
+#: ../komikku/servers/mangatube/__init__.py:38
+#: ../komikku/servers/mangaworld/__init__.py:34
+#: ../komikku/servers/multi/manga_stream/__init__.py:76
+msgid "Manga"
+msgstr ""
+
+#: ../komikku/servers/asurascans/__init__.py:40
+#: ../komikku/servers/mangafire/__init__.py:50
+#: ../komikku/servers/mangapill/__init__.py:41
+#: ../komikku/servers/mangatube/__init__.py:39
+#: ../komikku/servers/mangaworld/__init__.py:36
+#: ../komikku/servers/multi/manga_stream/__init__.py:77
+msgid "Manhwa"
+msgstr ""
+
+#: ../komikku/servers/asurascans/__init__.py:41
+#: ../komikku/servers/mangafire/__init__.py:51
+#: ../komikku/servers/mangapill/__init__.py:42
+#: ../komikku/servers/mangatube/__init__.py:40
+#: ../komikku/servers/mangaworld/__init__.py:35
+#: ../komikku/servers/multi/manga_stream/__init__.py:78
+msgid "Manhua"
+msgstr ""
 
 #: ../komikku/servers/bilibili/__init__.py:38
 msgid "Price"
@@ -1420,6 +1472,34 @@ msgstr ""
 
 #: ../komikku/servers/bilibili/__init__.py:45
 msgid "Paid"
+msgstr ""
+
+#: ../komikku/servers/coloredcouncil/__init__.py:64
+msgid "Format"
+msgstr ""
+
+#: ../komikku/servers/coloredcouncil/__init__.py:65
+msgid "Filter by format"
+msgstr ""
+
+#: ../komikku/servers/coloredcouncil/__init__.py:70
+msgid "Manwha"
+msgstr ""
+
+#: ../komikku/servers/coloredcouncil/__init__.py:77
+msgid "Version"
+msgstr ""
+
+#: ../komikku/servers/coloredcouncil/__init__.py:78
+msgid "Filter by version"
+msgstr ""
+
+#: ../komikku/servers/coloredcouncil/__init__.py:83
+msgid "Color"
+msgstr ""
+
+#: ../komikku/servers/coloredcouncil/__init__.py:84
+msgid "B/W"
 msgstr ""
 
 #: ../komikku/servers/dynasty/__init__.py:38
@@ -1633,23 +1713,6 @@ msgstr ""
 msgid "OR"
 msgstr ""
 
-#: ../komikku/servers/mangafire/__init__.py:42
-#: ../komikku/servers/mangapill/__init__.py:31
-#: ../komikku/servers/mangatube/__init__.py:33
-#: ../komikku/servers/mangaworld/__init__.py:30
-#: ../komikku/servers/multi/manga_stream/__init__.py:71
-#: ../komikku/servers/webtoon/__init__.py:46
-msgid "Type"
-msgstr ""
-
-#: ../komikku/servers/mangafire/__init__.py:46
-#: ../komikku/servers/mangapill/__init__.py:37
-#: ../komikku/servers/mangatube/__init__.py:38
-#: ../komikku/servers/mangaworld/__init__.py:34
-#: ../komikku/servers/multi/manga_stream/__init__.py:77
-msgid "Manga"
-msgstr ""
-
 #: ../komikku/servers/mangafire/__init__.py:47
 #: ../komikku/servers/mangapill/__init__.py:39
 #: ../komikku/servers/mangatube/__init__.py:43
@@ -1662,34 +1725,12 @@ msgstr ""
 msgid "Novel"
 msgstr ""
 
-#: ../komikku/servers/mangafire/__init__.py:50
-#: ../komikku/servers/mangapill/__init__.py:41
-#: ../komikku/servers/mangatube/__init__.py:39
-#: ../komikku/servers/mangaworld/__init__.py:36
-#: ../komikku/servers/multi/manga_stream/__init__.py:78
-msgid "Manhwa"
-msgstr ""
-
-#: ../komikku/servers/mangafire/__init__.py:51
-#: ../komikku/servers/mangapill/__init__.py:42
-#: ../komikku/servers/mangatube/__init__.py:40
-#: ../komikku/servers/mangaworld/__init__.py:35
-#: ../komikku/servers/multi/manga_stream/__init__.py:79
-msgid "Manhua"
-msgstr ""
-
 #: ../komikku/servers/mangafire/__init__.py:61
 msgid "Releasing"
 msgstr ""
 
 #: ../komikku/servers/mangafire/__init__.py:63
 msgid "Discontinued"
-msgstr ""
-
-#: ../komikku/servers/mangapill/__init__.py:32
-#: ../komikku/servers/multi/manga_stream/__init__.py:72
-#: ../komikku/servers/webtoon/__init__.py:47
-msgid "Filter by type"
 msgstr ""
 
 #: ../komikku/servers/mangapill/__init__.py:43
@@ -1705,7 +1746,7 @@ msgid "Webtoon"
 msgstr ""
 
 #: ../komikku/servers/mangatube/__init__.py:42
-#: ../komikku/servers/multi/manga_stream/__init__.py:80
+#: ../komikku/servers/multi/manga_stream/__init__.py:79
 msgid "Comic"
 msgstr ""
 
@@ -1730,12 +1771,12 @@ msgstr ""
 msgid "16+"
 msgstr "16+"
 
-#: ../komikku/servers/multi/madara/__init__.py:390
+#: ../komikku/servers/multi/madara/__init__.py:399
 #: ../komikku/servers/readmanhwa/__init__.py:44
 msgid "NSFW Content"
 msgstr "NSFW 內容"
 
-#: ../komikku/servers/multi/madara/__init__.py:391
+#: ../komikku/servers/multi/madara/__init__.py:400
 #: ../komikku/servers/readmanhwa/__init__.py:45
 msgid "Whether to show manga containing NSFW content"
 msgstr "是否要顯示含有 NSFW 元素的漫畫"
@@ -1753,63 +1794,66 @@ msgstr ""
 msgid "Canvas"
 msgstr ""
 
-#: ../komikku/updater.py:105
+#: ../komikku/updater.py:106
 msgid "Library update completed with errors"
 msgstr "書櫃更新已完成，但存在錯誤"
 
-#: ../komikku/updater.py:107
+#: ../komikku/updater.py:108
 msgid "Library update completed"
 msgstr "書櫃更新已完成"
 
-#: ../komikku/updater.py:110
+#: ../komikku/updater.py:111
 msgid "Update completed with errors"
 msgstr "更新已完成，但存在錯誤"
 
-#: ../komikku/updater.py:112
+#: ../komikku/updater.py:113
 msgid "Update completed"
 msgstr "更新已完成"
 
-#: ../komikku/updater.py:116
+#: ../komikku/updater.py:117
 #, python-brace-format
 msgid "{0} successful update"
 msgid_plural "{0} successful updates"
 msgstr[0] "{0} 個更新已成功"
 
-#: ../komikku/updater.py:117 ../komikku/updater.py:133
+#: ../komikku/updater.py:118 ../komikku/updater.py:134
 #, python-brace-format
 msgid "{0} new chapter"
 msgid_plural "{0} new chapters"
 msgstr[0] "{0} 個新章節"
 
-#: ../komikku/updater.py:119 ../komikku/updater.py:141
+#: ../komikku/updater.py:120 ../komikku/updater.py:142
 msgid "No new chapters"
 msgstr "沒有新章節"
 
-#: ../komikku/updater.py:122
+#: ../komikku/updater.py:123
 #, python-brace-format
 msgid "{0} update failed"
 msgid_plural "{0} updates failed"
 msgstr[0] "{0} 個更新失敗"
 
-#: ../komikku/updater.py:159
+#: ../komikku/updater.py:160
 msgid "Oops, update has failed. Please try again."
 msgstr "更新失敗，請再試一次。"
 
-#: ../komikku/updater.py:168
+#: ../komikku/updater.py:169
 msgid "Library update started"
 msgstr "開始更新書櫃"
 
-#: ../komikku/utils.py:201
+#: ../komikku/utils.py:206
 msgid "You are currently offline"
 msgstr "你正處於離線狀態"
 
-#: ../komikku/utils.py:217
+#: ../komikku/utils.py:229
 msgid "No Internet connection, timeout or server down"
 msgstr "没有網路連線，超時或是伺服器故障"
 
-#: ../komikku/webview.py:397
+#: ../komikku/webview.py:408
 msgid "Please complete CAPTCHA"
 msgstr "請完成 CAPTCHA 認證"
+
+#~ msgid "Type of Scaling"
+#~ msgstr "縮放方式"
 
 #~ msgid "Happy reading."
 #~ msgstr "開心閱讀。"
