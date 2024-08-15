@@ -9,17 +9,16 @@ msgstr ""
 "Project-Id-Version: unnamed project\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-08-15 23:02+0200\n"
-"PO-Revision-Date: 2024-07-14 12:09+0000\n"
-"Last-Translator: \"Hinata NekoNya (ひなたねこにゃ)\" <nicolasmkz30960@gmail."
-"com>\n"
-"Language-Team: French <https://hosted.weblate.org/projects/komikku/main/fr/"
-">\n"
+"PO-Revision-Date: 2024-08-15 21:50+0000\n"
+"Last-Translator: Valéry Febvre <vfebvre@easter-eggs.com>\n"
+"Language-Team: French <https://hosted.weblate.org/projects/komikku/main/fr/>"
+"\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 5.7-dev\n"
+"X-Generator: Weblate 5.7\n"
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:11
 msgid "Discover and read manga &amp; comics"
@@ -603,19 +602,19 @@ msgstr "Taille originale"
 
 #: ../data/ui/preferences.blp:244
 msgid "Scaling Filter"
-msgstr ""
+msgstr "Filtre de mise à l'échelle"
 
 #: ../data/ui/preferences.blp:245
 msgid "Interpolation method used when scaling images"
-msgstr ""
+msgstr "Méthode d'interpolation utilisée pour la mise à l'échelle des images"
 
 #: ../data/ui/preferences.blp:248
 msgid "Linear"
-msgstr ""
+msgstr "Linéaire"
 
 #: ../data/ui/preferences.blp:249
 msgid "Trilinear"
-msgstr ""
+msgstr "Trilinéaire"
 
 #: ../data/ui/preferences.blp:255
 msgid "Landscape Pages Zoom"
@@ -1536,31 +1535,31 @@ msgstr "Payant"
 
 #: ../komikku/servers/coloredcouncil/__init__.py:64
 msgid "Format"
-msgstr ""
+msgstr "Format"
 
 #: ../komikku/servers/coloredcouncil/__init__.py:65
 msgid "Filter by format"
-msgstr ""
+msgstr "Filtrer par format"
 
 #: ../komikku/servers/coloredcouncil/__init__.py:70
 msgid "Manwha"
-msgstr ""
+msgstr "Manhwa"
 
 #: ../komikku/servers/coloredcouncil/__init__.py:77
 msgid "Version"
-msgstr ""
+msgstr "Version"
 
 #: ../komikku/servers/coloredcouncil/__init__.py:78
 msgid "Filter by version"
-msgstr ""
+msgstr "Filtrer par version"
 
 #: ../komikku/servers/coloredcouncil/__init__.py:83
 msgid "Color"
-msgstr ""
+msgstr "Couleur"
 
 #: ../komikku/servers/coloredcouncil/__init__.py:84
 msgid "B/W"
-msgstr ""
+msgstr "N/B"
 
 #: ../komikku/servers/dynasty/__init__.py:38
 msgid "Categories"
