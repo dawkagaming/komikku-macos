@@ -86,6 +86,7 @@ class Server(ABC):
     has_login = False
     has_recaptcha = False
     headers = None
+    headers_images = None
     http_client = 'requests'  # Used HTTP client
     is_nsfw = False
     is_nsfw_only = False
@@ -206,10 +207,13 @@ class Server(ABC):
         if url is None:
             return None, None, None
 
-        headers = {
-            'Accept': 'image/avif,image/webp,*/*',
-            'Referer': f'{self.base_url}/',
-        }
+        if self.headers_images is not None:
+            headers = self.headers_images
+        else:
+            headers = {
+                'Accept': 'image/avif,image/webp,*/*',
+                'Referer': f'{self.base_url}/',
+            }
         if etag:
             headers['If-None-Match'] = etag
 
