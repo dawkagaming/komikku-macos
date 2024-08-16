@@ -19,7 +19,7 @@ def test_mangaweebs(mangaweebs_server):
     # Get latest updates
     print('Get latest updates')
     try:
-        response = mangaweebs_server.get_latest_updates()
+        response = mangaweebs_server.get_latest_updates(True)
     except Exception as e:
         response = None
         log_error_traceback(e)
@@ -30,7 +30,7 @@ def test_mangaweebs(mangaweebs_server):
     # Get most popular
     print('Get most popular')
     try:
-        response = mangaweebs_server.get_most_populars()
+        response = mangaweebs_server.get_most_populars(True)
     except Exception as e:
         response = None
         log_error_traceback(e)
@@ -42,7 +42,7 @@ def test_mangaweebs(mangaweebs_server):
     print('Search')
     try:
         # Use first result of get_most_populars
-        response = mangaweebs_server.search(response[0]['name'])
+        response = mangaweebs_server.search(response[0]['name'], True)
         slug = response[0]['slug']
     except Exception as e:
         slug = None

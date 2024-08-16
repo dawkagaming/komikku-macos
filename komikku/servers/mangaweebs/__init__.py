@@ -2,10 +2,10 @@
 # SPDX-License-Identifier: GPL-3.0-only or GPL-3.0-or-later
 # Author: Valéry Febvre <vfebvre@easter-eggs.com>
 
-from komikku.servers.multi.madara import Madara
+from komikku.servers.multi.madara import Madara2
 
 
-class Mangaweebs(Madara):
+class Mangaweebs(Madara2):
     id = 'mangaweebs'
     name = 'MangaWeebs'
     lang = 'en'
@@ -15,5 +15,5 @@ class Mangaweebs(Madara):
 
     # mirror: https://ns2.mangaweebs.in
 
-    base_url = 'https://mangaweebs.org'
+    base_url = 'https://mangaweebs.in'
     chapters_url = base_url + '/manga/{0}/ajax/chapters/'
