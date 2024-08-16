@@ -21,6 +21,7 @@ class Rawdevart(Server):
     is_nsfw = True
 
     base_url = 'https://rawdevart.art'
+    media_url = 'https://cghentai.com'  # server 2: https://s3-rawuwu.b-cdn.net
     manga_url = base_url + '/{0}'
     api_search_url = base_url + '/ajax/search-manga'
     latest_updates_url = base_url + '/latest'
@@ -100,7 +101,12 @@ class Rawdevart(Server):
         """
         Returns chapter page scan (image) content
         """
-        r = self.session_get(page['image'])
+        r = self.session_get(
+            f'{self.media_url}/{page["image"]}',
+            headers={
+                'Referer': f'{self.base_url}/',
+            }
+        )
         if r.status_code != 200:
             return None
 
