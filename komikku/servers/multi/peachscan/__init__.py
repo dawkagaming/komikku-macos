@@ -264,7 +264,7 @@ class Peachscan(Server):
                 'slug': element.a.get('href').split('/')[-2],
                 'name': element.h2.text.strip(),
                 'cover': self.base_url + element.a.img.get('src'),
-                'last_chapter': get_soup_element_inner_text(last_chapter_element, recursive=False).replace('Cap ', ''),
+                'last_chapter': get_soup_element_inner_text(last_chapter_element, recursive=False).replace('Cap ', '') if last_chapter_element else None,
             })
 
         return results
