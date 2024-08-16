@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: Komikku 1.41.1\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-08-15 23:02+0200\n"
-"PO-Revision-Date: 2024-06-12 14:09+0000\n"
+"PO-Revision-Date: 2024-08-16 15:54+0000\n"
 "Last-Translator: Scrambled777 <weblate.scrambled777@simplelogin.com>\n"
 "Language-Team: Hindi <https://hosted.weblate.org/projects/komikku/main/hi/>\n"
 "Language: hi\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 5.6-dev\n"
+"X-Generator: Weblate 5.7\n"
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:11
 msgid "Discover and read manga &amp; comics"
@@ -591,19 +591,19 @@ msgstr "मूल आकार"
 
 #: ../data/ui/preferences.blp:244
 msgid "Scaling Filter"
-msgstr ""
+msgstr "स्केलिंग फिल्टर"
 
 #: ../data/ui/preferences.blp:245
 msgid "Interpolation method used when scaling images"
-msgstr ""
+msgstr "छवियों को स्केल करते समय उपयोग की जाने वाली इंटरपोलेशन विधि"
 
 #: ../data/ui/preferences.blp:248
 msgid "Linear"
-msgstr ""
+msgstr "रेखीय"
 
 #: ../data/ui/preferences.blp:249
 msgid "Trilinear"
-msgstr ""
+msgstr "त्रिरेखीय"
 
 #: ../data/ui/preferences.blp:255
 msgid "Landscape Pages Zoom"
@@ -1505,31 +1505,31 @@ msgstr "सशुल्क"
 
 #: ../komikku/servers/coloredcouncil/__init__.py:64
 msgid "Format"
-msgstr ""
+msgstr "प्रारूप"
 
 #: ../komikku/servers/coloredcouncil/__init__.py:65
 msgid "Filter by format"
-msgstr ""
+msgstr "प्रारूप द्वारा फिल्टर"
 
 #: ../komikku/servers/coloredcouncil/__init__.py:70
 msgid "Manwha"
-msgstr ""
+msgstr "Manwha"
 
 #: ../komikku/servers/coloredcouncil/__init__.py:77
 msgid "Version"
-msgstr ""
+msgstr "संस्करण"
 
 #: ../komikku/servers/coloredcouncil/__init__.py:78
 msgid "Filter by version"
-msgstr ""
+msgstr "संस्करण द्वारा फिल्टर"
 
 #: ../komikku/servers/coloredcouncil/__init__.py:83
 msgid "Color"
-msgstr ""
+msgstr "रंग"
 
 #: ../komikku/servers/coloredcouncil/__init__.py:84
 msgid "B/W"
-msgstr ""
+msgstr "श्याम/सफेद"
 
 #: ../komikku/servers/dynasty/__init__.py:38
 msgid "Categories"
