@@ -255,6 +255,8 @@ class Asurascans_tr(Madara):
     name = 'Armoni Scans (Asura Scans)'
     lang = 'tr'
 
+    has_cf = True
+
     date_format = '%d %B %Y'
 
     base_url = 'https://asurascans.com.tr'
