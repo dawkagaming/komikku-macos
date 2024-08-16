@@ -10,16 +10,13 @@ from komikku.servers import USER_AGENT
 from komikku.servers.utils import convert_date_string
 from komikku.servers.utils import get_buffer_mime_type
 
-SERVER_NAME = 'View Comics'
-
 
 class Viewcomics(Server):
     id = 'viewcomics'
-    name = SERVER_NAME
+    name = 'View Comics'
     lang = 'en'
-    is_nsfw = True
 
-    base_url = 'https://readcomic.top'
+    base_url = 'https://azcomix.me'
     search_url = base_url + '/search'
     api_search_url = base_url + '/ajax/search'
     latest_updates_url = base_url + '/comic-updates'
@@ -28,6 +25,8 @@ class Viewcomics(Server):
     chapter_url = base_url + '/{0}/{1}/full'
 
     csrf_token = None
+    headers_images = {}  # Do not set referer!
+    is_nsfw = True
 
     def __init__(self):
         if self.session is None:
@@ -122,7 +121,7 @@ class Viewcomics(Server):
         for img_element in soup.find('div', class_='chapter-container').find_all('img'):
             data['pages'].append(dict(
                 slug=None,
-                image=img_element.get('src'),
+                image=img_element.get('src').strip(),
             ))
 
         return data
@@ -133,9 +132,7 @@ class Viewcomics(Server):
         """
         r = self.session_get(
             page['image'],
-            headers={
-                'referer': self.chapter_url.format(manga_slug, chapter_slug),
-            }
+            headers=self.headers_images,
         )
         if r.status_code != 200:
             return None
