@@ -2,6 +2,7 @@ import logging
 import pytest
 from pytest_steps import test_steps
 
+from . import do_server_test
 from komikku.utils import log_error_traceback
 
 logging.basicConfig(level=logging.DEBUG)
@@ -14,17 +15,9 @@ def starboundscans_server():
     return Starboundscans()
 
 
+@do_server_test
 @test_steps('get_latest_updates', 'get_most_popular', 'search', 'get_manga_data', 'get_chapter_data', 'get_page_image')
 def test_starboundscans(starboundscans_server):
-    if starboundscans_server.status == 'disabled':
-        pytest.skip('Server is disabled')
-
-    if starboundscans_server.has_cf:
-        pytest.skip('Server uses Cloudflare challenge')
-
-    if starboundscans_server.has_recaptcha:
-        pytest.skip('Server uses ReCAPTCHA')
-
     # Get latest updates
     print('Get latest updates')
     try:

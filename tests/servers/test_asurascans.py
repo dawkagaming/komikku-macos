@@ -2,6 +2,7 @@ import logging
 import pytest
 from pytest_steps import test_steps
 
+from . import do_server_test
 from komikku.utils import log_error_traceback
 
 logging.basicConfig(level=logging.DEBUG)
@@ -21,14 +22,9 @@ def asurascans_tr_server():
     return Asurascans_tr()
 
 
+@do_server_test
 @test_steps('get_latest_updates', 'get_most_populars', 'search', 'get_manga_data', 'get_chapter_data', 'get_page_image')
 def test_asurascans(asurascans_server):
-    if asurascans_server.status == 'disabled':
-        pytest.skip('Server is disabled')
-
-    if asurascans_server.has_cf:
-        pytest.skip('Server uses Cloudflare challenge')
-
     # Get latest updates
     print('Get latest updates')
     try:
@@ -101,6 +97,7 @@ def test_asurascans(asurascans_server):
     yield
 
 
+@do_server_test
 @test_steps('get_latest_updates', 'get_most_populars', 'search', 'get_manga_data', 'get_chapter_data', 'get_page_image')
 def test_asurascans_tr(asurascans_tr_server):
     # Get latest updates

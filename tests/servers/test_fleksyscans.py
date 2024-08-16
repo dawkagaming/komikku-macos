@@ -2,6 +2,7 @@ import logging
 import pytest
 from pytest_steps import test_steps
 
+from . import do_server_test
 from komikku.utils import log_error_traceback
 
 logging.basicConfig(level=logging.DEBUG)
@@ -14,14 +15,9 @@ def fleksyscans_server():
     return Fleksyscans()
 
 
+@do_server_test
 @test_steps('get_latest_updates', 'search', 'get_manga_data', 'get_manga_chapter_data', 'get_manga_chapter_page_image')
 def test_fleksyscans(fleksyscans_server):
-    if fleksyscans_server.status == 'disabled':
-        pytest.skip('Server is disabled')
-
-    if fleksyscans_server.has_cf:
-        pytest.skip('Server uses Cloudflare challenge')
-
     # Get latest updates
     print('Get latest updates')
     try:
