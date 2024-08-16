@@ -19,7 +19,7 @@ def test_tresdaos(tresdaos_server):
     # Get latest updates
     print('Get latest updates')
     try:
-        response = tresdaos_server.get_latest_updates()
+        response = tresdaos_server.get_latest_updates('')
     except Exception as e:
         response = None
         log_error_traceback(e)
@@ -30,7 +30,7 @@ def test_tresdaos(tresdaos_server):
     # Get most popular
     print('Get most popular')
     try:
-        response = tresdaos_server.get_most_populars()
+        response = tresdaos_server.get_most_populars('')
     except Exception as e:
         response = None
         log_error_traceback(e)
@@ -42,7 +42,7 @@ def test_tresdaos(tresdaos_server):
     print('Search')
     try:
         # Use first result of get_most_populars
-        response = tresdaos_server.search(response[0]['name'])
+        response = tresdaos_server.search(response[0]['name'], '')
         slug = response[0]['slug']
     except Exception as e:
         slug = None
