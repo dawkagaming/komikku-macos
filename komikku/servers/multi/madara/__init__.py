@@ -15,14 +15,14 @@
 # Asura Scans [TR]
 # Atikrost [TR]
 # Best Manga [RU]
-# Colored Council [EN] (disabled)
 # Fr-Scan (Id frdashscan) [FR]
 # Hunlight Scans [EN]
 # Leomanga [ES] (disabled)
 # Leviatanscans [EN]
 # Manga-Scantrad [FR]
-# Mangas Origines [FR]
+# Mangas Origines [FR] (disabled)
 # MangaWeebs [EN]
+# Manhuaus [EN]
 # Manhwa Hentai [EN]
 # Phoenix Fansub [ES] (disabled)
 # Reaperscans [EN/AR/FR/ID/TR]
@@ -414,101 +414,57 @@ class Madara2(Madara):
         """
         Returns list of latest updates manga
         """
-        r = self.session_get(
-            f'{self.base_url}/',
-            params=dict(
-                s='',
-                post_type='wp-manga',
-                op='',
-                author='',
-                artist='',
-                release='',
-                adult='' if nsfw else 0,
-                m_orderby='new-manga',
-            )
-        )
-        if r.status_code != 200:
-            return None
-
-        soup = BeautifulSoup(r.text, 'lxml')
-
-        results = []
-        for element in soup.find_all('div', class_='post-title'):
-            if not element.h3:
-                continue
-            a_element = element.h3.a
-            results.append(dict(
-                slug=a_element.get('href').split('/')[-2],
-                name=a_element.text.strip(),
-            ))
-
-        return results
+        return self.search(None, nsfw=nsfw, orderby='latest')
 
     @CompleteChallenge()
     def get_most_populars(self, nsfw):
         """
         Returns list of most viewed manga
         """
-        r = self.session_get(
-            f'{self.base_url}/',
-            params=dict(
-                s='',
-                post_type='wp-manga',
-                op='',
-                author='',
-                artist='',
-                release='',
-                adult='' if nsfw else 0,
-                m_orderby='views',
-            )
-        )
+        return self.search(None, nsfw=nsfw, orderby='populars')
+
+    @CompleteChallenge()
+    def search(self, term, nsfw, orderby=None):
+        params = {
+            's': term or '',
+            'post_type': 'wp-manga',
+            'op': '',
+            'author': '',
+            'artist': '',
+            'release': '',
+            'adult': '' if nsfw else 0,
+        }
+
+        if orderby == 'populars':
+            params['m_orderby'] = 'views'
+        elif orderby == 'latest':
+            params['m_orderby'] = 'latest'
+
+        r = self.session_get(f'{self.base_url}/', params=params)
         if r.status_code != 200:
             return None
 
         soup = BeautifulSoup(r.text, 'lxml')
 
         results = []
-        for element in soup.find_all('div', class_='post-title'):
-            if not element.h3:
-                continue
-            a_element = element.h3.a
-            results.append(dict(
-                slug=a_element.get('href').split('/')[-2],
-                name=a_element.text.strip(),
-            ))
-
-        return results
-
-    @CompleteChallenge()
-    def search(self, term, nsfw):
-        r = self.session_post(
-            self.api_url,
-            data={
-                'action': 'wp-manga-search-manga',
-                'title': term,
-            },
-            headers={
-                'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8',
-                'Referer': self.base_url,
-                'X-Requested-With': 'XMLHttpRequest',
-            }
-        )
-        if r.status_code != 200:
-            return None
-
-        data = r.json()
-
-        if not data['success']:
-            return None
-
-        results = []
-        for item in data['data']:
-            if item['type'] != 'manga':
+        for element in soup.select('.c-tabs-item__content'):
+            thumb_element = element.select_one('.tab-thumb')
+            if not thumb_element.a:
                 continue
 
+            last_chapter_element = element.select_one('.latest-chap .chapter')
+            if cover_element := element.a.img or element.img:
+                cover = cover_element.get('data-src')
+                if not cover:
+                    cover = cover_element.get('src')
+            else:
+                cover = None
+
             results.append(dict(
-                slug=item['url'].split('/')[-2],
-                name=item['title'],
+                slug=thumb_element.a.get('href').split('/')[-2],
+                name=thumb_element.a.get('title').strip(),
+                cover=cover,
+                last_chapter=last_chapter_element.text.strip() if last_chapter_element else None,
             ))
 
         return results
