@@ -10,6 +10,8 @@ class Komiklovers(MangaStream):
     name = 'KomikLovers'
     lang = 'id'
 
+    has_cf = True
+
     series_name = 'komik'
 
     base_url = 'https://komiklovers.com'
