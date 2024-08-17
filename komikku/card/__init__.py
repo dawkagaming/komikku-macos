@@ -269,6 +269,10 @@ class CardPage(Adw.NavigationPage):
 
     def on_resume_button_clicked(self, *args):
         last_read_chapter = self.manga.last_read_chapter
+        if last_read_chapter and last_read_chapter.read:
+            # If last read chapter has been read in full, use next chapter
+            last_read_chapter = self.manga.get_next_chapter(last_read_chapter)
+
         if last_read_chapter is None:
             # Use first chapter
             if self.chapters_list.sort_order.endswith('desc'):
