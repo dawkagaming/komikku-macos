@@ -116,6 +116,7 @@ class Mangatube(Server):
             'value_type': 'single',
             'default': None,
             'options': [
+                {'key': '-1', 'name': _('All')},
                 {'key': '0', 'name': _('Manga')},
                 {'key': '1', 'name': _('Manhwa')},
                 {'key': '2', 'name': _('Manhua')},
@@ -133,7 +134,7 @@ class Mangatube(Server):
             'value_type': 'single',
             'default': None,
             'options': [
-                {'key': '0', 'name': _('Without')},
+                {'key': '-1', 'name': _('Without')},
                 {'key': '1', 'name': _('16+')},
                 {'key': '2', 'name': _('18+')},
             ]
@@ -305,8 +306,8 @@ class Mangatube(Server):
     def get_latest_updates(self, **kwargs):
         return self.data['latest_updates']
 
-    def get_most_populars(self, **kwargs):
-        return self.search(populars=True)
+    def get_most_populars(self, type=None, mature=None):
+        return self.search(populars=True, type=type, mature=mature)
 
     def search(self, term=None, populars=False, type=None, mature=None):
         params = {
