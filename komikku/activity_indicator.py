@@ -12,7 +12,7 @@ class ActivityIndicator(Gtk.Box):
         self.props.can_target = False
 
         self.spinner = Gtk.Spinner()
-        self.spinner.set_size_request(50, 50)
+        self.spinner.set_size_request(48, 48)
 
         self.append(self.spinner)
 
