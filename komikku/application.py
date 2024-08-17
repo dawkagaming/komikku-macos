@@ -507,14 +507,16 @@ available in your region/language."""))
         # Override release notes
         dialog.set_release_notes("""
             <ul>
-                <li>[Preferences] Reader: Added `Scaling Filter` parameter</li>
-                <li>Fixed in-app notification position in fullscreen</li>
-                <li>[Servers] Added Anteiku Scans (FR</li>
-                <li>[Servers] Added ED Scanlation (FR)</li>
-                <li>[Servers] Added EZmanga (EN)</li>
-                <li>[Servers] Added Kewn Scans (EN)</li>
-                <li>[Servers] Added Starbound Scans (FR)</li>
-                <li>[L10n] Updated French translation</li>
+                <li>[Card] Improved `Resume`</li>
+                <li>[Servers] Argos Comics (PT): Update</li>
+                <li>[Servers] Armoni Scans (TR): Update</li>
+                <li>[Servers] KomikLovers (ID): Update</li>
+                <li>[Servers] Manga Tube (DE): Update</li>
+                <li>[Servers] MangaWeebs (EN): Update</li>
+                <li>[Servers] Rawdevart (JA): Update</li>
+                <li>[Servers] Tres Daos (ES): Update</li>
+                <li>[Servers] View Comics (EN): Update</li>
+                <li>[L10n] Updated Hindi and Spanish translations</li>
             </ul>
             <p>Happy reading.</p>
         """)
