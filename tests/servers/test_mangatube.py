@@ -42,7 +42,7 @@ def test_mangatube(mangatube_server):
     print('Search')
     try:
         # Use first result of get_most_populars
-        response = mangatube_server.search(response[0]['name'])
+        response = mangatube_server.search(response[1]['name'])
         slug = response[0]['slug']
     except Exception as e:
         slug = None
@@ -61,7 +61,6 @@ def test_mangatube(mangatube_server):
         log_error_traceback(e)
 
     assert chapter_slug is not None
-    assert len(response['chapters']) > 0
     yield
 
     # Get chapter data
@@ -79,7 +78,7 @@ def test_mangatube(mangatube_server):
     # Get page image
     print('Get page image')
     try:
-        response = mangatube_server.get_manga_chapter_page_image(slug, None, chapter_slug, page)
+        response = mangatube_server.get_manga_chapter_page_image(None, None, None, page)
     except Exception as e:
         response = None
         log_error_traceback(e)

@@ -2,16 +2,92 @@
 # SPDX-License-Identifier: GPL-3.0-only or GPL-3.0-or-later
 # Author: Valéry Febvre <vfebvre@easter-eggs.com>
 
-from bs4 import BeautifulSoup
+import datetime
+from functools import wraps
 from gettext import gettext as _
 import json
+import logging
+import re
+
+from bs4 import BeautifulSoup
 import requests
 
 from komikku.servers import Server
 from komikku.servers import USER_AGENT
 from komikku.servers.utils import convert_date_string
 from komikku.servers.utils import get_buffer_mime_type
-from komikku.servers.utils import get_soup_element_inner_text
+
+logger = logging.getLogger(__name__)
+
+
+def get_data(func):
+    @wraps(func)
+    def wrapper(*args, **kwargs):
+        server = args[0]
+        if server.csrf_token:
+            return func(*args, **kwargs)
+
+        r = server.session_get(server.base_url)
+        if r.status_code != 200:
+            return func(*args, **kwargs)
+
+        soup = BeautifulSoup(r.text, 'lxml')
+
+        for script_element in soup.select('script'):
+            script = script_element.string
+            if not script:
+                continue
+
+            if '_token' in script:
+                # CSRF token
+                for line in script.split('\n'):
+                    line = line.strip()
+                    if match := server.re_csrf_token.search(line):
+                        server.csrf_token = match.group(1)
+                        break
+
+            elif 'window.laravel.route' in script:
+                # Various data: latest updates, genres...
+                for line in script.split('\n'):
+                    line = line.strip()
+                    if line.startswith('window.laravel.route'):
+                        try:
+                            data = json.loads(line[23:-1].replace(',}', '}'))['data']
+                        except Exception:
+                            logger.error('Failed to parse homepage and retrieved data')
+                        else:
+                            server.data = dict(
+                                genres=dict(),
+                                latest_updates=[],
+                            )
+
+                            slugs = []
+                            for item in data['published']:
+                                slug = item['manga']['url'].split('/')[-1]
+                                if slug in slugs:
+                                    continue
+
+                                last_chapter = item['chapters'][0]
+                                number = last_chapter['number']
+                                if last_chapter['subNumber']:
+                                    number = f'{number}.{last_chapter["subNumber"]}'
+
+                                server.data['latest_updates'].append(dict(
+                                    slug=slug,
+                                    name=item['manga']['title'],
+                                    cover=item['manga']['cover'],
+                                    last_chapter=f'{number} - {last_chapter["name"]}',
+                                ))
+                                slugs.append(slug)
+
+                            for genre in data['genre-map']:
+                                server.data['genres'][genre['genre_id']] = genre['genre_name']
+
+                        break
+
+        return func(*args, **kwargs)
+
+    return wrapper
 
 
 class Mangatube(Server):
@@ -21,10 +97,15 @@ class Mangatube(Server):
     is_nsfw = True
 
     base_url = 'https://manga-tube.me'
-    api_url = base_url + '/ajax'
+    search_url = base_url + '/search'
     manga_url = base_url + '/series/{0}'
     chapter_url = base_url + '/series/{0}/read/{1}/1'
     image_url = 'https://a.mtcdn.org/m/{0}/{1}/{2}'
+    api_url = base_url + '/api'
+    api_search_url = api_url + '/manga/search'
+    api_manga_url = api_url + '/manga/{0}'
+    api_chapters_url = api_url + '/manga/{0}/chapters'
+    api_chapter_url = api_url + '/manga/{0}/chapter/{1}'
 
     filters = [
         {
@@ -59,151 +140,137 @@ class Mangatube(Server):
         },
     ]
 
+    re_csrf_token = re.compile(r'.*\"_token\": \"([a-zA-Z0-9]*)\".*')
+
     def __init__(self):
+        # Data retrieved by parsing JS code in home page (genres, latest updates)
+        self.csrf_token = None
+        self.data = None
+
         if self.session is None:
             self.session = requests.Session()
             self.session.headers.update({'user-agent': USER_AGENT})
 
+    @get_data
     def get_manga_data(self, initial_data):
         """
-        Returns manga data by scraping manga HTML page content
+        Returns manga data using API
 
         Initial data should contain at least manga's slug (provided by search)
         """
         assert 'slug' in initial_data, 'Manga slug is missing in initial data'
 
-        _manga_id, manga_slug = initial_data['slug'].split('-', 1)
-        r = self.session_get(self.manga_url.format(manga_slug), headers={
-            'Referer': self.base_url,
+        r = self.session_get(self.api_manga_url.format(initial_data['slug']), headers={
+            'Content-Type': 'application/json, text/plain, */*',
+            'Referer': self.manga_url.format(initial_data['slug']),
+            'Use-Parameter': 'manga_slug',
+            'X-Csrf-TOKEN': self.csrf_token,
+            'X-Requested-With': 'XMLHttpRequest',
         })
         if r.status_code != 200:
             return None
 
         mime_type = get_buffer_mime_type(r.content)
-        if mime_type != 'text/html':
+        if mime_type != 'text/plain':
             return None
 
-        soup = BeautifulSoup(r.text, 'lxml')
+        resp_data = r.json()['data']['manga']
 
         data = initial_data.copy()
         data.update(dict(
+            name=resp_data['title'],
             authors=[],
             scanlators=[],
             genres=[],
             status=None,
-            synopsis=None,
+            synopsis=resp_data['description'],
             chapters=[],
             server_id=self.id,
-            cover=None,
+            cover=resp_data['cover'],
         ))
 
-        info_element = soup.find(class_='series-detailed')
-
-        data['name'] = soup.find('h1').text.strip()
-        data['cover'] = info_element.find('img', class_='img-responsive').get('data-original')
-
         # Details
-        for li_element in info_element.find('ul', class_='series-details').find_all('li'):
-            if not li_element.b:
-                continue
+        for artist in resp_data['artist']:
+            data['authors'].append(artist['name'])
+        for author in resp_data['author']:
+            if author['name'] not in data['authors']:
+                data['authors'].append(author['name'])
 
-            b_element = li_element.b.extract()
-            label = b_element.text.strip()
-            if label.startswith(('Autor', 'Artist')):
-                value = li_element.a.text.strip()
-                if value not in data['authors']:
-                    data['authors'].append(value)
+        for genre_id in resp_data['genre']:
+            data['genres'].append(self.data['genres'][genre_id])
 
-            elif label.startswith('Status (Scanlation)'):
-                value = get_soup_element_inner_text(li_element)
-                if value == 'laufend':
-                    data['status'] = 'ongoing'
-                elif value == 'abgeschlossen':
-                    data['status'] = 'complete'
-
-            elif label.startswith('Genre'):
-                value = get_soup_element_inner_text(li_element)
-                data['genres'] = [genre.strip() for genre in value.split()]
-
-        # Synopsis
-        synopsis_element = soup.find(class_='series-footer')
-        synopsis_element.h4.extract()
-        for name in ('div', 'hr', 'br'):
-            for element in synopsis_element.find_all(name):
-                element.extract()
-        data['synopsis'] = get_soup_element_inner_text(synopsis_element)
+        if resp_data['status'] == 0:
+            data['status'] = 'ongoing'
+        elif resp_data['status'] == 1:
+            data['status'] = 'hiatus'
+        elif resp_data['status'] == 3:
+            data['status'] = 'suspended'
+        elif resp_data['status'] == 4:
+            data['status'] = 'complete'
 
         # Chapters
-        for ul_element in soup.find_all('ul', class_='chapter-list'):
-            for li_element in ul_element.find_all('li'):
-                # Use last <a> to retrieve title and slug
-                a_elements = li_element.find_all('a', recursive=False)
-                a_element = a_elements[-1]
+        r = self.session_get(self.api_chapters_url.format(initial_data['slug']), headers={
+            'Content-Type': 'application/json, text/plain, */*',
+            'Include-Teams': 'true',
+            'Referer': self.manga_url.format(initial_data['slug']),
+            'Use-Parameter': 'manga_slug',
+            'X-Csrf-TOKEN': self.csrf_token,
+            'X-Requested-With': 'XMLHttpRequest',
+        })
+        if r.status_code != 200:
+            return data
 
-                # Remove buttons (new, ...)
-                for btn_element in a_element.find_all(class_='btn'):
-                    btn_element.extract()
+        mime_type = get_buffer_mime_type(r.content)
+        if mime_type != 'text/plain':
+            return None
 
-                # Date
-                date = li_element.find(class_='chapter-date').text  # Mo, 12.12.2022
-                date = date.split(',')[-1].strip()
+        chapters = r.json()['data']['chapters']
 
-                data['chapters'].append(dict(
-                    slug=a_element.get('href').split('/')[-2],
-                    title=' - '.join(a_element.text.strip().split('\n')),
-                    date=convert_date_string(date, format='%Y.%m.%d'),
-                ))
+        for chapter in reversed(chapters):
+            number = chapter['number']
+            if chapter['subNumber']:
+                number = f'{number}.{chapter["subNumber"]}'
 
-        data['chapters'].reverse()
+            title = f'[Band {chapter["volume"]}] Kapitel {number} - {chapter["name"]}'
+
+            data['chapters'].append(dict(
+                slug=chapter['id'],
+                title=title,
+                date=convert_date_string(chapter['publishedAt'].split(' ')[0], format='%Y-%m-%d'),
+                scanlators=[team['name'] for team in chapter['teams']],
+            ))
 
         return data
 
+    @get_data
     def get_manga_chapter_data(self, manga_slug, manga_name, chapter_slug, chapter_url):
         """
-        Returns manga chapter data by scraping chapter HTML page content
+        Returns manga chapter data using API
 
         Currently, only pages are expected.
         """
-        _manga_id, manga_slug = manga_slug.split('-', 1)
-        r = self.session_get(self.chapter_url.format(manga_slug, chapter_slug), headers={
-            'Referer': self.manga_url.format(manga_slug),
+        r = self.session_get(self.api_chapter_url.format(manga_slug, chapter_slug), headers={
+            'Content-Type': 'application/json, text/plain, */*',
+            'Referer': self.chapter_url.format(manga_slug, chapter_slug),
+            'Use-Parameter': 'manga_slug',
+            'X-Csrf-TOKEN': self.csrf_token,
+            'X-Requested-With': 'XMLHttpRequest',
         })
         if r.status_code != 200:
             return None
 
         mime_type = get_buffer_mime_type(r.content)
-        if mime_type != 'text/html':
-            return None
-
-        soup = BeautifulSoup(r.text, 'lxml')
-
-        # List of pages is available in JavaScript variable 'pages'
-        # Walk in all scripts to find it
-        pages = None
-        for script_element in soup.find_all('script'):
-            script = script_element.string
-            if script is None:
-                continue
-
-            for line in script.split('\n'):
-                line = line.strip()
-                if line.startswith('var pages'):
-                    pages = line.replace('var pages = ', '')[:-1]
-                    break
-            if pages is not None:
-                pages = json.loads(pages)
-                break
-
-        if pages is None:
+        if mime_type != 'text/plain':
             return None
 
         data = dict(
             pages=[],
         )
-        for page in pages:
+        for index, page in enumerate(r.json()['data']['chapter']['pages']):
             data['pages'].append(dict(
-                slug=page['file_name'],
-                image=None,
+                slug=None,
+                image=page['url'],
+                index=index + 1,
             ))
 
         return data
@@ -212,8 +279,8 @@ class Mangatube(Server):
         """
         Returns chapter page scan (image) content
         """
-        r = self.session_get(self.image_url.format(manga_slug, chapter_slug, page['slug']), headers={
-            'Referer': self.chapter_url.format(manga_slug.split('-', 1)[0], chapter_slug),
+        r = self.session_get(page['image'], headers={
+            'Referer': f'{self.base_url}/',
         })
         if r.status_code != 200:
             return None
@@ -225,94 +292,55 @@ class Mangatube(Server):
         return dict(
             buffer=r.content,
             mime_type=mime_type,
-            name=page['slug'],
+            name='{0:03d}.{1}'.format(page['index'], mime_type.split('/')[-1]),
         )
 
     def get_manga_url(self, slug, url):
         """
         Returns manga absolute URL
         """
-        _manga_id, manga_slug = slug.split('-', 1)
-        return self.manga_url.format(manga_slug)
+        return self.manga_url.format(slug)
 
+    @get_data
     def get_latest_updates(self, **kwargs):
-        r = self.session_get(self.base_url)
-        if r.status_code != 200:
-            return None
-
-        mime_type = get_buffer_mime_type(r.content)
-        if mime_type != 'text/html':
-            return None
-
-        soup = BeautifulSoup(r.text, 'lxml')
-
-        results = []
-        for element in soup.select('.series-update .series-update-wraper'):
-            a_element = element.select_one('.series-name')
-            results.append(dict(
-                slug='0-' + a_element.get('href').split('/')[-1],
-                name=a_element.text.strip(),
-                cover=element.select_one('.cover a img').get('data-original'),
-            ))
-
-        return results
+        return self.data['latest_updates']
 
     def get_most_populars(self, **kwargs):
         return self.search(populars=True)
 
     def search(self, term=None, populars=False, type=None, mature=None):
-        if not populars:
-            payload = {
-                'action': 'advanced_search',
-                'parameter[q]': term,
-                'parameter[min_rating]': 0,
-                'parameter[max_rating]': 5,
-                'parameter[page]': 1,
-            }
-            if type is not None:
-                payload['parameter[series_type]'] = type
-            if mature is not None:
-                payload['parameter[mature]'] = mature
-            referer = self.base_url + '/series/search/'
+        params = {
+            'year[]': [1970, datetime.date.today().year],
+            'type': type if type is not None else -1,
+            'status': -1,
+            'mature': mature if mature is not None else -1,
+            'query': term if term is not None else '',
+            'rating[]': [1, 5],
+            'page': 1,
+            'sort': 'desc' if populars else 'asc',
+            'order': 'rating' if populars else 'name',
+        }
 
-        else:
-            payload = {
-                'action': 'load_series_list_entries',
-                'parameter[sortby]': 'popularity',
-                'parameter[letter]': '',
-                'parameter[order]': 'asc',
-                'parameter[page]': 1,
-            }
-            referer = self.base_url + '/series/?filter=popularity&order=asc'
-
-        r = self.session_post(self.api_url, data=payload, headers={
-            'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8',
+        r = self.session_get(self.api_search_url, params=params, headers={
+            'Content-Type': 'application/json, text/plain, */*',
+            'Referer': self.search_url,
             'X-Requested-With': 'XMLHttpRequest',
-            'Referer': referer,
         })
         if r.status_code != 200:
             return None
 
         mime_type = get_buffer_mime_type(r.content)
-        if mime_type not in ('application/json', 'text/plain'):
+        if mime_type != 'text/plain':
             return None
 
         resp_data = r.json()
 
         results = []
-        if resp_data.get('success'):
-            if not populars:
-                # success is a dict
-                items = resp_data['success'].values()
-            else:
-                # success is a list
-                items = resp_data['success']
-
-            for item in items:
-                results.append(dict(
-                    slug='{0}-{1}'.format(item['manga_id'], item['manga_slug']),
-                    name=item['manga_title'],
-                    cover=item['covers'][0]['img_name'] if item.get('covers') else None,
-                ))
+        for item in resp_data['data']:
+            results.append(dict(
+                slug=item['slug'],
+                name=item['title'],
+                cover=item['cover'],
+            ))
 
         return results
