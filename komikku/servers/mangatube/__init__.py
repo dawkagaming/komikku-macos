@@ -20,6 +20,14 @@ from komikku.servers.utils import get_buffer_mime_type
 logger = logging.getLogger(__name__)
 
 
+def convert_old_slug(slug):
+    # for ex: 4-one-piece => one_piece
+    if slug.split('-')[0].isdigit():
+        return '_'.join(slug.split('-')[1:])
+
+    return slug
+
+
 def get_data(func):
     @wraps(func)
     def wrapper(*args, **kwargs):
@@ -161,7 +169,9 @@ class Mangatube(Server):
         """
         assert 'slug' in initial_data, 'Manga slug is missing in initial data'
 
-        r = self.session_get(self.api_manga_url.format(initial_data['slug']), headers={
+        slug = convert_old_slug(initial_data['slug'])
+
+        r = self.session_get(self.api_manga_url.format(slug), headers={
             'Content-Type': 'application/json, text/plain, */*',
             'Referer': self.manga_url.format(initial_data['slug']),
             'Use-Parameter': 'manga_slug',
@@ -177,8 +187,8 @@ class Mangatube(Server):
 
         resp_data = r.json()['data']['manga']
 
-        data = initial_data.copy()
-        data.update(dict(
+        data = dict(
+            slug=slug,
             name=resp_data['title'],
             authors=[],
             scanlators=[],
@@ -188,7 +198,7 @@ class Mangatube(Server):
             chapters=[],
             server_id=self.id,
             cover=resp_data['cover'],
-        ))
+        )
 
         # Details
         for artist in resp_data['artist']:
