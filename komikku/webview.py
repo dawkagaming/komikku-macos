@@ -336,7 +336,7 @@ class CompleteChallenge:
                         document.title = 'error';
                         clearInterval(intervalID);
                     }
-                    else if (document.querySelector('.ray-id')) {
+                    else if (document.querySelector('.ray-id') || document.querySelector('style').innerText.indexOf('ray-id') > 0) {
                         document.title = 'cf_captcha';
                     }
                     else if (document.querySelector('.g-recaptcha')) {
