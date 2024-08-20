@@ -5,7 +5,6 @@
 from io import BytesIO
 import logging
 import math
-import platform
 
 import gi
 from PIL import Image
@@ -23,13 +22,55 @@ from gi.repository import GObject
 from gi.repository import Graphene
 from gi.repository import Gsk
 from gi.repository import Gtk
+from gi.repository.GdkPixbuf import Colorspace
+from gi.repository.GdkPixbuf import Pixbuf
 from gi.repository.GdkPixbuf import PixbufAnimation
 
 logger = logging.getLogger('komikku')
 
+TEXTURES_CHUNK_MAX_HEIGHT = 30000
 ZOOM_FACTOR_DOUBLE_TAP = 2.5
 ZOOM_FACTOR_MAX = 20
 ZOOM_FACTOR_SCROLL_WHEEL = 1.3
+
+
+def chunk_pixbuf(pixbuf, chunk_height):
+    """Chunk a long vertical GdkPixbuf.Pixbuf into multiple GdkPixbuf.Pixbuf"""
+
+    width = pixbuf.get_width()
+    full_height = pixbuf.get_height()
+
+    chunks = []
+    for index in range(math.ceil(full_height / chunk_height)):
+        y = index * chunk_height
+        height = chunk_height if y + chunk_height <= full_height else full_height - y
+
+        chunk = Pixbuf.new(Colorspace.RGB, pixbuf.get_has_alpha(), 8, width, height)
+        pixbuf.copy_area(0, y, width, height, chunk, 0, 0)
+        chunks.append(chunk)
+
+    return chunks
+
+
+def get_image_info(path_or_bytes):
+    try:
+        if isinstance(path_or_bytes, bytes):
+            img = Image.open(BytesIO(path_or_bytes))
+        else:
+            img = Image.open(path_or_bytes)
+    except Exception as exc:
+        logger.error('Failed to open image', exc_info=exc)
+        return None
+
+    info = {
+        'width': img.width,
+        'height': img.height,
+        'is_animated': hasattr(img, 'is_animated') and img.is_animated,
+    }
+
+    img.close()
+
+    return info
 
 
 class KImage(Gtk.Widget, Gtk.Scrollable):
@@ -41,7 +82,7 @@ class KImage(Gtk.Widget, Gtk.Scrollable):
         'zoom-end': (GObject.SignalFlags.RUN_FIRST, None, ()),
     }
 
-    def __init__(self, path, data, texture, pixbuf, scaling='screen', scaling_filter='linear', crop=False, landscape_zoom=False, can_zoom=False):
+    def __init__(self, path, data, textures, pixbuf, scaling='screen', scaling_filter='linear', crop=False, landscape_zoom=False, can_zoom=False):
         super().__init__()
 
         self.__rendered = False
@@ -57,18 +98,13 @@ class KImage(Gtk.Widget, Gtk.Scrollable):
         self.data = data
         self.path = path
 
-        self.texture = texture
-        self.texture_crop = None
+        self.textures = textures
+        self.textures_crop = None
         self.crop_bbox = None
 
         self.pixbuf = pixbuf
         self.animation_iter = None
         self.animation_tick_callback_id = None
-
-        if texture:
-            self.ratio = texture.get_width() / texture.get_height()
-        else:
-            self.ratio = pixbuf.get_width() / pixbuf.get_height()
 
         self.gesture_click_timeout_id = None
         self.pointer_position = None  # current pointer position
@@ -111,54 +147,65 @@ class KImage(Gtk.Widget, Gtk.Scrollable):
 
     @classmethod
     def new_from_data(cls, data, scaling='screen', scaling_filter='linear', crop=False, landscape_zoom=False, can_zoom=False, static_animation=False):
-        mime_type, _result_uncertain = Gio.content_type_guess(None, data)
-        if not mime_type:
+        info = get_image_info(data)
+        if info is None:
             return None
 
         try:
-            if mime_type == 'image/gif' and not static_animation:
+            if info['is_animated'] and not static_animation:
                 stream = Gio.MemoryInputStream.new_from_data(data, None)
                 pixbuf = PixbufAnimation.new_from_stream(stream)
                 stream.close()
-                texture = None
+                textures = None
+            elif info['height'] > TEXTURES_CHUNK_MAX_HEIGHT:
+                pixbuf = None
+                stream = Gio.MemoryInputStream.new_from_data(data, None)
+                textures = []
+                for pix in chunk_pixbuf(Pixbuf.new_from_stream(stream), TEXTURES_CHUNK_MAX_HEIGHT):
+                    textures.append(Gdk.Texture.new_for_pixbuf(pix))
+                stream.close()
             else:
                 pixbuf = None
-                texture = Gdk.Texture.new_from_bytes(GLib.Bytes.new(data))
-        except Exception:
-            # Invalid image, corrupted image, unsupported image format,...
+                textures = [Gdk.Texture.new_from_bytes(GLib.Bytes.new(data))]
+        except Exception as exc:
+            logger.error('Failed to create textures: corrupted image or unsupported image format', exc_info=exc)
             return None
 
-        return cls(None, data, texture, pixbuf, scaling=scaling, scaling_filter=scaling_filter, crop=crop, landscape_zoom=landscape_zoom, can_zoom=can_zoom)
+        return cls(None, data, textures, pixbuf, scaling=scaling, scaling_filter=scaling_filter, crop=crop, landscape_zoom=landscape_zoom, can_zoom=can_zoom)
 
     @classmethod
     def new_from_file(cls, path, scaling='screen', scaling_filter='linear', crop=False, landscape_zoom=False, can_zoom=False, static_animation=False):
-        gfile = Gio.File.new_for_path(path)
-        mime_type = gfile.query_info('standard::content-type', Gio.FileQueryInfoFlags.NONE, None).get_content_type()
-        if not mime_type or not mime_type.startswith('image'):
+        info = get_image_info(path)
+        if info is None:
             return None
 
         try:
-            if mime_type == 'image/gif' and not static_animation:
+            if info['is_animated'] and not static_animation:
                 pixbuf = PixbufAnimation.new_from_file(path)
-                texture = None
+                textures = None
+            elif info['height'] > TEXTURES_CHUNK_MAX_HEIGHT:
+                pixbuf = None
+                textures = []
+                for pix in chunk_pixbuf(Pixbuf.new_from_file(path), TEXTURES_CHUNK_MAX_HEIGHT):
+                    textures.append(Gdk.Texture.new_for_pixbuf(pix))
             else:
                 pixbuf = None
-                texture = Gdk.Texture.new_from_file(gfile)
-        except Exception:
-            # Invalid image, corrupted image, unsupported image format,...
+                textures = [Gdk.Texture.new_from_filename(path)]
+        except Exception as exc:
+            logger.error('Failed to create textures: corrupted image or unsupported image format', exc_info=exc)
             return None
 
-        return cls(path, None, texture, pixbuf, scaling=scaling, scaling_filter=scaling_filter, crop=crop, landscape_zoom=landscape_zoom, can_zoom=can_zoom)
+        return cls(path, None, textures, pixbuf, scaling=scaling, scaling_filter=scaling_filter, crop=crop, landscape_zoom=landscape_zoom, can_zoom=can_zoom)
 
     @classmethod
     def new_from_resource(cls, path):
         try:
-            texture = Gdk.Texture.new_from_resource(path)
-        except Exception:
-            # Invalid image, corrupted image, unsupported image format,...
+            textures = [Gdk.Texture.new_from_resource(path)]
+        except Exception as exc:
+            logger.error('Failed to create textures: corrupted image or unsupported image format', exc_info=exc)
             return None
 
-        return cls(None, None, texture, None)
+        return cls(None, None, textures, None)
 
     @property
     def borders(self):
@@ -217,7 +264,7 @@ class KImage(Gtk.Widget, Gtk.Scrollable):
         if self.crop and self.crop_bbox:
             return self.crop_bbox[3] - self.crop_bbox[1]
 
-        return self.texture.get_height() if self.texture else 0
+        return sum(texture.get_height() for texture in self.textures) if self.textures else 0
 
     @property
     def image_width(self):
@@ -228,7 +275,7 @@ class KImage(Gtk.Widget, Gtk.Scrollable):
         if self.crop and self.crop_bbox:
             return self.crop_bbox[2] - self.crop_bbox[0]
 
-        return self.texture.get_width() if self.texture else 0
+        return self.textures[0].get_width() if self.textures else 0
 
     @property
     def image_displayed_height(self):
@@ -259,6 +306,10 @@ class KImage(Gtk.Widget, Gtk.Scrollable):
     @property
     def max_vadjustment_value(self):
         return max(self.image_displayed_height - self.widget_height, 0)
+
+    @property
+    def ratio(self):
+        return self.image_width / self.image_height
 
     @GObject.Property(type=str, default='screen')
     def scaling(self):
@@ -394,8 +445,8 @@ class KImage(Gtk.Widget, Gtk.Scrollable):
             with Image.open(self.path or BytesIO(self.data)) as im:
                 with im.convert('L') as im_bw:
                     im_lookup = im_bw.point(lookup, mode='1')
-        except Exception as error:
-            logger.debug(error)
+        except Exception as exc:
+            logger.error('Failed to compute image white borders bbox', exc_info=exc)
             return None
 
         with Image.new(im_lookup.mode, im_lookup.size, 255) as im_bg:
@@ -431,6 +482,36 @@ class KImage(Gtk.Widget, Gtk.Scrollable):
             min(self.widget_height, self.image_displayed_height)
         )
 
+    def crop_borders(self):
+        """ Crop white borders """
+        bbox = self.crop_bbox
+        textures_width = self.textures[0].get_width()
+        textures_height = sum(texture.get_height() for texture in self.textures)
+
+        # Crop is possible if computed bbox is included in textures
+        if bbox and (bbox[2] - bbox[0] < textures_width or bbox[3] - bbox[1] < textures_height):
+            try:
+                with Image.open(self.path or BytesIO(self.data)) as im:
+                    with im.convert('RGB') as im_rgb:
+                        with im_rgb.crop(bbox) as im_crop:
+                            with BytesIO() as io_buffer:
+                                # Use the very fast TIFF format (Pillow uses libtiff)
+                                im_crop.save(io_buffer, 'tiff')
+
+                                if bbox[3] - bbox[1] > TEXTURES_CHUNK_MAX_HEIGHT:
+                                    stream = Gio.MemoryInputStream.new_from_data(io_buffer.getvalue(), None)
+                                    textures = []
+                                    for pix in chunk_pixbuf(Pixbuf.new_from_stream(stream), TEXTURES_CHUNK_MAX_HEIGHT):
+                                        textures.append(Gdk.Texture.new_for_pixbuf(pix))
+                                    stream.close()
+                                    return textures
+                                else:
+                                    return [Gdk.Texture.new_from_bytes(GLib.Bytes.new(io_buffer.getvalue()))]
+            except Exception as exc:
+                logger.error('Failed to crop image white borders', exc_info=exc)
+
+        return self.textures
+
     def dispose(self):
         if self.__can_zoom:
             self.remove_controller(self.controller_motion)
@@ -443,8 +524,8 @@ class KImage(Gtk.Widget, Gtk.Scrollable):
 
         self.pixbuf = None
         self.animation_iter = None
-        self.texture = None
-        self.texture_crop = None
+        self.textures = None
+        self.textures_crop = None
 
     def do_measure(self, orientation, for_size):
         if orientation == Gtk.Orientation.HORIZONTAL:
@@ -457,37 +538,18 @@ class KImage(Gtk.Widget, Gtk.Scrollable):
             self.crop_bbox = self.__compute_borders_crop_bbox()
 
         if self.zoom_scaling is None or self.zoom == self.zoom_scaling:
-            self.zoom_scaling = self.scaling_size[0] / self.image_width
+            self.zoom_scaling = self.scaling_size[1] / self.image_height
             self.set_zoom()
         else:
             self.configure_adjustments()
 
     def do_snapshot(self, snapshot):
-        def crop_borders():
-            """ Crop white borders """
-            # Crop is possible if computed bbox is included in texture
-            bbox = self.crop_bbox
-            if bbox and (bbox[2] - bbox[0] < self.texture.get_width() or bbox[3] - bbox[1] < self.texture.get_height()):
-                try:
-                    with Image.open(self.path or BytesIO(self.data)) as im:
-                        with im.convert('RGB') as im_rgb:
-                            with im_rgb.crop(bbox) as im_crop:
-                                with BytesIO() as io_buffer:
-                                    # Use the very fast TIFF format (Pillow uses libtiff)
-                                    im_crop.save(io_buffer, 'tiff')
-                                    return Gdk.Texture.new_from_bytes(GLib.Bytes.new(io_buffer.getvalue()))
-                except Exception as error:
-                    logger.debug(error)
-                    return self.texture
-
-            return self.texture
-
-        if self.texture and self.crop and self.texture_crop is None:
+        if self.crop and self.textures_crop is None and self.textures:
             # Crop white borders
-            self.texture_crop = crop_borders()
+            self.textures_crop = self.crop_borders()
         elif self.animation_iter:
             # Get next frame (animated GIF)
-            self.texture = Gdk.Texture.new_for_pixbuf(self.animation_iter.get_pixbuf())
+            self.textures = [Gdk.Texture.new_for_pixbuf(self.animation_iter.get_pixbuf())]
 
         self.configure_adjustments()
 
@@ -510,19 +572,20 @@ class KImage(Gtk.Widget, Gtk.Scrollable):
                 )
             )
 
-        # Append texture
+        # Append textures
         scale_factor = self.get_scale_factor()
-        rect = Graphene.Rect().alloc()
-        rect.init(0, 0, width * scale_factor, height * scale_factor)
-        if platform.machine() == 'aarch64' and self.zoom < 1 and self.texture.get_height() > 8192:
-            # Linear filters produce black images (with noise) at least on my Librem 5
-            # GSK renderer GL bug?
-            filter = Gsk.ScalingFilter.NEAREST
-        else:
-            filter = Gsk.ScalingFilter.LINEAR if self.scaling_filter == 'linear' else Gsk.ScalingFilter.TRILINEAR
         if scale_factor != 1:
             snapshot.scale(1 / scale_factor, 1 / scale_factor)
-        snapshot.append_scaled_texture(self.texture_crop if self.crop else self.texture, filter, rect)
+
+        filter = Gsk.ScalingFilter.LINEAR if self.scaling_filter == 'linear' else Gsk.ScalingFilter.TRILINEAR
+        rect = Graphene.Rect().alloc()
+        textures = self.textures_crop if self.crop else self.textures
+        y = 0
+        for texture in textures:
+            h = int(texture.get_height() * self.zoom) * scale_factor
+            rect.init(0, y, int(texture.get_width() * self.zoom) * scale_factor, h)
+            snapshot.append_scaled_texture(texture, filter, rect)
+            y += h
 
         snapshot.restore()
 
