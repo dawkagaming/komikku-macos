@@ -95,8 +95,7 @@ def expand_and_resize_cover(buffer):
         new_img.paste(img, (0, (int(width * new_ratio) - height) // 2))
         new_img.thumbnail((new_width, new_height), Image.LANCZOS)
     else:
-        img.thumbnail((new_width, new_height), Image.LANCZOS)
-        new_img = img
+        new_img = img.resize((new_width, new_height), Image.LANCZOS)
 
     new_buffer = BytesIO()
     new_img.convert('RGB').save(new_buffer, 'JPEG', quality=65)
