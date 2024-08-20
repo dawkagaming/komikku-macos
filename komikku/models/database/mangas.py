@@ -121,8 +121,14 @@ class Manga:
             with open(path) as fp:
                 return fp.read()
 
+        try:
+            palette = ColorThief(cover_path).get_palette(color_count=2, quality=1)[:2]
+        except Exception:
+            # Single color image?
+            return None
+
         colors = []
-        for index, color in enumerate(ColorThief(cover_path).get_palette(color_count=2, quality=1)[:2]):
+        for index, color in enumerate(palette):
             colors.append(f'@define-color background_color_{index} rgba({color[0]}, {color[1]}, {color[2]}, 1);\n')  # noqa: E702, E231
         colors.append('@define-color background_color_2 @window_bg_color;')
 
