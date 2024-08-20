@@ -8,17 +8,17 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-08-15 23:02+0200\n"
-"PO-Revision-Date: 2024-06-12 14:09+0000\n"
+"PO-Revision-Date: 2024-08-20 16:09+0000\n"
 "Last-Translator: Сергей <asvmail.as@gmail.com>\n"
-"Language-Team: Russian <https://hosted.weblate.org/projects/komikku/main/ru/"
-">\n"
+"Language-Team: Russian <https://hosted.weblate.org/projects/komikku/main/ru/>"
+"\n"
 "Language: ru\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
 "n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
-"X-Generator: Weblate 5.6-dev\n"
+"X-Generator: Weblate 5.7\n"
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:11
 msgid "Discover and read manga &amp; comics"
@@ -599,19 +599,19 @@ msgstr "Оригинальный размер"
 
 #: ../data/ui/preferences.blp:244
 msgid "Scaling Filter"
-msgstr ""
+msgstr "Фильтр масштабирования"
 
 #: ../data/ui/preferences.blp:245
 msgid "Interpolation method used when scaling images"
-msgstr ""
+msgstr "Метод интерполяции, используемый при масштабировании изображений"
 
 #: ../data/ui/preferences.blp:248
 msgid "Linear"
-msgstr ""
+msgstr "Линейный"
 
 #: ../data/ui/preferences.blp:249
 msgid "Trilinear"
-msgstr ""
+msgstr "Трилинейный"
 
 #: ../data/ui/preferences.blp:255
 msgid "Landscape Pages Zoom"
@@ -1482,7 +1482,7 @@ msgstr "Тип"
 #: ../komikku/servers/multi/manga_stream/__init__.py:71
 #: ../komikku/servers/webtoon/__init__.py:47
 msgid "Filter by type"
-msgstr "Фильтр по типу"
+msgstr "Фильтровать по типу"
 
 #: ../komikku/servers/asurascans/__init__.py:39
 #: ../komikku/servers/coloredcouncil/__init__.py:71
@@ -1518,7 +1518,7 @@ msgstr "Цена"
 
 #: ../komikku/servers/bilibili/__init__.py:39
 msgid "Filter by price"
-msgstr "Фильтр по стоимости"
+msgstr "Фильтровать по стоимости"
 
 #: ../komikku/servers/bilibili/__init__.py:44
 msgid "Free"
@@ -1530,31 +1530,31 @@ msgstr "Оплачивается"
 
 #: ../komikku/servers/coloredcouncil/__init__.py:64
 msgid "Format"
-msgstr ""
+msgstr "Формат"
 
 #: ../komikku/servers/coloredcouncil/__init__.py:65
 msgid "Filter by format"
-msgstr ""
+msgstr "Фильтровать по формату"
 
 #: ../komikku/servers/coloredcouncil/__init__.py:70
 msgid "Manwha"
-msgstr ""
+msgstr "Манхва"
 
 #: ../komikku/servers/coloredcouncil/__init__.py:77
 msgid "Version"
-msgstr ""
+msgstr "Версия"
 
 #: ../komikku/servers/coloredcouncil/__init__.py:78
 msgid "Filter by version"
-msgstr ""
+msgstr "Фильтровать по версии"
 
 #: ../komikku/servers/coloredcouncil/__init__.py:83
 msgid "Color"
-msgstr ""
+msgstr "Цветная"
 
 #: ../komikku/servers/coloredcouncil/__init__.py:84
 msgid "B/W"
-msgstr ""
+msgstr "Чёрно-белая"
 
 #: ../komikku/servers/dynasty/__init__.py:38
 msgid "Categories"
@@ -1564,7 +1564,7 @@ msgstr "Категории"
 #: ../komikku/servers/mangafire/__init__.py:43
 #: ../komikku/servers/mangaworld/__init__.py:31
 msgid "Filter by types"
-msgstr "Фильтр по типам"
+msgstr "Фильтровать по типам"
 
 #: ../komikku/servers/dynasty/__init__.py:42
 #: ../komikku/servers/mangadex/__init__.py:103
