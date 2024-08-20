@@ -59,11 +59,11 @@ class DebugInfo:
         display = Gdk.Display.get_default()
 
         backend = display.__class__.__name__
-        if backend == 'X11Display':
+        if backend == 'GdkX11Display':
             info['backend'] = 'X11'
-        elif backend == 'WaylandDisplay':
+        elif backend == 'GdkWaylandDisplay':
             info['backend'] = 'Wayland'
-        elif backend == 'BroadwayDisplay':
+        elif backend == 'GdkBroadwayDisplay':
             info['backend'] = 'Broadway'
         elif backend == 'GdkMacosDisplay':
             info['backend'] = 'macOS'
@@ -78,6 +78,8 @@ class DebugInfo:
             info['renderer'] = 'Vulkan'
         elif renderer == 'GLRenderer':
             info['renderer'] = 'GL'
+        elif renderer == 'NglRenderer':
+            info['renderer'] = 'nGL'
         elif renderer == 'CairoRenderer':
             info['renderer'] = 'Cairo'
         else:
