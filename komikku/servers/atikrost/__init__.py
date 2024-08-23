@@ -12,5 +12,5 @@ class Atikrost(Madara):
 
     date_format = None
 
-    base_url = 'https://atikrost.com'
+    base_url = 'https://www.mangaoku.org'
     chapters_url = base_url + '/manga/{0}/ajax/chapters/'
