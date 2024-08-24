@@ -12,9 +12,7 @@ gi.require_version('Soup', '3.0')
 gi.require_version('WebKit', '6.0')
 
 from gi.repository import Adw
-from gi.repository import Gdk
 from gi.repository import GLib
-from gi.repository import Gsk
 from gi.repository import Gtk
 from gi.repository import Soup
 from gi.repository import WebKit
@@ -25,9 +23,7 @@ from komikku.utils import check_cmdline_tool
 
 class DebugInfo:
     def __init__(self, app):
-        self.app_id = app.application_id
-        self.profile = app.profile
-        self.version = app.version
+        self.app = app
 
     def get_flatpak_info(self):
         path = os.path.join(GLib.get_user_runtime_dir(), 'flatpak-info')
@@ -56,9 +52,7 @@ class DebugInfo:
     def get_gtk_info(self):
         info = {}
 
-        display = Gdk.Display.get_default()
-
-        backend = display.__class__.__name__
+        backend = self.app.window.get_display().__class__.__name__
         if backend == 'GdkX11Display':
             info['backend'] = 'X11'
         elif backend == 'GdkWaylandDisplay':
@@ -70,10 +64,7 @@ class DebugInfo:
         else:
             info['backend'] = backend
 
-        surface = Gdk.Surface.new_toplevel(display)
-        gsk_renderer = Gsk.Renderer.new_for_surface(surface)
-
-        renderer = gsk_renderer.__class__.__name__
+        renderer = self.app.window.get_renderer().__class__.__name__
         if renderer == 'VulkanRenderer':
             info['renderer'] = 'Vulkan'
         elif renderer == 'GLRenderer':
@@ -88,8 +79,6 @@ class DebugInfo:
         info['animations'] = Gtk.Settings.get_default().get_property('gtk-enable-animations')
         info['theme'] = Gtk.Settings.get_default().get_property('gtk-theme-name')
         info['icon-theme'] = Gtk.Settings.get_default().get_property('gtk-icon-theme-name')
-
-        gsk_renderer.unrealize()
 
         return info
 
@@ -111,10 +100,10 @@ class DebugInfo:
 
     def generate(self):
         info = 'Komikku:\n'
-        info += f'- Version: {self.version}\n'
-        info += f'- Profile: {self.profile}\n'
+        info += f'- Version: {self.app.version}\n'
+        info += f'- Profile: {self.app.profile}\n'
         info += f'- DB version: {DB_VERSION}\n'
-        info += f'- ID: {self.app_id}\n'
+        info += f'- ID: {self.app.application_id}\n'
         info += '\n'
 
         info += 'Compiled against:\n'
