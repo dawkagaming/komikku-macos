@@ -12,6 +12,8 @@ class Sushiscan(MangaStream):
 
     has_cf = True
 
+    series_name = 'catalogue'
+
     base_url = 'https://sushiscan.fr'
 
     authors_selector = '.infotable tr:-soup-contains("Artiste") td:last-child, .infotable tr:-soup-contains("Auteur") td:last-child'
