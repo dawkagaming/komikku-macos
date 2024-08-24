@@ -12,7 +12,7 @@ class Nightscans(MangaStream):
 
     series_name = 'series'
 
-    base_url = 'https://night-scans.com'
+    base_url = 'https://nightsup.net'
 
     authors_selector = '.tsinfo .imptdt:-soup-contains("Artist") i, .tsinfo .imptdt:-soup-contains("Author") i'
     genres_selector = '.info-desc .mgen a'
