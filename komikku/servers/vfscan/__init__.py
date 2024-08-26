@@ -10,7 +10,7 @@ class Vfscan(MangaStream):
     name = 'VF Scan'
     lang = 'fr'
 
-    base_url = 'https://www.vfscan.cc'
+    base_url = 'https://www.vfscan.net'
 
     authors_selector = '.tsinfo .imptdt:-soup-contains("Mangaka") i'
     genres_selector = '.info-desc .mgen a'
