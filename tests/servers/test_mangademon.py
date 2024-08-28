@@ -55,6 +55,7 @@ def test_mangademon(mangademon_server):
     try:
         response = mangademon_server.get_manga_data(dict(slug=slug))
         chapter_slug = response['chapters'][0]['slug']
+        slug = response['slug']
     except Exception as e:
         chapter_slug = None
         log_error_traceback(e)

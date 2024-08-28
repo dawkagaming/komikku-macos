@@ -3,6 +3,8 @@
 # Author: Valéry Febvre <vfebvre@easter-eggs.com>
 
 import time
+from urllib.parse import parse_qs
+from urllib.parse import urlparse
 
 from bs4 import BeautifulSoup
 import requests
@@ -22,14 +24,12 @@ class Mangademon(Server):
     name = 'Manga Demon'
     lang = 'en'
 
-    slugs_postfix = '-VA54'
-
-    base_url = 'https://mgdemon.org'
+    base_url = 'https://demonicscans.org'
     search_url = base_url + '/search.php'
-    latest_updates_url = base_url + '/updates.php'
-    most_populars_url = base_url + '/browse.php'
-    manga_url = base_url + '/manga/{0}' + slugs_postfix
-    chapter_url = base_url + '/manga/{0}/chapter/{1}' + slugs_postfix
+    latest_updates_url = base_url + '/lastupdates.php'
+    most_populars_url = base_url + '/advanced.php'
+    manga_url = base_url + '/manga/{0}'
+    chapter_url = base_url + '/chaptered.php?manga={0}&chapter={1}'
 
     def __init__(self):
         if self.session is None:
@@ -46,7 +46,8 @@ class Mangademon(Server):
         """
         assert 'slug' in initial_data, 'Slug is missing in initial data'
 
-        r = self.session_get(self.manga_url.format(initial_data['slug']))
+        _id, slug = initial_data['slug'].split('_')
+        r = self.session_get(self.manga_url.format(slug))
         if r.status_code != 200:
             return None
 
@@ -56,8 +57,7 @@ class Mangademon(Server):
 
         soup = BeautifulSoup(r.text, 'lxml')
 
-        data = initial_data.copy()
-        data.update(dict(
+        data = dict(
             authors=[],
             scanlators=[],
             genres=[],
@@ -66,42 +66,52 @@ class Mangademon(Server):
             chapters=[],
             server_id=self.id,
             cover=None,
-        ))
+        )
 
-        data['name'] = soup.select_one('h1.novel-title').text.strip()
-        data['cover'] = soup.select_one('img#thumbonail').get('src')
+        first_chapter_url = soup.select_one('#read-first').get('href')
+        qs = parse_qs(urlparse(first_chapter_url).query)
+        id = qs['manga'][0]
 
-        # Genres
-        for a_element in soup.select('.categories ul li a'):
-            genre = a_element.text.strip()
+        data['slug'] = f'{id}_{slug}'
+        data['name'] = soup.select_one('title').text.strip()
+        if element := soup.select_one('#manga-page img'):
+            data['cover'] = element.get('src')
+
+        # Details
+        for element in soup.select('.genres-list li'):
+            genre = element.text.strip()
             if genre not in data['genres']:
                 data['genres'].append(genre)
 
-        # Status
-        if element := soup.select_one('.header-stats > span:-soup-contains("Status") strong'):
+        if element := soup.select_one('#manga-info-stats :-soup-contains("Author") li:last-child'):
+            data['authors'].append(element.text.strip())
+
+        if element := soup.select_one('#manga-info-stats :-soup-contains("Status") li:last-child'):
             status = element.text.strip()
             if status == 'Ongoing':
                 data['status'] = 'ongoing'
             elif status == 'Completed':
                 data['status'] = 'complete'
 
-        # Authors
-        if element := soup.select_one('.author span:last-child'):
-            author = element.text.strip()
-            if author.lower() not in ('coming soon', 'updating'):
-                data['authors'].append(author)
-
         # Synopsis
-        if element := soup.select_one('#info p.description'):
+        if element := soup.select_one('#manga-info-rightColumn .white-font'):
             data['synopsis'] = element.text.strip()
 
         # Chapters
-        for element in reversed(soup.select('#chapters ul.chapter-list li')):
+        chapters_slugs = []
+        for element in reversed(soup.select('#chapters-list li')):
+            url = element.a.get('href')
+            qs = parse_qs(urlparse(url).query)
+            slug = qs['chapter'][0]
+            if slug in chapters_slugs:
+                continue
+
             data['chapters'].append(dict(
-                slug=element.get('data-chapterno'),
-                title=element.select_one('.chapter-title').text.strip(),
-                date=convert_date_string(element.select_one('.chapter-update').get('date'), format='%Y-%m-%d'),
+                slug=slug,
+                title=element.a.get('title').strip(),
+                date=convert_date_string(element.a.span.text.strip(), format='%Y-%m-%d'),
             ))
+            chapters_slugs.append(slug)
 
         return data
 
@@ -111,7 +121,8 @@ class Mangademon(Server):
 
         Currently, only pages are expected.
         """
-        r = self.session_get(self.chapter_url.format(manga_slug, chapter_slug))
+        manga_id = manga_slug.split('_')[0]
+        r = self.session_get(self.chapter_url.format(manga_id, chapter_slug))
         if r.status_code != 200:
             return None
 
@@ -136,10 +147,11 @@ class Mangademon(Server):
         """
         Returns chapter page scan (image) content
         """
+        manga_id = manga_slug.split('_')[0]
         r = self.session_get(
             page['image'],
             headers={
-                'Referer': self.chapter_url.format(manga_slug, chapter_slug),
+                'Referer': self.chapter_url.format(manga_id, chapter_slug),
             }
         )
         if r.status_code != 200:
@@ -159,11 +171,12 @@ class Mangademon(Server):
         """
         Returns manga absolute URL
         """
+        _id, slug = slug.split('_')
         return self.manga_url.format(slug)
 
     def get_latest_updates(self):
         """
-        Returns recent Updates
+        Returns lastest updates
         """
         slugs = []
 
@@ -172,10 +185,7 @@ class Mangademon(Server):
                 self.latest_updates_url,
                 params=dict(
                     list=num,
-                ),
-                headers={
-                    'Referer': f'{self.latest_updates_url}',
-                }
+                )
             )
             if r.status_code != 200:
                 return None, None, None
@@ -183,19 +193,19 @@ class Mangademon(Server):
             soup = BeautifulSoup(r.text, 'lxml')
 
             page_results = []
-            for element in soup.select('#content ul li'):
-                a_element = element.select_one('.novel-title > a')
-                slug = a_element.get('href').split('/')[-1].replace(self.slugs_postfix, '')
+            for element in soup.select('.updates-element'):
+                a_element = element.select_one('.thumb > a')
+                slug = a_element.get('href').split('/')[-1]
                 if slug in slugs:
                     continue
-                img_element = element.select_one('.novel-cover > img')
-                last_chapter_a_element = element.select_one('.chapternumber > a')
+                img_element = a_element.img
+                last_chapter_a_element = element.select_one('.chplinks')
 
                 page_results.append(dict(
-                    slug=slug,
-                    name=a_element.text.strip(),
+                    slug=f'0_{slug}',  # id is unknown at this time, use 0
+                    name=img_element.get('title').strip(),
                     cover=img_element.get('src'),
-                    last_chapter=last_chapter_a_element.text.replace('Chapter', '').strip(),
+                    last_chapter=last_chapter_a_element.text.strip(),
                 ))
                 slugs.append(slug)
 
@@ -225,34 +235,20 @@ class Mangademon(Server):
         Returns top views
         """
         def get_page(num):
-            r = self.session.get(
-                self.most_populars_url,
-                params=dict(
-                    list=num,
-                    status='all',
-                    orderby='VIEWS DESC',
-                ),
-                headers={
-                    'Referer': f'{self.most_populars_url}',
-                }
-            )
+            r = self.session.get(self.most_populars_url)
             if r.status_code != 200:
                 return None, None, None
 
             soup = BeautifulSoup(r.text, 'lxml')
 
             page_results = []
-            for element in soup.select('#content ul li'):
-                a_element = element.select_one('.novel-title > a')
-                slug = a_element.get('href').split('/')[-1].replace(self.slugs_postfix, '')
-                img_element = element.select_one('.novel-cover > img')
-                last_chapter_a_element = element.select_one('.chapternumber > a')
+            for a_element in soup.select('.advanced-element > a'):
+                slug = a_element.get('href').split('/')[-1]
 
                 page_results.append(dict(
-                    slug=slug,
-                    name=a_element.text.strip(),
-                    cover=img_element.get('src'),
-                    last_chapter=last_chapter_a_element.text.replace('Chapter', '').strip(),
+                    slug=f'0_{slug}',
+                    name=a_element.get('title').strip(),
+                    cover=a_element.img.get('src'),
                 ))
 
             num += 1
@@ -291,10 +287,13 @@ class Mangademon(Server):
         soup = BeautifulSoup(r.text, 'lxml')
 
         results = []
-        for a_element in soup.select('a.boxsizing'):
+        for a_element in soup.select('a'):
+            slug = a_element.get('href').split('/')[-1]
+
             results.append(dict(
-                slug=a_element.get('href').split('/')[-1].replace(self.slugs_postfix, ''),
-                name=a_element.text.strip(),
+                slug=f'0_{slug}',  # id is unknown at this time, use 0
+                name=a_element.select_one('li > div > div').text.strip(),
+                cover=a_element.select_one('li > img').get('src'),
             ))
 
         return results
