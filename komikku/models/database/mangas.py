@@ -321,7 +321,7 @@ class Manga:
             ).fetchone()
         elif self.sort_order in ('date-asc', 'date-desc'):
             row = db_conn.execute(
-                f'SELECT * FROM chapters WHERE manga_id = ? AND date {op} ? ORDER BY data {order}, id {order}',
+                f'SELECT * FROM chapters WHERE manga_id = ? AND date {op} ? ORDER BY date {order}, id {order}',
                 (self.id, chapter.date)
             ).fetchone()
         elif self.sort_order in ('natural-asc', 'natural-desc'):
