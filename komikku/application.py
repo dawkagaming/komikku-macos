@@ -21,7 +21,6 @@ from gi.repository import GLib
 from gi.repository import Gtk
 from gi.repository import Notify
 
-from komikku.activity_indicator import ActivityIndicator
 from komikku.card import CardPage
 from komikku.categories_editor import CategoriesEditorPage
 from komikku.debug_info import DebugInfo
@@ -236,7 +235,9 @@ class ApplicationWindow(Adw.ApplicationWindow):
         self.css_provider = Gtk.CssProvider.new()
         Gtk.StyleContext.add_provider_for_display(Gdk.Display.get_default(), self.css_provider, 400)
 
-        self.activity_indicator = ActivityIndicator()
+        self.activity_indicator = Gtk.Spinner(
+            halign=Gtk.Align.CENTER, valign=Gtk.Align.CENTER, width_request=48, height_request=48
+        )
         self.overlay.add_overlay(self.activity_indicator)
 
         self.downloader = Downloader(self)

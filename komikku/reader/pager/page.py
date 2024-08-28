@@ -9,7 +9,6 @@ from gi.repository import GLib
 from gi.repository import GObject
 from gi.repository import Gtk
 
-from komikku.activity_indicator import ActivityIndicator
 from komikku.reader.pager.image import KImage
 from komikku.utils import log_error_traceback
 
@@ -50,7 +49,9 @@ class Page(Gtk.Overlay):
             self.scrollable = False
 
         # Activity indicator
-        self.activity_indicator = ActivityIndicator()
+        self.activity_indicator = Gtk.Spinner(
+            halign=Gtk.Align.CENTER, valign=Gtk.Align.CENTER, width_request=48, height_request=48
+        )
         self.add_overlay(self.activity_indicator)
 
     @property

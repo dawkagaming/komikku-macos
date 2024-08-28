@@ -266,7 +266,7 @@ class KInfiniteCanvas(Gtk.Widget, Gtk.Scrollable):
             if not self.current_page_bottom and page._ic_position <= height and page._ic_position + page._ic_height > height:
                 self.current_page_bottom = page
 
-            if page.status in ('rendering', 'allocable') and not page.activity_indicator.spinner.get_spinning():
+            if page.status in ('rendering', 'allocable') and not page.activity_indicator.get_spinning():
                 visible = page._ic_position >= 0 and page._ic_position < height
                 visible |= page._ic_position + page_height > 0 and page._ic_position + page_height <= height
                 visible |= page._ic_position < 0 and page._ic_position + page_height > height
@@ -418,7 +418,7 @@ class KInfiniteCanvas(Gtk.Widget, Gtk.Scrollable):
         while page:
             index = page.index + 1 or '?'
             chapter_title = page.chapter.title if page.chapter else '?'
-            print(f'{count + 1:2}: p={int(page._ic_position):5} | h={int(page._ic_height):5} | {index:3} {chapter_title}')
+            print(f'{count + 1:2}: p={int(page._ic_position):5} | h={int(page._ic_height):5} | {index:3} {chapter_title}')  # noqa
             count += 1
             page = page.get_next_sibling()
         print('================================')
