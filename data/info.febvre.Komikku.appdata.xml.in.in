@@ -98,6 +98,26 @@
     <url type="donation">https://valos.gitlab.io/Komikku/#sponsor</url>
 
     <releases>
+        <release version="1.56.0" date="2024-08-30">
+            <description translate="no">
+                <ul>
+                    <li>[Reader] Fixed display of long strip images</li>
+                    <li>[Servers] Improved webview CAPTCHAs detection</li>
+                    <li>[Servers] Improved webview Cloudflare challenges detection</li>
+                    <li>[Servers] Atikrost (TR): Update</li>
+                    <li>[Servers] Local: Improved cover generation</li>
+                    <li>[Servers] Manga Demon (EN): Update</li>
+                    <li>[Servers] MangaHere (EN): Update</li>
+                    <li>[Servers] Night scans (EN): Update</li>
+                    <li>[Servers] Read Comic Online (EN): Update</li>
+                    <li>[Servers] SushiScan (FR): Update</li>
+                    <li>[Servers] VF Scan (FR): Update</li>
+                    <li>[Servers] Xoxocomics (EN): Update</li>
+                    <li>[L10n] Updated Croatian and Russian translations</li>
+                </ul>
+                <p>Happy reading.</p>
+            </description>
+        </release>
         <release version="1.55.0" date="2024-08-18">
             <description translate="no">
                 <ul>
