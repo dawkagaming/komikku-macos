@@ -18,6 +18,8 @@ class Xoxocomics(WPComics):
     manga_url = base_url + '/comic/{0}'
     chapter_url = base_url + '/comic/{0}/{1}/all'
 
+    ignore_images_status_code = True
+
     details_name_selector = '.breadcrumb li:last-child span'
     details_cover_selector = '#item-detail .col-image img'
     details_status_selector = '#item-detail .list-info .status p:last-child'

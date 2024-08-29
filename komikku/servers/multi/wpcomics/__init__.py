@@ -30,6 +30,7 @@ class WPComics(Server):
     chapter_url: str = None
 
     date_format: str = '%m/%d/%Y'
+    ignore_images_status_code: bool = False
 
     details_name_selector: str = None
     details_cover_selector: str = None
@@ -178,7 +179,7 @@ class WPComics(Server):
                 'Referer': self.chapter_url.format(manga_slug, chapter_slug),
             }
         )
-        if r.status_code != 200:
+        if r.status_code != 200 and not self.ignore_images_status_code:
             return None
 
         mime_type = get_buffer_mime_type(r.content)
@@ -188,7 +189,7 @@ class WPComics(Server):
         return dict(
             buffer=r.content,
             mime_type=mime_type,
-            name=f'{page["index"]:04d}.{mime_type.split("/")[-1]}' if page.get('index') else page['image'].split('/')[-1],
+            name=f'{page["index"]:04d}.{mime_type.split("/")[-1]}' if page.get('index') else page['image'].split('/')[-1],  # noqa E231
         )
 
     def get_manga_url(self, slug, url):
