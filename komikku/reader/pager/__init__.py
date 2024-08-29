@@ -160,7 +160,7 @@ class BasePager:
 
         def on_error(_kind, message=None):
             if message is not None:
-                self.window.add_notification(_(f'Failed to sync read progress with server:\n{message}'), timeout=2)
+                self.window.add_notification(_(f'Failed to sync read progress with server:\n{message}'), timeout=2)  # noqa E231
             else:
                 self.window.add_notification(_('Failed to sync read progress with server'), timeout=2)
 
@@ -319,33 +319,34 @@ class Pager(Adw.Bin, BasePager):
 
         direction = 1 if self.reader.reading_mode == 'right-to-left' else -1
 
-        def init_pages():
-            # Center page
-            center_page = Page(self, chapter, page_index)
-            self.carousel.append(center_page)
-            center_page.connect('rendered', self.on_page_rendered)
-            center_page.scrolledwindow.connect('edge-overshot', self.on_page_edge_overshotted)
-            center_page.render()
+        # Left page
+        left_page = Page(self, chapter, page_index + direction)
+        self.carousel.append(left_page)
+        left_page.connect('rendered', self.on_page_rendered)
+        left_page.scrolledwindow.connect('edge-overshot', self.on_page_edge_overshotted)
 
-            # Left page
-            left_page = Page(self, chapter, page_index + direction)
-            self.carousel.prepend(left_page)
-            left_page.connect('rendered', self.on_page_rendered)
-            left_page.scrolledwindow.connect('edge-overshot', self.on_page_edge_overshotted)
-            self.scroll_to_page(center_page, False, False)
+        # Center page
+        center_page = Page(self, chapter, page_index)
+        self.carousel.append(center_page)
+        center_page.connect('rendered', self.on_page_rendered)
+        center_page.scrolledwindow.connect('edge-overshot', self.on_page_edge_overshotted)
+        center_page.render()
 
-            # Right page
-            right_page = Page(self, chapter, page_index - direction)
-            self.carousel.append(right_page)
-            right_page.connect('rendered', self.on_page_rendered)
-            right_page.scrolledwindow.connect('edge-overshot', self.on_page_edge_overshotted)
+        # Right page
+        right_page = Page(self, chapter, page_index - direction)
+        self.carousel.append(right_page)
+        right_page.connect('rendered', self.on_page_rendered)
+        right_page.scrolledwindow.connect('edge-overshot', self.on_page_edge_overshotted)
 
-            left_page.render()
-            right_page.render()
+        def finalize():
+            # Scroll to center page
+            self.carousel.scroll_to(self.carousel.get_nth_page(1), False)
 
-        # Hack: use a `GLib.timeout_add` to add first pages in carousel
-        # Without it, `scroll_to` (with animate=False) doesn't work!
-        GLib.timeout_add(150, init_pages)
+            GLib.timeout_add(500, left_page.render)
+            GLib.timeout_add(500, right_page.render)
+
+        # Hack: use a `GLib.timeout_add` otherwise `scroll_to` (with animate=False) doesn't work!!!
+        GLib.timeout_add(250, finalize)
 
     def on_key_pressed(self, _controller, keyval, _keycode, state):
         if self.window.page != self.reader.props.tag:
