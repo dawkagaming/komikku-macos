@@ -14,8 +14,8 @@ def do_server_test(func):
         if server.has_cf:
             pytest.skip('Server uses Cloudflare challenge')
 
-        if server.has_recaptcha:
-            pytest.skip('Server uses ReCAPTCHA')
+        if server.has_captcha:
+            pytest.skip('Server uses a CAPTCHA')
 
         return func(*args, **kwargs)
 

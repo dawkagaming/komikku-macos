@@ -31,7 +31,7 @@ class Readcomiconline(Server):
     status = 'enabled' if requests is not None else 'disabled'
 
     has_cf = True
-    has_recaptcha = True
+    has_captcha = True
     http_client = 'curl_cffi'
 
     base_url = 'https://readcomiconline.li'

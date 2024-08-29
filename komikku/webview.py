@@ -242,7 +242,10 @@ class WebviewPage(Adw.NavigationPage):
 
 
 class CompleteChallenge:
-    """Allows user to complete a server Cloudflare challenge and/or Google ReCAPTCHA using the Webview
+    """Allows user to complete a captcha using the Webview
+    - Cloudflare challenge
+    - Google ReCAPTCHA
+    - AreYouHuman2
 
     Several calls to this decorator can be concurrent. But only one will be honored at a time.
     """
@@ -257,46 +260,37 @@ class CompleteChallenge:
             self.server = args_dict['self']
             self.url = self.server.bypass_cf_url or self.server.base_url
 
-            if not self.server.has_cf and not self.server.has_recaptcha:
+            if not self.server.has_cf and not self.server.has_captcha:
                 return self.func(*args, **kwargs)
 
-            if self.server.session is None:
-                # Try loading a previous session
-                self.server.load_session()
+            # Test CF challenge cookie
+            if self.server.has_cf and not self.server.has_captcha:
+                if self.server.session is None:
+                    # Try loading a previous session
+                    self.server.load_session()
 
-            if self.server.session:
-                logger.debug(f'{self.server.id}: Previous session found')
+                if self.server.session:
+                    logger.debug(f'{self.server.id}: Previous session found')
 
-                # Locate CF and/or ReCAPTCHA cookies
-                cf_bypassed = False
-                recaptcha_bypassed = False
-                for cookie in get_session_cookies(self.server.session):
-                    if cookie.name == 'cf_clearance':
-                        # CF
-                        logger.debug(f'{self.server.id}: Session has CF cookie')
-                        cf_bypassed = True
-                    elif cookie.name == 'b_token':
-                        # ReCAPTCHA
-                        logger.debug(f'{self.server.id}: Session has ReCAPTCHA cookie')
-                        recaptcha_bypassed = True
+                    # Locate CF challenge cookie
+                    cf_cookie_found = False
+                    for cookie in get_session_cookies(self.server.session):
+                        if cookie.name == 'cf_clearance':
+                            logger.debug(f'{self.server.id}: Session has CF challenge cookie')
+                            cf_cookie_found = True
+                            break
 
-                bypassed = (not self.server.has_cf or cf_bypassed) and (not self.server.has_recaptcha or recaptcha_bypassed)
+                    if cf_cookie_found:
+                        # Check session validity
+                        logger.debug(f'{self.server.id}: Checking session...')
+                        r = self.server.session_get(self.url)
+                        if r.ok:
+                            logger.debug(f'{self.server.id}: Session OK')
+                            return self.func(*args, **kwargs)
 
-                if bypassed:
-                    logger.debug(f'{self.server.id}: Checking session...')
-                    # Check session validity
-                    r = self.server.session_get(self.url)
-                    if r.ok:
-                        logger.debug(f'{self.server.id}: Session OK')
-                        return self.func(*args, **kwargs)
-
-                    logger.debug(f'{self.server.id}: Session KO ({r.status_code})')
-                else:
-                    if self.server.has_cf and not cf_bypassed:
-                        logger.debug(f'{self.server.id}: Session has no CF cookie')
-                    if self.server.has_recaptcha and not recaptcha_bypassed:
-                        logger.debug(f'{self.server.id}: Session has no ReCAPTCHA cookie')
-                    logger.debug('Loading page in webview...')
+                        logger.debug(f'{self.server.id}: Session KO ({r.status_code})')
+                    else:
+                        logger.debug(f'{self.server.id}: Session has no CF challenge cookie')
 
             self.cf_reload_count = 0
             self.done = False
@@ -324,7 +318,9 @@ class CompleteChallenge:
         self.error = 'Captcha challenge bypass aborted'
 
     def monitor_challenge(self):
-        # Detect Cloudflare or Google ReCAPTCHA challenge via JavaScript in current page
+        # Detect captcha via JavaScript in current page
+        # Cloudflare challange, Google ReCAPTCHA, AreYouHuman2
+        #
         # - No challenge found: change title to 'ready'
         # - A captcha is detected: change title to 'cf_captcha' or 're_captcha'
         # - An error occurs during challenge: change title to 'error'
@@ -341,6 +337,9 @@ class CompleteChallenge:
                     }
                     else if (document.querySelector('.g-recaptcha')) {
                         document.title = 're_captcha';
+                    }
+                    else if (document.querySelector('#formVerify')) {
+                        document.title = 'ayh2_captcha';
                     }
                     else {
                         document.title = 'ready';
@@ -389,7 +388,7 @@ class CompleteChallenge:
             self.webview.close_page()
             return
 
-        if title in ('cf_captcha', 're_captcha'):
+        if title.endswith('_captcha'):
             if title == 'cf_captcha':
                 self.cf_reload_count += 1
             if self.cf_reload_count > CF_RELOAD_MAX:
@@ -402,6 +401,8 @@ class CompleteChallenge:
                 logger.debug(f'{self.server.id}: CF captcha detected, try #{self.cf_reload_count}')
             elif title == 're_captcha':
                 logger.debug(f'{self.server.id}: ReCAPTCHA detected')
+            elif title == 'ayh2_captcha':
+                logger.debug(f'{self.server.id}: AreYouHuman2 detected')
 
             # Show webview, user must complete a CAPTCHA
             if self.webview.window.page != self.webview.props.tag:

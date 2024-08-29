@@ -82,9 +82,9 @@ class Server(ABC):
     base_url = None
 
     bypass_cf_url = None
+    has_captcha = False
     has_cf = False
     has_login = False
-    has_recaptcha = False
     headers = None
     headers_images = None
     http_client = 'requests'  # Used HTTP client
