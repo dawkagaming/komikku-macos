@@ -9,7 +9,7 @@
 # Flam Scans [EN]
 # Iris Scanlator [pt_BR]
 # Lelmanga [FR]
-# Neko Scans [ES]
+# Neko Scans [ES] (Disabled)
 # Noromax (ID)
 # Night scans [EN]
 # PhenixScans [FR]
@@ -367,13 +367,15 @@ class MangaStream(Server):
             if self.name_re_sub:
                 name = re.sub(self.name_re_sub, '', name).strip()
 
-            cover_element = a_element.select_one('img.ts-post-image')
-            if cover_element.get('data-lazy-src'):
-                cover = cover_element.get('data-lazy-src')
-            elif cover_element.get('data-src'):
-                cover = cover_element.get('data-src')
+            if cover_element := a_element.select_one('img.ts-post-image'):
+                if cover_element.get('data-lazy-src'):
+                    cover = cover_element.get('data-lazy-src')
+                elif cover_element.get('data-src'):
+                    cover = cover_element.get('data-src')
+                else:
+                    cover = cover_element.get('src')
             else:
-                cover = cover_element.get('src')
+                continue
 
             results.append(dict(
                 slug=a_element.get('href').split('/')[self.slug_position],
