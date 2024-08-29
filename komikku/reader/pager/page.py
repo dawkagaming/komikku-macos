@@ -10,6 +10,7 @@ from gi.repository import GObject
 from gi.repository import Gtk
 
 from komikku.reader.pager.image import KImage
+from komikku.utils import AsyncWorker
 from komikku.utils import log_error_traceback
 
 
@@ -122,24 +123,23 @@ class Page(Gtk.Overlay):
 
     def render(self, retry=False):
         def complete(error_code, error_message):
-            if self.reader.reading_mode != 'webtoon':
-                self.activity_indicator.stop()
-
             if error_code in ('connection', 'server'):
+                self.stop_activity_indicator()
                 on_error(error_code, error_message)
                 if retry:
                     return
+
             elif error_code == 'offlimit':
+                self.stop_activity_indicator()
                 self.status = 'offlimit'
                 return
 
             if self.status == 'disposed':
                 # Page has been removed from pager
-                return False
+                self.stop_activity_indicator()
+                return
 
-            self.set_image(retry)
-
-            return False
+            AsyncWorker(self.set_image, (retry,), self.stop_activity_indicator).start()
 
         def load_chapter(prior_chapter=None):
             if self.chapter is None:
@@ -220,8 +220,7 @@ class Page(Gtk.Overlay):
         self.status = 'rendering'
         self.error = None
 
-        if self.reader.reading_mode != 'webtoon':
-            self.activity_indicator.start()
+        self.start_activity_indicator()
 
         if not self.reader.manga.is_local:
             thread = threading.Thread(target=run)
@@ -239,15 +238,16 @@ class Page(Gtk.Overlay):
         self.picture.landscape_zoom = self.reader.landscape_zoom
 
     def set_allow_zooming(self, allow):
-        if self.reader.reading_mode == 'webtoon':
+        if self.picture is None:
             return
 
-        if self.picture is None:
+        if self.reader.reading_mode == 'webtoon':
+            self.picture.set_allow_zooming(False)
             return
 
         self.picture.set_allow_zooming(allow)
 
-    def set_image(self, retry=False):
+    def set_image(self, retry):
         if self.path is None and self.data is None:
             picture = KImage.new_from_resource('/info/febvre/Komikku/images/missing_file.png')
         else:
@@ -287,6 +287,8 @@ class Page(Gtk.Overlay):
         else:
             self.set_child(self.picture)
 
+        self.stop_activity_indicator()
+
     def show_retry_button(self):
         if self.retry_button is None:
             self.retry_button = Gtk.Button()
@@ -305,3 +307,11 @@ class Page(Gtk.Overlay):
             self.add_overlay(self.retry_button)
 
         self.retry_button.set_visible(True)
+
+    def start_activity_indicator(self):
+        if self.reader.reading_mode != 'webtoon':
+            self.activity_indicator.start()
+
+    def stop_activity_indicator(self, *args):
+        if self.reader.reading_mode != 'webtoon':
+            self.activity_indicator.stop()
