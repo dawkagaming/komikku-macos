@@ -87,7 +87,8 @@ class Server(ABC):
     has_login = False
     headers = None
     headers_images = None
-    http_client = 'requests'  # Used HTTP client
+    http_client = 'requests'  # HTTP client
+    ignore_ssl_errors = False
     is_nsfw = False
     is_nsfw_only = False
     logged_in = False
@@ -217,7 +218,7 @@ class Server(ABC):
         if etag:
             headers['If-None-Match'] = etag
 
-        r = self.session.get(url, headers=headers)
+        r = self.session.get(url, headers=headers, verify=not self.ignore_ssl_errors)
         if r.status_code != 200:
             return None, None, get_response_elapsed(r)
 
@@ -385,6 +386,7 @@ class Server(ABC):
         """
 
     def session_get(self, *args, **kwargs):
+        kwargs['verify'] = not self.ignore_ssl_errors
         try:
             r = retry_session(session=self.session).get(*args, **kwargs)
         except Exception as error:
@@ -394,6 +396,7 @@ class Server(ABC):
         return r
 
     def session_patch(self, *args, **kwargs):
+        kwargs['verify'] = not self.ignore_ssl_errors
         try:
             r = self.session.patch(*args, **kwargs)
         except Exception as error:
@@ -403,6 +406,7 @@ class Server(ABC):
         return r
 
     def session_post(self, *args, **kwargs):
+        kwargs['verify'] = not self.ignore_ssl_errors
         try:
             r = self.session.post(*args, **kwargs)
         except Exception as error:
@@ -412,6 +416,7 @@ class Server(ABC):
         return r
 
     def session_put(self, *args, **kwargs):
+        kwargs['verify'] = not self.ignore_ssl_errors
         try:
             r = self.session.put(*args, **kwargs)
         except Exception as error:

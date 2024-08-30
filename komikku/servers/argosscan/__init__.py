@@ -15,3 +15,5 @@ class Argosscan(Madara2):
 
     details_synopsis_selector = '.manga-excerpt'
     chapters_selector = '.wp-manga-chapter'
+
+    ignore_ssl_errors = True
