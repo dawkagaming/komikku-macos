@@ -479,13 +479,15 @@ class Pager(Adw.Bin, BasePager):
             self.interactive = not page.is_scrollable
 
     def on_scroll(self, _controller, dx, dy):
+        page = self.current_page
+
         modifiers = Gtk.accelerator_get_default_mod_mask()
         state = self.controller_scroll.get_current_event_state()
         if state & modifiers == Gdk.ModifierType.CONTROL_MASK:
             # Propagate event to page: allow zoom with Ctrl + mouse wheel
+            page.set_allow_zooming(True)
             return Gdk.EVENT_PROPAGATE
 
-        page = self.current_page
         if page is None:
             return
 
