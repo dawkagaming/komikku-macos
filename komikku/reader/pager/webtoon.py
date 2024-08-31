@@ -51,13 +51,6 @@ class WebtoonPager(Adw.Bin, BasePager):
     def pages(self):
         return self.canvas.pages
 
-    @property
-    def size(self):
-        size = self.scrolledwindow.get_allocation()
-        size.width = min(size.width, self.reader.size.width)
-
-        return size
-
     def dispose(self):
         self.canvas.dispose()
         self.canvas.unparent()

@@ -35,11 +35,6 @@ class BasePager:
     def pages(self):
         raise NotImplementedError()
 
-    @property
-    @abstractmethod
-    def size(self):
-        raise NotImplementedError()
-
     def crop_pages_borders(self):
         raise NotImplementedError()
 
@@ -214,10 +209,6 @@ class Pager(Adw.Bin, BasePager):
         for index in range(self.carousel.get_n_pages()):
             yield self.carousel.get_nth_page(index)
 
-    @property
-    def size(self):
-        return self.get_allocation()
-
     def add_page(self, position):
         if position == 'start':
             if page_end := self.carousel.get_nth_page(2):
@@ -248,11 +239,10 @@ class Pager(Adw.Bin, BasePager):
                 new_page.scrolledwindow.connect('edge-overshot', self.on_page_edge_overshotted)
                 new_page.render()
 
-            # Hack: use a workaround to not lose position
-            # Cf. issue https://gitlab.gnome.org/GNOME/libadwaita/-/issues/430
-            position_handler_id = self.carousel.connect('notify::position', append_after_remove)
-
             if page_start := self.carousel.get_nth_page(0):
+                # Hack: use a workaround to not lose position
+                # Cf. issue https://gitlab.gnome.org/GNOME/libadwaita/-/issues/430
+                position_handler_id = self.carousel.connect('notify::position', append_after_remove)
                 page_start.dispose()
 
     def adjust_page_placement(self, page):
