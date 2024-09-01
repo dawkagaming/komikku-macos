@@ -8,6 +8,7 @@ from gi.repository import Gtk
 
 from komikku.models import create_db_connection
 from komikku.models import Category
+from komikku.models import CategoryVirtual
 from komikku.models import Settings
 
 
@@ -62,5 +63,5 @@ class CategoriesList:
         self.window.library.categories_list.populate()
 
         # Update Library if the current selected category is the activated category or the 'Uncategorized' category
-        if Settings.get_default().selected_category in (-1, category_id):
+        if Settings.get_default().selected_category in (CategoryVirtual.UNCATEGORIZED, category_id):
             GLib.idle_add(self.window.library.populate)

@@ -60,6 +60,7 @@ class CategoriesEditorPage(Adw.NavigationPage):
             deleted_is_current = Settings.get_default().selected_category == row.category.id
 
             row.category.delete()
+            row.category = None
             self.listbox.remove(row)
 
             if not self.listbox.get_first_child():

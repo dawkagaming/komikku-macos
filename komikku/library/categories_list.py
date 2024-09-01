@@ -135,13 +135,13 @@ class CategoriesList:
                     if self.edit_mode:
                         continue
 
-                    category = 0
+                    category = CategoryVirtual.ALL
                     label = _('All')
                 elif item == 'uncategorized':
                     if self.edit_mode:
                         continue
 
-                    category = -1
+                    category = CategoryVirtual.UNCATEGORIZED
                     label = _('Uncategorized')
                     nb = db_conn.execute('SELECT count(*) FROM mangas').fetchone()[0] - nb_categorized
                 else:

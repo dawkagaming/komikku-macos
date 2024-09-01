@@ -798,6 +798,8 @@ class LibraryPage(Adw.NavigationPage):
                 break
 
     def update_title(self, *args, db_conn=None):
+        title = 'Komikku'
+
         nb_selected = len(self.flowbox.get_selected_children()) if self.selection_mode else 0
         if nb_selected > 0:
             title = ngettext('{0} selected', '{0} selected', nb_selected).format(nb_selected)
@@ -805,9 +807,11 @@ class LibraryPage(Adw.NavigationPage):
             if (category_id := Settings.get_default().selected_category) != CategoryVirtual.ALL:
                 if category_id == CategoryVirtual.UNCATEGORIZED:
                     title = _('Uncategorized')
+                elif category := Category.get(category_id, db_conn):
+                    title = category.label
                 else:
-                    title = Category.get(category_id, db_conn).label
-            else:
-                title = 'Komikku'
+                    # Category saved in settings no longer exists!
+                    # This should never happen, but if it does, reset selected category
+                    Settings.get_default().selected_category = CategoryVirtual.ALL
 
         self.title.set_title(title)
