@@ -20,3 +20,4 @@ class Flamescans(MangaStream):
     scanlators_selector = '.tsinfo .imptdt:-soup-contains("Serialization") i, .tsinfo .imptdt:-soup-contains("Translation") i'
     status_selector = '.status i'
     synopsis_selector = '[itemprop="description"]'
+    chapter_pages_selector = '#readerarea img[loading="lazy"]'
