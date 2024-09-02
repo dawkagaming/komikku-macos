@@ -10,7 +10,6 @@ from gi.repository import GObject
 from gi.repository import Gtk
 
 from komikku.reader.pager.image import KImage
-from komikku.utils import AsyncWorker
 from komikku.utils import log_error_traceback
 
 
@@ -139,7 +138,7 @@ class Page(Gtk.Overlay):
                 self.stop_activity_indicator()
                 return
 
-            AsyncWorker(self.set_image, (retry,), self.stop_activity_indicator).start()
+            self.set_image(retry)
 
         def load_chapter(prior_chapter=None):
             if self.chapter is None:

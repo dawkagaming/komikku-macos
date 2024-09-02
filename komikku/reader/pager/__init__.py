@@ -320,7 +320,6 @@ class Pager(Adw.Bin, BasePager):
         self.carousel.append(center_page)
         center_page.connect('rendered', self.on_page_rendered)
         center_page.scrolledwindow.connect('edge-overshot', self.on_page_edge_overshotted)
-        center_page.render()
 
         # Right page
         right_page = Page(self, chapter, page_index - direction)
@@ -332,6 +331,7 @@ class Pager(Adw.Bin, BasePager):
             # Scroll to center page
             self.carousel.scroll_to(self.carousel.get_nth_page(1), False)
 
+            center_page.render()
             GLib.timeout_add(500, left_page.render)
             GLib.timeout_add(500, right_page.render)
 
