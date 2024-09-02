@@ -2,8 +2,11 @@
 # SPDX-License-Identifier: GPL-3.0-only or GPL-3.0-or-later
 # Author: Valéry Febvre <vfebvre@easter-eggs.com>
 
-from bs4 import BeautifulSoup
+import datetime
 import json
+from urllib.parse import urlparse
+
+from bs4 import BeautifulSoup
 import requests
 
 from komikku.servers import Server
@@ -17,6 +20,7 @@ class Mangahere(Server):
     id = 'mangahere'
     name = 'MangaHere'
     lang = 'en'
+    is_nsfw = True
 
     base_url = 'https://www.mangahere.cc'
     search_url = base_url + '/search'
@@ -32,6 +36,14 @@ class Mangahere(Server):
             self.session.headers = {
                 'User-Agent': USER_AGENT,
             }
+            cookie = requests.cookies.create_cookie(
+                name='isAdult',
+                value='1',
+                domain=urlparse(self.base_url).netloc,
+                path='/',
+                expires=(datetime.datetime.now() + datetime.timedelta(days=1)).timestamp(),
+            )
+            self.session.cookies.set_cookie(cookie)
 
     def get_manga_data(self, initial_data):
         """
@@ -136,7 +148,7 @@ class Mangahere(Server):
 
             for url in pages_urls:
                 data['pages'].append(dict(
-                    image=f'https:{url}',
+                    image=f'https:{url}',  # noqa: E231
                 ))
         else:
             # Page by page reader
@@ -199,7 +211,7 @@ class Mangahere(Server):
             base_url = res[23:-1].split(';')[0][9:-1]
             images = json.loads(res.split(';')[1][11:])
 
-            url = f'https:{base_url}{images[0]}'
+            url = f'https:{base_url}{images[0]}'  # noqa: E231
         else:
             url = page['image']
 
