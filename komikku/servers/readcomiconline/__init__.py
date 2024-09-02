@@ -130,8 +130,9 @@ class Readcomiconline(Server):
         Returns comic chapter data
         """
         def decode_url(url, server):
-            # Scripts/rguard.min.js?v=1.5.1
+            # Scripts/rguard.min.js?v=1.5.4
             if not url.startswith('https'):
+                url = url.replace('6UUQS__ACd__', 'g')
                 if '?' in url:
                     url, qs = url.split('?')
                 else:
