@@ -36,6 +36,7 @@ from gi.repository.GdkPixbuf import PixbufAnimation
 
 COVER_WIDTH = 180
 COVER_HEIGHT = 256
+MISSING_IMG_RESOURCE_PATH = '/info/febvre/Komikku/images/missing_file.png'
 REQUESTS_TIMEOUT = 5
 
 logger = logging.getLogger('komikku')

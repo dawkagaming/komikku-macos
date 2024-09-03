@@ -26,6 +26,9 @@ from gi.repository.GdkPixbuf import Colorspace
 from gi.repository.GdkPixbuf import Pixbuf
 from gi.repository.GdkPixbuf import PixbufAnimation
 
+from komikku.utils import AsyncWorker
+from komikku.utils import MISSING_IMG_RESOURCE_PATH
+
 logger = logging.getLogger('komikku')
 
 TEXTURES_CHUNK_MAX_HEIGHT = 30000
@@ -52,27 +55,6 @@ def chunk_pixbuf(pixbuf, chunk_height):
     return chunks
 
 
-def get_image_info(path_or_bytes):
-    try:
-        if isinstance(path_or_bytes, bytes):
-            img = Image.open(BytesIO(path_or_bytes))
-        else:
-            img = Image.open(path_or_bytes)
-    except Exception as exc:
-        logger.error('Failed to open image', exc_info=exc)
-        return None
-
-    info = {
-        'width': img.width,
-        'height': img.height,
-        'is_animated': hasattr(img, 'is_animated') and img.is_animated,
-    }
-
-    img.close()
-
-    return info
-
-
 class KImage(Gtk.Widget, Gtk.Scrollable):
     __gtype_name__ = 'KImage'
     __gsignals__ = {
@@ -82,7 +64,7 @@ class KImage(Gtk.Widget, Gtk.Scrollable):
         'zoom-end': (GObject.SignalFlags.RUN_FIRST, None, ()),
     }
 
-    def __init__(self, path, data, textures, pixbuf, scaling='screen', scaling_filter='linear', crop=False, landscape_zoom=False, can_zoom=False):
+    def __init__(self, scaling='screen', scaling_filter='linear', crop=False, landscape_zoom=False, can_zoom=False):
         super().__init__()
 
         self.__rendered = False
@@ -95,14 +77,14 @@ class KImage(Gtk.Widget, Gtk.Scrollable):
         self.__vadj = None
         self.__zoom = 1
 
-        self.data = data
-        self.path = path
+        self.data = None
+        self.path = None
 
-        self.textures = textures
+        self.textures = None
         self.textures_crop = None
         self.crop_bbox = None
 
-        self.pixbuf = pixbuf
+        self.pixbuf = None
         self.animation_iter = None
         self.animation_tick_callback_id = None
 
@@ -140,72 +122,6 @@ class KImage(Gtk.Widget, Gtk.Scrollable):
             self.gesture_zoom.connect('end', self.on_gesture_zoom_end)
             self.gesture_zoom.connect('scale-changed', self.on_gesture_zoom_scale_changed)
             self.add_controller(self.gesture_zoom)
-
-        if isinstance(self.pixbuf, PixbufAnimation):
-            self.animation_iter = self.pixbuf.get_iter(None)
-            self.animation_tick_callback_id = self.add_tick_callback(self.__animation_tick_callback)
-
-    @classmethod
-    def new_from_data(cls, data, scaling='screen', scaling_filter='linear', crop=False, landscape_zoom=False, can_zoom=False, static_animation=False):
-        info = get_image_info(data)
-        if info is None:
-            return None
-
-        try:
-            if info['is_animated'] and not static_animation:
-                stream = Gio.MemoryInputStream.new_from_data(data, None)
-                pixbuf = PixbufAnimation.new_from_stream(stream)
-                stream.close()
-                textures = None
-            elif info['height'] > TEXTURES_CHUNK_MAX_HEIGHT:
-                pixbuf = None
-                stream = Gio.MemoryInputStream.new_from_data(data, None)
-                textures = []
-                for pix in chunk_pixbuf(Pixbuf.new_from_stream(stream), TEXTURES_CHUNK_MAX_HEIGHT):
-                    textures.append(Gdk.Texture.new_for_pixbuf(pix))
-                stream.close()
-            else:
-                pixbuf = None
-                textures = [Gdk.Texture.new_from_bytes(GLib.Bytes.new(data))]
-        except Exception as exc:
-            logger.error('Failed to create textures: corrupted image or unsupported image format', exc_info=exc)
-            return None
-
-        return cls(None, data, textures, pixbuf, scaling=scaling, scaling_filter=scaling_filter, crop=crop, landscape_zoom=landscape_zoom, can_zoom=can_zoom)
-
-    @classmethod
-    def new_from_file(cls, path, scaling='screen', scaling_filter='linear', crop=False, landscape_zoom=False, can_zoom=False, static_animation=False):
-        info = get_image_info(path)
-        if info is None:
-            return None
-
-        try:
-            if info['is_animated'] and not static_animation:
-                pixbuf = PixbufAnimation.new_from_file(path)
-                textures = None
-            elif info['height'] > TEXTURES_CHUNK_MAX_HEIGHT:
-                pixbuf = None
-                textures = []
-                for pix in chunk_pixbuf(Pixbuf.new_from_file(path), TEXTURES_CHUNK_MAX_HEIGHT):
-                    textures.append(Gdk.Texture.new_for_pixbuf(pix))
-            else:
-                pixbuf = None
-                textures = [Gdk.Texture.new_from_filename(path)]
-        except Exception as exc:
-            logger.error('Failed to create textures: corrupted image or unsupported image format', exc_info=exc)
-            return None
-
-        return cls(path, None, textures, pixbuf, scaling=scaling, scaling_filter=scaling_filter, crop=crop, landscape_zoom=landscape_zoom, can_zoom=can_zoom)
-
-    @classmethod
-    def new_from_resource(cls, path):
-        try:
-            textures = [Gdk.Texture.new_from_resource(path)]
-        except Exception as exc:
-            logger.error('Failed to create textures: corrupted image or unsupported image format', exc_info=exc)
-            return None
-
-        return cls(None, None, textures, None)
 
     @property
     def borders(self):
@@ -482,6 +398,78 @@ class KImage(Gtk.Widget, Gtk.Scrollable):
             min(self.widget_height, self.image_displayed_height)
         )
 
+    def create_pixbuf_animation(self):
+        try:
+            if self.path:
+                self.pixbuf = PixbufAnimation.new_from_file(self.path)
+            elif self.data:
+                stream = Gio.MemoryInputStream.new_from_data(self.data, None)
+                self.pixbuf = PixbufAnimation.new_from_stream(stream)
+                stream.close()
+
+        except Exception as exc:
+            logger.error('Failed to create textures: corrupted image or unsupported image format', exc_info=exc)
+            self.load_resource(MISSING_IMG_RESOURCE_PATH)
+            return False
+
+        self.animation_iter = self.pixbuf.get_iter(None)
+        self.animation_tick_callback_id = self.add_tick_callback(self.__animation_tick_callback)
+
+        return True
+
+    def create_texture(self):
+        try:
+            if self.path:
+                self.textures = [Gdk.Texture.new_from_filename(self.path)]
+            elif self.data:
+                self.textures = [Gdk.Texture.new_from_bytes(GLib.Bytes.new(self.data))]
+
+        except Exception as exc:
+            logger.error('Failed to create textures: corrupted image or unsupported image format', exc_info=exc)
+            self.load_resource(MISSING_IMG_RESOURCE_PATH)
+            return False
+
+        return True
+
+    def create_texture_chunked(self):
+        """Chunk a long vertical image into several textures"""
+        try:
+            if self.path:
+                pixbuf = Pixbuf.new_from_file(self.path)
+            elif self.data:
+                stream = Gio.MemoryInputStream.new_from_data(self.data, None)
+                pixbuf = Pixbuf.new_from_stream(stream)
+                stream.close()
+
+            width = pixbuf.get_width()
+            full_height = pixbuf.get_height()
+            chunk_height = TEXTURES_CHUNK_MAX_HEIGHT
+
+            self.textures = []
+            for index in range(math.ceil(full_height / chunk_height)):
+                y = index * chunk_height
+                height = chunk_height if y + chunk_height <= full_height else full_height - y
+
+                chunk = Pixbuf.new(Colorspace.RGB, pixbuf.get_has_alpha(), 8, width, height)
+                pixbuf.copy_area(0, y, width, height, chunk, 0, 0)
+                self.textures.append(Gdk.Texture.new_for_pixbuf(chunk))
+
+        except Exception as exc:
+            logger.error('Failed to create textures: corrupted image or unsupported image format', exc_info=exc)
+            self.load_resource(MISSING_IMG_RESOURCE_PATH)
+            return False
+
+        return True
+
+    def create_texture_resource(self):
+        try:
+            self.textures = [Gdk.Texture.new_from_resource(self.path)]
+        except Exception as exc:
+            logger.error('Failed to create textures: corrupted image or unsupported image format', exc_info=exc)
+            return False
+
+        return self.path != MISSING_IMG_RESOURCE_PATH
+
     def crop_borders(self):
         """ Crop white borders """
         bbox = self.crop_bbox
@@ -592,6 +580,60 @@ class KImage(Gtk.Widget, Gtk.Scrollable):
         self.emit('rendered', self.__rendered)
         if not self.__rendered:
             self.__rendered = True
+
+    def load(self, path=None, data=None, callback=None, static_animation=False):
+        try:
+            if path:
+                img = Image.open(path)
+            elif data:
+                img = Image.open(BytesIO(data))
+        except Exception as exc:
+            logger.error('Failed to open image', exc_info=exc)
+            info = None
+        else:
+            info = {
+                'width': img.width,
+                'height': img.height,
+                'is_animated': hasattr(img, 'is_animated') and img.is_animated,
+            }
+
+            img.close()
+
+        if info is None:
+            self.load_resource(MISSING_IMG_RESOURCE_PATH, callback=callback)
+            return
+
+        self.path = path
+        self.data = data
+
+        if info['is_animated'] and not static_animation:
+            operation = self.create_pixbuf_animation
+        elif info['height'] > TEXTURES_CHUNK_MAX_HEIGHT:
+            operation = self.create_texture_chunked
+        else:
+            operation = self.create_texture
+
+        AsyncWorker(operation=operation, operation_callback=callback, operation_callback_inputs=self).start()
+
+    def load_resource(self, path=None, callback=None):
+        self.path = path
+
+        if path == MISSING_IMG_RESOURCE_PATH and callback is None:
+            # Reset instance variables and controllers
+            self.data = None
+
+            self.dispose()
+            self.__scaling = 'screen'
+            self.__scaling_filter = 'linear'
+            self.__crop = False
+            self.__landscape_zoom = False
+            self.__can_zoom = False
+
+        if callback is None:
+            self.create_texture_resource()
+            return
+
+        AsyncWorker(operation=self.create_texture_resource, operation_callback=callback, operation_callback_inputs=self).start()
 
     def on_gesture_click_released(self, _gesture, n_press, x, y):
         def emit_clicked(x, y):

@@ -19,6 +19,7 @@ from komikku.servers import DOWNLOAD_MAX_DELAY
 from komikku.servers import LANGUAGES
 from komikku.utils import COVER_WIDTH
 from komikku.utils import html_escape
+from komikku.utils import MISSING_IMG_RESOURCE_PATH
 from komikku.utils import PaintableCover
 
 LOGO_SIZE = 28
@@ -168,8 +169,7 @@ class ExplorerSearchResultRow(Adw.ActionRow):
 
         paintable = PaintableCover.new_from_data(data, THUMB_WIDTH, THUMB_HEIGHT, True) if data else None
         if paintable is None:
-            paintable = PaintableCover.new_from_resource(
-                '/info/febvre/Komikku/images/missing_file.png', THUMB_WIDTH, THUMB_HEIGHT)
+            paintable = PaintableCover.new_from_resource(MISSING_IMG_RESOURCE_PATH, THUMB_WIDTH, THUMB_HEIGHT)
         else:
             self.cover_data = data
 

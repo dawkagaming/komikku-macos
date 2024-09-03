@@ -11,6 +11,7 @@ from gi.repository import Gtk
 
 from komikku.reader.pager.image import KImage
 from komikku.utils import log_error_traceback
+from komikku.utils import MISSING_IMG_RESOURCE_PATH
 
 
 class Page(Gtk.Overlay):
@@ -247,46 +248,45 @@ class Page(Gtk.Overlay):
         self.picture.set_allow_zooming(allow)
 
     def set_image(self, retry):
-        if self.path is None and self.data is None:
-            picture = KImage.new_from_resource('/info/febvre/Komikku/images/missing_file.png')
-        else:
-            can_zoom = self.scrollable
-            if self.path:
-                picture = KImage.new_from_file(
-                    self.path, self.reader.scaling, self.reader.scaling_filter, self.reader.borders_crop, self.reader.landscape_zoom, can_zoom
-                )
-            else:
-                picture = KImage.new_from_data(
-                    self.data['buffer'], self.reader.scaling, self.reader.scaling_filter, self.reader.borders_crop, self.reader.landscape_zoom, can_zoom
-                )
+        def on_loaded(worker, result, picture):
+            success = worker.return_value(result)
 
-        if (self.path is None and self.data is None) or picture is None:
-            self.show_retry_button()
+            if not success:
+                self.show_retry_button()
 
-            if picture is None:
                 if self.path:
                     GLib.unlink(self.path)
 
                 self.window.add_notification(_('Failed to load image'), timeout=2)
-                self.error = 'corrupt_file'
-                picture = KImage.new_from_resource('/info/febvre/Komikku/images/missing_file.png')
+                if self.path or self.data:
+                    self.error = 'corrupt_file'
 
-        picture.connect('clicked', self.on_clicked)
-        picture.connect('rendered', self.on_rendered, retry)
-        picture.connect('zoom-begin', self.on_zoom_begin)
-        picture.connect('zoom-end', self.on_zoom_end)
+            picture.connect('clicked', self.on_clicked)
+            picture.connect('rendered', self.on_rendered, retry)
+            picture.connect('zoom-begin', self.on_zoom_begin)
+            picture.connect('zoom-end', self.on_zoom_end)
 
-        if self.picture:
-            self.picture.dispose()
+            if self.picture:
+                self.picture.dispose()
 
-        self.picture = picture
-        self.status = 'allocable'
-        if self.scrollable:
-            self.scrolledwindow.set_child(self.picture)
+            self.picture = picture
+            self.status = 'allocable'
+            if self.scrollable:
+                self.scrolledwindow.set_child(self.picture)
+            else:
+                self.set_child(self.picture)
+
+            self.stop_activity_indicator()
+
+        if self.path is None and self.data is None:
+            picture = KImage()
+            picture.load_resource(MISSING_IMG_RESOURCE_PATH, on_loaded)
         else:
-            self.set_child(self.picture)
-
-        self.stop_activity_indicator()
+            can_zoom = self.scrollable
+            picture = KImage(
+                scaling=self.reader.scaling, scaling_filter=self.reader.scaling_filter, crop=self.reader.borders_crop, landscape_zoom=self.reader.landscape_zoom, can_zoom=can_zoom
+            )
+            picture.load(path=self.path, data=self.data['buffer'] if self.data else None, callback=on_loaded)
 
     def show_retry_button(self):
         if self.retry_button is None:

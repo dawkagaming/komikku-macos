@@ -16,6 +16,7 @@ from komikku.models import Settings
 from komikku.utils import COVER_WIDTH
 from komikku.utils import folder_size
 from komikku.utils import html_escape
+from komikku.utils import MISSING_IMG_RESOURCE_PATH
 from komikku.utils import PaintableCover
 
 
@@ -431,14 +432,14 @@ class InfoBox:
         self.name_label.set_text(manga.name)
 
         if manga.cover_fs_path is None:
-            paintable = PaintableCover.new_from_resource('/info/febvre/Komikku/images/missing_file.png', COVER_WIDTH)
+            paintable = PaintableCover.new_from_resource(MISSING_IMG_RESOURCE_PATH, COVER_WIDTH)
             self.card.remove_backdrop()
         else:
             paintable = PaintableCover.new_from_file(manga.cover_fs_path, COVER_WIDTH)
             if paintable:
                 self.card.set_backdrop()
             else:
-                paintable = PaintableCover.new_from_resource('/info/febvre/Komikku/images/missing_file.png', COVER_WIDTH)
+                paintable = PaintableCover.new_from_resource(MISSING_IMG_RESOURCE_PATH, COVER_WIDTH)
                 self.card.remove_backdrop()
 
         self.cover_image.set_paintable(paintable)

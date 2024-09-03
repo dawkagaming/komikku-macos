@@ -14,6 +14,7 @@ from komikku.models import Settings
 from komikku.utils import COVER_HEIGHT
 from komikku.utils import COVER_WIDTH
 from komikku.utils import CoverLoader
+from komikku.utils import MISSING_IMG_RESOURCE_PATH
 
 
 class Thumbnail(Gtk.FlowBoxChild):
@@ -130,11 +131,11 @@ class ThumbnailCover(GObject.GObject, Gdk.Paintable):
 
     def __create_cover_texture(self):
         if self.manga.cover_fs_path is None:
-            paintable = CoverLoader.new_from_resource('/info/febvre/Komikku/images/missing_file.png', COVER_WIDTH, None)
+            paintable = CoverLoader.new_from_resource(MISSING_IMG_RESOURCE_PATH, COVER_WIDTH, None)
         else:
             paintable = CoverLoader.new_from_file(self.manga.cover_fs_path, COVER_WIDTH, None, True)
             if paintable is None:
-                paintable = CoverLoader.new_from_resource('/info/febvre/Komikku/images/missing_file.png', COVER_WIDTH, None)
+                paintable = CoverLoader.new_from_resource(MISSING_IMG_RESOURCE_PATH, COVER_WIDTH, None)
 
         self.cover_texture = paintable.texture
 
