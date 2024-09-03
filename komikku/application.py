@@ -508,19 +508,11 @@ available in your region/language."""))
         # Override release notes
         dialog.set_release_notes("""
             <ul>
-                <li>[Reader] Fixed display of long strip images</li>
-                <li>[Servers] Improved webview CAPTCHAs detection</li>
-                <li>[Servers] Improved webview Cloudflare challenges detection</li>
-                <li>[Servers] Atikrost (TR): Update</li>
-                <li>[Servers] Local: Improved cover generation</li>
-                <li>[Servers] Manga Demon (EN): Update</li>
+                <li>[Reader] RTL/LTR/Vertical pager: Fixed &lt;Ctrl+mouse wheel&gt; zooming</li>
+                <li>[Servers] Argos Comics (PT): Update</li>
+                <li>[Servers] Flame Comics (EN): Update</li>
                 <li>[Servers] MangaHere (EN): Update</li>
-                <li>[Servers] Night scans (EN): Update</li>
                 <li>[Servers] Read Comic Online (EN): Update</li>
-                <li>[Servers] SushiScan (FR): Update</li>
-                <li>[Servers] VF Scan (FR): Update</li>
-                <li>[Servers] Xoxocomics (EN): Update</li>
-                <li>[L10n] Updated Croatian and Russian translations</li>
             </ul>
             <p>Happy reading.</p>
         """)

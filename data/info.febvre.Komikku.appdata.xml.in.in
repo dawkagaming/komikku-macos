@@ -98,6 +98,18 @@
     <url type="donation">https://valos.gitlab.io/Komikku/#sponsor</url>
 
     <releases>
+        <release version="1.57.0" date="2024-09-04">
+            <description translate="no">
+                <ul>
+                    <li>[Reader] RTL/LTR/Vertical pager: Fixed &lt;Ctrl+mouse wheel&gt; zooming</li>
+                    <li>[Servers] Argos Comics (PT): Update</li>
+                    <li>[Servers] Flame Comics (EN): Update</li>
+                    <li>[Servers] MangaHere (EN): Update</li>
+                    <li>[Servers] Read Comic Online (EN): Update</li>
+                </ul>
+                <p>Happy reading.</p>
+            </description>
+        </release>
         <release version="1.56.0" date="2024-08-30">
             <description translate="no">
                 <ul>
