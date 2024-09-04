@@ -27,6 +27,7 @@ from gi.repository.GdkPixbuf import Pixbuf
 from gi.repository.GdkPixbuf import PixbufAnimation
 
 from komikku.utils import AsyncWorker
+from komikku.utils import get_image_info
 from komikku.utils import MISSING_IMG_RESOURCE_PATH
 
 logger = logging.getLogger('komikku')
@@ -582,23 +583,7 @@ class KImage(Gtk.Widget, Gtk.Scrollable):
             self.__rendered = True
 
     def load(self, path=None, data=None, callback=None, static_animation=False):
-        try:
-            if path:
-                img = Image.open(path)
-            elif data:
-                img = Image.open(BytesIO(data))
-        except Exception as exc:
-            logger.error('Failed to open image', exc_info=exc)
-            info = None
-        else:
-            info = {
-                'width': img.width,
-                'height': img.height,
-                'is_animated': hasattr(img, 'is_animated') and img.is_animated,
-            }
-
-            img.close()
-
+        info = get_image_info(path or data)
         if info is None:
             self.load_resource(MISSING_IMG_RESOURCE_PATH, callback=callback)
             return

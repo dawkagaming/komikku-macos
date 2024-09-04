@@ -40,6 +40,9 @@ MISSING_IMG_RESOURCE_PATH = '/info/febvre/Komikku/images/missing_file.png'
 REQUESTS_TIMEOUT = 5
 
 logger = logging.getLogger('komikku')
+logging.getLogger("PIL.Image").propagate = False
+logging.getLogger("PIL.PngImagePlugin").propagate = False
+logging.getLogger("PIL.TiffImagePlugin").propagate = False
 
 pillow_heif.register_avif_opener()
 pillow_heif.register_heif_opener()
@@ -159,6 +162,42 @@ def get_data_dir():
         os.mkdir(data_local_dir_path)
 
     return data_dir_path
+
+
+def get_image_info(path_or_bytes):
+    try:
+        if isinstance(path_or_bytes, str):
+            img = Image.open(path_or_bytes)
+        else:
+            img = Image.open(BytesIO(path_or_bytes))
+    except Exception as exc:
+        # Pillow doesn´t support SVG images
+        # Get content type to identify an image
+        if isinstance(path_or_bytes, str):
+            gfile = Gio.File.new_for_path(path_or_bytes)
+            content_type = gfile.query_info('standard::content-type', Gio.FileQueryInfoFlags.NONE, None).get_content_type()
+        else:
+            content_type, _result_uncertain = Gio.content_type_guess(None, path_or_bytes)
+
+        if content_type.startswith('image'):
+            info = {
+                'width': -1,
+                'height': -1,
+                'is_animated': False,
+            }
+        else:
+            logger.warning('Failed to open or identify image', exc_info=exc)
+            info = None
+    else:
+        info = {
+            'width': img.width,
+            'height': img.height,
+            'is_animated': hasattr(img, 'is_animated') and img.is_animated,
+        }
+
+        img.close()
+
+    return info
 
 
 def html_escape(s):
@@ -438,12 +477,12 @@ class CoverLoader(GObject.GObject):
 
     @classmethod
     def new_from_data(cls, data, width=None, height=None, static_animation=False):
-        mime_type, _result_uncertain = Gio.content_type_guess(None, data)
-        if not mime_type:
+        info = get_image_info(data)
+        if not info:
             return None
 
         try:
-            if mime_type == 'image/gif' and not static_animation:
+            if info['is_animated'] and not static_animation:
                 stream = Gio.MemoryInputStream.new_from_data(data, None)
                 pixbuf = PixbufAnimation.new_from_stream(stream)
                 stream.close()
@@ -459,18 +498,17 @@ class CoverLoader(GObject.GObject):
 
     @classmethod
     def new_from_file(cls, path, width=None, height=None, static_animation=False):
-        gfile = Gio.File.new_for_path(path)
-        mime_type = gfile.query_info('standard::content-type', Gio.FileQueryInfoFlags.NONE, None).get_content_type()
-        if not mime_type or not mime_type.startswith('image'):
+        info = get_image_info(path)
+        if not info:
             return None
 
         try:
-            if mime_type == 'image/gif' and not static_animation:
+            if info['is_animated'] and not static_animation:
                 pixbuf = PixbufAnimation.new_from_file(path)
                 texture = None
             else:
                 pixbuf = None
-                texture = Gdk.Texture.new_from_file(gfile)
+                texture = Gdk.Texture.new_from_filename(path)
         except Exception:
             # Invalid image, corrupted image, unsupported image format,...
             return None
@@ -501,7 +539,6 @@ class PaintableCover(CoverLoader, Gdk.Paintable):
         CoverLoader.__init__(self, path, texture, pixbuf, width, height)
 
         self.animation_iter = None
-        self.animation_timeout_id = None
 
         self.rect = Graphene.Rect().alloc()
         self.rounded_rect = Gsk.RoundedRect()
@@ -510,7 +547,7 @@ class PaintableCover(CoverLoader, Gdk.Paintable):
 
         if isinstance(self.pixbuf, PixbufAnimation):
             self.animation_iter = self.pixbuf.get_iter(None)
-            self.animation_timeout_id = GLib.timeout_add(self.animation_iter.get_delay_time(), self.on_delay)
+            GLib.timeout_add(self.animation_iter.get_delay_time(), self.on_delay)
 
             self.invalidate_contents()
 
@@ -529,9 +566,6 @@ class PaintableCover(CoverLoader, Gdk.Paintable):
 
         if self.animation_iter:
             # Get next frame (animated GIF)
-            timeval = GLib.TimeVal()
-            timeval.tv_usec = GLib.get_real_time()
-            self.animation_iter.advance(timeval)
             pixbuf = self.animation_iter.get_pixbuf()
             self.texture = Gdk.Texture.new_for_pixbuf(pixbuf)
 
@@ -549,8 +583,8 @@ class PaintableCover(CoverLoader, Gdk.Paintable):
         if delay == -1:
             return GLib.SOURCE_REMOVE
 
-        self.timeout_id = GLib.timeout_add(delay, self.on_delay)
+        # Check if it's time to show the next frame
+        if self.animation_iter.advance(None):
+            self.invalidate_contents()
 
-        self.invalidate_contents()
-
-        return GLib.SOURCE_REMOVE
+        return GLib.SOURCE_CONTINUE
