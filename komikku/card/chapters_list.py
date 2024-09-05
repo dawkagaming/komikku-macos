@@ -25,7 +25,7 @@ class ChapterItemWrapper(GObject.Object):
     }
 
     def __init__(self, chapter):
-        GObject.Object.__init__(self)
+        super().__init__()
         self.chapter = chapter
         self.download = None
 
@@ -40,10 +40,7 @@ class ChaptersListModel(Gtk.SortListModel):
         self.sorter.set_sort_func(self.sort_func)
         self.list_store = Gio.ListStore(item_type=ChapterItemWrapper)
 
-        Gtk.SortListModel.__init__(self, model=self.list_store, sorter=self.sorter)
-
-    def clear(self):
-        self.list_store.remove_all()
+        super().__init__(model=self.list_store, sorter=self.sorter)
 
     def invalidate_sort(self):
         self.sorter.set_sort_func(self.sort_func)
@@ -53,8 +50,7 @@ class ChaptersListModel(Gtk.SortListModel):
         for chapter in chapters:
             items.append(ChapterItemWrapper(chapter))
 
-        self.clear()
-        self.list_store.splice(0, 0, items)
+        self.list_store.splice(0, self.list_store.props.n_items, items)
 
 
 class ChaptersList:
@@ -67,8 +63,9 @@ class ChaptersList:
         self.selection_click_position = None
 
         self.factory = Gtk.SignalListItemFactory()
-        self.factory.connect('setup', self.on_factory_setup)
         self.factory.connect('bind', self.on_factory_bind)
+        self.factory.connect('setup', self.on_factory_setup)
+        self.factory.connect('unbind', self.on_factory_unbind)
 
         self.list_model = ChaptersListModel(self.sort_func)
         self.model = Gtk.MultiSelection.new(self.list_model)
@@ -228,6 +225,10 @@ class ChaptersList:
 
     def on_factory_setup(self, _factory: Gtk.ListItemFactory, list_item: Gtk.ListItem):
         list_item.set_child(ChaptersListRow(self.card))
+
+    def on_factory_unbind(self, _factory: Gtk.ListItemFactory, list_item: Gtk.ListItem):
+        # Free memory
+        list_item.get_child().dispose()
 
     def on_long_press(self, _controller, _x, _y):
         if not self.card.selection_mode:
@@ -525,15 +526,14 @@ class ChaptersListRow(Gtk.Box):
         self.chapter = None
 
         # Menu button
-        self.menubutton_model = Gio.Menu()
-        self.menubutton.set_menu_model(self.menubutton_model)
-        self.menubutton.get_popover().connect('show', self.update_menu)
+        self.menubutton.set_menu_model(Gio.Menu())
+        self.popover_show_handler_id = self.menubutton.get_popover().connect('show', self.update_menu)
 
         # Gesture to detect click
         self.gesture_click = Gtk.GestureClick.new()
         self.gesture_click.set_button(0)
         self.add_controller(self.gesture_click)
-        self.gesture_click.connect('pressed', self.on_button_clicked)
+        self.gesture_click_handler_id = self.gesture_click.connect('pressed', self.on_button_clicked)
 
     @property
     def position(self):
@@ -544,6 +544,16 @@ class ChaptersListRow(Gtk.Box):
                 break
 
         return position
+
+    def dispose(self):
+        self.card = None
+        self.chapter = None
+
+        self.menubutton.get_popover().disconnect(self.popover_show_handler_id)
+        self.menubutton.set_menu_model(None)
+        self.menubutton.set_popover(None)
+        self.download_stop_button.disconnect(self.download_stop_button_clicked_handler_id)
+        self.gesture_click.disconnect(self.gesture_click_handler_id)
 
     def on_button_clicked(self, _gesture, _n_press, _x, _y):
         button = self.gesture_click.get_current_button()
@@ -568,7 +578,9 @@ class ChaptersListRow(Gtk.Box):
         # Connect events
         if not update:
             item.connect('changed', self.populate, True)
-            self.download_stop_button.connect('clicked', lambda _button, chapter: self.card.window.downloader.remove(chapter), self.chapter)
+            self.download_stop_button_clicked_handler_id = self.download_stop_button.connect(
+                'clicked', lambda _button, chapter: self.card.window.downloader.remove(chapter), self.chapter
+            )
 
         self.title_label.set_label(self.chapter.title)
         self.title_label.remove_css_class('dim-label')
@@ -661,7 +673,8 @@ class ChaptersListRow(Gtk.Box):
             return
 
         position = self.position
-        self.menubutton_model.remove_all()
+        menu_model = self.menubutton.get_menu_model()
+        menu_model.remove_all()
 
         if not self.chapter.downloaded and not self.card.manga.is_local:
             section_menu_model = Gio.Menu()
@@ -670,7 +683,7 @@ class ChaptersListRow(Gtk.Box):
             section_menu_model.append_item(menu_item)
 
             section = Gio.MenuItem.new_section(None, section_menu_model)
-            self.menubutton_model.append_item(section)
+            menu_model.append_item(section)
 
         section_menu_model = Gio.Menu()
 
@@ -685,7 +698,7 @@ class ChaptersListRow(Gtk.Box):
 
         if section_menu_model.get_n_items():
             section = Gio.MenuItem.new_section(None, section_menu_model)
-            self.menubutton_model.append_item(section)
+            menu_model.append_item(section)
 
         section_menu_model = Gio.Menu()
         if not self.chapter.read:
@@ -702,4 +715,4 @@ class ChaptersListRow(Gtk.Box):
         section_menu_model.append_item(menu_item)
 
         section = Gio.MenuItem.new_section(None, section_menu_model)
-        self.menubutton_model.append_item(section)
+        menu_model.append_item(section)
