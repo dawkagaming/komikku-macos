@@ -37,6 +37,7 @@ class CategoriesList:
         if records:
             self.stack.set_visible_child_name('list')
 
+            active_categories = self.card.manga.categories
             for record in records:
                 category = Category.get(record['id'])
 
@@ -47,7 +48,7 @@ class CategoriesList:
                 switch = Gtk.Switch.new()
                 switch.set_valign(Gtk.Align.CENTER)
                 switch.set_halign(Gtk.Align.CENTER)
-                switch.set_active(category.id in self.card.manga.categories)
+                switch.set_active(category.id in active_categories)
                 switch.connect('notify::active', self.on_category_activated, category.id)
                 action_row.add_suffix(switch)
                 action_row.set_activatable_widget(switch)
