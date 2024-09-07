@@ -221,14 +221,15 @@ class ChaptersList:
         self.chapters_selection_mode_actionbar.set_revealed(False)
 
     def on_factory_bind(self, _factory: Gtk.ListItemFactory, list_item: Gtk.ListItem):
-        list_item.get_child().populate(list_item.get_item())
+        row = list_item.get_child()
+        row.connect_signals()
+        row.populate(list_item.get_item())
 
     def on_factory_setup(self, _factory: Gtk.ListItemFactory, list_item: Gtk.ListItem):
         list_item.set_child(ChaptersListRow(self.card))
 
     def on_factory_unbind(self, _factory: Gtk.ListItemFactory, list_item: Gtk.ListItem):
-        # Free memory
-        list_item.get_child().dispose()
+        list_item.get_child().disconnect_signals()
 
     def on_long_press(self, _controller, _x, _y):
         if not self.card.selection_mode:
@@ -527,13 +528,11 @@ class ChaptersListRow(Gtk.Box):
 
         # Menu button
         self.menubutton.set_menu_model(Gio.Menu())
-        self.popover_show_handler_id = self.menubutton.get_popover().connect('show', self.update_menu)
 
         # Gesture to detect click
         self.gesture_click = Gtk.GestureClick.new()
         self.gesture_click.set_button(0)
         self.add_controller(self.gesture_click)
-        self.gesture_click_handler_id = self.gesture_click.connect('pressed', self.on_button_clicked)
 
     @property
     def position(self):
@@ -545,15 +544,14 @@ class ChaptersListRow(Gtk.Box):
 
         return position
 
-    def dispose(self):
-        self.card = None
-        self.chapter = None
+    def connect_signals(self):
+        self.popover_show_handler_id = self.menubutton.get_popover().connect('show', self.update_menu)
+        self.gesture_click_handler_id = self.gesture_click.connect('pressed', self.on_button_clicked)
 
+    def disconnect_signals(self):
         self.menubutton.get_popover().disconnect(self.popover_show_handler_id)
-        self.menubutton.set_menu_model(None)
-        self.menubutton.set_popover(None)
-        self.download_stop_button.disconnect(self.download_stop_button_clicked_handler_id)
         self.gesture_click.disconnect(self.gesture_click_handler_id)
+        self.download_stop_button.disconnect(self.download_stop_button_clicked_handler_id)
 
     def on_button_clicked(self, _gesture, _n_press, _x, _y):
         button = self.gesture_click.get_current_button()
