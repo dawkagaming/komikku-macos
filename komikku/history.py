@@ -17,9 +17,96 @@ from komikku.utils import html_escape
 from komikku.utils import MISSING_IMG_RESOURCE_PATH
 from komikku.utils import PaintableCover
 
+DAYS_LIMIT = 30
 THUMB_WIDTH = 45
 THUMB_HEIGHT = 62
-DAYS_LIMIT = 30
+TIMEZONE = datetime.datetime.now(tz=datetime.UTC).astimezone().tzinfo
+
+
+class HistoryDateBox(Gtk.Box):
+    __gtype_name__ = 'HistoryDateBox'
+
+    def __init__(self, window, date, chapters, filter_func):
+        super().__init__(orientation=Gtk.Orientation.VERTICAL, spacing=6)
+
+        # Title: Date
+        today = datetime.date.today()
+        yesterday = today - datetime.timedelta(days=1)
+        if date == today:
+            label = _('Today')
+        elif date == yesterday:
+            label = _('Yesterday')
+        else:
+            label = date.strftime(_('%A, %B %e'))
+        date_label = Gtk.Label(label=label, xalign=0)
+        date_label.add_css_class('heading')
+        self.append(date_label)
+
+        # List of read manga
+        self.listbox = Gtk.ListBox()
+        self.listbox.add_css_class('boxed-list')
+        self.listbox.set_filter_func(filter_func)
+        self.append(self.listbox)
+
+        for chapter in chapters:
+            self.listbox.append(HistoryDateChapterRow(window, chapter))
+
+    def clear(self):
+        for row in self.listbox:
+            row.clear()
+
+
+class HistoryDateChapterRow(Adw.ActionRow):
+    __gtype_name__ = 'HistoryDateChapterRow'
+
+    def __init__(self, window, chapter):
+        super().__init__(activatable=True, selectable=False)
+
+        self.window = window
+        self.chapter = chapter
+
+        self.set_title(html_escape(chapter.manga.name))
+        self.set_title_lines(1)
+        self.set_subtitle(chapter.title)
+        self.set_subtitle_lines(1)
+
+        # Cover
+        if chapter.manga.cover_fs_path is None:
+            paintable = PaintableCover.new_from_resource(MISSING_IMG_RESOURCE_PATH, THUMB_WIDTH, THUMB_HEIGHT)
+        else:
+            paintable = PaintableCover.new_from_file(chapter.manga.cover_fs_path, THUMB_WIDTH, THUMB_HEIGHT, True)
+            if paintable is None:
+                paintable = PaintableCover.new_from_resource(MISSING_IMG_RESOURCE_PATH, THUMB_WIDTH, THUMB_HEIGHT)
+
+        cover_frame = Gtk.Frame()
+        cover_frame.add_css_class('row-rounded-cover-frame')
+        cover_frame.set_child(Gtk.Picture.new_for_paintable(paintable))
+        self.add_prefix(cover_frame)
+
+        # Time
+        last_read = chapter.last_read.replace(tzinfo=pytz.UTC).astimezone(TIMEZONE)
+        label = Gtk.Label(label=last_read.strftime('%H:%M'))
+        label.add_css_class('subtitle')
+        self.add_suffix(label)
+
+        # Play/Resume button
+        self.button = Gtk.Button.new_from_icon_name('media-playback-start-symbolic')
+        self.button.set_tooltip_text(_('Resume'))
+        self.play_button_clicked_handler_id = self.button.connect('clicked', self.on_play_button_clicked, self)
+        self.button.set_valign(Gtk.Align.CENTER)
+        self.add_suffix(self.button)
+
+        self.activated_handler_id = self.connect('activated', self.on_activated)
+
+    def clear(self):
+        self.disconnect(self.activated_handler_id)
+        self.button.disconnect(self.play_button_clicked_handler_id)
+
+    def on_activated(self, row):
+        self.window.card.init(row.chapter.manga)
+
+    def on_play_button_clicked(self, _button, row):
+        self.window.reader.init(row.chapter.manga, row.chapter)
 
 
 @Gtk.Template.from_resource('/info/febvre/Komikku/ui/history.ui')
@@ -57,6 +144,14 @@ class HistoryPage(Adw.NavigationPage):
 
         self.window.navigationview.add(self)
 
+    def clear(self):
+        date_box = self.dates_box.get_first_child()
+        while date_box:
+            next_box = date_box.get_next_sibling()
+            date_box.clear()
+            self.dates_box.remove(date_box)
+            date_box = next_box
+
     def filter(self, row):
         """
         This function gets one row and has to return:
@@ -90,103 +185,36 @@ class HistoryPage(Adw.NavigationPage):
             self.window.reader.init(row.chapter.manga, row.chapter)
 
     def populate(self):
-        box = self.dates_box.get_first_child()
-        while box:
-            next_box = box.get_next_sibling()
-            self.dates_box.remove(box)
-            box = next_box
+        self.clear()
 
         db_conn = create_db_connection()
         start = (datetime.date.today() - datetime.timedelta(days=DAYS_LIMIT)).strftime('%Y-%m-%d')
-        records = db_conn.execute('SELECT * FROM chapters WHERE last_read >= ? ORDER BY last_read DESC', (start,)).fetchall()
+        query = """
+            SELECT DISTINCT manga_id, date(last_read, 'localtime') AS last_read_date, id, max(last_read)
+            FROM chapters WHERE date(last_read, 'localtime') >= ?
+            GROUP BY manga_id, last_read_date
+            ORDER BY last_read DESC
+        """
+        records = db_conn.execute(query, (start,)).fetchall()
         db_conn.close()
 
         if records:
-            local_timezone = datetime.datetime.utcnow().astimezone().tzinfo
-            today = datetime.date.today()
-            yesterday = today - datetime.timedelta(days=1)
-
-            current_date = None
-            current_manga_id = None
+            dates = {}
             for record in records:
                 chapter = Chapter.get(record['id'])
-                # Convert chapter's last read date in local timezone
-                last_read = chapter.last_read.replace(tzinfo=pytz.UTC).astimezone(local_timezone)
-                date_changed = current_date is None or current_date != last_read.date()
+                date = record['last_read_date']  # ISO 8601 date string
+                if date not in dates:
+                    dates[date] = []
+                dates[date].append(chapter)
 
-                if not date_changed and current_manga_id and chapter.manga.id == current_manga_id:
-                    continue
-
-                current_manga_id = chapter.manga.id
-
-                # Create new Box (Label + ListBox) when date change
-                if date_changed:
-                    current_date = last_read.date()
-                    box = Gtk.Box(orientation=Gtk.Orientation.VERTICAL, spacing=6)
-
-                    if current_date == today:
-                        label = _('Today')
-                    elif current_date == yesterday:
-                        label = _('Yesterday')
-                    else:
-                        g_datetime = GLib.DateTime.new_from_iso8601(last_read.isoformat())
-                        label = g_datetime.format(_('%A, %B %e'))
-                    date_label = Gtk.Label(label=label, xalign=0)
-                    date_label.add_css_class('heading')
-                    box.append(date_label)
-
-                    listbox = Gtk.ListBox()
-                    listbox.add_css_class('boxed-list')
-                    listbox.set_filter_func(self.filter)
-                    box.append(listbox)
-
-                    self.dates_box.append(box)
-
-                action_row = Adw.ActionRow(activatable=True, selectable=False)
-                action_row.connect('activated', self.on_row_activated)
-                action_row.chapter = chapter
-
-                action_row.set_title(html_escape(chapter.manga.name))
-                action_row.set_title_lines(1)
-                action_row.set_subtitle(chapter.title)
-                action_row.set_subtitle_lines(1)
-
-                # Cover
-                if chapter.manga.cover_fs_path is None:
-                    paintable = PaintableCover.new_from_resource(MISSING_IMG_RESOURCE_PATH, THUMB_WIDTH, THUMB_HEIGHT)
-                else:
-                    paintable = PaintableCover.new_from_file(chapter.manga.cover_fs_path, THUMB_WIDTH, THUMB_HEIGHT, True)
-                    if paintable is None:
-                        paintable = PaintableCover.new_from_resource(MISSING_IMG_RESOURCE_PATH, THUMB_WIDTH, THUMB_HEIGHT)
-
-                cover_frame = Gtk.Frame()
-                cover_frame.add_css_class('row-rounded-cover-frame')
-                cover_frame.set_child(Gtk.Picture.new_for_paintable(paintable))
-                action_row.add_prefix(cover_frame)
-
-                # Time
-                label = Gtk.Label(label=last_read.strftime('%H:%M'))
-                label.add_css_class('subtitle')
-                action_row.add_suffix(label)
-
-                # Resume button
-                button = Gtk.Button.new_from_icon_name('media-playback-start-symbolic')
-                button.set_tooltip_text(_('Resume'))
-                button.connect('clicked', self.on_row_play_button_clicked, action_row)
-                button.set_valign(Gtk.Align.CENTER)
-                action_row.add_suffix(button)
-
-                listbox.append(action_row)
+            for iso_date, chapters in dates.items():
+                date = datetime.datetime.strptime(iso_date, '%Y-%m-%d').date()
+                date_box = HistoryDateBox(self.window, date, chapters, self.filter)
+                self.dates_box.append(date_box)
 
             self.stack.set_visible_child_name('list')
         else:
             self.stack.set_visible_child_name('empty')
-
-    def on_row_activated(self, row):
-        self.window.card.init(row.chapter.manga)
-
-    def on_row_play_button_clicked(self, _button, row):
-        self.window.reader.init(row.chapter.manga, row.chapter)
 
     def search(self, _entry):
         for date_box in self.dates_box:
