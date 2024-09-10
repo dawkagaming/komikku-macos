@@ -78,10 +78,10 @@ class HistoryDateChapterRow(Adw.ActionRow):
             if paintable is None:
                 paintable = PaintableCover.new_from_resource(MISSING_IMG_RESOURCE_PATH, THUMB_WIDTH, THUMB_HEIGHT)
 
-        cover_frame = Gtk.Frame()
-        cover_frame.add_css_class('row-rounded-cover-frame')
-        cover_frame.set_child(Gtk.Picture.new_for_paintable(paintable))
-        self.add_prefix(cover_frame)
+        self.cover_frame = Gtk.Frame()
+        self.cover_frame.add_css_class('row-rounded-cover-frame')
+        self.cover_frame.set_child(Gtk.Picture.new_for_paintable(paintable))
+        self.add_prefix(self.cover_frame)
 
         # Time
         last_read = chapter.last_read.replace(tzinfo=pytz.UTC).astimezone(TIMEZONE)
@@ -99,8 +99,9 @@ class HistoryDateChapterRow(Adw.ActionRow):
         self.activated_handler_id = self.connect('activated', self.on_activated)
 
     def clear(self):
-        self.disconnect(self.activated_handler_id)
+        self.cover_frame.get_child().get_paintable().dispose()
         self.button.disconnect(self.play_button_clicked_handler_id)
+        self.disconnect(self.activated_handler_id)
 
     def on_activated(self, row):
         self.window.card.init(row.chapter.manga)
