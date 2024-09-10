@@ -52,8 +52,8 @@ class HistoryDateBox(Gtk.Box):
             self.listbox.append(HistoryDateChapterRow(window, chapter))
 
     def clear(self):
-        for row in self.listbox:
-            row.clear()
+        for chapter_row in self.listbox:
+            chapter_row.clear()
 
 
 class HistoryDateChapterRow(Adw.ActionRow):

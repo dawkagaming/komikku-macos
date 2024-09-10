@@ -336,11 +336,13 @@ class PreferencesDialog(Adw.PreferencesDialog):
 
         # Servers languages
         self.servers_languages_actionrow.props.activatable = True
-        self.servers_languages_actionrow.connect('activated', lambda _row: self.push_subpage(PreferencesServersLanguagesSubPage(self)))
+        self.servers_languages_subpage = PreferencesServersLanguagesSubPage(self)
+        self.servers_languages_actionrow.connect('activated', self.servers_languages_subpage.populate)
 
         # Servers settings
         self.servers_settings_actionrow.props.activatable = True
-        self.servers_settings_actionrow.connect('activated', lambda _row: self.push_subpage(PreferencesServersSettingsSubPage(self)))
+        self.servers_settings_subpage = PreferencesServersSettingsSubPage(self)
+        self.servers_settings_actionrow.connect('activated', self.servers_settings_subpage.populate)
 
         # Long strip detection
         self.long_strip_detection_switch.set_active(self.settings.long_strip_detection)
@@ -450,15 +452,13 @@ class PreferencesServersLanguagesSubPage(Adw.NavigationPage):
         self.window = self.parent.window
         self.settings = Settings.get_default()
 
-        servers_languages = self.settings.servers_languages
-
-        for code, language in LANGUAGES.items():
-            switchrow = Adw.SwitchRow()
-            switchrow.set_title(language)
-            switchrow.set_active(code in servers_languages)
-            switchrow.connect('notify::active', self.on_language_activated, code)
-
-            self.group.add(switchrow)
+    def clear(self):
+        listbox = self.group.get_first_child().get_last_child().get_first_child()
+        switchrow = listbox.get_first_child()
+        while switchrow:
+            next_switchrow = switchrow.get_next_sibling()
+            self.group.remove(switchrow)
+            switchrow = next_switchrow
 
     def on_language_activated(self, switchrow, _gparam, code):
         if switchrow.get_active():
@@ -469,6 +469,21 @@ class PreferencesServersLanguagesSubPage(Adw.NavigationPage):
         # Update Explorer servers page
         if self.window.explorer.servers_page in self.window.navigationview.get_navigation_stack():
             self.window.explorer.servers_page.populate()
+
+    def populate(self, *args):
+        self.clear()
+
+        servers_languages = self.settings.servers_languages
+
+        for code, language in LANGUAGES.items():
+            switchrow = Adw.SwitchRow()
+            switchrow.set_title(language)
+            switchrow.set_active(code in servers_languages)
+            switchrow.connect('notify::active', self.on_language_activated, code)
+
+            self.group.add(switchrow)
+
+        self.parent.push_subpage(self)
 
 
 @Gtk.Template.from_resource('/info/febvre/Komikku/ui/preferences_servers_settings.ui')
@@ -485,7 +500,13 @@ class PreferencesServersSettingsSubPage(Adw.NavigationPage):
         self.settings = Settings.get_default()
         self.keyring_helper = KeyringHelper()
 
-        self.populate()
+    def clear(self):
+        listbox = self.group.get_first_child().get_last_child().get_first_child()
+        child = listbox.get_first_child()
+        while child:
+            next_child = child.get_next_sibling()
+            self.group.remove(child)
+            child = next_child
 
     def on_server_activated(self, row, _gparam, server_main_id):
         if isinstance(row, Adw.ExpanderRow):
@@ -504,17 +525,12 @@ class PreferencesServersSettingsSubPage(Adw.NavigationPage):
         if self.window.explorer.servers_page in self.window.navigationview.get_navigation_stack():
             self.window.explorer.servers_page.populate()
 
-    def populate(self):
+    def populate(self, *args):
         settings = self.settings.servers_settings
         languages = self.settings.servers_languages
         credentials_storage_plaintext_fallback = self.settings.credentials_storage_plaintext_fallback
 
-        # Clear
-        child = self.group.get_first_child().get_last_child().get_first_child().get_first_child()
-        while child:
-            next_child = child.get_next_sibling()
-            self.group.remove(child)
-            child = next_child
+        self.clear()
 
         servers = get_servers_list(order_by=('name', 'lang'))
         self.window.application.logger.info('{0} servers found'.format(len(servers)))
@@ -657,6 +673,8 @@ class PreferencesServersSettingsSubPage(Adw.NavigationPage):
                 switchrow.connect('notify::active', self.on_server_activated, server_main_id)
 
                 self.group.add(switchrow)
+
+        self.parent.push_subpage(self)
 
     def save_credential(self, button, server_main_id, server_class, username_entry, password_entry, address_entry, plaintext_checkbutton):
         username = username_entry.get_text()
