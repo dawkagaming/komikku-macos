@@ -552,7 +552,7 @@ class PaintableCover(CoverLoader, Gdk.Paintable):
             self.invalidate_contents()
 
     def dispose(self):
-        CoverLoader.dispose()
+        CoverLoader.dispose(self)
         self.animation_iter = None
 
     def do_get_intrinsic_height(self):

@@ -426,8 +426,14 @@ class InfoBox:
         self.window.breakpoint.add_setter(self.buttons_box, 'spacing', 18)
         self.window.breakpoint.add_setter(self.buttons_box, 'halign', Gtk.Align.CENTER)
 
+    def clear(self):
+        if paintable := self.cover_image.get_paintable():
+            paintable.dispose()
+
     def populate(self):
         manga = self.card.manga
+
+        self.clear()
 
         self.name_label.set_text(manga.name)
 
