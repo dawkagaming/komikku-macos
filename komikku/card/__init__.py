@@ -14,10 +14,10 @@ from komikku.card.categories_list import CategoriesList
 from komikku.card.chapters_list import ChaptersList
 from komikku.models import Settings
 from komikku.utils import COVER_WIDTH
+from komikku.utils import CoverPicture
 from komikku.utils import folder_size
 from komikku.utils import html_escape
 from komikku.utils import MISSING_IMG_RESOURCE_PATH
-from komikku.utils import PaintableCover
 
 
 @Gtk.Template.from_resource('/info/febvre/Komikku/ui/card.ui')
@@ -43,8 +43,8 @@ class CardPage(Adw.NavigationPage):
     chapters_selection_mode_clear_reset_button = Gtk.Template.Child('chapters_selection_mode_clear_reset_button')
     chapters_selection_mode_menubutton = Gtk.Template.Child('chapters_selection_mode_menubutton')
     info_scrolledwindow = Gtk.Template.Child('info_scrolledwindow')
+    title_box = Gtk.Template.Child('title_box')
     cover_box = Gtk.Template.Child('cover_box')
-    cover_image = Gtk.Template.Child('cover_image')
     name_label = Gtk.Template.Child('name_label')
     authors_label = Gtk.Template.Child('authors_label')
     status_server_label = Gtk.Template.Child('status_server_label')
@@ -396,8 +396,9 @@ class InfoBox:
         self.card = card
         self.window = card.window
 
+        self.title_box = self.card.title_box
         self.cover_box = self.card.cover_box
-        self.cover_image = self.card.cover_image
+        self.cover_picture = None
         self.name_label = self.card.name_label
         self.authors_label = self.card.authors_label
         self.status_server_label = self.card.status_server_label
@@ -414,8 +415,8 @@ class InfoBox:
         self.add_button.connect('clicked', self.card.on_add_button_clicked)
         self.resume_button.connect('clicked', self.card.on_resume_button_clicked)
 
-        self.window.breakpoint.add_setter(self.cover_box, 'orientation', Gtk.Orientation.VERTICAL)
-        self.window.breakpoint.add_setter(self.cover_box, 'spacing', 12)
+        self.window.breakpoint.add_setter(self.title_box, 'orientation', Gtk.Orientation.VERTICAL)
+        self.window.breakpoint.add_setter(self.title_box, 'spacing', 12)
         self.window.breakpoint.add_setter(self.name_label, 'halign', Gtk.Align.CENTER)
         self.window.breakpoint.add_setter(self.name_label, 'justify', Gtk.Justification.CENTER)
         self.window.breakpoint.add_setter(self.status_server_label, 'halign', Gtk.Align.CENTER)
@@ -426,29 +427,29 @@ class InfoBox:
         self.window.breakpoint.add_setter(self.buttons_box, 'spacing', 18)
         self.window.breakpoint.add_setter(self.buttons_box, 'halign', Gtk.Align.CENTER)
 
-    def clear(self):
-        if paintable := self.cover_image.get_paintable():
-            paintable.dispose()
-
     def populate(self):
         manga = self.card.manga
 
-        self.clear()
-
         self.name_label.set_text(manga.name)
 
+        if self.cover_picture:
+            self.cover_box.remove(self.cover_picture)
+
         if manga.cover_fs_path is None:
-            paintable = PaintableCover.new_from_resource(MISSING_IMG_RESOURCE_PATH, COVER_WIDTH)
+            self.cover_picture = CoverPicture.new_from_resource(MISSING_IMG_RESOURCE_PATH, width=COVER_WIDTH)
             self.card.remove_backdrop()
         else:
-            paintable = PaintableCover.new_from_file(manga.cover_fs_path, COVER_WIDTH)
-            if paintable:
+            picture = CoverPicture.new_from_file(manga.cover_fs_path, width=COVER_WIDTH)
+            if picture:
+                self.cover_picture = picture
                 self.card.set_backdrop()
             else:
-                paintable = PaintableCover.new_from_resource(MISSING_IMG_RESOURCE_PATH, COVER_WIDTH)
+                self.cover_picture = CoverPicture.new_from_resource(MISSING_IMG_RESOURCE_PATH, width=COVER_WIDTH)
                 self.card.remove_backdrop()
 
-        self.cover_image.set_paintable(paintable)
+        self.cover_picture.props.can_shrink = False
+        self.cover_picture.set_css_classes(['rounded', 'cover-backdrop'])
+        self.cover_box.append(self.cover_picture)
 
         authors = html_escape(', '.join(manga.authors)) if manga.authors else _('Unknown author')
         self.authors_label.set_markup(authors)

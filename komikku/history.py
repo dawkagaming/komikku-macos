@@ -13,9 +13,9 @@ from gi.repository import Gtk
 
 from komikku.models import Chapter
 from komikku.models import create_db_connection
+from komikku.utils import CoverPicture
 from komikku.utils import html_escape
 from komikku.utils import MISSING_IMG_RESOURCE_PATH
-from komikku.utils import PaintableCover
 
 DAYS_LIMIT = 30
 THUMB_WIDTH = 45
@@ -72,15 +72,15 @@ class HistoryDateChapterRow(Adw.ActionRow):
 
         # Cover
         if chapter.manga.cover_fs_path is None:
-            paintable = PaintableCover.new_from_resource(MISSING_IMG_RESOURCE_PATH, THUMB_WIDTH, THUMB_HEIGHT)
+            picture = CoverPicture.new_from_resource(MISSING_IMG_RESOURCE_PATH, THUMB_WIDTH, THUMB_HEIGHT)
         else:
-            paintable = PaintableCover.new_from_file(chapter.manga.cover_fs_path, THUMB_WIDTH, THUMB_HEIGHT, True)
-            if paintable is None:
-                paintable = PaintableCover.new_from_resource(MISSING_IMG_RESOURCE_PATH, THUMB_WIDTH, THUMB_HEIGHT)
+            picture = CoverPicture.new_from_file(chapter.manga.cover_fs_path, THUMB_WIDTH, THUMB_HEIGHT, True)
+            if picture is None:
+                picture = CoverPicture.new_from_resource(MISSING_IMG_RESOURCE_PATH, THUMB_WIDTH, THUMB_HEIGHT)
 
         self.cover_frame = Gtk.Frame()
         self.cover_frame.add_css_class('row-rounded-cover-frame')
-        self.cover_frame.set_child(Gtk.Picture.new_for_paintable(paintable))
+        self.cover_frame.set_child(picture)
         self.add_prefix(self.cover_frame)
 
         # Time
@@ -99,7 +99,6 @@ class HistoryDateChapterRow(Adw.ActionRow):
         self.activated_handler_id = self.connect('activated', self.on_activated)
 
     def clear(self):
-        self.cover_frame.get_child().get_paintable().dispose()
         self.button.disconnect(self.play_button_clicked_handler_id)
         self.disconnect(self.activated_handler_id)
 

@@ -3,6 +3,7 @@
 # Author: Valéry Febvre <vfebvre@easter-eggs.com>
 
 from functools import cache
+from functools import cached_property
 from functools import wraps
 from gettext import gettext as _
 import html
@@ -32,6 +33,7 @@ from gi.repository import GLib
 from gi.repository import GObject
 from gi.repository import Graphene
 from gi.repository import Gsk
+from gi.repository import Gtk
 from gi.repository.GdkPixbuf import PixbufAnimation
 
 COVER_WIDTH = 180
@@ -463,6 +465,7 @@ class CoverLoader(GObject.GObject):
         if width is None and height is None:
             self.width = self.orig_width
             self.height = self.orig_height
+
         elif width is None or height is None:
             ratio = self.orig_width / self.orig_height
             if width is None:
@@ -471,6 +474,7 @@ class CoverLoader(GObject.GObject):
             else:
                 self.width = width
                 self.height = int(width / ratio)
+
         else:
             self.width = width
             self.height = height
@@ -530,15 +534,13 @@ class CoverLoader(GObject.GObject):
         self.pixbuf = None
 
 
-class PaintableCover(CoverLoader, Gdk.Paintable):
-    __gtype_name__ = 'PaintableCover'
+class CoverPaintable(CoverLoader, Gdk.Paintable):
+    __gtype_name__ = 'CoverPaintable'
 
     corners_radius = 8
 
     def __init__(self, path, texture, pixbuf, width=None, height=None):
         CoverLoader.__init__(self, path, texture, pixbuf, width, height)
-
-        self.animation_iter = None
 
         self.rect = Graphene.Rect().alloc()
         self.rounded_rect = Gsk.RoundedRect()
@@ -546,14 +548,30 @@ class PaintableCover(CoverLoader, Gdk.Paintable):
         self.rounded_rect_size.init(self.corners_radius, self.corners_radius)
 
         if isinstance(self.pixbuf, PixbufAnimation):
-            self.animation_iter = self.pixbuf.get_iter(None)
-            GLib.timeout_add(self.animation_iter.get_delay_time(), self.on_delay)
+            self._animation_iter = self.pixbuf.get_iter(None)
+            self.__animation_timeout_id = None
+        else:
+            self._animation_iter = None
 
-            self.invalidate_contents()
+    def _start_animation(self):
+        if self._animation_iter is None or self.__animation_timeout_id:
+            return
+
+        self.__animation_timeout_id = GLib.timeout_add(self._animation_iter.get_delay_time(), self.on_delay)
+
+    def _stop_animation(self):
+        if self._animation_iter is None or self.__animation_timeout_id is None:
+            return
+
+        GLib.source_remove(self.__animation_timeout_id)
+        self.__animation_timeout_id = None
 
     def dispose(self):
         CoverLoader.dispose(self)
-        self.animation_iter = None
+        self._animation_iter = None
+        self.rect = None
+        self.rounded_rect = None
+        self.rounded_rect_size = None
 
     def do_get_intrinsic_height(self):
         return self.height
@@ -564,9 +582,9 @@ class PaintableCover(CoverLoader, Gdk.Paintable):
     def do_snapshot(self, snapshot, width, height):
         self.rect.init(0, 0, width, height)
 
-        if self.animation_iter:
+        if self._animation_iter:
             # Get next frame (animated GIF)
-            pixbuf = self.animation_iter.get_pixbuf()
+            pixbuf = self._animation_iter.get_pixbuf()
             self.texture = Gdk.Texture.new_for_pixbuf(pixbuf)
 
         # Append cover (rounded)
@@ -576,15 +594,64 @@ class PaintableCover(CoverLoader, Gdk.Paintable):
         snapshot.pop()  # remove the clip
 
     def on_delay(self):
-        if self.animation_iter is None:
-            return GLib.SOURCE_REMOVE
-
-        delay = self.animation_iter.get_delay_time()
-        if delay == -1:
+        if self._animation_iter.get_delay_time() == -1:
             return GLib.SOURCE_REMOVE
 
         # Check if it's time to show the next frame
-        if self.animation_iter.advance(None):
+        if self._animation_iter.advance(None):
             self.invalidate_contents()
 
         return GLib.SOURCE_CONTINUE
+
+
+class CoverPicture(Gtk.Picture):
+    def __init__(self, paintable):
+        super().__init__()
+        self.set_paintable(paintable)
+
+        if self.is_animated:
+            self.connect('map', self.on_map)
+            self.connect('unmap', self.on_unmap)
+
+        self.connect('unrealize', self.on_unrealize)
+
+    @classmethod
+    def new_from_data(cls, data, width=None, height=None, static_animation=False):
+        if paintable := CoverPaintable.new_from_data(data, width, height, static_animation):
+            return cls(paintable)
+
+        return None
+
+    @classmethod
+    def new_from_file(cls, path, width=None, height=None, static_animation=False):
+        if paintable := CoverPaintable.new_from_file(path, width, height, static_animation):
+            return cls(paintable)
+
+        return None
+
+    @classmethod
+    def new_from_resource(cls, path, width=None, height=None):
+        if paintable := CoverPaintable.new_from_resource(path, width, height):
+            return cls(paintable)
+
+        return None
+
+    @cached_property
+    def is_animated(self):
+        return self.get_paintable()._animation_iter is not None
+
+    def on_map(self, _self):
+        self.get_paintable()._start_animation()
+
+    def on_unmap(self, _self):
+        self.get_paintable()._stop_animation()
+
+    def on_unrealize(self, _self):
+        if self.is_animated:
+            self.disconnect_by_func(self.on_map)
+            self.disconnect_by_func(self.on_unmap)
+            self.get_paintable()._stop_animation()
+
+        self.disconnect_by_func(self.on_unrealize)
+
+        self.get_paintable().dispose()

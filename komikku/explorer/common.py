@@ -18,9 +18,9 @@ from komikku.models import Settings
 from komikku.servers import DOWNLOAD_MAX_DELAY
 from komikku.servers import LANGUAGES
 from komikku.utils import COVER_WIDTH
+from komikku.utils import CoverPicture
 from komikku.utils import html_escape
 from komikku.utils import MISSING_IMG_RESOURCE_PATH
-from komikku.utils import PaintableCover
 
 LOGO_SIZE = 28
 THUMB_WIDTH = 41
@@ -55,9 +55,8 @@ class ExplorerSearchStackPage:
             next_row = row.get_next_sibling()
             if isinstance(row, (ExplorerServerRow, ExplorerSearchResultRow)):
                 row.dispose()
+                self.listbox.remove(row)
             row = next_row
-
-        self.listbox.remove_all()
 
     def render_covers(self):
         """
@@ -123,30 +122,30 @@ class ExplorerSearchResultRow(Adw.ActionRow):
             self.set_subtitle_lines(1)
 
         if self.has_cover:
-            self.cover = Gtk.Button()
-            self.cover.add_css_class('explorer-search-cover-button')
-            self.cover.props.focus_on_click = False
-            self.cover.props.margin_top = 2
-            self.cover.props.margin_bottom = 2
-            self.cover.set_size_request(THUMB_WIDTH, THUMB_HEIGHT)
-            self.cover.set_has_frame(False)
-            self.cover.connect('clicked', self.on_cover_clicked)
-            self.add_prefix(self.cover)
+            self.cover_button = Gtk.Button()
+            self.cover_button.add_css_class('explorer-search-cover-button')
+            self.cover_button.props.focus_on_click = False
+            self.cover_button.props.margin_top = 2
+            self.cover_button.props.margin_bottom = 2
+            self.cover_button.set_size_request(THUMB_WIDTH, THUMB_HEIGHT)
+            self.cover_button.set_has_frame(False)
+            self.cover_button_clicked_handler_id = self.cover_button.connect('clicked', self.on_cover_clicked)
+            self.add_prefix(self.cover_button)
 
             self.popover = Gtk.Popover()
             self.popover.set_position(Gtk.PositionType.RIGHT)
-            self.popover.set_parent(self.cover)
+            self.popover.set_parent(self.cover_button)
 
     def dispose(self):
         self.cover_data = None
         self.manga_data = None
 
         if self.has_cover:
-            if self.cover.get_child():
-                self.cover.get_child().set_paintable(None)
+            self.cover_button.disconnect(self.cover_button_clicked_handler_id)
 
             if self.popover.get_child():
-                self.popover.get_child().set_paintable(None)
+                self.popover.set_child(None)
+
             self.popover.unparent()
 
     def on_cover_clicked(self, _button):
@@ -154,7 +153,7 @@ class ExplorerSearchResultRow(Adw.ActionRow):
             return
 
         if not self.popover.get_child():
-            picture = Gtk.Picture.new_for_paintable(PaintableCover.new_from_data(self.cover_data, COVER_WIDTH))
+            picture = CoverPicture.new_from_data(self.cover_data, width=COVER_WIDTH)
             picture.add_css_class('cover-dropshadow')
 
             self.popover.set_child(picture)
@@ -167,13 +166,13 @@ class ExplorerSearchResultRow(Adw.ActionRow):
         if not self.has_cover:
             return
 
-        paintable = PaintableCover.new_from_data(data, THUMB_WIDTH, THUMB_HEIGHT, True) if data else None
-        if paintable is None:
-            paintable = PaintableCover.new_from_resource(MISSING_IMG_RESOURCE_PATH, THUMB_WIDTH, THUMB_HEIGHT)
+        picture = CoverPicture.new_from_data(data, THUMB_WIDTH, THUMB_HEIGHT, True) if data else None
+        if picture is None:
+            picture = CoverPicture.new_from_resource(MISSING_IMG_RESOURCE_PATH, THUMB_WIDTH, THUMB_HEIGHT)
         else:
             self.cover_data = data
 
-        self.cover.set_child(Gtk.Picture.new_for_paintable(paintable))
+        self.cover_button.set_child(picture)
 
 
 class ExplorerServerRow(Gtk.ListBoxRow):

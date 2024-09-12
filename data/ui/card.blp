@@ -68,18 +68,11 @@ template $CardPage : Adw.NavigationPage {
                   orientation: vertical;
                   spacing: 32;
 
-                  Box cover_box {
+                  Box title_box {
                     spacing: 24;
 
-                    Picture cover_image {
-                      can-shrink: false;
+                    Box cover_box {
                       halign: center;
-                      valign: center;
-
-                      styles [
-                        "rounded",
-                        "cover-dropshadow",
-                      ]
                     }
 
                     Box {
@@ -163,7 +156,7 @@ template $CardPage : Adw.NavigationPage {
                     }
                   }
 
-                  Box {
+                  Box details_box {
                     orientation: vertical;
                     spacing: 12;
 
