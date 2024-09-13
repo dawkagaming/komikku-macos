@@ -260,7 +260,7 @@ class Madara(Server):
         data = dict(
             pages=[],
         )
-        for index, img_element in enumerate(soup.select_one('.read-container, .reading-content').select('img')):
+        for index, img_element in enumerate(soup.select_one('.read-container, .reading-content').select('img.wp-manga-chapter-img')):
             if img_element.parent.name == 'noscript':
                 # In case server uses a second <img> encapsulated in a <noscript> element
                 continue
