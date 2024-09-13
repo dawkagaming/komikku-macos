@@ -25,6 +25,8 @@ class Comicextra(Server):
     manga_url = base_url + '/comic/{0}'
     chapter_url = base_url + '/{0}/issue-{1}/full'
 
+    headers_images = {}  # no-referrer policy
+
     def __init__(self):
         if self.session is None:
             self.session = requests.Session()
@@ -108,7 +110,7 @@ class Comicextra(Server):
         )
         for index, img_element in enumerate(soup.select('.chapter-container > img')):
             data['pages'].append(dict(
-                image=img_element.get('src'),
+                image=img_element.get('src').strip(),
                 slug=None,
                 index=index + 1,
             ))
@@ -122,7 +124,9 @@ class Comicextra(Server):
         r = self.session_get(
             page['image'],
             headers={
-                'Referer': self.chapter_url.format(manga_slug, chapter_slug),
+                # no-referrer policy
+                'Alt-Used': 'readcomicsonline.ru',
+                'Host': 'readcomicsonline.ru',
             }
         )
         if r.status_code != 200:
