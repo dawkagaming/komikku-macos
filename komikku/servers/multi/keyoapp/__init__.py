@@ -45,7 +45,7 @@ class Keyoapp(Server):
         if self.chapter_url is None:
             self.chapter_url = self.base_url + '/chapter/{0}/'
         if self.media_url is None:
-            self.media_url = 'https://cdn.keyoapp.com'
+            self.media_url = 'https://cdn.igniscans.com'
 
         if self.session is None and not self.has_cf:
             self.session = requests.Session()
@@ -162,14 +162,15 @@ class Keyoapp(Server):
             pages=[],
         )
         for element in soup.select('#pages img'):
-            url = element.get('data-src')
-            if not url.startswith(self.media_url):
+            count = element.get('count')
+            uid = element.get('uid')
+            if not count or not uid:
                 continue
 
             data['pages'].append(dict(
                 slug=None,
-                image=url,
-                index=int(element.get('count')),
+                image=f'{self.media_url}/uploads/{uid}',
+                index=int(count),
             ))
 
         return data
