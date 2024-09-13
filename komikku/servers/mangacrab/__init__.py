@@ -16,9 +16,4 @@ class Mangacrab(Madara):
 
     base_url = 'https://wikicrab.xyz'
 
-    details_name_selector = '.titulodetalles'
-    details_cover_selector = '#miniatura > a > img'
-    details_scanlators_selector = '.post-content_item:-soup-contains("Scanlation") .summary-content'
-    details_status_selector = '.post-content_item:-soup-contains("Estado") .summary-content2'
-    details_synopsis_selector = '.sinopsis-completa'
-    chapters_selector = '.lista-de-capitulos'
+    details_name_selector = '.post-title > h1'

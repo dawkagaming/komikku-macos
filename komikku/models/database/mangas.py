@@ -408,7 +408,7 @@ class Manga:
                 os.makedirs(self.path)
 
             # Update cover
-            cover = data.pop('cover')
+            cover = data.pop('cover', None)
             if cover:
                 self._save_cover(cover)
 
