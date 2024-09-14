@@ -24,9 +24,8 @@ class Reaperscans(HeanCMS):
 
     base_url = 'https://reaperscans.com'
     api_url = 'https://api.reaperscans.com'
-    media_url = 'https://media.reaperscans.com/file/4SRBHm'
 
-    cover_css_path = 'img[width="640"]'
+    cover_css_path = 'img[width="316"]'
     authors_css_path = 'div.flex:-soup-contains("Author") > span:last-child'
     synopsis_css_path = 'div.text-muted-foreground > div:nth-child(1)'
 
@@ -57,12 +56,15 @@ class Reaperscans(HeanCMS):
             data = dict(
                 pages=[],
             )
-            for block in info[1][3]['children'][1]:
-                for page in block[3]['children'][0]:
+            index = 0
+            for block in info[1][3]['children'][0]:
+                for page in block[3]['children']:
                     data['pages'].append(dict(
                         slug=None,
                         image=page[3]['src'],
+                        index=index + 1,
                     ))
+                    index += 1
 
             return data
 
@@ -291,7 +293,7 @@ class Reaperscans_pt_br(HeanCMS):
     id = 'reaperscans_pt_br'
     name = 'Yugen Scans (Reaper Scans)'
     lang = 'pt_BR'
-    status = 'disabled'  # 03/2024: move to https://ikigaimangas.com/
+    status = 'disabled'  # 08/2024: move to https://yugenweb.com
 
     base_url = 'https://yugenmangas.lat'
     api_url = 'https://api.yugenmangas.net'

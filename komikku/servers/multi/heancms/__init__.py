@@ -302,10 +302,17 @@ class HeanCMS(Server):
 
         results = []
         for item in r.json()['data']:
+            cover = item['thumbnail']
+            if not cover.startswith('http'):
+                if self.media_url:
+                    cover = f'{self.media_url}/{cover}'
+                else:
+                    cover = f'{self.base_url}/{cover}'
+
             results.append(dict(
                 slug=item['series_slug'],
                 name=item['title'],
-                cover=f'{self.media_url}/{item["thumbnail"]}' if self.media_url else item['thumbnail'],
+                cover=cover,
                 last_chapter=item['chapters'][0]['chapter_name'] if item.get('chapters') else None,
             ))
 
