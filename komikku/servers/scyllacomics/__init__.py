@@ -30,7 +30,7 @@ class Scyllacomics(FuzzyDoodle):
     latest_updates_cover_img_selector = '#card-real a > figure > img'
     latest_updates_last_chapter_selector = 'div:last-child > div > a > b'
 
-    details_name_selector = 'main > section > div > div:nth-child(2) > div:nth-child(3) > h2'
+    details_name_selector = 'main > section > div > div:nth-child(2) > div:nth-child(4) > h2'
     details_cover_selector = 'main > section > div > div > div.relative > img'
     details_status_selector = 'main > section > div > div > div.hidden > p:-soup-contains("Status") > a > span'
     details_author_selector = 'main > section > div > div > div.hidden > p:-soup-contains("Author") > span:last-child'
