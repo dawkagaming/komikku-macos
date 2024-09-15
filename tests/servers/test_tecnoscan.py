@@ -21,7 +21,7 @@ def test_tecnoscan(server):
     # Get latest updates
     print('Get latest updates')
     try:
-        response = server.get_latest_updates()
+        response = server.get_latest_updates('')
     except Exception as e:
         response = None
         log_error_traceback(e)
@@ -32,7 +32,7 @@ def test_tecnoscan(server):
     # Get most popular
     print('Get most popular')
     try:
-        response = server.get_most_populars()
+        response = server.get_most_populars('')
     except Exception as e:
         response = None
         log_error_traceback(e)
@@ -44,7 +44,7 @@ def test_tecnoscan(server):
     print('Search')
     try:
         # Use first result of get_most_populars
-        response = server.search(response[0]['name'])
+        response = server.search(response[0]['name'], '')
         slug = response[0]['slug']
     except Exception as e:
         slug = None
