@@ -75,6 +75,7 @@ CREDITS = dict(
         'Infinitive Witch (Brazilian Portuguese)',
         'Unidealistic Raccoon (Brazilian Portuguese)',
         'Alex Carvalho (Brazilian Portuguese)',
+        'Juliano de Souza Camargo (Brazilian Portuguese)',
         'Roger VC (Catalan)',
         'Dingzhong Chen (Simplified Chinese)',
         'Eric-Song-Nop (Simplified Chinese)',
@@ -91,11 +92,13 @@ CREDITS = dict(
         'Valéry Febvre (French)',
         'Mathieu B. (French)',
         'rene-coty (French)',
+        'paul verot (French)',
         'Sandor Odor (German)',
         'Liliana Prikler (German)',
         'gregorni (German)',
         'Liliana Marie Prikler (German)',
         'Tim (German)',
+        'Sear Gasor (German)',
         'Scrambled777 (Hindi)',
         'Milo Ivir (Croatian)',
         'Alifiyan Rosyidi (Indonesian)',
@@ -104,7 +107,6 @@ CREDITS = dict(
         'Mek101 (Italian)',
         'dedocc (Italian)',
         'Davide Mora (Italian)',
-        'Akhil Raj (Malayalam)',
         'Lili Kurek (Polish)',
         'ssantos (Portuguese)',
         'Ademario Cunha (Portuguese)',
@@ -122,6 +124,7 @@ CREDITS = dict(
         'CakesTwix (Ukrainian)',
         'Kislotniy (Acela) (Ukrainian)',
         'mondstern (Ukrainian)',
+        'DXCVII (Ukrainian)',
         'niyaki hayyashi (Vietnamese)',
     ),
     supporters=(
@@ -508,11 +511,21 @@ available in your region/language."""))
         # Override release notes
         dialog.set_release_notes("""
             <ul>
-                <li>[Reader] RTL/LTR/Vertical pager: Fixed &lt;Ctrl+mouse wheel&gt; zooming</li>
-                <li>[Servers] Argos Comics (PT): Update</li>
-                <li>[Servers] Flame Comics (EN): Update</li>
-                <li>[Servers] MangaHere (EN): Update</li>
-                <li>[Servers] Read Comic Online (EN): Update</li>
+                <li>Fixed display of covers in animated GIF format</li>
+                <li>Fixed memory leaks</li>
+                <li>[Servers] Added Manga Mana (FR)</li>
+                <li>[Servers] Tecno Scan (ES): Reenable</li>
+                <li>[Servers] Anteiku Scans (FR): Update</li>
+                <li>[Servers] ComicExtra (EN): Update</li>
+                <li>[Servers] ED Scanlation (FR): Update</li>
+                <li>[Servers] EZmanga (EN): Update</li>
+                <li>[Servers] Kewn Scans (EN): Update</li>
+                <li>[Servers] MangaCrab (ES): Update</li>
+                <li>[Servers] MangaWeebs (EN): Update</li>
+                <li>[Servers] Reaper Scans (EN): Update</li>
+                <li>[Servers] Scylla Comics (EN): Update</li>
+                <li>[Servers] Starbound Scans (FR): Update</li>
+                <li>[L10n] Update Portuguese (Brazil) translation</li>
             </ul>
             <p>Happy reading.</p>
         """)
