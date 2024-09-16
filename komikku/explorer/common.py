@@ -53,9 +53,11 @@ class ExplorerSearchStackPage:
         row = self.listbox.get_first_child()
         while row:
             next_row = row.get_next_sibling()
+
             if isinstance(row, (ExplorerServerRow, ExplorerSearchResultRow)):
                 row.dispose()
-                self.listbox.remove(row)
+
+            self.listbox.remove(row)
             row = next_row
 
     def render_covers(self):
