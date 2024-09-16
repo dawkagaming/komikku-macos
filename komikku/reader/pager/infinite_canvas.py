@@ -266,12 +266,12 @@ class KInfiniteCanvas(Gtk.Widget, Gtk.Scrollable):
             if not self.current_page_bottom and page._ic_position <= height and page._ic_position + page._ic_height > height:
                 self.current_page_bottom = page
 
-            if page.status in ('rendering', 'allocable') and not page.activity_indicator.get_spinning():
+            if page.status in ('rendering', 'allocable') and not page.activity_indicator.get_visible():
                 visible = page._ic_position >= 0 and page._ic_position < height
                 visible |= page._ic_position + page_height > 0 and page._ic_position + page_height <= height
                 visible |= page._ic_position < 0 and page._ic_position + page_height > height
                 if visible:
-                    page.activity_indicator.start()
+                    page.activity_indicator.set_visible(True)
 
             position = Graphene.Point()
             position.init(0, page._ic_position)
@@ -356,7 +356,7 @@ class KInfiniteCanvas(Gtk.Widget, Gtk.Scrollable):
 
     def on_page_rendered(self, page, update, retry):
         if not update:
-            page.activity_indicator.stop()
+            page.activity_indicator.set_visible(False)
 
             if retry:
                 # No idea why this reset is necessary

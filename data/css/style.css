@@ -1,7 +1,7 @@
 @define-color accent_bg_color #f66151;
 @define-color accent_color @orange_5;  /* #c64600 */
 
-spinner {
+.spinner {
     color: @accent_bg_color;
 }
 

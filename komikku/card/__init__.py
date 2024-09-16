@@ -84,7 +84,6 @@ class CardPage(Adw.NavigationPage):
         # Pool-to-Update
         self.pool_to_update_revealer = self.window.pool_to_update_revealer
         self.pool_to_update_spinner = self.window.pool_to_update_spinner
-        self.pool_to_update_revealer.bind_property('child-revealed', self.pool_to_update_spinner, 'spinning', 0)
         # Drag gesture
         self.gesture_drag = Gtk.GestureDrag.new()
         self.gesture_drag.set_touch_only(True)

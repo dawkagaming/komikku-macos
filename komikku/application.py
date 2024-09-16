@@ -238,8 +238,8 @@ class ApplicationWindow(Adw.ApplicationWindow):
         self.css_provider = Gtk.CssProvider.new()
         Gtk.StyleContext.add_provider_for_display(Gdk.Display.get_default(), self.css_provider, 400)
 
-        self.activity_indicator = Gtk.Spinner(
-            halign=Gtk.Align.CENTER, valign=Gtk.Align.CENTER, width_request=48, height_request=48
+        self.activity_indicator = Adw.Spinner(
+            halign=Gtk.Align.CENTER, valign=Gtk.Align.CENTER, width_request=48, height_request=48, visible=False
         )
         self.overlay.add_overlay(self.activity_indicator)
 
@@ -539,7 +539,7 @@ available in your region/language."""))
     def on_navigation_popped(self, _nav, _page):
         self.last_navigation_action = 'pop'
 
-        self.activity_indicator.stop()
+        self.activity_indicator.set_visible(False)
 
     def on_navigation_pushed(self, _nav):
         self.last_navigation_action = 'push'

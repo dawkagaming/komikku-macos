@@ -8,6 +8,7 @@ import gc
 from gettext import gettext as _
 import threading
 
+from gi.repository import Adw
 from gi.repository import GLib
 from gi.repository import Gio
 from gi.repository import Gtk
@@ -233,8 +234,7 @@ class ExplorerSearchStackPageSearchGlobal(ExplorerSearchStackPage):
             row.results = False
             row.is_result = False
             row.add_css_class('explorer-server-listboxrow')
-            spinner = Gtk.Spinner()
-            spinner.start()
+            spinner = Adw.Spinner()
             row.set_child(spinner)
             self.listbox.append(row)
 

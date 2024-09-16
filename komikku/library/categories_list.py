@@ -97,13 +97,13 @@ class CategoriesList:
             GLib.idle_add(complete)
 
         def complete():
-            self.library.window.activity_indicator.stop()
+            self.library.window.activity_indicator.set_visible(False)
 
             # Leave library section mode and refresh library
             self.library.leave_selection_mode()
             GLib.idle_add(self.library.populate)
 
-        self.library.window.activity_indicator.start()
+        self.library.window.activity_indicator.set_visible(True)
 
         thread = threading.Thread(target=run)
         thread.daemon = True

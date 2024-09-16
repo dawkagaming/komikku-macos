@@ -20,7 +20,6 @@ class ExplorerSearchStackPageSearch(ExplorerSearchStackPage):
         ExplorerSearchStackPage.__init__(self, parent)
 
         self.stack = self.parent.search_stack
-        self.spinner = self.parent.search_spinner
         self.listbox = self.parent.search_listbox
         self.no_results_status_page = self.parent.search_no_results_status_page
 
@@ -56,8 +55,6 @@ class ExplorerSearchStackPageSearch(ExplorerSearchStackPage):
                 gc.collect()
 
         def complete(results, server):
-            self.spinner.stop()
-
             if not self.parent.can_page_be_updated_with_results('search', server.id):
                 return
 
@@ -74,8 +71,6 @@ class ExplorerSearchStackPageSearch(ExplorerSearchStackPage):
             self.render_covers()
 
         def error(results, server, message=None):
-            self.spinner.stop()
-
             if not self.parent.can_page_be_updated_with_results('search', server.id):
                 return
 
@@ -90,7 +85,6 @@ class ExplorerSearchStackPageSearch(ExplorerSearchStackPage):
             self.stack.set_visible_child_name('no_results')
 
         self.clear()
-        self.spinner.start()
         self.stack.set_visible_child_name('loading')
         self.listbox.set_sort_func(None)
 

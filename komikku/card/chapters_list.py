@@ -341,7 +341,7 @@ class ChaptersList:
         chapters_ids = []
         chapters_data = []
 
-        self.card.window.activity_indicator.start()
+        self.card.window.activity_indicator.set_visible(True)
 
         item = self.list_model.get_item(position.get_uint16())
         rank = item.chapter.rank
@@ -380,10 +380,10 @@ class ChaptersList:
 
                 item.emit_changed()
 
-            self.card.window.activity_indicator.stop()
+            self.card.window.activity_indicator.set_visible(False)
             self.card.window.library.refresh_on_manga_state_changed(self.card.manga)
         else:
-            self.card.window.activity_indicator.stop()
+            self.card.window.activity_indicator.set_visible(False)
             self.card.window.add_notification(_('Failed to update chapters reading status'))
 
     def set_sort_order(self, invalidate=True):
@@ -440,7 +440,7 @@ class ChaptersList:
         chapters_ids = []
         chapters_data = []
 
-        self.card.window.activity_indicator.start()
+        self.card.window.activity_indicator.set_visible(True)
 
         # First, update DB
         for item in self.get_selected_chapters_items():
@@ -468,7 +468,7 @@ class ChaptersList:
                     yield True
 
                 self.card.leave_selection_mode()
-                self.card.window.activity_indicator.stop()
+                self.card.window.activity_indicator.set_visible(False)
                 self.card.window.library.refresh_on_manga_state_changed(self.card.manga)
 
             def run_generator(func):
@@ -477,7 +477,7 @@ class ChaptersList:
 
             run_generator(update_chapters_rows)
         else:
-            self.card.window.activity_indicator.stop()
+            self.card.window.activity_indicator.set_visible(False)
             self.card.leave_selection_mode()
             self.card.window.add_notification(_('Failed to update chapters reading status'))
 

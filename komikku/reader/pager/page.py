@@ -5,6 +5,7 @@
 from gettext import gettext as _
 import threading
 
+from gi.repository import Adw
 from gi.repository import GLib
 from gi.repository import GObject
 from gi.repository import Gtk
@@ -50,8 +51,8 @@ class Page(Gtk.Overlay):
             self.scrollable = False
 
         # Activity indicator
-        self.activity_indicator = Gtk.Spinner(
-            halign=Gtk.Align.CENTER, valign=Gtk.Align.CENTER, width_request=48, height_request=48
+        self.activity_indicator = Adw.Spinner(
+            halign=Gtk.Align.CENTER, valign=Gtk.Align.CENTER, width_request=48, height_request=48, visible=False
         )
         self.add_overlay(self.activity_indicator)
 
@@ -309,8 +310,8 @@ class Page(Gtk.Overlay):
 
     def start_activity_indicator(self):
         if self.reader.reading_mode != 'webtoon':
-            self.activity_indicator.start()
+            self.activity_indicator.set_visible(True)
 
     def stop_activity_indicator(self, *args):
         if self.reader.reading_mode != 'webtoon':
-            self.activity_indicator.stop()
+            self.activity_indicator.set_visible(False)

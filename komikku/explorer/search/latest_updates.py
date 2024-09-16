@@ -20,7 +20,6 @@ class ExplorerSearchStackPageLatestUpdates(ExplorerSearchStackPage):
         ExplorerSearchStackPage.__init__(self, parent)
 
         self.stack = self.parent.latest_updates_stack
-        self.spinner = self.parent.latest_updates_spinner
         self.listbox = self.parent.latest_updates_listbox
         self.no_results_status_page = self.parent.latest_updates_no_results_status_page
 
@@ -44,8 +43,6 @@ class ExplorerSearchStackPageLatestUpdates(ExplorerSearchStackPage):
                 gc.collect()
 
         def complete(results, server):
-            self.spinner.stop()
-
             if not self.parent.can_page_be_updated_with_results('latest_updates', server.id):
                 return
 
@@ -62,8 +59,6 @@ class ExplorerSearchStackPageLatestUpdates(ExplorerSearchStackPage):
             self.render_covers()
 
         def error(results, server, message=None):
-            self.spinner.stop()
-
             if not self.parent.can_page_be_updated_with_results('latest_updates', server.id):
                 return
 
@@ -77,7 +72,6 @@ class ExplorerSearchStackPageLatestUpdates(ExplorerSearchStackPage):
             self.stack.set_visible_child_name('no_results')
 
         self.clear()
-        self.spinner.start()
         self.stack.set_visible_child_name('loading')
 
         if self.parent.requests.get('latest_updates') and self.parent.server.id in self.parent.requests['latest_updates']:

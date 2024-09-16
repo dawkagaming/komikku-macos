@@ -21,13 +21,9 @@ template $ApplicationWindow: Adw.ApplicationWindow {
       child: Revealer pool_to_update_revealer {
         can-target: false;
         halign: center;
-        child: Spinner pool_to_update_spinner {
+        child: Adw.Spinner pool_to_update_spinner {
           height-request: 32;
           width-request: 32;
-
-          styles [
-            "spinner",
-          ]
         };
       };
     }

@@ -20,7 +20,6 @@ class ExplorerSearchStackPageMostPopular(ExplorerSearchStackPage):
         ExplorerSearchStackPage.__init__(self, parent)
 
         self.stack = self.parent.most_popular_stack
-        self.spinner = self.parent.most_popular_spinner
         self.listbox = self.parent.most_popular_listbox
         self.no_results_status_page = self.parent.most_popular_no_results_status_page
 
@@ -44,8 +43,6 @@ class ExplorerSearchStackPageMostPopular(ExplorerSearchStackPage):
                 gc.collect()
 
         def complete(results, server):
-            self.spinner.stop()
-
             if not self.parent.can_page_be_updated_with_results('most_popular', server.id):
                 return
 
@@ -62,8 +59,6 @@ class ExplorerSearchStackPageMostPopular(ExplorerSearchStackPage):
             self.render_covers()
 
         def error(results, server, message=None):
-            self.spinner.stop()
-
             if not self.parent.can_page_be_updated_with_results('most_popular', server.id):
                 return
 
@@ -77,7 +72,6 @@ class ExplorerSearchStackPageMostPopular(ExplorerSearchStackPage):
             self.stack.set_visible_child_name('no_results')
 
         self.clear()
-        self.spinner.start()
         self.stack.set_visible_child_name('loading')
 
         if self.parent.requests.get('most_popular') and self.parent.server.id in self.parent.requests['most_popular']:

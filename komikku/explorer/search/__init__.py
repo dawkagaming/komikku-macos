@@ -39,15 +39,12 @@ class ExplorerSearchPage(Adw.NavigationPage):
     search_listbox = Gtk.Template.Child('search_listbox')
     search_no_results_status_page = Gtk.Template.Child('search_no_results_status_page')
     search_intro_status_page = Gtk.Template.Child('search_intro_status_page')
-    search_spinner = Gtk.Template.Child('search_spinner')
     most_popular_stack = Gtk.Template.Child('most_popular_stack')
     most_popular_listbox = Gtk.Template.Child('most_popular_listbox')
     most_popular_no_results_status_page = Gtk.Template.Child('most_popular_no_results_status_page')
-    most_popular_spinner = Gtk.Template.Child('most_popular_spinner')
     latest_updates_stack = Gtk.Template.Child('latest_updates_stack')
     latest_updates_listbox = Gtk.Template.Child('latest_updates_listbox')
     latest_updates_no_results_status_page = Gtk.Template.Child('latest_updates_no_results_status_page')
-    latest_updates_spinner = Gtk.Template.Child('latest_updates_spinner')
     viewswitcherbar = Gtk.Template.Child('viewswitcherbar')
 
     page = None
@@ -455,7 +452,7 @@ class ExplorerSearchPage(Adw.NavigationPage):
             if server != self.server:
                 return False
 
-            self.window.activity_indicator.stop()
+            self.window.activity_indicator.set_visible(False)
 
             manga = Manga.new(manga_data, self.server, Settings.get_default().long_strip_detection)
 
@@ -475,7 +472,7 @@ class ExplorerSearchPage(Adw.NavigationPage):
             if server != self.server:
                 return False
 
-            self.window.activity_indicator.stop()
+            self.window.activity_indicator.set_visible(False)
 
             self.window.card.init(manga)
 
@@ -483,13 +480,13 @@ class ExplorerSearchPage(Adw.NavigationPage):
             if server != self.server:
                 return False
 
-            self.window.activity_indicator.stop()
+            self.window.activity_indicator.set_visible(False)
 
             self.window.add_notification(message or _("Oops, failed to retrieve manga's information."), timeout=2)
 
             return False
 
-        self.window.activity_indicator.start()
+        self.window.activity_indicator.set_visible(True)
 
         if server is not None:
             self.server = server

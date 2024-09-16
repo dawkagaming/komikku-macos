@@ -731,7 +731,7 @@ class LibraryPage(Adw.NavigationPage):
         chapters_ids = []
         chapters_data = []
 
-        self.window.activity_indicator.start()
+        self.window.activity_indicator.set_visible(True)
 
         for thumbnail in self.flowbox.get_selected_children():
             for chapter in thumbnail.manga.chapters:
@@ -748,7 +748,7 @@ class LibraryPage(Adw.NavigationPage):
             res = update_rows(db_conn, 'chapters', chapters_ids, chapters_data)
         db_conn.close()
 
-        self.window.activity_indicator.stop()
+        self.window.activity_indicator.set_visible(False)
 
         if not res:
             self.window.add_notification(_('Failed to update reading status'))
