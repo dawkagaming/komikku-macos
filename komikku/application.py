@@ -379,8 +379,10 @@ class ApplicationWindow(Adw.ApplicationWindow):
         if self.application.profile in ('beta', 'development'):
             self.add_css_class('devel')
 
-        # Theme (light or dark)
+        # Theme (light or dark) and accent colors
         self.init_theme()
+        self.init_accent_colors()
+        Adw.StyleManager.get_default().connect('notify::accent-color', lambda _sm, _p: self.init_accent_colors())
 
         GLib.idle_add(self.library.populate)
 
@@ -423,6 +425,45 @@ class ApplicationWindow(Adw.ApplicationWindow):
 
         GLib.idle_add(self.show_notification)
 
+    def init_accent_colors(self):
+        if Adw.StyleManager.get_default().get_system_supports_accent_colors() and Settings.get_default().system_accent_colors:
+            self.css_provider.load_from_string('')
+        else:
+            self.css_provider.load_from_string(':root {--accent-bg-color: var(--red-1); --accent-color: oklab(from var(--accent-bg-color) var(--standalone-color-oklab));}')
+
+    def init_theme(self):
+        def set_color_scheme():
+            if ((self._night_light_proxy.get_cached_property('NightLightActive') and Settings.get_default().night_light)
+                    or Settings.get_default().color_scheme == 'dark'):
+                color_scheme = Adw.ColorScheme.FORCE_DARK
+            elif Settings.get_default().color_scheme == 'light':
+                color_scheme = Adw.ColorScheme.FORCE_LIGHT
+            else:
+                color_scheme = Adw.ColorScheme.DEFAULT
+
+            Adw.StyleManager.get_default().set_color_scheme(color_scheme)
+
+        if not self._night_light_proxy:
+            # Watch night light changes
+            self._night_light_proxy = Gio.DBusProxy.new_sync(
+                Gio.bus_get_sync(Gio.BusType.SESSION, None),
+                Gio.DBusProxyFlags.NONE,
+                None,
+                'org.gnome.SettingsDaemon.Color',
+                '/org/gnome/SettingsDaemon/Color',
+                'org.gnome.SettingsDaemon.Color',
+                None
+            )
+
+            def property_changed(_proxy, changed_properties, _invalidated_properties):
+                properties = changed_properties.unpack()
+                if 'NightLightActive' in properties:
+                    set_color_scheme()
+
+            self._night_light_handler_id = self._night_light_proxy.connect('g-properties-changed', property_changed)
+
+        set_color_scheme()
+
     def install_servers_modules(self, reinit=False):
         def run():
             res, status = install_servers_modules_from_repo(self.application.version)
@@ -457,39 +498,6 @@ class ApplicationWindow(Adw.ApplicationWindow):
         thread = threading.Thread(target=run)
         thread.daemon = True
         thread.start()
-
-    def init_theme(self):
-        def set_color_scheme():
-            if ((self._night_light_proxy.get_cached_property('NightLightActive') and Settings.get_default().night_light)
-                    or Settings.get_default().color_scheme == 'dark'):
-                color_scheme = Adw.ColorScheme.FORCE_DARK
-            elif Settings.get_default().color_scheme == 'light':
-                color_scheme = Adw.ColorScheme.FORCE_LIGHT
-            else:
-                color_scheme = Adw.ColorScheme.DEFAULT
-
-            Adw.StyleManager.get_default().set_color_scheme(color_scheme)
-
-        if not self._night_light_proxy:
-            # Watch night light changes
-            self._night_light_proxy = Gio.DBusProxy.new_sync(
-                Gio.bus_get_sync(Gio.BusType.SESSION, None),
-                Gio.DBusProxyFlags.NONE,
-                None,
-                'org.gnome.SettingsDaemon.Color',
-                '/org/gnome/SettingsDaemon/Color',
-                'org.gnome.SettingsDaemon.Color',
-                None
-            )
-
-            def property_changed(_proxy, changed_properties, _invalidated_properties):
-                properties = changed_properties.unpack()
-                if 'NightLightActive' in properties:
-                    set_color_scheme()
-
-            self._night_light_handler_id = self._night_light_proxy.connect('g-properties-changed', property_changed)
-
-        set_color_scheme()
 
     def on_about_menu_clicked(self, _action, _param):
         dialog = Adw.AboutDialog.new_from_appdata('/info/febvre/Komikku/appdata.xml', self.application.version)

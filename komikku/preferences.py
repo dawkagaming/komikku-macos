@@ -25,6 +25,7 @@ class PreferencesDialog(Adw.PreferencesDialog):
 
     color_scheme_row = Gtk.Template.Child('color_scheme_row')
     night_light_switch = Gtk.Template.Child('night_light_switch')
+    system_accent_colors_switch = Gtk.Template.Child('system_accent_colors_switch')
     desktop_notifications_switch = Gtk.Template.Child('desktop_notifications_switch')
     card_backdrop_switch = Gtk.Template.Child('card_backdrop_switch')
 
@@ -271,6 +272,11 @@ class PreferencesDialog(Adw.PreferencesDialog):
         elif index == 1:
             self.settings.scaling_filter = 'trilinear'
 
+    def on_system_accent_colors_changed(self, switch_button, _gparam):
+        self.settings.system_accent_colors = switch_button.get_active()
+
+        self.window.init_accent_colors()
+
     def on_update_at_startup_changed(self, switch_button, _gparam):
         if switch_button.get_active():
             self.settings.update_at_startup = True
@@ -294,6 +300,10 @@ class PreferencesDialog(Adw.PreferencesDialog):
         # Night light
         self.night_light_switch.set_active(self.settings.night_light)
         self.night_light_switch.connect('notify::active', self.on_night_light_changed)
+
+        # Use system accent colors
+        self.system_accent_colors_switch.set_active(self.settings.system_accent_colors)
+        self.system_accent_colors_switch.connect('notify::active', self.on_system_accent_colors_changed)
 
         # Desktop notifications
         self.desktop_notifications_switch.set_active(self.settings.desktop_notifications)

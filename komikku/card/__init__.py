@@ -72,6 +72,9 @@ class CardPage(Adw.NavigationPage):
         self.builder.add_from_resource('/info/febvre/Komikku/ui/menu/card.xml')
         self.builder.add_from_resource('/info/febvre/Komikku/ui/menu/card_selection_mode.xml')
 
+        self.css_provider = Gtk.CssProvider.new()
+        Gtk.StyleContext.add_provider_for_display(Gdk.Display.get_default(), self.css_provider, 400)
+
         self.connect('shown', self.on_shown)
         self.window.controller_key.connect('key-pressed', self.on_key_pressed)
 
@@ -345,7 +348,7 @@ class CardPage(Adw.NavigationPage):
             return
 
         if backdrop_colors_css := self.manga.backdrop_colors_css:
-            self.window.css_provider.load_from_string(backdrop_colors_css)
+            self.css_provider.load_from_string(backdrop_colors_css)
             self.add_css_class('backdrop')
 
     def show(self):

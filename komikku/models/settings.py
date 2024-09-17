@@ -548,6 +548,14 @@ class Settings(Gio.Settings):
         self.set_value('servers-languages', codes)
 
     @property
+    def system_accent_colors(self):
+        return self.get_boolean('system-accent-colors')
+
+    @system_accent_colors.setter
+    def system_accent_colors(self, state):
+        self.set_boolean('system-accent-colors', state)
+
+    @property
     def update_at_startup(self):
         return self.get_boolean('update-at-startup')
 

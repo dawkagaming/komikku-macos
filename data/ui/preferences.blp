@@ -31,6 +31,11 @@ template $PreferencesDialog : Adw.PreferencesDialog {
         subtitle: _("Automatically enable dark theme at night");
       }
 
+      Adw.SwitchRow system_accent_colors_switch {
+        title: _("Accent Color");
+        subtitle: _("Use system accent colors");
+      }
+
       Adw.SwitchRow desktop_notifications_switch {
         title: _("Desktop Notifications");
         subtitle: _("Use desktop notifications for downloads and library updates");
