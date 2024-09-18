@@ -119,7 +119,11 @@ class Manga:
         path = os.path.join(self.path, 'backdrop_colors.css')
         if os.path.exists(path):
             with open(path) as fp:
-                return fp.read()
+                data = fp.read()
+                # CSS must be regenerated if old format is detected
+                # Named colors are deprecated and will be removed in GTK5
+                if '@define-color' not in data:
+                    return data
 
         try:
             palette = ColorThief(cover_path).get_palette(color_count=2, quality=1)[:2]
@@ -127,10 +131,11 @@ class Manga:
             # Single color image?
             return None
 
-        colors = []
+        colors = [':root {\n']
         for index, color in enumerate(palette):
-            colors.append(f'@define-color background_color_{index} rgba({color[0]}, {color[1]}, {color[2]}, 1);\n')  # noqa: E702, E231
-        colors.append('@define-color background_color_2 @window_bg_color;')
+            colors.append(f'\t--backdrop-background-color-{index}: rgb({color[0]} {color[1]} {color[2]} / 100%);\n')  # noqa: E702, E231
+        colors.append('\t--backdrop-background-color-2: var(--window-bg-color);\n')
+        colors.append('}\n')
 
         with open(path, 'w') as fp:
             fp.writelines(colors)

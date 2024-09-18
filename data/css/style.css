@@ -25,6 +25,21 @@ searchbar > revealer > box {
     margin: 2px 0;
 }
 
+/* Badges */
+.badge {
+    color: var(--light-1);
+    font-weight: 700;
+    background-color: var(--accent-bg-color);
+    padding: 0 7px;
+    border-radius: 999px;
+}
+
+/* Covers */
+.cover-dropshadow {
+    border-radius: 9px;
+    box-shadow: 0 0 0 1px rgb(0 0 0 / 3%), 0 1px 3px 1px rgb(0 0 0 / 7%), 0 2px 6px 2px rgb(0 0 0 / 3%);
+}
+
 /*
  * Library
  */
@@ -43,7 +58,7 @@ flowbox flowboxchild:selected {
     border-bottom-left-radius: 8px;
     border-bottom-right-radius: 8px;
     text-shadow: -1px 1px 0 #444, 1px 1px 0 #444, 1px -1px 0 #444, -1px -1px 0 #444;
-    background-image: linear-gradient(to top, rgba(0, 0, 0, .5), rgba(0, 0, 0, 0));
+    background-image: linear-gradient(to top, rgb(0 0 0 / 50%), rgb(0 0 0 / 0%));
     padding: 20px 8px 4px 8px;
 }
 
@@ -61,39 +76,35 @@ flowbox flowboxchild:selected {
  * Manga card
  */
 .backdrop {
-    background: linear-gradient(127deg, alpha(@background_color_0, .55), alpha(@background_color_0, 0) 70.71%),
-                linear-gradient(217deg, alpha(@background_color_1, .55), alpha(@background_color_1, 0) 70.71%),
-                linear-gradient(336deg, alpha(@background_color_2, .55), alpha(@background_color_2, 0) 70.71%);
+    background: linear-gradient(
+                    127deg,
+                    rgb(from var(--backdrop-background-color-0) r g b / calc(alpha * .55)),
+                    rgb(from var(--backdrop-background-color-0) r g b / calc(alpha * 0)) 70.71%
+                ),
+                linear-gradient(
+                    217deg,
+                    rgb(from var(--backdrop-background-color-1) r g b / calc(alpha * .55)),
+                    rgb(from var(--backdrop-background-color-1) r g b / calc(alpha * 0)) 70.71%
+                    ),
+                linear-gradient(
+                    336deg,
+                    rgb(from var(--backdrop-background-color-2) r g b / calc(alpha * .55)),
+                    rgb(from var(--backdrop-background-color-2) r g b / calc(alpha * 0)) 70.71%
+                );
     transition-property: background;
 }
 .backdrop button:focus:focus-visible,
 .backdrop row:focus:focus-visible {
-    outline-color: alpha(currentColor, .25);
+    outline-color: rgb(from currentColor r g b / calc(alpha * 0.25));
 }
 .backdrop list,
 .backdrop listview,
 .backdrop actionbar box {
     background: transparent;
 }
-.backdrop picture {
-    background: linear-gradient(to bottom, @background_color_0, @background_color_1);
-}
-
-.cover-dropshadow {
-    border-radius: 9px;
-    box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.03), 0 1px 3px 1px rgba(0, 0, 0, .07), 0 2px 6px 2px rgba(0, 0, 0, .03);
-}
 
 listview :last-child {
     border-bottom: none;
-}
-
-.badge {
-    color: var(--light-1);
-    font-weight: 700;
-    background-color: var(--accent-bg-color);
-    padding: 0 7px;
-    border-radius: 999px;
 }
 
 .synopsis-label {

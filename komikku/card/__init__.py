@@ -450,7 +450,7 @@ class InfoBox:
                 self.card.remove_backdrop()
 
         self.cover_picture.props.can_shrink = False
-        self.cover_picture.set_css_classes(['rounded', 'cover-backdrop'])
+        self.cover_picture.add_css_class('cover-dropshadow')
         self.cover_box.append(self.cover_picture)
 
         authors = html_escape(', '.join(manga.authors)) if manga.authors else _('Unknown author')
