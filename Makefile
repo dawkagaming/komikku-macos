@@ -33,6 +33,7 @@ install:  ## Install system-wide.
 
 test:  ## Run tests.
 	ninja -C $(BUILD) install
+	ninja -C $(BUILD) test
 	TEST_PATH=$(TEST_PATH) ninja -C $(BUILD) tests
 
 clean:  ## Clean build files.

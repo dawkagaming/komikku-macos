@@ -519,21 +519,10 @@ available in your region/language."""))
         # Override release notes
         dialog.set_release_notes("""
             <ul>
-                <li>Fixed display of covers in animated GIF format</li>
-                <li>Fixed memory leaks</li>
-                <li>[Servers] Added Manga Mana (FR)</li>
-                <li>[Servers] Tecno Scan (ES): Reenable</li>
-                <li>[Servers] Anteiku Scans (FR): Update</li>
-                <li>[Servers] ComicExtra (EN): Update</li>
-                <li>[Servers] ED Scanlation (FR): Update</li>
-                <li>[Servers] EZmanga (EN): Update</li>
-                <li>[Servers] Kewn Scans (EN): Update</li>
-                <li>[Servers] MangaCrab (ES): Update</li>
-                <li>[Servers] MangaWeebs (EN): Update</li>
-                <li>[Servers] Reaper Scans (EN): Update</li>
-                <li>[Servers] Scylla Comics (EN): Update</li>
-                <li>[Servers] Starbound Scans (FR): Update</li>
-                <li>[L10n] Update Portuguese (Brazil) translation</li>
+                <li>[UX] Added system accent colors support</li>
+                <li>[Explorer] Fixed Global search</li>
+                <li>[Servers] Bentoscan (FR): Disabled</li>
+                <li>[Servers] VF Scan (FR): Disabled</li>
             </ul>
             <p>Happy reading.</p>
         """)

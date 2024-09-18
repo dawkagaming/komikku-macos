@@ -98,6 +98,17 @@
     <url type="donation">https://valos.gitlab.io/Komikku/#sponsor</url>
 
     <releases>
+        <release version="1.59.0" date="2024-09-19">
+            <description translate="no">
+                <ul>
+                    <li>[UX] Added system accent colors support</li>
+                    <li>[Explorer] Fixed Global search</li>
+                    <li>[Servers] Bentoscan (FR): Disabled</li>
+                    <li>[Servers] VF Scan (FR): Disabled</li>
+                </ul>
+                <p>Happy reading.</p>
+            </description>
+        </release>
         <release version="1.58.0" date="2024-09-16">
             <description translate="no">
                 <ul>
@@ -111,6 +122,7 @@
                     <li>[Servers] EZmanga (EN): Update</li>
                     <li>[Servers] Kewn Scans (EN): Update</li>
                     <li>[Servers] MangaCrab (ES): Update</li>
+                    <li>[Servers] MangaWeebs (EN): Update</li>
                     <li>[Servers] Reaper Scans (EN): Update</li>
                     <li>[Servers] Scylla Comics (EN): Update</li>
                     <li>[Servers] Starbound Scans (FR): Update</li>
