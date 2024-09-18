@@ -9,6 +9,7 @@ class Vfscan(MangaStream):
     id = 'vfscan'
     name = 'VF Scan'
     lang = 'fr'
+    status = 'disabled'
 
     base_url = 'https://www.vfscan.net'
 
