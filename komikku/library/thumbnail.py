@@ -119,10 +119,19 @@ class ThumbnailCover(GObject.GObject, Gdk.Paintable):
 
         self.cover_texture = None
         self.server_logo_texture = None
+
         self.rect = Graphene.Rect().alloc()
         self.rounded_rect = Gsk.RoundedRect()
         self.rounded_rect_size = Graphene.Size().alloc()
         self.rounded_rect_size.init(self.corners_radius, self.corners_radius)
+
+        font = Pango.FontDescription.new()
+        font.set_weight(Pango.Weight.HEAVY)
+        font.set_size(self.cover_font_size * Pango.SCALE)
+        self.badge_layout = Pango.Layout(Gio.Application.get_default().window.get_pango_context())
+        self.badge_layout.set_font_description(font)
+        self.badge_text_color = Gdk.RGBA()
+        self.badge_text_color.parse('#ffffff')
 
         self.__get_badges_values()
         self.__create_cover_texture()
@@ -169,24 +178,17 @@ class ThumbnailCover(GObject.GObject, Gdk.Paintable):
         snapshot.pop()  # remove the clip
 
         # Draw badges (top right corner)
-        font = Pango.FontDescription.new()
-        font.set_weight(Pango.Weight.HEAVY)
-        font.set_size(self.cover_font_size * Pango.SCALE)
-        layout = Pango.Layout(Gio.Application.get_default().window.get_pango_context())
-        layout.set_font_description(font)
         spacing = 5  # with top border, right border and between badges
-        text_color = Gdk.RGBA()
-        text_color.parse('#ffffff')
         x = width
 
         def draw_badge(value, color):
-            nonlocal x, layout
+            nonlocal x
 
             if not value:
                 return
 
-            layout.set_text(str(value))
-            extent = layout.get_pixel_extents()[1]
+            self.badge_layout.set_text(str(value))
+            extent = self.badge_layout.get_pixel_extents()[1]
             w = extent.width + 2 * 7
             h = extent.height + 2 * 1
 
@@ -197,22 +199,20 @@ class ThumbnailCover(GObject.GObject, Gdk.Paintable):
             bg_color = Gdk.RGBA()
             bg_color.parse(color)
 
-            rect = Graphene.Rect().init(x, y, w, h)
-            rounded_rect = Gsk.RoundedRect()
-            rounded_rect.init_from_rect(rect, radius=90)
+            rect = self.rect.init(x, y, w, h)
+            self.rounded_rect.init_from_rect(self.rect, radius=90)
 
-            snapshot.push_rounded_clip(rounded_rect)
+            snapshot.push_rounded_clip(self.rounded_rect)
             snapshot.append_color(bg_color, rect)
             snapshot.pop()  # remove the clip
 
             # Draw number
             point = Graphene.Point()
-            point.x = x + 7
-            point.y = y + 1
+            point.init(x + 7, y + 1)
 
             snapshot.save()
             snapshot.translate(point)
-            snapshot.append_layout(layout, text_color)
+            snapshot.append_layout(self.badge_layout, self.badge_text_color)
             snapshot.restore()
 
         draw_badge(self.nb_unread_chapters, '#62a0ea')      # @blue_2
