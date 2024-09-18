@@ -11,6 +11,7 @@ class Bentoscan(MyMangaReaderCMS):
     id = 'bentoscan'
     name = 'Bentoscan'
     lang = 'fr'
+    status = 'disabled'
 
     base_url = 'https://bentoscan.com'
     search_url = base_url + '/search'
