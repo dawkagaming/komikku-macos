@@ -12,4 +12,4 @@ class Cerisescan(Peachscan):
 
     has_cf = True
 
-    base_url = 'https://cerisetoon.com'
+    base_url = 'https://cerise.leitorweb.com'
