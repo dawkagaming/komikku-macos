@@ -12,4 +12,4 @@ class Sinensistoon(Peachscan):
 
     has_cf = True
 
-    base_url = 'https://sinensistoon.com'
+    base_url = 'https://sinensis.leitorweb.com'

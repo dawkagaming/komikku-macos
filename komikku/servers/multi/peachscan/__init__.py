@@ -6,7 +6,7 @@
 # Aurora Scan [pt_BR]
 # Cerise Scan [pt_BR]
 # Dango Scan [pt_BR]
-# Luratoon Scan [pt_BR]
+# Luratoon Scan [pt_BR] (disabled)
 # Nazarick Scan [pt_BR]
 # RF Dragon Scan [pt_BR]
 # Sinensistoon [pt_BR]
