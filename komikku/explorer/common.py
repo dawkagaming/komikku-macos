@@ -260,7 +260,7 @@ class ExplorerServerRow(Gtk.ListBoxRow):
 
         if data['id'] == 'local':
             # Info button
-            button = Gtk.Button(valign=Gtk.Align.CENTER, focus_on_click=False)
+            button = Gtk.Button(valign=Gtk.Align.CENTER)
             button.set_icon_name('help-about-symbolic')
             button.set_tooltip_text(_('Help'))
             message = _("""A specific folder structure is required for local comics to be properly processed.
@@ -274,7 +274,7 @@ NOTE: The 'unrar' or 'unar' command-line tool is required for CBR archives.""")
             box.append(button)
 
             # Button to open local folder
-            self.local_folder_button = Gtk.Button(valign=Gtk.Align.CENTER, focus_on_click=False)
+            self.local_folder_button = Gtk.Button(valign=Gtk.Align.CENTER)
             self.local_folder_button.set_icon_name('folder-visiting-symbolic')
             self.local_folder_button.set_tooltip_text(_('Open local folder'))
             self.local_folder_button_clicked_handler_id = self.local_folder_button.connect(
@@ -282,7 +282,7 @@ NOTE: The 'unrar' or 'unar' command-line tool is required for CBR archives.""")
             box.append(self.local_folder_button)
 
         # Button to pin/unpin
-        self.pin_button = Gtk.ToggleButton(valign=Gtk.Align.CENTER, focus_on_click=False)
+        self.pin_button = Gtk.ToggleButton(valign=Gtk.Align.CENTER)
         self.pin_button.set_icon_name('view-pin-symbolic')
         self.pin_button.set_tooltip_text(_('Toggle pinned status'))
         self.pin_button.set_active(data['id'] in Settings.get_default().pinned_servers)
