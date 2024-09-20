@@ -321,11 +321,10 @@ class ChaptersList:
         self.set_sort_order()
 
     def populate(self):
-        if chapters := self.card.manga.chapters:
-            self.list_model.populate(chapters)
-            return True
+        chapters = self.card.manga.chapters
+        self.list_model.populate(chapters)
 
-        return False
+        return len(chapters) > 0
 
     def refresh(self, chapters):
         for chapter in chapters:
