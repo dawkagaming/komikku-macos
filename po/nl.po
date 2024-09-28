@@ -7,15 +7,15 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-08-15 23:02+0200\n"
-"PO-Revision-Date: 2024-06-12 14:09+0000\n"
-"Last-Translator: Philip Goto <philip.goto@gmail.com>\n"
+"PO-Revision-Date: 2024-09-29 23:15+0000\n"
+"Last-Translator: Mikachu <micah.sh@proton.me>\n"
 "Language-Team: Dutch <https://hosted.weblate.org/projects/komikku/main/nl/>\n"
 "Language: nl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.6-dev\n"
+"X-Generator: Weblate 5.8-dev\n"
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:11
 msgid "Discover and read manga &amp; comics"
@@ -594,19 +594,19 @@ msgstr "Oorspronkelijke grootte"
 
 #: ../data/ui/preferences.blp:244
 msgid "Scaling Filter"
-msgstr ""
+msgstr "Schaalfilter"
 
 #: ../data/ui/preferences.blp:245
 msgid "Interpolation method used when scaling images"
-msgstr ""
+msgstr "Interpolatiemethode voor het schalen van afbeeldingen"
 
 #: ../data/ui/preferences.blp:248
 msgid "Linear"
-msgstr ""
+msgstr "Lineair"
 
 #: ../data/ui/preferences.blp:249
 msgid "Trilinear"
-msgstr ""
+msgstr "Trilineair"
 
 #: ../data/ui/preferences.blp:255
 msgid "Landscape Pages Zoom"
@@ -1520,31 +1520,31 @@ msgstr "Betaald"
 
 #: ../komikku/servers/coloredcouncil/__init__.py:64
 msgid "Format"
-msgstr ""
+msgstr "Format"
 
 #: ../komikku/servers/coloredcouncil/__init__.py:65
 msgid "Filter by format"
-msgstr ""
+msgstr "Op format filteren"
 
 #: ../komikku/servers/coloredcouncil/__init__.py:70
 msgid "Manwha"
-msgstr ""
+msgstr "Manwha"
 
 #: ../komikku/servers/coloredcouncil/__init__.py:77
 msgid "Version"
-msgstr ""
+msgstr "Versie"
 
 #: ../komikku/servers/coloredcouncil/__init__.py:78
 msgid "Filter by version"
-msgstr ""
+msgstr "Op versie filteren"
 
 #: ../komikku/servers/coloredcouncil/__init__.py:83
 msgid "Color"
-msgstr ""
+msgstr "Kleur"
 
 #: ../komikku/servers/coloredcouncil/__init__.py:84
 msgid "B/W"
-msgstr ""
+msgstr "ZW"
 
 #: ../komikku/servers/dynasty/__init__.py:38
 msgid "Categories"
