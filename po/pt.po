@@ -3,13 +3,14 @@
 # This file is distributed under the same license as the Komikku package.
 # ssantos <ssantos@web.de>, 2023, 2024.
 # Ademario Cunha <d.k.foz90@gmail.com>, 2024.
+# SpiralPack 527 <spiralpack527@gmail.com>, 2024.
 msgid ""
 msgstr ""
 "Project-Id-Version: Komikku 1.17.1\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-08-15 23:02+0200\n"
-"PO-Revision-Date: 2024-04-25 00:07+0000\n"
-"Last-Translator: Ademario Cunha <d.k.foz90@gmail.com>\n"
+"PO-Revision-Date: 2024-10-02 13:15+0000\n"
+"Last-Translator: SpiralPack 527 <spiralpack527@gmail.com>\n"
 "Language-Team: Portuguese <https://hosted.weblate.org/projects/komikku/main/"
 "pt/>\n"
 "Language: pt\n"
@@ -17,7 +18,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 5.5.1-dev\n"
+"X-Generator: Weblate 5.8-dev\n"
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:11
 msgid "Discover and read manga &amp; comics"
@@ -532,6 +533,8 @@ msgid ""
 "These settings do not prevent potentially incorrectly flagged servers from "
 "surfacing NSFW content."
 msgstr ""
+"Essas configurações não prevem servers incorretamente classificados de "
+"exibir Conteúdo NSFW."
 
 #: ../data/ui/preferences.blp:202 ../data/ui/reader.blp:6
 msgid "Reader"
@@ -598,11 +601,11 @@ msgstr ""
 
 #: ../data/ui/preferences.blp:245
 msgid "Interpolation method used when scaling images"
-msgstr ""
+msgstr "Método de interpolação usado enquanto escala imagens"
 
 #: ../data/ui/preferences.blp:248
 msgid "Linear"
-msgstr ""
+msgstr "Linear"
 
 #: ../data/ui/preferences.blp:249
 msgid "Trilinear"
