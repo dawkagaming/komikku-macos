@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: Komikku 1.53.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-08-15 23:02+0200\n"
-"PO-Revision-Date: 2024-10-06 18:15+0000\n"
+"PO-Revision-Date: 2024-10-10 22:17+0000\n"
 "Last-Translator: twlvnn <kraft_werk@tutanota.com>\n"
 "Language-Team: Bulgarian <https://hosted.weblate.org/projects/komikku/main/"
 "bg/>\n"
@@ -32,7 +32,7 @@ msgstr ""
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:15
 msgid "Why you will love Komikku?"
-msgstr "Защо ще се влюбите в „Komikku“?"
+msgstr "Защо ще се влюбите в „Комикси“?"
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:17
 msgid "Online and offline reading from dozens of servers"
@@ -251,7 +251,7 @@ msgstr "Превключване на страничната лента за к�
 
 #: ../data/ui/library.blp:23
 msgid "Komikku"
-msgstr "Komikku"
+msgstr "Комикси"
 
 #: ../data/ui/library.blp:30
 msgid "Main Menu"
@@ -356,7 +356,7 @@ msgstr "Даряване"
 
 #: ../data/ui/menu/main.xml:63
 msgid "About Komikku"
-msgstr "Относно „Komikku“"
+msgstr "Относно „Комикси“"
 
 #: ../data/ui/menu/reader.xml:109
 msgid "Zoom Landscape Pages"
@@ -843,13 +843,13 @@ msgid ""
 "Developing and maintaining Komikku is a challenging task that takes up most "
 "of my free time."
 msgstr ""
-"Разработката и поддържката на „Komikku“ е предизвикателна задача, която "
-"отнема по-голямата част от свободното ми време."
+"Разработката и поддържката на „Комикси“ е трудна задача, която отнема по-"
+"голямата част от свободното ми време."
 
 #: ../data/ui/support.blp:61
 msgid "Komikku will always be free and open-source and will never contain ads."
 msgstr ""
-"„Komikku“ винаги ще бъде безплатна и с отворен код програма и никога няма да "
+"„Комикси“ винаги ще бъде безплатна и с отворен код програма и никога няма да "
 "съдържа реклами."
 
 #: ../data/ui/support.blp:68
@@ -1278,7 +1278,7 @@ msgstr "Изтегляне?"
 
 #: ../komikku/library/__init__.py:613
 msgid "Welcome to Komikku"
-msgstr "Добре дошли в „Komikku“"
+msgstr "Добре дошли в „Комикси“"
 
 #: ../komikku/library/__init__.py:621
 msgid "Loading…"
