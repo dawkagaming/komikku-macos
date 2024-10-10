@@ -250,6 +250,7 @@ class MangaStream(Server):
             chapters.append(dict(
                 slug=slug,
                 title=title,
+                num=li_element.get('data-num').strip(),
                 date=date,
             ))
 
