@@ -12,6 +12,7 @@ from gi.repository import Gtk
 
 from komikku.card.categories_list import CategoriesList
 from komikku.card.chapters_list import ChaptersList
+from komikku.card.tracking import TrackingDialog
 from komikku.models import Settings
 from komikku.utils import COVER_WIDTH
 from komikku.utils import CoverPicture
@@ -95,11 +96,14 @@ class CardPage(Adw.NavigationPage):
         self.gesture_drag.connect('drag-update', self.on_gesture_drag_update)
         self.stack.add_controller(self.gesture_drag)
 
+        self.tracking_dialog = TrackingDialog(self.window)
+
         self.info_box = InfoBox(self)
         self.categories_list = CategoriesList(self)
         self.chapters_list = ChaptersList(self)
 
         self.window.updater.connect('manga-updated', self.on_manga_updated)
+        self.window.trackers.connect('manga-tracker-synced', self.on_manga_tracker_synced)
 
         self.window.breakpoint.add_setter(self.viewswitcherbar, 'reveal', True)
         self.window.breakpoint.add_setter(self.title_stack, 'visible-child', self.title)
@@ -123,6 +127,10 @@ class CardPage(Adw.NavigationPage):
         self.sort_order_action = Gio.SimpleAction.new_stateful('card.sort-order', variant.get_type(), variant)
         self.sort_order_action.connect('activate', self.chapters_list.on_sort_order_changed)
         self.window.application.add_action(self.sort_order_action)
+
+        self.manage_tracking_action = Gio.SimpleAction.new('card.manage-tracking', None)
+        self.manage_tracking_action.connect('activate', self.on_manage_tracking_menu_clicked)
+        self.window.application.add_action(self.manage_tracking_action)
 
         self.open_in_browser_action = Gio.SimpleAction.new('card.open-in-browser', None)
         self.open_in_browser_action.connect('activate', self.on_open_in_browser_menu_clicked)
@@ -248,6 +256,13 @@ class CardPage(Adw.NavigationPage):
             self.enter_selection_mode()
 
         return Gdk.EVENT_PROPAGATE
+
+    def on_manage_tracking_menu_clicked(self, _action, _menu):
+        self.tracking_dialog.show()
+
+    def on_manga_tracker_synced(self, _trackers, manga):
+        if (self.window.page == self.props.tag or self.window.previous_page == self.props.tag) and self.manga.id == manga.id:
+            self.manga = manga
 
     def on_manga_updated(self, _updater, manga, result):
         if (self.window.page == self.props.tag or self.window.previous_page == self.props.tag) and self.manga.id == manga.id:

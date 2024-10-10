@@ -26,11 +26,9 @@ from komikku.models.keyring import KeyringHelper
 from komikku.servers.loader import clear_servers_finders
 from komikku.servers.loader import ServerFinder
 from komikku.servers.loader import ServerFinderPriority
-from komikku.servers.utils import get_buffer_mime_type
-from komikku.servers.utils import get_response_elapsed
 from komikku.servers.utils import get_server_main_id_by_id
 from komikku.servers.utils import get_servers_modules
-from komikku.utils import expand_and_resize_cover
+from komikku.utils import BaseServer
 from komikku.utils import get_cache_dir
 from komikku.utils import REQUESTS_TIMEOUT
 from komikku.utils import retry_session
@@ -74,7 +72,7 @@ VERSION = 1
 logger = logging.getLogger('komikku.servers')
 
 
-class Server(ABC):
+class Server(BaseServer, ABC):
     id: str
     name: str
     lang: str
@@ -161,22 +159,6 @@ class Server(ABC):
 
         return path
 
-    @property
-    def session(self):
-        return Server.__sessions.get(self.id)
-
-    @session.setter
-    def session(self, value):
-        Server.__sessions[self.id] = value
-
-    @property
-    def sessions_dir(self):
-        dir_path = os.path.join(get_cache_dir(), 'sessions')
-        if not os.path.exists(dir_path):
-            os.mkdir(dir_path)
-
-        return dir_path
-
     def clear_session(self, all=False):
         main_id = get_server_main_id_by_id(self.id)
 
@@ -191,43 +173,6 @@ class Server(ABC):
                     del Server.__sessions[id_]
         elif self.id in Server.__sessions:
             del Server.__sessions[self.id]
-
-    def get_manga_cover_image(self, url, etag=None):
-        """
-        Get a manga cover
-
-        :param url: The cover image URL
-        :type url: str
-
-        :param etag: The current cover image ETag
-        :type etag: str or None
-
-        :return: The cover image content, the cover image ETag if exists, the request time (seconds)
-        :rtype: tuple
-        """
-        if url is None:
-            return None, None, None
-
-        if self.headers_images is not None:
-            headers = self.headers_images
-        else:
-            headers = {
-                'Accept': 'image/avif,image/webp,*/*',
-                'Referer': f'{self.base_url}/',
-            }
-        if etag:
-            headers['If-None-Match'] = etag
-
-        r = self.session.get(url, headers=headers, verify=not self.ignore_ssl_errors)
-        if r.status_code != 200:
-            return None, None, get_response_elapsed(r)
-
-        buffer = r.content
-        mime_type = get_buffer_mime_type(buffer)
-        if not mime_type.startswith('image'):
-            return None, None, get_response_elapsed(r)
-
-        return expand_and_resize_cover(buffer), r.headers.get('ETag'), get_response_elapsed(r)
 
     @abstractmethod
     def get_manga_data(self, initial_data):
@@ -384,46 +329,6 @@ class Server(ABC):
         .. note:: It's of course possible to add any other information/keys if necessary
         .. warning:: but these must not be present in the return value of `get_manga_data`.
         """
-
-    def session_get(self, *args, **kwargs):
-        kwargs['verify'] = not self.ignore_ssl_errors
-        try:
-            r = retry_session(session=self.session).get(*args, **kwargs)
-        except Exception as error:
-            logger.debug(error)
-            raise
-
-        return r
-
-    def session_patch(self, *args, **kwargs):
-        kwargs['verify'] = not self.ignore_ssl_errors
-        try:
-            r = self.session.patch(*args, **kwargs)
-        except Exception as error:
-            logger.debug(error)
-            raise
-
-        return r
-
-    def session_post(self, *args, **kwargs):
-        kwargs['verify'] = not self.ignore_ssl_errors
-        try:
-            r = self.session.post(*args, **kwargs)
-        except Exception as error:
-            logger.debug(error)
-            raise
-
-        return r
-
-    def session_put(self, *args, **kwargs):
-        kwargs['verify'] = not self.ignore_ssl_errors
-        try:
-            r = self.session.put(*args, **kwargs)
-        except Exception as error:
-            logger.debug(error)
-            raise
-
-        return r
 
     def update_chapter_read_progress(self, data, manga_slug, manga_name, chapter_slug, chapter_url):
         return NotImplemented

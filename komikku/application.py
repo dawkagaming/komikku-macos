@@ -39,6 +39,7 @@ from komikku.servers import init_servers_modules
 from komikku.servers import install_servers_modules_from_repo
 from komikku.servers.utils import get_allowed_servers_list
 from komikku.support import SupportPage
+from komikku.trackers import Trackers
 from komikku.updater import Updater
 from komikku.webview import WebviewPage
 
@@ -244,6 +245,7 @@ class ApplicationWindow(Adw.ApplicationWindow):
         self.overlay.add_overlay(self.activity_indicator)
 
         self.downloader = Downloader(self)
+        self.trackers = Trackers(self)
         self.updater = Updater(self)
 
         self.assemble_window()
@@ -560,6 +562,9 @@ available in your region/language."""))
             # Start Downloader
             if Settings.get_default().downloader_state:
                 self.downloader.start()
+
+            # Sync trackers: offline read progress
+            self.trackers.sync()
         else:
             # Stop Updater
             self.updater.stop()

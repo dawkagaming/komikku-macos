@@ -6,6 +6,8 @@
         <file compressed="true" preprocess="xml-stripblanks">ui/application_window.ui</file>
         <file compressed="true" preprocess="xml-stripblanks">ui/card.ui</file>
         <file compressed="true" preprocess="xml-stripblanks">ui/card_chapters_list_row.ui</file>
+        <file compressed="true" preprocess="xml-stripblanks">ui/card_tracking.ui</file>
+        <file compressed="true" preprocess="xml-stripblanks">ui/card_tracking_search.ui</file>
         <file compressed="true" preprocess="xml-stripblanks">ui/categories_editor.ui</file>
         <file compressed="true" preprocess="xml-stripblanks">ui/download_manager.ui</file>
         <file compressed="true" preprocess="xml-stripblanks">ui/explorer_search.ui</file>

@@ -1,0 +1,18 @@
+// Copyright (C) 2019-2024 Valéry Febvre
+//
+// SPDX-License-Identifier: GPL-3.0-or-later
+
+using Gtk 4.0;
+using Adw 1;
+
+template $TrackingDialog : Adw.PreferencesDialog {
+  title: _("Tracking");
+  presentation-mode: bottom_sheet;
+
+  Adw.PreferencesPage {
+    name: "trackers";
+    Adw.PreferencesGroup group {
+      separate-rows: true;
+    }
+  }
+}

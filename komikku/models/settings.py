@@ -556,6 +556,22 @@ class Settings(Gio.Settings):
         self.set_boolean('system-accent-colors', state)
 
     @property
+    def trackers(self):
+        return json.loads(self.get_string('trackers'))
+
+    @trackers.setter
+    def trackers(self, state):
+        self.set_string('trackers', json.dumps(state))
+
+    @property
+    def tracking(self):
+        return self.get_boolean('tracking')
+
+    @tracking.setter
+    def tracking(self, state):
+        self.set_boolean('tracking', state)
+
+    @property
     def update_at_startup(self):
         return self.get_boolean('update-at-startup')
 

@@ -96,15 +96,28 @@
             <summary>Accent Color</summary>
             <description>Use system accent colors</description>
         </key>
+        <key type="b" name="card-backdrop">
+            <default>false</default>
+            <summary>Backdrop in Details Page</summary>
+            <description>Enable background recoloring to match cover</description>
+        </key>
+
         <key type="b" name="desktop-notifications">
             <default>false</default>
             <summary>Desktop Notifications</summary>
             <description>Use desktop notifications for downloads and library updates</description>
         </key>
-        <key type="b" name="card-backdrop">
+
+        <key type="b" name="tracking">
             <default>false</default>
-            <summary>Backdrop in Details Page</summary>
-            <description>Enable background recoloring to match cover</description>
+            <summary>Tracking</summary>
+            <description>Synchronize reading progress</description>
+        </key>
+
+        <key type="s" name="trackers">
+            <default>"{}"</default>
+            <summary>Trackers Data</summary>
+            <description>Status, tokens...</description>
         </key>
 
         <!-- Preferences: Library -->

@@ -60,6 +60,11 @@
                     </item>
                 </section>
             </submenu>
+
+            <item>
+                <attribute name="label" translatable="yes">Tracking</attribute>
+                <attribute name="action">app.card.manage-tracking</attribute>
+            </item>
         </section>
 
         <section>

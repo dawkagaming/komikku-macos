@@ -15,6 +15,7 @@ template $PreferencesDialog : Adw.PreferencesDialog {
     icon-name: "emblem-system-symbolic";
 
     Adw.PreferencesGroup {
+      title: 'Appearance';
       Adw.ComboRow color_scheme_row {
         title: _("Theme");
         model: StringList {
@@ -36,14 +37,26 @@ template $PreferencesDialog : Adw.PreferencesDialog {
         subtitle: _("Use system accent colors");
       }
 
+      Adw.SwitchRow card_backdrop_switch {
+        title: _("Backdrop in Details Page");
+        subtitle: _("Enable background recoloring to match cover");
+      }
+    }
+
+    Adw.PreferencesGroup {
+      title: 'Notifications';
+
       Adw.SwitchRow desktop_notifications_switch {
         title: _("Desktop Notifications");
         subtitle: _("Use desktop notifications for downloads and library updates");
       }
+    }
 
-      Adw.SwitchRow card_backdrop_switch {
-        title: _("Backdrop in Details Page");
-        subtitle: _("Enable background recoloring to match cover");
+    Adw.PreferencesGroup tracking_group {
+      title: 'Tracking';
+
+      Adw.SwitchRow tracking_switch {
+        title: _("Synchronize reading progress");
       }
     }
   }
@@ -336,7 +349,7 @@ template $PreferencesDialog : Adw.PreferencesDialog {
       }
 
       Label {
-        label: _("This tweak is only intended for users who do not use the GNOME desktop environment and therefore cannot disable animations globally via GNOME Settings (Accessibility ⇨ Seeing ⇨ Reduce Animation).");
+        label: _("This tweak is only intended for users who do not use the GNOME desktop environment and therefore cannot disable animations globally via GNOME Settings (Accessibility ⇨ Seeing ⇨ Animation Effects).");
         wrap: true;
         margin-top: 12;
 

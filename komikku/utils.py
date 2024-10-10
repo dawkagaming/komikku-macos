@@ -2,6 +2,7 @@
 # SPDX-License-Identifier: GPL-3.0-only or GPL-3.0-or-later
 # Author: Valéry Febvre <vfebvre@easter-eggs.com>
 
+import datetime
 from functools import cache
 from functools import cached_property
 from functools import wraps
@@ -200,6 +201,26 @@ def get_image_info(path_or_bytes):
         img.close()
 
     return info
+
+
+def get_response_elapsed(r):
+    """
+    Returns the response time (in seconds) of a request
+    regardless of the request type (requests, curl_cffi)
+
+    :param r: A response
+    :type r: requests.models.Response or curl_cffi.requests.models.Response
+
+    :return: How many seconds the request cost
+    :rtype: float
+    """
+    elapsed = r.elapsed
+    if isinstance(elapsed, datetime.timedelta):
+        # requests HTTP client
+        return elapsed.total_seconds()
+
+    # curl_cffi HTTP client
+    return elapsed
 
 
 def html_escape(s):
@@ -569,9 +590,6 @@ class CoverPaintable(CoverLoader, Gdk.Paintable):
     def dispose(self):
         CoverLoader.dispose(self)
         self._animation_iter = None
-        self.rect = None
-        self.rounded_rect = None
-        self.rounded_rect_size = None
 
     def do_get_intrinsic_height(self):
         return self.height
@@ -655,3 +673,109 @@ class CoverPicture(Gtk.Picture):
         self.disconnect_by_func(self.on_unrealize)
 
         self.get_paintable().dispose()
+
+
+class BaseServer:
+    id: str
+    name: str
+
+    headers = None
+    headers_images = None
+    http_client = 'requests'  # HTTP client
+    ignore_ssl_errors = False
+    status = 'enabled'
+
+    __sessions = {}  # to cache all existing sessions
+
+    @property
+    def session(self):
+        return BaseServer.__sessions.get(self.id)
+
+    @session.setter
+    def session(self, value):
+        BaseServer.__sessions[self.id] = value
+
+    @cached_property
+    def sessions_dir(self):
+        dir_path = os.path.join(get_cache_dir(), 'sessions')
+        if not os.path.exists(dir_path):
+            os.mkdir(dir_path)
+
+        return dir_path
+
+    def get_manga_cover_image(self, url, etag=None):
+        """
+        Get a manga cover
+
+        :param url: The cover image URL
+        :type url: str
+
+        :param etag: The current cover image ETag
+        :type etag: str or None
+
+        :return: The cover image content, the cover image ETag if exists, the request time (seconds)
+        :rtype: tuple
+        """
+        if url is None:
+            return None, None, None
+
+        if self.headers_images is not None:
+            headers = self.headers_images
+        else:
+            headers = {
+                'Accept': 'image/avif,image/webp,*/*',
+                'Referer': f'{self.base_url}/',
+            }
+        if etag:
+            headers['If-None-Match'] = etag
+
+        r = self.session.get(url, headers=headers, verify=not self.ignore_ssl_errors)
+        if r.status_code != 200:
+            return None, None, get_response_elapsed(r)
+
+        buffer = r.content
+        # mime_type = get_buffer_mime_type(buffer)
+        # if not mime_type.startswith('image'):
+        #     return None, None, get_response_elapsed(r)
+
+        return expand_and_resize_cover(buffer), r.headers.get('ETag'), get_response_elapsed(r)
+
+    def session_get(self, *args, **kwargs):
+        kwargs['verify'] = not self.ignore_ssl_errors
+        try:
+            r = retry_session(session=self.session).get(*args, **kwargs)
+        except Exception as error:
+            logger.debug(error)
+            raise
+
+        return r
+
+    def session_patch(self, *args, **kwargs):
+        kwargs['verify'] = not self.ignore_ssl_errors
+        try:
+            r = self.session.patch(*args, **kwargs)
+        except Exception as error:
+            logger.debug(error)
+            raise
+
+        return r
+
+    def session_post(self, *args, **kwargs):
+        kwargs['verify'] = not self.ignore_ssl_errors
+        try:
+            r = self.session.post(*args, **kwargs)
+        except Exception as error:
+            logger.debug(error)
+            raise
+
+        return r
+
+    def session_put(self, *args, **kwargs):
+        kwargs['verify'] = not self.ignore_ssl_errors
+        try:
+            r = self.session.put(*args, **kwargs)
+        except Exception as error:
+            logger.debug(error)
+            raise
+
+        return r

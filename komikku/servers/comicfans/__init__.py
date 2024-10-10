@@ -13,7 +13,7 @@ from komikku.servers import DOWNLOAD_MAX_DELAY
 from komikku.servers import Server
 from komikku.servers import USER_AGENT
 from komikku.servers.utils import get_buffer_mime_type
-from komikku.servers.utils import get_response_elapsed
+from komikku.utils import get_response_elapsed
 
 
 class Comicfans(Server):
@@ -149,7 +149,7 @@ class Comicfans(Server):
         return dict(
             buffer=r.content,
             mime_type=mime_type,
-            name=f'{page["index"]:04d}.{mime_type.split("/")[-1]}',
+            name=f'{page["index"]:04d}.{mime_type.split("/")[-1]}',  # noqa: E231
         )
 
     def get_manga_url(self, slug, url):

@@ -456,7 +456,7 @@ class Manga:
                     changes = {}
 
                     # Common fields
-                    for key in ('title', 'url', 'date', 'scanlators'):
+                    for key in ('title', 'num', 'num_volume', 'url', 'date', 'scanlators'):
                         if row[key] != chapter_data.get(key):
                             changes[key] = chapter_data.get(key)
 
@@ -577,6 +577,33 @@ class Chapter:
             self._manga = Manga.get(self.manga_id)
 
         return self._manga
+
+    @property
+    def number(self):
+        """ Returns chapter number
+
+        In DB, numbers are stored as string.
+        Number is conveted as integer or float
+
+        If invalid or missing, None is returned
+        """
+        num = None
+        if self.num:
+            num = self.num.strip()
+
+        elif self.slug.replace('.', '', 1).isdigit():
+            num = self.slug
+
+        if num:
+            num = num.lstrip('0')
+            try:
+                num = int(float(num)) if int(float(num)) == float(num) else float(num)
+            except Exception:
+                logger.warning('Invalid chapter number: {0} {1} {2}'.format(self.manga.server_id, self.manga.title, num))
+        else:
+            logger.warning('{0} server do not support tracking (no chapter num)?'.format(self.manga.server_id))
+
+        return num
 
     @property
     def path(self):

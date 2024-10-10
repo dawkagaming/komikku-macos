@@ -24,6 +24,7 @@ gi.require_version('WebKit', '6.0')
 from gi.repository import Adw
 from gi.repository import Gio
 from gi.repository import GLib
+from gi.repository import GObject
 from gi.repository import Gtk
 from gi.repository import WebKit
 
@@ -41,15 +42,19 @@ logger = logging.getLogger('komikku.webview')
 @Gtk.Template.from_resource('/info/febvre/Komikku/ui/webview.ui')
 class WebviewPage(Adw.NavigationPage):
     __gtype_name__ = 'WebviewPage'
+    __gsignals__ = {
+        'canceled': (GObject.SignalFlags.RUN_FIRST, None, ()),
+    }
 
     toolbarview = Gtk.Template.Child('toolbarview')
     title = Gtk.Template.Child('title')
 
     cf_request = None  # Current CF request
-    cf_request_handlers_ids = []  # List of hendlers IDs (connected events) of current CF request
     cf_requests = []  # List of pending CF requests
     exited = True  # Whether webview has been exited (page has been popped)
     exited_auto = False  # Whether webview has been automatically left (no user interaction)
+    handlers_ids = []  # List of handlers IDs (connected events)
+    handlers_webview_ids = []  # List of hendlers IDs (connected events to WebKit.WebView)
     lock = False  # Whether webview is locked (in use)
 
     def __init__(self, window):
@@ -165,14 +170,23 @@ class WebviewPage(Adw.NavigationPage):
         logger.debug('Page closed')
 
     def connect_signal(self, *args):
+        handler_id = self.connect(*args)
+        self.handlers_ids.append(handler_id)
+
+    def connect_webview_signal(self, *args):
         handler_id = self.webkit_webview.connect(*args)
-        self.cf_request_handlers_ids.append(handler_id)
+        self.handlers_webview_ids.append(handler_id)
 
     def disconnect_all_signals(self):
-        for handler_id in self.cf_request_handlers_ids:
+        for handler_id in self.handlers_ids:
+            self.disconnect(handler_id)
+
+        self.handlers_ids = []
+
+        for handler_id in self.handlers_webview_ids:
             self.webkit_webview.disconnect(handler_id)
 
-        self.cf_request_handlers_ids = []
+        self.handlers_webview_ids = []
 
     def exit(self):
         if self.window.page != self.props.tag:
@@ -198,9 +212,9 @@ class WebviewPage(Adw.NavigationPage):
 
         self.cf_request = cf_request
         if self.cf_request:
-            self.connect_signal('load-changed', self.cf_request.on_load_changed)
-            self.connect_signal('load-failed', self.cf_request.on_load_failed)
-            self.connect_signal('notify::title', self.cf_request.on_title_changed)
+            self.connect_webview_signal('load-changed', self.cf_request.on_load_changed)
+            self.connect_webview_signal('load-failed', self.cf_request.on_load_failed)
+            self.connect_webview_signal('notify::title', self.cf_request.on_title_changed)
             uri = self.cf_request.url
 
         logger.debug('Load page %s', uri)
@@ -213,8 +227,11 @@ class WebviewPage(Adw.NavigationPage):
         self.exited = True
 
         if not self.exited_auto:
-            # Webview has been left via a user interaction (back button, <ESC> key)
-            self.cf_request.cancel()
+            if self.cf_request:
+                # Webview has been left via a user interaction (back button, <ESC> key)
+                self.cf_request.cancel()
+            else:
+                self.emit('canceled')
 
         if self.cf_request and self.cf_request.error:
             # Cancel all pending CF requests with same URL if challenge was not completed
@@ -489,7 +506,7 @@ def eval_js(code):
         if not webview.load_page(uri='about:blank'):
             return True
 
-        webview.connect_signal('load-changed', on_load_changed)
+        webview.connect_webview_signal('load-changed', on_load_changed)
 
         if DEBUG:
             webview.show()
@@ -539,9 +556,9 @@ def get_page_html(url, user_agent=None, wait_js_code=None, with_cookies=False):
         if not webview.load_page(uri=url, user_agent=user_agent, auto_load_images=False):
             return True
 
-        webview.connect_signal('load-changed', on_load_changed)
-        webview.connect_signal('load-failed', on_load_failed)
-        webview.connect_signal('notify::title', on_title_changed)
+        webview.connect_webview_signal('load-changed', on_load_changed)
+        webview.connect_webview_signal('load-failed', on_load_failed)
+        webview.connect_webview_signal('notify::title', on_title_changed)
 
         if DEBUG:
             webview.show()
@@ -623,3 +640,66 @@ def get_page_html(url, user_agent=None, wait_js_code=None, with_cookies=False):
         raise requests.exceptions.RequestException()
 
     return html if not with_cookies else (html, cookies)
+
+
+def get_tracker_access_token(url, app_redirect_url, user_agent=None):
+    """Use webview to request a client access token to a tracker
+
+    User will be asked to approve client permission.
+    If user is not logged in, it will first be taken to the standard login page.
+
+    :param url: Authorization request URL
+    :param app_redirect_url: App redirection URL
+    :param user_agent: User agent (optional)
+    """
+
+    error = None
+    redirect_url = None
+    webview = Gio.Application.get_default().window.webview
+
+    def load_page():
+        if not webview.load_page(uri=url, user_agent=user_agent):
+            return False
+
+        webview.connect_signal('canceled', on_canceled)
+        webview.connect_webview_signal('load-changed', on_load_changed)
+        webview.connect_webview_signal('load-failed', on_load_failed)
+
+        # We assume that this function is always called from preferences
+        # Preferences dialog must be closed before opening webview page
+        webview.window.preferences.close()
+        webview.show()
+
+        return True
+
+    def on_canceled(self):
+        nonlocal error
+        error = 'canceled'
+
+    def on_load_changed(_webkit_webview, event):
+        nonlocal redirect_url
+
+        uri = _webkit_webview.get_uri()
+        if event == WebKit.LoadEvent.REDIRECTED and uri.startswith(app_redirect_url):
+            redirect_url = uri
+            webview.exit()
+            webview.close_page()
+
+    def on_load_failed(_webkit_webview, _event, _uri, _gerror):
+        nonlocal error
+        error = 'failed'
+        webview.exit()
+        webview.close_page()
+
+    if not load_page():
+        error = 'locked'
+
+    while redirect_url is None and error is None:
+        time.sleep(1)
+
+    if error != 'locked':
+        # We assume that this function is always called from preferences
+        # Preferences dialog must be re-opened after closing webview page
+        webview.window.preferences.present(webview.window)
+
+    return redirect_url, error

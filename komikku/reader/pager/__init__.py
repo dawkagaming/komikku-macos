@@ -13,6 +13,7 @@ from gi.repository import GLib
 from gi.repository import GObject
 from gi.repository import Gtk
 
+from komikku.models import Settings
 from komikku.reader.pager.page import Page
 from komikku.utils import log_error_traceback
 
@@ -133,6 +134,7 @@ class BasePager:
 
                 for index in pages:
                     self.sync_progress_with_server(chapter, index)
+                    self.sync_progress_with_trackers(chapter, index)
 
         return GLib.SOURCE_REMOVE if not read_pages else GLib.SOURCE_CONTINUE
 
@@ -162,6 +164,32 @@ class BasePager:
         thread = threading.Thread(target=run)
         thread.daemon = True
         thread.start()
+
+    def sync_progress_with_trackers(self, chapter, index):
+        if not Settings.get_default().tracking or index + 1 != len(chapter.pages):
+            return
+
+        for _id, tracker in self.window.trackers.trackers.items():
+            tracker_data = tracker.get_data()
+            if not tracker_data or not tracker_data['active']:
+                continue
+
+            if not chapter.manga.tracking or tracker.id not in chapter.manga.tracking or not chapter.number:
+                continue
+
+            data = {
+                'chapters_progress': chapter.number,
+                '_synced': False,
+            }
+            if chapter.manga.tracking[tracker.id]['status'] not in ('reading', 'rereading'):
+                data['status'] = 'reading'
+
+            chapter.manga.tracking[tracker.id].update(data)
+            chapter.manga.update({
+                'tracking': chapter.manga.tracking,
+            })
+
+        self.window.trackers.sync()
 
 
 class Pager(Adw.Bin, BasePager):

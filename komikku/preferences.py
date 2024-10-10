@@ -3,6 +3,7 @@
 # Author: Valéry Febvre <vfebvre@easter-eggs.com>
 
 from gettext import gettext as _
+import threading
 
 from gi.repository import Adw
 from gi.repository import GLib
@@ -26,8 +27,10 @@ class PreferencesDialog(Adw.PreferencesDialog):
     color_scheme_row = Gtk.Template.Child('color_scheme_row')
     night_light_switch = Gtk.Template.Child('night_light_switch')
     system_accent_colors_switch = Gtk.Template.Child('system_accent_colors_switch')
-    desktop_notifications_switch = Gtk.Template.Child('desktop_notifications_switch')
     card_backdrop_switch = Gtk.Template.Child('card_backdrop_switch')
+    desktop_notifications_switch = Gtk.Template.Child('desktop_notifications_switch')
+    tracking_group = Gtk.Template.Child('tracking_group')
+    tracking_switch = Gtk.Template.Child('tracking_switch')
 
     library_display_mode_row = Gtk.Template.Child('library_display_mode_row')
     library_servers_logo_switch = Gtk.Template.Child('library_servers_logo_switch')
@@ -277,6 +280,9 @@ class PreferencesDialog(Adw.PreferencesDialog):
 
         self.window.init_accent_colors()
 
+    def on_tracking_changed(self, switch_button, _gparam):
+        self.settings.tracking = switch_button.get_active()
+
     def on_update_at_startup_changed(self, switch_button, _gparam):
         if switch_button.get_active():
             self.settings.update_at_startup = True
@@ -312,6 +318,14 @@ class PreferencesDialog(Adw.PreferencesDialog):
         # Card backdrop
         self.card_backdrop_switch.set_active(self.settings.card_backdrop)
         self.card_backdrop_switch.connect('notify::active', self.on_card_backdrop_changed)
+
+        # Tracking
+        self.tracking_switch.set_active(self.settings.tracking)
+        self.tracking_switch.connect('notify::active', self.on_tracking_changed)
+
+        for _id, tracker in self.window.trackers.trackers.items():
+            row = TrackerRow(self.window, tracker)
+            self.tracking_group.add(row)
 
         #
         # Library
@@ -712,3 +726,62 @@ class PreferencesServersSettingsSubPage(Adw.NavigationPage):
             self.keyring_helper.store(server_main_id, username, password, address)
         else:
             button.icon.set_from_icon_name('computer-fail-symbolic')
+
+
+class TrackerRow(Adw.ActionRow):
+    def __init__(self, window, tracker):
+        self.window = window
+        self.tracker = tracker
+
+        super().__init__(title=self.tracker.name, activatable=False)
+
+        logo = Gtk.Picture.new_for_filename(self.tracker.logo_path)
+        logo.props.margin_top = 9
+        logo.props.margin_bottom = 9
+        self.add_prefix(logo)
+
+        self.btn = Gtk.Button(valign=Gtk.Align.CENTER)
+
+        if self.tracker.get_active():
+            self.active = True
+            self.btn.set_label(_('Disconnect'))
+        else:
+            self.active = False
+            self.btn.set_label(_('Connect'))
+        self.btn.connect('clicked', self.on_btn_clicked)
+        self.add_suffix(self.btn)
+
+    def on_btn_clicked(self, _btn):
+        def connect():
+            success, error = self.tracker.get_access_token()
+            GLib.idle_add(connect_finish, success, error)
+
+        def connect_finish(success, error):
+            if success:
+                self.active = True
+                self.btn.set_label(_('Disconnect'))
+
+            elif error == 'load_failed':
+                self.window.preferences.add_toast(Adw.Toast.new(_('Failed to request client access')))
+
+            elif error == 'locked':
+                self.window.preferences.add_toast(Adw.Toast.new(_('Webview is currently in used. Please retry later.')))
+
+            elif error == 'canceled':
+                self.window.preferences.add_toast(Adw.Toast.new(error))
+
+        def disconnect():
+            self.tracker.set_active(False)
+
+            self.active = False
+            self.btn.set_label(_('Connect'))
+
+        if not self.active:
+            thread = threading.Thread(target=connect)
+            thread.daemon = True
+            thread.start()
+        else:
+            self.window.confirm(
+                _('Disconnect from {}').format(self.tracker.name), '', _('Disconnect'), disconnect,
+                confirm_appearance=Adw.ResponseAppearance.DESTRUCTIVE
+            )
