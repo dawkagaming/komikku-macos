@@ -19,3 +19,4 @@ class Mangalek(Madara):
     # https://lekmanga.org
     # https://lekmanga.com
     # https://like-manga.net
+    # https://manga-leko.org

@@ -9,7 +9,7 @@ import requests
 
 from komikku.servers import Server
 from komikku.servers.utils import convert_date_string
-from komikku.servers.utils import get_buffer_mime_type
+from komikku.utils import get_buffer_mime_type
 
 
 class Readmanga(Server):
@@ -210,7 +210,7 @@ class Readmanga(Server):
             params=dict(
                 q=term,
                 offset='',
-                years=f'1950,{datetime.date.today().year + 1}',
+                years=f'1950,{datetime.date.today().year + 1}',  # noqa: E231
                 sortType=orderby,
             )
         )

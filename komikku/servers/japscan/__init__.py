@@ -8,8 +8,8 @@ import requests
 
 from komikku.servers import Server
 from komikku.servers.utils import convert_date_string
-from komikku.servers.utils import get_buffer_mime_type
 from komikku.servers.utils import search_duckduckgo
+from komikku.utils import get_buffer_mime_type
 from komikku.webview import CompleteChallenge
 from komikku.webview import get_page_html
 

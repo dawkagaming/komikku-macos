@@ -9,7 +9,7 @@ import requests
 from komikku.servers import Server
 from komikku.servers import USER_AGENT
 from komikku.servers.utils import convert_date_string
-from komikku.servers.utils import get_buffer_mime_type
+from komikku.utils import get_buffer_mime_type
 
 LANGUAGES_CODES = dict(
     en='en',
@@ -219,7 +219,7 @@ class Mangafire(Server):
         return dict(
             buffer=r.content,
             mime_type=mime_type,
-            name=f'{page["index"]:03d}.{mime_type.split("/")[-1]}',
+            name=f'{page["index"]:03d}.{mime_type.split("/")[-1]}',  # noqa: E231
         )
 
     def get_manga_url(self, slug, url):

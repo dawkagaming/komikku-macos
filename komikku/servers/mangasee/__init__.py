@@ -9,7 +9,7 @@ import requests
 from komikku.servers import Server
 from komikku.servers import USER_AGENT_MOBILE
 from komikku.servers.utils import convert_date_string
-from komikku.servers.utils import get_buffer_mime_type
+from komikku.utils import get_buffer_mime_type
 from komikku.utils import log_error_traceback
 
 #

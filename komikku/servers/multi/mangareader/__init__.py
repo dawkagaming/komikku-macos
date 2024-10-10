@@ -12,8 +12,8 @@ import requests
 from komikku.servers import Server
 from komikku.servers import USER_AGENT
 from komikku.servers.exceptions import ServerException
-from komikku.servers.utils import get_buffer_mime_type
 from komikku.servers.utils import unscramble_image_rc4
+from komikku.utils import get_buffer_mime_type
 
 
 class Mangareader(Server):

@@ -32,19 +32,20 @@
 # Toonily [EN]
 # Wakascan [FR] (disabled)
 
-from bs4 import BeautifulSoup
 import datetime
 from gettext import gettext as _
 import logging
+
+from bs4 import BeautifulSoup
 import requests
 
 from komikku.models import Settings
 from komikku.servers import Server
 from komikku.servers import USER_AGENT
 from komikku.servers.utils import convert_date_string
-from komikku.servers.utils import get_buffer_mime_type
 from komikku.servers.utils import get_soup_element_inner_text
 from komikku.servers.utils import remove_emoji_from_string
+from komikku.utils import get_buffer_mime_type
 from komikku.webview import CompleteChallenge
 
 logger = logging.getLogger('komikku.servers.madara')

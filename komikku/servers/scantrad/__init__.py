@@ -2,15 +2,16 @@
 # SPDX-License-Identifier: GPL-3.0-only or GPL-3.0-or-later
 # Author: Valéry Febvre <vfebvre@easter-eggs.com>
 
+from urllib.parse import urlsplit
+
 from bs4 import BeautifulSoup
 import requests
-from urllib.parse import urlsplit
 
 from komikku.servers import Server
 from komikku.servers import USER_AGENT
 from komikku.servers.utils import convert_date_string
-from komikku.servers.utils import get_buffer_mime_type
 from komikku.servers.utils import get_soup_element_inner_text
+from komikku.utils import get_buffer_mime_type
 
 SERVER_NAME = 'Scantrad France'
 

@@ -15,8 +15,8 @@ from urllib.parse import urlparse
 from komikku.servers import Server
 from komikku.servers import USER_AGENT
 from komikku.servers.utils import convert_date_string
-from komikku.servers.utils import get_buffer_mime_type
 from komikku.servers.utils import get_soup_element_inner_text
+from komikku.utils import get_buffer_mime_type
 
 # https://github.com/jhin1m/fuzzy-doodle
 
@@ -231,7 +231,7 @@ class FuzzyDoodle(Server):
         return dict(
             buffer=r.content,
             mime_type=mime_type,
-            name=f'{page["index"]:04d}.{mime_type.split("/")[-1]}',
+            name=f'{page["index"]:04d}.{mime_type.split("/")[-1]}',  # noqa: E231
         )
 
     def get_manga_url(self, slug, url):

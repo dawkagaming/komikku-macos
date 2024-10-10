@@ -15,7 +15,7 @@ from cryptography.hazmat.primitives.ciphers import modes
 
 from komikku.servers.multi.my_manga_reader_cms import MyMangaReaderCMS
 from komikku.servers.utils import convert_date_string
-from komikku.servers.utils import get_buffer_mime_type
+from komikku.utils import get_buffer_mime_type
 
 
 def md5(text):

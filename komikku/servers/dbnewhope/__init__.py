@@ -7,8 +7,8 @@ import requests
 
 from komikku.servers import Server
 from komikku.servers import USER_AGENT
-from komikku.servers.utils import get_buffer_mime_type
 from komikku.servers.utils import get_soup_element_inner_text
+from komikku.utils import get_buffer_mime_type
 
 # Conversion ISO_639-1 codes => server codes
 LANGUAGES_CODES = dict(
@@ -108,7 +108,7 @@ Dans ce récit inédit, découvrez une aventure trépidante où les liens entre 
         )
         for index in range(1, nb_pages + 1):
             data['pages'].append(dict(
-                slug=f'{index:02d}',
+                slug=f'{index:02d}',  # noqa: E231
                 image=None,
             ))
 

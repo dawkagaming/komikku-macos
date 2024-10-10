@@ -20,8 +20,8 @@ import unidecode
 
 from komikku.servers import Server
 from komikku.servers.utils import convert_date_string
-from komikku.servers.utils import get_buffer_mime_type
 from komikku.servers.utils import sojson4_decode
+from komikku.utils import get_buffer_mime_type
 from komikku.utils import REQUESTS_TIMEOUT
 
 SEARCH_RESULTS_PAGES = 5

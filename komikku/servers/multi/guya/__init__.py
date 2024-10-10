@@ -13,7 +13,7 @@ import requests
 
 from komikku.servers import Server
 from komikku.servers import USER_AGENT
-from komikku.servers.utils import get_buffer_mime_type
+from komikku.utils import get_buffer_mime_type
 
 
 class Guya(Server):

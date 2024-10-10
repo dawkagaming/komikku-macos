@@ -7,7 +7,7 @@ import requests
 from komikku.servers import Server
 from komikku.servers import USER_AGENT
 from komikku.servers.utils import convert_date_string
-from komikku.servers.utils import get_buffer_mime_type
+from komikku.utils import get_buffer_mime_type
 
 
 class Aralosbd(Server):
@@ -199,13 +199,13 @@ class Aralosbd(Server):
         if populars:
             filters = 'sort:allviews;limit:18;-id:3;order:desc'
         else:
-            filters = f'title~{term};limit:18;order:asc'
+            filters = f'title~{term};limit:18;order:asc'  # noqa: E231, E702
 
         def get_page(num=0):
             r = self.session_get(
                 self.api_search_url,
                 params=dict(
-                    s=f'{filters};page:{num}',
+                    s=f'{filters};page:{num}',  # noqa: E231, E702
                 ),
                 headers={
                     'Referer': self.search_url,

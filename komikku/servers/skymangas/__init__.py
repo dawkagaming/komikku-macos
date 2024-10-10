@@ -8,7 +8,7 @@ import json
 from bs4 import BeautifulSoup
 
 from komikku.servers.multi.manga_stream import MangaStream
-from komikku.servers.utils import get_buffer_mime_type
+from komikku.utils import get_buffer_mime_type
 
 
 class Skymangas(MangaStream):

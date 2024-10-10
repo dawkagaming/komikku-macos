@@ -11,7 +11,7 @@ import requests
 from komikku.servers import Server
 from komikku.servers import USER_AGENT
 from komikku.servers.utils import convert_date_string
-from komikku.servers.utils import get_buffer_mime_type
+from komikku.utils import get_buffer_mime_type
 
 
 class Fosscomics(Server):
@@ -121,7 +121,7 @@ class Fosscomics(Server):
 
         if page.get('image'):
             r = self.session_get(self.image_url.format(chapter_slug, page['image']))
-            name = f'{chapter_num:02d}_{page["index"]:02d}.png'
+            name = f'{chapter_num:02d}_{page["index"]:02d}.png'  # noqa: E231
         else:
             r = self.session_get(
                 'https://fakeimg.pl/1500x2126/ffffff/000000/',
@@ -131,7 +131,7 @@ class Fosscomics(Server):
                     font='museo'
                 )
             )
-            name = f'{chapter_num:02d}_{page["index"]:02d}_text_{page["subindex"]:02d}.png'
+            name = f'{chapter_num:02d}_{page["index"]:02d}_text_{page["subindex"]:02d}.png'  # noqa: E231
 
         if r.status_code != 200:
             return None

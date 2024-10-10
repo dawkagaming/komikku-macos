@@ -23,7 +23,6 @@ from bs4 import BeautifulSoup
 from bs4 import NavigableString
 import dateparser
 import emoji
-import magic
 from PIL import Image
 import requests
 
@@ -196,48 +195,6 @@ def get_allowed_servers_list(settings):
         servers.append(server_data)
 
     return servers
-
-
-def get_buffer_mime_type(buffer):
-    """
-    Returns the MIME type of a buffer
-
-    :param buffer: A binary string
-    :type buffer: bytes
-
-    :return: The detected MIME type, empty string otherwise
-    :rtype: str
-    """
-    try:
-        if hasattr(magic, 'detect_from_content'):
-            # Using file-magic module: https://github.com/file/file
-            return magic.detect_from_content(buffer[:128]).mime_type  # noqa: TC300
-
-        # Using python-magic module: https://github.com/ahupp/python-magic
-        return magic.from_buffer(buffer[:128], mime=True)  # noqa: TC300
-    except Exception:
-        return ''
-
-
-def get_file_mime_type(path):
-    """
-    Returns the MIME type of a file
-
-    :param path: A file path
-    :type path: str
-
-    :return: The detected MIME type, empty string otherwise
-    :rtype: str
-    """
-    try:
-        if hasattr(magic, 'detect_from_filename'):
-            # Using file-magic module: https://github.com/file/file
-            return magic.detect_from_filename(path).mime_type  # noqa: TC300
-
-        # Using python-magic module: https://github.com/ahupp/python-magic
-        return magic.from_file(path, mime=True)  # noqa: TC300
-    except Exception:
-        return ''
 
 
 def get_server_class_name_by_id(id):

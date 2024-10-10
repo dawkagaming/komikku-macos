@@ -10,7 +10,7 @@ from bs4 import BeautifulSoup
 
 from komikku.servers import Server, USER_AGENT
 from komikku.servers.exceptions import NotFoundError
-from komikku.servers.utils import get_buffer_mime_type
+from komikku.utils import get_buffer_mime_type
 
 
 class Littlexgarden(Server):

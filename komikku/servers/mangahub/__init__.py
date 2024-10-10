@@ -14,9 +14,9 @@ except Exception:
     requests = None
 
 from komikku.servers import Server
-from komikku.servers.utils import get_buffer_mime_type
 from komikku.servers.utils import convert_date_string
 from komikku.servers import REQUESTS_TIMEOUT
+from komikku.utils import get_buffer_mime_type
 
 logger = logging.getLogger('komikku.servers.mangahub')
 

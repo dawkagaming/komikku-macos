@@ -7,10 +7,14 @@ import json
 
 from komikku.servers import Server
 from komikku.servers.utils import convert_date_string
-from komikku.servers.utils import get_buffer_mime_type
+from komikku.utils import get_buffer_mime_type
 from komikku.webview import CompleteChallenge
 
 IMAGES_EXTS = dict(g='gif', j='jpg', p='png')
+
+# Mirrors
+# https://nhentai.to
+# https://nhentai.xxx
 
 
 class Nhentai(Server):

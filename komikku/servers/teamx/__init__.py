@@ -5,7 +5,7 @@
 from bs4 import BeautifulSoup
 
 from komikku.servers import Server
-from komikku.servers.utils import get_buffer_mime_type
+from komikku.utils import get_buffer_mime_type
 from komikku.webview import CompleteChallenge
 
 

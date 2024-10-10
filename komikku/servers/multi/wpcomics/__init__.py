@@ -15,8 +15,8 @@ from urllib.parse import urlparse
 from komikku.servers import Server
 from komikku.servers import USER_AGENT
 from komikku.servers.utils import convert_date_string
-from komikku.servers.utils import get_buffer_mime_type
 from komikku.servers.utils import get_soup_element_inner_text
+from komikku.utils import get_buffer_mime_type
 
 # WPComics Wordpress theme
 

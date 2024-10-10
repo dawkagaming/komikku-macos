@@ -13,8 +13,8 @@ from komikku.servers import Server
 from komikku.servers.exceptions import ArchiveError
 from komikku.servers.exceptions import ArchiveUnrarMissingError
 from komikku.servers.exceptions import ServerException
-from komikku.servers.utils import get_buffer_mime_type
 from komikku.utils import expand_and_resize_cover
+from komikku.utils import get_buffer_mime_type
 from komikku.utils import get_data_dir
 
 IMG_EXTENSIONS = ['bmp', 'gif', 'jpg', 'jpeg', 'png', 'tiff', 'webp']

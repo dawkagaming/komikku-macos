@@ -16,6 +16,7 @@ import traceback
 
 import gi
 from PIL import Image
+import magic
 import pillow_heif
 import requests
 from requests.adapters import HTTPAdapter
@@ -119,6 +120,27 @@ def folder_size(path):
     return res.stdout.split()[0].decode()
 
 
+def get_buffer_mime_type(buffer):
+    """
+    Returns the MIME type of a buffer
+
+    :param buffer: A binary string
+    :type buffer: bytes
+
+    :return: The detected MIME type, empty string otherwise
+    :rtype: str
+    """
+    try:
+        if hasattr(magic, 'detect_from_content'):
+            # Using file-magic module: https://github.com/file/file
+            return magic.detect_from_content(buffer[:128]).mime_type  # noqa: TC300
+
+        # Using python-magic module: https://github.com/ahupp/python-magic
+        return magic.from_buffer(buffer[:128], mime=True)  # noqa: TC300
+    except Exception:
+        return ''
+
+
 @cache
 def get_cache_dir():
     cache_dir_path = GLib.get_user_cache_dir()
@@ -165,6 +187,27 @@ def get_data_dir():
         os.mkdir(data_local_dir_path)
 
     return data_dir_path
+
+
+def get_file_mime_type(path):
+    """
+    Returns the MIME type of a file
+
+    :param path: A file path
+    :type path: str
+
+    :return: The detected MIME type, empty string otherwise
+    :rtype: str
+    """
+    try:
+        if hasattr(magic, 'detect_from_filename'):
+            # Using file-magic module: https://github.com/file/file
+            return magic.detect_from_filename(path).mime_type  # noqa: TC300
+
+        # Using python-magic module: https://github.com/ahupp/python-magic
+        return magic.from_file(path, mime=True)  # noqa: TC300
+    except Exception:
+        return ''
 
 
 def get_image_info(path_or_bytes):
@@ -734,9 +777,9 @@ class BaseServer:
             return None, None, get_response_elapsed(r)
 
         buffer = r.content
-        # mime_type = get_buffer_mime_type(buffer)
-        # if not mime_type.startswith('image'):
-        #     return None, None, get_response_elapsed(r)
+        mime_type = get_buffer_mime_type(buffer)
+        if not mime_type.startswith('image'):
+            return None, None, get_response_elapsed(r)
 
         return expand_and_resize_cover(buffer), r.headers.get('ETag'), get_response_elapsed(r)
 

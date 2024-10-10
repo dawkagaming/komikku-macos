@@ -13,8 +13,8 @@ import requests
 from komikku.servers import Server
 from komikku.servers import USER_AGENT
 from komikku.servers.utils import convert_date_string
-from komikku.servers.utils import get_buffer_mime_type
 from komikku.servers.utils import get_soup_element_inner_text
+from komikku.utils import get_buffer_mime_type
 
 RE_CHAPTER_PAGES = r'.*pages\s+=\s+([a-zA-Z0-9":,-_.\[\]{}]+);.*'
 RE_CHAPTER_PAGES_CDN = r'.*var\s+cdn\s+=\s+"([a-z1-9]+[^"])";.*'

@@ -2,6 +2,8 @@
 # SPDX-License-Identifier: GPL-3.0-only or GPL-3.0-or-later
 # Author: GrownNed <grownned@gmail.com>
 
+import json
+
 from bs4 import BeautifulSoup
 try:
     # This server requires JA3/TLS and HTTP2 fingerprints impersonation
@@ -9,12 +11,11 @@ try:
 except Exception:
     # Server will be disabled
     requests = None
-import json
 
+from komikku.servers import REQUESTS_TIMEOUT
 from komikku.servers import Server
 from komikku.servers.utils import convert_date_string
-from komikku.servers.utils import get_buffer_mime_type
-from komikku.servers import REQUESTS_TIMEOUT
+from komikku.utils import get_buffer_mime_type
 
 
 class Mangalib(Server):

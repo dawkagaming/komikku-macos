@@ -13,7 +13,7 @@ import requests
 
 from komikku.servers import Server
 from komikku.servers.utils import do_login
-from komikku.servers.utils import get_buffer_mime_type
+from komikku.utils import get_buffer_mime_type
 
 
 class Izneo(Server):

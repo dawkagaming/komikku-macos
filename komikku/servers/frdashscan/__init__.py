@@ -8,7 +8,7 @@ import re
 from bs4 import BeautifulSoup
 
 from komikku.servers.multi.madara import Madara
-from komikku.servers.utils import get_buffer_mime_type
+from komikku.utils import get_buffer_mime_type
 
 
 class Frdashscan(Madara):
