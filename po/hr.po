@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Komikku 1.47.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-08-15 23:02+0200\n"
+"POT-Creation-Date: 2024-10-11 01:09+0200\n"
 "PO-Revision-Date: 2024-08-20 16:09+0000\n"
 "Last-Translator: Milo Ivir <mail@milotype.de>\n"
 "Language-Team: Croatian <https://hosted.weblate.org/projects/komikku/main/hr/"
@@ -134,7 +134,7 @@ msgstr ""
 "manga;čitač;strip;manhwa;manhua;bd;webtoon;webcomic;web-strip;scan;offline;"
 "GTK;GNOME;"
 
-#: ../data/ui/card.blp:32 ../data/ui/card.blp:444
+#: ../data/ui/card.blp:32 ../data/ui/card.blp:437
 #: ../data/ui/card_chapters_list_row.blp:44 ../data/ui/download_manager.blp:22
 #: ../data/ui/library.blp:142 ../data/ui/reader.blp:33
 msgid "Menu"
@@ -144,35 +144,35 @@ msgstr "Izbornik"
 msgid "Info"
 msgstr "Informacije"
 
-#: ../data/ui/card.blp:141
+#: ../data/ui/card.blp:134
 msgid "Add to Library"
 msgstr "Dodaj u biblioteku"
 
-#: ../data/ui/card.blp:171
+#: ../data/ui/card.blp:164
 msgid "Details"
 msgstr "Detalji"
 
-#: ../data/ui/card.blp:202
+#: ../data/ui/card.blp:195
 msgid "Genres"
 msgstr "Žanrovi"
 
-#: ../data/ui/card.blp:235
+#: ../data/ui/card.blp:228
 msgid "Scanlators"
 msgstr "Prevoditelji"
 
-#: ../data/ui/card.blp:298
+#: ../data/ui/card.blp:291
 msgid "Last Update"
 msgstr "Zadnje aktualiziranje"
 
-#: ../data/ui/card.blp:330
+#: ../data/ui/card.blp:323
 msgid "Size on Disk"
 msgstr "Veličina na disku"
 
-#: ../data/ui/card.blp:356
+#: ../data/ui/card.blp:349
 msgid "Synopsis"
 msgstr "Sažetak"
 
-#: ../data/ui/card.blp:484 ../data/ui/categories_editor.blp:64
+#: ../data/ui/card.blp:477 ../data/ui/categories_editor.blp:64
 #: ../data/ui/library.blp:247
 msgid "No Categories"
 msgstr "Nema kategorija"
@@ -180,6 +180,16 @@ msgstr "Nema kategorija"
 #: ../data/ui/card_chapters_list_row.blp:61
 msgid "New"
 msgstr "Nova"
+
+#: ../data/ui/card_tracking.blp:9
+msgid "Tracking"
+msgstr ""
+
+#: ../data/ui/card_tracking_search.blp:10 ../data/ui/explorer_search.blp:10
+#: ../data/ui/explorer_search.blp:41 ../data/ui/history.blp:18
+#: ../data/ui/library.blp:36
+msgid "Search"
+msgstr "Pretraga"
 
 #: ../data/ui/categories_editor.blp:33
 msgid "Add"
@@ -197,11 +207,6 @@ msgstr "Pokreni/Prekini preuzimanje"
 msgid "No Downloads"
 msgstr "Nema preuzimanja"
 
-#: ../data/ui/explorer_search.blp:10 ../data/ui/explorer_search.blp:41
-#: ../data/ui/history.blp:18 ../data/ui/library.blp:36
-msgid "Search"
-msgstr "Pretraga"
-
 #: ../data/ui/explorer_search.blp:28
 msgid "Search Filters"
 msgstr "Filtri za pretraživanje"
@@ -210,11 +215,11 @@ msgstr "Filtri za pretraživanje"
 msgid "Open in Browser"
 msgstr "Otvori u pregledniku"
 
-#: ../data/ui/explorer_search.blp:152
+#: ../data/ui/explorer_search.blp:148
 msgid "Most Popular"
 msgstr "Najpopularniji"
 
-#: ../data/ui/explorer_search.blp:226
+#: ../data/ui/explorer_search.blp:218
 msgid "Latest Updates"
 msgstr "Najnovija aktualiziranja"
 
@@ -242,7 +247,7 @@ msgstr "Povijest"
 msgid "No History"
 msgstr "Nema povijesti"
 
-#: ../data/ui/library.blp:6 ../data/ui/preferences.blp:48
+#: ../data/ui/library.blp:6 ../data/ui/preferences.blp:66
 msgid "Library"
 msgstr "Biblioteka"
 
@@ -262,7 +267,7 @@ msgstr "Glavni izbornik"
 msgid "Search by name, server or genre"
 msgstr "Traži prema imenu, serveru ili žanru"
 
-#: ../data/ui/library.blp:121 ../data/ui/preferences.blp:135
+#: ../data/ui/library.blp:121 ../data/ui/preferences.blp:153
 msgid "Update"
 msgstr "Aktualiziraj"
 
@@ -384,151 +389,163 @@ msgstr "Osobne postavke"
 msgid "General"
 msgstr "Općenito"
 
-#: ../data/ui/preferences.blp:19
+#: ../data/ui/preferences.blp:20
 msgid "Theme"
 msgstr "Tema"
 
-#: ../data/ui/preferences.blp:22
+#: ../data/ui/preferences.blp:23
 msgid "Light"
 msgstr "Svijetla"
 
-#: ../data/ui/preferences.blp:23
+#: ../data/ui/preferences.blp:24
 msgid "Dark"
 msgstr "Tamna"
 
-#: ../data/ui/preferences.blp:24
+#: ../data/ui/preferences.blp:25
 msgid "Follow System"
 msgstr "Slijedi sustav"
 
-#: ../data/ui/preferences.blp:30
+#: ../data/ui/preferences.blp:31
 msgid "Night Light"
 msgstr "Noćno svjetlo"
 
-#: ../data/ui/preferences.blp:31
+#: ../data/ui/preferences.blp:32
 msgid "Automatically enable dark theme at night"
 msgstr "Automatski aktiviraj tamnu temu noću"
 
-#: ../data/ui/preferences.blp:35
+#: ../data/ui/preferences.blp:36
+msgid "Accent Color"
+msgstr ""
+
+#: ../data/ui/preferences.blp:37
+msgid "Use system accent colors"
+msgstr ""
+
+#: ../data/ui/preferences.blp:41
+msgid "Backdrop in Details Page"
+msgstr "Pozadina na stranici s detaljima"
+
+#: ../data/ui/preferences.blp:42
+msgid "Enable background recoloring to match cover"
+msgstr "Omogući bojanje pozadine kako bi odgovarala naslovnici"
+
+#: ../data/ui/preferences.blp:50
 msgid "Desktop Notifications"
 msgstr "Obavijesti na radnoj površini"
 
-#: ../data/ui/preferences.blp:36
+#: ../data/ui/preferences.blp:51
 msgid "Use desktop notifications for downloads and library updates"
 msgstr ""
 "Koristi obavijesti na radnoj površini za preuzimanja i ažuriranja biblioteke"
 
-#: ../data/ui/preferences.blp:40
-msgid "Backdrop in Details Page"
-msgstr "Pozadina na stranici s detaljima"
+#: ../data/ui/preferences.blp:59
+msgid "Synchronize reading progress"
+msgstr ""
 
-#: ../data/ui/preferences.blp:41
-msgid "Enable background recoloring to match cover"
-msgstr "Omogući bojanje pozadine kako bi odgovarala naslovnici"
-
-#: ../data/ui/preferences.blp:52
+#: ../data/ui/preferences.blp:70
 msgid "Display"
 msgstr "Prikaz"
 
-#: ../data/ui/preferences.blp:55
+#: ../data/ui/preferences.blp:73
 msgid "Display Mode"
 msgstr "Način prikaza"
 
-#: ../data/ui/preferences.blp:58
+#: ../data/ui/preferences.blp:76
 msgid "Grid"
 msgstr "Popločeno"
 
-#: ../data/ui/preferences.blp:59
+#: ../data/ui/preferences.blp:77
 msgid "Compact Grid"
 msgstr "Zbijeno popločeno"
 
-#: ../data/ui/preferences.blp:65
+#: ../data/ui/preferences.blp:83
 msgid "Servers Logo"
 msgstr "Logotip servera"
 
-#: ../data/ui/preferences.blp:66
+#: ../data/ui/preferences.blp:84
 msgid "Display servers logo"
 msgstr "Prikaži logotip servera"
 
-#: ../data/ui/preferences.blp:70
+#: ../data/ui/preferences.blp:88
 msgid "Badges"
 msgstr "Značke"
 
-#: ../data/ui/preferences.blp:73
+#: ../data/ui/preferences.blp:91
 msgid "Number of Unread Chapters"
 msgstr "Broj nepročitanih poglavlja"
 
-#: ../data/ui/preferences.blp:93
+#: ../data/ui/preferences.blp:111
 msgid "Number of Downloaded Chapters"
 msgstr "Broj preuzetih poglavlja"
 
-#: ../data/ui/preferences.blp:113
+#: ../data/ui/preferences.blp:131
 msgid "Number of Recent and Unread Chapters"
 msgstr "Broj nedavnih i nepročitanih poglavlja"
 
-#: ../data/ui/preferences.blp:138
+#: ../data/ui/preferences.blp:156
 msgid "Update at Startup"
 msgstr "Aktualiziraj prilikom pokretanja"
 
-#: ../data/ui/preferences.blp:139
+#: ../data/ui/preferences.blp:157
 msgid "Automatically update library at startup"
 msgstr "Automatski aktualiziraj biblioteku prilikom pokretanja"
 
-#: ../data/ui/preferences.blp:143
+#: ../data/ui/preferences.blp:161
 msgid "Auto Download of New Chapters"
 msgstr "Automatski preuzmi nova poglavlja"
 
-#: ../data/ui/preferences.blp:144
+#: ../data/ui/preferences.blp:162
 msgid "Automatically download new chapters"
 msgstr "Automatski preuzmi nova poglavlja"
 
-#: ../data/ui/preferences.blp:149
+#: ../data/ui/preferences.blp:167
 msgid "Explorer"
 msgstr "Preglednik"
 
-#: ../data/ui/preferences.blp:152
+#: ../data/ui/preferences.blp:170
 #: ../data/ui/preferences_servers_languages.blp:6
 #: ../data/ui/preferences_servers_languages.blp:12
 msgid "Servers Languages"
 msgstr "Jezici servera"
 
-#: ../data/ui/preferences.blp:153
+#: ../data/ui/preferences.blp:171
 msgid "Restrict servers to selected languages"
 msgstr "Ograniči servere na odabrane jezike"
 
-#: ../data/ui/preferences.blp:161 ../data/ui/preferences_servers_settings.blp:6
+#: ../data/ui/preferences.blp:179 ../data/ui/preferences_servers_settings.blp:6
 #: ../data/ui/preferences_servers_settings.blp:12
 msgid "Servers Settings"
 msgstr "Postavke servera"
 
-#: ../data/ui/preferences.blp:162
+#: ../data/ui/preferences.blp:180
 msgid "Enable/disable and configure servers"
 msgstr "Aktiviraj/Deaktiviraj i konfiguriraj servere"
 
-#: ../data/ui/preferences.blp:170
+#: ../data/ui/preferences.blp:188
 msgid "Long Strip Detection"
 msgstr "Otkrivanje duge trake"
 
-#: ../data/ui/preferences.blp:171
+#: ../data/ui/preferences.blp:189
 msgid "Automatically detect long vertical strip when possible"
 msgstr "Automatski prepoznaj dugu okomitu traku kada je to moguće"
 
-#: ../data/ui/preferences.blp:177
+#: ../data/ui/preferences.blp:195
 msgid "NSFW Content (18+)"
 msgstr "Neprikladan sadržaj (18+)"
 
-#: ../data/ui/preferences.blp:178
+#: ../data/ui/preferences.blp:196
 msgid "Whether to enable servers with NSFW content"
 msgstr "Da li aktivirati servere s neprikladnim sadržajem"
 
-#: ../data/ui/preferences.blp:182
+#: ../data/ui/preferences.blp:200
 msgid "NSFW Only Content (18+)"
 msgstr "Samo neprikladan sadržaj (18+)"
 
-#: ../data/ui/preferences.blp:183
+#: ../data/ui/preferences.blp:201
 msgid "Whether to enable servers with NSFW only content"
 msgstr "Da li aktivirati servere s samo neprikladnim sadržajem"
 
-#: ../data/ui/preferences.blp:187
+#: ../data/ui/preferences.blp:205
 msgid ""
 "These settings do not prevent potentially incorrectly flagged servers from "
 "surfacing NSFW content."
@@ -536,116 +553,116 @@ msgstr ""
 "Ove postavke ne sprečavaju potencijalno neispravno označene servere da "
 "iznesu neprikladan sadržaj."
 
-#: ../data/ui/preferences.blp:202 ../data/ui/reader.blp:6
+#: ../data/ui/preferences.blp:220 ../data/ui/reader.blp:6
 msgid "Reader"
 msgstr "Čitač"
 
-#: ../data/ui/preferences.blp:207
+#: ../data/ui/preferences.blp:225
 msgid "Reading Mode"
 msgstr "Modus čitanja"
 
-#: ../data/ui/preferences.blp:210
+#: ../data/ui/preferences.blp:228
 msgid "⬅ Right to Left"
 msgstr "⬅ Zdesna nalijevo"
 
-#: ../data/ui/preferences.blp:211
+#: ../data/ui/preferences.blp:229
 msgid "➡ Left to Right"
 msgstr "➡ Slijeva nadesno"
 
-#: ../data/ui/preferences.blp:212
+#: ../data/ui/preferences.blp:230
 msgid "⬇ Vertical"
 msgstr "⬇ Okomito"
 
-#: ../data/ui/preferences.blp:213
+#: ../data/ui/preferences.blp:231
 msgid "⬇ Webtoon"
 msgstr "⬇ Webtoon"
 
-#: ../data/ui/preferences.blp:219
+#: ../data/ui/preferences.blp:237
 msgid "Maximum Width"
 msgstr "Maksimalna širina"
 
-#: ../data/ui/preferences.blp:220
+#: ../data/ui/preferences.blp:238
 msgid ""
 "Constrain reader's width to a given maximum size (Webtoon reading mode only)"
 msgstr ""
 "Ograniči širinu čitača na zadanu maksimalnu veličinu (samo u webtoon modusu)"
 
-#: ../data/ui/preferences.blp:231
+#: ../data/ui/preferences.blp:249
 msgid "Scaling"
 msgstr "Skaliranje"
 
-#: ../data/ui/preferences.blp:232
+#: ../data/ui/preferences.blp:250
 msgid "Type of scaling to adapt image"
 msgstr "Vrsta skaliranja za prilagođavanje slike"
 
-#: ../data/ui/preferences.blp:235
+#: ../data/ui/preferences.blp:253
 msgid "Adapt to Screen"
 msgstr "Prilagodi veličini ekrana"
 
-#: ../data/ui/preferences.blp:236
+#: ../data/ui/preferences.blp:254
 msgid "Adapt to Width"
 msgstr "Prilagodi širini"
 
-#: ../data/ui/preferences.blp:237
+#: ../data/ui/preferences.blp:255
 msgid "Adapt to Height"
 msgstr "Prilagodi visini"
 
-#: ../data/ui/preferences.blp:238
+#: ../data/ui/preferences.blp:256
 msgid "Original Size"
 msgstr "Izvorna veličina"
 
-#: ../data/ui/preferences.blp:244
+#: ../data/ui/preferences.blp:262
 msgid "Scaling Filter"
 msgstr "Filtar skaliranja"
 
-#: ../data/ui/preferences.blp:245
+#: ../data/ui/preferences.blp:263
 msgid "Interpolation method used when scaling images"
 msgstr "Metoda interpolacije koja se koristi pri skaliranju slika"
 
-#: ../data/ui/preferences.blp:248
+#: ../data/ui/preferences.blp:266
 msgid "Linear"
 msgstr "Linearno"
 
-#: ../data/ui/preferences.blp:249
+#: ../data/ui/preferences.blp:267
 msgid "Trilinear"
 msgstr "Trolinearno"
 
-#: ../data/ui/preferences.blp:255
+#: ../data/ui/preferences.blp:273
 msgid "Landscape Pages Zoom"
 msgstr "Zumiranje položenih stranica"
 
-#: ../data/ui/preferences.blp:256
+#: ../data/ui/preferences.blp:274
 msgid ""
 "Zoom page to fit height when page is landscape (Adapt to Screen scaling only)"
 msgstr ""
 "Zumiraj stranicu tako da se prilagodi visini kada je stranica položena "
 "(prilagodi samo skaliranju ekrana)"
 
-#: ../data/ui/preferences.blp:260
+#: ../data/ui/preferences.blp:278
 msgid "Background Color"
 msgstr "Boja pozadine"
 
-#: ../data/ui/preferences.blp:263
+#: ../data/ui/preferences.blp:281
 msgid "White"
 msgstr "Bijela"
 
-#: ../data/ui/preferences.blp:264
+#: ../data/ui/preferences.blp:282
 msgid "Gray"
 msgstr "Siva"
 
-#: ../data/ui/preferences.blp:265
+#: ../data/ui/preferences.blp:283
 msgid "Black"
 msgstr "Crna"
 
-#: ../data/ui/preferences.blp:266
+#: ../data/ui/preferences.blp:284
 msgid "System Style"
 msgstr "Stil sustava"
 
-#: ../data/ui/preferences.blp:272
+#: ../data/ui/preferences.blp:290
 msgid "Borders Crop"
 msgstr "Odrezivanje rubova"
 
-#: ../data/ui/preferences.blp:273
+#: ../data/ui/preferences.blp:291
 msgid ""
 "Crop white borders of images\n"
 "\n"
@@ -657,52 +674,52 @@ msgstr ""
 "NAPOMENA: Zahtijeva veću potrošnju procesora i može usporiti iscrtavanje i "
 "animacije posebno na mobilnim uređajima."
 
-#: ../data/ui/preferences.blp:277
+#: ../data/ui/preferences.blp:295
 msgid "Page Numbering"
 msgstr "Numeriranje stranica"
 
-#: ../data/ui/preferences.blp:278
+#: ../data/ui/preferences.blp:296
 msgid "Hide the page numbering at the bottom of the screen while reading"
 msgstr "Sakrij numeriranje stranica na dnu ekrana tijekom čitanja"
 
-#: ../data/ui/preferences.blp:282
+#: ../data/ui/preferences.blp:300
 msgid "Fullscreen"
 msgstr "Cjeloekranski prikaz"
 
-#: ../data/ui/preferences.blp:283
+#: ../data/ui/preferences.blp:301
 msgid "Automatically enter fullscreen mode"
 msgstr "Automatski pokreni u cjeloekranskom prikazu"
 
-#: ../data/ui/preferences.blp:290
+#: ../data/ui/preferences.blp:308
 msgid "Advanced"
 msgstr "Napredno"
 
-#: ../data/ui/preferences.blp:294
+#: ../data/ui/preferences.blp:312
 msgid "Data"
 msgstr "Podaci"
 
-#: ../data/ui/preferences.blp:295
+#: ../data/ui/preferences.blp:313
 msgid "Data not saved in the library"
 msgstr "Podaci nisu spremljeni u biblioteku"
 
-#: ../data/ui/preferences.blp:298
+#: ../data/ui/preferences.blp:316
 msgid "Clear Chapters Cache and Database"
 msgstr "Izbriši predmemoriju poglavlja i bazu podataka"
 
-#: ../data/ui/preferences.blp:303
+#: ../data/ui/preferences.blp:321
 msgid "Clear Chapters Cache and Database on Exit"
 msgstr ""
 "Izbriši predmemoriju poglavlja i bazu podataka pri zatvaranju aplikacije"
 
-#: ../data/ui/preferences.blp:308
+#: ../data/ui/preferences.blp:326
 msgid "Servers Modules"
 msgstr "Moduli servera"
 
-#: ../data/ui/preferences.blp:311
+#: ../data/ui/preferences.blp:329
 msgid "Use Up-to-date Servers Modules"
 msgstr "Koristi aktualne module servera"
 
-#: ../data/ui/preferences.blp:312
+#: ../data/ui/preferences.blp:330
 msgid ""
 "An alternative version of the servers modules, installed from the source "
 "code repository and updated at each startup, is used instead of the one "
@@ -712,27 +729,27 @@ msgstr ""
 "izvornog koda i aktualizirana pri svakom pokretanju se koristi umjesto "
 "verzije koja je isporučena s aplikacijom."
 
-#: ../data/ui/preferences.blp:317
+#: ../data/ui/preferences.blp:335
 msgid "Credentials Storage"
 msgstr "Spremište podataka prijave"
 
-#: ../data/ui/preferences.blp:320
+#: ../data/ui/preferences.blp:338
 msgid "Allow Plaintext Storage as Fallback"
 msgstr "Dopusti spremanje običnog teksta kao rezervnu verziju"
 
-#: ../data/ui/preferences.blp:321
+#: ../data/ui/preferences.blp:339
 msgid "Used when no keyring backends are found"
 msgstr "Koristi se kada se ne pronađe nijedno spremište za privjesak ključeva"
 
-#: ../data/ui/preferences.blp:326
+#: ../data/ui/preferences.blp:344
 msgid "Tweaks"
 msgstr "Podešavanja"
 
-#: ../data/ui/preferences.blp:329
+#: ../data/ui/preferences.blp:347
 msgid "Disable Animations"
 msgstr "Deaktiviraj animacije"
 
-#: ../data/ui/preferences.blp:330
+#: ../data/ui/preferences.blp:348
 msgid ""
 "Useful with E Ink e-readers to avoid very choppy and unpleasant animations "
 "(due to the low refresh rate of the screen)"
@@ -740,15 +757,12 @@ msgstr ""
 "Korisno s E Ink e-čitačima za izbjegavanje vrlo isprekidanih i neugodnih "
 "animacije (zbog niske stope aktualiziranja)"
 
-#: ../data/ui/preferences.blp:334
+#: ../data/ui/preferences.blp:352
 msgid ""
 "This tweak is only intended for users who do not use the GNOME desktop "
 "environment and therefore cannot disable animations globally via GNOME "
-"Settings (Accessibility ⇨ Seeing ⇨ Reduce Animation)."
+"Settings (Accessibility ⇨ Seeing ⇨ Animation Effects)."
 msgstr ""
-"Ovo podešavanje je namijenjeno samo korisnicima koji ne koriste GNOME "
-"desktop okruženje i stoga ne mogu deaktivirati animacije na globalnoj razini "
-"putem GNOME postavki (Pristupačnost ⇨ Gledanje ⇨ Reduciraj animaciju)."
 
 #: ../data/ui/reader.blp:19
 msgid "Back"
@@ -879,30 +893,30 @@ msgstr "Jednokratna ili mjesečna donacija"
 msgid "Webview"
 msgstr "Web-prikaz"
 
-#: ../komikku/application.py:173
+#: ../komikku/application.py:176
 msgid "Multiple URLs not supported"
 msgstr "Korištenje više URL-ova nije podržano"
 
-#: ../komikku/application.py:189
+#: ../komikku/application.py:192
 msgid "Invalid URL {}, not handled by any server."
 msgstr "Nevaljan URL {}, nijedan server ga ne koristi."
 
-#: ../komikku/application.py:394 ../komikku/card/__init__.py:139
-#: ../komikku/card/__init__.py:140 ../komikku/categories_editor.py:188
+#: ../komikku/application.py:402 ../komikku/card/__init__.py:150
+#: ../komikku/card/__init__.py:151 ../komikku/categories_editor.py:189
 #: ../komikku/downloader.py:377 ../komikku/downloader.py:378
 #: ../komikku/library/__init__.py:771 ../komikku/library/__init__.py:772
 msgid "Cancel"
 msgstr "Odustani"
 
-#: ../komikku/application.py:430
+#: ../komikku/application.py:477
 msgid "Servers modules have been updated"
 msgstr "Moduli servera su aktualizirani"
 
-#: ../komikku/application.py:438
+#: ../komikku/application.py:485
 msgid "External Servers Modules Update"
 msgstr "Aktualiziranje modula eksternih servera"
 
-#: ../komikku/application.py:439
+#: ../komikku/application.py:486
 msgid ""
 "Updating of external server modules is temporarily suspended, as changes are "
 "currently making them incompatible with the current version of the "
@@ -912,11 +926,11 @@ msgstr ""
 "promjene trenutnačo čine nekompatibilnima s aktualnom verzijom aplikacije. "
 "Akualiziraj ga ako postoji novija verzija."
 
-#: ../komikku/application.py:442 ../komikku/explorer/common.py:272
+#: ../komikku/application.py:489 ../komikku/explorer/common.py:273
 msgid "Close"
 msgstr "Zatvori"
 
-#: ../komikku/application.py:494
+#: ../komikku/application.py:508
 msgid ""
 "A manga, manhwa, manhua, webtoons, webcomics and comics reader for GNOME\n"
 "\n"
@@ -930,43 +944,43 @@ msgstr ""
 "kupnjom službenih stripova kada su\n"
 "dostupni u tvojoj regiji/jeziku."
 
-#: ../komikku/application.py:503
+#: ../komikku/application.py:517
 msgid "Supporters"
 msgstr "Podržavtelji"
 
-#: ../komikku/application.py:505
+#: ../komikku/application.py:519
 msgid "Join Chat"
 msgstr "Pridruži se chatu"
 
-#: ../komikku/application.py:620
+#: ../komikku/application.py:630
 msgid "Are you sure you want to quit?"
 msgstr "Stvarno želiš zatvoriti aplikaciju?"
 
-#: ../komikku/application.py:623
+#: ../komikku/application.py:633
 msgid "Some chapters are currently being downloaded."
 msgstr "Trenutačno se preuzimaju neka poglavlja."
 
-#: ../komikku/application.py:625
+#: ../komikku/application.py:635
 msgid "Some mangas are currently being updated."
 msgstr "Trenutačno se aktualiziraju neke mange."
 
-#: ../komikku/application.py:629
+#: ../komikku/application.py:639
 msgid "Quit?"
 msgstr "Zatvori aplikaciju?"
 
-#: ../komikku/application.py:631
+#: ../komikku/application.py:641
 msgid "Quit"
 msgstr "Zatvori aplikaciju"
 
-#: ../komikku/card/__init__.py:254
+#: ../komikku/card/__init__.py:272
 msgid "Read progress synchronization with server completed successfully"
 msgstr "Sinkronizacija napretka čitanja sa serverom je uspješno dovršena"
 
-#: ../komikku/card/__init__.py:268
+#: ../komikku/card/__init__.py:286
 msgid "Failed to get manga URL"
 msgstr "Dohvaćanje URL-a mange nije uspjelo"
 
-#: ../komikku/card/__init__.py:285
+#: ../komikku/card/__init__.py:307
 #, python-brace-format
 msgid ""
 "NOTICE\n"
@@ -977,32 +991,32 @@ msgstr ""
 "{0} se više nepodržava.\n"
 "Prijeđi na jedan drugi server."
 
-#: ../komikku/card/__init__.py:356 ../komikku/card/chapters_list.py:682
+#: ../komikku/card/__init__.py:378 ../komikku/card/chapters_list.py:692
 msgid "Clear and Reset"
 msgstr "Izbriši i obnovi"
 
-#: ../komikku/card/__init__.py:356 ../komikku/card/chapters_list.py:682
+#: ../komikku/card/__init__.py:378 ../komikku/card/chapters_list.py:692
 msgid "Reset"
 msgstr "Obnovi"
 
-#: ../komikku/card/__init__.py:442
+#: ../komikku/card/__init__.py:471
 msgid "Unknown author"
 msgstr "Nepoznat autor"
 
-#: ../komikku/card/__init__.py:448 ../komikku/card/__init__.py:457
+#: ../komikku/card/__init__.py:477 ../komikku/card/__init__.py:486
 msgid "Unknown status"
 msgstr "Nepoznato stanje"
 
-#: ../komikku/card/__init__.py:458 ../komikku/explorer/common.py:226
+#: ../komikku/card/__init__.py:487 ../komikku/explorer/common.py:227
 msgid "Local"
 msgstr "Lokalno"
 
-#: ../komikku/card/__init__.py:484 ../komikku/card/chapters_list.py:611
+#: ../komikku/card/__init__.py:513 ../komikku/card/chapters_list.py:620
 msgid "%m/%d/%Y"
 msgstr "%d. %m. %Y."
 
-#: ../komikku/card/chapters_list.py:309 ../komikku/downloader.py:522
-#: ../komikku/library/__init__.py:803
+#: ../komikku/card/chapters_list.py:311 ../komikku/downloader.py:522
+#: ../komikku/library/__init__.py:805
 #, python-brace-format
 msgid "{0} selected"
 msgid_plural "{0} selected"
@@ -1010,35 +1024,81 @@ msgstr[0] "{0} odabrano"
 msgstr[1] "{0} odabrana"
 msgstr[2] "{0} odabranih"
 
-#: ../komikku/card/chapters_list.py:385 ../komikku/card/chapters_list.py:480
+#: ../komikku/card/chapters_list.py:386 ../komikku/card/chapters_list.py:481
 msgid "Failed to update chapters reading status"
 msgstr "Aktualiziranje stanja čitanja poglavlja nije uspjelo"
 
-#: ../komikku/card/chapters_list.py:668 ../komikku/library/__init__.py:391
+#: ../komikku/card/chapters_list.py:678 ../komikku/library/__init__.py:391
 msgid "Download"
 msgstr "Preuzmi"
 
-#: ../komikku/card/chapters_list.py:678 ../komikku/preferences.py:132
+#: ../komikku/card/chapters_list.py:688 ../komikku/preferences.py:136
 msgid "Clear"
 msgstr "Izbriši"
 
-#: ../komikku/card/chapters_list.py:692
+#: ../komikku/card/chapters_list.py:702
 msgid "Mark as Read"
 msgstr "Označi kao pročitano"
 
-#: ../komikku/card/chapters_list.py:696
+#: ../komikku/card/chapters_list.py:706
 msgid "Mark as Unread"
 msgstr "Označi kao nepročitano"
 
-#: ../komikku/card/chapters_list.py:700
+#: ../komikku/card/chapters_list.py:710
 msgid "Mark Previous Chapters as Read"
 msgstr "Označi prethodna poglavlja kao pročitana"
 
-#: ../komikku/categories_editor.py:77 ../komikku/library/__init__.py:365
+#: ../komikku/card/tracking.py:91
+msgid "No tracking services available"
+msgstr ""
+
+#: ../komikku/card/tracking.py:118
+msgid "Track"
+msgstr ""
+
+#: ../komikku/card/tracking.py:147
+msgid "Use"
+msgstr ""
+
+#: ../komikku/card/tracking.py:155
+msgid "Cancel Tracking"
+msgstr ""
+
+#: ../komikku/card/tracking.py:161 ../komikku/servers/mangadex/__init__.py:71
+#: ../komikku/servers/mangafire/__init__.py:57
+#: ../komikku/servers/mangamana/__init__.py:59
+#: ../komikku/servers/mangamana/__init__.py:60
+#: ../komikku/servers/mangaworld/__init__.py:45
+msgid "Status"
+msgstr "Stanje"
+
+#: ../komikku/card/tracking.py:170
+msgid "Score"
+msgstr ""
+
+#: ../komikku/card/tracking.py:175
+msgid "Chapter"
+msgstr ""
+
+#: ../komikku/card/tracking.py:187 ../komikku/categories_editor.py:78
+#: ../komikku/library/__init__.py:365
 msgid "Delete?"
 msgstr "Izbrisati?"
 
-#: ../komikku/categories_editor.py:78
+#: ../komikku/card/tracking.py:188
+msgid "Are you sure you want to cancel tracking?"
+msgstr ""
+
+#: ../komikku/card/tracking.py:189 ../komikku/categories_editor.py:80
+#: ../komikku/categories_editor.py:178 ../komikku/library/__init__.py:367
+msgid "Delete"
+msgstr "Izbriži"
+
+#: ../komikku/card/tracking.py:325 ../komikku/explorer/search/__init__.py:371
+msgid "Search {}"
+msgstr "Traži {}"
+
+#: ../komikku/categories_editor.py:79
 #, python-brace-format
 msgid ""
 "Are you sure you want to delete\n"
@@ -1047,16 +1107,11 @@ msgstr ""
 "Stvarno želiš izbrisati\n"
 "kategoriju „{0}“?"
 
-#: ../komikku/categories_editor.py:79 ../komikku/categories_editor.py:177
-#: ../komikku/library/__init__.py:367
-msgid "Delete"
-msgstr "Izbriži"
-
-#: ../komikku/categories_editor.py:182
+#: ../komikku/categories_editor.py:183
 msgid "Edit"
 msgstr "Uredi"
 
-#: ../komikku/categories_editor.py:195
+#: ../komikku/categories_editor.py:196
 msgid "Save"
 msgstr "Spremi"
 
@@ -1083,7 +1138,7 @@ msgstr "[{0}] Poglavlje {1}"
 msgid "Download completed"
 msgstr "Preuzimanje je dovršeno"
 
-#: ../komikku/explorer/common.py:114
+#: ../komikku/explorer/common.py:116
 #, python-brace-format
 msgid "{0} chapter"
 msgid_plural "{0} chapters"
@@ -1091,28 +1146,28 @@ msgstr[0] "{0} poglavlje"
 msgstr[1] "{0} poglavlja"
 msgstr[2] "{0} poglavlja"
 
-#: ../komikku/explorer/common.py:116
+#: ../komikku/explorer/common.py:118
 msgid "Last Chapter: {}"
 msgstr "Zadnje poglavlje: {}"
 
-#: ../komikku/explorer/common.py:118
+#: ../komikku/explorer/common.py:120
 msgid "Last Volume: {}"
 msgstr "Zadnji svezak: {}"
 
-#: ../komikku/explorer/common.py:227
+#: ../komikku/explorer/common.py:228
 msgid "Comics stored locally as archives in CBZ/CBR formats"
 msgstr "Stripovi spremljeni lokalno kao arhive u CBZ/CBR formatima"
 
-#: ../komikku/explorer/common.py:244 ../komikku/preferences.py:560
-#: ../komikku/preferences.py:654 ../komikku/servers/mangatube/__init__.py:57
+#: ../komikku/explorer/common.py:245 ../komikku/preferences.py:600
+#: ../komikku/preferences.py:694 ../komikku/servers/mangatube/__init__.py:150
 msgid "18+"
 msgstr "18+"
 
-#: ../komikku/explorer/common.py:264
+#: ../komikku/explorer/common.py:265
 msgid "Help"
 msgstr "Pomoć"
 
-#: ../komikku/explorer/common.py:265
+#: ../komikku/explorer/common.py:266
 msgid ""
 "A specific folder structure is required for local comics to be properly "
 "processed.\n"
@@ -1133,39 +1188,36 @@ msgstr ""
 "\n"
 "NAPOMENA: Alat naredbenog retka „unrar“ ili „unar“ je potreban za CBR arhive."
 
-#: ../komikku/explorer/common.py:272
+#: ../komikku/explorer/common.py:273
 msgid "Local Folder"
 msgstr "Lokalna mapa"
 
-#: ../komikku/explorer/common.py:278
+#: ../komikku/explorer/common.py:279
 msgid "Open local folder"
 msgstr "Otvori lokalnu mapu"
 
-#: ../komikku/explorer/common.py:286
+#: ../komikku/explorer/common.py:287
 msgid "Toggle pinned status"
 msgstr "Uključi/Isključi prikvačeno stanje"
 
-#: ../komikku/explorer/search/__init__.py:222
+#: ../komikku/explorer/search/__init__.py:74
+#: ../komikku/explorer/search/__init__.py:219
 msgid "Filters"
 msgstr "Filtri"
 
-#: ../komikku/explorer/search/__init__.py:286
+#: ../komikku/explorer/search/__init__.py:283
 msgid "Oops, server website URL is unknown."
 msgstr "Ups, URL web-mjesta servera nije poznat."
 
-#: ../komikku/explorer/search/__init__.py:374
-msgid "Search {}"
-msgstr "Traži {}"
-
-#: ../komikku/explorer/search/__init__.py:376
+#: ../komikku/explorer/search/__init__.py:373
 msgid "Search for Reading"
 msgstr "Traži čitanja"
 
-#: ../komikku/explorer/search/__init__.py:378
+#: ../komikku/explorer/search/__init__.py:375
 msgid "Empty search is allowed."
 msgstr "Dozvoljena je prazna pretraga."
 
-#: ../komikku/explorer/search/__init__.py:380
+#: ../komikku/explorer/search/__init__.py:377
 msgid ""
 "Alternatively, you can look up specific comics using the syntax:\n"
 "\n"
@@ -1175,59 +1227,59 @@ msgstr ""
 "\n"
 "<b>id:ID iz URL-a stripa</b>"
 
-#: ../komikku/explorer/search/__init__.py:408
+#: ../komikku/explorer/search/__init__.py:405
 msgid "Global Search"
 msgstr "Globalna pretraga"
 
-#: ../komikku/explorer/search/__init__.py:410
+#: ../komikku/explorer/search/__init__.py:407
 msgid "Search globally by name"
 msgstr "Traži globalno prema imenu"
 
-#: ../komikku/explorer/search/__init__.py:412
+#: ../komikku/explorer/search/__init__.py:409
 msgid "Search for Comics"
 msgstr "Traži stripove"
 
-#: ../komikku/explorer/search/__init__.py:488
+#: ../komikku/explorer/search/__init__.py:485
 msgid "Oops, failed to retrieve manga's information."
 msgstr "Ups, dohvaćanje informacija mange nije uspjelo."
 
-#: ../komikku/explorer/search/latest_updates.py:71
+#: ../komikku/explorer/search/latest_updates.py:66
 msgid "Oops, failed to retrieve latest updates."
 msgstr "Ups, dohvaćanje najnovija aktualiziranja nije uspjelo."
 
-#: ../komikku/explorer/search/latest_updates.py:75
+#: ../komikku/explorer/search/latest_updates.py:70
 msgid "No Latest Updates Found"
 msgstr "Nije pronađeno nijedno najnovije aktualiziranje"
 
-#: ../komikku/explorer/search/latest_updates.py:84
-#: ../komikku/explorer/search/most_popular.py:84
-#: ../komikku/explorer/search/search.py:98
-#: ../komikku/explorer/search/search_global.py:80
+#: ../komikku/explorer/search/latest_updates.py:78
+#: ../komikku/explorer/search/most_popular.py:78
+#: ../komikku/explorer/search/search.py:92
+#: ../komikku/explorer/search/search_global.py:81
 msgid "A request is already in progress."
 msgstr "Zahtjev je već u tijeku."
 
-#: ../komikku/explorer/search/most_popular.py:71
+#: ../komikku/explorer/search/most_popular.py:66
 msgid "Oops, failed to retrieve most popular."
 msgstr "Ups, dohvaćanje najpopularnijih nije uspjelo."
 
-#: ../komikku/explorer/search/most_popular.py:75
+#: ../komikku/explorer/search/most_popular.py:70
 msgid "No Most Popular Found"
 msgstr "Nije pronađen nijedan najpopularniji"
 
-#: ../komikku/explorer/search/search.py:83
-#: ../komikku/explorer/search/search_global.py:147
+#: ../komikku/explorer/search/search.py:78
+#: ../komikku/explorer/search/search_global.py:148
 msgid "Oops, search failed. Please try again."
 msgstr "Ups, pretraga nije uspjela. Pokušaj ponovo."
 
-#: ../komikku/explorer/search/search.py:87
+#: ../komikku/explorer/search/search.py:82
 msgid "No Results Found"
 msgstr "Nije pronađen nijedan rezultat"
 
-#: ../komikku/explorer/search/search.py:88
+#: ../komikku/explorer/search/search.py:83
 msgid "Try a different search"
 msgstr "Pokušaj drugačiju pretragu"
 
-#: ../komikku/explorer/search/search_global.py:152
+#: ../komikku/explorer/search/search_global.py:153
 msgid "No results"
 msgstr "Nema rezultata"
 
@@ -1239,19 +1291,19 @@ msgstr "Ostalo"
 msgid "Pinned"
 msgstr "Prikvačeno"
 
-#: ../komikku/history.py:127
+#: ../komikku/history.py:36
 msgid "Today"
 msgstr "Danas"
 
-#: ../komikku/history.py:129
+#: ../komikku/history.py:38
 msgid "Yesterday"
 msgstr "Jučer"
 
-#: ../komikku/history.py:132
+#: ../komikku/history.py:40
 msgid "%A, %B %e"
 msgstr "%A, %d. %B"
 
-#: ../komikku/history.py:175
+#: ../komikku/history.py:94
 msgid "Resume"
 msgstr "Nastavi"
 
@@ -1287,7 +1339,7 @@ msgstr "Aktulaiziranje stanja čitanja nije uspjelo"
 msgid "Add New Comic"
 msgstr "Dodaj novi strip"
 
-#: ../komikku/library/__init__.py:807 ../komikku/library/categories_list.py:145
+#: ../komikku/library/__init__.py:809 ../komikku/library/categories_list.py:145
 msgid "Uncategorized"
 msgstr "Nekategorizirano"
 
@@ -1297,6 +1349,7 @@ msgstr "Nekategorizirano"
 #: ../komikku/servers/coloredcouncil/__init__.py:69
 #: ../komikku/servers/coloredcouncil/__init__.py:82
 #: ../komikku/servers/mangapill/__init__.py:36
+#: ../komikku/servers/mangatube/__init__.py:130
 #: ../komikku/servers/multi/manga_stream/__init__.py:75
 #: ../komikku/servers/webtoon/__init__.py:51
 msgid "All"
@@ -1319,17 +1372,20 @@ msgid "Download error"
 msgstr "Greška pri preuzimanju"
 
 #: ../komikku/models/database/mangas.py:35
+#: ../komikku/servers/mangamana/__init__.py:65
 #: ../komikku/servers/mangaworld/__init__.py:50
 msgid "Complete"
 msgstr "Dovršeno"
 
 #: ../komikku/models/database/mangas.py:36
 #: ../komikku/servers/mangadex/__init__.py:75
+#: ../komikku/servers/mangamana/__init__.py:64
 #: ../komikku/servers/mangaworld/__init__.py:49
 msgid "Ongoing"
 msgstr "U tijeku"
 
 #: ../komikku/models/database/mangas.py:37
+#: ../komikku/servers/mangamana/__init__.py:66
 #: ../komikku/servers/mangaworld/__init__.py:51
 msgid "Suspended"
 msgstr "Odgođeno"
@@ -1340,19 +1396,19 @@ msgstr "Odgođeno"
 msgid "Hiatus"
 msgstr "Stanka"
 
-#: ../komikku/preferences.py:130
+#: ../komikku/preferences.py:134
 msgid "Clear?"
 msgstr "Izbrisati?"
 
-#: ../komikku/preferences.py:131
+#: ../komikku/preferences.py:135
 msgid "Are you sure you want to clear chapters cache and database?"
 msgstr "Stvarno želiš izbrisati predmemoriju poglavlja i bazu podataka?"
 
-#: ../komikku/preferences.py:159
+#: ../komikku/preferences.py:163
 msgid "Disable animations?"
 msgstr "Deaktivirati animacije?"
 
-#: ../komikku/preferences.py:160
+#: ../komikku/preferences.py:164
 msgid ""
 "Are you sure you want to disable animations?\n"
 "\n"
@@ -1362,33 +1418,33 @@ msgstr ""
 "\n"
 "Navigacija gestama u čitaču više neće raditi ispravno."
 
-#: ../komikku/preferences.py:161
+#: ../komikku/preferences.py:165
 msgid "Disable"
 msgstr "Deaktiviraj"
 
-#: ../komikku/preferences.py:588
+#: ../komikku/preferences.py:628
 msgid "User Account"
 msgstr "Korisnički račun"
 
-#: ../komikku/preferences.py:596
+#: ../komikku/preferences.py:636
 msgid "Address"
 msgstr "Adresa"
 
-#: ../komikku/preferences.py:602
+#: ../komikku/preferences.py:642
 msgid "Username"
 msgstr "Korisničko ime"
 
-#: ../komikku/preferences.py:606
+#: ../komikku/preferences.py:646
 msgid "Password"
 msgstr "Lozinka"
 
-#: ../komikku/preferences.py:618
+#: ../komikku/preferences.py:658
 msgid "System keyring service is disabled. Credential cannot be saved."
 msgstr ""
 "Usluga sustava za privjesak ključeva je deaktivirana. Nije moguće spremiti "
 "podatke za prijavu."
 
-#: ../komikku/preferences.py:623
+#: ../komikku/preferences.py:663
 msgid ""
 "No keyring backends were found to store credential. Use plaintext storage as "
 "fallback."
@@ -1397,7 +1453,7 @@ msgstr ""
 "za prijavu. Koristi spremanje podataka u običnom tekstualnom formatu kao "
 "zamjenu."
 
-#: ../komikku/preferences.py:628
+#: ../komikku/preferences.py:668
 msgid ""
 "No keyring backends were found to store credential. Plaintext storage will "
 "be used as fallback."
@@ -1405,9 +1461,30 @@ msgstr ""
 "Nije pronađeno nijedno spremište za spremanje podataka za prijavu. Kao "
 "zamjena će se koristiti spremanje podataka u običnom tekstualnom formatu."
 
-#: ../komikku/preferences.py:636
+#: ../komikku/preferences.py:676
 msgid "Test"
 msgstr "Test"
+
+#: ../komikku/preferences.py:747 ../komikku/preferences.py:762
+#: ../komikku/preferences.py:785
+msgid "Disconnect"
+msgstr ""
+
+#: ../komikku/preferences.py:750 ../komikku/preferences.py:777
+msgid "Connect"
+msgstr ""
+
+#: ../komikku/preferences.py:765
+msgid "Failed to request client access"
+msgstr ""
+
+#: ../komikku/preferences.py:768
+msgid "Webview is currently in used. Please retry later."
+msgstr ""
+
+#: ../komikku/preferences.py:785
+msgid "Disconnect from {}"
+msgstr ""
 
 #: ../komikku/reader/__init__.py:362
 #, python-brace-format
@@ -1421,7 +1498,7 @@ msgstr ""
 "Spremanje stranice nije uspjelo: nedostaje dozvola za pristup direktoriju "
 "XDG slika"
 
-#: ../komikku/reader/pager/__init__.py:163
+#: ../komikku/reader/pager/__init__.py:160
 #, python-brace-format
 msgid ""
 "Failed to sync read progress with server:\n"
@@ -1430,37 +1507,37 @@ msgstr ""
 "Sinkronizacija napretka čitanja sa serverom nije uspjela:\n"
 "{message}"
 
-#: ../komikku/reader/pager/__init__.py:165
+#: ../komikku/reader/pager/__init__.py:162
 msgid "Failed to sync read progress with server"
 msgstr "Sinkronizacija napretka čitanja sa serverom nije uspjela"
 
-#: ../komikku/reader/pager/__init__.py:432
-#: ../komikku/reader/pager/webtoon.py:101
+#: ../komikku/reader/pager/__init__.py:451
+#: ../komikku/reader/pager/webtoon.py:94
 msgid "There is no previous chapter."
 msgstr "Nema prethodnog poglavlja."
 
-#: ../komikku/reader/pager/__init__.py:434
-#: ../komikku/reader/pager/webtoon.py:99
+#: ../komikku/reader/pager/__init__.py:453
+#: ../komikku/reader/pager/webtoon.py:92
 msgid "It was the last chapter."
 msgstr "To je bilo zadnje poglavlje."
 
-#: ../komikku/reader/pager/__init__.py:598
-#: ../komikku/reader/pager/webtoon.py:158
+#: ../komikku/reader/pager/__init__.py:619
+#: ../komikku/reader/pager/webtoon.py:151
 msgid "This chapter is inaccessible."
 msgstr "Ovo je poglavlje nedostupno."
 
-#: ../komikku/reader/pager/page.py:270
+#: ../komikku/reader/pager/page.py:261
 msgid "Failed to load image"
 msgstr "Učitavanje slike nije uspjelo"
 
-#: ../komikku/reader/pager/page.py:301
+#: ../komikku/reader/pager/page.py:304
 msgid "Retry"
 msgstr "Pokušaj ponovo"
 
 #: ../komikku/servers/asurascans/__init__.py:33
 #: ../komikku/servers/mangafire/__init__.py:42
 #: ../komikku/servers/mangapill/__init__.py:31
-#: ../komikku/servers/mangatube/__init__.py:33
+#: ../komikku/servers/mangatube/__init__.py:125
 #: ../komikku/servers/mangaworld/__init__.py:30
 #: ../komikku/servers/multi/manga_stream/__init__.py:70
 #: ../komikku/servers/webtoon/__init__.py:46
@@ -1478,7 +1555,7 @@ msgstr "Filtriraj prema vrsti"
 #: ../komikku/servers/coloredcouncil/__init__.py:71
 #: ../komikku/servers/mangafire/__init__.py:46
 #: ../komikku/servers/mangapill/__init__.py:37
-#: ../komikku/servers/mangatube/__init__.py:38
+#: ../komikku/servers/mangatube/__init__.py:131
 #: ../komikku/servers/mangaworld/__init__.py:34
 #: ../komikku/servers/multi/manga_stream/__init__.py:76
 msgid "Manga"
@@ -1487,7 +1564,7 @@ msgstr "Manga"
 #: ../komikku/servers/asurascans/__init__.py:40
 #: ../komikku/servers/mangafire/__init__.py:50
 #: ../komikku/servers/mangapill/__init__.py:41
-#: ../komikku/servers/mangatube/__init__.py:39
+#: ../komikku/servers/mangatube/__init__.py:132
 #: ../komikku/servers/mangaworld/__init__.py:36
 #: ../komikku/servers/multi/manga_stream/__init__.py:77
 msgid "Manhwa"
@@ -1496,7 +1573,7 @@ msgstr "Manhwa"
 #: ../komikku/servers/asurascans/__init__.py:41
 #: ../komikku/servers/mangafire/__init__.py:51
 #: ../komikku/servers/mangapill/__init__.py:42
-#: ../komikku/servers/mangatube/__init__.py:40
+#: ../komikku/servers/mangatube/__init__.py:133
 #: ../komikku/servers/mangaworld/__init__.py:35
 #: ../komikku/servers/multi/manga_stream/__init__.py:78
 msgid "Manhua"
@@ -1637,12 +1714,6 @@ msgstr "Erotika"
 msgid "Pornographic"
 msgstr "Pornografija"
 
-#: ../komikku/servers/mangadex/__init__.py:71
-#: ../komikku/servers/mangafire/__init__.py:57
-#: ../komikku/servers/mangaworld/__init__.py:45
-msgid "Status"
-msgstr "Stanje"
-
 #: ../komikku/servers/mangadex/__init__.py:72
 #: ../komikku/servers/mangafire/__init__.py:58
 #: ../komikku/servers/mangaworld/__init__.py:46
@@ -1651,6 +1722,7 @@ msgstr "Filtriraj prema stanjima"
 
 #: ../komikku/servers/mangadex/__init__.py:76
 #: ../komikku/servers/mangafire/__init__.py:62
+#: ../komikku/trackers/__init__.py:32
 msgid "Completed"
 msgstr "Dovršeno"
 
@@ -1761,7 +1833,7 @@ msgstr "ILI"
 
 #: ../komikku/servers/mangafire/__init__.py:47
 #: ../komikku/servers/mangapill/__init__.py:39
-#: ../komikku/servers/mangatube/__init__.py:43
+#: ../komikku/servers/mangatube/__init__.py:136
 #: ../komikku/servers/mangaworld/__init__.py:37
 msgid "One Shot"
 msgstr "Izdanje bez nastavka"
@@ -1783,45 +1855,45 @@ msgstr "Obustavljeno"
 msgid "OEL"
 msgstr "Izvorni engleski jezik"
 
-#: ../komikku/servers/mangatube/__init__.py:34
+#: ../komikku/servers/mangatube/__init__.py:126
 msgid "Type of Serie"
 msgstr "Vrsta serijala"
 
-#: ../komikku/servers/mangatube/__init__.py:41
+#: ../komikku/servers/mangatube/__init__.py:134
 msgid "Webtoon"
 msgstr "Webtoon"
 
-#: ../komikku/servers/mangatube/__init__.py:42
+#: ../komikku/servers/mangatube/__init__.py:135
 #: ../komikku/servers/multi/manga_stream/__init__.py:79
 msgid "Comic"
 msgstr "Strip"
 
-#: ../komikku/servers/mangatube/__init__.py:44
+#: ../komikku/servers/mangatube/__init__.py:137
 msgid "Light Novel"
 msgstr "Lagani roman"
 
-#: ../komikku/servers/mangatube/__init__.py:50
+#: ../komikku/servers/mangatube/__init__.py:143
 msgid "Age Rating"
 msgstr "Dobna ocjena"
 
-#: ../komikku/servers/mangatube/__init__.py:51
+#: ../komikku/servers/mangatube/__init__.py:144
 msgid "Maturity"
 msgstr "Punoljetni"
 
-#: ../komikku/servers/mangatube/__init__.py:55
+#: ../komikku/servers/mangatube/__init__.py:148
 msgid "Without"
 msgstr "Bez"
 
-#: ../komikku/servers/mangatube/__init__.py:56
+#: ../komikku/servers/mangatube/__init__.py:149
 msgid "16+"
 msgstr "16+"
 
-#: ../komikku/servers/multi/madara/__init__.py:399
+#: ../komikku/servers/multi/madara/__init__.py:400
 #: ../komikku/servers/readmanhwa/__init__.py:44
 msgid "NSFW Content"
 msgstr "Neprikladan sadržaj"
 
-#: ../komikku/servers/multi/madara/__init__.py:400
+#: ../komikku/servers/multi/madara/__init__.py:401
 #: ../komikku/servers/readmanhwa/__init__.py:45
 msgid "Whether to show manga containing NSFW content"
 msgstr "Da li prikazati manga koji sadrže neprikladan sadržaj"
@@ -1838,6 +1910,26 @@ msgstr "Originali"
 #: ../komikku/servers/webtoon/__init__.py:53
 msgid "Canvas"
 msgstr "Platno"
+
+#: ../komikku/trackers/__init__.py:31
+msgid "Reading"
+msgstr ""
+
+#: ../komikku/trackers/__init__.py:33
+msgid "On Hold"
+msgstr ""
+
+#: ../komikku/trackers/__init__.py:34
+msgid "Dropped"
+msgstr ""
+
+#: ../komikku/trackers/__init__.py:35
+msgid "Plan to Read"
+msgstr ""
+
+#: ../komikku/trackers/__init__.py:36
+msgid "Rereading"
+msgstr ""
 
 #: ../komikku/updater.py:106
 msgid "Library update completed with errors"
@@ -1891,17 +1983,27 @@ msgstr "Ups, aktualiziranje nije uspjelo. Pokušaj ponovo."
 msgid "Library update started"
 msgstr "Pokrenuto je aktualiziranje biblioteke"
 
-#: ../komikku/utils.py:206
+#: ../komikku/utils.py:311
 msgid "You are currently offline"
 msgstr "Trenutačno nemaš internetsku vezu"
 
-#: ../komikku/utils.py:229
+#: ../komikku/utils.py:334
 msgid "No Internet connection, timeout or server down"
 msgstr "Nema internetske veze, prekoračenja vremena ili isključen server"
 
-#: ../komikku/webview.py:408
+#: ../komikku/webview.py:432
 msgid "Please complete CAPTCHA"
 msgstr "Riješi Captcha"
+
+#~ msgid ""
+#~ "This tweak is only intended for users who do not use the GNOME desktop "
+#~ "environment and therefore cannot disable animations globally via GNOME "
+#~ "Settings (Accessibility ⇨ Seeing ⇨ Reduce Animation)."
+#~ msgstr ""
+#~ "Ovo podešavanje je namijenjeno samo korisnicima koji ne koriste GNOME "
+#~ "desktop okruženje i stoga ne mogu deaktivirati animacije na globalnoj "
+#~ "razini putem GNOME postavki (Pristupačnost ⇨ Gledanje ⇨ Reduciraj "
+#~ "animaciju)."
 
 #~ msgid "Type of Scaling"
 #~ msgstr "Vrsta skaliranja"

@@ -2,6 +2,8 @@ data/info.febvre.Komikku.appdata.xml.in.in
 data/info.febvre.Komikku.desktop.in
 data/ui/card.blp
 data/ui/card_chapters_list_row.blp
+data/ui/card_tracking.blp
+data/ui/card_tracking_search.blp
 data/ui/categories_editor.blp
 data/ui/download_manager.blp
 data/ui/explorer_search.blp
@@ -26,6 +28,7 @@ data/ui/webview.blp
 komikku/application.py
 komikku/card/chapters_list.py
 komikku/card/__init__.py
+komikku/card/tracking.py
 komikku/categories_editor.py
 komikku/downloader.py
 komikku/explorer/common.py
@@ -52,6 +55,7 @@ komikku/servers/dynasty/__init__.py
 komikku/servers/exceptions.py
 komikku/servers/mangadex/__init__.py
 komikku/servers/mangafire/__init__.py
+komikku/servers/mangamana/__init__.py
 komikku/servers/mangapill/__init__.py
 komikku/servers/mangatube/__init__.py
 komikku/servers/mangaworld/__init__.py
@@ -60,6 +64,7 @@ komikku/servers/multi/mangareader/__init__.py
 komikku/servers/multi/manga_stream/__init__.py
 komikku/servers/readmanhwa/__init__.py
 komikku/servers/webtoon/__init__.py
+komikku/trackers/__init__.py
 komikku/updater.py
 komikku/utils.py
 komikku/webview.py
