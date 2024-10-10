@@ -3,7 +3,7 @@
 # Author: Valéry Febvre <vfebvre@easter-eggs.com>
 
 #
-# API doc: https://api.mangadex.org
+# API doc: https://api.mangadex.org/docs
 #
 
 from gettext import gettext as _
@@ -271,13 +271,18 @@ class Mangadex(Server):
         data = r.json()['data']
 
         attributes = data['attributes']
-        title = f'#{attributes["chapter"]}'
+        title = ''
+        if attributes['volume']:
+            title += f'[{attributes["volume"]}] '
+        if attributes['chapter']:
+            title += f'#{attributes["chapter"]} '
         if attributes['title']:
-            title = f'{title} - {attributes["title"]}'
+            title += f'- {attributes["title"]}'
 
         scanlators = [rel['attributes']['name'] for rel in data['relationships'] if rel['type'] == 'scanlation_group']
         data = dict(
-            slug=chapter_slug,
+            num=attributes['chapter'],
+            num_volume=attributes['volume'],
             title=title,
             pages=[dict(index=page, image=None) for page in range(0, attributes['pages'])],
             date=convert_date_string(attributes['publishAt'].split('T')[0], format='%Y-%m-%d'),
@@ -416,15 +421,21 @@ class Mangadex(Server):
             for chapter in results:
                 attributes = chapter['attributes']
 
-                title = f'#{attributes["chapter"]}'
+                title = ''
+                if attributes['volume']:
+                    title += f'[{attributes["volume"]}] '
+                if attributes['chapter']:
+                    title += f'#{attributes["chapter"]} '
                 if attributes['title']:
-                    title = f'{title} - {attributes["title"]}'
+                    title += f'- {attributes["title"]}'
 
                 scanlators = [rel['attributes']['name'] for rel in chapter['relationships'] if rel['type'] == 'scanlation_group']
 
                 data = dict(
                     slug=chapter['id'],
                     title=title,
+                    num=attributes['chapter'],
+                    num_volume=attributes['volume'],
                     date=convert_date_string(attributes['publishAt'].split('T')[0], format='%Y-%m-%d'),
                     scanlators=scanlators,
                 )
