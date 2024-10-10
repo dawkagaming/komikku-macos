@@ -71,7 +71,7 @@ class ExplorerSearchPage(Adw.NavigationPage):
         self.searchentry.connect('search-changed', self.on_search_changed)
 
         self.filters_dialog = Adw.PreferencesDialog.new()
-        self.filters_dialog.set_title('Filters')
+        self.filters_dialog.set_title(_('Filters'))
         self.filters_dialog.props.presentation_mode = Adw.DialogPresentationMode.BOTTOM_SHEET
 
         self.window.breakpoint.add_setter(self.viewswitcherbar, 'reveal', True)
