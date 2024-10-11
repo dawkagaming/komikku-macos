@@ -18,6 +18,7 @@ from komikku.servers import Server
 from komikku.servers import USER_AGENT
 from komikku.servers.utils import convert_date_string
 from komikku.utils import get_buffer_mime_type
+from komikku.webview import CompleteChallenge
 
 logger = logging.getLogger(__name__)
 
@@ -51,6 +52,7 @@ class Keyoapp(Server):
             self.session = requests.Session()
             self.session.headers.update({'User-Agent': USER_AGENT})
 
+    @CompleteChallenge()
     def get_manga_data(self, initial_data):
         """
         Returns manga data by scraping manga HTML page content
@@ -134,11 +136,13 @@ class Keyoapp(Server):
             chapters.append(dict(
                 slug=element.get('href').split('/')[-2],
                 title=element.get('title'),
+                num=element.get('title').split(' ')[-1],
                 date=convert_date_string(element.get('d')),
             ))
 
         return chapters
 
+    @CompleteChallenge()
     def get_manga_chapter_data(self, manga_slug, manga_name, chapter_slug, chapter_url):
         """
         Returns manga chapter data by scraping chapter HTML page content
@@ -205,6 +209,7 @@ class Keyoapp(Server):
         """
         return self.manga_url.format(slug)
 
+    @CompleteChallenge()
     def get_latest_updates(self):
         """
         Returns latest updates
@@ -229,6 +234,7 @@ class Keyoapp(Server):
 
         return results
 
+    @CompleteChallenge()
     def get_most_populars(self):
         """
         Returns most popular manga
@@ -253,6 +259,7 @@ class Keyoapp(Server):
 
         return results
 
+    @CompleteChallenge()
     def search(self, term):
         r = self.session_get(
             self.search_url,
