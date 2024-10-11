@@ -7,10 +7,10 @@ from komikku.servers.multi.manga_stream import MangaStream
 
 class Tecnoscan(MangaStream):
     id = 'tecnoscan'
-    name = 'Tecno Scan'
+    name = 'Tecno Scans'
     lang = 'es'
 
-    base_url = 'https://oliosscans.xyz'
+    base_url = 'https://erisoscans.xyz'
 
     authors_selector = '.tsinfo .imptdt:-soup-contains("Artist") i, .tsinfo .imptdt:-soup-contains("Author") i'
     genres_selector = '.info-desc .mgen a'
