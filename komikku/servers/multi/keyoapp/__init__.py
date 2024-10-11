@@ -133,10 +133,13 @@ class Keyoapp(Server):
         """
         chapters = []
         for element in reversed(soup.select('#chapters a')):
+            title = element.get('title')
+            num = title.split(' ')[-1]
+
             chapters.append(dict(
                 slug=element.get('href').split('/')[-2],
-                title=element.get('title'),
-                num=element.get('title').split(' ')[-1],
+                title=title,
+                num=num if num.isdigit() else None,
                 date=convert_date_string(element.get('d')),
             ))
 
