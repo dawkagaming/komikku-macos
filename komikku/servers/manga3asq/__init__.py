@@ -2,6 +2,8 @@
 # SPDX-License-Identifier: GPL-3.0-only or GPL-3.0-or-later
 # Author: Valéry Febvre <vfebvre@easter-eggs.com>
 
+import re
+
 from komikku.servers.multi.madara import Madara2
 
 
@@ -17,3 +19,18 @@ class Manga3asq(Madara2):
     chapter_url = base_url + '/manga/{0}/{1}/'
 
     details_synopsis_selector = '.manga-excerpt'
+
+    @staticmethod
+    def extract_chapter_nums_from_slug(slug):
+        re_nums = r'(\d+)[-_]?(\d+)?.*'
+
+        if matches := re.search(re_nums, slug):
+            if num := matches.group(1):
+                num = f'{int(num)}'
+
+                if num_dec := matches.group(2):
+                    num = f'{num}.{int(num_dec)}'
+
+                return num, None
+
+        return None, None

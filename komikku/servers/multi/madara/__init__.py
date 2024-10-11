@@ -25,9 +25,8 @@
 # Manhuaus [EN]
 # Manhwa Hentai [EN]
 # Phoenix Fansub [ES] (disabled)
-# Reaperscans [EN/AR/FR/ID/TR]
+# Reaperscans [AR/FR/ID/TR]
 # Submanga [ES] (disabled)
-# Tecno Scan [ES]
 # ToonGod [EN]
 # Toonily [EN]
 # Wakascan [FR] (disabled)
@@ -35,6 +34,7 @@
 import datetime
 from gettext import gettext as _
 import logging
+import re
 
 from bs4 import BeautifulSoup
 import requests
@@ -86,6 +86,24 @@ class Madara(Server):
         if self.session is None and not self.has_cf:
             self.session = requests.Session()
             self.session.headers.update({'User-Agent': USER_AGENT})
+
+    @staticmethod
+    def extract_chapter_nums_from_slug(slug):
+        re_nums = r'((\w+)\-(\d+)-)?(\w+)-(\d+)([-_](\d+))?.*'
+
+        if matches := re.search(re_nums, slug):
+            if num := matches.group(5):
+                num = f'{int(num)}'
+
+                if num_dec := matches.group(7):
+                    num = f'{num}.{int(num_dec)}'
+
+                if num_volume := matches.group(3):
+                    num_volume = f'{int(num_volume)}'
+
+                return num, num_volume
+
+        return None, None
 
     @CompleteChallenge()
     def get_manga_data(self, initial_data):
@@ -228,9 +246,14 @@ class Madara(Server):
             else:
                 date = datetime.date.today().strftime('%Y-%m-%d')
 
+            slug = a_element.get('href').split('/')[-2]
+            num, num_volume = slug, self.extract_chapter_nums_from_slug(slug)
+
             data['chapters'].append(dict(
-                slug=a_element.get('href').split('/')[-2],
+                slug=slug,
                 title=a_element.text.strip(),
+                num=num,
+                num_volume=num_volume,
                 date=date,
             ))
 
