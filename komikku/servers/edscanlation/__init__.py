@@ -9,5 +9,6 @@ class Edscanlation(Keyoapp):
     id = 'edscanlation'
     name = 'ED Scanlation'
     lang = 'fr'
+    has_cf = True
 
     base_url = 'https://edscanlation.fr'
