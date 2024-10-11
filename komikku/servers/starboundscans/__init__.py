@@ -9,5 +9,6 @@ class Starboundscans(Keyoapp):
     id = 'starboundscans'
     name = 'Starbound Scans'
     lang = 'fr'
+    has_cf = True
 
     base_url = 'https://starboundscans.com'
