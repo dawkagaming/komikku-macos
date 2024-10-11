@@ -4,7 +4,7 @@
 
 # Supported servers:
 # Lelscan-VF [FR]
-# FleksyScans [EN]
+# FleksyScans [EN] (disabled)
 # Scylla Scans [EN]
 
 from bs4 import BeautifulSoup
@@ -168,10 +168,13 @@ class FuzzyDoodle(Server):
 
         for a_element in soup.select(self.chapters_selector):
             date = a_element.select_one(self.chapters_date_selector).text.strip()
+            slug = a_element.get('href').split('/')[-1]
+            num = slug if slug.replace('.', '').isdigit() else None
 
             chapters.append(dict(
-                slug=a_element.get('href').split('/')[-1],
+                slug=slug,
                 title=a_element.select_one(self.chapters_title_selector).text.strip(),
+                num=num,
                 date=convert_date_string(date),
             ))
 
