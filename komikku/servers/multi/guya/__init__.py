@@ -135,6 +135,8 @@ class Guya(Server):
                 data.append(dict(
                     slug=chapter['folder'] + '/' + group_id,
                     title=title,
+                    num=chapter_id,
+                    num_volume=chapter['volume'],
                     pages=[dict(slug=slug, image=None) for slug in pages],
                     scanlators=[groups[group_id]],
                     date=datetime.date.fromtimestamp(chapter['release_date'][group_id]),
