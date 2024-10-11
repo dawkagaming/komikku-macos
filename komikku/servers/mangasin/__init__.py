@@ -51,13 +51,13 @@ def generate_key(passphrase, salt):
 
 class Mangasin(MyMangaReaderCMS):
     id = 'mangasin'
-    name = 'Mangas.in (Mangas.pw)'
+    name = 'M440.in (Mangas.in)'
     lang = 'es'
     is_nsfw = True
 
     search_query_param = 'q'
 
-    base_url = 'https://mangas.in'
+    base_url = 'https://m440.in'
     search_url = base_url + '/search'
     most_populars_url = base_url + '/filterList?page=1&cat=&alpha=&sortBy=views&asc=false&author=&tag=&artist='
     manga_url = base_url + '/manga/{0}'
@@ -103,6 +103,8 @@ class Mangasin(MyMangaReaderCMS):
             data.append(dict(
                 slug=chapter['slug'],
                 title=f'Vol {chapter["volume"]} - #{chapter["number"]} {chapter["name"]}',
+                num=chapter['number'],
+                num_volume=chapter['volume'],
                 date=convert_date_string(chapter['updated_at'].split()[0], format='%Y-%m-%d'),
             ))
 
