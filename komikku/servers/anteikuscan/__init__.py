@@ -10,5 +10,6 @@ class Anteikuscan(Keyoapp):
     name = 'Anteiku Scans'
     lang = 'fr'
     is_nsfw = True
+    has_cf = True
 
     base_url = 'https://anteikuscan.fr'
