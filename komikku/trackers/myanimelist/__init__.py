@@ -225,7 +225,7 @@ class Myanimelist(Tracker):
             results.append({
                 'id': item['node']['id'],
                 'name': item['node']['title'],
-                'cover': item['node']['main_picture']['medium'],
+                'cover': item['node']['main_picture']['medium'] if item['node'].get('main_picture') else None,
                 'authors': ', '.join(authors),
                 'status': item['node']['status'],
             })

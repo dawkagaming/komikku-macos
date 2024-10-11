@@ -212,7 +212,7 @@ class TrackerRow(Adw.ExpanderRow):
                 adj = Gtk.Adjustment(
                     value=data['chapters_progress'] or 0,
                     lower=0,
-                    upper=data['chapters'] or 0,
+                    upper=data['chapters'] or 10000,
                     step_increment=1,
                     page_increment=10
                 )

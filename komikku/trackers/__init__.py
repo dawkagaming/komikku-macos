@@ -61,8 +61,8 @@ class Tracker(BaseServer, ABC):
             data = self.get_tracker_manga_data(id)
             if data:
                 # Add user's status fields that doesn't exist in tracker manga data
-                data['chapters_progress'] = None
-                data['score'] = None
+                data['chapters_progress'] = 0
+                data['score'] = 0
                 data['status'] = 'reading'
 
         return data
