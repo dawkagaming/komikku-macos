@@ -8,17 +8,17 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-10-11 01:09+0200\n"
-"PO-Revision-Date: 2024-08-20 16:09+0000\n"
+"PO-Revision-Date: 2024-10-12 10:15+0000\n"
 "Last-Translator: Сергей <asvmail.as@gmail.com>\n"
-"Language-Team: Russian <https://hosted.weblate.org/projects/komikku/main/ru/"
-">\n"
+"Language-Team: Russian <https://hosted.weblate.org/projects/komikku/main/ru/>"
+"\n"
 "Language: ru\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
 "n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
-"X-Generator: Weblate 5.7\n"
+"X-Generator: Weblate 5.8-dev\n"
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:11
 msgid "Discover and read manga &amp; comics"
@@ -185,7 +185,7 @@ msgstr "Новое"
 
 #: ../data/ui/card_tracking.blp:9
 msgid "Tracking"
-msgstr ""
+msgstr "Отслеживание"
 
 #: ../data/ui/card_tracking_search.blp:10 ../data/ui/explorer_search.blp:10
 #: ../data/ui/explorer_search.blp:41 ../data/ui/history.blp:18
@@ -417,11 +417,11 @@ msgstr "Автоматически включать тёмную тему ноч
 
 #: ../data/ui/preferences.blp:36
 msgid "Accent Color"
-msgstr ""
+msgstr "Цвет акцента"
 
 #: ../data/ui/preferences.blp:37
 msgid "Use system accent colors"
-msgstr ""
+msgstr "Использовать системные цвета акцента"
 
 #: ../data/ui/preferences.blp:41
 msgid "Backdrop in Details Page"
@@ -442,7 +442,7 @@ msgstr ""
 
 #: ../data/ui/preferences.blp:59
 msgid "Synchronize reading progress"
-msgstr ""
+msgstr "Синхронизировать прогресс чтения"
 
 #: ../data/ui/preferences.blp:70
 msgid "Display"
@@ -767,6 +767,10 @@ msgid ""
 "environment and therefore cannot disable animations globally via GNOME "
 "Settings (Accessibility ⇨ Seeing ⇨ Animation Effects)."
 msgstr ""
+"Эта настройка предназначена только для тех пользователей, которые не "
+"используют среду рабочего стола GNOME, и поэтому не могут глобально "
+"отключить анимацию через настройки GNOME (Специальные возможности ⇨ Зрение ⇨ "
+"Эффекты анимации)."
 
 #: ../data/ui/reader.blp:19
 msgid "Back"
@@ -1056,19 +1060,19 @@ msgstr "Отметить предыдущие главы как прочитан
 
 #: ../komikku/card/tracking.py:91
 msgid "No tracking services available"
-msgstr ""
+msgstr "Служба отслеживания недоступна"
 
 #: ../komikku/card/tracking.py:118
 msgid "Track"
-msgstr ""
+msgstr "Трек"
 
 #: ../komikku/card/tracking.py:147
 msgid "Use"
-msgstr ""
+msgstr "Использовать"
 
 #: ../komikku/card/tracking.py:155
 msgid "Cancel Tracking"
-msgstr ""
+msgstr "Отменить отслеживание"
 
 #: ../komikku/card/tracking.py:161 ../komikku/servers/mangadex/__init__.py:71
 #: ../komikku/servers/mangafire/__init__.py:57
@@ -1080,11 +1084,11 @@ msgstr "Статус"
 
 #: ../komikku/card/tracking.py:170
 msgid "Score"
-msgstr ""
+msgstr "Оценка"
 
 #: ../komikku/card/tracking.py:175
 msgid "Chapter"
-msgstr ""
+msgstr "Глава"
 
 #: ../komikku/card/tracking.py:187 ../komikku/categories_editor.py:78
 #: ../komikku/library/__init__.py:365
@@ -1093,7 +1097,7 @@ msgstr "Удалить?"
 
 #: ../komikku/card/tracking.py:188
 msgid "Are you sure you want to cancel tracking?"
-msgstr ""
+msgstr "Вы уверены, что хотите отменить отслеживание?"
 
 #: ../komikku/card/tracking.py:189 ../komikku/categories_editor.py:80
 #: ../komikku/categories_editor.py:178 ../komikku/library/__init__.py:367
@@ -1477,23 +1481,24 @@ msgstr "Тест"
 #: ../komikku/preferences.py:747 ../komikku/preferences.py:762
 #: ../komikku/preferences.py:785
 msgid "Disconnect"
-msgstr ""
+msgstr "Отключиться"
 
 #: ../komikku/preferences.py:750 ../komikku/preferences.py:777
 msgid "Connect"
-msgstr ""
+msgstr "Подключиться"
 
 #: ../komikku/preferences.py:765
 msgid "Failed to request client access"
-msgstr ""
+msgstr "Не удалось запросить клиентский доступ"
 
 #: ../komikku/preferences.py:768
 msgid "Webview is currently in used. Please retry later."
 msgstr ""
+"Webview в настоящее время используется. Пожалуйста, повторите попытку позже."
 
 #: ../komikku/preferences.py:785
 msgid "Disconnect from {}"
-msgstr ""
+msgstr "Отключиться от {}"
 
 #: ../komikku/reader/__init__.py:362
 #, python-brace-format
@@ -1923,23 +1928,23 @@ msgstr "Холсты"
 
 #: ../komikku/trackers/__init__.py:31
 msgid "Reading"
-msgstr ""
+msgstr "Чтение"
 
 #: ../komikku/trackers/__init__.py:33
 msgid "On Hold"
-msgstr ""
+msgstr "Отложено"
 
 #: ../komikku/trackers/__init__.py:34
 msgid "Dropped"
-msgstr ""
+msgstr "Заброшено"
 
 #: ../komikku/trackers/__init__.py:35
 msgid "Plan to Read"
-msgstr ""
+msgstr "Запланировано прочитать"
 
 #: ../komikku/trackers/__init__.py:36
 msgid "Rereading"
-msgstr ""
+msgstr "Перечитывание"
 
 #: ../komikku/updater.py:106
 msgid "Library update completed with errors"
