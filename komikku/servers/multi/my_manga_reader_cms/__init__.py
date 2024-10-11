@@ -5,7 +5,7 @@
 # My Manga Reader CMS
 
 # Supported servers:
-# Bentoscan [FR]
+# Bentoscan [FR] (Disabled)
 # FR Scan [FR] (Disabled)
 # Jpmangas [FR] (Disabled)
 # Mangadoor [ES] (Disabled)
@@ -45,6 +45,25 @@ class MyMangaReaderCMS(Server):
         if self.session is None:
             self.session = requests.Session()
             self.session.headers.update({'user-agent': USER_AGENT})
+
+    @staticmethod
+    def extract_chapter_nums_from_slug(slug):
+        """Extract chapter num from slug
+
+        Volume num is not available
+        """
+        re_nums = r'^((\w+)-)?(\d+)(\.(\d+))?.*'
+
+        if matches := re.search(re_nums, slug):
+            if num := matches.group(3):
+                num = f'{int(num)}'
+
+                if num_dec := matches.group(5):
+                    num = f'{num}.{int(num_dec)}'
+
+                return num, None
+
+        return None, None
 
     def get_manga_data(self, initial_data):
         """
@@ -129,6 +148,7 @@ class MyMangaReaderCMS(Server):
                 continue
 
             slug = h5.a.get('href').split('/')[-1]
+            num, _num_volume = self.extract_chapter_nums_from_slug(slug)
             title = h5.a.text.strip()
             if h5.em and h5.em.text.strip():
                 title = '{0}: {1}'.format(title, h5.em.text.strip())
@@ -136,8 +156,9 @@ class MyMangaReaderCMS(Server):
 
             chapters.append(dict(
                 slug=slug,
-                date=convert_date_string(date, format='%d %b. %Y'),
                 title=title,
+                num=num,
+                date=convert_date_string(date, format='%d %b. %Y'),
             ))
 
         return chapters
