@@ -128,9 +128,12 @@ class Peachscan(Server):
                 date = date.split()  # Ex. 15 de Maio de 2024 às 16:35
                 date = f'{date[0]} {date[2]} {date[4]}'
 
+            slug = element.get('href').split('/')[-2]
+
             data['chapters'].append(dict(
-                slug=element.get('href').split('/')[-2],
+                slug=slug,
                 title=element.select_one('.numero__capitulo').text.strip(),
+                num=f'{int(slug)}',
                 date=convert_date_string(date, format=self.date_format, languages=[self.lang]),
             ))
 
