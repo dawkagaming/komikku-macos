@@ -83,6 +83,25 @@ class HeanCMS(Server):
             self.session = requests.Session()
             self.session.headers.update({'User-Agent': USER_AGENT})
 
+    @staticmethod
+    def extract_chapter_nums_from_slug(slug):
+        """Extract chapter num from slug
+
+        Volume num is not available
+        """
+        re_nums = r'^((\w+)-)?(\d+)(-(\d+))?.*'
+
+        if matches := re.search(re_nums, slug):
+            if num := matches.group(3):
+                num = f'{int(num)}'
+
+                if num_dec := matches.group(5):
+                    num = f'{num}.{int(num_dec)}'
+
+                return num, None
+
+        return None, None
+
     @CompleteChallenge()
     def get_manga_data(self, initial_data):
         """
@@ -179,9 +198,12 @@ class HeanCMS(Server):
             chapters_page, more, rtime = get_page(serie_id, page)
             if chapters_page:
                 for chapter in chapters_page:
+                    num, _num_volume = self.extract_chapter_nums_from_slug(chapter['chapter_slug'])
+
                     chapters.append(dict(
                         slug=chapter['chapter_slug'],
                         title=chapter['chapter_name'],
+                        num=num,
                         date=convert_date_string(chapter['created_at'].split('T')[0], self.date_format),
                     ))
                 page += 1
