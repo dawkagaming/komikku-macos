@@ -9,5 +9,6 @@ class Ezmanga(Keyoapp):
     id = 'ezmanga'
     name = 'EZmanga'
     lang = 'en'
+    has_cf = True
 
     base_url = 'https://ezmanga.org'
