@@ -89,9 +89,13 @@ class Paprika(Server):
 
         # Chapters
         for a_element in reversed(soup.select('.cl li a')):
+            title = a_element.text.strip()
+            num = title.split(' ')[-1]
+
             data['chapters'].append(dict(
                 slug=a_element.get('href').split('/')[-1],
-                title=a_element.text.strip(),
+                title=title,
+                num=num if num.isdigit() else None,
                 date=None,
             ))
 
