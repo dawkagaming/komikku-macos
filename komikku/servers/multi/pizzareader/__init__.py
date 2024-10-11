@@ -68,6 +68,8 @@ class PizzaReader(Server):
                 slug=chapter['slug_lang_vol_ch_sub'],
                 url=chapter['url'],
                 title=chapter['full_title'],
+                num=chapter['chapter'],
+                num_volume=chapter['volume'],
                 scanlators=[team['name'] for team in chapter['teams'] if team],
                 date=convert_date_string(chapter['published_on'].split('T')[0], format='%Y-%m-%d'),
             ))
