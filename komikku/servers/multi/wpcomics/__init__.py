@@ -4,7 +4,7 @@
 
 # Supported servers:
 # JManga [JA] (disabled)
-# Read Comics Free [EN]
+# Read Comics Free [EN] (disabled)
 # Xoxocomics [EN]
 
 from bs4 import BeautifulSoup
@@ -123,11 +123,14 @@ class WPComics(Server):
                     continue
 
                 a_element = li_element.select_one('div a')
+                slug = a_element.get('href').split('/')[-1]
+                num = slug.split('-')[-1] if slug.startswith('issue-') else None
                 date = li_element.select_one('div:last-child').text.strip()
 
                 data['chapters'].append(dict(
                     slug=a_element.get('href').split('/')[-1],
                     title=a_element.text.replace(data['name'], '').strip(),
+                    num=num if num and num.isdigit() else None,
                     date=convert_date_string(date, self.date_format),
                 ))
 
