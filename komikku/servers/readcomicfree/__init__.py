@@ -10,6 +10,7 @@ class Readcomicfree(WPComics):
     name = 'Read Comics Free'
     lang = 'en'
     is_nsfw = True
+    status = 'disabled'
 
     base_url = 'https://readcomicfree.org'
     search_url = base_url + '/search'
