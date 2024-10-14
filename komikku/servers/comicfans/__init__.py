@@ -98,6 +98,7 @@ class Comicfans(Server):
             data['chapters'].append(dict(
                 slug=str(chapter['id']),
                 title=chapter['title'],
+                num=chapter['chapterOrder'],
                 date=datetime.datetime.fromtimestamp(chapter['updateTime'] / 1000).date(),
             ))
 
@@ -173,15 +174,21 @@ class Comicfans(Server):
         soup = BeautifulSoup(r.text, 'lxml')
 
         results = []
+        slugs = []
         for element in soup.select('#widgets div:nth-child(2) .book'):
             a_element = element.select_one('.book-name a')
             img_element = element.select_one('img.book-cover')
 
+            slug = a_element.get('href').split('/')[-1].split('-')[0]
+            if slug in slugs:
+                continue
+
             results.append(dict(
-                slug=a_element.get('href').split('/')[-1].split('-')[0],
+                slug=slug,
                 name=a_element.text.strip(),
                 cover=img_element.get('src'),
             ))
+            slugs.append(slug)
 
         return results
 
