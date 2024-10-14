@@ -133,15 +133,18 @@ class Asurascans(Server):
         chapters = []
 
         for element in reversed(soup.select('.scrollbar-thin > div')):
-            a_element = element.select_one('h3:first-child a')
+            a_element = element.select_one('h3 a')
+
+            slug = a_element.get('href').split('/')[-1]
             if date_element := element.select_one('h3:last-child'):
                 date = convert_date_string(date_element.text.strip())
             else:
                 date = None
 
             chapters.append(dict(
-                slug=a_element.get('href').split('/')[-1],
+                slug=slug,
                 title=a_element.text.strip(),
+                num=slug,
                 date=date,
             ))
 
@@ -230,7 +233,7 @@ class Asurascans(Server):
 
         results = []
         for a_element in soup.select('.grid.grid-cols-2 > a'):
-            cover_element = a_element.select_one('img.object-cover')
+            cover_element = a_element.select_one('img[loading="lazy"]')
 
             results.append(dict(
                 slug=a_element.get('href').split('/')[-1],
