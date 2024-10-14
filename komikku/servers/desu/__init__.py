@@ -83,6 +83,7 @@ class Desu(Server):
             data['chapters'].append(dict(
                 slug=chapter['id'],
                 title=title,
+                num=chapter['ch'],
                 date=datetime.fromtimestamp(chapter['date']).date(),
             ))
 
