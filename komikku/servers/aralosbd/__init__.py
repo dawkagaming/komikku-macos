@@ -97,6 +97,8 @@ class Aralosbd(Server):
             data['chapters'].append(dict(
                 slug=chapter['chapter_id'],
                 title=f"{chapter['chapter_number']} - {chapter['chapter_title']}",
+                num=chapter['chapter_number'],
+                num_volume=chapter['volume_number'],
                 scanlators=[chapter['chapter_translator'], ] if chapter['chapter_translator'] else None,
                 date=convert_date_string(chapter['chapter_date'].split()[0], '%Y-%m-%d'),
             ))
