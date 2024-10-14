@@ -76,10 +76,12 @@ Dans ce récit inédit, découvrez une aventure trépidante où les liens entre 
 
         # Chapters
         for a_element in soup.select('.anime__details__widget > a'):
+            slug = a_element.get('href').split('/')[-2]
             data['chapters'].append(dict(
-                slug=a_element.get('href').split('/')[-2],
-                date=None,
+                slug=slug,
                 title=get_soup_element_inner_text(a_element.select_one('ul > li'), recursive=False),
+                num=slug,
+                date=None,
             ))
 
         return data
