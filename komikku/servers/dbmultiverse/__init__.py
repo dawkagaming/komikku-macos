@@ -66,8 +66,9 @@ class Dbmultiverse(Server):
 
             chapter_data = dict(
                 slug=slug,
-                date=None,
                 title=div_element.h4.text.strip(),
+                num=slug.replace('page', ''),
+                date=None,
                 pages=[],
             )
 
