@@ -9,6 +9,7 @@ from komikku.servers import Server
 from komikku.servers import USER_AGENT
 from komikku.servers.utils import convert_date_string
 from komikku.utils import get_buffer_mime_type
+from komikku.utils import is_number
 
 # Probably a modified/old version of WPComics theme
 
@@ -85,9 +86,12 @@ class Comicextra(Server):
             a_element = tr_element.select_one('a')
             td_elements = tr_element.select('td')
 
+            slug = a_element.get('href').split('/')[-1].replace('issue-', '')
+
             data['chapters'].append(dict(
-                slug=a_element.get('href').split('/')[-1].replace('issue-', ''),
+                slug=slug,
                 title=a_element.text.strip(),
+                num=slug if is_number(slug) else None,
                 date=convert_date_string(td_elements[1].text.strip(), '%m/%d/%Y'),
             ))
 
