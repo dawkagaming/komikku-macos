@@ -92,10 +92,12 @@ class Mangareader(Server):
 
         # Chapters
         if ul_element := soup.select_one(f'#{self.languages_codes[self.lang]}-chapters'):
-            for a_element in reversed(ul_element.select('li a')):
+            for element in reversed(ul_element.select('li')):
+                a_element = element.a
                 data['chapters'].append(dict(
                     slug=a_element.get('href').split('/')[-1],
                     title=a_element.get('title').strip(),
+                    num=element.get('data-number'),
                 ))
         else:
             # Manga exists but has no chapters in self.lang (not filtered in search)
