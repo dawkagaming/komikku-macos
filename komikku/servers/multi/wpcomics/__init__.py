@@ -17,6 +17,7 @@ from komikku.servers import USER_AGENT
 from komikku.servers.utils import convert_date_string
 from komikku.servers.utils import get_soup_element_inner_text
 from komikku.utils import get_buffer_mime_type
+from komikku.utils import is_number
 
 # WPComics Wordpress theme
 
@@ -130,7 +131,7 @@ class WPComics(Server):
                 data['chapters'].append(dict(
                     slug=a_element.get('href').split('/')[-1],
                     title=a_element.text.replace(data['name'], '').strip(),
-                    num=num if num and num.isdigit() else None,
+                    num=num if is_number(num) else None,
                     date=convert_date_string(date, self.date_format),
                 ))
 

@@ -18,6 +18,7 @@ from komikku.servers import Server
 from komikku.servers import USER_AGENT
 from komikku.servers.utils import convert_date_string
 from komikku.utils import get_buffer_mime_type
+from komikku.utils import is_number
 from komikku.webview import CompleteChallenge
 
 logger = logging.getLogger(__name__)
@@ -134,12 +135,12 @@ class Keyoapp(Server):
         chapters = []
         for element in reversed(soup.select('#chapters a')):
             title = element.get('title')
-            num = title.split(' ')[-1]
+            num = title.split(' ')[-1]  # chapter number theoretically is at end of chapter title
 
             chapters.append(dict(
                 slug=element.get('href').split('/')[-2],
                 title=title,
-                num=num if num.isdigit() else None,
+                num=num if is_number(num) else None,
                 date=convert_date_string(element.get('d')),
             ))
 

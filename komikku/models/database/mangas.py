@@ -22,6 +22,8 @@ from komikku.servers.utils import get_server_dir_name_by_id
 from komikku.servers.utils import get_server_module_name_by_id
 from komikku.utils import get_cached_data_dir
 from komikku.utils import get_data_dir
+from komikku.utils import is_number
+from komikku.utils import remove_number_leading_zero
 from komikku.utils import trunc_filename
 
 logger = logging.getLogger(__name__)
@@ -458,7 +460,11 @@ class Manga:
                     # Common fields
                     for key in ('title', 'num', 'num_volume', 'url', 'date', 'scanlators'):
                         if row[key] != chapter_data.get(key):
-                            changes[key] = chapter_data.get(key)
+                            if key in ('num', 'num_volume'):
+                                num = str(chapter_data.get(key))
+                                changes[key] = remove_number_leading_zero(num) if is_number(num) else None
+                            else:
+                                changes[key] = chapter_data.get(key)
 
                     # Sync fields
                     for key in ('last_page_read_index', 'last_read', 'read'):
@@ -580,26 +586,18 @@ class Chapter:
 
     @property
     def number(self):
-        """ Returns chapter number
-
-        In DB, numbers are stored as string.
-        Number is conveted as integer or float
-
-        If invalid or missing, None is returned
-        """
+        """ Returns chapter number"""
         num = None
         if self.num:
-            num = self.num.strip()
+            num = self.num
 
-        elif self.slug.replace('.', '', 1).isdigit():
+        elif is_number(self.slug):
+            # The server doesn't provide chapter numbers, but slug is a number
+            # So we use it as fallback even if we're not sure it's a chapter number
             num = self.slug
 
         if num:
-            num = num.lstrip('0')
-            try:
-                num = int(float(num)) if int(float(num)) == float(num) else float(num)
-            except Exception:
-                logger.warning('Invalid chapter number: {0} {1} {2}'.format(self.manga.server_id, self.manga.title, num))
+            num = remove_number_leading_zero(num)
         else:
             logger.warning('{0} server do not support tracking (no chapter num)?'.format(self.manga.server_id))
 

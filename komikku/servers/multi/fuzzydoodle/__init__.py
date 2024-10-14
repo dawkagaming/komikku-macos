@@ -17,6 +17,7 @@ from komikku.servers import USER_AGENT
 from komikku.servers.utils import convert_date_string
 from komikku.servers.utils import get_soup_element_inner_text
 from komikku.utils import get_buffer_mime_type
+from komikku.utils import is_number
 
 # https://github.com/jhin1m/fuzzy-doodle
 
@@ -169,7 +170,7 @@ class FuzzyDoodle(Server):
         for a_element in soup.select(self.chapters_selector):
             date = a_element.select_one(self.chapters_date_selector).text.strip()
             slug = a_element.get('href').split('/')[-1]
-            num = slug if slug.replace('.', '').isdigit() else None
+            num = slug if is_number(slug) else None  # slug theoretically is the chapter number
 
             chapters.append(dict(
                 slug=slug,

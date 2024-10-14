@@ -298,6 +298,10 @@ def is_flatpak():
     return os.path.exists(os.path.join(GLib.get_user_runtime_dir(), 'flatpak-info'))
 
 
+def is_number(s):
+    return s and s.replace('.', '', 1).isdigit()
+
+
 def log_error_traceback(e):
     from komikku.servers.exceptions import ServerException
 
@@ -309,6 +313,15 @@ def log_error_traceback(e):
     logger.info(traceback.format_exc())
 
     return None
+
+
+def remove_number_leading_zero(str_num):
+    """Remove leading zero in a number string
+
+    '00123' => '123' (int)
+    '00123.45' => '123.45' (float)
+    """
+    return str(int(float(str_num))) if int(float(str_num)) == float(str_num) else str(float(str_num))
 
 
 def retry_session(session=None, retries=3, allowed_methods=['GET'], backoff_factor=0.3, status_forcelist=None):
