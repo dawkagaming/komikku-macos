@@ -15,6 +15,7 @@ from komikku.servers import USER_AGENT
 from komikku.servers.utils import convert_date_string
 from komikku.servers.utils import get_soup_element_inner_text
 from komikku.utils import get_buffer_mime_type
+from komikku.utils import is_number
 
 RE_CHAPTER_PAGES = r'.*pages\s+=\s+([a-zA-Z0-9":,-_.\[\]{}]+);.*'
 RE_CHAPTER_PAGES_CDN = r'.*var\s+cdn\s+=\s+"([a-z1-9]+[^"])";.*'
@@ -133,9 +134,12 @@ class Mangamana(Server):
 
         # Chapters
         for a_element in reversed(soup.select('.chapter_link')):
+            slug = a_element.get('href').split('/')[-1]
+
             data['chapters'].append(dict(
-                slug=a_element.get('href').split('/')[-1],
+                slug=slug,
                 title=get_soup_element_inner_text(a_element.div.div, recursive=False),
+                num=slug if is_number(slug) else None,
                 date=convert_date_string(a_element.div.div.div.text.strip(), languages=['fr']),
             ))
 
