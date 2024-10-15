@@ -4,12 +4,11 @@
 
 from bs4 import BeautifulSoup
 import logging
-import requests
 
 from komikku.servers import Server
-from komikku.servers import USER_AGENT
 from komikku.servers.utils import convert_date_string
 from komikku.utils import get_buffer_mime_type
+from komikku.utils import is_number
 from komikku.webview import CompleteChallenge
 
 logger = logging.getLogger('komikku.servers.mangafreak')
@@ -30,12 +29,6 @@ class Mangafreak(Server):
     manga_url = base_url + '/Manga/{slug}'
     chapter_url = base_url + '/{chapter_slug}'
     image_url = 'https://images.mangafreak.net/mangas/{slug}'
-    bypass_cf_url = base_url + '/Manga/One_Piece'
-
-    def __init__(self):
-        if self.session is None:
-            self.session = requests.Session()
-            self.session.headers.update({'User-Agent': USER_AGENT})
 
     @CompleteChallenge()
     def get_manga_data(self, initial_data):
@@ -102,11 +95,13 @@ class Mangafreak(Server):
 
             slug = tds_elements[0].a.get('href').split('/')[-1]
             title = tds_elements[0].a.text.strip()
+            num = slug.split('_')[-1]
             date = tds_elements[1].text.strip()
 
             data['chapters'].append(dict(
                 slug=slug,
                 title=title,
+                num=num if is_number(num) else None,
                 date=convert_date_string(date, format='%Y/%m/%d'),
             ))
 
@@ -168,6 +163,7 @@ class Mangafreak(Server):
         """
         return self.manga_url.format(slug=slug)
 
+    @CompleteChallenge()
     def get_latest_updates(self):
         """
         Returns latest released
@@ -194,6 +190,7 @@ class Mangafreak(Server):
 
         return results
 
+    @CompleteChallenge()
     def get_most_populars(self):
         """
         Returns featured manga list
