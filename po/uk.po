@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: Komikku 1.17.1\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-10-11 01:09+0200\n"
-"PO-Revision-Date: 2024-09-20 17:40+0000\n"
+"PO-Revision-Date: 2024-10-15 21:13+0000\n"
 "Last-Translator: Bezruchenko Simon <worcposj44@gmail.com>\n"
 "Language-Team: Ukrainian <https://hosted.weblate.org/projects/komikku/main/"
 "uk/>\n"
@@ -21,7 +21,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
 "n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
-"X-Generator: Weblate 5.8-dev\n"
+"X-Generator: Weblate 5.8-rc\n"
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:11
 msgid "Discover and read manga &amp; comics"
@@ -108,11 +108,11 @@ msgstr "Деталі (список розділів)"
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:70
 msgid "The Reader page"
-msgstr "Читання"
+msgstr "Сторінка читача"
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:74
 msgid "The Reader page in mobile format"
-msgstr "Читання в мобільному вигляді"
+msgstr "Сторінка читача у мобільному форматі"
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:78
 msgid "The Category editor page in mobile format"
@@ -187,7 +187,7 @@ msgstr "Новий"
 
 #: ../data/ui/card_tracking.blp:9
 msgid "Tracking"
-msgstr ""
+msgstr "Відстеження"
 
 #: ../data/ui/card_tracking_search.blp:10 ../data/ui/explorer_search.blp:10
 #: ../data/ui/explorer_search.blp:41 ../data/ui/history.blp:18
@@ -419,11 +419,11 @@ msgstr "Автоматично вмикати темну тему вночі"
 
 #: ../data/ui/preferences.blp:36
 msgid "Accent Color"
-msgstr ""
+msgstr "Акцентний колір"
 
 #: ../data/ui/preferences.blp:37
 msgid "Use system accent colors"
-msgstr ""
+msgstr "Використовувати системні акцентні кольори"
 
 #: ../data/ui/preferences.blp:41
 msgid "Backdrop in Details Page"
@@ -445,7 +445,7 @@ msgstr ""
 
 #: ../data/ui/preferences.blp:59
 msgid "Synchronize reading progress"
-msgstr ""
+msgstr "Синхронізувати прогрес читання"
 
 #: ../data/ui/preferences.blp:70
 msgid "Display"
@@ -768,6 +768,9 @@ msgid ""
 "environment and therefore cannot disable animations globally via GNOME "
 "Settings (Accessibility ⇨ Seeing ⇨ Animation Effects)."
 msgstr ""
+"Це налаштування призначене лише для користувачів, які не використовують "
+"робоче середовище GNOME і, відповідно, не можуть вимкнути анімації глобально "
+"через Налаштування GNOME (Спеціальні можливості ⇨ Зір ⇨ Ефекти анімації)."
 
 #: ../data/ui/reader.blp:19
 msgid "Back"
@@ -1057,19 +1060,19 @@ msgstr "Позначити попередні розділи як прочита
 
 #: ../komikku/card/tracking.py:91
 msgid "No tracking services available"
-msgstr ""
+msgstr "Служби відстеження недоступні"
 
 #: ../komikku/card/tracking.py:118
 msgid "Track"
-msgstr ""
+msgstr "Відстежувати"
 
 #: ../komikku/card/tracking.py:147
 msgid "Use"
-msgstr ""
+msgstr "Використовувати"
 
 #: ../komikku/card/tracking.py:155
 msgid "Cancel Tracking"
-msgstr ""
+msgstr "Скасувати відстеження"
 
 #: ../komikku/card/tracking.py:161 ../komikku/servers/mangadex/__init__.py:71
 #: ../komikku/servers/mangafire/__init__.py:57
@@ -1081,11 +1084,11 @@ msgstr "Статус"
 
 #: ../komikku/card/tracking.py:170
 msgid "Score"
-msgstr ""
+msgstr "Оцінка"
 
 #: ../komikku/card/tracking.py:175
 msgid "Chapter"
-msgstr ""
+msgstr "Розділ"
 
 #: ../komikku/card/tracking.py:187 ../komikku/categories_editor.py:78
 #: ../komikku/library/__init__.py:365
@@ -1094,7 +1097,7 @@ msgstr "Видалити?"
 
 #: ../komikku/card/tracking.py:188
 msgid "Are you sure you want to cancel tracking?"
-msgstr ""
+msgstr "Ви впевнені, що хочете скасувати відстеження?"
 
 #: ../komikku/card/tracking.py:189 ../komikku/categories_editor.py:80
 #: ../komikku/categories_editor.py:178 ../komikku/library/__init__.py:367
@@ -1473,23 +1476,23 @@ msgstr "Тест"
 #: ../komikku/preferences.py:747 ../komikku/preferences.py:762
 #: ../komikku/preferences.py:785
 msgid "Disconnect"
-msgstr ""
+msgstr "Відключити"
 
 #: ../komikku/preferences.py:750 ../komikku/preferences.py:777
 msgid "Connect"
-msgstr ""
+msgstr "Під'єднати"
 
 #: ../komikku/preferences.py:765
 msgid "Failed to request client access"
-msgstr ""
+msgstr "Не вдалося запитати доступ до клієнта"
 
 #: ../komikku/preferences.py:768
 msgid "Webview is currently in used. Please retry later."
-msgstr ""
+msgstr "WebView наразі використовується. Будь ласка, спробуйте пізніше."
 
 #: ../komikku/preferences.py:785
 msgid "Disconnect from {}"
-msgstr ""
+msgstr "Відключитися від {}"
 
 #: ../komikku/reader/__init__.py:362
 #, python-brace-format
@@ -1919,23 +1922,23 @@ msgstr "Полотно"
 
 #: ../komikku/trackers/__init__.py:31
 msgid "Reading"
-msgstr ""
+msgstr "Читання"
 
 #: ../komikku/trackers/__init__.py:33
 msgid "On Hold"
-msgstr ""
+msgstr "На утриманні"
 
 #: ../komikku/trackers/__init__.py:34
 msgid "Dropped"
-msgstr ""
+msgstr "Скасовано"
 
 #: ../komikku/trackers/__init__.py:35
 msgid "Plan to Read"
-msgstr ""
+msgstr "Планую прочитати"
 
 #: ../komikku/trackers/__init__.py:36
 msgid "Rereading"
-msgstr ""
+msgstr "Перечитування"
 
 #: ../komikku/updater.py:106
 msgid "Library update completed with errors"
