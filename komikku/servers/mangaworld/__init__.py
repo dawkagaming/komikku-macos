@@ -10,6 +10,7 @@ from komikku.servers import Server
 from komikku.servers import USER_AGENT
 from komikku.servers.utils import convert_date_string
 from komikku.utils import get_buffer_mime_type
+from komikku.utils import is_number
 
 
 class Mangaworld(Server):
@@ -122,9 +123,13 @@ class Mangaworld(Server):
 
         # Chapters
         for element in reversed(soup.select('.chapters-wrapper .chapter')):
+            title = element.span.text.strip()
+            num = title.split(' ')[-1]  # Capitolo XXX[.X]
+
             data['chapters'].append(dict(
                 slug=element.a.get('href').split('/')[-1],
-                title=element.span.text.strip(),
+                title=title,
+                num=num if is_number(num) else None,
                 date=convert_date_string(element.i.text.strip()),
             ))
 
