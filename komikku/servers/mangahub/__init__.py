@@ -17,6 +17,7 @@ from komikku.servers import Server
 from komikku.servers.utils import convert_date_string
 from komikku.servers import REQUESTS_TIMEOUT
 from komikku.utils import get_buffer_mime_type
+from komikku.utils import is_number
 
 logger = logging.getLogger('komikku.servers.mangahub')
 
@@ -129,6 +130,7 @@ class Mangahub(Server):
             data['chapters'].append(dict(
                 slug='chapter-{}'.format(chapter['number']),
                 title=title,
+                num=chapter['number'] if is_number(chapter['number']) else None,
                 date=convert_date_string(chapter['date'].split('T')[0], format='%Y-%m-%d'),
             ))
 
