@@ -299,7 +299,7 @@ def is_flatpak():
 
 
 def is_number(s):
-    return s and s.replace('.', '', 1).isdigit()
+    return s and str(s).replace('.', '', 1).isdigit()
 
 
 def log_error_traceback(e):

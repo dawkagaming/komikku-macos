@@ -10,6 +10,7 @@ from komikku.servers import Server
 from komikku.servers import USER_AGENT
 from komikku.servers.utils import convert_date_string
 from komikku.utils import get_buffer_mime_type
+from komikku.utils import is_number
 
 LANGUAGES_CODES = dict(
     en='en',
@@ -139,14 +140,16 @@ class Mangafire(Server):
             title_element = a_element.select_one('span:first-child')
             date_element = a_element.select_one('span:last-child')
 
+            slug = element.get('data-number')
             title = title_element.text.strip()
             if hover_title := a_element.get('title'):
                 if 'Vol' in hover_title:
                     title = f'{hover_title.split("-")[0].strip()} - {title}'
 
             data['chapters'].append(dict(
-                slug=element.get('data-number'),
+                slug=slug,
                 title=title,
+                num=slug if is_number(slug) else None,
                 date=convert_date_string(date_element.text.strip(), languages=[self.lang]),
             ))
 
