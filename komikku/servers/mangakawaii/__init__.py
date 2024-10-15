@@ -12,6 +12,7 @@ from komikku.servers import Server
 from komikku.servers import USER_AGENT
 from komikku.servers.utils import convert_date_string
 from komikku.utils import get_buffer_mime_type
+from komikku.utils import is_number
 from komikku.webview import CompleteChallenge
 
 SERVER_NAME = 'MangaKawaii'
@@ -181,13 +182,15 @@ class Mangakawaii(Server):
             if not td_element:
                 continue
 
+            slug = td_element.a.get('href').strip().split('/')[-1]
             date_element = tr_element.find('td', class_='table__date')
             if date_element.div:
                 date_element.div.extract()
 
             data['chapters'].append(dict(
-                slug=td_element.a.get('href').strip().split('/')[-1],
+                slug=slug,
                 title=' '.join(td_element.a.span.text.strip().split()),
+                num=slug if is_number(slug) else None,
                 date=convert_date_string(date_element.text.strip(), format='%d.%m.%Y'),
             ))
 
@@ -271,13 +274,15 @@ class Mangakawaii(Server):
             if not td_element:
                 continue
 
+            slug = td_element.a.get('href').strip().split('/')[-1]
             date_element = tr_element.find('td', class_='table__date')
             if date_element.div:
                 date_element.div.extract()
 
             chapters.append(dict(
-                slug=td_element.a.get('href').strip().split('/')[-1],
+                slug=slug,
                 title=' '.join(td_element.a.span.text.strip().split()),
+                num=slug if is_number(slug) else None,
                 date=convert_date_string(date_element.text.strip(), format='%d.%m.%Y'),
             ))
 
