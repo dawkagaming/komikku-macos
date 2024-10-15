@@ -13,6 +13,7 @@ from komikku.servers import Server
 from komikku.servers import USER_AGENT
 from komikku.servers.utils import convert_date_string
 from komikku.utils import get_buffer_mime_type
+from komikku.utils import is_number
 from komikku.webview import eval_js
 
 
@@ -94,9 +95,22 @@ class Mangahere(Server):
 
         # Chapters
         for a_element in reversed(soup.select('.detail-main-list > li > a')):
+            num = None
+            num_volume = None
+            slug = a_element.get('href').split('/')[3:-1]
+            for part in slug:
+                if part[0] == 'c':
+                    # cXXX
+                    num = part[1:]
+                elif part[0] == 'v':
+                    # vYY
+                    num_volume = part[1:]
+
             data['chapters'].append(dict(
-                slug='/'.join(a_element.get('href').split('/')[3:-1]),  # cXXX or vYY/cXXX
+                slug='/'.join(slug),  # cXXX or vYY/cXXX
                 title=a_element.get('title').replace(data['name'], '').strip(),
+                num=num if is_number(num) else None,
+                num_volume=num_volume if is_number(num_volume) else None,
                 date=convert_date_string(a_element.select_one('.title2').text.strip(), format='%b %d,%Y'),
             ))
 
