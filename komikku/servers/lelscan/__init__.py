@@ -8,6 +8,7 @@ import requests
 from komikku.servers import Server
 from komikku.servers import USER_AGENT
 from komikku.utils import get_buffer_mime_type
+from komikku.utils import is_number
 
 
 class Lelscan(Server):
@@ -59,10 +60,12 @@ class Lelscan(Server):
         # Chapters
         for option_element in reversed(soup.select('#header-image select:first-child option')):
             url = option_element.get('value')
+            slug = url.split('/')[-1]
 
             data['chapters'].append(dict(
-                slug=url.split('/')[-1],
-                title='Chapitre {0}'.format(option_element.text.strip()),
+                slug=slug,
+                title='Chapitre {0}'.format(slug),
+                num=slug if is_number(slug) else None,
                 date=None,
             ))
 
