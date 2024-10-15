@@ -15,6 +15,7 @@ from komikku.servers import USER_AGENT
 from komikku.servers.utils import convert_date_string
 from komikku.utils import get_buffer_mime_type
 from komikku.utils import get_response_elapsed
+from komikku.utils import is_number
 
 SEARCH_MAX_PAGES = 2
 
@@ -24,7 +25,7 @@ class Mangademon(Server):
     name = 'Manga Demon'
     lang = 'en'
 
-    base_url = 'https://demonicscans.org'
+    base_url = 'https://ciorti.online'
     search_url = base_url + '/search.php'
     latest_updates_url = base_url + '/lastupdates.php'
     most_populars_url = base_url + '/advanced.php'
@@ -109,6 +110,7 @@ class Mangademon(Server):
             data['chapters'].append(dict(
                 slug=slug,
                 title=element.a.get('title').strip(),
+                num=slug if is_number(slug) else None,
                 date=convert_date_string(element.a.span.text.strip(), format='%Y-%m-%d'),
             ))
             chapters_slugs.append(slug)
