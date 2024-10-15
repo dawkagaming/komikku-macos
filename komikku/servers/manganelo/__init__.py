@@ -11,6 +11,7 @@ from komikku.servers import USER_AGENT
 from komikku.servers.exceptions import NotFoundError
 from komikku.servers.utils import convert_date_string
 from komikku.utils import get_buffer_mime_type
+from komikku.utils import is_number
 
 # NOTE: https://mangakakalot.com seems to be a clone (same IP)
 SERVER_NAME = 'MangaNato (MangaNelo)'
@@ -107,6 +108,7 @@ class Manganelo(Server):
             data['chapters'].append(dict(
                 slug=slug,
                 title=title,
+                num=slug if is_number(slug) else None,
                 date=convert_date_string(date, format='%b %d,%y'),
             ))
 
