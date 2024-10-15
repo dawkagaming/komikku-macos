@@ -12,6 +12,7 @@ import requests
 from komikku.servers import Server
 from komikku.servers import USER_AGENT
 from komikku.utils import get_buffer_mime_type
+from komikku.utils import is_number
 
 LANGUAGES_CODES = dict(
     de='deu',
@@ -126,9 +127,12 @@ class Mangaplus(Server):
                     continue
 
                 for chapter in chapters:
+                    num = chapter['name'].lstrip('#')
+
                     data['chapters'].append(dict(
                         slug=str(chapter['chapterId']),
                         title='{0} - {1}'.format(chapter['name'], chapter['subTitle']),
+                        num=num if is_number(num) else None,
                         date=datetime.fromtimestamp(chapter['startTimeStamp']).date(),
                     ))
 
