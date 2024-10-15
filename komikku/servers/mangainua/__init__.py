@@ -10,6 +10,7 @@ from komikku.servers import Server
 from komikku.servers import USER_AGENT
 from komikku.servers.utils import convert_date_string
 from komikku.utils import get_buffer_mime_type
+from komikku.utils import is_number
 
 logger = logging.getLogger('komikku.servers.mangainua')
 
@@ -122,13 +123,18 @@ class Mangainua(Server):
         soup = BeautifulSoup(r.text, features='lxml')
 
         for chapter in soup.find_all('div', class_='ltcitems'):
-            url = chapter.a['href']
+            url = chapter.a.get('href')
             slug = url.split('/')[-1].split('.')[0]
+            title = chapter.a.text.replace('НОВЕ', '')[1:]
+            num = chapter.get('manga-chappter')
+            num_volume = chapter.get('manga-tom')
 
             data['chapters'].append(dict(
                 url=url,
                 slug=slug,
-                title=chapter.a.text.replace('НОВЕ', '')[1:],
+                title=title,
+                num=num if is_number(num) else None,
+                num_volume=num_volume if is_number(num_volume) else None,
                 date=convert_date_string(chapter.find('div', class_='ltcright').text, '%d.%m.%Y'),
             ))
 
