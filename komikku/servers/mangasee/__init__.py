@@ -128,8 +128,9 @@ class Mangasee(Server):
         if chapters is not None:
             for chapter in reversed(chapters):
                 slug = chapter['Chapter']
+                num = int(slug[1:-1])
 
-                title = f'{chapter["Type"]} {int(chapter["Chapter"][1:-1])}'
+                title = f'{chapter["Type"]} {num}'
                 if chapter['Chapter'][-1] != '0':
                     title = f'{title}.{chapter["Chapter"][-1]}'
                 if chapter.get('ChapterName'):
@@ -138,6 +139,7 @@ class Mangasee(Server):
                 data['chapters'].append(dict(
                     slug=slug,
                     title=title,
+                    num=num,
                     date=convert_date_string(chapter['Date'], '%Y-%m-%d %H:%M:%S') if chapter.get('Date') else None,
                 ))
 
