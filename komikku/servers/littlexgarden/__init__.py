@@ -11,6 +11,7 @@ from bs4 import BeautifulSoup
 from komikku.servers import Server, USER_AGENT
 from komikku.servers.exceptions import NotFoundError
 from komikku.utils import get_buffer_mime_type
+from komikku.utils import is_number
 
 
 class Littlexgarden(Server):
@@ -147,6 +148,7 @@ class Littlexgarden(Server):
             results.append(dict(
                 slug=str(chap['number']) + '/1',
                 title=str(chap['number']),
+                num=chap['number'] if is_number(chap['number']) else None,
             ))
 
         return results, cover
