@@ -15,6 +15,7 @@ from komikku.servers import Server
 from komikku.servers.utils import convert_date_string
 from komikku.servers.utils import do_login
 from komikku.utils import get_buffer_mime_type
+from komikku.utils import is_number
 
 logger = logging.getLogger('komikku.servers.komga')
 
@@ -151,6 +152,7 @@ class Komga(Server):
             chapter_data = dict(
                 slug=item['id'],
                 title='#{0} {1}'.format(item['metadata']['number'], item['metadata']['title'].replace('_', ' ')),
+                num=item['metadata']['number'] if is_number(item['metadata']['number']) else None,
                 date=convert_date_string(item['metadata']['lastModified'].split('T')[0], format='%Y-%m-%d'),
             )
 
