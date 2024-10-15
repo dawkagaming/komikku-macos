@@ -9,6 +9,7 @@ import requests
 from komikku.servers import Server
 from komikku.servers import USER_AGENT
 from komikku.utils import get_buffer_mime_type
+from komikku.utils import is_number
 
 
 class Mangapill(Server):
@@ -110,10 +111,12 @@ class Mangapill(Server):
 
         # Chapters
         for a_element in reversed(soup.select('#chapters a')):
+            num = a_element.get('href').split('/')[-1].split('-')[-1]
+
             data['chapters'].append(dict(
-                slug=a_element.get('href').split('/')[2],  # not used
                 url='/'.join(a_element.get('href').split('/')[2:]),
                 title=a_element.text.strip(),
+                num=num if is_number(num) else None,
                 date=None,  # not available
             ))
 
