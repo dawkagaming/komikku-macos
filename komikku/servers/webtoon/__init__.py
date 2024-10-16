@@ -14,6 +14,7 @@ from komikku.servers import USER_AGENT_MOBILE
 from komikku.servers.utils import convert_date_string
 from komikku.servers.utils import get_soup_element_inner_text
 from komikku.utils import get_buffer_mime_type
+from komikku.utils import is_number
 
 LANGUAGES_CODES = dict(
     en='en',
@@ -188,7 +189,8 @@ class Webtoon(Server):
 
         data = []
         for li_element in reversed(li_elements):
-            if li_element.get('data-episode-no') is None:
+            num = li_element.get('data-episode-no')
+            if num is None:
                 continue
 
             date_element = li_element.find('span', class_='date')
@@ -202,6 +204,7 @@ class Webtoon(Server):
             data.append(dict(
                 slug=url_split.path.split('/')[-2],
                 title=li_element.find('p', class_='sub_title').find('span', class_='ellipsis').text.strip(),
+                num=num if is_number(num) else None,
                 date=convert_date_string(date_element.text.strip(), format='%b %d, %Y'),
                 url='{0}?{1}'.format(url_split.path, url_split.query),
             ))
