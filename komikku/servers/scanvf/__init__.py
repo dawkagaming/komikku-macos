@@ -13,6 +13,7 @@ from komikku.servers import USER_AGENT
 from komikku.servers.utils import convert_date_string
 from komikku.utils import get_buffer_mime_type
 from komikku.utils import get_response_elapsed
+from komikku.utils import is_number
 
 
 class Scanvf(Server):
@@ -84,9 +85,15 @@ class Scanvf(Server):
             title_element = element.select_one('h5')
             date_element = title_element.div.extract()
 
+            title = title_element.text.strip()
+            num = title.split(' ')[-1].strip() if title.startswith('Chapitre ') else None
+            num_volume = title.split(' ')[-1].strip() if title.startswith('Volume ') else None
+
             data['chapters'].append(dict(
                 slug=a_element.get('href').split('/')[-1],
-                title=title_element.text.strip(),
+                title=title,
+                num=num if is_number(num) else None,
+                num_volume=num_volume if is_number(num_volume) else None,
                 date=convert_date_string(date_element.text.strip(), format='%d-%m-%Y'),
             ))
 
@@ -241,6 +248,8 @@ class Scanvf(Server):
         results = []
         for element in soup.select('.series'):
             a_element = element.select_one('.link-series')
+            if not a_element:
+                continue
             img_element = element.select_one('.series-img-wrapper img')
             last_chapter_element = element.select_one('.link-chapter .chapter-name')
 
