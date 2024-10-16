@@ -7,6 +7,7 @@ from bs4 import BeautifulSoup
 from komikku.servers.multi.manga_stream import MangaStream
 from komikku.servers.utils import convert_date_string
 from komikku.utils import get_buffer_mime_type
+from komikku.utils import is_number
 from komikku.webview import CompleteChallenge
 
 
@@ -48,6 +49,7 @@ class Rawmanga(MangaStream):
             chapters.append(dict(
                 slug=slug,
                 title=a_element.text.strip(),
+                num=slug if is_number(slug) else None,
                 date=convert_date_string(item.find('time').get('title').split()[0], format='%Y-%m-%d'),
             ))
 
