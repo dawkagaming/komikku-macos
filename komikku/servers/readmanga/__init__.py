@@ -10,6 +10,7 @@ import requests
 from komikku.servers import Server
 from komikku.servers.utils import convert_date_string
 from komikku.utils import get_buffer_mime_type
+from komikku.utils import is_number
 
 
 class Readmanga(Server):
@@ -18,7 +19,7 @@ class Readmanga(Server):
     lang = 'ru'
     is_nsfw = True
 
-    base_url = 'https://readmanga.live'
+    base_url = 'https://zz.readmanga.io'
     search_url = base_url + '/search/advancedResults'
     manga_url = base_url + '/{0}'
     chapter_url = manga_url + '/{1}?mtr=1'
@@ -108,9 +109,15 @@ class Readmanga(Server):
             title = a_element.find(text=True, recursive=False).strip()
             date = element.find('td', class_='text-right').text.strip()
 
+            num = element.get('data-num')
+            num = num[:-1] if len(num) > 1 else num  # remove extra `0` at end
+            num_volume = element.get('data-vol')
+
             data['chapters'].append(dict(
                 slug=slug,
                 title=title,
+                num=num if is_number(num) else None,
+                num_volume=num_volume if is_number(num_volume) else None,
                 date=convert_date_string(date, format='%d.%m.%y'),
             ))
 
