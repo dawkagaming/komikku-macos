@@ -8,6 +8,7 @@ import requests
 from komikku.servers import Server
 from komikku.servers import USER_AGENT
 from komikku.utils import get_buffer_mime_type
+from komikku.utils import is_number
 
 # An alternative site exists (Madara)
 # https://tcbscans-manga.com
@@ -69,12 +70,13 @@ class Tcbscans(Server):
         # Chapters
         for a_element in reversed(soup.select('a.block')):
             slug = '/'.join(a_element.get('href').split('/')[-2:])
-            index = a_element.select_one('div:first-child').text.strip().split()[-1]
+            num = a_element.select_one('div:first-child').text.strip().split()[-1]
             title = a_element.select_one('div:last-child').text.strip()
 
             data['chapters'].append(dict(
                 slug=slug,
-                title=f'Chapter {index} - {title}' if title else f'Chapter {index}',
+                title=f'Chapter {num} - {title}' if title else f'Chapter {num}',
+                num=num if is_number(num) else None,
                 date=None,
             ))
 
