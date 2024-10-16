@@ -53,10 +53,10 @@ class Rawdevart(Server):
         chapters = []
         for chapter_info in reversed(r_decoded['chapters']):
             slug = str(chapter_info['chapter_number'])
-            title = 'Chapter ' + slug
+            title = f'Chapter {slug}'
             date = convert_date_string(chapter_info['chapter_date_published'].split('T')[0])
 
-            chapters.append(dict(slug=slug, title=title, date=date))
+            chapters.append(dict(slug=slug, title=title, num=slug, date=date))
 
         # Slug can't be used to compute manga URL
         # Manga URL must be computed and recorded
