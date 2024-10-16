@@ -8,6 +8,7 @@ from komikku.servers import Server
 from komikku.servers import USER_AGENT
 from komikku.servers.utils import convert_date_string
 from komikku.servers.utils import do_login
+from komikku.utils import is_number
 
 # Improved from https://github.com/manga-py/manga-py
 # This server uses a region restriction, a VPN can be required
@@ -110,6 +111,7 @@ class Vizmanga(Server):
                 slug=chapter_slug,
                 title=f'Ch. {title}',
                 url=self.api_chapter_url.format(series_name, chapter_number, chapter_slug),
+                num=chapter_number if is_number(chapter_number) else None,
                 date=chapter_date,
             ))
 
