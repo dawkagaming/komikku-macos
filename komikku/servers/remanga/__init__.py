@@ -12,6 +12,7 @@ from komikku.servers import Server
 from komikku.servers import USER_AGENT
 from komikku.servers.utils import convert_date_string
 from komikku.utils import get_buffer_mime_type
+from komikku.utils import is_number
 
 logger = logging.getLogger('komikku.servers.remanga')
 
@@ -124,6 +125,8 @@ class Remanga(Server):
                 chapters.append(dict(
                     slug=str(chapter['id']),  # must be a string
                     title=title,
+                    num=chapter['chapter'] if is_number(chapter.get('chapter')) else None,
+                    num_volume=chapter['tome'] if is_number(chapter.get('tome')) else None,
                     date=convert_date_string(chapter['upload_date'][:-10], '%Y-%m-%d'),
                 ))
             page += 1
