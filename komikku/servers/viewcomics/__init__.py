@@ -9,6 +9,7 @@ from komikku.servers import Server
 from komikku.servers import USER_AGENT
 from komikku.servers.utils import convert_date_string
 from komikku.utils import get_buffer_mime_type
+from komikku.utils import is_number
 
 
 class Viewcomics(Server):
@@ -90,9 +91,13 @@ class Viewcomics(Server):
         for li_element in reversed(soup.find('ul', class_='basic-list').find_all('li')):
             a_element = li_element.a
 
+            slug = a_element.get('href').split('/')[-1]
+            num = slug.split('-')[-1] if slug.startswith('issue-') else None
+
             data['chapters'].append(dict(
-                slug=a_element.get('href').split('/')[-1],
+                slug=slug,
                 title=a_element.text.strip(),
+                num=num if is_number(num) else None,
                 date=convert_date_string(li_element.span.text.strip(), '%m/%d/%Y'),
             ))
 
