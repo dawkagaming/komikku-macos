@@ -8,6 +8,7 @@ from komikku.servers import Server
 from komikku.servers import USER_AGENT
 from komikku.servers.utils import convert_date_string
 from komikku.utils import get_buffer_mime_type
+from komikku.utils import is_number
 
 
 class Zeroscans(Server):
@@ -87,6 +88,7 @@ class Zeroscans(Server):
                 chapters.append(dict(
                     slug=str(chapter['id']),
                     title=f'#{chapter["name"]}',
+                    num=chapter['name'] if is_number(chapter['name']) else None,
                     date=convert_date_string(chapter['created_at']),
                 ))
 
