@@ -18,6 +18,7 @@ except Exception:
 from komikku.servers import Server
 from komikku.servers.utils import convert_date_string
 from komikku.utils import get_buffer_mime_type
+from komikku.utils import is_number
 from komikku.webview import CompleteChallenge
 
 logger = logging.getLogger('komikku.servers.readcomiconline')
@@ -116,9 +117,13 @@ class Readcomiconline(Server):
             if not td_elements:
                 continue
 
+            slug = td_elements[0].a.get('href').split('?')[0].split('/')[-1]
+            num = slug.split('-')[-1] if slug.startswith('Issue-') else None
+
             data['chapters'].append(dict(
-                slug=td_elements[0].a.get('href').split('?')[0].split('/')[-1],
+                slug=slug,
                 title=td_elements[0].a.text.strip(),
+                num=num if is_number(num) else None,
                 date=convert_date_string(td_elements[1].text.strip(), format='%m/%d/%Y'),
             ))
 
