@@ -6,6 +6,7 @@ from bs4 import BeautifulSoup
 
 from komikku.servers import Server
 from komikku.utils import get_buffer_mime_type
+from komikku.utils import is_number
 from komikku.webview import CompleteChallenge
 
 
@@ -101,9 +102,12 @@ class Teamx(Server):
             if not chapter_url:
                 continue
 
+            slug = chapter_url.split('/')[-1]
+
             data['chapters'].append(dict(
-                slug=chapter_url.split('/')[-1],
+                slug=slug,
                 title=' '.join(option_element.text.strip().split()),
+                num=slug if is_number(slug) else None,
                 date=None,
             ))
 
