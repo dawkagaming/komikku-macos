@@ -16,6 +16,7 @@ from komikku.servers import Server
 from komikku.servers import USER_AGENT
 from komikku.servers.utils import convert_date_string
 from komikku.utils import get_buffer_mime_type
+from komikku.webview import CompleteChallenge
 
 logger = logging.getLogger(__name__)
 
@@ -100,9 +101,11 @@ def get_data(func):
 
 class Mangatube(Server):
     id = 'mangatube'
-    name = 'Manga Tube'
+    name = 'Manga-Tube'
     lang = 'de'
     is_nsfw = True
+
+    has_captcha = True  # Custom captcha challange
 
     base_url = 'https://manga-tube.me'
     search_url = base_url + '/search'
@@ -160,6 +163,7 @@ class Mangatube(Server):
             self.session = requests.Session()
             self.session.headers.update({'user-agent': USER_AGENT})
 
+    @CompleteChallenge()
     @get_data
     def get_manga_data(self, initial_data):
         """
@@ -247,12 +251,15 @@ class Mangatube(Server):
             data['chapters'].append(dict(
                 slug=chapter['id'],
                 title=title,
+                num=number,
+                num_volume=chapter['volume'],
                 date=convert_date_string(chapter['publishedAt'].split(' ')[0], format='%Y-%m-%d'),
                 scanlators=[team['name'] for team in chapter['teams']],
             ))
 
         return data
 
+    @CompleteChallenge()
     @get_data
     def get_manga_chapter_data(self, manga_slug, manga_name, chapter_slug, chapter_url):
         """
@@ -312,13 +319,16 @@ class Mangatube(Server):
         """
         return self.manga_url.format(slug)
 
+    @CompleteChallenge()
     @get_data
     def get_latest_updates(self, **kwargs):
         return self.data['latest_updates']
 
+    @CompleteChallenge()
     def get_most_populars(self, type=None, mature=None):
         return self.search(populars=True, type=type, mature=mature)
 
+    @CompleteChallenge()
     def search(self, term=None, populars=False, type=None, mature=None):
         params = {
             'year[]': [1970, datetime.date.today().year],

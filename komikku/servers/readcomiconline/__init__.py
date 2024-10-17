@@ -32,7 +32,7 @@ class Readcomiconline(Server):
     status = 'enabled' if requests is not None else 'disabled'
 
     has_cf = True
-    has_captcha = True
+    has_captcha = True  # Custom captcha AreYouHuman2
     http_client = 'curl_cffi'
 
     base_url = 'https://readcomiconline.li'

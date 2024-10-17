@@ -260,9 +260,6 @@ class WebviewPage(Adw.NavigationPage):
 
 class CompleteChallenge:
     """Allows user to complete a captcha using the Webview
-    - Cloudflare challenge
-    - Google ReCAPTCHA
-    - AreYouHuman2
 
     Several calls to this decorator can be concurrent. But only one will be honored at a time.
     """
@@ -336,10 +333,13 @@ class CompleteChallenge:
 
     def monitor_challenge(self):
         # Detect captcha via JavaScript in current page
-        # Cloudflare challange, Google ReCAPTCHA, AreYouHuman2
+        # - Cloudflare challenge
+        # - Google ReCAPTCHA
+        # - AreYouHuman2 (2/3 images to identify)
+        # - Challange (browser identification, no user interaction)
         #
+        # - A captcha is detected: change title to 'cf_captcha', 're_captcha',...
         # - No challenge found: change title to 'ready'
-        # - A captcha is detected: change title to 'cf_captcha' or 're_captcha'
         # - An error occurs during challenge: change title to 'error'
         js = """
             function check() {
@@ -357,6 +357,9 @@ class CompleteChallenge:
                     }
                     else if (document.querySelector('#formVerify')) {
                         document.title = 'ayh2_captcha';
+                    }
+                    else if (document.querySelector('script[src~="challange"]')) {
+                        document.title = 'challange_captcha';
                     }
                     else {
                         document.title = 'ready';
@@ -420,6 +423,8 @@ class CompleteChallenge:
                 logger.debug(f'{self.server.id}: ReCAPTCHA detected')
             elif title == 'ayh2_captcha':
                 logger.debug(f'{self.server.id}: AreYouHuman2 detected')
+            elif title == 'challange_captcha':
+                logger.debug(f'{self.server.id}: Challange detected')
 
             # Show webview, user must complete a CAPTCHA
             if self.webview.window.page != self.webview.props.tag:
