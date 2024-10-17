@@ -112,8 +112,11 @@ class Mangago(Server):
         for tr_element in reversed(soup.select('#chapter_table tr')):
             td_elements = tr_element.select('td')
             slug_element = td_elements[0].select_one('a')
+
+            slug = slug_element.get('href').replace(self.manga_url.format(data['slug']), '').rstrip('/')
+
             data['chapters'].append(dict(
-                slug='/'.join(slug_element.get('href').split('/')[-4:-1]),
+                slug=slug,
                 title=unidecode.unidecode(slug_element.text.strip()),
                 date=convert_date_string(td_elements[2].text.strip(), format='%b %d, %Y'),
             ))
@@ -128,10 +131,6 @@ class Mangago(Server):
         """
         r = self.session_get(self.chapter_url.format(manga_slug, chapter_slug))
         if r.status_code != 200:
-            return None
-
-        mime_type = get_buffer_mime_type(r.content)
-        if mime_type != 'text/html':
             return None
 
         soup = BeautifulSoup(r.text, 'lxml')
