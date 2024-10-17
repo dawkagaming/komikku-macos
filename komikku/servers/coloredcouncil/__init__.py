@@ -50,6 +50,7 @@ class Coloredcouncil(Server):
     id = 'coloredcouncil'
     name = 'Colored Manga'
     lang = 'en'
+    status = 'disabled'
 
     base_url = 'https://coloredmanga.net'
     search_url = base_url + '/manga'
@@ -167,6 +168,8 @@ class Coloredcouncil(Server):
                     data['chapters'].append(dict(
                         slug=chapter['id'],
                         title=title,
+                        num=chapter["number"],
+                        num_volume=volume.get('number'),
                         date=convert_date_string(chapter['date'][:-7], format='%B %d, %Y'),
                         url='/'.join(chapter_path),  # relative path used to retreive chapter images
                     ))
