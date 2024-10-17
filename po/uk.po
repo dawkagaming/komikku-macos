@@ -11,8 +11,8 @@ msgstr ""
 "Project-Id-Version: Komikku 1.17.1\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-10-11 01:09+0200\n"
-"PO-Revision-Date: 2024-10-15 21:13+0000\n"
-"Last-Translator: Bezruchenko Simon <worcposj44@gmail.com>\n"
+"PO-Revision-Date: 2024-10-18 21:15+0000\n"
+"Last-Translator: DXCVII <dxcvii@duck.com>\n"
 "Language-Team: Ukrainian <https://hosted.weblate.org/projects/komikku/main/"
 "uk/>\n"
 "Language: uk\n"
@@ -205,7 +205,7 @@ msgstr "Менеджер завантажень"
 
 #: ../data/ui/download_manager.blp:28
 msgid "Start/Stop Download"
-msgstr "Почати/Закінчити Завантаженя"
+msgstr "Почати/Закінчити завантаження"
 
 #: ../data/ui/download_manager.blp:65
 msgid "No Downloads"
@@ -257,7 +257,7 @@ msgstr "Бібліотека"
 
 #: ../data/ui/library.blp:19
 msgid "Toggle Categories Sidebar"
-msgstr "Відкриту панель категорій"
+msgstr "Бічна панель категорій"
 
 #: ../data/ui/library.blp:23
 msgid "Komikku"
