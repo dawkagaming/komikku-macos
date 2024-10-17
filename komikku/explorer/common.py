@@ -244,7 +244,7 @@ class ExplorerServerRow(Gtk.ListBoxRow):
             label = Gtk.Label(xalign=0)
             label.set_markup('<b>' + _('18+') + '</b>')
             label.add_css_class('subtitle')
-            label.add_css_class('accent')
+            label.add_css_class('warning')
             subtitle_box.append(label)
 
         vbox.append(subtitle_box)
