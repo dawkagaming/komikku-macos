@@ -6,6 +6,7 @@ import re
 LANGUAGES = dict(
     ar='Arabic',
     pt_BR='Brazilian Portuguese',
+    bg='Bulgarian',
     ca='Catalan',
     zh_CN='Simplified Chinese',
     zh_Hant='Traditional Chinese',
@@ -66,4 +67,4 @@ for name in sorted(os.listdir(dirpath)):
 # Print code chunk
 for lang, translators in translators.items():
     for translator in translators:
-        print(f"        '{translator} ({LANGUAGES[lang]})',")
+        print(f"        '{translator} ({LANGUAGES[lang]})',")  # noqa: E231

@@ -72,6 +72,7 @@ CREDITS = dict(
         'abidin toumi (Arabic)',
         'Rayen Ghanmi (Arabic)',
         'Mohamed Abdalah Noh (Arabic)',
+        'twlvnn (Bulgarian)',
         'Rafael Fontenelle (Brazilian Portuguese)',
         'Infinitive Witch (Brazilian Portuguese)',
         'Unidealistic Raccoon (Brazilian Portuguese)',
@@ -111,6 +112,7 @@ CREDITS = dict(
         'Lili Kurek (Polish)',
         'ssantos (Portuguese)',
         'Ademario Cunha (Portuguese)',
+        'SpiralPack 527 (Portuguese)',
         'shima (Russian)',
         'Valentin Chernetsov (Russian)',
         'FIONover (Russian)',
@@ -126,6 +128,7 @@ CREDITS = dict(
         'Kislotniy (Acela) (Ukrainian)',
         'mondstern (Ukrainian)',
         'DXCVII (Ukrainian)',
+        'Bezruchenko Simon (Ukrainian)',
         'niyaki hayyashi (Vietnamese)',
     ),
     supporters=(
@@ -521,10 +524,25 @@ available in your region/language."""))
         # Override release notes
         dialog.set_release_notes("""
             <ul>
-                <li>[UX] Added system accent colors support</li>
-                <li>[Explorer] Fixed Global search</li>
-                <li>[Servers] Bentoscan (FR): Disabled</li>
-                <li>[Servers] VF Scan (FR): Disabled</li>
+                <li>Added Tracking support (AniList, MyAnimeList)</li>
+                <li>[Servers] Anteiku Scans (FR): Update</li>
+                <li>[Servers] Asura Scans (EN): Update</li>
+                <li>[Servers] Cerise Scan (pt_BR): Update</li>
+                <li>[Servers] ED Scanlation (FR): Update</li>
+                <li>[Servers] EZmanga (EN): Update</li>
+                <li>[Servers] M440.in (ES): Update</li>
+                <li>[Servers] Manga Demon (EN): Update</li>
+                <li>[Servers] MangaFreak (EN): Update</li>
+                <li>[Servers] Mangago (EN): Update</li>
+                <li>[Servers] Manga-Tube (DE): Update</li>
+                <li>[Servers] Scanvf (FR): Fixed search</li>
+                <li>[Servers] Sinensistoon (pt_BR): Update</li>
+                <li>[Servers] Starbound Scans (FR): Update</li>
+                <li>[Servers] Tecno Scans (ES): Update</li>
+                <li>[Servers] Colored Manga (EN): Disabled</li>
+                <li>[Servers] Read Comics Free (EN): Disabled</li>
+                <li>[L10n] Added Bulgarian translation</li>
+                <li>[L10n] Updated Dutch, French, Portuguese, Russian, Spanish and Ukrainian translations</li>
             </ul>
             <p>Happy reading.</p>
         """)
