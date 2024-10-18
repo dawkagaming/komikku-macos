@@ -73,9 +73,11 @@ class TrackingDialog(Adw.PreferencesDialog):
 
     def on_closed(self, _dialog):
         self.window.trackers.sync()
+        self.pop_subpage()
 
     def on_search_subpage_hiding(self, _page):
         self.search_subpage.thread_covers_stop_flag = True
+        self.search_subpage.clear()
         self.resize()
 
     def resize(self):
@@ -112,7 +114,7 @@ class TracherResultRow(Adw.ActionRow):
         if data.get('start_date'):
             subtitle.append(data['start_date'])
         subtitle.append(data['status'])
-        self.set_subtitle(' - '.join(subtitle))
+        self.set_subtitle(' · '.join(subtitle))
 
         self.btn = Gtk.Button(valign=Gtk.Align.CENTER)
         self.btn.set_label(_('Track'))
