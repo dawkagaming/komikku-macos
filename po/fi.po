@@ -7,16 +7,16 @@ msgstr ""
 "Project-Id-Version: Komikku 1.12.1\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-10-11 01:09+0200\n"
-"PO-Revision-Date: 2024-04-08 15:01+0000\n"
+"PO-Revision-Date: 2024-10-21 18:16+0000\n"
 "Last-Translator: Jiri Grönroos <jiri.gronroos@iki.fi>\n"
-"Language-Team: Finnish <https://hosted.weblate.org/projects/komikku/main/fi/"
-">\n"
+"Language-Team: Finnish <https://hosted.weblate.org/projects/komikku/main/fi/>"
+"\n"
 "Language: fi\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.5-dev\n"
+"X-Generator: Weblate 5.8-rc\n"
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:11
 msgid "Discover and read manga &amp; comics"
@@ -130,6 +130,8 @@ msgid ""
 "manga;reader;viewer;comic;manhwa;manhua;bd;webtoon;webcomic;scan;offline;GTK;"
 "GNOME;"
 msgstr ""
+"manga;reader;viewer;comic;manhwa;manhua;bd;webtoon;webcomic;scan;offline;GTK;"
+"GNOME;sarjakuva;"
 
 #: ../data/ui/card.blp:32 ../data/ui/card.blp:437
 #: ../data/ui/card_chapters_list_row.blp:44 ../data/ui/download_manager.blp:22
@@ -180,7 +182,7 @@ msgstr "Uusi"
 
 #: ../data/ui/card_tracking.blp:9
 msgid "Tracking"
-msgstr ""
+msgstr "Seuranta"
 
 #: ../data/ui/card_tracking_search.blp:10 ../data/ui/explorer_search.blp:10
 #: ../data/ui/explorer_search.blp:41 ../data/ui/history.blp:18
@@ -206,7 +208,7 @@ msgstr "Ei latauksia"
 
 #: ../data/ui/explorer_search.blp:28
 msgid "Search Filters"
-msgstr ""
+msgstr "Hakusuodattimet"
 
 #: ../data/ui/explorer_search.blp:34
 msgid "Open in Browser"
@@ -250,7 +252,7 @@ msgstr "Kirjasto"
 
 #: ../data/ui/library.blp:19
 msgid "Toggle Categories Sidebar"
-msgstr ""
+msgstr "Luokkien sivupalkki päällä/pois"
 
 #: ../data/ui/library.blp:23
 msgid "Komikku"
@@ -412,19 +414,19 @@ msgstr "Käytä tummaa teemaa automaattisesti yöaikaan"
 
 #: ../data/ui/preferences.blp:36
 msgid "Accent Color"
-msgstr ""
+msgstr "Korostusväri"
 
 #: ../data/ui/preferences.blp:37
 msgid "Use system accent colors"
-msgstr ""
+msgstr "Käytä järjestelmän korostusväriä"
 
 #: ../data/ui/preferences.blp:41
 msgid "Backdrop in Details Page"
-msgstr ""
+msgstr "Taustakulissi yksityiskohtien sivulla"
 
 #: ../data/ui/preferences.blp:42
 msgid "Enable background recoloring to match cover"
-msgstr ""
+msgstr "Väritä tausta uudelleen vastaamaan kansikuvaa"
 
 #: ../data/ui/preferences.blp:50
 msgid "Desktop Notifications"
@@ -436,7 +438,7 @@ msgstr "Käytä työpöytäilmoituksia latauksiin ja kirjastopäivityksiin"
 
 #: ../data/ui/preferences.blp:59
 msgid "Synchronize reading progress"
-msgstr ""
+msgstr "Synkronoi lukemisen edistyminen"
 
 #: ../data/ui/preferences.blp:70
 msgid "Display"
@@ -496,7 +498,7 @@ msgstr "Lataa uudet kappaleet automaattisesti"
 
 #: ../data/ui/preferences.blp:167
 msgid "Explorer"
-msgstr ""
+msgstr "Selain"
 
 #: ../data/ui/preferences.blp:170
 #: ../data/ui/preferences_servers_languages.blp:6
@@ -607,15 +609,15 @@ msgstr "Alkuperäinen koko"
 
 #: ../data/ui/preferences.blp:262
 msgid "Scaling Filter"
-msgstr ""
+msgstr "Skaalaussuodatin"
 
 #: ../data/ui/preferences.blp:263
 msgid "Interpolation method used when scaling images"
-msgstr ""
+msgstr "Kuvien skaalaukseen käytettävä interpolointitapa"
 
 #: ../data/ui/preferences.blp:266
 msgid "Linear"
-msgstr ""
+msgstr "Lineaarinen"
 
 #: ../data/ui/preferences.blp:267
 msgid "Trilinear"
@@ -698,19 +700,19 @@ msgstr "Dataa ei tallennettu kirjastoon"
 
 #: ../data/ui/preferences.blp:316
 msgid "Clear Chapters Cache and Database"
-msgstr ""
+msgstr "Tyhjennä kappaleiden välimuisti ja tietokanta"
 
 #: ../data/ui/preferences.blp:321
 msgid "Clear Chapters Cache and Database on Exit"
-msgstr ""
+msgstr "Tyhjennä kappaleiden välimuisti ja tietokanta kun sovellus suljetaan"
 
 #: ../data/ui/preferences.blp:326
 msgid "Servers Modules"
-msgstr ""
+msgstr "Palvelinmoduulit"
 
 #: ../data/ui/preferences.blp:329
 msgid "Use Up-to-date Servers Modules"
-msgstr ""
+msgstr "Käytä ajantasaisia palvelinmoduuleja"
 
 #: ../data/ui/preferences.blp:330
 msgid ""
@@ -845,20 +847,26 @@ msgid ""
 "Developing and maintaining Komikku is a challenging task that takes up most "
 "of my free time."
 msgstr ""
+"Komikkun kehittäminen ja ylläpitäminen on haastava tehtävä, joka vie melkein "
+"kaiken vapaa-aikani."
 
 #: ../data/ui/support.blp:61
 msgid "Komikku will always be free and open-source and will never contain ads."
 msgstr ""
+"Komikku tulee aina olemaan vapaa, ilmainen ja avointa lähdekoodia, eikä se "
+"tule koskaan sisältämään mainoksia."
 
 #: ../data/ui/support.blp:68
 msgid ""
 "So if you like it, and you are able, please consider a one-time or recurring "
 "donation to support me, it will be hugely appreciated."
 msgstr ""
+"Jos siis pidät sovelluksesta, harkitse kerta- tai toistuvaislahjoituksen "
+"tekemistä tukeaksesi minua. Arvostan sitä suuresti."
 
 #: ../data/ui/support.blp:82
 msgid "Weekly, monthly or yearly donation"
-msgstr ""
+msgstr "Viikon, kuukauden tai vuoden välein toistuva lahjoitus"
 
 #: ../data/ui/support.blp:88 ../data/ui/support.blp:104
 #: ../data/ui/support.blp:120
@@ -894,7 +902,7 @@ msgstr "Peru"
 
 #: ../komikku/application.py:477
 msgid "Servers modules have been updated"
-msgstr ""
+msgstr "Palvelinmoduulit on päivitetty"
 
 #: ../komikku/application.py:485
 msgid "External Servers Modules Update"
@@ -1025,19 +1033,19 @@ msgstr "Merkitse edelliset kappaleet luetuiksi"
 
 #: ../komikku/card/tracking.py:91
 msgid "No tracking services available"
-msgstr ""
+msgstr "Seurantapalveluja ei ole saatavilla"
 
 #: ../komikku/card/tracking.py:118
 msgid "Track"
-msgstr ""
+msgstr "Seuraa"
 
 #: ../komikku/card/tracking.py:147
 msgid "Use"
-msgstr ""
+msgstr "Käytä"
 
 #: ../komikku/card/tracking.py:155
 msgid "Cancel Tracking"
-msgstr ""
+msgstr "Peru seuranta"
 
 #: ../komikku/card/tracking.py:161 ../komikku/servers/mangadex/__init__.py:71
 #: ../komikku/servers/mangafire/__init__.py:57
@@ -1062,7 +1070,7 @@ msgstr "Poistetaanko?"
 
 #: ../komikku/card/tracking.py:188
 msgid "Are you sure you want to cancel tracking?"
-msgstr ""
+msgstr "Haluatko varmasti perua seurannan?"
 
 #: ../komikku/card/tracking.py:189 ../komikku/categories_editor.py:80
 #: ../komikku/categories_editor.py:178 ../komikku/library/__init__.py:367
@@ -1173,7 +1181,7 @@ msgstr "Suodattimet"
 
 #: ../komikku/explorer/search/__init__.py:283
 msgid "Oops, server website URL is unknown."
-msgstr ""
+msgstr "Hups, palvelimen verkkosivuston URL-osoite on tuntematon."
 
 #: ../komikku/explorer/search/__init__.py:373
 msgid "Search for Reading"
@@ -1189,6 +1197,9 @@ msgid ""
 "\n"
 "<b>id:ID from comic URL</b>"
 msgstr ""
+"Vaihtoehtoisesti voit etsiä yksittäisiä sariakuvia käyttäen syntaksia:\n"
+"\n"
+"<b>id:ID from comic URL</b>"
 
 #: ../komikku/explorer/search/__init__.py:405
 msgid "Global Search"
@@ -1196,7 +1207,7 @@ msgstr "Yleishaku"
 
 #: ../komikku/explorer/search/__init__.py:407
 msgid "Search globally by name"
-msgstr ""
+msgstr "Etsi globaalisti nimellä"
 
 #: ../komikku/explorer/search/__init__.py:409
 msgid "Search for Comics"
@@ -1422,11 +1433,11 @@ msgstr ""
 #: ../komikku/preferences.py:747 ../komikku/preferences.py:762
 #: ../komikku/preferences.py:785
 msgid "Disconnect"
-msgstr ""
+msgstr "Katkaise yhteys"
 
 #: ../komikku/preferences.py:750 ../komikku/preferences.py:777
 msgid "Connect"
-msgstr ""
+msgstr "Yhdistä"
 
 #: ../komikku/preferences.py:765
 msgid "Failed to request client access"
@@ -1438,7 +1449,7 @@ msgstr ""
 
 #: ../komikku/preferences.py:785
 msgid "Disconnect from {}"
-msgstr ""
+msgstr "Katkaise yhteys kohteeseen {}"
 
 #: ../komikku/reader/__init__.py:362
 #, python-brace-format
@@ -1562,15 +1573,15 @@ msgstr ""
 
 #: ../komikku/servers/coloredcouncil/__init__.py:77
 msgid "Version"
-msgstr ""
+msgstr "Versio"
 
 #: ../komikku/servers/coloredcouncil/__init__.py:78
 msgid "Filter by version"
-msgstr ""
+msgstr "Suodata version perusteella"
 
 #: ../komikku/servers/coloredcouncil/__init__.py:83
 msgid "Color"
-msgstr ""
+msgstr "Väri"
 
 #: ../komikku/servers/coloredcouncil/__init__.py:84
 msgid "B/W"
