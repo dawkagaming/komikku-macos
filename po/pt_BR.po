@@ -6,13 +6,14 @@
 # Unidealistic Raccoon <me@ursuslotor.xyz>, 2023, 2024.
 # Alex Carvalho <gameplayalex160@gmail.com>, 2024.
 # Juliano de Souza Camargo <julianosc@protonmail.com>, 2024.
+# Giovanne Menicheli <giovanne.lopes.menicheli@gmail.com>, 2024.
 msgid ""
 msgstr ""
 "Project-Id-Version: Komikku\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-10-11 01:09+0200\n"
-"PO-Revision-Date: 2024-09-10 20:09+0000\n"
-"Last-Translator: Juliano de Souza Camargo <julianosc@protonmail.com>\n"
+"PO-Revision-Date: 2024-10-22 23:15+0000\n"
+"Last-Translator: Giovanne Menicheli <giovanne.lopes.menicheli@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) <https://hosted.weblate.org/projects/"
 "komikku/main/pt_BR/>\n"
 "Language: pt_BR\n"
@@ -20,7 +21,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 5.8-dev\n"
+"X-Generator: Weblate 5.8.2-dev\n"
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:11
 msgid "Discover and read manga &amp; comics"
@@ -186,7 +187,7 @@ msgstr "Novo"
 
 #: ../data/ui/card_tracking.blp:9
 msgid "Tracking"
-msgstr ""
+msgstr "Monitorando"
 
 #: ../data/ui/card_tracking_search.blp:10 ../data/ui/explorer_search.blp:10
 #: ../data/ui/explorer_search.blp:41 ../data/ui/history.blp:18
@@ -418,11 +419,11 @@ msgstr "Habilita automaticamente tema escuro à noite"
 
 #: ../data/ui/preferences.blp:36
 msgid "Accent Color"
-msgstr ""
+msgstr "Cor de Destaque"
 
 #: ../data/ui/preferences.blp:37
 msgid "Use system accent colors"
-msgstr ""
+msgstr "Usar cores de destaque do sistema"
 
 #: ../data/ui/preferences.blp:41
 msgid "Backdrop in Details Page"
@@ -444,7 +445,7 @@ msgstr ""
 
 #: ../data/ui/preferences.blp:59
 msgid "Synchronize reading progress"
-msgstr ""
+msgstr "Sincronizar progresso de leitura"
 
 #: ../data/ui/preferences.blp:70
 msgid "Display"
@@ -622,15 +623,15 @@ msgstr "Filtro escalado"
 
 #: ../data/ui/preferences.blp:263
 msgid "Interpolation method used when scaling images"
-msgstr ""
+msgstr "Método de interpolação usado ao dimensionar imagens"
 
 #: ../data/ui/preferences.blp:266
 msgid "Linear"
-msgstr ""
+msgstr "Linear"
 
 #: ../data/ui/preferences.blp:267
 msgid "Trilinear"
-msgstr ""
+msgstr "Trilinear"
 
 #: ../data/ui/preferences.blp:273
 msgid "Landscape Pages Zoom"
