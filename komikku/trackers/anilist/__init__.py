@@ -24,6 +24,14 @@ class Anilist(Tracker):
     api_url = 'https://graphql.anilist.co'
     manga_url = 'https://anilist.co/manga/{0}'
 
+    RELEASE_STATUSES = {
+        'CANCELLED': 'Cancelled',
+        'FINISHED': 'Finished',
+        'HIATUS': 'Hiatus',
+        'NOT_YET_RELEASED': 'Not Yet Released',
+        'RELEASING': 'Releasing',
+    }
+
     STATUSES_MAPPING = {
         # tracker status => internal status
         'CURRENT': 'reading',
@@ -245,6 +253,8 @@ class Anilist(Tracker):
                         startDate {
                             year
                         }
+                        meanScore
+                        description
                     }
                 }
             }
@@ -271,10 +281,12 @@ class Anilist(Tracker):
         for item in r.json()['data']['Page']['media']:
             results.append({
                 'id': item['id'],
-                'name': item['title']['userPreferred'],
                 'cover': item['coverImage']['medium'],
+                'name': item['title']['userPreferred'],
+                'score': item['meanScore'] / 10 if item.get('meanScore') else None,
                 'start_date': str(item['startDate']['year']),
-                'status': item['status'].lower().capitalize(),
+                'status': self.RELEASE_STATUSES[item['status']],
+                'synopsis': item['description'],
             })
 
         return results
