@@ -17,10 +17,66 @@ template $TrackingSearchSubPage : Adw.NavigationPage {
       };
     }
 
-    content: Adw.PreferencesPage {
-      Adw.PreferencesGroup group {
-        vexpand: true;
-      }
+    content: ScrolledWindow {
+      hscrollbar-policy: never;
+      propagate-natural-height: true;
+
+      child: Viewport {
+        scroll-to-focus: true;
+
+        Adw.Clamp {
+          maximum-size: 600;
+          margin-top: 12;
+          margin-end: 12;
+          margin-bottom: 12;
+          margin-start: 12;
+
+          Stack stack {
+            vhomogeneous: false;
+
+            StackPage {
+              name: "results";
+
+              child: ListBox listbox {
+                valign: start;
+                selection-mode: none;
+
+                styles [
+                  "boxed-list",
+                ]
+              };
+            }
+
+            StackPage {
+              name: "no_results";
+              child: Adw.StatusPage no_results_status_page {
+                icon-name: "computer-fail-symbolic";
+              };
+            }
+
+            StackPage {
+              name: "loading";
+              child: Box {
+                orientation: vertical;
+                valign: center;
+
+                Adw.Spinner spinner {
+                  height-request: 48;
+                  width-request: 48;
+                }
+              };
+            }
+
+            StackPage {
+              name: "intro";
+              child: Adw.StatusPage intro_status_page {
+                title: _("Search for Tracking");
+                icon-name: "system-search-symbolic";
+              };
+            }
+          }
+        }
+      };
     };
   };
 }

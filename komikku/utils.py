@@ -634,6 +634,7 @@ class CoverLoader(GObject.GObject):
     def __init__(self, path, texture, pixbuf, width=None, height=None):
         super().__init__()
 
+        self.path = path
         self.texture = texture
         self.pixbuf = pixbuf
 

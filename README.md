@@ -18,8 +18,8 @@
 ## ✨ Keys features
 
 * Online reading from dozens of servers
-* Offline reading of downloaded comics
-* Support for locally stored comics (in CBZ or CBR formats)
+* Offline reading of downloaded series
+* Support for locally stored series (in CBZ or CBR formats)
 * RTL, LTR, Vertical and Webtoon reading modes
 * Several types of navigation:
   * Keyboard arrow keys
@@ -28,7 +28,8 @@
   * 2-fingers swipe gesture (touchpad)
   * Swipe gesture (touch screen)
 * Categories to organize your library
-* Automatic update of comics
+* Automatic tracking of series with MyAnimeList and AniList
+* Automatic update of series
 * Automatic download of new chapters
 * Reading history
 * Light and dark themes

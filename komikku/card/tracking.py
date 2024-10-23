@@ -11,14 +11,15 @@ import time
 from gi.repository import Adw
 from gi.repository import GLib
 from gi.repository import Gtk
+from gi.repository import Pango
 
 from komikku.servers import DOWNLOAD_MAX_DELAY
 from komikku.utils import CoverPicture
 from komikku.utils import html_escape
 from komikku.utils import MISSING_IMG_RESOURCE_PATH
 
-THUMB_WIDTH = 41
-THUMB_HEIGHT = 58
+THUMB_WIDTH = 96
+THUMB_HEIGHT = 136
 
 
 @Gtk.Template.from_resource('/info/febvre/Komikku/ui/card_tracking.ui')
@@ -96,39 +97,98 @@ class TrackingDialog(Adw.PreferencesDialog):
         self.present(self.window)
 
     def show_search(self, tracker):
-        self.search_subpage.init(tracker, self.window.card.manga.name)
         self.push_subpage(self.search_subpage)
-        self.resize()
+        self.search_subpage.init(tracker, self.window.card.manga.name)
 
 
-class TracherResultRow(Adw.ActionRow):
+class TracherResultRow(Gtk.ListBoxRow):
     def __init__(self, window, data):
         self.window = window
         self.data = data
 
-        super().__init__(title=html_escape(data['name']), use_markup=True)
+        super().__init__()
 
-        subtitle = []
+        box = Gtk.Box(margin_top=6, margin_bottom=6, margin_start=6, margin_end=6, spacing=6)
+
+        self.cover_bin = Adw.Bin()
+        self.cover_bin.set_size_request(THUMB_WIDTH, THUMB_HEIGHT)
+        box.append(self.cover_bin)
+
+        vbox = Gtk.Box(orientation=Gtk.Orientation.VERTICAL, spacing=6)
+
+        hbox = Gtk.Box(spacing=6)
+
+        vbox_details = Gtk.Box(orientation=Gtk.Orientation.VERTICAL, spacing=6)
+        title = Gtk.Label(
+            label=html_escape(data['name']),
+            use_markup=True,
+            ellipsize=Pango.EllipsizeMode.END,
+            xalign=0,
+            hexpand=True
+        )
+        title.add_css_class('title')
+        vbox_details.append(title)
+
         if data.get('authors'):
-            subtitle.append(html_escape(data['authors']))
-        if data.get('start_date'):
-            subtitle.append(data['start_date'])
-        subtitle.append(data['status'])
-        self.set_subtitle(' · '.join(subtitle))
+            label = Gtk.Label(
+                label=html_escape(data['authors']),
+                use_markup=True,
+                ellipsize=Pango.EllipsizeMode.END,
+                xalign=0,
+                hexpand=True
+            )
+            label.add_css_class('subtitle')
+            vbox_details.append(label)
 
-        self.btn = Gtk.Button(valign=Gtk.Align.CENTER)
+        details = []
+        if data.get('start_date'):
+            details.append(data['start_date'])
+
+        details.append(data['status'])
+
+        if data.get('score'):
+            details.append(f'{data["score"]}/10')
+
+        label = Gtk.Label(
+            label=' · '.join(details),
+            use_markup=True,
+            ellipsize=Pango.EllipsizeMode.END,
+            xalign=0,
+            hexpand=True
+        )
+        label.add_css_class('subtitle')
+        vbox_details.append(label)
+
+        hbox.append(vbox_details)
+        vbox.append(hbox)
+        box.append(vbox)
+
+        if data.get('synopsis'):
+            label = Gtk.Label(
+                label=html_escape(data['synopsis'].replace('\n', '')),
+                use_markup=True,
+                ellipsize=Pango.EllipsizeMode.END,
+                xalign=0,
+                hexpand=True,
+                lines=4,
+                wrap=True
+            )
+            label.add_css_class('caption')
+            vbox.append(label)
+
+        self.btn = Gtk.Button(valign=Gtk.Align.START)
         self.btn.set_label(_('Track'))
         self.btn.connect('clicked', lambda _btn: self.window.card.tracking_dialog.add_tracking(data['id']))
-        self.add_suffix(self.btn)
+        hbox.append(self.btn)
+
+        self.set_child(box)
 
     def set_cover(self, data):
         picture = CoverPicture.new_from_data(data, THUMB_WIDTH, THUMB_HEIGHT, True) if data else None
         if picture is None:
             picture = CoverPicture.new_from_resource(MISSING_IMG_RESOURCE_PATH, THUMB_WIDTH, THUMB_HEIGHT)
-        else:
-            self.cover_data = data
 
-        self.add_prefix(picture)
+        self.cover_bin.set_child(picture)
 
 
 class TrackerRow(Adw.ExpanderRow):
@@ -271,7 +331,6 @@ class TrackerRow(Adw.ExpanderRow):
         arrow_img.set_visible(visible)
 
     def update_tracking_data(self, _row, _gparam):
-        print('UPDATE', self.tracker.id)
         data = {
             'chapters_progress': self.chapters_progress_row.get_value(),
             'score': self.score_row.get_value() * self.score_row.format['raw_factor'],  # RAW
@@ -289,7 +348,9 @@ class TrackingSearchSubPage(Adw.NavigationPage):
     __gtype_name__ = 'TrackingSearchSubPage'
 
     searchentry = Gtk.Template.Child('searchentry')
-    group = Gtk.Template.Child('group')
+    stack = Gtk.Template.Child('stack')
+    listbox = Gtk.Template.Child('listbox')
+    no_results_status_page = Gtk.Template.Child('no_results_status_page')
 
     def __init__(self, window):
         super().__init__()
@@ -302,6 +363,7 @@ class TrackingSearchSubPage(Adw.NavigationPage):
         self.tracker = None
 
         self.searchentry.connect('activate', lambda _w: self.search())
+        self.searchentry.connect('search-changed', self.on_search_changed)
 
     def clear(self):
         # Empty queue
@@ -313,12 +375,11 @@ class TrackingSearchSubPage(Adw.NavigationPage):
                 continue
 
         # Empty group
-        listbox = self.group.get_first_child().get_last_child().get_first_child()
-        row = listbox.get_first_child()
+        row = self.listbox.get_first_child()
         while row:
             next_row = row.get_next_sibling()
 
-            self.group.remove(row)
+            self.listbox.remove(row)
             row = next_row
 
     def init(self, tracker, name=None):
@@ -328,6 +389,11 @@ class TrackingSearchSubPage(Adw.NavigationPage):
         self.searchentry.set_text(name)
 
         self.search()
+
+    def on_search_changed(self, _entry):
+        if not self.searchentry.get_text().strip():
+            self.stack.set_visible_child_name('intro')
+            self.window.card.tracking_dialog.resize()
 
     def render_covers(self):
         """
@@ -360,15 +426,40 @@ class TrackingSearchSubPage(Adw.NavigationPage):
         self.thread_covers.start()
 
     def search(self):
+        def run(term):
+            try:
+                results = self.tracker.search(term)
+            except Exception:
+                results = None
+
+            GLib.idle_add(complete, results)
+
+        def complete(results):
+            if results:
+                for result in results:
+                    row = TracherResultRow(self.window, result)
+                    self.listbox.append(row)
+                    self.queue.put(row)
+
+                self.stack.set_visible_child_name('results')
+                self.render_covers()
+
+            elif results is None:
+                self.no_results_status_page.set_title(_('Oops, search failed. Please try again.'))
+                self.stack.set_visible_child_name('no_results')
+
+            else:
+                self.no_results_status_page.set_title(_('No Results Found'))
+                self.no_results_status_page.set_description(_('Try a different search'))
+                self.stack.set_visible_child_name('no_results')
+
+            self.window.card.tracking_dialog.resize()
+
         self.clear()
+        self.stack.set_visible_child_name('loading')
 
         term = self.searchentry.get_text().strip()
-        results = self.tracker.search(term)
 
-        if results:
-            for result in results:
-                row = TracherResultRow(self.window, result)
-                self.group.add(row)
-                self.queue.put(row)
-
-            self.render_covers()
+        self.thread = threading.Thread(target=run, args=(term,))
+        self.thread.daemon = True
+        self.thread.start()
