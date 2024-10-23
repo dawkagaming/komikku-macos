@@ -34,6 +34,14 @@ class Myanimelist(Tracker):
     api_user_mangalist_url = api_url + '/users/@me/mangalist'
     manga_url = base_url + '/manga/{0}'
 
+    RELEASE_STATUSES = {
+        'discontinued': 'Cancelled',
+        'finished': 'Finished',
+        'on_hiatus': 'Hiatus',
+        'not_yet_published': 'Not Yet Released',
+        'currently_publishing': 'Releasing',
+    }
+
     STATUSES_MAPPING = {
         # tracker status => internal status
         'reading': 'reading',
@@ -203,7 +211,7 @@ class Myanimelist(Tracker):
             params={
                 'q': term,
                 'limit': 100,
-                'fields': 'id,title,main_picture,status,genres,authors{first_name,last_name}',
+                'fields': 'id,title,main_picture,status,synopsis,genres,authors{first_name,last_name},mean,start_date',
             },
             headers={
                 'Authorization': f'Bearer {data["access_token"]}',
@@ -224,10 +232,13 @@ class Myanimelist(Tracker):
 
             results.append({
                 'id': item['node']['id'],
-                'name': item['node']['title'],
-                'cover': item['node']['main_picture']['medium'] if item['node'].get('main_picture') else None,
                 'authors': ', '.join(authors),
-                'status': item['node']['status'],
+                'cover': item['node']['main_picture']['medium'] if item['node'].get('main_picture') else None,
+                'name': item['node']['title'],
+                'score': item['node']['mean'] if item['node'].get('mean') else None,
+                'start_date': item['node']['start_date'][:4] if item['node'].get('start_date') else None,
+                'status': self.RELEASE_STATUSES[item['node']['status']],
+                'synopsis': item['node']['synopsis'],
             })
 
         return results
