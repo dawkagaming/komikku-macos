@@ -23,24 +23,3 @@ install_data (
     install_dir: symbolic_dir,
     rename: '@0@-symbolic.svg'.format(app_id)
 )
-
-install_data (
-    'brush-symbolic.svg',
-    install_dir: symbolic_dir
-)
-install_data (
-    'computer-fail-symbolic.svg',
-    install_dir: symbolic_dir
-)
-install_data (
-    'explore-symbolic.svg',
-    install_dir: symbolic_dir
-)
-install_data (
-    'filter-symbolic.svg',
-    install_dir: symbolic_dir
-)
-install_data (
-    'library-symbolic.svg',
-    install_dir: symbolic_dir
-)

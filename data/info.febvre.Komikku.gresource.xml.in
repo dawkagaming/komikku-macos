@@ -3,6 +3,12 @@
     <gresource prefix="/info/febvre/Komikku">
         <file compressed="true" preprocess="xml-stripblanks" alias="appdata.xml">@app_id@.appdata.xml</file>
 
+        <file alias="icons/scalable/apps/brush-symbolic.svg" preprocess="xml-stripblanks">icons/brush-symbolic.svg</file>
+        <file alias="icons/scalable/apps/computer-fail-symbolic.svg" preprocess="xml-stripblanks">icons/computer-fail-symbolic.svg</file>
+        <file alias="icons/scalable/apps/explore-symbolic.svg" preprocess="xml-stripblanks">icons/explore-symbolic.svg</file>
+        <file alias="icons/scalable/apps/filter-symbolic.svg" preprocess="xml-stripblanks">icons/filter-symbolic.svg</file>
+        <file alias="icons/scalable/apps/library-symbolic.svg" preprocess="xml-stripblanks">icons/library-symbolic.svg</file>
+
         <file compressed="true" preprocess="xml-stripblanks">ui/application_window.ui</file>
         <file compressed="true" preprocess="xml-stripblanks">ui/card.ui</file>
         <file compressed="true" preprocess="xml-stripblanks">ui/card_chapters_list_row.ui</file>
