@@ -127,11 +127,7 @@ class Comicextra(Server):
         """
         r = self.session_get(
             page['image'],
-            headers={
-                # no-referrer policy
-                'Alt-Used': 'readcomicsonline.ru',
-                'Host': 'readcomicsonline.ru',
-            }
+            headers={}  # no-referrer policy
         )
         if r.status_code != 200:
             return None
