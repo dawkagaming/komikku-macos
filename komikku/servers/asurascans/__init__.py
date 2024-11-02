@@ -173,7 +173,7 @@ class Asurascans(Server):
         data = dict(
             pages=[],
         )
-        for img_element in soup.select('img[alt="chapter page"]'):
+        for img_element in soup.select('img[alt^="chapter page"]'):
             image = img_element.get('src')
             data['pages'].append(dict(
                 slug=None,
