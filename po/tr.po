@@ -11,16 +11,16 @@ msgstr ""
 "Project-Id-Version: Komikku main\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-10-11 01:09+0200\n"
-"PO-Revision-Date: 2024-06-17 07:48+0000\n"
+"PO-Revision-Date: 2024-11-03 14:00+0000\n"
 "Last-Translator: Sabri Ünal <yakushabb@gmail.com>\n"
-"Language-Team: Turkish <https://hosted.weblate.org/projects/komikku/main/tr/"
-">\n"
+"Language-Team: Turkish <https://hosted.weblate.org/projects/komikku/main/tr/>"
+"\n"
 "Language: tr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.6-dev\n"
+"X-Generator: Weblate 5.8.2\n"
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:11
 msgid "Discover and read manga &amp; comics"
@@ -186,7 +186,7 @@ msgstr "Yeni"
 
 #: ../data/ui/card_tracking.blp:9
 msgid "Tracking"
-msgstr ""
+msgstr "İzleme"
 
 #: ../data/ui/card_tracking_search.blp:10 ../data/ui/explorer_search.blp:10
 #: ../data/ui/explorer_search.blp:41 ../data/ui/history.blp:18
@@ -418,11 +418,11 @@ msgstr "Geceleri koyu temayı kendiliğinden etkinleştir"
 
 #: ../data/ui/preferences.blp:36
 msgid "Accent Color"
-msgstr ""
+msgstr "Vurgu Rengi"
 
 #: ../data/ui/preferences.blp:37
 msgid "Use system accent colors"
-msgstr ""
+msgstr "Sistem vurgu renklerini kullan"
 
 #: ../data/ui/preferences.blp:41
 msgid "Backdrop in Details Page"
@@ -444,7 +444,7 @@ msgstr ""
 
 #: ../data/ui/preferences.blp:59
 msgid "Synchronize reading progress"
-msgstr ""
+msgstr "Okuma ilerlemesini eşzamanla"
 
 #: ../data/ui/preferences.blp:70
 msgid "Display"
@@ -619,19 +619,19 @@ msgstr "Özgün Boyut"
 
 #: ../data/ui/preferences.blp:262
 msgid "Scaling Filter"
-msgstr ""
+msgstr "Ölçekleme Süzgeci"
 
 #: ../data/ui/preferences.blp:263
 msgid "Interpolation method used when scaling images"
-msgstr ""
+msgstr "Görüntüler ölçeklenirken kullanılacak ara değerleme yöntemi"
 
 #: ../data/ui/preferences.blp:266
 msgid "Linear"
-msgstr ""
+msgstr "Doğrusal"
 
 #: ../data/ui/preferences.blp:267
 msgid "Trilinear"
-msgstr ""
+msgstr "Üçsel doğrusal"
 
 #: ../data/ui/preferences.blp:273
 msgid "Landscape Pages Zoom"
@@ -768,6 +768,9 @@ msgid ""
 "environment and therefore cannot disable animations globally via GNOME "
 "Settings (Accessibility ⇨ Seeing ⇨ Animation Effects)."
 msgstr ""
+"Bu ince ayar yalnızca GNOME masaüstü ortamını kullanmayan ve canlandırmaları "
+"GNOME Ayarları (Erişilebilirlik ⇨ Görme ⇨ Canlandırma Etkileri) aracılığıyla "
+"devre dışı bırakamayan kullanıcılar için tasarlanmıştır."
 
 #: ../data/ui/reader.blp:19
 msgid "Back"
@@ -1054,19 +1057,19 @@ msgstr "Önceki Bölümleri Okunmuş Olarak İşaretle"
 
 #: ../komikku/card/tracking.py:91
 msgid "No tracking services available"
-msgstr ""
+msgstr "Kullanılabilir izleme hizmeti yok"
 
 #: ../komikku/card/tracking.py:118
 msgid "Track"
-msgstr ""
+msgstr "İzle"
 
 #: ../komikku/card/tracking.py:147
 msgid "Use"
-msgstr ""
+msgstr "Kullan"
 
 #: ../komikku/card/tracking.py:155
 msgid "Cancel Tracking"
-msgstr ""
+msgstr "İzlemeyi İptal Et"
 
 #: ../komikku/card/tracking.py:161 ../komikku/servers/mangadex/__init__.py:71
 #: ../komikku/servers/mangafire/__init__.py:57
@@ -1078,11 +1081,11 @@ msgstr "Durum"
 
 #: ../komikku/card/tracking.py:170
 msgid "Score"
-msgstr ""
+msgstr "Skor"
 
 #: ../komikku/card/tracking.py:175
 msgid "Chapter"
-msgstr ""
+msgstr "Bölüm"
 
 #: ../komikku/card/tracking.py:187 ../komikku/categories_editor.py:78
 #: ../komikku/library/__init__.py:365
@@ -1091,7 +1094,7 @@ msgstr "Silinsin mi?"
 
 #: ../komikku/card/tracking.py:188
 msgid "Are you sure you want to cancel tracking?"
-msgstr ""
+msgstr "İzlemeyi iptal etmek istediğinizden emin misiniz?"
 
 #: ../komikku/card/tracking.py:189 ../komikku/categories_editor.py:80
 #: ../komikku/categories_editor.py:178 ../komikku/library/__init__.py:367
@@ -1475,23 +1478,23 @@ msgstr "Test"
 #: ../komikku/preferences.py:747 ../komikku/preferences.py:762
 #: ../komikku/preferences.py:785
 msgid "Disconnect"
-msgstr ""
+msgstr "Bağlantıyı Kes"
 
 #: ../komikku/preferences.py:750 ../komikku/preferences.py:777
 msgid "Connect"
-msgstr ""
+msgstr "Bağlan"
 
 #: ../komikku/preferences.py:765
 msgid "Failed to request client access"
-msgstr ""
+msgstr "İstemci erişimi istenemedi"
 
 #: ../komikku/preferences.py:768
 msgid "Webview is currently in used. Please retry later."
-msgstr ""
+msgstr "Webview kullanımda. Lütfen sonra yeniden deneyin."
 
 #: ../komikku/preferences.py:785
 msgid "Disconnect from {}"
-msgstr ""
+msgstr "{} bağlantısını kes"
 
 #: ../komikku/reader/__init__.py:362
 #, python-brace-format
@@ -1602,31 +1605,31 @@ msgstr "Paralı"
 
 #: ../komikku/servers/coloredcouncil/__init__.py:64
 msgid "Format"
-msgstr ""
+msgstr "Biçim"
 
 #: ../komikku/servers/coloredcouncil/__init__.py:65
 msgid "Filter by format"
-msgstr ""
+msgstr "Biçime göre süz"
 
 #: ../komikku/servers/coloredcouncil/__init__.py:70
 msgid "Manwha"
-msgstr ""
+msgstr "Manwha"
 
 #: ../komikku/servers/coloredcouncil/__init__.py:77
 msgid "Version"
-msgstr ""
+msgstr "Sürüm"
 
 #: ../komikku/servers/coloredcouncil/__init__.py:78
 msgid "Filter by version"
-msgstr ""
+msgstr "Sürüme göre süz"
 
 #: ../komikku/servers/coloredcouncil/__init__.py:83
 msgid "Color"
-msgstr ""
+msgstr "Renk"
 
 #: ../komikku/servers/coloredcouncil/__init__.py:84
 msgid "B/W"
-msgstr ""
+msgstr "S/B"
 
 #: ../komikku/servers/dynasty/__init__.py:38
 msgid "Categories"
@@ -1919,23 +1922,23 @@ msgstr "Tuval"
 
 #: ../komikku/trackers/__init__.py:31
 msgid "Reading"
-msgstr ""
+msgstr "Okunuyor"
 
 #: ../komikku/trackers/__init__.py:33
 msgid "On Hold"
-msgstr ""
+msgstr "Beklemede"
 
 #: ../komikku/trackers/__init__.py:34
 msgid "Dropped"
-msgstr ""
+msgstr "Bırakıldı"
 
 #: ../komikku/trackers/__init__.py:35
 msgid "Plan to Read"
-msgstr ""
+msgstr "Okumak Planlanıyor"
 
 #: ../komikku/trackers/__init__.py:36
 msgid "Rereading"
-msgstr ""
+msgstr "Yeniden Okunuyor"
 
 #: ../komikku/updater.py:106
 msgid "Library update completed with errors"
