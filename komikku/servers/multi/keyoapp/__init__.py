@@ -229,11 +229,17 @@ class Keyoapp(Server):
         soup = BeautifulSoup(r.text, 'lxml')
 
         results = []
-        for a_element in soup.select('.latest-poster > a'):
+        for element in soup.select('.latest-poster'):
+            if element.a.get('style'):
+                cover = element.a.get('style').split('url')[-1][1:-1]
+            elif element.div.get('style'):
+                # kewnscans only
+                cover = element.div.get('style').split('url')[-1][1:-1]
+
             results.append(dict(
-                slug=a_element.get('href').split('/')[-2],
-                name=a_element.get('title'),
-                cover=a_element.get('style').split('url')[-1][1:-1],
+                slug=element.a.get('href').split('/')[-2],
+                name=element.a.get('title'),
+                cover=cover,
             ))
 
         return results
