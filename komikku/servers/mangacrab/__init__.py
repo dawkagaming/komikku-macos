@@ -14,6 +14,6 @@ class Mangacrab(Madara):
     date_format = '%d/%m/%Y'
     series_name = 'series'
 
-    base_url = 'https://wikicrab.xyz'
+    base_url = 'https://toonscrab.com'
 
     details_name_selector = '.post-title > h1'
