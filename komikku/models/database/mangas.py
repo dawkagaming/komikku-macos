@@ -264,7 +264,10 @@ class Manga:
                 current_etag = fp.read()
 
         # Save cover image file
-        cover_data, etag, _rtime = self.server.get_manga_cover_image(url, current_etag)
+        try:
+            cover_data, etag, _rtime = self.server.get_manga_cover_image(url, current_etag)
+        except Exception:
+            return
         if cover_data is None:
             return
 
