@@ -43,7 +43,7 @@ class Honeymanga(Server):
         r = self.session_get(
             self.api_manga_url.format(initial_data['slug']),
             headers={
-                'Referer': self.base_url,
+                'Referer': f'{self.base_url}/',
             }
         )
         if r.status_code != 200:
@@ -54,7 +54,7 @@ class Honeymanga(Server):
         data = initial_data.copy()
         data.update(dict(
             name=resp_data['title'],
-            cover=self.resource_url.format(resp_data['posterId']),
+            cover=self.resource_url.format(resp_data['posterId']) + '?optimizer=image&width=512',
             authors=[],
             scanlators=[],  # Use teamId? Would require an additional query
             genres=resp_data['genresAndTags'],
@@ -91,14 +91,16 @@ class Honeymanga(Server):
         """
         r = self.session_post(
             self.api_chapters_url,
-            data={
+            json={
                 'mangaId': manga_slug,
-                'sortOrder': 'DESC',
                 'page': page,
-                'pageSize': 45,
+                'pageSize': 1000,
+                'sortOrder': 'DESC',
             },
             headers={
-                'Referer': self.manga_url.format(manga_slug),
+                'Content-Type': 'application/json',
+                'Referer': f'{self.base_url}/',
+                'X-Id-Token': 'undefined',
             }
         )
         if r.status_code != 200:
