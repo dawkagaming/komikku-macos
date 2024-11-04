@@ -72,12 +72,13 @@ CREDITS = dict(
         'abidin toumi (Arabic)',
         'Rayen Ghanmi (Arabic)',
         'Mohamed Abdalah Noh (Arabic)',
-        'twlvnn (Bulgarian)',
         'Rafael Fontenelle (Brazilian Portuguese)',
         'Infinitive Witch (Brazilian Portuguese)',
         'Unidealistic Raccoon (Brazilian Portuguese)',
         'Alex Carvalho (Brazilian Portuguese)',
         'Juliano de Souza Camargo (Brazilian Portuguese)',
+        'Giovanne Menicheli (Brazilian Portuguese)',
+        'twlvnn (Bulgarian)',
         'Roger VC (Catalan)',
         'Dingzhong Chen (Simplified Chinese)',
         'Eric-Song-Nop (Simplified Chinese)',
@@ -524,25 +525,19 @@ available in your region/language."""))
         # Override release notes
         dialog.set_release_notes("""
             <ul>
-                <li>Added Tracking support (AniList, MyAnimeList)</li>
-                <li>[Servers] Anteiku Scans (FR): Update</li>
+                <li>[Tracking] Improved search results</li>
                 <li>[Servers] Asura Scans (EN): Update</li>
-                <li>[Servers] Cerise Scan (pt_BR): Update</li>
-                <li>[Servers] ED Scanlation (FR): Update</li>
-                <li>[Servers] EZmanga (EN): Update</li>
-                <li>[Servers] M440.in (ES): Update</li>
-                <li>[Servers] Manga Demon (EN): Update</li>
-                <li>[Servers] MangaFreak (EN): Update</li>
-                <li>[Servers] Mangago (EN): Update</li>
+                <li>[Servers] ComicExtra (EN): Update</li>
+                <li>[Servers] Honey Manga (UK): Update</li>
+                <li>[Servers] Kewn Scans (EN): Update</li>
                 <li>[Servers] Manga-Tube (DE): Update</li>
-                <li>[Servers] Scanvf (FR): Fixed search</li>
-                <li>[Servers] Sinensistoon (pt_BR): Update</li>
-                <li>[Servers] Starbound Scans (FR): Update</li>
+                <li>[Servers] MangaCrab (ES): Update</li>
+                <li>[Servers] Mint Manga (RU): Update</li>
+                <li>[Servers] Read Manga (RU): Update</li>
+                <li>[Servers] Reaper Scans (EN): Update</li>
+                <li>[Servers] Self Manga (RU): Update</li>
                 <li>[Servers] Tecno Scans (ES): Update</li>
-                <li>[Servers] Colored Manga (EN): Disabled</li>
-                <li>[Servers] Read Comics Free (EN): Disabled</li>
-                <li>[L10n] Added Bulgarian translation</li>
-                <li>[L10n] Updated Dutch, French, Portuguese, Russian, Spanish and Ukrainian translations</li>
+                <li>[L10n] Updated Bulgarian, Finnish, Portuguese (Brazil), Spanish, Turkish and Ukrainian translations</li>
             </ul>
             <p>Happy reading.</p>
         """)
