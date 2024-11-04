@@ -58,7 +58,11 @@ class Reaperscans(HeanCMS):
             )
             index = 0
             for block in info[1][3]['children'][0]:
-                for page in block[3]['children']:
+                pages = block[3]['children']
+                if isinstance(pages[0][0], list):
+                    pages = pages[0]
+
+                for page in pages:
                     data['pages'].append(dict(
                         slug=None,
                         image=page[3]['src'],
