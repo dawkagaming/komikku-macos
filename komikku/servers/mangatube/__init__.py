@@ -211,8 +211,9 @@ class Mangatube(Server):
             if author['name'] not in data['authors']:
                 data['authors'].append(author['name'])
 
-        for genre_id in resp_data['genre']:
-            data['genres'].append(self.data['genres'][genre_id])
+        if self.data and self.data.get('genres'):
+            for genre_id in resp_data['genre']:
+                data['genres'].append(self.data['genres'][genre_id])
 
         if resp_data['status'] == 0:
             data['status'] = 'ongoing'
@@ -322,7 +323,7 @@ class Mangatube(Server):
     @CompleteChallenge()
     @get_data
     def get_latest_updates(self, **kwargs):
-        return self.data['latest_updates']
+        return self.data['latest_updates'] if self.data else None
 
     @CompleteChallenge()
     def get_most_populars(self, type=None, mature=None):

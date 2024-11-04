@@ -358,7 +358,7 @@ class CompleteChallenge:
                     else if (document.querySelector('#formVerify')) {
                         document.title = 'ayh2_captcha';
                     }
-                    else if (document.querySelector('script[src~="challange"]')) {
+                    else if (document.querySelector('script[src*="challange"]')) {
                         document.title = 'challange_captcha';
                     }
                     else {
