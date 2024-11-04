@@ -61,11 +61,9 @@ class Readmanga(Server):
             server_id=self.id,
         ))
 
-        info_element = soup.find('div', class_='leftContent')
+        info_element = soup.select_one('.expandable')
 
-        title_element = info_element.find('span', class_='name')
-        data['name'] = title_element.text.strip()
-
+        data['name'] = soup.select_one('meta[itemprop="name"]')['content']
         cover_element = info_element.find('img', attrs={'data-full': True})
         data['cover'] = cover_element.get('data-full')
 
@@ -96,14 +94,10 @@ class Readmanga(Server):
                 data['genres'].extend(value)
 
         # Synopsis
-        data['synopsis'] = info_element.find('div', class_='manga-description').text.strip()
+        data['synopsis'] = soup.select_one('meta[itemprop="description"]')['content']
 
         # Chapters
-        chapters_element = info_element.find('div', id='chapters-list', recursive=False)
-        if not chapters_element:
-            return data
-
-        for element in reversed(chapters_element.table.find_all('tr', recursive=False)):
+        for element in reversed(soup.select('#chapters-list .item-row')):
             a_element = element.find('a', class_='chapter-link')
             slug = a_element.get('href').split('/', 2)[2]
             title = a_element.find(text=True, recursive=False).strip()
@@ -260,7 +254,7 @@ class Mintmanga(Readmanga):
     is_nsfw = True
 
     # 16
-    base_url = 'https://24.mintmanga.one'
+    base_url = 'https://2.mintmanga.one'
     search_url = base_url + '/search/advancedResults'
     manga_url = base_url + '/{0}'
     chapter_url = manga_url + '/{1}?mtr=1'
