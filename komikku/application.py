@@ -524,6 +524,12 @@ available in your region/language."""))
 
         # Override release notes
         dialog.set_release_notes("""
+            <p>This is a bugfix version.</p>
+            <ul>
+                <li>Fixed bad chapter and volume numbers</li>
+            </ul>
+
+            <p>Changes in previous version 1.60.0</p>
             <ul>
                 <li>[Tracking] Improved search results</li>
                 <li>[Servers] Asura Scans (EN): Update</li>

@@ -99,8 +99,14 @@
     <url type="donation">https://valos.gitlab.io/Komikku/#sponsor</url>
 
     <releases>
-        <release version="1.61.0" date="2024-11-05">
+        <release version="1.61.1" date="2024-11-07">
             <description translate="no">
+                <p>This is a bugfix version.</p>
+                <ul>
+                    <li>Fixed bad chapter and volume numbers</li>
+                </ul>
+
+                <p>Changes in previous version 1.60.0</p>
                 <ul>
                     <li>[Tracking] Improved search results</li>
                     <li>[Servers] Asura Scans (EN): Update</li>
