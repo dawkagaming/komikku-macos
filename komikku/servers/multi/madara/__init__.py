@@ -247,7 +247,7 @@ class Madara(Server):
                 date = datetime.date.today().strftime('%Y-%m-%d')
 
             slug = a_element.get('href').split('/')[-2]
-            num, num_volume = slug, self.extract_chapter_nums_from_slug(slug)
+            num, num_volume = self.extract_chapter_nums_from_slug(slug)
 
             data['chapters'].append(dict(
                 slug=slug,
