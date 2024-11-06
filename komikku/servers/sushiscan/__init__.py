@@ -14,8 +14,10 @@ class Sushiscan(MangaStream):
 
     base_url = 'https://sushiscan.fr'
 
-    authors_selector = '.infotable tr:-soup-contains("Artiste") td:last-child, .infotable tr:-soup-contains("Auteur") td:last-child'
+    series_name = 'catalogue'
+
+    authors_selector = '.infotable tr:-soup-contains("Dessinateur") td:last-child, .infotable tr:-soup-contains("Auteur") td:last-child'
     genres_selector = '.seriestugenre a'
     scanlators_selector = None
-    status_selector = '.seriestucontent table tr:-soup-contains("Statut") td:last-child'
+    status_selector = '.infotable tr:-soup-contains("Statut") td:last-child'
     synopsis_selector = '[itemprop="description"]'
