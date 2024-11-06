@@ -457,7 +457,7 @@ class Manga:
 
                 rank = get_free_rank(rank)
                 if row:
-                    # Update changes
+                    # Update chapter
                     changes = {}
 
                     # Common fields
@@ -482,8 +482,15 @@ class Manga:
                     rank += 1
                 else:
                     # Add new chapter
+
+                    # Ensure chapter num and volume num are numbers
+                    for key in ('num', 'num_volume'):
+                        if chapter_data.get(key) is not None:
+                            num = str(chapter_data[key])
+                            chapter_data[key] = remove_number_leading_zero(num) if is_number(num) else None
+
+                    # Used today if not date is provided
                     if not chapter_data.get('date'):
-                        # Used today if not date is provided
                         chapter_data['date'] = datetime.date.today()
 
                     chapter_data.update(dict(
@@ -591,7 +598,7 @@ class Chapter:
     def number(self):
         """ Returns chapter number"""
         num = None
-        if self.num:
+        if self.num and is_number(self.num):
             num = self.num
 
         elif is_number(self.slug):
