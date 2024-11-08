@@ -11,7 +11,7 @@ class Flamescans(MangaStream):
     lang = 'en'
     has_cf = True
 
-    base_url = 'https://flamecomics.me'
+    base_url = 'https://flamecomics.xyz'
 
     series_name = 'series'
 
