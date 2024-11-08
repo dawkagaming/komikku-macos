@@ -17,7 +17,7 @@ class Teamx(Server):
 
     has_cf = True
 
-    base_url = 'https://teamoney.site'
+    base_url = 'https://olympustaff.com'
     search_url = base_url + '/ajax/search'
     manga_url = base_url + '/series/{0}'
     chapter_url = base_url + '/series/{0}/{1}'
