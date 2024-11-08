@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: Komikku 1.53.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-10-11 01:09+0200\n"
-"PO-Revision-Date: 2024-10-20 12:16+0000\n"
+"PO-Revision-Date: 2024-11-09 23:00+0000\n"
 "Last-Translator: twlvnn <kraft_werk@tutanota.com>\n"
 "Language-Team: Bulgarian <https://hosted.weblate.org/projects/komikku/main/"
 "bg/>\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.8-rc\n"
+"X-Generator: Weblate 5.8.2\n"
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:11
 msgid "Discover and read manga &amp; comics"
@@ -182,7 +182,7 @@ msgstr "Ново"
 
 #: ../data/ui/card_tracking.blp:9
 msgid "Tracking"
-msgstr ""
+msgstr "Следене"
 
 #: ../data/ui/card_tracking_search.blp:10 ../data/ui/explorer_search.blp:10
 #: ../data/ui/explorer_search.blp:41 ../data/ui/history.blp:18
@@ -414,11 +414,11 @@ msgstr "Автоматично включване на тъмната тема �
 
 #: ../data/ui/preferences.blp:36
 msgid "Accent Color"
-msgstr ""
+msgstr "Акцентиращ цвят"
 
 #: ../data/ui/preferences.blp:37
 msgid "Use system accent colors"
-msgstr ""
+msgstr "Използване на системните акцентни цветове"
 
 #: ../data/ui/preferences.blp:41
 msgid "Backdrop in Details Page"
@@ -440,7 +440,7 @@ msgstr ""
 
 #: ../data/ui/preferences.blp:59
 msgid "Synchronize reading progress"
-msgstr ""
+msgstr "Синхронизиране на напредъка в четенето"
 
 #: ../data/ui/preferences.blp:70
 msgid "Display"
@@ -766,6 +766,9 @@ msgid ""
 "environment and therefore cannot disable animations globally via GNOME "
 "Settings (Accessibility ⇨ Seeing ⇨ Animation Effects)."
 msgstr ""
+"Тази настройка е предназначена само за потребители, които не използват GNOME "
+"средата и поради това не могат да изключат анимациите глобално чрез "
+"настройките на GNOME (Универсален достъп ⇨ Зрение ⇨ Ефекти за анимация)."
 
 #: ../data/ui/reader.blp:19
 msgid "Back"
@@ -1055,19 +1058,19 @@ msgstr "Маркиране на предишните глави като про�
 
 #: ../komikku/card/tracking.py:91
 msgid "No tracking services available"
-msgstr ""
+msgstr "Няма налични услуги за следене"
 
 #: ../komikku/card/tracking.py:118
 msgid "Track"
-msgstr ""
+msgstr "Следене"
 
 #: ../komikku/card/tracking.py:147
 msgid "Use"
-msgstr ""
+msgstr "Използване"
 
 #: ../komikku/card/tracking.py:155
 msgid "Cancel Tracking"
-msgstr ""
+msgstr "Отказване на следенето"
 
 #: ../komikku/card/tracking.py:161 ../komikku/servers/mangadex/__init__.py:71
 #: ../komikku/servers/mangafire/__init__.py:57
@@ -1079,11 +1082,11 @@ msgstr "Състояние"
 
 #: ../komikku/card/tracking.py:170
 msgid "Score"
-msgstr ""
+msgstr "Резултат"
 
 #: ../komikku/card/tracking.py:175
 msgid "Chapter"
-msgstr ""
+msgstr "Глава"
 
 #: ../komikku/card/tracking.py:187 ../komikku/categories_editor.py:78
 #: ../komikku/library/__init__.py:365
@@ -1092,7 +1095,7 @@ msgstr "Изтриване?"
 
 #: ../komikku/card/tracking.py:188
 msgid "Are you sure you want to cancel tracking?"
-msgstr ""
+msgstr "Сигурни ли сте, че искате да откажете следенето?"
 
 #: ../komikku/card/tracking.py:189 ../komikku/categories_editor.py:80
 #: ../komikku/categories_editor.py:178 ../komikku/library/__init__.py:367
@@ -1101,7 +1104,7 @@ msgstr "Изтриване"
 
 #: ../komikku/card/tracking.py:325 ../komikku/explorer/search/__init__.py:371
 msgid "Search {}"
-msgstr "Търсене {}"
+msgstr "Търсене в {}"
 
 #: ../komikku/categories_editor.py:79
 #, python-brace-format
@@ -1382,7 +1385,7 @@ msgstr "Грешка при изтеглянето"
 #: ../komikku/servers/mangamana/__init__.py:65
 #: ../komikku/servers/mangaworld/__init__.py:50
 msgid "Complete"
-msgstr "Завършени"
+msgstr "Завършено"
 
 #: ../komikku/models/database/mangas.py:36
 #: ../komikku/servers/mangadex/__init__.py:75
@@ -1477,23 +1480,23 @@ msgstr "Проверяване"
 #: ../komikku/preferences.py:747 ../komikku/preferences.py:762
 #: ../komikku/preferences.py:785
 msgid "Disconnect"
-msgstr ""
+msgstr "Прекъсване"
 
 #: ../komikku/preferences.py:750 ../komikku/preferences.py:777
 msgid "Connect"
-msgstr ""
+msgstr "Свързване"
 
 #: ../komikku/preferences.py:765
 msgid "Failed to request client access"
-msgstr ""
+msgstr "Искането за достъп до клиента е неуспешно"
 
 #: ../komikku/preferences.py:768
 msgid "Webview is currently in used. Please retry later."
-msgstr ""
+msgstr "Уеб изгледът в момента се използва. Опитайте отново по-късно."
 
 #: ../komikku/preferences.py:785
 msgid "Disconnect from {}"
-msgstr ""
+msgstr "Изключване от {}"
 
 #: ../komikku/reader/__init__.py:362
 #, python-brace-format
@@ -1923,23 +1926,23 @@ msgstr "Канава"
 
 #: ../komikku/trackers/__init__.py:31
 msgid "Reading"
-msgstr ""
+msgstr "Четене"
 
 #: ../komikku/trackers/__init__.py:33
 msgid "On Hold"
-msgstr ""
+msgstr "На пауза"
 
 #: ../komikku/trackers/__init__.py:34
 msgid "Dropped"
-msgstr ""
+msgstr "Изоставено"
 
 #: ../komikku/trackers/__init__.py:35
 msgid "Plan to Read"
-msgstr ""
+msgstr "За четене"
 
 #: ../komikku/trackers/__init__.py:36
 msgid "Rereading"
-msgstr ""
+msgstr "Повторно четене"
 
 #: ../komikku/updater.py:106
 msgid "Library update completed with errors"
