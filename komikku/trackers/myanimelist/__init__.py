@@ -109,7 +109,7 @@ class Myanimelist(Tracker):
         return self.manga_url.format(id)
 
     def get_tracker_manga_data(self, id):
-        data = self.get_data()
+        tracker_data = self.get_data()
 
         r = self.session.get(
             self.api_manga_url.format(id),
@@ -117,10 +117,14 @@ class Myanimelist(Tracker):
                 'fields': 'id,num_chapters,title',
             },
             headers={
-                'Authorization': f'Bearer {data["access_token"]}',
+                'Authorization': f'Bearer {tracker_data["access_token"]}',
             }
         )
-        if r.status_code != 200:
+        if r.status_code == 401:
+            if self.refresh_access_token():
+                return self.get_tracker_manga_data(id)
+
+        elif r.status_code != 200:
             return None
 
         data = r.json()
@@ -136,7 +140,7 @@ class Myanimelist(Tracker):
         return self.USER_SCORE_FORMAT
 
     def get_user_manga_data(self, id):
-        data = self.get_data()
+        tracker_data = self.get_data()
 
         r = self.session_get(
             self.api_user_mangalist_url,
@@ -145,10 +149,14 @@ class Myanimelist(Tracker):
                 'fields': 'id,my_list_status,num_chapters,title',
             },
             headers={
-                'Authorization': f'Bearer {data["access_token"]}',
+                'Authorization': f'Bearer {tracker_data["access_token"]}',
             }
         )
-        if r.status_code != 200:
+        if r.status_code == 401:
+            if self.refresh_access_token():
+                return self.get_user_manga_data(id)
+
+        elif r.status_code != 200:
             return None
 
         data = None
@@ -176,14 +184,14 @@ class Myanimelist(Tracker):
         return data
 
     def refresh_access_token(self):
-        data = self.get_data()
+        tracker_data = self.get_data()
 
         r = self.session.post(
             self.access_token_url,
             auth=(self.client_id, ''),
             data={
                 'grant_type': 'refresh_token',
-                'refresh_token': data['refresh_token'],
+                'refresh_token': tracker_data['refresh_token'],
             },
             headers={
                 'Content-Type': 'application/x-www-form-urlencoded',
@@ -204,7 +212,7 @@ class Myanimelist(Tracker):
         return True
 
     def search(self, term):
-        data = self.get_data()
+        tracker_data = self.get_data()
 
         r = self.session.get(
             self.api_search_url,
@@ -214,10 +222,14 @@ class Myanimelist(Tracker):
                 'fields': 'id,title,main_picture,status,synopsis,genres,authors{first_name,last_name},mean,start_date',
             },
             headers={
-                'Authorization': f'Bearer {data["access_token"]}',
+                'Authorization': f'Bearer {tracker_data["access_token"]}',
             }
         )
-        if r.status_code != 200:
+        if r.status_code == 401:
+            if self.refresh_access_token():
+                return self.search(term)
+
+        elif r.status_code != 200:
             return None
 
         results = []
@@ -243,8 +255,9 @@ class Myanimelist(Tracker):
 
         return results
 
-    def update_user_manga_data(self, id, update_data):
-        data = self.get_data()
+    def update_user_manga_data(self, id, data):
+        tracker_data = self.get_data()
+        update_data = data.copy()
 
         # chapters_progress => num_chapters_read
         num_chapters_read = update_data.pop('chapters_progress', None)
@@ -261,10 +274,14 @@ class Myanimelist(Tracker):
             self.api_manga_update_url.format(id),
             data=update_data,
             headers={
-                'Authorization': f'Bearer {data["access_token"]}',
+                'Authorization': f'Bearer {tracker_data["access_token"]}',
             }
         )
-        if r.status_code != 200:
+        if r.status_code == 401:
+            if self.refresh_access_token():
+                return self.update_user_manga_data(id, data)
+
+        elif r.status_code != 200:
             return False
 
         return True
