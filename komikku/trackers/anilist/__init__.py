@@ -2,6 +2,7 @@
 # SPDX-License-Identifier: GPL-3.0-only or GPL-3.0-or-later
 # Author: Valéry Febvre <vfebvre@easter-eggs.com>
 
+import logging
 from urllib.parse import parse_qs
 from urllib.parse import urlparse
 
@@ -10,6 +11,8 @@ import requests
 from komikku.servers import USER_AGENT
 from komikku.trackers import Tracker
 from komikku.webview import get_tracker_access_token
+
+logger = logging.getLogger(__name__)
 
 # https://docs.anilist.co/guide/graphql/
 # https://studio.apollographql.com/sandbox/schema/reference
@@ -96,7 +99,7 @@ class Anilist(Tracker):
         return False, error
 
     def get_user(self):
-        data = self.get_data()
+        tracker_data = self.get_data()
 
         query = """
             query {
@@ -114,12 +117,16 @@ class Anilist(Tracker):
                 'query': query,
             },
             headers={
-                'Authorization': f'Bearer {data["access_token"]}',
+                'Authorization': f'Bearer {tracker_data["access_token"]}',
                 'Content-Type': 'application/json',
                 'Accept': 'application/json',
             }
         )
         if r.status_code != 200:
+            data = r.json()
+            if errors := data.get('errors'):
+                for error in errors:
+                    logger.error(error['message'])
             return None
 
         data = r.json()['data']['Viewer']
@@ -133,7 +140,7 @@ class Anilist(Tracker):
         return self.manga_url.format(id)
 
     def get_tracker_manga_data(self, id):
-        data = self.get_data()
+        tracker_data = self.get_data()
 
         query = """
             query ($id: Int) {
@@ -161,12 +168,16 @@ class Anilist(Tracker):
                 },
             },
             headers={
-                'Authorization': f'Bearer {data["access_token"]}',
+                'Authorization': f'Bearer {tracker_data["access_token"]}',
                 'Content-Type': 'application/json',
                 'Accept': 'application/json',
             }
         )
         if r.status_code != 200:
+            data = r.json()
+            if errors := data.get('errors'):
+                for error in errors:
+                    logger.error(error['message'])
             return None
 
         data = r.json()['data']
@@ -182,7 +193,7 @@ class Anilist(Tracker):
         return self.USER_SCORES_FORMATS[format]
 
     def get_user_manga_data(self, id):
-        data = self.get_data()
+        tracker_data = self.get_data()
         user = self.get_user()
 
         query = """
@@ -212,12 +223,16 @@ class Anilist(Tracker):
                 },
             },
             headers={
-                'Authorization': f'Bearer {data["access_token"]}',
+                'Authorization': f'Bearer {tracker_data["access_token"]}',
                 'Content-Type': 'application/json',
                 'Accept': 'application/json',
             }
         )
         if r.status_code != 200:
+            data = r.json()
+            if errors := data.get('errors'):
+                for error in errors:
+                    logger.error(error['message'])
             return None
 
         data = r.json()['data']['MediaList']
@@ -275,6 +290,10 @@ class Anilist(Tracker):
             }
         )
         if r.status_code != 200:
+            data = r.json()
+            if errors := data.get('errors'):
+                for error in errors:
+                    logger.error(error['message'])
             return None
 
         results = []
@@ -291,19 +310,19 @@ class Anilist(Tracker):
 
         return results
 
-    def update_user_manga_data(self, id, update_data):
-        data = self.get_data()
+    def update_user_manga_data(self, id, data):
+        tracker_data = self.get_data()
         user = self.get_user()
 
         # Convert score: RAW to user format
-        score = int(update_data['score'] / self.get_user_score_format(user['score_format'])['raw_factor'])
+        score = int(data['score'] / self.get_user_score_format(user['score_format'])['raw_factor'])
 
         # Convert status: internal to tracker naming
-        status = self.convert_internal_status(update_data['status'])
+        status = self.convert_internal_status(data['status'])
 
         query = f"""
             mutation {{
-                SaveMediaListEntry(mediaId: {id}, score: {score}, status: {status}, progress: {int(update_data['chapters_progress'])}) {{
+                SaveMediaListEntry(mediaId: {id}, score: {score}, status: {status}, progress: {int(data['chapters_progress'])}) {{
                     id
                     mediaId
                     score
@@ -318,12 +337,16 @@ class Anilist(Tracker):
                 'query': query,
             },
             headers={
-                'Authorization': f'Bearer {data["access_token"]}',
+                'Authorization': f'Bearer {tracker_data["access_token"]}',
                 'Content-Type': 'application/json',
                 'Accept': 'application/json',
             }
         )
         if r.status_code != 200:
+            data = r.json()
+            if errors := data.get('errors'):
+                for error in errors:
+                    logger.error(error['message'])
             return False
 
         return True
