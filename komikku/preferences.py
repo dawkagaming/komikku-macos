@@ -690,8 +690,13 @@ class PreferencesServersSettingsSubPage(Adw.NavigationPage):
             else:
                 switchrow = Adw.SwitchRow()
                 switchrow.set_title(html_escape(server_data['name']))
+                subtitle = []
+                if len(server_data['langs']) == 1 and server_data['langs'][0]:
+                    subtitle.append(LANGUAGES[server_data['langs'][0]])
                 if server_data['is_nsfw'] or server_data['is_nsfw_only']:
-                    switchrow.set_subtitle(_('18+'))
+                    subtitle.append(_('18+'))
+                if subtitle:
+                    switchrow.set_subtitle(' · '.join(subtitle))
                 switchrow.set_sensitive(server_allowed)
                 switchrow.set_active(server_enabled and server_allowed)
                 switchrow.connect('notify::active', self.on_server_activated, server_main_id)
