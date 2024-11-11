@@ -31,7 +31,7 @@ class TrackingDialog(Adw.PreferencesDialog):
     tracker_rows = []
 
     def __init__(self, window):
-        super().__init__()
+        super().__init__(follows_content_size=True)
 
         self.window = window
 
@@ -53,15 +53,20 @@ class TrackingDialog(Adw.PreferencesDialog):
 
             tracker = self.selected_tracker_row.tracker
             data = tracker.get_manga_data(id)
-            data['_synced'] = True
+            if data:
+                data['_synced'] = True
 
-            manga.tracking[tracker.id] = data
+                manga.tracking[tracker.id] = data
 
-            manga.update({'tracking': manga.tracking})
+                manga.update({'tracking': manga.tracking})
 
             GLib.idle_add(complete, data)
 
         def complete(data):
+            if data is None:
+                self.add_toast(Adw.Toast.new(_('Failed to get data from tracker')))
+                return
+
             self.pop_subpage()
             self.selected_tracker_row.init(data)
 
@@ -79,10 +84,6 @@ class TrackingDialog(Adw.PreferencesDialog):
     def on_search_subpage_hiding(self, _page):
         self.search_subpage.thread_covers_stop_flag = True
         self.search_subpage.clear()
-        self.resize()
-
-    def resize(self):
-        self.set_content_height(-1)
 
     def show(self):
         count = 0
@@ -259,11 +260,18 @@ class TrackerRow(Adw.ExpanderRow):
                 id = self.window.card.manga.tracking[self.tracker.id]['id']
                 data = self.tracker.get_manga_data(id)
             except Exception:
+                data = None
+
+            if data is None:
                 data = self.window.card.manga.tracking[self.tracker.id]
 
             GLib.idle_add(complete, data)
 
         def complete(data):
+            if data is None:
+                # Failed to get data from tracker (connection error, server error or invalid request)
+                return
+
             self.set_enable_expansion(True)
             self.set_expanded(True)
             self.set_arrow_visible(True)
@@ -272,7 +280,7 @@ class TrackerRow(Adw.ExpanderRow):
 
             with self.chapters_progress_row.handler_block(self.num_chapter_changed_handler_id):
                 adj = Gtk.Adjustment(
-                    value=data['chapters_progress'] or 0,
+                    value=float(data['chapters_progress']) or 0,
                     lower=0,
                     upper=data['chapters'] or 10000,
                     step_increment=1,
@@ -393,7 +401,6 @@ class TrackingSearchSubPage(Adw.NavigationPage):
     def on_search_changed(self, _entry):
         if not self.searchentry.get_text().strip():
             self.stack.set_visible_child_name('intro')
-            self.window.card.tracking_dialog.resize()
 
     def render_covers(self):
         """
@@ -452,8 +459,6 @@ class TrackingSearchSubPage(Adw.NavigationPage):
                 self.no_results_status_page.set_title(_('No Results Found'))
                 self.no_results_status_page.set_description(_('Try a different search'))
                 self.stack.set_visible_child_name('no_results')
-
-            self.window.card.tracking_dialog.resize()
 
         self.clear()
         self.stack.set_visible_child_name('loading')

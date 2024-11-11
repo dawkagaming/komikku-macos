@@ -52,7 +52,7 @@ class Tracker(BaseServer, ABC):
         return data['active'] if data else False
 
     def get_data(self):
-        """ Get tracker data svaed in dconf-settings """
+        """ Get tracker data saved in dconf-settings """
         return Settings.get_default().trackers.get(self.id)
 
     def get_manga_data(self, id):
@@ -147,7 +147,7 @@ class Trackers(GObject.GObject):
                         })
                     except Exception:
                         res = False
-                        logging.warning(f'Failed to sync tracker {id}: ID={data["id"]}')
+                        logging.warning(f'Failed to sync tracker {id}: ID={data["id"]} name={data["name"]}')
 
                     if res:
                         manga = Manga.get(row['id'], db_conn=db_conn)
@@ -157,6 +157,8 @@ class Trackers(GObject.GObject):
                         })
 
                         self.emit('manga-tracker-synced', manga)
+                    else:
+                        logging.warning(f'Failed to sync tracker {id}: ID={data["id"]} name={data["name"]}')
 
             db_conn.close()
 

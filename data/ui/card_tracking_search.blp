@@ -19,6 +19,7 @@ template $TrackingSearchSubPage : Adw.NavigationPage {
 
     content: ScrolledWindow {
       hscrollbar-policy: never;
+      propagate-natural-width: true;
       propagate-natural-height: true;
 
       child: Viewport {
@@ -51,6 +52,9 @@ template $TrackingSearchSubPage : Adw.NavigationPage {
               name: "no_results";
               child: Adw.StatusPage no_results_status_page {
                 icon-name: "computer-fail-symbolic";
+                styles [
+                  "compact",
+                ]
               };
             }
 
@@ -72,6 +76,9 @@ template $TrackingSearchSubPage : Adw.NavigationPage {
               child: Adw.StatusPage intro_status_page {
                 title: _("Search for Tracking");
                 icon-name: "system-search-symbolic";
+                styles [
+                  "compact",
+                ]
               };
             }
           }
