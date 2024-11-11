@@ -99,6 +99,19 @@
     <url type="donation">https://valos.gitlab.io/Komikku/#sponsor</url>
 
     <releases>
+        <release version="1.62.0" date="2024-11-11">
+            <description translate="no">
+                <ul>
+                    <li>[Tracking] Improved dialog size adjustment and handling of errors when query trackers</li>
+                    <li>[Servers] Terco Scans (ES): Update</li>
+                    <li>[Servers] Flame Comics (EN): Update</li>
+                    <li>[Servers] Team-X (AR): Update</li>
+                    <li>[Servers] SushiScan (FR): Update</li>
+                    <li>[L10n] Updated Bulgarian translation</li>
+                </ul>
+                <p>Happy reading.</p>
+            </description>
+        </release>
         <release version="1.61.1" date="2024-11-07">
             <description translate="no">
                 <p>This is a bugfix version.</p>

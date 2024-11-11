@@ -524,26 +524,13 @@ available in your region/language."""))
 
         # Override release notes
         dialog.set_release_notes("""
-            <p>This is a bugfix version.</p>
             <ul>
-                <li>Fixed bad chapter and volume numbers</li>
-            </ul>
-
-            <p>Changes in previous version 1.60.0</p>
-            <ul>
-                <li>[Tracking] Improved search results</li>
-                <li>[Servers] Asura Scans (EN): Update</li>
-                <li>[Servers] ComicExtra (EN): Update</li>
-                <li>[Servers] Honey Manga (UK): Update</li>
-                <li>[Servers] Kewn Scans (EN): Update</li>
-                <li>[Servers] Manga-Tube (DE): Update</li>
-                <li>[Servers] MangaCrab (ES): Update</li>
-                <li>[Servers] Mint Manga (RU): Update</li>
-                <li>[Servers] Read Manga (RU): Update</li>
-                <li>[Servers] Reaper Scans (EN): Update</li>
-                <li>[Servers] Self Manga (RU): Update</li>
-                <li>[Servers] Tecno Scans (ES): Update</li>
-                <li>[L10n] Updated Bulgarian, Finnish, Portuguese (Brazil), Spanish, Turkish and Ukrainian translations</li>
+                <li>[Tracking] Improved dialog size adjustment and handling of errors when query trackers</li>
+                <li>[Servers] Terco Scans (ES): Update</li>
+                <li>[Servers] Flame Comics (EN): Update</li>
+                <li>[Servers] Team-X (AR): Update</li>
+                <li>[Servers] SushiScan (FR): Update</li>
+                <li>[L10n] Updated Bulgarian translation</li>
             </ul>
             <p>Happy reading.</p>
         """)
