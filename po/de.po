@@ -5,21 +5,22 @@
 # Tim <RC2225@users.noreply.github.com>, 2024.
 # Tim <rc2225@ghueder-schrott.com>, 2024.
 # Sear Gasor <tefffd@proton.me>, 2024.
+# Vortex Acherontic <vortex@z-ray.de>, 2024.
 msgid ""
 msgstr ""
 "Project-Id-Version: Komikku 0.19.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-10-11 01:09+0200\n"
-"PO-Revision-Date: 2024-07-12 00:09+0000\n"
-"Last-Translator: Sear Gasor <tefffd@proton.me>\n"
-"Language-Team: German <https://hosted.weblate.org/projects/komikku/main/de/"
-">\n"
+"PO-Revision-Date: 2024-11-13 14:00+0000\n"
+"Last-Translator: Vortex Acherontic <vortex@z-ray.de>\n"
+"Language-Team: German <https://hosted.weblate.org/projects/komikku/main/de/>"
+"\n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.7-dev\n"
+"X-Generator: Weblate 5.9-dev\n"
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:11
 msgid "Discover and read manga &amp; comics"
@@ -86,7 +87,7 @@ msgstr "Die Bibliotheksseite"
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:50
 msgid "The Library page with the category sidebar open"
-msgstr ""
+msgstr "Bibliothek mit offener Kategorieseitenleiste"
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:54
 msgid "The Preferences page (Library settings)"
@@ -94,7 +95,7 @@ msgstr "Die Einstellungsseite (Bibliothekseinstellungen)"
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:58
 msgid "The Explorer page in mobile format (Servers list)"
-msgstr ""
+msgstr "Erkundungsseite im mobilen Format (Server Liste)"
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:62
 msgid "The Details page"
@@ -114,11 +115,11 @@ msgstr "Die Leseseite im Mobilformat"
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:78
 msgid "The Category editor page in mobile format"
-msgstr ""
+msgstr "Kategorieeditor im mobilen Format"
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:82
 msgid "The Reading history page in mobile format"
-msgstr ""
+msgstr "Lesehistorie im mobilen Format"
 
 #: ../data/info.febvre.Komikku.desktop.in:3
 msgid "@prettyname@"
@@ -133,6 +134,8 @@ msgid ""
 "manga;reader;viewer;comic;manhwa;manhua;bd;webtoon;webcomic;scan;offline;GTK;"
 "GNOME;"
 msgstr ""
+"manga;lesen;anzeigen;comic;manhwa;manhua;db;webtook;webcomic;scan;offline;GTK"
+";GHOME;"
 
 #: ../data/ui/card.blp:32 ../data/ui/card.blp:437
 #: ../data/ui/card_chapters_list_row.blp:44 ../data/ui/download_manager.blp:22
@@ -184,7 +187,7 @@ msgstr "Neu"
 
 #: ../data/ui/card_tracking.blp:9
 msgid "Tracking"
-msgstr ""
+msgstr "Tracking"
 
 #: ../data/ui/card_tracking_search.blp:10 ../data/ui/explorer_search.blp:10
 #: ../data/ui/explorer_search.blp:41 ../data/ui/history.blp:18
@@ -203,7 +206,7 @@ msgstr "Download-Manager"
 
 #: ../data/ui/download_manager.blp:28
 msgid "Start/Stop Download"
-msgstr ""
+msgstr "Download starten/anhalten"
 
 #: ../data/ui/download_manager.blp:65
 msgid "No Downloads"
@@ -248,7 +251,7 @@ msgstr "Zuletzt gelesen"
 
 #: ../data/ui/history.blp:69
 msgid "No History"
-msgstr ""
+msgstr "Keine Historie"
 
 #: ../data/ui/library.blp:6 ../data/ui/preferences.blp:66
 msgid "Library"
@@ -256,7 +259,7 @@ msgstr "Bibliothek"
 
 #: ../data/ui/library.blp:19
 msgid "Toggle Categories Sidebar"
-msgstr ""
+msgstr "Kategorieseitenleiste wechseln"
 
 #: ../data/ui/library.blp:23
 msgid "Komikku"
@@ -349,11 +352,11 @@ msgstr "Alphabetisch"
 
 #: ../data/ui/menu/main.xml:21
 msgid "Latest Read First"
-msgstr ""
+msgstr "Zuletzt gelesene zu erst"
 
 #: ../data/ui/menu/main.xml:26
 msgid "Latest Updated First"
-msgstr ""
+msgstr "Zuletzt aktualisierte zu erst"
 
 #: ../data/ui/menu/main.xml:55
 msgid "Keyboard Shortcuts"
@@ -418,19 +421,19 @@ msgstr "Aktiviert nachts automatisch das dunkle Farbschema"
 
 #: ../data/ui/preferences.blp:36
 msgid "Accent Color"
-msgstr ""
+msgstr "Akzentfarbe"
 
 #: ../data/ui/preferences.blp:37
 msgid "Use system accent colors"
-msgstr ""
+msgstr "System Akzentfarbe verwenden"
 
 #: ../data/ui/preferences.blp:41
 msgid "Backdrop in Details Page"
-msgstr ""
+msgstr "Hintergrund in der Detailseite"
 
 #: ../data/ui/preferences.blp:42
 msgid "Enable background recoloring to match cover"
-msgstr ""
+msgstr "Hintergrund einfärben um mit dem Einband übereinzustimmen"
 
 #: ../data/ui/preferences.blp:50
 msgid "Desktop Notifications"
@@ -442,7 +445,7 @@ msgstr "Nutzt Desktop-Benachrichtigungen für Downloads und Bibliothekupdates"
 
 #: ../data/ui/preferences.blp:59
 msgid "Synchronize reading progress"
-msgstr ""
+msgstr "Lesefortschritt synchronisieren"
 
 #: ../data/ui/preferences.blp:70
 msgid "Display"
@@ -502,7 +505,7 @@ msgstr "Lädt neue Kapitel automatisch herunter"
 
 #: ../data/ui/preferences.blp:167
 msgid "Explorer"
-msgstr ""
+msgstr "Erkunden"
 
 #: ../data/ui/preferences.blp:170
 #: ../data/ui/preferences_servers_languages.blp:6
@@ -556,11 +559,12 @@ msgid ""
 "These settings do not prevent potentially incorrectly flagged servers from "
 "surfacing NSFW content."
 msgstr ""
+"Diese Einstellungen verhindern nicht , dass falsch konfigurierte Server NFSW "
+"Inhalte ausspielen."
 
 #: ../data/ui/preferences.blp:220 ../data/ui/reader.blp:6
-#, fuzzy
 msgid "Reader"
-msgstr "Leser"
+msgstr "Lesen"
 
 #: ../data/ui/preferences.blp:225
 msgid "Reading Mode"
@@ -617,19 +621,19 @@ msgstr "Originalgröße"
 
 #: ../data/ui/preferences.blp:262
 msgid "Scaling Filter"
-msgstr ""
+msgstr "Skalierungsfilter"
 
 #: ../data/ui/preferences.blp:263
 msgid "Interpolation method used when scaling images"
-msgstr ""
+msgstr "Inerpolationsmodus zum skalieren von Bildern"
 
 #: ../data/ui/preferences.blp:266
 msgid "Linear"
-msgstr ""
+msgstr "Linear"
 
 #: ../data/ui/preferences.blp:267
 msgid "Trilinear"
-msgstr ""
+msgstr "Trilinear"
 
 #: ../data/ui/preferences.blp:273
 msgid "Landscape Pages Zoom"
@@ -706,19 +710,19 @@ msgstr "Daten nicht in der Bibliothek gespeichert"
 
 #: ../data/ui/preferences.blp:316
 msgid "Clear Chapters Cache and Database"
-msgstr ""
+msgstr "Kapitelzwischenspeicher und Datenbank leeren"
 
 #: ../data/ui/preferences.blp:321
 msgid "Clear Chapters Cache and Database on Exit"
-msgstr ""
+msgstr "Kapitelzwischenspeicher und Datenbank beim beenden leeren"
 
 #: ../data/ui/preferences.blp:326
 msgid "Servers Modules"
-msgstr ""
+msgstr "Servermodule"
 
 #: ../data/ui/preferences.blp:329
 msgid "Use Up-to-date Servers Modules"
-msgstr ""
+msgstr "Aktuelle Servermodule verwenden"
 
 #: ../data/ui/preferences.blp:330
 msgid ""
@@ -726,14 +730,17 @@ msgid ""
 "code repository and updated at each startup, is used instead of the one "
 "delivered with the application."
 msgstr ""
+"Eine alternative Version des Servermoduls, anstelle des von der Anwendung "
+"bereit gestellten, wird verwendet. Dieses wurde vom Quelldepot installiert "
+"und wird bei jedem Programmstart automatisch aktualisiert."
 
 #: ../data/ui/preferences.blp:335
 msgid "Credentials Storage"
-msgstr ""
+msgstr "Zugansdatenspeicher"
 
 #: ../data/ui/preferences.blp:338
 msgid "Allow Plaintext Storage as Fallback"
-msgstr ""
+msgstr "Klartextspeicherung als Rückfalloption erlauben"
 
 #: ../data/ui/preferences.blp:339
 msgid "Used when no keyring backends are found"
@@ -761,6 +768,9 @@ msgid ""
 "environment and therefore cannot disable animations globally via GNOME "
 "Settings (Accessibility ⇨ Seeing ⇨ Animation Effects)."
 msgstr ""
+"Diese Optimierung ist nur für Benutzer gedacht, die nicht den GNOME Desktop "
+"verwenden und Animationen nicht global über die Einstellungen ("
+"Barrierefreiheit ⇨ Sehen ⇨ Animationeseffekte) deaktivieren können."
 
 #: ../data/ui/reader.blp:19
 msgid "Back"
@@ -788,7 +798,7 @@ msgstr "Vollbildmodus umschalten"
 #: ../data/ui/shortcuts_overview.blp:24
 msgctxt "Shortcut window description"
 msgid "Open Keyboard Shortcuts"
-msgstr ""
+msgstr "Tastaturkurzbefehle öffnen"
 
 #: ../data/ui/shortcuts_overview.blp:30
 msgctxt "Shortcut window description"
@@ -838,7 +848,7 @@ msgstr "Download-Manager"
 #: ../data/ui/shortcuts_overview.blp:70
 msgctxt "Shortcut window description"
 msgid "Select All Downloads"
-msgstr ""
+msgstr "Alle Download auswählen"
 
 #: ../data/ui/support.blp:6 ../data/ui/support.blp:12
 msgid "Support Development"
@@ -909,11 +919,11 @@ msgstr "Abbrechen"
 
 #: ../komikku/application.py:477
 msgid "Servers modules have been updated"
-msgstr ""
+msgstr "Servermodule wurden aktualisiert"
 
 #: ../komikku/application.py:485
 msgid "External Servers Modules Update"
-msgstr ""
+msgstr "Externe Servermodule aktualisieren"
 
 #: ../komikku/application.py:486
 msgid ""
@@ -921,6 +931,10 @@ msgid ""
 "currently making them incompatible with the current version of the "
 "application. Please update it if a more recent version exists."
 msgstr ""
+"Die Aktualisierung von externen Servermodulen ist derzeit deaktiviert. Durch "
+"neuste Änderungen in der aktuellen Version dieser Anwendung wurden diese "
+"inkompatibel. Bitte aktualisieren Sie die Anwendung falls eine neuere "
+"Version zur Verfügung steht."
 
 #: ../komikku/application.py:489 ../komikku/explorer/common.py:273
 msgid "Close"
@@ -942,7 +956,7 @@ msgstr ""
 
 #: ../komikku/application.py:517
 msgid "Supporters"
-msgstr ""
+msgstr "Unterstützer"
 
 #: ../komikku/application.py:519
 msgid "Join Chat"
@@ -1045,19 +1059,19 @@ msgstr "Vorhergehende Kapitel als gelesen markiere"
 
 #: ../komikku/card/tracking.py:91
 msgid "No tracking services available"
-msgstr ""
+msgstr "Keine Trackingdienste verfügbar"
 
 #: ../komikku/card/tracking.py:118
 msgid "Track"
-msgstr ""
+msgstr "Track"
 
 #: ../komikku/card/tracking.py:147
 msgid "Use"
-msgstr ""
+msgstr "Benutzen"
 
 #: ../komikku/card/tracking.py:155
 msgid "Cancel Tracking"
-msgstr ""
+msgstr "Tracking abbrechen"
 
 #: ../komikku/card/tracking.py:161 ../komikku/servers/mangadex/__init__.py:71
 #: ../komikku/servers/mangafire/__init__.py:57
@@ -1069,11 +1083,11 @@ msgstr "Status"
 
 #: ../komikku/card/tracking.py:170
 msgid "Score"
-msgstr ""
+msgstr "Punktzahl"
 
 #: ../komikku/card/tracking.py:175
 msgid "Chapter"
-msgstr ""
+msgstr "Kapitel"
 
 #: ../komikku/card/tracking.py:187 ../komikku/categories_editor.py:78
 #: ../komikku/library/__init__.py:365
@@ -1082,7 +1096,7 @@ msgstr "Löschen?"
 
 #: ../komikku/card/tracking.py:188
 msgid "Are you sure you want to cancel tracking?"
-msgstr ""
+msgstr "Wollen Sie das Tracking wirklich abbrechen?"
 
 #: ../komikku/card/tracking.py:189 ../komikku/categories_editor.py:80
 #: ../komikku/categories_editor.py:178 ../komikku/library/__init__.py:367
@@ -1142,11 +1156,11 @@ msgstr[1] "{0} Kapitel"
 
 #: ../komikku/explorer/common.py:118
 msgid "Last Chapter: {}"
-msgstr ""
+msgstr "Letztes Kapitel: {}"
 
 #: ../komikku/explorer/common.py:120
 msgid "Last Volume: {}"
-msgstr ""
+msgstr "Letzte Ausgabe: {}"
 
 #: ../komikku/explorer/common.py:228
 msgid "Comics stored locally as archives in CBZ/CBR formats"
