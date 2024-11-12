@@ -13,9 +13,13 @@ class Mangareaderto(Mangareader):
 
     languages_codes = dict(
         en='en',
+        es='es',
+        es_419='es-mx',
         fr='fr',
         ja='ja',
         ko='ko',
+        pt='pt',
+        pt_BR='pt-br',
         zh_Hans='zh',
     )
 
@@ -25,6 +29,16 @@ class Mangareaderto(Mangareader):
     manga_url = base_url + '/{0}'
     chapter_url = base_url + '/read/{0}/{1}/{2}'
     api_chapter_images_url = base_url + '/ajax/image/list/chap/{0}?mode=vertical&quality=medium&hozPageSize=1'
+
+
+class Mangareaderto_es(Mangareaderto):
+    id = 'mangareaderto_es'
+    lang = 'es'
+
+
+class Mangareaderto_es_419(Mangareaderto):
+    id = 'mangareaderto_es_419'
+    lang = 'es_419'
 
 
 class Mangareaderto_fr(Mangareaderto):
@@ -42,6 +56,16 @@ class Mangareaderto_ko(Mangareaderto):
     lang = 'ko'
 
 
+class Mangareaderto_pt(Mangareaderto):
+    id = 'mangareaderto_pt'
+    lang = 'pt'
+
+
+class Mangareaderto_pt_br(Mangareaderto):
+    id = 'mangareaderto_pt_br'
+    lang = 'pt_BR'
+
+
 class Mangareaderto_zh_hans(Mangareaderto):
-    id = 'mangareaderto_ko'
+    id = 'mangareaderto_zh_hans'
     lang = 'zh_Hans'
