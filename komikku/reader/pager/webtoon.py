@@ -26,26 +26,24 @@ class WebtoonPager(Adw.Bin, BasePager):
         super().__init__()
         BasePager.__init__(self, reader)
 
-        self.clamp = Adw.Clamp()
-        self.clamp.set_maximum_size(Settings.get_default().clamp_size)
-        self.clamp.set_tightening_threshold(Settings.get_default().clamp_size)
-        self.set_child(self.clamp)
-
         self.scrolledwindow = Gtk.ScrolledWindow()
         self.scrolledwindow.set_policy(Gtk.PolicyType.NEVER, Gtk.PolicyType.AUTOMATIC)
         self.scrolledwindow.get_vscrollbar().set_visible(False)
         self.scrolledwindow.set_kinetic_scrolling(True)
+        self.scrolledwindow.get_vadjustment().connect('value-changed', self.on_scroll)
+        self.set_child(self.scrolledwindow)
+
+        self.clamp = Adw.ClampScrollable()
+        self.clamp.set_maximum_size(Settings.get_default().clamp_size)
+        self.clamp.set_tightening_threshold(Settings.get_default().clamp_size)
+        self.scrolledwindow.set_child(self.clamp)
 
         self.canvas = KInfiniteCanvas(self)
         self.canvas.connect('keyboard-navigation', self.on_keyboard_navigation)
         self.canvas.connect('controls-zone-clicked', self.on_controls_zone_clicked)
         self.canvas.connect('offlimit', self.on_offlimit)
         self.canvas.connect('page-requested', self.on_page_requested)
-
-        self.scrolledwindow.set_child(self.canvas)
-        self.scrolledwindow.get_vadjustment().connect('value-changed', self.on_scroll)
-
-        self.clamp.set_child(self.scrolledwindow)
+        self.clamp.set_child(self.canvas)
 
     @property
     def pages(self):

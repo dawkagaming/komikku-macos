@@ -171,9 +171,9 @@ class KInfiniteCanvas(Gtk.Widget, Gtk.Scrollable):
         page.render()
 
     def cancel_deceleration(self):
-        # Assume parent of `self` is a Gtk.ScrolledWindow
-        self.get_parent().set_kinetic_scrolling(False)
-        self.get_parent().set_kinetic_scrolling(True)
+        # Assume grandparent of `self` is a Gtk.ScrolledWindow
+        self.get_parent().get_parent().set_kinetic_scrolling(False)
+        self.get_parent().get_parent().set_kinetic_scrolling(True)
 
     def clear(self):
         page = self.get_last_child()
@@ -477,5 +477,5 @@ class KInfiniteCanvas(Gtk.Widget, Gtk.Scrollable):
         self.is_scroll_decelerating = False
         self.scroll_direction = Gtk.DirectionType.UP if type == Gtk.ScrollType.STEP_UP else Gtk.DirectionType.DOWN
 
-        # Assume parent is a Gtk.ScrolledWindow
-        self.get_parent().emit('scroll-child', type, False)
+        # Assume grandparent is a Gtk.ScrolledWindow
+        self.get_parent().get_parent().emit('scroll-child', type, False)
