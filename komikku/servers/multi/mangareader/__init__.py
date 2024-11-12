@@ -24,6 +24,8 @@ class Mangareader(Server):
     chapter_url: str
     api_chapter_images_url: str
 
+    languages_codes: dict
+
     def __init__(self):
         if self.session is None:
             self.session = requests.Session()
@@ -231,7 +233,7 @@ class Mangareader(Server):
         return self.get_manga_list(sort='most-viewed')
 
     def search(self, term):
-        # Beware: Search does not take language into account
+        # Search does not take language into account
         r = self.session_get(
             self.search_url,
             params=dict(keyword=term),
@@ -246,6 +248,10 @@ class Mangareader(Server):
 
         results = []
         for item in soup.select('.item-spc'):
+            langs = item.select_one('.tick-lang').text.strip().split('/')
+            if self.languages_codes[self.lang].upper() not in langs:
+                continue
+
             results.append(dict(
                 slug=item.select_one('.manga-name > a').get('href').split('/')[-1],
                 name=item.select_one('.manga-name').text.strip(),
