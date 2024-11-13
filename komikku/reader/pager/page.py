@@ -95,10 +95,12 @@ class Page(Gtk.Overlay):
             self.picture.dispose()
             self.picture = None
 
-        if self.reader.reading_mode != 'webtoon':
-            self.get_parent().remove(self)
-        else:
+        if self.get_parent().__class__.__name__ == 'KInfiniteCanvas':
+            # Webtoon pager: unparent from KInfiniteCanvas
             self.unparent()
+        else:
+            # RTL/LTR/Vertical pager: remove from Adw.Carousel
+            self.get_parent().remove(self)
 
     def on_button_retry_clicked(self, _button):
         self.chapter = self.init_chapter
