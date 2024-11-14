@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: Komikku 1.47.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-10-11 01:09+0200\n"
-"PO-Revision-Date: 2024-08-20 16:09+0000\n"
+"PO-Revision-Date: 2024-11-15 13:00+0000\n"
 "Last-Translator: Milo Ivir <mail@milotype.de>\n"
 "Language-Team: Croatian <https://hosted.weblate.org/projects/komikku/main/hr/"
 ">\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
 "n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
-"X-Generator: Weblate 5.7\n"
+"X-Generator: Weblate 5.9-dev\n"
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:11
 msgid "Discover and read manga &amp; comics"
@@ -84,11 +84,11 @@ msgstr "Stranica biblioteke"
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:50
 msgid "The Library page with the category sidebar open"
-msgstr "Stranica biblioteke s otvorenom bočnom trakom kategorije"
+msgstr "Stranica biblioteke s otvorenom bočnom trakom kategorija"
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:54
 msgid "The Preferences page (Library settings)"
-msgstr "Stranica osobnih postavki (postavke biblioteke)"
+msgstr "Stranica postavki (postavke biblioteke)"
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:58
 msgid "The Explorer page in mobile format (Servers list)"
@@ -183,7 +183,7 @@ msgstr "Nova"
 
 #: ../data/ui/card_tracking.blp:9
 msgid "Tracking"
-msgstr ""
+msgstr "Praćenje"
 
 #: ../data/ui/card_tracking_search.blp:10 ../data/ui/explorer_search.blp:10
 #: ../data/ui/explorer_search.blp:41 ../data/ui/history.blp:18
@@ -221,7 +221,7 @@ msgstr "Najpopularniji"
 
 #: ../data/ui/explorer_search.blp:218
 msgid "Latest Updates"
-msgstr "Najnovija aktualiziranja"
+msgstr "Zadnja aktualiziranja"
 
 #: ../data/ui/explorer_servers.blp:6
 msgid "Servers"
@@ -374,7 +374,7 @@ msgstr "Odreži rubove"
 
 #: ../data/ui/menu/reader.xml:117
 msgid "Hide Page Numbering"
-msgstr "Sakrij numeriranje stranica"
+msgstr "Sakrij brojeve stranica"
 
 #: ../data/ui/menu/reader.xml:124
 msgid "Save Page"
@@ -383,11 +383,11 @@ msgstr "Spremi stranicu"
 #: ../data/ui/preferences.blp:9 ../data/ui/preferences_servers_languages.blp:11
 #: ../data/ui/preferences_servers_settings.blp:11
 msgid "Preferences"
-msgstr "Osobne postavke"
+msgstr "Postavke"
 
 #: ../data/ui/preferences.blp:14
 msgid "General"
-msgstr "Općenito"
+msgstr "Opće"
 
 #: ../data/ui/preferences.blp:20
 msgid "Theme"
@@ -415,11 +415,11 @@ msgstr "Automatski aktiviraj tamnu temu noću"
 
 #: ../data/ui/preferences.blp:36
 msgid "Accent Color"
-msgstr ""
+msgstr "Boja isticanja"
 
 #: ../data/ui/preferences.blp:37
 msgid "Use system accent colors"
-msgstr ""
+msgstr "Koristi boju isticanja od sustava"
 
 #: ../data/ui/preferences.blp:41
 msgid "Backdrop in Details Page"
@@ -436,11 +436,12 @@ msgstr "Obavijesti na radnoj površini"
 #: ../data/ui/preferences.blp:51
 msgid "Use desktop notifications for downloads and library updates"
 msgstr ""
-"Koristi obavijesti na radnoj površini za preuzimanja i ažuriranja biblioteke"
+"Koristi obavijesti na radnoj površini za preuzimanja i aktualiziranja "
+"biblioteke"
 
 #: ../data/ui/preferences.blp:59
 msgid "Synchronize reading progress"
-msgstr ""
+msgstr "Sinkroniziraj napredak čitanja"
 
 #: ../data/ui/preferences.blp:70
 msgid "Display"
@@ -448,7 +449,7 @@ msgstr "Prikaz"
 
 #: ../data/ui/preferences.blp:73
 msgid "Display Mode"
-msgstr "Način prikaza"
+msgstr "Modus prikaza"
 
 #: ../data/ui/preferences.blp:76
 msgid "Grid"
@@ -635,8 +636,8 @@ msgstr "Zumiranje položenih stranica"
 msgid ""
 "Zoom page to fit height when page is landscape (Adapt to Screen scaling only)"
 msgstr ""
-"Zumiraj stranicu tako da se prilagodi visini kada je stranica položena "
-"(prilagodi samo skaliranju ekrana)"
+"Zumiraj stranicu tako da se prilagodi visini kada je stranica položena (samo "
+"za „Prilagodi veličini ekrana”)"
 
 #: ../data/ui/preferences.blp:278
 msgid "Background Color"
@@ -676,11 +677,11 @@ msgstr ""
 
 #: ../data/ui/preferences.blp:295
 msgid "Page Numbering"
-msgstr "Numeriranje stranica"
+msgstr "Brojevi stranica"
 
 #: ../data/ui/preferences.blp:296
 msgid "Hide the page numbering at the bottom of the screen while reading"
-msgstr "Sakrij numeriranje stranica na dnu ekrana tijekom čitanja"
+msgstr "Sakrij brojeve stranica na dnu ekrana tijekom čitanja"
 
 #: ../data/ui/preferences.blp:300
 msgid "Fullscreen"
@@ -763,6 +764,9 @@ msgid ""
 "environment and therefore cannot disable animations globally via GNOME "
 "Settings (Accessibility ⇨ Seeing ⇨ Animation Effects)."
 msgstr ""
+"Ovo je podešavanje namijenjeno samo korisnicima koji ne koriste GNOME "
+"okruženje radne površine i stoga ne mogu globalno deaktivirati animacije "
+"putem GNOME postavki (Pristupačnost ⇨ Gledanje ⇨ Efekti animacija)."
 
 #: ../data/ui/reader.blp:19
 msgid "Back"
@@ -780,7 +784,7 @@ msgstr "Aplikacija"
 #: ../data/ui/shortcuts_overview.blp:14
 msgctxt "Shortcut window description"
 msgid "Open Preferences"
-msgstr "Otvori osobitosti"
+msgstr "Otvori postavke"
 
 #: ../data/ui/shortcuts_overview.blp:19
 msgctxt "Shortcut window description"
@@ -891,7 +895,7 @@ msgstr "Jednokratna ili mjesečna donacija"
 
 #: ../data/ui/webview.blp:6
 msgid "Webview"
-msgstr "Web-prikaz"
+msgstr "Web prikaz"
 
 #: ../komikku/application.py:176
 msgid "Multiple URLs not supported"
@@ -1050,19 +1054,19 @@ msgstr "Označi prethodna poglavlja kao pročitana"
 
 #: ../komikku/card/tracking.py:91
 msgid "No tracking services available"
-msgstr ""
+msgstr "Nema dostupnih usluga praćenja"
 
 #: ../komikku/card/tracking.py:118
 msgid "Track"
-msgstr ""
+msgstr "Prati"
 
 #: ../komikku/card/tracking.py:147
 msgid "Use"
-msgstr ""
+msgstr "Koristi"
 
 #: ../komikku/card/tracking.py:155
 msgid "Cancel Tracking"
-msgstr ""
+msgstr "Prekini praćenje"
 
 #: ../komikku/card/tracking.py:161 ../komikku/servers/mangadex/__init__.py:71
 #: ../komikku/servers/mangafire/__init__.py:57
@@ -1074,11 +1078,11 @@ msgstr "Stanje"
 
 #: ../komikku/card/tracking.py:170
 msgid "Score"
-msgstr ""
+msgstr "Rezultat"
 
 #: ../komikku/card/tracking.py:175
 msgid "Chapter"
-msgstr ""
+msgstr "Poglavlje"
 
 #: ../komikku/card/tracking.py:187 ../komikku/categories_editor.py:78
 #: ../komikku/library/__init__.py:365
@@ -1087,7 +1091,7 @@ msgstr "Izbrisati?"
 
 #: ../komikku/card/tracking.py:188
 msgid "Are you sure you want to cancel tracking?"
-msgstr ""
+msgstr "Stvarno želiš prekinuti praćenje?"
 
 #: ../komikku/card/tracking.py:189 ../komikku/categories_editor.py:80
 #: ../komikku/categories_editor.py:178 ../komikku/library/__init__.py:367
@@ -1245,11 +1249,11 @@ msgstr "Ups, dohvaćanje informacija mange nije uspjelo."
 
 #: ../komikku/explorer/search/latest_updates.py:66
 msgid "Oops, failed to retrieve latest updates."
-msgstr "Ups, dohvaćanje najnovija aktualiziranja nije uspjelo."
+msgstr "Ups, dohvaćanje zadnjih aktualiziranja nije uspjelo."
 
 #: ../komikku/explorer/search/latest_updates.py:70
 msgid "No Latest Updates Found"
-msgstr "Nije pronađeno nijedno najnovije aktualiziranje"
+msgstr "Nije pronađeno nijedno zadnje aktualiziranje"
 
 #: ../komikku/explorer/search/latest_updates.py:78
 #: ../komikku/explorer/search/most_popular.py:78
@@ -1468,23 +1472,23 @@ msgstr "Test"
 #: ../komikku/preferences.py:747 ../komikku/preferences.py:762
 #: ../komikku/preferences.py:785
 msgid "Disconnect"
-msgstr ""
+msgstr "Odspoji"
 
 #: ../komikku/preferences.py:750 ../komikku/preferences.py:777
 msgid "Connect"
-msgstr ""
+msgstr "Spoji"
 
 #: ../komikku/preferences.py:765
 msgid "Failed to request client access"
-msgstr ""
+msgstr "Traženje pristupa klijenta nije uspjelo"
 
 #: ../komikku/preferences.py:768
 msgid "Webview is currently in used. Please retry later."
-msgstr ""
+msgstr "Web prikaz se trenutačno koristi. Pokušaj kasnije ponovo."
 
 #: ../komikku/preferences.py:785
 msgid "Disconnect from {}"
-msgstr ""
+msgstr "Odspoji od {}"
 
 #: ../komikku/reader/__init__.py:362
 #, python-brace-format
@@ -1913,23 +1917,23 @@ msgstr "Platno"
 
 #: ../komikku/trackers/__init__.py:31
 msgid "Reading"
-msgstr ""
+msgstr "Čitanje"
 
 #: ../komikku/trackers/__init__.py:33
 msgid "On Hold"
-msgstr ""
+msgstr "Na čekanju"
 
 #: ../komikku/trackers/__init__.py:34
 msgid "Dropped"
-msgstr ""
+msgstr "Ispušteno"
 
 #: ../komikku/trackers/__init__.py:35
 msgid "Plan to Read"
-msgstr ""
+msgstr "Planirano za čitanje"
 
 #: ../komikku/trackers/__init__.py:36
 msgid "Rereading"
-msgstr ""
+msgstr "Ponovno čitanje"
 
 #: ../komikku/updater.py:106
 msgid "Library update completed with errors"
@@ -1981,7 +1985,7 @@ msgstr "Ups, aktualiziranje nije uspjelo. Pokušaj ponovo."
 
 #: ../komikku/updater.py:169
 msgid "Library update started"
-msgstr "Pokrenuto je aktualiziranje biblioteke"
+msgstr "Aktualiziranje biblioteke je pokrenuto"
 
 #: ../komikku/utils.py:311
 msgid "You are currently offline"
