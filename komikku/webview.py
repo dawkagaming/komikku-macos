@@ -190,7 +190,7 @@ class WebviewPage(Adw.NavigationPage):
 
     def exit(self):
         if self.window.page != self.props.tag:
-            # Page has already been popped or has never been pushed (no CF chanllenge)
+            # Page has already been popped or has never been pushed (no challenge)
             # No need to wait `hidden` event to flag it as exited
             self.exited = True
             return
@@ -383,6 +383,8 @@ class CompleteChallenge:
 
         if event != WebKit.LoadEvent.REDIRECTED and '__cf_chl_tk' in self.webview.webkit_webview.get_uri():
             # Challenge has been passed
+            self.webview.title.set_title(_('Please wait…'))
+
             # Disable images auto-load
             logger.debug('Disable images automatic loading')
             self.webview.webkit_webview.get_settings().set_auto_load_images(False)
@@ -435,8 +437,7 @@ class CompleteChallenge:
         if title != 'ready':
             return
 
-        # Challenge has been passed
-        # Exit from webview if end of challenge has not been detected in on_load_changed()
+        # Challenge has been passed and page is loaded
         # Webview should not be closed, we need to store cookies first
         self.webview.exit()
 
