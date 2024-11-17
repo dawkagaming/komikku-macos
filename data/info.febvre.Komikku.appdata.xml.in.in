@@ -99,6 +99,21 @@
     <url type="donation">https://valos.gitlab.io/Komikku/#sponsor</url>
 
     <releases>
+        <release version="1.63.0" date="2024-11-18">
+            <description translate="no">
+                <ul>
+                    <li>[Preferences] Servers settings: Added language indicator</li>
+                    <li>[Reader] Fixed keyboard navigation bugs after changing reading mode</li>
+                    <li>[Reader] Webtoon pager: Extended scrollable zone to all viewport</li>
+                    <li>[Reader] Fixed unwanted display/hiding of cursor during keyboard navigation</li>
+                    <li>[Servers] MangaReader: Added ES/ES_LA/PT/pt_BR languages support</li>
+                    <li>[Servers] MangaReader (multi): Improved search by finally taking into account language</li>
+                    <li>[Servers] Read Comic Online (EN): Update</li>
+                    <li>[L10n] Updated Croatian and German translations</li>
+                </ul>
+                <p>Happy reading.</p>
+            </description>
+        </release>
         <release version="1.62.0" date="2024-11-11">
             <description translate="no">
                 <ul>
