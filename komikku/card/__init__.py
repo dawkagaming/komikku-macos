@@ -382,7 +382,7 @@ class CardPage(Adw.NavigationPage):
         # Reset scrolling in all pages
         for page in self.stack.get_pages():
             scrolledwindow = page.get_child() if page.props.name != 'chapters' else page.get_child().get_first_child()
-            scrolledwindow.get_vadjustment().props.value = 0
+            scrolledwindow.get_vadjustment().configure(0, 0, 0, 0, 0, 0)
 
         self.window.navigationview.push(self)
 
