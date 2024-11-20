@@ -25,7 +25,7 @@ class Mangademon(Server):
     name = 'Manga Demon'
     lang = 'en'
 
-    base_url = 'https://ciorti.online'
+    base_url = 'https://demonicscans.org'
     search_url = base_url + '/search.php'
     latest_updates_url = base_url + '/lastupdates.php'
     most_populars_url = base_url + '/advanced.php'
