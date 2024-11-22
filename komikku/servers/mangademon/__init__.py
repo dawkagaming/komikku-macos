@@ -137,7 +137,7 @@ class Mangademon(Server):
         data = dict(
             pages=[],
         )
-        for img_element in soup.select('.imgholder'):
+        for img_element in soup.select('div > .imgholder'):
             data['pages'].append(dict(
                 slug=None,
                 image=img_element.get('src'),
