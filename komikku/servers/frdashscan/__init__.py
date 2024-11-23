@@ -16,6 +16,7 @@ class Frdashscan(Madara):
     name = 'Fr-Scan'
     lang = 'fr'
     is_nsfw = True
+    status = 'disabled'
 
     date_format = None
 
