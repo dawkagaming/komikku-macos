@@ -11,6 +11,7 @@ class Mangascan(MyMangaReaderCMS):
     id = 'mangascan'
     name = 'Manga Scan'
     lang = 'fr'
+    status = 'disabled'
 
     base_url = 'https://mangascan-fr.net'
     search_url = base_url + '/search'
