@@ -66,7 +66,7 @@ def test_flamescans(flamescans_server):
     # Get chapter data
     print("Get chapter data")
     try:
-        response = flamescans_server.get_manga_chapter_data(None, None, chapter_slug, None)
+        response = flamescans_server.get_manga_chapter_data(slug, None, chapter_slug, None)
         page = response['pages'][0]
     except Exception as e:
         page = None
@@ -78,7 +78,7 @@ def test_flamescans(flamescans_server):
     # Get page image
     print('Get page image')
     try:
-        response = flamescans_server.get_manga_chapter_page_image(None, None, chapter_slug, page)
+        response = flamescans_server.get_manga_chapter_page_image(slug, None, chapter_slug, page)
     except Exception as e:
         response = None
         log_error_traceback(e)

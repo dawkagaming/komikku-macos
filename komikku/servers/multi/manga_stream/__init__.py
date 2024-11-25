@@ -6,7 +6,6 @@
 
 # Supported servers:
 # Cartel De Manhwas [ES]
-# Flam Scans [EN]
 # Iris Scanlator [pt_BR]
 # Lelmanga [FR]
 # Neko Scans [ES] (Disabled)
