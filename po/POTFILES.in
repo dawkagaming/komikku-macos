@@ -53,6 +53,7 @@ komikku/servers/bilibili/__init__.py
 komikku/servers/coloredcouncil/__init__.py
 komikku/servers/dynasty/__init__.py
 komikku/servers/exceptions.py
+komikku/servers/flamescans/__init__.py
 komikku/servers/mangadex/__init__.py
 komikku/servers/mangafire/__init__.py
 komikku/servers/mangamana/__init__.py
@@ -64,6 +65,7 @@ komikku/servers/multi/mangareader/__init__.py
 komikku/servers/multi/manga_stream/__init__.py
 komikku/servers/readmanhwa/__init__.py
 komikku/servers/webtoon/__init__.py
+komikku/servers/weebcentral/__init__.py
 komikku/trackers/__init__.py
 komikku/updater.py
 komikku/utils.py

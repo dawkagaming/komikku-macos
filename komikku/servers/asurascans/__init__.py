@@ -31,7 +31,7 @@ class Asurascans(Server):
             'key': 'type',
             'type': 'select',
             'name': _('Type'),
-            'description': _('Filter by type'),
+            'description': _('Filter by Type'),
             'value_type': 'single',
             'default': '',
             'options': [

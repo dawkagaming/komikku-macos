@@ -36,7 +36,7 @@ class Dynasty(Server):
             'key': 'classes',
             'type': 'select',
             'name': _('Categories'),
-            'description': _('Filter by types'),
+            'description': _('Filter by Types'),
             'value_type': 'multiple',
             'options': [
                 {'key': 'Anthology', 'name': _('Anthology'), 'default': True},

@@ -69,7 +69,7 @@ class Mangadex(Server):
             'key': 'statuses',
             'type': 'select',
             'name': _('Status'),
-            'description': _('Filter by statuses'),
+            'description': _('Filter by Statuses'),
             'value_type': 'multiple',
             'options': [
                 {'key': 'ongoing', 'name': _('Ongoing'), 'default': False},

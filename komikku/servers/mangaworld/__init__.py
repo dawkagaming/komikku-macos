@@ -29,7 +29,7 @@ class Mangaworld(Server):
             'key': 'types',
             'type': 'select',
             'name': _('Type'),
-            'description': _('Filter by types'),
+            'description': _('Filter by Types'),
             'value_type': 'multiple',
             'options': [
                 {'key': 'manga', 'name': _('Manga'), 'default': False},
@@ -44,7 +44,7 @@ class Mangaworld(Server):
             'key': 'statuses',
             'type': 'select',
             'name': _('Status'),
-            'description': _('Filter by statuses'),
+            'description': _('Filter by Statuses'),
             'value_type': 'multiple',
             'options': [
                 {'key': 'ongoing', 'name': _('Ongoing'), 'default': False},
