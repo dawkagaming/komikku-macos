@@ -9,16 +9,16 @@ msgstr ""
 "Project-Id-Version: unnamed project\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-11-25 15:56+0100\n"
-"PO-Revision-Date: 2024-10-10 23:30+0000\n"
+"PO-Revision-Date: 2024-11-25 15:41+0000\n"
 "Last-Translator: Valéry Febvre <vfebvre@easter-eggs.com>\n"
-"Language-Team: French <https://hosted.weblate.org/projects/komikku/main/fr/"
-">\n"
+"Language-Team: French <https://hosted.weblate.org/projects/komikku/main/fr/>"
+"\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 5.8-dev\n"
+"X-Generator: Weblate 5.9-dev\n"
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:11
 msgid "Discover and read manga &amp; comics"
@@ -66,7 +66,7 @@ msgstr "Catégories pour organiser votre bibliothèque"
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:22
 msgid "Automatic tracking of series with MyAnimeList and AniList"
-msgstr ""
+msgstr "Suivi automatique des séries avec MyAnimeList et AniList"
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:23
 msgid "Automatic update of series"
@@ -199,7 +199,7 @@ msgstr "Rechercher"
 
 #: ../data/ui/card_tracking_search.blp:77
 msgid "Search for Tracking"
-msgstr ""
+msgstr "Rechercher un suivi"
 
 #: ../data/ui/categories_editor.blp:33
 msgid "Add"
@@ -739,9 +739,9 @@ msgid ""
 "code repository and updated at each startup, is used instead of the one "
 "delivered with the application."
 msgstr ""
-"Une version alternative des modules serveurs, installée depuis le "
-"référentiel de code source et mise à jour à chaque démarrage, est utilisé à "
-"la place de celui livré avec l'application."
+"Une version alternative des modules serveurs, installée depuis le dépôt du "
+"code source et mise à jour à chaque démarrage, est utilisée à la place de "
+"celle livrée avec l'application."
 
 #: ../data/ui/preferences.blp:335
 msgid "Credentials Storage"
@@ -1070,7 +1070,7 @@ msgstr "Marquer les chapitres précédents comme lus"
 
 #: ../komikku/card/tracking.py:67
 msgid "Failed to get data from tracker"
-msgstr ""
+msgstr "Impossible de récupérer les données auprès du service de suivi"
 
 #: ../komikku/card/tracking.py:95
 msgid "No tracking services available"
@@ -1586,7 +1586,7 @@ msgstr "Type"
 #: ../komikku/servers/multi/manga_stream/__init__.py:70
 #: ../komikku/servers/webtoon/__init__.py:48
 msgid "Filter by Type"
-msgstr ""
+msgstr "Filtrer par type"
 
 #: ../komikku/servers/asurascans/__init__.py:39
 #: ../komikku/servers/coloredcouncil/__init__.py:72
@@ -1676,7 +1676,7 @@ msgstr "Catégories"
 #: ../komikku/servers/mangaworld/__init__.py:32
 #: ../komikku/servers/weebcentral/__init__.py:36
 msgid "Filter by Types"
-msgstr ""
+msgstr "Filtrer par types"
 
 #: ../komikku/servers/dynasty/__init__.py:42
 #: ../komikku/servers/mangadex/__init__.py:103
@@ -1740,12 +1740,12 @@ msgstr "N'existe plus."
 #: ../komikku/servers/flamescans/__init__.py:36
 #: ../komikku/servers/weebcentral/__init__.py:35
 msgid "Types"
-msgstr ""
+msgstr "Types"
 
 #: ../komikku/servers/flamescans/__init__.py:48
 #: ../komikku/servers/weebcentral/__init__.py:48
 msgid "Statuses"
-msgstr ""
+msgstr "Statuts"
 
 #: ../komikku/servers/flamescans/__init__.py:49
 #: ../komikku/servers/mangadex/__init__.py:72
@@ -1753,7 +1753,7 @@ msgstr ""
 #: ../komikku/servers/mangaworld/__init__.py:47
 #: ../komikku/servers/weebcentral/__init__.py:49
 msgid "Filter by Statuses"
-msgstr ""
+msgstr "Filtrer par statuts"
 
 #: ../komikku/servers/flamescans/__init__.py:53
 #: ../komikku/servers/mangadex/__init__.py:76
@@ -2054,7 +2054,7 @@ msgstr "Pas de connexion Internet, délai dépassé ou serveur en panne"
 
 #: ../komikku/webview.py:386
 msgid "Please wait…"
-msgstr ""
+msgstr "Veuillez patienter…"
 
 #: ../komikku/webview.py:433
 msgid "Please complete CAPTCHA"
