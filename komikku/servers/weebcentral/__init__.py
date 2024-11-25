@@ -56,6 +56,7 @@ class Weebcentral(Server):
             ]
         },
     ]
+    long_strip_genres = ['Manhua', 'Manhwa']
 
     def __init__(self):
         if self.session is None:
