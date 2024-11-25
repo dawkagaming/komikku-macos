@@ -525,14 +525,12 @@ available in your region/language."""))
         # Override release notes
         dialog.set_release_notes("""
             <ul>
-                <li>[Preferences] Servers settings: Added language indicator</li>
-                <li>[Reader] Fixed keyboard navigation bugs after changing reading mode</li>
-                <li>[Reader] Webtoon pager: Extended scrollable zone to all viewport</li>
-                <li>[Reader] Fixed unwanted display/hiding of cursor during keyboard navigation</li>
-                <li>[Servers] MangaReader: Added ES/ES_LA/PT/pt_BR languages support</li>
-                <li>[Servers] MangaReader (multi): Improved search by finally taking into account language</li>
-                <li>[Servers] Read Comic Online (EN): Update</li>
-                <li>[L10n] Updated Croatian and German translations</li>
+                <li>[Servers] Added Weeb Central (EN)</li>
+                <li>[Servers] Flame Comics (EN): Update</li>
+                <li>[Servers] Manga Demon (EN): Update</li>
+                <li>[Servers] Fr-Scan (FR): Disabled</li>
+                <li>[Servers] Manga Scan (FR): Disabled</li>
+                <li>[L10n] Updated French translation</li>
             </ul>
             <p>Happy reading.</p>
         """)

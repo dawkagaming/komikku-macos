@@ -99,6 +99,19 @@
     <url type="donation">https://valos.gitlab.io/Komikku/#sponsor</url>
 
     <releases>
+        <release version="1.64.0" date="2024-11-25">
+            <description translate="no">
+                <ul>
+                    <li>[Servers] Added Weeb Central (EN)</li>
+                    <li>[Servers] Flame Comics (EN): Update</li>
+                    <li>[Servers] Manga Demon (EN): Update</li>
+                    <li>[Servers] Fr-Scan (FR): Disabled</li>
+                    <li>[Servers] Manga Scan (FR): Disabled</li>
+                    <li>[L10n] Updated French translation</li>
+                </ul>
+                <p>Happy reading.</p>
+            </description>
+        </release>
         <release version="1.63.0" date="2024-11-18">
             <description translate="no">
                 <ul>
