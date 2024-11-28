@@ -159,8 +159,7 @@ class ChaptersList:
         item.chapter = Chapter.get(item.chapter.id)
         item.emit_changed()
 
-        if reset:
-            self.card.info_box.refresh()
+        self.card.refresh(unread_chapters=reset, info=True)
         self.card.window.library.refresh_on_manga_state_changed(self.card.manga)
 
     def clear_selected_chapters(self, _action, _param, reset):
@@ -171,8 +170,7 @@ class ChaptersList:
             item.chapter = Chapter.get(item.chapter.id)
             item.emit_changed()
 
-        if reset:
-            self.card.info_box.refresh()
+        self.card.refresh(unread_chapters=reset, info=True)
         self.card.window.library.refresh_on_manga_state_changed(self.card.manga)
 
         self.card.leave_selection_mode()
@@ -380,6 +378,8 @@ class ChaptersList:
                 item.emit_changed()
 
             self.card.window.activity_indicator.set_visible(False)
+
+            self.card.refresh(unread_chapters=True)
             self.card.window.library.refresh_on_manga_state_changed(self.card.manga)
         else:
             self.card.window.activity_indicator.set_visible(False)
@@ -433,6 +433,8 @@ class ChaptersList:
         chapter.update(data)
 
         item.emit_changed()
+
+        self.card.refresh(unread_chapters=True)
         self.card.window.library.refresh_on_manga_state_changed(self.card.manga)
 
     def toggle_selected_chapters_read_status(self, _action, _gparam, read):
@@ -468,6 +470,8 @@ class ChaptersList:
 
                 self.card.leave_selection_mode()
                 self.card.window.activity_indicator.set_visible(False)
+
+                self.card.refresh(unread_chapters=True)
                 self.card.window.library.refresh_on_manga_state_changed(self.card.manga)
 
             def run_generator(func):

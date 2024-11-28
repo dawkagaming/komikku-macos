@@ -2,14 +2,14 @@
     color: var(--accent-bg-color);
 }
 
-headerbar label {
+headerbar label.title, headerbar label.subtitle {
     padding-left: 0;
     padding-right: 0;
 }
 
 searchbar > revealer > box {
-    padding-left: 0px;
-    padding-right: 0px;
+    padding-left: 0;
+    padding-right: 0;
 }
 
 /* Override app-notification class */
@@ -26,7 +26,7 @@ searchbar > revealer > box {
 }
 
 /* Badges */
-.badge {
+label.badge {
     color: var(--light-1);
     font-weight: 700;
     background-color: var(--accent-bg-color);
@@ -75,6 +75,13 @@ flowbox flowboxchild:selected {
 /*
  * Manga card
  */
+/* Dangerous override of Adw.ViewSwitcher badge color (global) */
+/* Badge displays the number of unread chapter (per convention in blue) */
+/* Acceptable as long as it's the only badge used in an Adw.ViewSwitcher */
+viewswitcher indicatorbin > indicator {
+	background-color: var(--blue-2); /* unread chapters color */
+}
+
 .backdrop {
     background: linear-gradient(
                     127deg,

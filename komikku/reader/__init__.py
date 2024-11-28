@@ -260,7 +260,7 @@ class ReaderPage(Adw.NavigationPage):
             if self.chapters_consulted:
                 # Refresh to update all previously chapters consulted (last page read may have changed also)
                 # and update info like disk usage
-                self.window.card.refresh(self.chapters_consulted)
+                self.window.card.refresh(unread_chapters=True, info=True, chapters=self.chapters_consulted)
 
         # Sync History page
         if self.window.history in self.window.navigationview.get_navigation_stack():

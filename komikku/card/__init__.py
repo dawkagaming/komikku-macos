@@ -168,6 +168,8 @@ class CardPage(Adw.NavigationPage):
         # Unref chapters to force a reload
         self.manga._chapters = None
 
+        self.set_unread_chapters_badge()
+
         self.show()
 
     def leave_selection_mode(self, *args):
@@ -340,9 +342,13 @@ class CardPage(Adw.NavigationPage):
 
         self.categories_list.populate()
 
-    def refresh(self, chapters):
-        self.info_box.refresh()
-        self.chapters_list.refresh(chapters)
+    def refresh(self, unread_chapters=False, info=False, chapters=None):
+        if unread_chapters:
+            self.set_unread_chapters_badge()
+        if info:
+            self.info_box.refresh()
+        if chapters is not None:
+            self.chapters_list.refresh(chapters)
 
     def reinstantiate_server(self):
         """Used when servers modules origin change: server variable needs to be re-instantiated"""
@@ -365,6 +371,15 @@ class CardPage(Adw.NavigationPage):
         if backdrop_colors_css := self.manga.backdrop_colors_css:
             self.css_provider.load_from_string(backdrop_colors_css)
             self.add_css_class('backdrop')
+
+    def set_unread_chapters_badge(self):
+        # Show unread chapters (with Adw.ViewStackPage badge) if any
+        if unread_chapters := self.manga.nb_unread_chapters:
+            self.stack.get_page(self.stack.get_child_by_name('chapters')).set_badge_number(unread_chapters)
+            # self.stack.get_page(self.stack.get_child_by_name('chapters')).set_needs_attention(True)
+        else:
+            self.stack.get_page(self.stack.get_child_by_name('chapters')).set_badge_number(0)
+            # self.stack.get_page(self.stack.get_child_by_name('chapters')).set_needs_attention(False)
 
     def show(self):
         self.props.title = self.manga.name  # Adw.NavigationPage title
