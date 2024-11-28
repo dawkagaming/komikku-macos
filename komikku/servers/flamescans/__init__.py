@@ -177,7 +177,7 @@ class Flamescans(Server):
         Returns chapter page scan (image) content
         """
         r = self.session_get(
-            self.base_url + page['image'],
+            page['image'],
             headers={
                 'Referer': self.chapter_url.format(manga_slug, chapter_slug),
             }
