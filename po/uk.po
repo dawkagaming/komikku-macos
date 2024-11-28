@@ -11,8 +11,8 @@ msgstr ""
 "Project-Id-Version: Komikku 1.17.1\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-11-25 15:56+0100\n"
-"PO-Revision-Date: 2024-10-18 21:15+0000\n"
-"Last-Translator: DXCVII <dxcvii@duck.com>\n"
+"PO-Revision-Date: 2024-11-29 18:00+0000\n"
+"Last-Translator: Bezruchenko Simon <worcposj44@gmail.com>\n"
 "Language-Team: Ukrainian <https://hosted.weblate.org/projects/komikku/main/"
 "uk/>\n"
 "Language: uk\n"
@@ -21,7 +21,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
 "n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
-"X-Generator: Weblate 5.8-rc\n"
+"X-Generator: Weblate 5.9-dev\n"
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:11
 msgid "Discover and read manga &amp; comics"
@@ -68,7 +68,7 @@ msgstr "Категорії для організації вашої бібліо
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:22
 msgid "Automatic tracking of series with MyAnimeList and AniList"
-msgstr ""
+msgstr "Автоматичне відстеження серіалів за допомогою MyAnimeList та AniList"
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:23
 msgid "Automatic update of series"
@@ -201,7 +201,7 @@ msgstr "Пошук"
 
 #: ../data/ui/card_tracking_search.blp:77
 msgid "Search for Tracking"
-msgstr ""
+msgstr "Шукати за трекінгом"
 
 #: ../data/ui/categories_editor.blp:33
 msgid "Add"
@@ -1068,7 +1068,7 @@ msgstr "Позначити попередні розділи як прочита
 
 #: ../komikku/card/tracking.py:67
 msgid "Failed to get data from tracker"
-msgstr ""
+msgstr "Не вдалося отримати дані від трекера"
 
 #: ../komikku/card/tracking.py:95
 msgid "No tracking services available"
@@ -1574,7 +1574,7 @@ msgstr "Тип"
 #: ../komikku/servers/multi/manga_stream/__init__.py:70
 #: ../komikku/servers/webtoon/__init__.py:48
 msgid "Filter by Type"
-msgstr ""
+msgstr "Фільтрувати за типом"
 
 #: ../komikku/servers/asurascans/__init__.py:39
 #: ../komikku/servers/coloredcouncil/__init__.py:72
@@ -1664,7 +1664,7 @@ msgstr "Категорії"
 #: ../komikku/servers/mangaworld/__init__.py:32
 #: ../komikku/servers/weebcentral/__init__.py:36
 msgid "Filter by Types"
-msgstr ""
+msgstr "Фільтрувати за типами"
 
 #: ../komikku/servers/dynasty/__init__.py:42
 #: ../komikku/servers/mangadex/__init__.py:103
@@ -1727,12 +1727,12 @@ msgstr "Більше не існує."
 #: ../komikku/servers/flamescans/__init__.py:36
 #: ../komikku/servers/weebcentral/__init__.py:35
 msgid "Types"
-msgstr ""
+msgstr "Типи"
 
 #: ../komikku/servers/flamescans/__init__.py:48
 #: ../komikku/servers/weebcentral/__init__.py:48
 msgid "Statuses"
-msgstr ""
+msgstr "Статуси"
 
 #: ../komikku/servers/flamescans/__init__.py:49
 #: ../komikku/servers/mangadex/__init__.py:72
@@ -1740,7 +1740,7 @@ msgstr ""
 #: ../komikku/servers/mangaworld/__init__.py:47
 #: ../komikku/servers/weebcentral/__init__.py:49
 msgid "Filter by Statuses"
-msgstr ""
+msgstr "Фільтрувати за статусами"
 
 #: ../komikku/servers/flamescans/__init__.py:53
 #: ../komikku/servers/mangadex/__init__.py:76
@@ -2044,7 +2044,7 @@ msgstr "Немає з'єднання з Інтернетом, таймаут а�
 
 #: ../komikku/webview.py:386
 msgid "Please wait…"
-msgstr ""
+msgstr "Будь ласка, зачекайте…"
 
 #: ../komikku/webview.py:433
 msgid "Please complete CAPTCHA"
