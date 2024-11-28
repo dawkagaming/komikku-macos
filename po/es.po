@@ -9,16 +9,16 @@ msgstr ""
 "Project-Id-Version: Komikku 0.30.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-11-25 15:56+0100\n"
-"PO-Revision-Date: 2024-10-20 12:16+0000\n"
+"PO-Revision-Date: 2024-11-29 18:00+0000\n"
 "Last-Translator: gallegonovato <fran-carro@hotmail.es>\n"
-"Language-Team: Spanish <https://hosted.weblate.org/projects/komikku/main/es/"
-">\n"
+"Language-Team: Spanish <https://hosted.weblate.org/projects/komikku/main/es/>"
+"\n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.8-rc\n"
+"X-Generator: Weblate 5.9-dev\n"
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:11
 msgid "Discover and read manga &amp; comics"
@@ -66,7 +66,7 @@ msgstr "Categorías para organizar su biblioteca"
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:22
 msgid "Automatic tracking of series with MyAnimeList and AniList"
-msgstr ""
+msgstr "Seguimiento automático de series con MyAnimeList y AniList"
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:23
 msgid "Automatic update of series"
@@ -1070,7 +1070,7 @@ msgstr "Marcar capítulos anteriores como leídos"
 
 #: ../komikku/card/tracking.py:67
 msgid "Failed to get data from tracker"
-msgstr ""
+msgstr "No se pudieron obtener los datos del rastreador"
 
 #: ../komikku/card/tracking.py:95
 msgid "No tracking services available"
@@ -1582,7 +1582,7 @@ msgstr "Tipo"
 #: ../komikku/servers/multi/manga_stream/__init__.py:70
 #: ../komikku/servers/webtoon/__init__.py:48
 msgid "Filter by Type"
-msgstr ""
+msgstr "Filtrar por tipo"
 
 #: ../komikku/servers/asurascans/__init__.py:39
 #: ../komikku/servers/coloredcouncil/__init__.py:72
@@ -1672,7 +1672,7 @@ msgstr "Categorías"
 #: ../komikku/servers/mangaworld/__init__.py:32
 #: ../komikku/servers/weebcentral/__init__.py:36
 msgid "Filter by Types"
-msgstr ""
+msgstr "Filtrar por tipos"
 
 #: ../komikku/servers/dynasty/__init__.py:42
 #: ../komikku/servers/mangadex/__init__.py:103
@@ -1736,12 +1736,12 @@ msgstr "Ya no existe."
 #: ../komikku/servers/flamescans/__init__.py:36
 #: ../komikku/servers/weebcentral/__init__.py:35
 msgid "Types"
-msgstr ""
+msgstr "Tipos"
 
 #: ../komikku/servers/flamescans/__init__.py:48
 #: ../komikku/servers/weebcentral/__init__.py:48
 msgid "Statuses"
-msgstr ""
+msgstr "Estados"
 
 #: ../komikku/servers/flamescans/__init__.py:49
 #: ../komikku/servers/mangadex/__init__.py:72
@@ -1749,7 +1749,7 @@ msgstr ""
 #: ../komikku/servers/mangaworld/__init__.py:47
 #: ../komikku/servers/weebcentral/__init__.py:49
 msgid "Filter by Statuses"
-msgstr ""
+msgstr "Filtrar por estados"
 
 #: ../komikku/servers/flamescans/__init__.py:53
 #: ../komikku/servers/mangadex/__init__.py:76
@@ -2052,7 +2052,7 @@ msgstr ""
 
 #: ../komikku/webview.py:386
 msgid "Please wait…"
-msgstr ""
+msgstr "Por favor, espere…"
 
 #: ../komikku/webview.py:433
 msgid "Please complete CAPTCHA"
