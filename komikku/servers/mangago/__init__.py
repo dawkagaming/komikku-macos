@@ -93,9 +93,16 @@ class Mangago(Server):
                     if not author:
                         continue
                     data['authors'].append(author)
+
             elif label.startswith('Genre'):
                 for a_element in element.select('a'):
-                    data['genres'].append(a_element.text.strip())
+                    genre = a_element.text.strip()
+
+                    if f'({genre})' in data['name']:
+                        data['name'] = data['name'].replace(f'({genre})', '').strip()
+
+                    data['genres'].append(genre)
+
             elif label.startswith('Status'):
                 value = element.span.text.strip().lower()
 
