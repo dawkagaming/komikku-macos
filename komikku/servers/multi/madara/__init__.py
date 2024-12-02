@@ -30,6 +30,7 @@
 # ToonGod [EN]
 # Toonily [EN]
 # Wakascan [FR] (disabled)
+# Webtoon Hatti [TR]
 
 import datetime
 from gettext import gettext as _
