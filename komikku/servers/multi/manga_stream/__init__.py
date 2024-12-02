@@ -8,6 +8,7 @@
 # Cartel De Manhwas [ES]
 # Iris Scanlator [pt_BR]
 # Lelmanga [FR]
+# Manga Koleji [TR]
 # Neko Scans [ES] (Disabled)
 # Noromax (ID)
 # Night scans [EN]
@@ -174,6 +175,7 @@ class MangaStream(Server):
                 'cancelled',
                 'dropped',
                 'durduruldu',  # tr
+                'ara verildi'  # tr
             )
             if any(re.findall('|'.join(labels), label, re.IGNORECASE)):
                 return 'suspended'
