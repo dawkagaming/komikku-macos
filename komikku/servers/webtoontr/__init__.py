@@ -14,7 +14,7 @@ class Webtoontr(Madara):
     date_format = '%d/%m/%Y'
     series_name = 'webtoon'
 
-    base_url = 'https://webtoontr.net/'
+    base_url = 'https://webtoontr.net'
     chapter_url = base_url + '/' + series_name + '/{0}/{1}/'
 
     details_synopsis_selector = '.manga-excerpt'
