@@ -597,21 +597,12 @@ class Chapter:
     @property
     def number(self):
         """ Returns chapter number"""
-        num = None
         if self.num and is_number(self.num):
-            num = self.num
+            return remove_number_leading_zero(self.num)
 
-        elif is_number(self.slug):
-            # The server doesn't provide chapter numbers, but slug is a number
-            # So we use it as fallback even if we're not sure it's a chapter number
-            num = self.slug
+        logger.warning(f'{self.manga.name} serie ({self.manga.server_id}) do not support tracking (no chapter num)?')
 
-        if num:
-            num = remove_number_leading_zero(num)
-        else:
-            logger.warning('{0} server do not support tracking (no chapter num)?'.format(self.manga.server_id))
-
-        return num
+        return None
 
     @property
     def path(self):
