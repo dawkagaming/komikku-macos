@@ -181,7 +181,7 @@ class BasePager:
                 continue
 
             data = {
-                'chapters_progress': chapter.number,
+                'chapters_progress': int(float(chapter.number)),
                 '_synced': False,
             }
             if chapter.manga.tracking[tracker.id]['status'] not in ('reading', 'rereading'):

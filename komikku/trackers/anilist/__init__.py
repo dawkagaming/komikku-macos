@@ -322,7 +322,7 @@ class Anilist(Tracker):
 
         query = f"""
             mutation {{
-                SaveMediaListEntry(mediaId: {id}, score: {score}, status: {status}, progress: {int(data['chapters_progress'])}) {{
+                SaveMediaListEntry(mediaId: {id}, score: {score}, status: {status}, progress: {data['chapters_progress']}) {{
                     id
                     mediaId
                     score
