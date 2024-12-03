@@ -3,12 +3,7 @@
     <gresource prefix="/info/febvre/Komikku">
         <file compressed="true" preprocess="xml-stripblanks" alias="appdata.xml">@app_id@.appdata.xml</file>
 
-        <file alias="icons/scalable/apps/brush-symbolic.svg" preprocess="xml-stripblanks">icons/brush-symbolic.svg</file>
-        <file alias="icons/scalable/apps/computer-fail-symbolic.svg" preprocess="xml-stripblanks">icons/computer-fail-symbolic.svg</file>
-        <file alias="icons/scalable/apps/explore-symbolic.svg" preprocess="xml-stripblanks">icons/explore-symbolic.svg</file>
-        <file alias="icons/scalable/apps/filter-symbolic.svg" preprocess="xml-stripblanks">icons/filter-symbolic.svg</file>
-        <file alias="icons/scalable/apps/library-symbolic.svg" preprocess="xml-stripblanks">icons/library-symbolic.svg</file>
-
+        <!-- Templates -->
         <file compressed="true" preprocess="xml-stripblanks">ui/application_window.ui</file>
         <file compressed="true" preprocess="xml-stripblanks">ui/card.ui</file>
         <file compressed="true" preprocess="xml-stripblanks">ui/card_chapters_list_row.ui</file>
@@ -28,6 +23,7 @@
         <file compressed="true" preprocess="xml-stripblanks">ui/support.ui</file>
         <file compressed="true" preprocess="xml-stripblanks">ui/webview.ui</file>
 
+        <!-- Menus -->
         <file compressed="true" preprocess="xml-stripblanks">ui/menu/main.xml</file>
         <file compressed="true" preprocess="xml-stripblanks">ui/menu/card.xml</file>
         <file compressed="true" preprocess="xml-stripblanks">ui/menu/card_selection_mode.xml</file>
@@ -37,8 +33,18 @@
         <file compressed="true" preprocess="xml-stripblanks">ui/menu/library_selection_mode.xml</file>
         <file compressed="true" preprocess="xml-stripblanks">ui/menu/reader.xml</file>
 
+        <!-- CSS -->
         <file compressed="true" alias="style.css">css/style.css</file>
 
+        <!-- Icons -->
+        <file compressed="true" preprocess="xml-stripblanks" alias="icons/scalable/apps/brush-symbolic.svg">icons/brush-symbolic.svg</file>
+        <file compressed="true" preprocess="xml-stripblanks" alias="icons/scalable/apps/computer-fail-symbolic.svg">icons/computer-fail-symbolic.svg</file>
+        <file compressed="true" preprocess="xml-stripblanks" alias="icons/scalable/apps/explore-symbolic.svg">icons/explore-symbolic.svg</file>
+        <file compressed="true" preprocess="xml-stripblanks" alias="icons/scalable/apps/filter-symbolic.svg">icons/filter-symbolic.svg</file>
+        <file compressed="true" preprocess="xml-stripblanks" alias="icons/scalable/apps/library-symbolic.svg">icons/library-symbolic.svg</file>
+        <file compressed="true" preprocess="xml-stripblanks" alias="icons/scalable/apps/tag-outline-symbolic.svg">icons/tag-outline-symbolic.svg</file>
+
+        <!-- Images -->
         <file compressed="true">images/logo.png</file>
         <file compressed="true">images/missing_file.png</file>
     </gresource>
