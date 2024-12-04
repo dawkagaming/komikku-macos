@@ -123,10 +123,11 @@ class Viewcomics(Server):
             pages=[],
         )
 
-        for img_element in soup.find('div', class_='chapter-container').find_all('img'):
+        for index, img_element in enumerate(soup.select('.chapter-container img')):
             data['pages'].append(dict(
                 slug=None,
                 image=img_element.get('src').strip(),
+                index=index + 1,
             ))
 
         return data
@@ -146,10 +147,16 @@ class Viewcomics(Server):
         if not mime_type.startswith('image'):
             return None
 
+        if page.get('index'):
+            name = '{0:03d}.{1}'.format(page['index'], mime_type.split('/')[1])
+        else:
+            # Fallback, old version
+            name = '{0}.{1}'.format(page['image'].split('/')[-1], mime_type.split('/')[1])
+
         return dict(
             buffer=r.content,
             mime_type=mime_type,
-            name='{0}.{1}'.format(page['image'].split('/')[-1], mime_type.split('/')[1]),
+            name=name,
         )
 
     def get_manga_url(self, slug, url):
