@@ -18,6 +18,7 @@ class Comicextra(Server):
     id = 'comicextra'
     name = 'ComicExtra'
     lang = 'en'
+    status = 'disabled'  # Redirected to azcomix.me (viewcomics) 2024/12
 
     base_url = 'https://comixextra.com'
     latest_updates_url = base_url + '/comic-updates'
