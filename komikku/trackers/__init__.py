@@ -38,7 +38,7 @@ class Tracker(BaseServer, ABC):
     STATUSES_MAPPING: dict = None
 
     def convert_internal_status(self, status):
-        """Returns correponding tracker status for an internal status"""
+        """Returns corresponding tracker status for an internal status"""
         for tracker_status, internal_status in self.STATUSES_MAPPING.items():
             if internal_status == status:
                 return tracker_status

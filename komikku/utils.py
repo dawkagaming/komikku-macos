@@ -487,7 +487,7 @@ class AsyncWorker(GObject.Object):
         to the resulting value.
 
         RESULT (Gio.AsyncResult)
-          The asyncronous result of the blocking operation that is
+          The asynchronous result of the blocking operation that is
           run asynchronously.
 
         RETURN VALUE (object)

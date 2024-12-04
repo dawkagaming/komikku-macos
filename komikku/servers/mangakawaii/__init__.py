@@ -176,7 +176,7 @@ class Mangakawaii(Server):
 
             break
 
-        # Next, we retrieve fisrt chapters available in page's HTML
+        # Next, we retrieve first chapters available in page's HTML
         for tr_element in soup.find('table', class_='table--manga').find_all('tr'):
             td_element = tr_element.find('td', class_='table__chapter')
             if not td_element:

@@ -251,7 +251,7 @@ class Mangahere(Server):
 
     def get_latest_updates(self):
         """
-        Returns Latest Upadtes
+        Returns Latest Updates
         """
         return self.search(None, orderby='latest')
 

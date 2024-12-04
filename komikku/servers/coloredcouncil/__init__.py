@@ -171,7 +171,7 @@ class Coloredcouncil(Server):
                         num=chapter["number"],
                         num_volume=volume.get('number'),
                         date=convert_date_string(chapter['date'][:-7], format='%B %d, %Y'),
-                        url='/'.join(chapter_path),  # relative path used to retreive chapter images
+                        url='/'.join(chapter_path),  # relative path used to retrieve chapter images
                     ))
         else:
             for chapter in info['chapters']:
@@ -181,7 +181,7 @@ class Coloredcouncil(Server):
                     slug=chapter['id'],
                     title=title,
                     date=convert_date_string(chapter['date'][:-7], format='%B %d, %Y'),
-                    url=title,  # relative path used to retreive chapter images
+                    url=title,  # relative path used to retrieve chapter images
                 ))
 
         return data

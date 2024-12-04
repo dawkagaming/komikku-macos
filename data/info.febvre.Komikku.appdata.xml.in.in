@@ -209,7 +209,7 @@
                     <li>Fixed display of covers in animated GIF format</li>
                     <li>Fixed memory leaks</li>
                     <li>[Servers] Added Manga Mana (FR)</li>
-                    <li>[Servers] Tecno Scan (ES): Reenable</li>
+                    <li>[Servers] Tecno Scan (ES): Re-enabled</li>
                     <li>[Servers] Anteiku Scans (FR): Update</li>
                     <li>[Servers] ComicExtra (EN): Update</li>
                     <li>[Servers] ED Scanlation (FR): Update</li>
@@ -387,7 +387,7 @@
                 <ul>
                     <li>New feature: Continuously updated servers modules</li>
                     <li>[Servers] Added MangaFire (EN/ES/ES_LA/FR/JA/PT/pt_BR)</li>
-                    <li>[Servers] Reenabled Argos Comics (PT)</li>
+                    <li>[Servers] Re-enabled Argos Comics (PT)</li>
                     <li>[Servers] Flame Comics (EN): Update</li>
                     <li>[Servers] Fr-Scan (FR): Update</li>
                     <li>[Servers] Luratoon Scan (pt_BR): Update</li>
@@ -416,7 +416,7 @@
                     <li>[Servers] Added Scanvf (FR)</li>
                     <li>[Servers] Added Sinensistoon (pt_BR)</li>
                     <li>[Servers] Added Wicked Witch Scan (pt_BR)</li>
-                    <li>[Servers] Hunlight Scans (EN): Reenabled</li>
+                    <li>[Servers] Hunlight Scans (EN): Re-enabled</li>
                     <li>[Servers] MangaDex: Improved Latest Updates fetching</li>
                     <li>[Servers] Mangago (EN): Update</li>
                     <li>[Servers] Manhwa Hentai (EN): Update</li>
@@ -458,8 +458,8 @@
                     <li>[Servers] Added Manga Demon (EN)</li>
                     <li>[Servers] Added MangaWeebs (EN)</li>
                     <li>[Servers] Added Webtoon TR</li>
-                    <li>[Servers] Armoni Scans (Asura Scans TR): Reenabled</li>
-                    <li>[Servers] Atikrost (TR): Reenabled</li>
+                    <li>[Servers] Armoni Scans (Asura Scans TR): Re-enabled</li>
+                    <li>[Servers] Atikrost (TR): Re-enabled</li>
                     <li>[Servers] Mangago (EN): Update</li>
                     <li>[Servers] MangaFreak (EN): Update</li>
                     <li>[Servers] Nine Manga (EN/PT_BR/DE/ES/FR/IT/RU): Update</li>
@@ -793,7 +793,7 @@
             <description translate="no">
                 <ul>
                     <li>[Library] Added sorting: Alphabetical, Latest Read First (default), Latest Updated First</li>
-                    <li>[Servers] Mangas Origines [FR]: Reenable</li>
+                    <li>[Servers] Mangas Origines [FR]: Re-enabled</li>
                     <li>[Servers] Bilibili Comics: Update</li>
                     <li>[Servers] Mangalek: Update</li>
                     <li>[Servers] Manhwa Hentai: Update</li>
@@ -1030,7 +1030,7 @@
                 <ul>
                     <li>[UX] Added possibility to go back with mouse Back button</li>
                     <li>[Library] Fixed range selection mode</li>
-                    <li>[Servers] Added FMTEAM [FR] (Scantrad France sucessor)</li>
+                    <li>[Servers] Added FMTEAM [FR] (Scantrad France successor)</li>
                     <li>[Servers] MangaDex: Added `Español (Latinoamérica)` language</li>
                     <li>[Servers] Pepper&amp;Carrot: Added `Espéranto` language</li>
                     <li>[Servers] JapScan: Update</li>
@@ -1067,7 +1067,7 @@
             <description translate="no">
                 <ul>
                     <li>[UI] Added ability to go back with &lt;ALT+Left&gt; shortcut</li>
-                    <li>[Reader] Added ability to navigate foward with &lt;SPACE&gt; key</li>
+                    <li>[Reader] Added ability to navigate forward with &lt;SPACE&gt; key</li>
                     <li>[Servers] Guya.moe: Update</li>
                     <li>[Servers] Manga/in/ua: Update</li>
                     <li>[Servers] MangaFreak: Update</li>
@@ -1174,7 +1174,7 @@
         <release version="1.5.0" date="2022-11-27">
             <description translate="no">
                 <ul>
-                    <li>[Reader] Webtoon reading mode: Add srcolling with Page Up and Page Down keys</li>
+                    <li>[Reader] Webtoon reading mode: Add scrolling with Page Up and Page Down keys</li>
                     <li>[Explorer] Global search: Put servers without results at end</li>
                     <li>[Preferences] Advanced: Add new option to disable GTK animations (useful with E Ink e-readers)</li>
                     <li>[Servers] Add 3asq (مانجا العاش) [AR]</li>
@@ -1242,8 +1242,8 @@
                     <li>Landscape covers (rare) are now converted to portrait</li>
                     <li>[Reader] Webtoon reading mode: Bugfix</li>
                     <li>[Reader] Fixed detection of 'read' chapters</li>
-                    <li>[Servers] MangaLife [EN]: Reenable</li>
-                    <li>[Servers] LeviatanScans [EN]: Reenable</li>
+                    <li>[Servers] MangaLife [EN]: Re-enabled</li>
+                    <li>[Servers] LeviatanScans [EN]: Re-enabled</li>
                     <li>[Servers] Mangas Origines: Update</li>
                     <li>[Servers] Reaper Scans [PT]: Update</li>
                     <li>[Servers] Remanga: Update</li>
@@ -1302,7 +1302,7 @@
                     <li>[Servers] Add Remanga [RU]</li>
                     <li>[Servers] Add Manga.in.ua [UA]</li>
                     <li>[Servers] FR Scan: Update</li>
-                    <li>[Servers] Lelscan-VF: Reenabled</li>
+                    <li>[Servers] Lelscan-VF: Re-enabled</li>
                     <li>[Servers] Leomanga: Update</li>
                     <li>[Servers] Madara (multi): Added filter in search to ignore novels</li>
                     <li>[Servers] Mangas.in: Update</li>
@@ -1550,7 +1550,7 @@
                     <li>[Library] Add 'Uncategorized' category</li>
                     <li>[Servers] Mangadex: The long-awaited comeback</li>
                     <li>[Servers] MangaNato: Update (previously called MangaNelo). Previous manga and chapters won’t work after this
-update and need to be readded.</li>
+update and need to be re-added.</li>
                     <li>[Servers] JapScan: Update</li>
                     <li>[Servers] MangaHub: Update</li>
                     <li>[L10n] Update French and German translation</li>
@@ -1766,7 +1766,7 @@ update and need to be readded.</li>
         </release>
         <release version="0.16.1" date="2020-05-24">
             <description translate="no">
-                <p>Fix 2 critical bugs (app crashs)</p>
+                <p>Fix 2 critical bugs (app crashes)</p>
             </description>
         </release>
         <release version="0.16.0" date="2020-05-24">
@@ -1775,7 +1775,7 @@ update and need to be readded.</li>
                     <li>[Library/Readers] Add support of animated GIFs</li>
                     <li>[Library] Add &lt;Control&gt;+F shortcut: Enter search mode</li>
                     <li>[Library/Manga/Download Manager] Add &lt;Control&gt;+A shortcut: Select all</li>
-                    <li>[Library/Manga/Download Manger] Add &lt;Control&gt;+Click and &lt;Shift&gt;+Click shortcuts: Enter selection mode</li>
+                    <li>[Library/Manga/Download Manager] Add &lt;Control&gt;+Click and &lt;Shift&gt;+Click shortcuts: Enter selection mode</li>
                     <li>[Download Manager] Add range selection: long press on an item then long press on another to select everything in between</li>
                     <li>[Manga] Add chapters scanlators support (MangaDex only)</li>
                     <li>[Servers] Add Izneo (DE, EN and FR) and Yieha (NL): a account is required</li>
@@ -1873,7 +1873,7 @@ update and need to be readded.</li>
         </release>
         <release version="0.10.1" date="2020-02-06">
             <description translate="no">
-                <p>Fixe a bug in Download Manager</p>
+                <p>Fixed a bug in Download Manager</p>
             </description>
         </release>
         <release version="0.10.0" date="2020-02-05">

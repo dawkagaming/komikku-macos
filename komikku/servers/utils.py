@@ -98,7 +98,7 @@ def convert_image(im, format='JPEG', ret_type='image'):
     :param im: A `PIL.Image.Image` or `bytes` object
     :type im: PIL.Image.Image, bytes
 
-    :param format: Convertion formats documentation is available `here <https://pillow.readthedocs.io/en/stable/handbook/image-file-formats.html>`_
+    :param format: Conversion formats documentation is available `here <https://pillow.readthedocs.io/en/stable/handbook/image-file-formats.html>`_
     :type format: str
 
     :param ret_type: image or bytes

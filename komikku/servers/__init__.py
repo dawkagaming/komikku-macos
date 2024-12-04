@@ -33,7 +33,7 @@ from komikku.utils import get_cache_dir
 from komikku.utils import REQUESTS_TIMEOUT
 from komikku.utils import retry_session
 
-APP_MIN_VERSION = '1.60.0'  # Mininum app version required to use `Up-to-date servers modules`
+APP_MIN_VERSION = '1.60.0'  # Minimum app version required to use `Up-to-date servers modules`
 DOWNLOAD_MAX_DELAY = 1  # in seconds
 
 # https://www.localeplanet.com/icu/

@@ -223,9 +223,9 @@ class Downloader(GObject.GObject):
                 except Exception as e:
                     # Possible causes:
                     # - No Internet connection
-                    # - Connexion timeout, read timeout
+                    # - Connection timeout, read timeout
                     # - Server down
-                    # - Bad/currupt local archive
+                    # - Bad/corrupt local archive
                     download.update(dict(status='error'))
                     user_error_message = log_error_traceback(e)
                     GLib.idle_add(notify_download_error, download, user_error_message)

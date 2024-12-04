@@ -28,7 +28,7 @@ THUMB_HEIGHT = 58
 
 
 class ExplorerSearchStackPage:
-    """ Superclass for search, lastest updates, most popular and global search pages """
+    """ Superclass for search, latest updates, most popular and global search pages """
 
     def __init__(self, parent):
         self.parent = parent

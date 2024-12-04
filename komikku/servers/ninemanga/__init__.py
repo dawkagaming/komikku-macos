@@ -194,7 +194,7 @@ class Ninemanga(Server):
 
     def get_latest_updates(self):
         """
-        Returns Latest Upadtes list
+        Returns Latest Updates list
         """
         r = self.session_get(self.latest_updates_url)
         if r.status_code != 200:

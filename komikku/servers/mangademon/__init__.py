@@ -178,7 +178,7 @@ class Mangademon(Server):
 
     def get_latest_updates(self):
         """
-        Returns lastest updates
+        Returns latest updates
         """
         slugs = []
 

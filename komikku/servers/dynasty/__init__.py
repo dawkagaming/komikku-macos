@@ -50,14 +50,14 @@ class Dynasty(Server):
             'key': 'with_tags',
             'type': 'entry',
             'name': _('With Tags'),
-            'description': _('Comma seperated list of tags to search for'),
+            'description': _('Comma separated list of tags to search for'),
             'default': '',
         },
         {
             'key': 'without_tags',
             'type': 'entry',
             'name': _('Without Tags'),
-            'description': _('Comma seperated list of tags to exclude from search'),
+            'description': _('Comma separated list of tags to exclude from search'),
             'default': '',
         },
     ]

@@ -496,7 +496,7 @@ class CompleteChallenge:
             elif self.server.http_client == 'curl_cffi':
                 self.server.session.cookies.jar.set_cookie(rcookie)
 
-        logger.debug(f'{self.server.id}: Webview cookies successully copied in session')
+        logger.debug(f'{self.server.id}: Webview cookies successfully copied in session')
         self.server.save_session()
 
         self.done = True
