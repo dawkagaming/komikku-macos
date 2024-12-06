@@ -9,10 +9,10 @@ msgstr ""
 "Project-Id-Version: unnamed project\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-12-06 11:45+0100\n"
-"PO-Revision-Date: 2024-11-25 15:41+0000\n"
+"PO-Revision-Date: 2024-12-06 10:50+0000\n"
 "Last-Translator: Valéry Febvre <vfebvre@easter-eggs.com>\n"
-"Language-Team: French <https://hosted.weblate.org/projects/komikku/main/fr/"
-">\n"
+"Language-Team: French <https://hosted.weblate.org/projects/komikku/main/fr/>"
+"\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1705,7 +1705,7 @@ msgstr "Avec les étiquettes"
 
 #: ../komikku/servers/dynasty/__init__.py:53
 msgid "Comma separated list of tags to search for"
-msgstr ""
+msgstr "Liste d'étiquettes séparées par des virgules à rechercher"
 
 #: ../komikku/servers/dynasty/__init__.py:59
 msgid "Without Tags"
@@ -1713,7 +1713,7 @@ msgstr "Sans les étiquettes"
 
 #: ../komikku/servers/dynasty/__init__.py:60
 msgid "Comma separated list of tags to exclude from search"
-msgstr ""
+msgstr "Liste d'étiquettes séparées par des virgules à exclure de la recherche"
 
 #: ../komikku/servers/exceptions.py:10
 msgid "Error: {}"
