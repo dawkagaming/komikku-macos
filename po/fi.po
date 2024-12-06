@@ -7,16 +7,16 @@ msgstr ""
 "Project-Id-Version: Komikku 1.12.1\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-12-06 11:45+0100\n"
-"PO-Revision-Date: 2024-10-21 18:16+0000\n"
+"PO-Revision-Date: 2024-12-07 03:09+0000\n"
 "Last-Translator: Jiri Grönroos <jiri.gronroos@iki.fi>\n"
-"Language-Team: Finnish <https://hosted.weblate.org/projects/komikku/main/fi/"
-">\n"
+"Language-Team: Finnish <https://hosted.weblate.org/projects/komikku/main/fi/>"
+"\n"
 "Language: fi\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.8-rc\n"
+"X-Generator: Weblate 5.9-dev\n"
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:11
 msgid "Discover and read manga &amp; comics"
@@ -989,7 +989,7 @@ msgstr "Tyhjennä ja nollaa"
 
 #: ../komikku/card/__init__.py:393 ../komikku/card/chapters_list.py:696
 msgid "Reset"
-msgstr ""
+msgstr "Nollaa"
 
 #: ../komikku/card/__init__.py:486
 msgid "Unknown author"
@@ -1994,7 +1994,7 @@ msgstr "Ei internetyhteyttä, aikakatkaisu tai palvelin ei vastaa"
 
 #: ../komikku/webview.py:386
 msgid "Please wait…"
-msgstr ""
+msgstr "Odota hetki…"
 
 #: ../komikku/webview.py:433
 msgid "Please complete CAPTCHA"
