@@ -8,10 +8,10 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-12-06 11:45+0100\n"
-"PO-Revision-Date: 2024-11-28 03:00+0000\n"
+"PO-Revision-Date: 2024-12-07 03:09+0000\n"
 "Last-Translator: Сергей <asvmail.as@gmail.com>\n"
-"Language-Team: Russian <https://hosted.weblate.org/projects/komikku/main/ru/"
-">\n"
+"Language-Team: Russian <https://hosted.weblate.org/projects/komikku/main/ru/>"
+"\n"
 "Language: ru\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1699,7 +1699,7 @@ msgstr "С метками"
 
 #: ../komikku/servers/dynasty/__init__.py:53
 msgid "Comma separated list of tags to search for"
-msgstr ""
+msgstr "Список меток, разделённых запятыми, для осуществления поиска"
 
 #: ../komikku/servers/dynasty/__init__.py:59
 msgid "Without Tags"
@@ -1707,7 +1707,7 @@ msgstr "Без меток"
 
 #: ../komikku/servers/dynasty/__init__.py:60
 msgid "Comma separated list of tags to exclude from search"
-msgstr ""
+msgstr "Список меток, разделённых запятыми, для исключения из поиска"
 
 #: ../komikku/servers/exceptions.py:10
 msgid "Error: {}"
