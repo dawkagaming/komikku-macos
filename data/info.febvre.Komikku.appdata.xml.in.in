@@ -99,6 +99,23 @@
     <url type="donation">https://valos.gitlab.io/Komikku/#sponsor</url>
 
     <releases>
+        <release version="1.65.0" date="2024-12-06">
+            <description translate="no">
+                <ul>
+                    <li>[Card] Added `Unread chapters` badge</li>
+                    <li>[Card] Info: Updated Genres icon</li>
+                    <li>[Servers] Added Manga Koleji (TR)</li>
+                    <li>[Servers] Added Webtoon Hatti (TR)</li>
+                    <li>[Servers] ComicExtra (EN): Disabled</li>
+                    <li>[Servers] Flame Comics (EN): Update</li>
+                    <li>[Servers] Mangago (EN): Update</li>
+                    <li>[Servers] View Comics (EN): Update</li>
+                    <li>[Servers] Webtoon TR: Update</li>
+                    <li>[L10n] Updated French, Russian, Spanish and Ukrainian translations</li>
+                </ul>
+                <p>Happy reading.</p>
+            </description>
+        </release>
         <release version="1.64.0" date="2024-11-25">
             <description translate="no">
                 <ul>

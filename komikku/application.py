@@ -102,6 +102,7 @@ CREDITS = dict(
         'Liliana Marie Prikler (German)',
         'Tim (German)',
         'Sear Gasor (German)',
+        'Vortex Acherontic (German)',
         'Scrambled777 (Hindi)',
         'Milo Ivir (Croatian)',
         'Alifiyan Rosyidi (Indonesian)',
@@ -525,12 +526,16 @@ available in your region/language."""))
         # Override release notes
         dialog.set_release_notes("""
             <ul>
-                <li>[Servers] Added Weeb Central (EN)</li>
+                <li>[Card] Added `Unread chapters` badge</li>
+                <li>[Card] Info: Updated Genres icon</li>
+                <li>[Servers] Added Manga Koleji (TR)</li>
+                <li>[Servers] Added Webtoon Hatti (TR)</li>
+                <li>[Servers] ComicExtra (EN): Disabled</li>
                 <li>[Servers] Flame Comics (EN): Update</li>
-                <li>[Servers] Manga Demon (EN): Update</li>
-                <li>[Servers] Fr-Scan (FR): Disabled</li>
-                <li>[Servers] Manga Scan (FR): Disabled</li>
-                <li>[L10n] Updated French translation</li>
+                <li>[Servers] Mangago (EN): Update</li>
+                <li>[Servers] View Comics (EN): Update</li>
+                <li>[Servers] Webtoon TR: Update</li>
+                <li>[L10n] Updated French, Russian, Spanish and Ukrainian translations</li>
             </ul>
             <p>Happy reading.</p>
         """)
