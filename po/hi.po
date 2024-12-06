@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Komikku 1.41.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-11-25 15:56+0100\n"
+"POT-Creation-Date: 2024-12-06 11:45+0100\n"
 "PO-Revision-Date: 2024-08-16 15:54+0000\n"
 "Last-Translator: Scrambled777 <weblate.scrambled777@simplelogin.com>\n"
 "Language-Team: Hindi <https://hosted.weblate.org/projects/komikku/main/hi/>\n"
@@ -904,7 +904,7 @@ msgstr "अमान्य URL {}, किसी भी सर्वर द्व
 #: ../komikku/application.py:406 ../komikku/card/__init__.py:150
 #: ../komikku/card/__init__.py:151 ../komikku/categories_editor.py:189
 #: ../komikku/downloader.py:377 ../komikku/downloader.py:378
-#: ../komikku/library/__init__.py:771 ../komikku/library/__init__.py:772
+#: ../komikku/library/__init__.py:804 ../komikku/library/__init__.py:805
 msgid "Cancel"
 msgstr "रद्द"
 
@@ -951,35 +951,35 @@ msgstr "समर्थक"
 msgid "Join Chat"
 msgstr "चैट से जुड़ें"
 
-#: ../komikku/application.py:638
+#: ../komikku/application.py:636
 msgid "Are you sure you want to quit?"
 msgstr "क्या आप वाकई छोड़ना चाहते हैं?"
 
-#: ../komikku/application.py:641
+#: ../komikku/application.py:639
 msgid "Some chapters are currently being downloaded."
 msgstr "कुछ अध्याय अभी डाउनलोड किये जा रहे हैं।"
 
-#: ../komikku/application.py:643
+#: ../komikku/application.py:641
 msgid "Some mangas are currently being updated."
 msgstr "कुछ मंगा वर्तमान में अद्यतन किए जा रहे हैं।"
 
-#: ../komikku/application.py:647
+#: ../komikku/application.py:645
 msgid "Quit?"
 msgstr "छोड़ें?"
 
-#: ../komikku/application.py:649
+#: ../komikku/application.py:647
 msgid "Quit"
 msgstr "छोड़ें"
 
-#: ../komikku/card/__init__.py:272
+#: ../komikku/card/__init__.py:274
 msgid "Read progress synchronization with server completed successfully"
 msgstr "सर्वर के साथ पठन प्रगति समन्वयन सफलतापूर्वक पूरा हुआ"
 
-#: ../komikku/card/__init__.py:286
+#: ../komikku/card/__init__.py:288
 msgid "Failed to get manga URL"
 msgstr "मंगा URL प्राप्त करने में विफल"
 
-#: ../komikku/card/__init__.py:307
+#: ../komikku/card/__init__.py:309
 #, python-brace-format
 msgid ""
 "NOTICE\n"
@@ -990,59 +990,59 @@ msgstr ""
 "{0} अब समर्थित नहीं है।\n"
 "कृपया किसी अन्य सर्वर पर स्विच करें।"
 
-#: ../komikku/card/__init__.py:378 ../komikku/card/chapters_list.py:692
+#: ../komikku/card/__init__.py:393 ../komikku/card/chapters_list.py:696
 msgid "Clear and Reset"
 msgstr "साफ और रीसेट करें"
 
-#: ../komikku/card/__init__.py:378 ../komikku/card/chapters_list.py:692
+#: ../komikku/card/__init__.py:393 ../komikku/card/chapters_list.py:696
 msgid "Reset"
 msgstr "रीसेट"
 
-#: ../komikku/card/__init__.py:471
+#: ../komikku/card/__init__.py:486
 msgid "Unknown author"
 msgstr "अज्ञात लेखक"
 
-#: ../komikku/card/__init__.py:477 ../komikku/card/__init__.py:486
+#: ../komikku/card/__init__.py:492 ../komikku/card/__init__.py:501
 msgid "Unknown status"
 msgstr "अज्ञात स्थिति"
 
-#: ../komikku/card/__init__.py:487 ../komikku/explorer/common.py:227
+#: ../komikku/card/__init__.py:502 ../komikku/explorer/common.py:227
 msgid "Local"
 msgstr "स्थानीय"
 
-#: ../komikku/card/__init__.py:513 ../komikku/card/chapters_list.py:620
+#: ../komikku/card/__init__.py:528 ../komikku/card/chapters_list.py:624
 msgid "%m/%d/%Y"
 msgstr "%m/%d/%Y"
 
-#: ../komikku/card/chapters_list.py:311 ../komikku/downloader.py:522
-#: ../komikku/library/__init__.py:805
+#: ../komikku/card/chapters_list.py:309 ../komikku/downloader.py:522
+#: ../komikku/library/__init__.py:838
 #, python-brace-format
 msgid "{0} selected"
 msgid_plural "{0} selected"
 msgstr[0] "{0} चयनित"
 msgstr[1] "{0} चयनित"
 
-#: ../komikku/card/chapters_list.py:386 ../komikku/card/chapters_list.py:481
+#: ../komikku/card/chapters_list.py:386 ../komikku/card/chapters_list.py:485
 msgid "Failed to update chapters reading status"
 msgstr "अध्याय पठन स्थिति अद्यतन करने में विफल"
 
-#: ../komikku/card/chapters_list.py:678 ../komikku/library/__init__.py:391
+#: ../komikku/card/chapters_list.py:682 ../komikku/library/__init__.py:398
 msgid "Download"
 msgstr "डाउनलोड"
 
-#: ../komikku/card/chapters_list.py:688 ../komikku/preferences.py:136
+#: ../komikku/card/chapters_list.py:692 ../komikku/preferences.py:136
 msgid "Clear"
 msgstr "साफ करें"
 
-#: ../komikku/card/chapters_list.py:702
+#: ../komikku/card/chapters_list.py:706
 msgid "Mark as Read"
 msgstr "पठित चिह्नित करें"
 
-#: ../komikku/card/chapters_list.py:706
+#: ../komikku/card/chapters_list.py:710
 msgid "Mark as Unread"
 msgstr "अपठित चिह्नित करें"
 
-#: ../komikku/card/chapters_list.py:710
+#: ../komikku/card/chapters_list.py:714
 msgid "Mark Previous Chapters as Read"
 msgstr "पिछले अध्यायों को पठित चिह्नित करें"
 
@@ -1083,7 +1083,7 @@ msgid "Chapter"
 msgstr ""
 
 #: ../komikku/card/tracking.py:250 ../komikku/categories_editor.py:78
-#: ../komikku/library/__init__.py:365
+#: ../komikku/library/__init__.py:372
 msgid "Delete?"
 msgstr "मिटाएं?"
 
@@ -1092,7 +1092,7 @@ msgid "Are you sure you want to cancel tracking?"
 msgstr ""
 
 #: ../komikku/card/tracking.py:252 ../komikku/categories_editor.py:80
-#: ../komikku/categories_editor.py:178 ../komikku/library/__init__.py:367
+#: ../komikku/categories_editor.py:178 ../komikku/library/__init__.py:374
 msgid "Delete"
 msgstr "मिटाएं"
 
@@ -1309,39 +1309,39 @@ msgstr "%A, %B %e"
 msgid "Resume"
 msgstr "पुनः आरम्भ"
 
-#: ../komikku/library/__init__.py:361
+#: ../komikku/library/__init__.py:368
 msgid "Are you sure you want to delete this manga?"
 msgstr "क्या आप वाकई इस मंगा को मिटाना चाहते हैं?"
 
-#: ../komikku/library/__init__.py:363
+#: ../komikku/library/__init__.py:370
 msgid "Are you sure you want to delete selected mangas?"
 msgstr "क्या आप वाकई चयनित मंगा को मिटाना चाहते हैं?"
 
-#: ../komikku/library/__init__.py:387
+#: ../komikku/library/__init__.py:394
 msgid "Are you sure you want to download all chapters of selected mangas?"
 msgstr "क्या आप वाकई चयनित मंगा के सभी अध्याय डाउनलोड करना चाहते हैं?"
 
-#: ../komikku/library/__init__.py:389
+#: ../komikku/library/__init__.py:396
 msgid "Download?"
 msgstr "डाउनलोड?"
 
-#: ../komikku/library/__init__.py:613
+#: ../komikku/library/__init__.py:646
 msgid "Welcome to Komikku"
 msgstr "Komikku में आपका स्वागत है"
 
-#: ../komikku/library/__init__.py:621
+#: ../komikku/library/__init__.py:654
 msgid "Loading…"
 msgstr "लोड हो रहा है…"
 
-#: ../komikku/library/__init__.py:754
+#: ../komikku/library/__init__.py:787
 msgid "Failed to update reading status"
 msgstr "पठन स्थिति अपडेट करने में विफल"
 
-#: ../komikku/library/__init__.py:776
+#: ../komikku/library/__init__.py:809
 msgid "Add New Comic"
 msgstr "नई कॉमिक जोड़ें"
 
-#: ../komikku/library/__init__.py:809 ../komikku/library/categories_list.py:145
+#: ../komikku/library/__init__.py:842 ../komikku/library/categories_list.py:145
 msgid "Uncategorized"
 msgstr "अवर्गीकृत"
 
@@ -1352,7 +1352,7 @@ msgstr "अवर्गीकृत"
 #: ../komikku/servers/coloredcouncil/__init__.py:83
 #: ../komikku/servers/mangapill/__init__.py:37
 #: ../komikku/servers/mangatube/__init__.py:130
-#: ../komikku/servers/multi/manga_stream/__init__.py:74
+#: ../komikku/servers/multi/manga_stream/__init__.py:75
 #: ../komikku/servers/webtoon/__init__.py:52
 msgid "All"
 msgstr "सभी"
@@ -1541,14 +1541,14 @@ msgstr "पुन: प्रयास"
 #: ../komikku/servers/mangapill/__init__.py:32
 #: ../komikku/servers/mangatube/__init__.py:125
 #: ../komikku/servers/mangaworld/__init__.py:31
-#: ../komikku/servers/multi/manga_stream/__init__.py:69
+#: ../komikku/servers/multi/manga_stream/__init__.py:70
 #: ../komikku/servers/webtoon/__init__.py:47
 msgid "Type"
 msgstr "प्रकार"
 
 #: ../komikku/servers/asurascans/__init__.py:34
 #: ../komikku/servers/mangapill/__init__.py:33
-#: ../komikku/servers/multi/manga_stream/__init__.py:70
+#: ../komikku/servers/multi/manga_stream/__init__.py:71
 #: ../komikku/servers/webtoon/__init__.py:48
 msgid "Filter by Type"
 msgstr ""
@@ -1560,7 +1560,7 @@ msgstr ""
 #: ../komikku/servers/mangapill/__init__.py:38
 #: ../komikku/servers/mangatube/__init__.py:131
 #: ../komikku/servers/mangaworld/__init__.py:35
-#: ../komikku/servers/multi/manga_stream/__init__.py:75
+#: ../komikku/servers/multi/manga_stream/__init__.py:76
 #: ../komikku/servers/weebcentral/__init__.py:39
 msgid "Manga"
 msgstr "मंगा"
@@ -1571,7 +1571,7 @@ msgstr "मंगा"
 #: ../komikku/servers/mangapill/__init__.py:42
 #: ../komikku/servers/mangatube/__init__.py:132
 #: ../komikku/servers/mangaworld/__init__.py:37
-#: ../komikku/servers/multi/manga_stream/__init__.py:76
+#: ../komikku/servers/multi/manga_stream/__init__.py:77
 #: ../komikku/servers/weebcentral/__init__.py:40
 msgid "Manhwa"
 msgstr "मैनहवा"
@@ -1582,7 +1582,7 @@ msgstr "मैनहवा"
 #: ../komikku/servers/mangapill/__init__.py:43
 #: ../komikku/servers/mangatube/__init__.py:133
 #: ../komikku/servers/mangaworld/__init__.py:36
-#: ../komikku/servers/multi/manga_stream/__init__.py:77
+#: ../komikku/servers/multi/manga_stream/__init__.py:78
 #: ../komikku/servers/weebcentral/__init__.py:41
 msgid "Manhua"
 msgstr "मैनहुआ"
@@ -1669,16 +1669,16 @@ msgid "With Tags"
 msgstr "टैग के साथ"
 
 #: ../komikku/servers/dynasty/__init__.py:53
-msgid "Comma seperated list of tags to search for"
-msgstr "खोजने के लिए टैग की अल्पविराम से अलग की गई सूची"
+msgid "Comma separated list of tags to search for"
+msgstr ""
 
 #: ../komikku/servers/dynasty/__init__.py:59
 msgid "Without Tags"
 msgstr "टैग के बिना"
 
 #: ../komikku/servers/dynasty/__init__.py:60
-msgid "Comma seperated list of tags to exclude from search"
-msgstr "खोज से बाहर करने के लिए टैग की अल्पविराम से अलग की गई सूची"
+msgid "Comma separated list of tags to exclude from search"
+msgstr ""
 
 #: ../komikku/servers/exceptions.py:10
 msgid "Error: {}"
@@ -1894,7 +1894,7 @@ msgid "Webtoon"
 msgstr "वेबटून"
 
 #: ../komikku/servers/mangatube/__init__.py:135
-#: ../komikku/servers/multi/manga_stream/__init__.py:78
+#: ../komikku/servers/multi/manga_stream/__init__.py:79
 msgid "Comic"
 msgstr "कॉमिक"
 
@@ -1918,12 +1918,12 @@ msgstr "बिना"
 msgid "16+"
 msgstr "16+"
 
-#: ../komikku/servers/multi/madara/__init__.py:423
+#: ../komikku/servers/multi/madara/__init__.py:424
 #: ../komikku/servers/readmanhwa/__init__.py:44
 msgid "NSFW Content"
 msgstr "NSFW सामग्री"
 
-#: ../komikku/servers/multi/madara/__init__.py:424
+#: ../komikku/servers/multi/madara/__init__.py:425
 #: ../komikku/servers/readmanhwa/__init__.py:45
 msgid "Whether to show manga containing NSFW content"
 msgstr "क्या NSFW सामग्री वाला मंगा दिखाना है"
@@ -2021,6 +2021,12 @@ msgstr ""
 #: ../komikku/webview.py:433
 msgid "Please complete CAPTCHA"
 msgstr "कृपया CAPTCHA पूर्ण करें"
+
+#~ msgid "Comma seperated list of tags to search for"
+#~ msgstr "खोजने के लिए टैग की अल्पविराम से अलग की गई सूची"
+
+#~ msgid "Comma seperated list of tags to exclude from search"
+#~ msgstr "खोज से बाहर करने के लिए टैग की अल्पविराम से अलग की गई सूची"
 
 #~ msgid "Filter by type"
 #~ msgstr "प्रकार के अनुसार फिल्टर"
