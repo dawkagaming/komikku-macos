@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: Komikku 1.17.1\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-12-06 11:45+0100\n"
-"PO-Revision-Date: 2024-11-29 18:00+0000\n"
+"PO-Revision-Date: 2024-12-07 03:09+0000\n"
 "Last-Translator: Bezruchenko Simon <worcposj44@gmail.com>\n"
 "Language-Team: Ukrainian <https://hosted.weblate.org/projects/komikku/main/"
 "uk/>\n"
@@ -1693,7 +1693,7 @@ msgstr "З тегами"
 
 #: ../komikku/servers/dynasty/__init__.py:53
 msgid "Comma separated list of tags to search for"
-msgstr ""
+msgstr "Список тегів, розділених комами, для пошуку"
 
 #: ../komikku/servers/dynasty/__init__.py:59
 msgid "Without Tags"
@@ -1701,7 +1701,7 @@ msgstr "Без тегів"
 
 #: ../komikku/servers/dynasty/__init__.py:60
 msgid "Comma separated list of tags to exclude from search"
-msgstr ""
+msgstr "Список тегів, розділених комами, для виключення з пошуку"
 
 #: ../komikku/servers/exceptions.py:10
 msgid "Error: {}"
