@@ -420,6 +420,9 @@ class Mangadex(Server):
 
             for chapter in results:
                 attributes = chapter['attributes']
+                if attributes.get('externalUrl') or attributes['pages'] == 0:
+                    # Skip externals and empty chapters
+                    continue
 
                 title = ''
                 if attributes['volume']:
