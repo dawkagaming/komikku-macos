@@ -3,9 +3,9 @@
 # Author: ISO-morphism <me@iso-morphism.name>
 
 from functools import wraps
-import json
 import logging
 
+from bs4 import BeautifulSoup
 try:
     # This server requires JA3/TLS and HTTP2 fingerprints impersonation
     from curl_cffi import requests
@@ -13,9 +13,9 @@ except Exception:
     # Server will be disabled
     requests = None
 
+from komikku.servers import REQUESTS_TIMEOUT
 from komikku.servers import Server
 from komikku.servers.utils import convert_date_string
-from komikku.servers import REQUESTS_TIMEOUT
 from komikku.utils import get_buffer_mime_type
 from komikku.utils import is_number
 
@@ -136,39 +136,25 @@ class Mangahub(Server):
 
         return data
 
-    @get_api_key
     def get_manga_chapter_data(self, manga_slug, manga_name, chapter_slug, chapter_url):
         """
         Returns chapter's data via GraphQL API
 
         Currently, only pages are expected.
         """
-        query = {
-            'query': '{chapter(x:m01,slug:"%s",number:%s){id,title,mangaID,number,slug,date,pages,noAd,manga{id,title,slug,mainSlug,author,isWebtoon,isYaoi,isPorn,isSoftPorn,unauthFile,isLicensed}}}' % (manga_slug, chapter_slug.replace('chapter-', ''))
-        }
-        r = self.session_post(
-            self.api_url,
-            json=query,
-            headers={
-                'Accept': 'application/json',
-                'Content-Type': 'application/json',
-                'Referer': self.base_url + '/',
-                'Origin': self.base_url,
-                'x-mhub-access': self.api_key,
-            },
-        )
+        r = self.session_get(self.chapter_url.format(manga_slug, chapter_slug))
         if r.status_code != 200:
             return None
+
+        soup = BeautifulSoup(r.text, 'lxml')
 
         data = dict(
             pages=[],
         )
-
-        pages = json.loads(r.json()['data']['chapter']['pages'])
-        for name in pages['i']:
+        for element in soup.select('#mangareader img[loading="lazy"]'):
             data['pages'].append(dict(
                 slug=None,
-                image=pages['p'] + name,
+                image=element.get('src'),
             ))
 
         return data
@@ -178,10 +164,13 @@ class Mangahub(Server):
         Returns chapter page scan (image) content
         """
         r = self.session_get(
-            self.image_url.format(page['image']),
+            page['image'],
             headers={
-                'Accept': 'image/webp,image/*;q=0.8,*/*;q=0.5',
-                'Referer': self.chapter_url.format(manga_slug, chapter_slug),
+                'Accept': 'image/avif,image/webp,image/png,image/svg+xml,image/*;q=0.8,*/*;q=0.5',
+                'Referer': f'{self.base_url}/',
+                "Sec-Fetch-Dest": "image",
+                "Sec-Fetch-Mode": "no-cors",
+                "Sec-Fetch-Site": "cross-origin",
             },
         )
         if r.status_code != 200:
