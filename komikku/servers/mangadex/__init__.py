@@ -56,7 +56,7 @@ class Mangadex(Server):
             'key': 'ratings',
             'type': 'select',
             'name': _('Rating'),
-            'description': _('Filter by content ratings'),
+            'description': _('Filter by Content Ratings'),
             'value_type': 'multiple',
             'options': [
                 {'key': 'safe', 'name': _('Safe'), 'default': True},
@@ -95,7 +95,7 @@ class Mangadex(Server):
             'key': 'tags',
             'type': 'select',
             'name': _('Tags'),
-            'description': _('Filter by formats'),
+            'description': _('Filter by Formats'),
             'value_type': 'multiple',
             'options': [
                 {'key': 'b11fda93-8f1d-4bef-b2ed-8803d3733170', 'name': _('4-Koma'), 'default': False},
@@ -111,6 +111,39 @@ class Mangadex(Server):
                 {'key': '891cf039-b895-47f0-9229-bef4c96eccd4', 'name': _('Self-Published'), 'default': False},
                 {'key': 'e197df38-d0e7-43b5-9b09-2842d0c326dd', 'name': _('Web Comic'), 'default': False},
             ]
+        },
+        {
+            'key': 'genres',
+            'type': 'select',
+            'name': _('Genres'),
+            'description': _('Filter by Genres'),
+            'value_type': 'multiple',
+            'options': [
+                {'key': '391b0423-d847-456f-aff0-8b0cfc03066b', 'name': _('Action'), 'default': False},
+                {'key': '87cc87cd-a395-47af-b27a-93258283bbc6', 'name': _('Adventure'), 'default': False},
+                {'key': '5920b825-4181-4a17-beeb-9918b0ff7a30', 'name': _('Boys Love'), 'default': False},
+                {'key': '4d32cc48-9f00-4cca-9b5a-a839f0764984', 'name': _('Comedy'), 'default': False},
+                {'key': '5ca48985-9a9d-4bd8-be29-80dc0303db72', 'name': _('Crime'), 'default': False},
+                {'key': 'b9af3a63-f058-46de-a9a0-e0c13906197a', 'name': _('Drama'), 'default': False},
+                {'key': 'cdc58593-87dd-415e-bbc0-2ec27bf404cc', 'name': _('Fantasy'), 'default': False},
+                {'key': 'a3c67850-4684-404e-9b7f-c69850ee5da6', 'name': _('Girls Love'), 'default': False},
+                {'key': '33771934-028e-4cb3-8744-691e866a923e', 'name': _('Historical'), 'default': False},
+                {'key': 'cdad7e68-1419-41dd-bdce-27753074a640', 'name': _('Horror'), 'default': False},
+                {'key': 'ace04997-f6bd-436e-b261-779182193d3d', 'name': _('Isekai'), 'default': False},
+                {'key': '81c836c9-914a-4eca-981a-560dad663e73', 'name': _('Magical Girls'), 'default': False},
+                {'key': '50880a9d-5440-4732-9afb-8f457127e836', 'name': _('Mecha'), 'default': False},
+                {'key': 'c8cbe35b-1b2b-4a3f-9c37-db84c4514856', 'name': _('Medical'), 'default': False},
+                {'key': 'ee968100-4191-4968-93d3-f82d72be7e46', 'name': _('Mystery'), 'default': False},
+                {'key': 'b1e97889-25b4-4258-b28b-cd7f4d28ea9b', 'name': _('Philosophical'), 'default': False},
+                {'key': '423e2eae-a7a2-4a8b-ac03-a8351462d71d', 'name': _('Romance'), 'default': False},
+                {'key': '256c8bd9-4904-4360-bf4f-508a76d67183', 'name': _('Sci-Fi'), 'default': False},
+                {'key': 'e5301a23-ebd9-49dd-a0cb-2add944c7fe9', 'name': _('Slice of Life'), 'default': False},
+                {'key': '69964a64-2f90-4d33-beeb-f3ed2875eb4c', 'name': _('Sports'), 'default': False},
+                {'key': '7064a261-a137-4d3a-8848-2d385de3a99c', 'name': _('Superhero'), 'default': False},
+                {'key': '07251805-a27e-4d59-b488-f0bfbec15168', 'name': _('Thriller'), 'default': False},
+                {'key': 'f8f62932-27da-4fe4-8ee1-6779a8c5edba', 'name': _('Tragedy'), 'default': False},
+                {'key': 'acc803a4-c95a-4c22-86fc-eb6b582d82a2', 'name': _('Wuxia'), 'default': False},
+            ],
         },
         {
             'key': 'tags_mode',
@@ -329,7 +362,7 @@ class Mangadex(Server):
         """
         return self.manga_url.format(slug)
 
-    def get_latest_updates(self, ratings=None, statuses=None, publication_demographics=None, tags=None, tags_mode=None):
+    def get_latest_updates(self, ratings=None, statuses=None, publication_demographics=None, tags=None, genres=None, tags_mode=None):
         params = {
             'limit': CHAPTERS_PER_REQUEST,
             'contentRating[]': ratings,
@@ -354,7 +387,7 @@ class Mangadex(Server):
             'contentRating[]': ratings,
             'status[]': statuses,
             'includes[]': ['cover_art'],
-            'includedTags[]': tags,
+            'includedTags[]': ((tags or []) + (genres or [])) or None,
             'includedTagsMode': tags_mode,
             'publicationDemographic[]': publication_demographics,
             'availableTranslatedLanguage[]': [self.lang_code],
@@ -386,13 +419,14 @@ class Mangadex(Server):
 
         return results
 
-    def get_most_populars(self, ratings=None, statuses=None, publication_demographics=None, tags=None, tags_mode=None):
+    def get_most_populars(self, ratings=None, statuses=None, publication_demographics=None, tags=None, genres=None, tags_mode=None):
         return self.search(
             None,
             ratings=ratings,
             statuses=statuses,
             publication_demographics=publication_demographics,
             tags=tags,
+            genres=genres,
             tags_mode=tags_mode,
             orderby='populars'
         )
@@ -451,13 +485,13 @@ class Mangadex(Server):
 
         return chapters
 
-    def search(self, term, ratings=None, statuses=None, publication_demographics=None, tags=None, tags_mode=None, orderby=None):
+    def search(self, term, ratings=None, statuses=None, publication_demographics=None, tags=None, genres=None, tags_mode=None, orderby=None):
         params = {
             'limit': SEARCH_RESULTS_LIMIT,
             'contentRating[]': ratings,
             'status[]': statuses,
             'includes[]': ['cover_art', ],
-            'includedTags[]': tags,
+            'includedTags[]': ((tags or []) + (genres or [])) or None,
             'includedTagsMode': tags_mode,
             'publicationDemographic[]': publication_demographics,
             'availableTranslatedLanguage[]': [self.lang_code, ],
