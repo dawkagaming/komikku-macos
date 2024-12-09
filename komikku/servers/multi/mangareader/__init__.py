@@ -5,8 +5,10 @@
 # Supported servers:
 # MangaReader [EN/FR/JA/KO/ZH_HANS]
 
-from bs4 import BeautifulSoup
 from gettext import gettext as _
+from io import BytesIO
+
+from bs4 import BeautifulSoup
 import requests
 
 from komikku.servers import Server
@@ -171,7 +173,10 @@ class Mangareader(Server):
 
         if page['scrambled']:
             # js/read.min.js: key is 2nd argument of unShuffle function
-            buffer = unscramble_image_rc4(r.content, 'stay', 200)
+            image = unscramble_image_rc4(r.content, 'stay', 200)
+            io_buffer = BytesIO()
+            image.save(io_buffer, 'png')
+            buffer = io_buffer.getvalue()
         else:
             buffer = r.content
 
