@@ -2,21 +2,22 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the Komikku package.
 # Jesper <93771679+Bjorkan@users.noreply.github.com>, 2024.
+# PaneradFisk <andre.bergvall@icloud.com>, 2024.
 msgid ""
 msgstr ""
 "Project-Id-Version: Komikku 1.47.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-12-06 11:45+0100\n"
-"PO-Revision-Date: 2024-06-08 23:09+0000\n"
-"Last-Translator: Jesper <93771679+Bjorkan@users.noreply.github.com>\n"
-"Language-Team: Swedish <https://hosted.weblate.org/projects/komikku/main/sv/"
-">\n"
+"PO-Revision-Date: 2024-12-12 23:00+0000\n"
+"Last-Translator: PaneradFisk <andre.bergvall@icloud.com>\n"
+"Language-Team: Swedish <https://hosted.weblate.org/projects/komikku/main/sv/>"
+"\n"
 "Language: sv\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.6-dev\n"
+"X-Generator: Weblate 5.9-dev\n"
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:11
 msgid "Discover and read manga &amp; comics"
@@ -62,7 +63,7 @@ msgstr "Kategorier för att organisera ditt bibliotek"
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:22
 msgid "Automatic tracking of series with MyAnimeList and AniList"
-msgstr ""
+msgstr "Automatisk spårning av serier via MyAnimeList och AniList"
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:23
 msgid "Automatic update of series"
@@ -170,7 +171,7 @@ msgstr "Storlek på hårddisken"
 
 #: ../data/ui/card.blp:349
 msgid "Synopsis"
-msgstr "Synopsis"
+msgstr "Sammanfattning"
 
 #: ../data/ui/card.blp:477 ../data/ui/categories_editor.blp:64
 #: ../data/ui/library.blp:247
@@ -183,7 +184,7 @@ msgstr "Ny"
 
 #: ../data/ui/card_tracking.blp:9
 msgid "Tracking"
-msgstr ""
+msgstr "Spårning"
 
 #: ../data/ui/card_tracking_search.blp:10 ../data/ui/explorer_search.blp:10
 #: ../data/ui/explorer_search.blp:41 ../data/ui/history.blp:18
@@ -374,11 +375,11 @@ msgstr "Zooma horisontella sidor"
 
 #: ../data/ui/menu/reader.xml:113
 msgid "Crop Borders"
-msgstr ""
+msgstr "Beskär ramar"
 
 #: ../data/ui/menu/reader.xml:117
 msgid "Hide Page Numbering"
-msgstr ""
+msgstr "Dölj sidnumrering"
 
 #: ../data/ui/menu/reader.xml:124
 msgid "Save Page"
@@ -440,10 +441,11 @@ msgstr "Skrivbordsnotiser"
 #: ../data/ui/preferences.blp:51
 msgid "Use desktop notifications for downloads and library updates"
 msgstr ""
+"Använd skrivbordsnotifikationer för nerladdningar och biblioteksuppdateringar"
 
 #: ../data/ui/preferences.blp:59
 msgid "Synchronize reading progress"
-msgstr ""
+msgstr "Synkronisera läsningsprogress"
 
 #: ../data/ui/preferences.blp:70
 msgid "Display"
@@ -475,50 +477,50 @@ msgstr ""
 
 #: ../data/ui/preferences.blp:91
 msgid "Number of Unread Chapters"
-msgstr ""
+msgstr "Antal olästa kapitel"
 
 #: ../data/ui/preferences.blp:111
 msgid "Number of Downloaded Chapters"
-msgstr ""
+msgstr "Antal nerladdade kapitel"
 
 #: ../data/ui/preferences.blp:131
 msgid "Number of Recent and Unread Chapters"
-msgstr ""
+msgstr "Antal nya samt olästa kapitel"
 
 #: ../data/ui/preferences.blp:156
 msgid "Update at Startup"
-msgstr ""
+msgstr "Uppdatera vid Start"
 
 #: ../data/ui/preferences.blp:157
 msgid "Automatically update library at startup"
-msgstr ""
+msgstr "Automatiskt uppdatera bibliotek vid start"
 
 #: ../data/ui/preferences.blp:161
 msgid "Auto Download of New Chapters"
-msgstr ""
+msgstr "Autonerladdning av nya kapitel"
 
 #: ../data/ui/preferences.blp:162
 msgid "Automatically download new chapters"
-msgstr ""
+msgstr "Automatiskt ladda ner nya kapitel"
 
 #: ../data/ui/preferences.blp:167
 msgid "Explorer"
-msgstr ""
+msgstr "Utforskare"
 
 #: ../data/ui/preferences.blp:170
 #: ../data/ui/preferences_servers_languages.blp:6
 #: ../data/ui/preferences_servers_languages.blp:12
 msgid "Servers Languages"
-msgstr ""
+msgstr "Serverspråk"
 
 #: ../data/ui/preferences.blp:171
 msgid "Restrict servers to selected languages"
-msgstr ""
+msgstr "Begränsa servrar till valda språk"
 
 #: ../data/ui/preferences.blp:179 ../data/ui/preferences_servers_settings.blp:6
 #: ../data/ui/preferences_servers_settings.blp:12
 msgid "Servers Settings"
-msgstr ""
+msgstr "Serverinställningar"
 
 #: ../data/ui/preferences.blp:180
 msgid "Enable/disable and configure servers"
@@ -534,7 +536,7 @@ msgstr ""
 
 #: ../data/ui/preferences.blp:195
 msgid "NSFW Content (18+)"
-msgstr ""
+msgstr "NSFW innehåll (18+)"
 
 #: ../data/ui/preferences.blp:196
 msgid "Whether to enable servers with NSFW content"
@@ -564,23 +566,23 @@ msgstr ""
 
 #: ../data/ui/preferences.blp:228
 msgid "⬅ Right to Left"
-msgstr ""
+msgstr "⬅ Höger till Vänster"
 
 #: ../data/ui/preferences.blp:229
 msgid "➡ Left to Right"
-msgstr ""
+msgstr "➡ Vänster till Höger"
 
 #: ../data/ui/preferences.blp:230
 msgid "⬇ Vertical"
-msgstr ""
+msgstr "⬇ Vertikalt"
 
 #: ../data/ui/preferences.blp:231
 msgid "⬇ Webtoon"
-msgstr ""
+msgstr "⬇ Webtoon"
 
 #: ../data/ui/preferences.blp:237
 msgid "Maximum Width"
-msgstr ""
+msgstr "Max bredd"
 
 #: ../data/ui/preferences.blp:238
 msgid ""
@@ -609,7 +611,7 @@ msgstr ""
 
 #: ../data/ui/preferences.blp:256
 msgid "Original Size"
-msgstr ""
+msgstr "Original Storlek"
 
 #: ../data/ui/preferences.blp:262
 msgid "Scaling Filter"
@@ -621,7 +623,7 @@ msgstr ""
 
 #: ../data/ui/preferences.blp:266
 msgid "Linear"
-msgstr ""
+msgstr "Linjär"
 
 #: ../data/ui/preferences.blp:267
 msgid "Trilinear"
@@ -638,19 +640,19 @@ msgstr ""
 
 #: ../data/ui/preferences.blp:278
 msgid "Background Color"
-msgstr ""
+msgstr "Bakgrundsfärg"
 
 #: ../data/ui/preferences.blp:281
 msgid "White"
-msgstr ""
+msgstr "Vit"
 
 #: ../data/ui/preferences.blp:282
 msgid "Gray"
-msgstr ""
+msgstr "Grå"
 
 #: ../data/ui/preferences.blp:283
 msgid "Black"
-msgstr ""
+msgstr "Svart"
 
 #: ../data/ui/preferences.blp:284
 msgid "System Style"
@@ -670,27 +672,27 @@ msgstr ""
 
 #: ../data/ui/preferences.blp:295
 msgid "Page Numbering"
-msgstr ""
+msgstr "Sidnumrering"
 
 #: ../data/ui/preferences.blp:296
 msgid "Hide the page numbering at the bottom of the screen while reading"
-msgstr ""
+msgstr "Dölj sidnumreringen i botten av skärmen vid läsning"
 
 #: ../data/ui/preferences.blp:300
 msgid "Fullscreen"
-msgstr ""
+msgstr "Fullskärm"
 
 #: ../data/ui/preferences.blp:301
 msgid "Automatically enter fullscreen mode"
-msgstr ""
+msgstr "Automatiskt fullskärmsläge"
 
 #: ../data/ui/preferences.blp:308
 msgid "Advanced"
-msgstr ""
+msgstr "Avancerat"
 
 #: ../data/ui/preferences.blp:312
 msgid "Data"
-msgstr ""
+msgstr "Data"
 
 #: ../data/ui/preferences.blp:313
 msgid "Data not saved in the library"
@@ -698,11 +700,11 @@ msgstr ""
 
 #: ../data/ui/preferences.blp:316
 msgid "Clear Chapters Cache and Database"
-msgstr ""
+msgstr "Rensa kapitel cache och databas"
 
 #: ../data/ui/preferences.blp:321
 msgid "Clear Chapters Cache and Database on Exit"
-msgstr ""
+msgstr "Rensa kapitel cache och databas vid stängning"
 
 #: ../data/ui/preferences.blp:326
 msgid "Servers Modules"
@@ -783,42 +785,42 @@ msgstr ""
 #: ../data/ui/shortcuts_overview.blp:30
 msgctxt "Shortcut window description"
 msgid "Library"
-msgstr ""
+msgstr "Bibliotek"
 
 #: ../data/ui/shortcuts_overview.blp:33
 msgctxt "Shortcut window description"
 msgid "Add Manga"
-msgstr ""
+msgstr "Lägg till Manga"
 
 #: ../data/ui/shortcuts_overview.blp:38
 msgctxt "Shortcut window description"
 msgid "Select All"
-msgstr ""
+msgstr "Markera alla"
 
 #: ../data/ui/shortcuts_overview.blp:43
 msgctxt "Shortcut window description"
 msgid "Search"
-msgstr ""
+msgstr "Sök"
 
 #: ../data/ui/shortcuts_overview.blp:49
 msgctxt "Shortcut window description"
 msgid "Manga Card"
-msgstr ""
+msgstr "Mangakort"
 
 #: ../data/ui/shortcuts_overview.blp:52
 msgctxt "Shortcut window description"
 msgid "Select All Chapters"
-msgstr ""
+msgstr "Markera Alla Kapitel"
 
 #: ../data/ui/shortcuts_overview.blp:58
 msgctxt "Shortcut window description"
 msgid "Reader"
-msgstr ""
+msgstr "Läsare"
 
 #: ../data/ui/shortcuts_overview.blp:61
 msgctxt "Shortcut window description"
 msgid "Save Page"
-msgstr ""
+msgstr "Spara Sida"
 
 #: ../data/ui/shortcuts_overview.blp:67
 msgctxt "Shortcut window description"
@@ -828,7 +830,7 @@ msgstr ""
 #: ../data/ui/shortcuts_overview.blp:70
 msgctxt "Shortcut window description"
 msgid "Select All Downloads"
-msgstr ""
+msgstr "Markera Alla Nerladdningar"
 
 #: ../data/ui/support.blp:6 ../data/ui/support.blp:12
 msgid "Support Development"
