@@ -3,6 +3,8 @@
 # Author: Valéry Febvre <vfebvre@easter-eggs.com>
 
 from gettext import gettext as _
+import json
+import re
 
 from bs4 import BeautifulSoup
 import requests
@@ -132,18 +134,16 @@ class Asurascans(Server):
     def get_manga_chapters_data(self, soup):
         chapters = []
 
-        for element in reversed(soup.select('.scrollbar-thin > div')):
-            a_element = element.select_one('h3 a')
-
+        for a_element in reversed(soup.select('.scrollbar-thin > div > a')):
             slug = a_element.get('href').split('/')[-1]
-            if date_element := element.select_one('h3:last-child'):
+            if date_element := a_element.select_one('h3:last-child'):
                 date = convert_date_string(date_element.text.strip())
             else:
                 date = None
 
             chapters.append(dict(
                 slug=slug,
-                title=a_element.text.strip(),
+                title=a_element.h3.text.strip(),
                 num=slug,
                 date=date,
             ))
@@ -173,12 +173,20 @@ class Asurascans(Server):
         data = dict(
             pages=[],
         )
-        for img_element in soup.select('img[alt^="chapter page"]'):
-            image = img_element.get('src')
-            data['pages'].append(dict(
-                slug=None,
-                image=image,
-            ))
+        for script_element in soup.select('script'):
+            script = script_element.string
+            if not script or not script.startswith('self.__next_f.push([1,') or 'pages' not in script:
+                continue
+
+            re_pages = r'.*\"pages\":(\[.*?\]).*'
+            script = script.replace('\\', '')  # clean backslashes before double quotes
+
+            if matches := re.search(re_pages, script):
+                for page in json.loads(matches.group(1)):
+                    data['pages'].append(dict(
+                        slug=None,
+                        image=page['url'],
+                    ))
 
         return data
 
