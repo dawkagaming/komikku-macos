@@ -5,6 +5,7 @@
 # Manga Strean/Manga Reader/Mamga Themesia - WordPress Themes for read manga
 
 # Supported servers:
+# Asura Scans For Free [EN]
 # Cartel De Manhwas [ES]
 # Iris Scanlator [pt_BR]
 # Lelmanga [FR]
