@@ -11,16 +11,16 @@ msgstr ""
 "Project-Id-Version: Komikku 0.19.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-12-06 11:45+0100\n"
-"PO-Revision-Date: 2024-11-13 14:00+0000\n"
-"Last-Translator: Vortex Acherontic <vortex@z-ray.de>\n"
-"Language-Team: German <https://hosted.weblate.org/projects/komikku/main/de/"
-">\n"
+"PO-Revision-Date: 2024-12-20 14:00+0000\n"
+"Last-Translator: Tim <rc2225@ghueder-schrott.com>\n"
+"Language-Team: German <https://hosted.weblate.org/projects/komikku/main/de/>"
+"\n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.9-dev\n"
+"X-Generator: Weblate 5.9.2-dev\n"
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:11
 msgid "Discover and read manga &amp; comics"
@@ -1498,11 +1498,11 @@ msgstr "Test"
 #: ../komikku/preferences.py:752 ../komikku/preferences.py:767
 #: ../komikku/preferences.py:790
 msgid "Disconnect"
-msgstr ""
+msgstr "Trennen"
 
 #: ../komikku/preferences.py:755 ../komikku/preferences.py:782
 msgid "Connect"
-msgstr ""
+msgstr "Verbinden"
 
 #: ../komikku/preferences.py:770
 msgid "Failed to request client access"
@@ -1514,7 +1514,7 @@ msgstr ""
 
 #: ../komikku/preferences.py:790
 msgid "Disconnect from {}"
-msgstr ""
+msgstr "Getrennt von {}"
 
 #: ../komikku/reader/__init__.py:365
 #, python-brace-format
@@ -1577,7 +1577,7 @@ msgstr "Art"
 #: ../komikku/servers/multi/manga_stream/__init__.py:71
 #: ../komikku/servers/webtoon/__init__.py:48
 msgid "Filter by Type"
-msgstr ""
+msgstr "Filtern nach Typ"
 
 #: ../komikku/servers/asurascans/__init__.py:39
 #: ../komikku/servers/coloredcouncil/__init__.py:72
@@ -1631,11 +1631,11 @@ msgstr "Kostenpflichtig"
 
 #: ../komikku/servers/coloredcouncil/__init__.py:65
 msgid "Format"
-msgstr ""
+msgstr "Format"
 
 #: ../komikku/servers/coloredcouncil/__init__.py:66
 msgid "Filter by format"
-msgstr ""
+msgstr "Filtern nach Format"
 
 #: ../komikku/servers/coloredcouncil/__init__.py:71
 msgid "Manwha"
@@ -1643,19 +1643,19 @@ msgstr ""
 
 #: ../komikku/servers/coloredcouncil/__init__.py:78
 msgid "Version"
-msgstr ""
+msgstr "Version"
 
 #: ../komikku/servers/coloredcouncil/__init__.py:79
 msgid "Filter by version"
-msgstr ""
+msgstr "Filtern nach Version"
 
 #: ../komikku/servers/coloredcouncil/__init__.py:84
 msgid "Color"
-msgstr ""
+msgstr "Farbe"
 
 #: ../komikku/servers/coloredcouncil/__init__.py:85
 msgid "B/W"
-msgstr ""
+msgstr "S/W"
 
 #: ../komikku/servers/dynasty/__init__.py:38
 msgid "Categories"
@@ -1667,7 +1667,7 @@ msgstr "Kategorien"
 #: ../komikku/servers/mangaworld/__init__.py:32
 #: ../komikku/servers/weebcentral/__init__.py:36
 msgid "Filter by Types"
-msgstr ""
+msgstr "Filtern nach Typen"
 
 #: ../komikku/servers/dynasty/__init__.py:42
 #: ../komikku/servers/mangadex/__init__.py:103
@@ -1729,12 +1729,12 @@ msgstr "Existiert nicht mehr."
 #: ../komikku/servers/flamescans/__init__.py:36
 #: ../komikku/servers/weebcentral/__init__.py:35
 msgid "Types"
-msgstr ""
+msgstr "Typen"
 
 #: ../komikku/servers/flamescans/__init__.py:48
 #: ../komikku/servers/weebcentral/__init__.py:48
 msgid "Statuses"
-msgstr ""
+msgstr "Status"
 
 #: ../komikku/servers/flamescans/__init__.py:49
 #: ../komikku/servers/mangadex/__init__.py:72
@@ -1742,14 +1742,14 @@ msgstr ""
 #: ../komikku/servers/mangaworld/__init__.py:47
 #: ../komikku/servers/weebcentral/__init__.py:49
 msgid "Filter by Statuses"
-msgstr ""
+msgstr "Filtern nach Status"
 
 #: ../komikku/servers/flamescans/__init__.py:53
 #: ../komikku/servers/mangadex/__init__.py:76
 #: ../komikku/servers/mangafire/__init__.py:63
 #: ../komikku/trackers/__init__.py:32
 msgid "Completed"
-msgstr ""
+msgstr "Abgeschlossen"
 
 #: ../komikku/servers/flamescans/__init__.py:55
 #: ../komikku/trackers/__init__.py:34
@@ -1789,7 +1789,7 @@ msgstr "Pornographisch"
 
 #: ../komikku/servers/mangadex/__init__.py:77
 msgid "Paused"
-msgstr ""
+msgstr "Pausiert"
 
 #: ../komikku/servers/mangadex/__init__.py:84
 msgid "Publication Demographic"
@@ -2041,7 +2041,7 @@ msgstr "Keine Internetverbindung, Timeout oder Serverfehler"
 
 #: ../komikku/webview.py:386
 msgid "Please wait…"
-msgstr ""
+msgstr "Bitte warten…"
 
 #: ../komikku/webview.py:433
 msgid "Please complete CAPTCHA"
