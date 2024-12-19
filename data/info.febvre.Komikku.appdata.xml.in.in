@@ -99,6 +99,21 @@
     <url type="donation">https://valos.gitlab.io/Komikku/#sponsor</url>
 
     <releases>
+        <release version="1.66.0" date="2024-12-18">
+            <description translate="no">
+                <ul>
+                    <li>[Servers] Added Asura Scans For Free (EN)</li>
+                    <li>[Servers] Asura Scans (EN): Update</li>
+                    <li>[Servers] MangaDex: Ignored externals and empty chapters</li>
+                    <li>[Servers] MangaDex: Added Genres filter</li>
+                    <li>[Servers] MangaHub: Avoided exceeding API rate limiting</li>
+                    <li>[Servers] MangaLib (RU): Update</li>
+                    <li>[Servers] Mangareader (to): Fixed decoding of scrumbled images</li>
+                    <li>[L10n] Updated Finnish, Portuguese (Brazil), Russian, Spanish, Swedish and Ukrainian translations</li>
+                </ul>
+                <p>Enjoy holiday season and Happy reading.</p>
+            </description>
+        </release>
         <release version="1.65.0" date="2024-12-06">
             <description translate="no">
                 <ul>

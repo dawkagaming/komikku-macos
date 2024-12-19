@@ -78,6 +78,7 @@ CREDITS = dict(
         'Alex Carvalho (Brazilian Portuguese)',
         'Juliano de Souza Camargo (Brazilian Portuguese)',
         'Giovanne Menicheli (Brazilian Portuguese)',
+        'Fúlvio Alves (Brazilian Portuguese)',
         'twlvnn (Bulgarian)',
         'Roger VC (Catalan)',
         'Dingzhong Chen (Simplified Chinese)',
@@ -123,6 +124,7 @@ CREDITS = dict(
         'Óscar Fernández Díaz (Spanish)',
         'gallegonovato (Spanish)',
         'Jesper (Swedish)',
+        'PaneradFisk (Swedish)',
         'Ege Çelikçi (Turkish)',
         'Sabri Ünal (Turkish)',
         'Volkan Yıldırım (Turkish)',
@@ -526,18 +528,16 @@ available in your region/language."""))
         # Override release notes
         dialog.set_release_notes("""
             <ul>
-                <li>[Card] Added `Unread chapters` badge</li>
-                <li>[Card] Info: Updated Genres icon</li>
-                <li>[Servers] Added Manga Koleji (TR)</li>
-                <li>[Servers] Added Webtoon Hatti (TR)</li>
-                <li>[Servers] ComicExtra (EN): Disabled</li>
-                <li>[Servers] Flame Comics (EN): Update</li>
-                <li>[Servers] Mangago (EN): Update</li>
-                <li>[Servers] View Comics (EN): Update</li>
-                <li>[Servers] Webtoon TR: Update</li>
-                <li>[L10n] Updated French, Russian, Spanish and Ukrainian translations</li>
+                <li>[Servers] Added Asura Scans For Free (EN)</li>
+                <li>[Servers] Asura Scans (EN): Update</li>
+                <li>[Servers] MangaDex: Ignored externals and empty chapters</li>
+                <li>[Servers] MangaDex: Added Genres filter</li>
+                <li>[Servers] MangaHub: Avoided exceeding API rate limiting</li>
+                <li>[Servers] MangaLib (RU): Update</li>
+                <li>[Servers] Mangareader (to): Fixed decoding of scrumbled images</li>
+                <li>[L10n] Updated Finnish, Portuguese (Brazil), Russian, Spanish, Swedish and Ukrainian translations</li>
             </ul>
-            <p>Happy reading.</p>
+            <p>Enjoy holiday season and Happy reading.</p>
         """)
 
         debug_info = DebugInfo(self.application)
