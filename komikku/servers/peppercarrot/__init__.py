@@ -86,7 +86,7 @@ class Peppercarrot(Server):
         chapters_data = r.json()
 
         # Chapters
-        for index, element in enumerate(reversed(soup.find('div', class_='container').find_all('figure'))):
+        for index, element in enumerate(reversed(soup.select('figure.thumbnail'))):
             if 'notranslation' in element.get('class'):
                 # Skipped not translated episodes
                 continue
