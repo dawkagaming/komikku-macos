@@ -9,6 +9,7 @@ class Asurascansfree(MangaStream):
     id = 'asurascansfree'
     name = 'Asura Scans For Free'
     lang = 'en'
+    has_cf = True
 
     base_url = 'https://asurascansfree.com'
 
