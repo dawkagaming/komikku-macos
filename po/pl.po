@@ -3,22 +3,23 @@
 # This file is distributed under the same license as the Komikku package.
 # Lili Kurek <github@gramywpsl.pl>, 2021-2023.
 # Lili Kurek <lilikurek@proton.me>, 2023.
+# Aleksander Warzyniak <alek@camperpark.pl>, 2024.
 msgid ""
 msgstr ""
 "Project-Id-Version: Komikku 1.23.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-12-06 11:45+0100\n"
-"PO-Revision-Date: 2023-12-01 14:49+0000\n"
-"Last-Translator: Lili Kurek <lilikurek@proton.me>\n"
-"Language-Team: Polish <https://hosted.weblate.org/projects/komikku/main/pl/"
-">\n"
+"PO-Revision-Date: 2024-12-28 03:53+0000\n"
+"Last-Translator: Aleksander Warzyniak <alek@camperpark.pl>\n"
+"Language-Team: Polish <https://hosted.weblate.org/projects/komikku/main/pl/>"
+"\n"
 "Language: pl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
-"|| n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 5.3-dev\n"
+"Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
+"|| n%100>=20) ? 1 : 2);\n"
+"X-Generator: Weblate 5.10-dev\n"
 "X-Poedit-Basepath: .\n"
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:11
@@ -177,7 +178,7 @@ msgstr "Opis"
 #: ../data/ui/card.blp:477 ../data/ui/categories_editor.blp:64
 #: ../data/ui/library.blp:247
 msgid "No Categories"
-msgstr ""
+msgstr "Brak kategorii"
 
 #: ../data/ui/card_chapters_list_row.blp:61
 msgid "New"
@@ -251,7 +252,7 @@ msgstr "Historia"
 
 #: ../data/ui/history.blp:69
 msgid "No History"
-msgstr ""
+msgstr "Brak historii"
 
 #: ../data/ui/library.blp:6 ../data/ui/preferences.blp:66
 msgid "Library"
@@ -421,11 +422,11 @@ msgstr "Automatycznie włącz ciemny motyw w nocy"
 
 #: ../data/ui/preferences.blp:36
 msgid "Accent Color"
-msgstr ""
+msgstr "Kolor akcentowy"
 
 #: ../data/ui/preferences.blp:37
 msgid "Use system accent colors"
-msgstr ""
+msgstr "Użyj systemowego koloru akcentowego"
 
 #: ../data/ui/preferences.blp:41
 msgid "Backdrop in Details Page"
@@ -445,7 +446,7 @@ msgstr "Użyj powiadomień na pulpicie dla aktualizacji biblioteki i pobierania"
 
 #: ../data/ui/preferences.blp:59
 msgid "Synchronize reading progress"
-msgstr ""
+msgstr "Synchronizuj postęp czytania"
 
 #: ../data/ui/preferences.blp:70
 msgid "Display"
@@ -505,7 +506,7 @@ msgstr "Automatycznie pobierz nowe rozdziały"
 
 #: ../data/ui/preferences.blp:167
 msgid "Explorer"
-msgstr ""
+msgstr "Przeglądarka"
 
 #: ../data/ui/preferences.blp:170
 #: ../data/ui/preferences_servers_languages.blp:6
@@ -629,7 +630,7 @@ msgstr ""
 
 #: ../data/ui/preferences.blp:267
 msgid "Trilinear"
-msgstr ""
+msgstr "Trójliniowy"
 
 #: ../data/ui/preferences.blp:273
 msgid "Landscape Pages Zoom"
