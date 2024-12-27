@@ -14,5 +14,5 @@ class Webtoonhatti(Madara):
     date_format = None
     series_name = 'webtoon'
 
-    base_url = 'https://webtoonhatti.dev'
+    base_url = 'https://webtoonhatti.me'
     chapters_url = base_url + '/manga/{0}/ajax/chapters/'
