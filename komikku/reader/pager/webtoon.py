@@ -30,8 +30,9 @@ class WebtoonPager(Adw.Bin, BasePager):
         self.scrolledwindow.set_policy(Gtk.PolicyType.NEVER, Gtk.PolicyType.AUTOMATIC)
         self.scrolledwindow.get_vscrollbar().set_visible(False)
         self.scrolledwindow.set_kinetic_scrolling(True)
-        self.scrolledwindow.get_vadjustment().connect('value-changed', self.on_scroll)
         self.set_child(self.scrolledwindow)
+
+        self.vadjustment_value_changed_handler_id = self.scrolledwindow.get_vadjustment().connect('value-changed', self.on_scroll)
 
         self.clamp = Adw.ClampScrollable()
         self.clamp.set_maximum_size(Settings.get_default().clamp_size)
@@ -50,6 +51,8 @@ class WebtoonPager(Adw.Bin, BasePager):
         return self.canvas.pages
 
     def dispose(self):
+        self.scrolledwindow.get_vadjustment().disconnect(self.vadjustment_value_changed_handler_id)
+
         self.canvas.dispose()
         self.canvas.unparent()
         self.canvas = None
