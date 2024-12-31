@@ -278,7 +278,7 @@ class Pager(Adw.Bin, BasePager):
 
     def adjust_page_placement(self, page):
         # Only if page is scrollable
-        if not page.is_scrollable:
+        if not page.scrollable:
             return
 
         if self.reader.reading_mode == 'vertical':
@@ -439,11 +439,15 @@ class Pager(Adw.Bin, BasePager):
         # - come back from offlimit page
         # - come back from inaccessible chapter page
 
+        if self.current_page:
+            self.current_page.obscured = True
+
         page = self.carousel.get_nth_page(index)
         self.current_page = page
+        self.current_page.obscured = False
 
         # Allow navigating if page is not scrollable, disallow otherwise
-        self.interactive = not page.is_scrollable
+        self.interactive = not page.scrollable
         # Restore zooming
         page.set_allow_zooming(True)
 
@@ -497,7 +501,7 @@ class Pager(Adw.Bin, BasePager):
 
         if page == self.current_page:
             # Allow navigating if page is not scrollable, disallow otherwise
-            self.interactive = not page.is_scrollable
+            self.interactive = not page.scrollable
 
     def on_scroll(self, _controller, dx, dy):
         page = self.current_page
@@ -512,13 +516,13 @@ class Pager(Adw.Bin, BasePager):
         if page is None:
             return
 
-        if page.is_scrollable:
+        if page.scrollable:
             # Page is scrollable (horizontally or vertically)
 
             # Scroll events are consumed, so we must manage page changes in place of Adw.Carousel
             # In the scroll axis, page changes will be handled via 'edge-overshot' page event
 
-            if page.is_hscrollable and not page.is_vscrollable and dy:
+            if page.hscrollable and not page.vscrollable and dy:
                 if self.reader.reading_mode == 'right-to-left':
                     # Use vertical scroll event to scroll horizontally in page
                     page.scrolledwindow.emit('scroll-child', Gtk.ScrollType.STEP_LEFT if dy > 0 else Gtk.ScrollType.STEP_RIGHT, False)
@@ -534,7 +538,7 @@ class Pager(Adw.Bin, BasePager):
                     self.scroll_to_direction('left' if dy < 0 else 'right')
                     return Gdk.EVENT_STOP
 
-            elif page.is_vscrollable and not page.is_hscrollable and dx:
+            elif page.vscrollable and not page.hscrollable and dx:
                 if self.reader.reading_mode in ('right-to-left', 'left-to-right') and dy == 0:
                     # Allow horizontal navigation when page is vertically scrollable
                     self.scroll_to_direction('left' if dx < 0 else 'right')

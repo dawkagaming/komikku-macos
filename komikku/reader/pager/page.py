@@ -35,12 +35,13 @@ class Page(Gtk.Overlay):
         self.picture = None
         self.retry_button = None
 
+        self._obscured = True
         self._status = None    # rendering, allocable, rendered, offlimit, disposed
         self.error = None      # connection error, server error, corrupt file error
         self.loadable = False  # loadable from disk or downloadable from server (chapter pages are known)
 
         if self.reader.reading_mode != 'webtoon':
-            self.scrollable = True
+            self.zoomable = True
             self.scrolledwindow = Gtk.ScrolledWindow()
             self.scrolledwindow.set_policy(Gtk.PolicyType.AUTOMATIC, Gtk.PolicyType.AUTOMATIC)
             self.scrolledwindow.set_kinetic_scrolling(True)
@@ -48,7 +49,7 @@ class Page(Gtk.Overlay):
 
             self.set_child(self.scrolledwindow)
         else:
-            self.scrollable = False
+            self.zoomable = False
 
         # Activity indicator
         self.activity_indicator = Adw.Spinner(
@@ -61,24 +62,27 @@ class Page(Gtk.Overlay):
         return self.get_allocation().height
 
     @property
-    def is_hscrollable(self):
-        if self.scrollable:
+    def hscrollable(self):
+        if self.zoomable:
             adj = self.scrolledwindow.get_hadjustment()
             return adj.props.upper > adj.props.page_size
 
         return False
 
-    @property
-    def is_scrollable(self):
-        return self.is_hscrollable or self.is_vscrollable
+    @GObject.Property(type=bool, default=True)
+    def obscured(self):
+        return self._obscured
+
+    @obscured.setter
+    def obscured(self, value):
+        if self.picture:
+            self.picture.obscured = value
+
+        self._obscured = value
 
     @property
-    def is_vscrollable(self):
-        if self.scrollable:
-            adj = self.scrolledwindow.get_vadjustment()
-            return adj.props.upper > adj.props.page_size
-
-        return False
+    def scrollable(self):
+        return self.hscrollable or self.vscrollable
 
     @GObject.Property(type=str)
     def status(self):
@@ -87,6 +91,14 @@ class Page(Gtk.Overlay):
     @status.setter
     def status(self, value):
         self._status = value
+
+    @property
+    def vscrollable(self):
+        if self.zoomable:
+            adj = self.scrolledwindow.get_vadjustment()
+            return adj.props.upper > adj.props.page_size
+
+        return False
 
     def dispose(self):
         self.status = 'disposed'
@@ -274,7 +286,7 @@ class Page(Gtk.Overlay):
 
             self.picture = picture
             self.status = 'allocable'
-            if self.scrollable:
+            if self.zoomable:
                 self.scrolledwindow.set_child(self.picture)
             else:
                 self.set_child(self.picture)
@@ -285,9 +297,8 @@ class Page(Gtk.Overlay):
             picture = KImage()
             picture.load_resource(MISSING_IMG_RESOURCE_PATH, on_loaded)
         else:
-            can_zoom = self.scrollable
             picture = KImage(
-                scaling=self.reader.scaling, scaling_filter=self.reader.scaling_filter, crop=self.reader.borders_crop, landscape_zoom=self.reader.landscape_zoom, can_zoom=can_zoom
+                scaling=self.reader.scaling, scaling_filter=self.reader.scaling_filter, crop=self.reader.borders_crop, landscape_zoom=self.reader.landscape_zoom, zoomable=self.zoomable
             )
             picture.load(path=self.path, data=self.data['buffer'] if self.data else None, callback=on_loaded)
 

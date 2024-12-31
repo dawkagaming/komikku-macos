@@ -65,18 +65,18 @@ class KImage(Gtk.Widget, Gtk.Scrollable):
         'zoom-end': (GObject.SignalFlags.RUN_FIRST, None, ()),
     }
 
-    def __init__(self, scaling='screen', scaling_filter='linear', crop=False, landscape_zoom=False, can_zoom=False):
+    def __init__(self, scaling='screen', scaling_filter='linear', crop=False, landscape_zoom=False, zoomable=False):
         super().__init__()
 
-        self.__rendered = False
-        self.__can_zoom = can_zoom
         self.__crop = crop
         self.__hadj = None
-        self.__landscape_zoom = self.__can_zoom and landscape_zoom
+        self.__landscape_zoom = zoomable and landscape_zoom
+        self.__rendered = False
         self.__scaling = scaling
         self.__scaling_filter = scaling_filter
         self.__vadj = None
         self.__zoom = 1
+        self.__zoomable = zoomable
 
         self.data = None
         self.path = None
@@ -90,6 +90,7 @@ class KImage(Gtk.Widget, Gtk.Scrollable):
         self.animation_tick_callback_id = None
 
         self.gesture_click_timeout_id = None
+        self.obscured = True
         self.pointer_position = None  # current pointer position
         self.zoom_center = None  # zoom position in image
         self.zoom_gesture_begin = None
@@ -97,7 +98,7 @@ class KImage(Gtk.Widget, Gtk.Scrollable):
 
         self.set_overflow(Gtk.Overflow.HIDDEN)
 
-        if self.__can_zoom:
+        if self.__zoomable:
             # Controller to track pointer motion: used to know current cursor position
             self.controller_motion = Gtk.EventControllerMotion.new()
             self.add_controller(self.controller_motion)
@@ -138,10 +139,6 @@ class KImage(Gtk.Widget, Gtk.Scrollable):
             vborder = 0
 
         return (hborder, vborder)
-
-    @property
-    def can_zoom(self):
-        return self.__can_zoom
 
     @GObject.Property(type=bool, default=False)
     def crop(self):
@@ -331,12 +328,16 @@ class KImage(Gtk.Widget, Gtk.Scrollable):
         self.__zoom = value
         self.queue_resize()
 
+    @property
+    def zoomable(self):
+        return self.__zoomable
+
     def __animation_tick_callback(self, image, clock):
         if self.animation_iter is None:
             return GLib.SOURCE_REMOVE
 
-        # Do not animate if not visible
-        if not self.get_mapped():
+        # Do not animate if not visible (obscured)
+        if self.obscured or not self.get_mapped():
             return GLib.SOURCE_CONTINUE
 
         delay = self.animation_iter.get_delay_time()
@@ -502,11 +503,13 @@ class KImage(Gtk.Widget, Gtk.Scrollable):
         return self.textures
 
     def dispose(self):
-        if self.__can_zoom:
-            self.remove_controller(self.controller_motion)
-            self.remove_controller(self.controller_scroll)
-            self.remove_controller(self.gesture_click)
-            self.remove_controller(self.gesture_zoom)
+        if self.__zoomable:
+            self.controller_motion.disconnect_by_func(self.on_pointer_motion)
+            self.controller_scroll.disconnect_by_func(self.on_scroll)
+            self.gesture_click.disconnect_by_func(self.on_gesture_click_released)
+            self.gesture_zoom.disconnect_by_func(self.on_gesture_zoom_begin)
+            self.gesture_zoom.disconnect_by_func(self.on_gesture_zoom_end)
+            self.gesture_zoom.disconnect_by_func(self.on_gesture_zoom_scale_changed)
 
         if self.animation_tick_callback_id:
             self.remove_tick_callback(self.animation_tick_callback_id)
@@ -612,7 +615,7 @@ class KImage(Gtk.Widget, Gtk.Scrollable):
             self.__scaling_filter = 'linear'
             self.__crop = False
             self.__landscape_zoom = False
-            self.__can_zoom = False
+            self.__zoomable = False
 
         if callback is None:
             self.create_texture_resource()
@@ -681,7 +684,7 @@ class KImage(Gtk.Widget, Gtk.Scrollable):
         return Gdk.EVENT_PROPAGATE
 
     def set_allow_zooming(self, allow):
-        if not self.__can_zoom:
+        if not self.__zoomable:
             return
 
         self.controller_scroll.set_propagation_phase(Gtk.PropagationPhase.CAPTURE if allow else Gtk.PropagationPhase.NONE)
