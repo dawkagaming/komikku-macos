@@ -10,6 +10,7 @@ class Bestmanga(Madara):
     name = 'Best Manga'
     lang = 'ru'
     is_nsfw = True
+    status = 'disabled'
 
     date_format = '%d.%m.%Y'
 
