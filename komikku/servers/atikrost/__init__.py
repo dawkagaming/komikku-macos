@@ -9,6 +9,7 @@ class Atikrost(Madara):
     id = 'atikrost'
     name = 'Atikrost'
     lang = 'tr'
+    status = 'disabled'
 
     date_format = None
 
