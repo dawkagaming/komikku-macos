@@ -16,6 +16,7 @@ class Perfscan(HeanCMS):
     id = 'perfscan'
     name = 'Perf Scan'
     lang = 'fr'
+    status = 'disabled'
 
     has_cf = True
 
