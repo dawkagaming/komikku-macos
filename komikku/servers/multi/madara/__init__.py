@@ -21,7 +21,7 @@
 # Leviatanscans [EN] (disabled)
 # Manga-Scantrad [FR]
 # Mangas Origines [FR] (disabled)
-# MangaWeebs [EN]
+# MangaWeebs [EN] (disabled)
 # Manhuaus [EN]
 # Manhwa Hentai [EN]
 # Phoenix Fansub [ES] (disabled)

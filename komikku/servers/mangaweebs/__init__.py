@@ -10,6 +10,7 @@ class Mangaweebs(Madara2):
     name = 'MangaWeebs'
     lang = 'en'
     is_nsfw = True
+    status = 'disabled'
 
     date_format = None  # broken, year is missing!
 
