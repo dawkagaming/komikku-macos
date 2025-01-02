@@ -10,6 +10,7 @@ class Rukavinari(MangaStream):
     name = 'Rukav Inari'
     lang = 'es'
     is_nsfw = True
+    status = 'disabled'
 
     slug_position = -1
 

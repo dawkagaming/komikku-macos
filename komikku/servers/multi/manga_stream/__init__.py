@@ -18,7 +18,7 @@
 # Raiki Scan [ES]
 # Rawkuma [JA]
 # Raw Manga [JA]
-# Rukav Inari [ES]
+# Rukav Inari [ES] (Disabled)
 # Ryujinmanga [ES]
 # Senpai Ediciones [ES]
 # ShadowMangas [ES]
