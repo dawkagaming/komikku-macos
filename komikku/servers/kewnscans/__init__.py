@@ -11,4 +11,3 @@ class Kewnscans(Keyoapp):
     lang = 'en'
 
     base_url = 'https://kewnscans.org'
-    media_url = 'https://imageserver.is1.buzz'

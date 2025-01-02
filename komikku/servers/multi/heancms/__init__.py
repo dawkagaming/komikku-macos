@@ -6,7 +6,7 @@
 
 # Supported servers:
 # Mode Scanlator [pt_BR]
-# Perf scan [FR]
+# Perf scan [FR] (disabled)
 # Reaper Scans [EN]
 # Reaper Scans [pt_BR] (disabled)
 

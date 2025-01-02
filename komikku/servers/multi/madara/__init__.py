@@ -13,8 +13,8 @@
 # ArazNovel [TR] (disabled)
 # Argos Scan / Argos Comics [PT]
 # Asura Scans [TR]
-# Atikrost [TR]
-# Best Manga [RU]
+# Atikrost [TR] (disabled)
+# Best Manga [RU] (disabled)
 # Fr-Scan (Id frdashscan) [FR]
 # Hunlight Scans [EN]
 # Leomanga [ES] (disabled)

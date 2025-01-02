@@ -47,7 +47,7 @@ class Keyoapp(Server):
         if self.chapter_url is None:
             self.chapter_url = self.base_url + '/chapter/{0}/'
         if self.media_url is None:
-            self.media_url = 'https://cdn.igniscans.com'
+            self.media_url = 'https://cdn.meowing.org'
 
         if self.session is None and not self.has_cf:
             self.session = requests.Session()
@@ -87,7 +87,7 @@ class Keyoapp(Server):
         data['name'] = soup.find('h1').text.strip()
 
         if element := soup.select_one('div[style*="--photoURL"]'):
-            url = element.get('style').split('url')[-1][1:-1]
+            url = element.get('style').split('photoURL:url')[-1][1:-1]
             data['cover'] = url
         elif element := soup.select_one('div[style*="--posterurl"]'):
             url = element.get('style').split(';')[0].split('url')[-1][1:-1]
@@ -116,7 +116,7 @@ class Keyoapp(Server):
             elif title in ('Last Updated At', 'View Count'):
                 pass
 
-            else:
+            elif element.span:
                 genre = element.span.text.strip().capitalize()
                 data['genres'].append(genre)
 
@@ -231,10 +231,11 @@ class Keyoapp(Server):
         results = []
         for element in soup.select('.latest-poster'):
             if element.a.get('style'):
-                cover = element.a.get('style').split('url')[-1][1:-1]
+                cover = element.a.get('style')
             elif element.div.get('style'):
                 # kewnscans only
-                cover = element.div.get('style').split('url')[-1][1:-1]
+                cover = element.div.get('style')
+            cover = cover.replace('background-image:url', '').split(';')[0][1:-1].replace('w=5', 'w=300')
 
             results.append(dict(
                 slug=element.a.get('href').split('/')[-2],
@@ -261,10 +262,12 @@ class Keyoapp(Server):
 
         results = []
         for a_element in soup.select('.flex-col .grid > .group.border > a'):
+            cover = a_element.get('style').replace('background-image:url', '')[1:-1].replace('w=480', 'w=240').replace('w=80', 'w=240')
+
             results.append(dict(
                 slug=a_element.get('href').split('/')[-2],
                 name=a_element.get('title'),
-                cover=a_element.get('style').split('url')[-1][1:-1].replace('w=480', 'w=240').replace('w=80', 'w=240'),
+                cover=cover,
             ))
 
         return results
@@ -298,7 +301,7 @@ class Keyoapp(Server):
             results.append(dict(
                 slug=element.get('id'),
                 name=name,
-                cover=element.select_one('.bg-cover').get('style').split('url')[-1][1:-1],
+                cover=element.select_one('.bg-cover').get('style').replace('background-image:url', '')[1:-1],
             ))
 
         return results
