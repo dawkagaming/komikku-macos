@@ -9,6 +9,7 @@ class Modescanlator(HeanCMS):
     id = 'modescanlator'
     name = 'Mode Scanlator'
     lang = 'pt_BR'
+    status = 'disabled'
 
     base_url = 'https://site.modescanlator.net'
     api_url = 'https://api.modescanlator.net'

@@ -2,6 +2,7 @@ import logging
 import pytest
 from pytest_steps import test_steps
 
+from . import do_server_test
 from komikku.utils import log_error_traceback
 
 logging.basicConfig(level=logging.DEBUG)
@@ -14,6 +15,7 @@ def modescanlator_server():
     return Modescanlator()
 
 
+@do_server_test
 @test_steps('get_latest_updates', 'get_most_popular', 'search', 'get_manga_data', 'get_chapter_data', 'get_page_image')
 def test_modescanlator(modescanlator_server):
     # Get latest updates
