@@ -12,6 +12,7 @@ class Leviatanscans(Madara):
     id = 'leviatanscans'
     name = 'LSComic (LeviatanScans)'
     lang = 'en'
+    status = 'disabled'
 
     base_url = 'https://lscomic.com'
     chapters_url = base_url + '/manga/{0}/ajax/chapters/'

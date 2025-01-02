@@ -18,7 +18,7 @@
 # Fr-Scan (Id frdashscan) [FR]
 # Hunlight Scans [EN] (disabled)
 # Leomanga [ES] (disabled)
-# Leviatanscans [EN]
+# Leviatanscans [EN] (disabled)
 # Manga-Scantrad [FR]
 # Mangas Origines [FR] (disabled)
 # MangaWeebs [EN]
