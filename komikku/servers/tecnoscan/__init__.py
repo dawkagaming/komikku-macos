@@ -10,7 +10,7 @@ class Tecnoscan(MangaStream):
     name = 'Terco Scans (Tecno Scans)'
     lang = 'es'
 
-    base_url = 'https://tecrosscans.xyz'
+    base_url = 'https://tencosoly.xyz'
 
     authors_selector = '.tsinfo .imptdt:-soup-contains("Artist") i, .tsinfo .imptdt:-soup-contains("Author") i'
     genres_selector = '.info-desc .mgen a'
