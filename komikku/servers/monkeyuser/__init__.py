@@ -48,7 +48,7 @@ class Monkeyuser(Server):
         for year in range(2016, datetime.date.today().year + 1):
             r = self.session_get(f'{self.base_url}/{year}/')
             if r.status_code != 200:
-                return None
+                continue
 
             mime_type = get_buffer_mime_type(r.content)
             if mime_type != 'text/html':
