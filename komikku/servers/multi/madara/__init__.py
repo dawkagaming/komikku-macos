@@ -16,7 +16,7 @@
 # Atikrost [TR] (disabled)
 # Best Manga [RU] (disabled)
 # Fr-Scan (Id frdashscan) [FR]
-# Hunlight Scans [EN]
+# Hunlight Scans [EN] (disabled)
 # Leomanga [ES] (disabled)
 # Leviatanscans [EN]
 # Manga-Scantrad [FR]

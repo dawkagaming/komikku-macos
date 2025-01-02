@@ -5,7 +5,7 @@
 # Hean CMS
 
 # Supported servers:
-# Mode Scanlator [pt_BR]
+# Mode Scanlator [pt_BR] (disabled)
 # Perf scan [FR] (disabled)
 # Reaper Scans [EN]
 # Reaper Scans [pt_BR] (disabled)
