@@ -113,6 +113,7 @@ CREDITS = dict(
         'dedocc (Italian)',
         'Davide Mora (Italian)',
         'Lili Kurek (Polish)',
+        'Aleksander Warzyniak (Polish)',
         'ssantos (Portuguese)',
         'Ademario Cunha (Portuguese)',
         'SpiralPack 527 (Portuguese)',
@@ -528,16 +529,28 @@ available in your region/language."""))
         # Override release notes
         dialog.set_release_notes("""
             <ul>
-                <li>[Servers] Added Asura Scans For Free (EN)</li>
-                <li>[Servers] Asura Scans (EN): Update</li>
-                <li>[Servers] MangaDex: Ignored externals and empty chapters</li>
-                <li>[Servers] MangaDex: Added Genres filter</li>
-                <li>[Servers] MangaHub: Avoided exceeding API rate limiting</li>
-                <li>[Servers] MangaLib (RU): Update</li>
-                <li>[Servers] Mangareader (to): Fixed decoding of scrumbled images</li>
-                <li>[L10n] Updated Finnish, Portuguese (Brazil), Russian, Spanish, Swedish and Ukrainian translations</li>
+                <li>[Reader] Paused pages animations when obscured</li>
+                <li>[Servers] Anteiku Scans (FR): Update</li>
+                <li>[Servers] Asura Scans For Free (EN): Update</li>
+                <li>[Servers] ED Scanlation (FR): Update</li>
+                <li>[Servers] EZmanga (EN): Update</li>
+                <li>[Servers] Kewn Scans (EN): Update</li>
+                <li>[Servers] MonkeyUser (EN): Update</li>
+                <li>[Servers] Pepper&amp;Carrot: Update</li>
+                <li>[Servers] Starbound Scans (FR): Update</li>
+                <li>[Servers] Terco Scans (ES): Update</li>
+                <li>[Servers] Webtoon Hatti (TR): Update</li>
+                <li>[Servers] Rukav Inari (ES): Disabled</li>
+                <li>[Servers] MangaWeebs (EN): Disabled</li>
+                <li>[Servers] LSComic (EN): Disabled</li>
+                <li>[Servers] Hunlight Scans (EN): Disabled</li>
+                <li>[Servers] Mode Scanlator (pt_BR): Disabled</li>
+                <li>[Servers] Best Manga (RU): Disabled</li>
+                <li>[Servers] Atikrost (TR): Disabled</li>
+                <li>[Servers] Perf Scan (FR): Disabled</li>
+                <li>[L10n] Updated Bulgarian, German and Polish translations</li>
             </ul>
-            <p>Enjoy holiday season and Happy reading.</p>
+            <p>Happy reading.</p>
         """)
 
         debug_info = DebugInfo(self.application)
