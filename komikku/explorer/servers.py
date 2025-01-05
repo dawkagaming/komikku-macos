@@ -1,4 +1,4 @@
-# Copyright (C) 2019-2024 Valéry Febvre
+# Copyright (C) 2019-2025 Valéry Febvre
 # SPDX-License-Identifier: GPL-3.0-only or GPL-3.0-or-later
 # Author: Valéry Febvre <vfebvre@easter-eggs.com>
 
@@ -141,7 +141,7 @@ class ExplorerServersPage(Adw.NavigationPage):
 
     def open_local_folder(self, _button):
         path = os.path.join(get_data_dir(), 'local')
-        Gio.app_info_launch_default_for_uri(f'file://{path}')
+        Gio.app_info_launch_default_for_uri(f'file://{path}')  # noqa: E231
 
     def populate(self, servers=None):
         self.clear()
