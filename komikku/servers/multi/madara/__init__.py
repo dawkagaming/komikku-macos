@@ -25,6 +25,7 @@
 # Manhuaus [EN]
 # Manhwa Hentai [EN]
 # Phoenix Fansub [ES] (disabled)
+# Poseidon Scans [FR]
 # Reaperscans [AR/FR/ID/TR]
 # Submanga [ES] (disabled)
 # ToonGod [EN]
