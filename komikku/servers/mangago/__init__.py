@@ -5,6 +5,7 @@
 import base64
 import logging
 import time
+from urllib.parse import urlparse
 
 from bs4 import BeautifulSoup
 from cryptography.hazmat.primitives.ciphers import algorithms
@@ -44,7 +45,6 @@ class Mangago(Server):
     latest_updates_url = base_url + '/list/latest/all/{0}/'
     most_populars_url = base_url + '/topmanga/'
     manga_url = base_url + '/read-manga/{0}/'
-    chapter_url = base_url + '/read-manga/{0}/{1}/'
 
     def __init__(self):
         if self.session is None and requests is not None:
@@ -118,27 +118,37 @@ class Mangago(Server):
         # Chapters
         for tr_element in reversed(soup.select('#chapter_table tr')):
             td_elements = tr_element.select('td')
-            slug_element = td_elements[0].select_one('a')
+            slug_element = td_elements[0].select_one('a.chico')
 
-            slug = slug_element.get('href').replace(self.manga_url.format(data['slug']), '').rstrip('/')
+            url = slug_element.get('href')
+            if 'mangago' in url:
+                # mangago.me, mangago.zone
+                slug = '/'.join(slug_element.get('href').split('/')[-4:-2])
+            elif 'youhim' in url:
+                # youhim.me
+                slug = '/'.join(slug_element.get('href').split('/')[-3:-1])
 
             data['chapters'].append(dict(
                 slug=slug,
+                url=url,
                 title=unidecode.unidecode(slug_element.text.strip()),
                 date=convert_date_string(td_elements[2].text.strip(), format='%b %d, %Y'),
             ))
 
         return data
 
-    def get_manga_chapter_data(self, manga_slug, manga_name, chapter_slug, chapter_url):
+    def get_manga_chapter_data(self, manga_slug, manga_name, chapter_slug, chapter_url, data=None):
         """
         Returns manga chapter data by scraping chapter HTML page content
 
         Currently, only pages are expected.
         """
-        r = self.session_get(self.chapter_url.format(manga_slug, chapter_slug))
+        r = self.session_get(chapter_url)
         if r.status_code != 200:
             return None
+
+        if r.redirect_count:
+            return data
 
         soup = BeautifulSoup(r.text, 'lxml')
 
@@ -206,14 +216,29 @@ class Mangago(Server):
         imgsrcs = decryptor.update(imgsrcs) + decryptor.finalize()
         imgsrcs = imgsrcs.decode('utf-8').rstrip('\x00').split(',')
 
-        data = dict(
-            pages=[],
-        )
+        if data is None:
+            data = dict(
+                pages=[],
+            )
+
+        partial = False
         for url in imgsrcs:
+            if not url:
+                partial = True
+                break
+
             data['pages'].append(dict(
                 slug=None,
                 image=url,
             ))
+
+        if partial:
+            next_url = soup.select_one('.left a.next_page').get('href')
+            if not next_url.startswith('http'):
+                parsed = urlparse(chapter_url)
+                next_url = f'{parsed.scheme}{parsed.netloc}{next_url}'
+
+            return self.get_manga_chapter_data(manga_slug, manga_name, chapter_slug, next_url, data=data)
 
         return data
 

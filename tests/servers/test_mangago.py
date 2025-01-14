@@ -54,19 +54,18 @@ def test_mangago(mangago_server):
     print('Get manga data')
     try:
         response = mangago_server.get_manga_data(dict(slug=slug))
-        chapter_slug = response['chapters'][0]['slug']
+        chapter_url = response['chapters'][0]['url']
     except Exception as e:
-        chapter_slug = None
+        chapter_url = None
         log_error_traceback(e)
 
-    assert chapter_slug is not None
-    assert len(response['chapters']) > 0
+    assert chapter_url is not None
     yield
 
     # Get chapter data
     print("Get chapter data")
     try:
-        response = mangago_server.get_manga_chapter_data(slug, None, chapter_slug, None)
+        response = mangago_server.get_manga_chapter_data(None, None, None, chapter_url)
         page = response['pages'][0]
     except Exception as e:
         page = None
