@@ -85,7 +85,7 @@
         </screenshot>
     </screenshots>
 
-    <developer id="codeberg.org">
+    <developer id="gitlab.gnome.org">
         <name translate="no">@authorfullname@</name>
     </developer>
     <update_contact translate="no">@authoremail@</update_contact>
@@ -99,6 +99,18 @@
     <url type="donation">https://valos.gitlab.io/Komikku/#sponsor</url>
 
     <releases>
+        <release version="1.68.0" date="2025-01-23">
+            <description translate="no">
+                <ul>
+                    <li>[Reader] Webtoon pager: Fixed pages jumping on initialization</li>
+                    <li>[Servers] Added Poseidon Scans (FR)</li>
+                    <li>[Servers] Mangago (EN): Update</li>
+                    <li>[L10n] Added Tamil translation</li>
+                    <li>[L10n] Updated Chinese (Simplified) and Finnish translations</li>
+                </ul>
+                <p>Happy reading.</p>
+            </description>
+        </release>
         <release version="1.67.0" date="2025-01-03">
             <description translate="no">
                 <ul>

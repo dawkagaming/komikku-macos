@@ -84,6 +84,7 @@ CREDITS = dict(
         'Dingzhong Chen (Simplified Chinese)',
         'Eric-Song-Nop (Simplified Chinese)',
         'Inaha (Simplified Chinese)',
+        'LS-Shandong (Simplified Chinese)',
         'randint (Traditional Chinese)',
         'Zhao Se (Traditional Chinese)',
         'happylittle7 (Traditional Chinese)',
@@ -92,6 +93,7 @@ CREDITS = dict(
         'Koen Benne (Dutch)',
         'Mikachu (Dutch)',
         'Jiri Grönroos (Finnish)',
+        'Ricky Tigg (Finnish)',
         'Irénée THIRION (French)',
         'Valéry Febvre (French)',
         'Mathieu B. (French)',
@@ -126,6 +128,7 @@ CREDITS = dict(
         'gallegonovato (Spanish)',
         'Jesper (Swedish)',
         'PaneradFisk (Swedish)',
+        'தமிழ்நேரம் (Tamil)',
         'Ege Çelikçi (Turkish)',
         'Sabri Ünal (Turkish)',
         'Volkan Yıldırım (Turkish)',
@@ -529,26 +532,11 @@ available in your region/language."""))
         # Override release notes
         dialog.set_release_notes("""
             <ul>
-                <li>[Reader] Paused pages animations when obscured</li>
-                <li>[Servers] Anteiku Scans (FR): Update</li>
-                <li>[Servers] Asura Scans For Free (EN): Update</li>
-                <li>[Servers] ED Scanlation (FR): Update</li>
-                <li>[Servers] EZmanga (EN): Update</li>
-                <li>[Servers] Kewn Scans (EN): Update</li>
-                <li>[Servers] MonkeyUser (EN): Update</li>
-                <li>[Servers] Pepper&amp;Carrot: Update</li>
-                <li>[Servers] Starbound Scans (FR): Update</li>
-                <li>[Servers] Terco Scans (ES): Update</li>
-                <li>[Servers] Webtoon Hatti (TR): Update</li>
-                <li>[Servers] Rukav Inari (ES): Disabled</li>
-                <li>[Servers] MangaWeebs (EN): Disabled</li>
-                <li>[Servers] LSComic (EN): Disabled</li>
-                <li>[Servers] Hunlight Scans (EN): Disabled</li>
-                <li>[Servers] Mode Scanlator (pt_BR): Disabled</li>
-                <li>[Servers] Best Manga (RU): Disabled</li>
-                <li>[Servers] Atikrost (TR): Disabled</li>
-                <li>[Servers] Perf Scan (FR): Disabled</li>
-                <li>[L10n] Updated Bulgarian, German and Polish translations</li>
+                <li>[Reader] Webtoon pager: Fixed pages jumping on initialization</li>
+                <li>[Servers] Added Poseidon Scans (FR)</li>
+                <li>[Servers] Mangago (EN): Update</li>
+                <li>[L10n] Added Tamil translation</li>
+                <li>[L10n] Updated Chinese (Simplified) and Finnish translations</li>
             </ul>
             <p>Happy reading.</p>
         """)
