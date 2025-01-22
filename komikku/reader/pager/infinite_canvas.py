@@ -137,6 +137,8 @@ class KInfiniteCanvas(Gtk.Widget, Gtk.Scrollable):
         first_page = self.get_first_child()
         last_page = self.get_last_child()
         if self.scroll_direction in (Gtk.DirectionType.DOWN, None):
+            self.scroll_direction = Gtk.DirectionType.DOWN
+
             if last_page.loadable and last_page._ic_position + last_page._ic_height < self.widget_height * (PRELOAD + 1):
                 self.emit('page-requested', 'end')
                 return
@@ -146,6 +148,8 @@ class KInfiniteCanvas(Gtk.Widget, Gtk.Scrollable):
                 return
 
         if self.scroll_direction in (Gtk.DirectionType.UP, None):
+            self.scroll_direction = Gtk.DirectionType.UP
+
             if first_page.loadable and first_page._ic_position > -self.widget_height * PRELOAD:
                 self.emit('page-requested', 'start')
                 return
@@ -153,10 +157,6 @@ class KInfiniteCanvas(Gtk.Widget, Gtk.Scrollable):
             if last_page.loadable and last_page._ic_position > self.widget_height * (PRELOAD + 1):
                 self.remove(last_page)
                 return
-
-        if self.scroll_direction is None:
-            # Set a default scroll direction at end of init
-            self.scroll_direction = Gtk.DirectionType.DOWN
 
     def append(self, page):
         """ Adds page at end """

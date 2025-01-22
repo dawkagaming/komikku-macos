@@ -503,7 +503,7 @@ class KImage(Gtk.Widget, Gtk.Scrollable):
         return self.textures
 
     def dispose(self):
-        if self.__zoomable:
+        if self.zoomable:
             self.controller_motion.disconnect_by_func(self.on_pointer_motion)
             self.controller_scroll.disconnect_by_func(self.on_scroll)
             self.gesture_click.disconnect_by_func(self.on_gesture_click_released)
@@ -684,7 +684,7 @@ class KImage(Gtk.Widget, Gtk.Scrollable):
         return Gdk.EVENT_PROPAGATE
 
     def set_allow_zooming(self, allow):
-        if not self.__zoomable:
+        if not self.zoomable:
             return
 
         self.controller_scroll.set_propagation_phase(Gtk.PropagationPhase.CAPTURE if allow else Gtk.PropagationPhase.NONE)
