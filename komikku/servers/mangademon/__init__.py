@@ -7,15 +7,14 @@ from urllib.parse import parse_qs
 from urllib.parse import urlparse
 
 from bs4 import BeautifulSoup
-import requests
 
 from komikku.servers import DOWNLOAD_MAX_DELAY
 from komikku.servers import Server
-from komikku.servers import USER_AGENT
 from komikku.servers.utils import convert_date_string
 from komikku.utils import get_buffer_mime_type
 from komikku.utils import get_response_elapsed
 from komikku.utils import is_number
+from komikku.webview import CompleteChallenge
 
 SEARCH_MAX_PAGES = 2
 
@@ -24,6 +23,7 @@ class Mangademon(Server):
     id = 'mangademon'
     name = 'Manga Demon'
     lang = 'en'
+    has_cf = True
 
     base_url = 'https://demonicscans.org'
     search_url = base_url + '/search.php'
@@ -33,12 +33,9 @@ class Mangademon(Server):
     chapter_url = base_url + '/chaptered.php?manga={0}&chapter={1}'
 
     def __init__(self):
-        if self.session is None:
-            self.session = requests.Session()
-            self.session.headers = {
-                'User-Agent': USER_AGENT
-            }
+        self.session = None
 
+    @CompleteChallenge()
     def get_manga_data(self, initial_data):
         """
         Returns manga data by scraping manga HTML page content
@@ -117,6 +114,7 @@ class Mangademon(Server):
 
         return data
 
+    @CompleteChallenge()
     def get_manga_chapter_data(self, manga_slug, manga_name, chapter_slug, chapter_url):
         """
         Returns manga chapter data by scraping chapter HTML page content
@@ -176,6 +174,7 @@ class Mangademon(Server):
         _id, slug = slug.split('_')
         return self.manga_url.format(slug)
 
+    @CompleteChallenge()
     def get_latest_updates(self):
         """
         Returns latest updates
@@ -232,6 +231,7 @@ class Mangademon(Server):
 
         return results
 
+    @CompleteChallenge()
     def get_most_populars(self):
         """
         Returns top views
@@ -273,6 +273,7 @@ class Mangademon(Server):
 
         return results
 
+    @CompleteChallenge()
     def search(self, term):
         r = self.session_get(
             self.search_url,
