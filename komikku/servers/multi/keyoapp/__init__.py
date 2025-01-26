@@ -5,7 +5,6 @@
 # Supported servers:
 # Anteiku Scans [FR]
 # ED Scanlation [FR]
-# EZmanga [EN]
 # Kewn Scans [EN]
 # Starbound Scans [FR]
 

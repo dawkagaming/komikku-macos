@@ -5,6 +5,7 @@
 # Hean CMS
 
 # Supported servers:
+# EZmanga [EN]
 # Mode Scanlator [pt_BR] (disabled)
 # Perf scan [FR] (disabled)
 # Reaper Scans [EN]
@@ -204,7 +205,7 @@ class HeanCMS(Server):
                         slug=chapter['chapter_slug'],
                         title=chapter['chapter_name'],
                         num=num,
-                        date=convert_date_string(chapter['created_at'].split('T')[0], self.date_format),
+                        date=convert_date_string(chapter['created_at'].split('T')[0], self.date_format) if 'created_at' in chapter else None,
                     ))
                 page += 1
                 delay = min(rtime * 2, DOWNLOAD_MAX_DELAY) if rtime else None

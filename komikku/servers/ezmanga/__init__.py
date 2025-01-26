@@ -2,13 +2,61 @@
 # SPDX-License-Identifier: GPL-3.0-only or GPL-3.0-or-later
 # Author: Valéry Febvre <vfebvre@easter-eggs.com>
 
-from komikku.servers.multi.keyoapp import Keyoapp
+import json
+
+from bs4 import BeautifulSoup
+
+from komikku.servers.multi.heancms import extract_info_from_script
+from komikku.servers.multi.heancms import HeanCMS
+from komikku.utils import get_buffer_mime_type
 
 
-class Ezmanga(Keyoapp):
+class Ezmanga(HeanCMS):
     id = 'ezmanga'
     name = 'EZmanga'
     lang = 'en'
-    has_cf = True
 
     base_url = 'https://ezmanga.org'
+    api_url = 'https://api.ezmanga.org'
+
+    cover_css_path = 'img[width="640"]'
+    authors_css_path = 'div.flex:-soup-contains("Author") > span:last-child'
+    synopsis_css_path = 'div.text-muted-foreground > div:nth-child(1)'
+
+    def get_manga_chapter_data(self, manga_slug, manga_name, chapter_slug, chapter_url):
+        """
+        Returns manga chapter data by scraping chapter HTML page content
+
+        Pages URLs are available in a <script> element
+        """
+        r = self.session_get(
+            self.chapter_url.format(manga_slug, chapter_slug),
+            headers={
+                'Referer': self.manga_url.format(manga_slug),
+            }
+        )
+        if r.status_code != 200:
+            return None
+
+        mime_type = get_buffer_mime_type(r.content)
+        if mime_type != 'text/html':
+            return None
+
+        soup = BeautifulSoup(r.text, 'lxml')
+
+        if info := extract_info_from_script(soup, 'API_Response'):
+            info = json.loads(info)
+            images = info[0][3]['API_Response']['chapter']['chapter_data']['images']
+
+            data = dict(
+                pages=[],
+            )
+            for url in images:
+                data['pages'].append(dict(
+                    slug=None,
+                    image=url,
+                ))
+
+            return data
+
+        return None
