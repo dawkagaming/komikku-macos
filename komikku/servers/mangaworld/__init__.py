@@ -2,8 +2,10 @@
 # SPDX-License-Identifier: GPL-3.0-only or GPL-3.0-or-later
 # Author: Valéry Febvre <vfebvre@easter-eggs.com>
 
-from bs4 import BeautifulSoup
+from functools import wraps
 from gettext import gettext as _
+
+from bs4 import BeautifulSoup
 import requests
 
 from komikku.servers import Server
@@ -11,6 +13,31 @@ from komikku.servers import USER_AGENT
 from komikku.servers.utils import convert_date_string
 from komikku.utils import get_buffer_mime_type
 from komikku.utils import is_number
+from komikku.webview import get_page_html
+
+
+def get_mwcookie(func):
+    @wraps(func)
+    def wrapper(*args, **kwargs):
+        server = args[0]
+
+        found = False
+        for name, _value in server.session.cookies.items():
+            if name == 'MWCookie':
+                found = True
+                break
+
+        if not found:
+            _html, cookies = get_page_html(server.base_url, user_agent=USER_AGENT, with_cookies=True)
+
+            for cookie in cookies:
+                if cookie.name == 'MWCookie':
+                    server.session.cookies.set_cookie(cookie)
+                    break
+
+        return func(*args, **kwargs)
+
+    return wrapper
 
 
 class Mangaworld(Server):
@@ -63,6 +90,7 @@ class Mangaworld(Server):
                 'User-Agent': USER_AGENT,
             })
 
+    @get_mwcookie
     def get_manga_data(self, initial_data):
         """
         Returns manga data by scraping manga HTML page content
@@ -135,6 +163,7 @@ class Mangaworld(Server):
 
         return data
 
+    @get_mwcookie
     def get_manga_chapter_data(self, manga_slug, manga_name, chapter_slug, chapter_url):
         """
         Returns manga chapter data by scraping chapter HTML page content
@@ -189,6 +218,7 @@ class Mangaworld(Server):
     def get_most_populars(self, types=None, statuses=None):
         return self.search('', types, statuses, orderby='populars')
 
+    @get_mwcookie
     def search(self, term, types=None, statuses=None, orderby=None):
         if orderby:
             params = {
