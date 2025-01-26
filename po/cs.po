@@ -7,40 +7,43 @@ msgstr ""
 "Project-Id-Version: Komikku 1.64.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-12-06 11:45+0100\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: Automatically generated\n"
-"Language-Team: none\n"
+"PO-Revision-Date: 2025-01-26 09:56+0000\n"
+"Last-Translator: Lukáš Linhart <l.linhos@gmail.com>\n"
+"Language-Team: Czech <https://hosted.weblate.org/projects/komikku/main/cs/>\n"
 "Language: cs\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
+"Plural-Forms: nplurals=3; plural=((n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2);\n"
+"X-Generator: Weblate 5.10-dev\n"
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:11
 msgid "Discover and read manga &amp; comics"
-msgstr ""
+msgstr "Objevujte a čtěte mangu &amp; komiksy"
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:13
 msgid ""
 "With its simple, elegant and adaptive interface, this reader lets you "
 "search, sort and read your series with ease."
 msgstr ""
+"Tato čtečka s jednoduchým, elegantním a přizpůsobivým rozhraním Vám umožní s "
+"lehkostí vyhledávat, třídit a číst vaše série."
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:15
 msgid "Why you will love Komikku?"
-msgstr ""
+msgstr "Proč si zamilujete Komikku?"
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:17
 msgid "Online and offline reading from dozens of servers"
-msgstr ""
+msgstr "Online a offline čtení z desítek serverů"
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:18
 msgid "Support for locally stored series (in CBZ or CBR formats)"
-msgstr ""
+msgstr "Podpora čtení lokálně uložených sérií (v CBZ a CBR formátu)"
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:19
 msgid "RTL, LTR, Vertical and Webtoon reading modes"
-msgstr ""
+msgstr "Režimi čtení RTL, LTR, vertikální a Webtoon"
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:20
 msgid ""
@@ -48,532 +51,541 @@ msgid ""
 "navigation layout via mouse click or tapping (touchpad/touch screen), mouse "
 "wheel, 2-fingers swipe gesture (touchpad), swipe gesture (touch screen)"
 msgstr ""
+"Umožňuje procházení několika způsoby: šipky na klávesnici, kliknutím vpravo "
+"a vlevo myší nebo dotekem (touchpad, dotyková obrazovka), kolečkem myši, "
+"gesto přejetí dvěma prsty (touchpad), gesto přejetí (dotyková obrazovka)"
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:21
 msgid "Categories to organize your library"
-msgstr ""
+msgstr "Organizujte svoji knihovnu v kategoriích"
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:22
+#, fuzzy
 msgid "Automatic tracking of series with MyAnimeList and AniList"
-msgstr ""
+msgstr "Automaticky označujte série v MyAnimeList a AniList"
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:23
 msgid "Automatic update of series"
-msgstr ""
+msgstr "Automatická aktualizace sérií"
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:24
 msgid "Automatic download of new chapters"
-msgstr ""
+msgstr "Automatické stažení nové kapitoly"
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:25
 msgid "Reading history"
-msgstr ""
+msgstr "Historie čtení"
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:26
 msgid "Light and dark themes"
-msgstr ""
+msgstr "Světlý a tmavý motiv"
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:47
 msgid "The Library page"
-msgstr ""
+msgstr "Strana knihovny"
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:51
 msgid "The Library page with the category sidebar open"
-msgstr ""
+msgstr "Strana knihovny s otevřeným bočním panelem kategorií"
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:55
 msgid "The Preferences page (Library settings)"
-msgstr ""
+msgstr "Strana předvoleb (nastavení knihovny)"
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:59
 msgid "The Explorer page in mobile format (Servers list)"
-msgstr ""
+msgstr "Strana průzkumníka v mobilním formátu (seznam serverů)"
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:63
 msgid "The Details page"
-msgstr ""
+msgstr "Strana podrobností"
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:67
 msgid "The Details page (chapters list)"
-msgstr ""
+msgstr "Strana podrobností (seznam kapitol)"
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:71
 msgid "The Reader page"
-msgstr ""
+msgstr "Strana čtečky"
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:75
 msgid "The Reader page in mobile format"
-msgstr ""
+msgstr "Strana čtečky v mobilním zobrazení"
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:79
 msgid "The Category editor page in mobile format"
-msgstr ""
+msgstr "Strana správce kategorií v mobilním zobrazení"
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:83
 msgid "The Reading history page in mobile format"
-msgstr ""
+msgstr "Strana historie čtení v mobilním zobrazení"
 
 #: ../data/info.febvre.Komikku.desktop.in:3
 msgid "@prettyname@"
-msgstr ""
+msgstr "@prettyname@"
 
 #: ../data/info.febvre.Komikku.desktop.in:4
 msgid "@description@"
-msgstr ""
+msgstr "@description@"
 
 #: ../data/info.febvre.Komikku.desktop.in:13
 msgid ""
 "manga;reader;viewer;comic;manhwa;manhua;bd;webtoon;webcomic;scan;offline;GTK;"
 "GNOME;"
 msgstr ""
+"manga;čtečka;prohlížeč;komiks;manhwa;manhua;bd;webtoon;webkomiks;sken;offline;GTK;GNOME;"
+""
 
 #: ../data/ui/card.blp:32 ../data/ui/card.blp:437
 #: ../data/ui/card_chapters_list_row.blp:44 ../data/ui/download_manager.blp:22
 #: ../data/ui/library.blp:142 ../data/ui/reader.blp:33
 msgid "Menu"
-msgstr ""
+msgstr "Menu"
 
 #: ../data/ui/card.blp:53
 msgid "Info"
-msgstr ""
+msgstr "Informace"
 
 #: ../data/ui/card.blp:134
 msgid "Add to Library"
-msgstr ""
+msgstr "Přidat do knihovny"
 
 #: ../data/ui/card.blp:164
 msgid "Details"
-msgstr ""
+msgstr "Podrobnosti"
 
 #: ../data/ui/card.blp:195
 msgid "Genres"
-msgstr ""
+msgstr "Žánry"
 
 #: ../data/ui/card.blp:228
+#, fuzzy
 msgid "Scanlators"
-msgstr ""
+msgstr "Scanlators"
 
 #: ../data/ui/card.blp:291
 msgid "Last Update"
-msgstr ""
+msgstr "Poslední aktualizace"
 
 #: ../data/ui/card.blp:323
 msgid "Size on Disk"
-msgstr ""
+msgstr "Velikost na disku"
 
 #: ../data/ui/card.blp:349
 msgid "Synopsis"
-msgstr ""
+msgstr "Synopse"
 
 #: ../data/ui/card.blp:477 ../data/ui/categories_editor.blp:64
 #: ../data/ui/library.blp:247
 msgid "No Categories"
-msgstr ""
+msgstr "Žádné kategorie"
 
 #: ../data/ui/card_chapters_list_row.blp:61
 msgid "New"
-msgstr ""
+msgstr "Nová"
 
 #: ../data/ui/card_tracking.blp:9
 msgid "Tracking"
-msgstr ""
+msgstr "Sledování"
 
 #: ../data/ui/card_tracking_search.blp:10 ../data/ui/explorer_search.blp:10
 #: ../data/ui/explorer_search.blp:41 ../data/ui/history.blp:18
 #: ../data/ui/library.blp:36
 msgid "Search"
-msgstr ""
+msgstr "Vyhledat"
 
 #: ../data/ui/card_tracking_search.blp:77
 msgid "Search for Tracking"
-msgstr ""
+msgstr "Vyhledat sledování"
 
 #: ../data/ui/categories_editor.blp:33
 msgid "Add"
-msgstr ""
+msgstr "Přidat"
 
 #: ../data/ui/download_manager.blp:6 ../data/ui/download_manager.blp:16
 msgid "Download Manager"
-msgstr ""
+msgstr "Správce stahování"
 
 #: ../data/ui/download_manager.blp:28
 msgid "Start/Stop Download"
-msgstr ""
+msgstr "Spustit/přerušit stahování"
 
 #: ../data/ui/download_manager.blp:65
 msgid "No Downloads"
-msgstr ""
+msgstr "Žádné stahování"
 
 #: ../data/ui/explorer_search.blp:28
 msgid "Search Filters"
-msgstr ""
+msgstr "Filtry vyhledávání"
 
 #: ../data/ui/explorer_search.blp:34
 msgid "Open in Browser"
-msgstr ""
+msgstr "Otevřít v prohlížeči"
 
 #: ../data/ui/explorer_search.blp:148
 msgid "Most Popular"
-msgstr ""
+msgstr "Nejpopulárnější"
 
 #: ../data/ui/explorer_search.blp:218
 msgid "Latest Updates"
-msgstr ""
+msgstr "Naposledy aktualizované"
 
 #: ../data/ui/explorer_servers.blp:6
 msgid "Servers"
-msgstr ""
+msgstr "Servery"
 
 #: ../data/ui/explorer_servers.blp:13
 msgid "Search Comics Across All Servers"
-msgstr ""
+msgstr "Vyhledat komiksy napříč všemi servery"
 
 #: ../data/ui/explorer_servers.blp:19
 msgid "Search Servers"
-msgstr ""
+msgstr "Vyhledat servery"
 
 #: ../data/ui/explorer_servers.blp:33
 msgid "Search for servers by name or language"
-msgstr ""
+msgstr "Vyhledat servery podle názvu nebo jazyka"
 
 #: ../data/ui/history.blp:6 ../data/ui/history.blp:12
 msgid "History"
-msgstr ""
+msgstr "Historie"
 
 #: ../data/ui/history.blp:69
 msgid "No History"
-msgstr ""
+msgstr "Žádná historie"
 
 #: ../data/ui/library.blp:6 ../data/ui/preferences.blp:66
 msgid "Library"
-msgstr ""
+msgstr "Knihovna"
 
 #: ../data/ui/library.blp:19
 msgid "Toggle Categories Sidebar"
-msgstr ""
+msgstr "Přepnout panel kategorií"
 
 #: ../data/ui/library.blp:23
 msgid "Komikku"
-msgstr ""
+msgstr "Komikku"
 
 #: ../data/ui/library.blp:30
 msgid "Main Menu"
-msgstr ""
+msgstr "Hlavní menu"
 
 #: ../data/ui/library.blp:74
 msgid "Search by name, server or genre"
-msgstr ""
+msgstr "Vyhledat podle názvu, serveru nebo žánru"
 
 #: ../data/ui/library.blp:121 ../data/ui/preferences.blp:153
 msgid "Update"
-msgstr ""
+msgstr "Aktualizovat"
 
 #: ../data/ui/library.blp:196
 msgid "Discover Comics"
-msgstr ""
+msgstr "Objevit komiksy"
 
 #: ../data/ui/library.blp:269
 msgid "OK"
-msgstr ""
+msgstr "OK"
 
 #: ../data/ui/menu/card.xml:25
 msgid "Order of Chapters"
-msgstr ""
+msgstr "Pořadí kapitol"
 
 #: ../data/ui/menu/card.xml:30
 msgid "⬆ By Source"
-msgstr ""
+msgstr "⬆ podle zdroje"
 
 #: ../data/ui/menu/card.xml:35
 msgid "⬇ By Source"
-msgstr ""
+msgstr "⬇ podle zdroje"
 
 #: ../data/ui/menu/card.xml:41
 msgid "⬆ By Date"
-msgstr ""
+msgstr "⬆ podle data"
 
 #: ../data/ui/menu/card.xml:46
 msgid "⬇ By Date"
-msgstr ""
+msgstr "⬇ podle data"
 
 #: ../data/ui/menu/card.xml:52
 msgid "⬆ By Title"
-msgstr ""
+msgstr "⬆ podle názvu"
 
 #: ../data/ui/menu/card.xml:57
 msgid "⬇ By Title"
-msgstr ""
+msgstr "⬇ podle názvu"
 
 #: ../data/ui/menu/card_selection_mode.xml:18
 #: ../data/ui/menu/library_selection_mode.xml:25
 msgid "Select All"
-msgstr ""
+msgstr "Označit všechny"
 
 #: ../data/ui/menu/download_manager.xml:7
 msgid "Delete All"
-msgstr ""
+msgstr "Smazat všechny"
 
 #: ../data/ui/menu/explorer_search_global_search.xml:7
 msgid "Pinned Servers Only"
-msgstr ""
+msgstr "Pouze označené servery"
 
 #: ../data/ui/menu/library_search.xml:7
 msgid "Unread"
-msgstr ""
+msgstr "Nepřečtené"
 
 #: ../data/ui/menu/library_search.xml:15
 msgid "Recents"
-msgstr ""
+msgstr "Nedávné"
 
 #: ../data/ui/menu/library_selection_mode.xml:7
 msgid "Edit Categories"
-msgstr ""
+msgstr "Upravit kategorie"
 
 #: ../data/ui/menu/main.xml:7
 msgid "Update Library"
-msgstr ""
+msgstr "Aktualizovat knihovnu"
 
 #: ../data/ui/menu/main.xml:11
 msgid "Sort"
-msgstr ""
+msgstr "Seřadit"
 
 #: ../data/ui/menu/main.xml:16
 msgid "Alphabetical"
-msgstr ""
+msgstr "Abecedně"
 
 #: ../data/ui/menu/main.xml:21
 msgid "Latest Read First"
-msgstr ""
+msgstr "Poslední přečtené první"
 
 #: ../data/ui/menu/main.xml:26
 msgid "Latest Updated First"
-msgstr ""
+msgstr "Nejnověji aktualizované první"
 
 #: ../data/ui/menu/main.xml:55
 msgid "Keyboard Shortcuts"
-msgstr ""
+msgstr "Klávesové zkratky"
 
 #: ../data/ui/menu/main.xml:59
 msgid "Donate"
-msgstr ""
+msgstr "Darovat"
 
 #: ../data/ui/menu/main.xml:63
 msgid "About Komikku"
-msgstr ""
+msgstr "O Komikku"
 
 #: ../data/ui/menu/reader.xml:109
 msgid "Zoom Landscape Pages"
-msgstr ""
+msgstr "Přiblížit stránky na šířku"
 
 #: ../data/ui/menu/reader.xml:113
 msgid "Crop Borders"
-msgstr ""
+msgstr "Ořezat okraje"
 
 #: ../data/ui/menu/reader.xml:117
 msgid "Hide Page Numbering"
-msgstr ""
+msgstr "Skrýt číslování stránek"
 
 #: ../data/ui/menu/reader.xml:124
 msgid "Save Page"
-msgstr ""
+msgstr "Uložit stránku"
 
 #: ../data/ui/preferences.blp:9 ../data/ui/preferences_servers_languages.blp:11
 #: ../data/ui/preferences_servers_settings.blp:11
 msgid "Preferences"
-msgstr ""
+msgstr "Preference"
 
 #: ../data/ui/preferences.blp:14
 msgid "General"
-msgstr ""
+msgstr "Obecné"
 
 #: ../data/ui/preferences.blp:20
 msgid "Theme"
-msgstr ""
+msgstr "Motiv"
 
 #: ../data/ui/preferences.blp:23
 msgid "Light"
-msgstr ""
+msgstr "Světlý"
 
 #: ../data/ui/preferences.blp:24
 msgid "Dark"
-msgstr ""
+msgstr "Tmavý"
 
 #: ../data/ui/preferences.blp:25
 msgid "Follow System"
-msgstr ""
+msgstr "Řídit se motivem systému"
 
 #: ../data/ui/preferences.blp:31
 msgid "Night Light"
-msgstr ""
+msgstr "Noční světlo"
 
 #: ../data/ui/preferences.blp:32
 msgid "Automatically enable dark theme at night"
-msgstr ""
+msgstr "Automaticky nastavit tmavý motiv v noci"
 
 #: ../data/ui/preferences.blp:36
 msgid "Accent Color"
-msgstr ""
+msgstr "Barva akcentu"
 
 #: ../data/ui/preferences.blp:37
 msgid "Use system accent colors"
-msgstr ""
+msgstr "Použít barvu akcentu ze systému"
 
 #: ../data/ui/preferences.blp:41
 msgid "Backdrop in Details Page"
-msgstr ""
+msgstr "Pozadí na stránce podrobností"
 
 #: ../data/ui/preferences.blp:42
 msgid "Enable background recoloring to match cover"
-msgstr ""
+msgstr "Povolit přebarvení pozadí podle obálky"
 
 #: ../data/ui/preferences.blp:50
 msgid "Desktop Notifications"
-msgstr ""
+msgstr "Oznámení na ploše"
 
 #: ../data/ui/preferences.blp:51
 msgid "Use desktop notifications for downloads and library updates"
-msgstr ""
+msgstr "Použít oznámení pro stahování a aktualizace knihovny"
 
 #: ../data/ui/preferences.blp:59
 msgid "Synchronize reading progress"
-msgstr ""
+msgstr "Synchronizovat pozici přečtení"
 
 #: ../data/ui/preferences.blp:70
 msgid "Display"
-msgstr ""
+msgstr "Zobrazení"
 
 #: ../data/ui/preferences.blp:73
 msgid "Display Mode"
-msgstr ""
+msgstr "Mód zobrazení"
 
 #: ../data/ui/preferences.blp:76
 msgid "Grid"
-msgstr ""
+msgstr "Mřížka"
 
 #: ../data/ui/preferences.blp:77
 msgid "Compact Grid"
-msgstr ""
+msgstr "Kompaktní mřížka"
 
 #: ../data/ui/preferences.blp:83
 msgid "Servers Logo"
-msgstr ""
+msgstr "Loga serverů"
 
 #: ../data/ui/preferences.blp:84
 msgid "Display servers logo"
-msgstr ""
+msgstr "Zobrazovat loga serverů"
 
 #: ../data/ui/preferences.blp:88
 msgid "Badges"
-msgstr ""
+msgstr "Odznáčky"
 
 #: ../data/ui/preferences.blp:91
 msgid "Number of Unread Chapters"
-msgstr ""
+msgstr "Počet nepřečtených kapitol"
 
 #: ../data/ui/preferences.blp:111
 msgid "Number of Downloaded Chapters"
-msgstr ""
+msgstr "Počet stažených kapitol"
 
 #: ../data/ui/preferences.blp:131
 msgid "Number of Recent and Unread Chapters"
-msgstr ""
+msgstr "Počet posledních a nepřečtených kapitol"
 
 #: ../data/ui/preferences.blp:156
 msgid "Update at Startup"
-msgstr ""
+msgstr "Aktualizovat po zapnutí"
 
 #: ../data/ui/preferences.blp:157
 msgid "Automatically update library at startup"
-msgstr ""
+msgstr "Automaticky aktualizovat knihovnu po zapnutí"
 
 #: ../data/ui/preferences.blp:161
 msgid "Auto Download of New Chapters"
-msgstr ""
+msgstr "Automatické stáhnutí nových kapitol"
 
 #: ../data/ui/preferences.blp:162
 msgid "Automatically download new chapters"
-msgstr ""
+msgstr "Automaticky stáhnout nové kapitoly"
 
 #: ../data/ui/preferences.blp:167
 msgid "Explorer"
-msgstr ""
+msgstr "Prohlížeč"
 
 #: ../data/ui/preferences.blp:170
 #: ../data/ui/preferences_servers_languages.blp:6
 #: ../data/ui/preferences_servers_languages.blp:12
 msgid "Servers Languages"
-msgstr ""
+msgstr "Jazyky serveru"
 
 #: ../data/ui/preferences.blp:171
 msgid "Restrict servers to selected languages"
-msgstr ""
+msgstr "Omezit servery na zvolené jazyky"
 
 #: ../data/ui/preferences.blp:179 ../data/ui/preferences_servers_settings.blp:6
 #: ../data/ui/preferences_servers_settings.blp:12
 msgid "Servers Settings"
-msgstr ""
+msgstr "Nastavení serverů"
 
 #: ../data/ui/preferences.blp:180
 msgid "Enable/disable and configure servers"
-msgstr ""
+msgstr "Povolení/zakázání a konfigurace serverů"
 
 #: ../data/ui/preferences.blp:188
 msgid "Long Strip Detection"
-msgstr ""
+msgstr "Detekce dlouhých pruhů"
 
 #: ../data/ui/preferences.blp:189
 msgid "Automatically detect long vertical strip when possible"
-msgstr ""
+msgstr "Automaticky detekovat dlouhé vertikální pruhy pokud je to možné"
 
 #: ../data/ui/preferences.blp:195
 msgid "NSFW Content (18+)"
-msgstr ""
+msgstr "NSFW obsah (18+)"
 
 #: ../data/ui/preferences.blp:196
 msgid "Whether to enable servers with NSFW content"
-msgstr ""
+msgstr "Zda povolit servery s NSFW obsahem"
 
 #: ../data/ui/preferences.blp:200
 msgid "NSFW Only Content (18+)"
-msgstr ""
+msgstr "Pouze NSFW obsah (18+)"
 
 #: ../data/ui/preferences.blp:201
 msgid "Whether to enable servers with NSFW only content"
-msgstr ""
+msgstr "Zda povolit servery, které obsahují pouze NSFW obsah"
 
 #: ../data/ui/preferences.blp:205
 msgid ""
 "These settings do not prevent potentially incorrectly flagged servers from "
 "surfacing NSFW content."
 msgstr ""
+"Tato nastavení nepředcházení potenciálnímu špatnému označení serveru a "
+"zobrazení NSFW obsahu."
 
 #: ../data/ui/preferences.blp:220 ../data/ui/reader.blp:6
 msgid "Reader"
-msgstr ""
+msgstr "Čtečka"
 
 #: ../data/ui/preferences.blp:225
 msgid "Reading Mode"
-msgstr ""
+msgstr "Mód čtení"
 
 #: ../data/ui/preferences.blp:228
 msgid "⬅ Right to Left"
-msgstr ""
+msgstr "⬅ Zprava doleva"
 
 #: ../data/ui/preferences.blp:229
 msgid "➡ Left to Right"
-msgstr ""
+msgstr "➡ Zleva doprava"
 
 #: ../data/ui/preferences.blp:230
 msgid "⬇ Vertical"
-msgstr ""
+msgstr "⬇ vertikální"
 
 #: ../data/ui/preferences.blp:231
 msgid "⬇ Webtoon"
-msgstr ""
+msgstr "⬇ Webtoon"
 
 #: ../data/ui/preferences.blp:237
 msgid "Maximum Width"
-msgstr ""
+msgstr "Maximální šířka"
 
 #: ../data/ui/preferences.blp:238
 msgid ""
