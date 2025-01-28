@@ -52,7 +52,6 @@ class Mangahub(Server):
     api_url = 'https://api.mghcdn.com/graphql'
     manga_url = base_url + '/manga/{0}'
     chapter_url = base_url + '/chapter/{0}/{1}'
-    image_url = 'https://imgx.mghcdn.com/{0}'
     cover_url = 'https://thumb.mghcdn.com/{0}'
 
     def __init__(self):
@@ -170,7 +169,7 @@ class Mangahub(Server):
                 'Referer': f'{self.base_url}/',
                 "Sec-Fetch-Dest": "image",
                 "Sec-Fetch-Mode": "no-cors",
-                "Sec-Fetch-Site": "cross-origin",
+                "Sec-Fetch-Site": "cross-site",
             },
         )
         if r.status_code != 200:
