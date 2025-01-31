@@ -2,70 +2,27 @@
 # SPDX-License-Identifier: GPL-3.0-only or GPL-3.0-or-later
 # Author: Valéry Febvre <vfebvre@easter-eggs.com>
 
-import base64
-import json
-
-from bs4 import BeautifulSoup
-
-from komikku.servers.multi.manga_stream import MangaStream
-from komikku.utils import get_buffer_mime_type
+from komikku.servers.multi.zeistmanga import ZeistManga
 
 
-class Nekoscans(MangaStream):
+class Nekoscans(ZeistManga):
     id = 'nekoscans'
     name = 'Neko Scans'
     lang = 'es'
     is_nsfw = True
-    status = 'disabled'
 
-    series_name = 'proyecto'
+    base_url = 'https://nekoscanlation.blogspot.com'
 
-    base_url = 'https://nekoscans.com'  # https://nekoscanlationlector.blogspot.com
-
-    authors_selector = '.tsinfo .imptdt:-soup-contains("Autor") i, .tsinfo .imptdt:-soup-contains("Artista") i'
-    genres_selector = '.info-desc .mgen a'
-    scanlators_selector = '.tsinfo .imptdt:-soup-contains("Serialización") i'
-    status_selector = '.tsinfo .imptdt:-soup-contains("Estado") i'
-    synopsis_selector = '[itemprop="description"]'
-
-    def get_manga_chapter_data(self, manga_slug, manga_name, chapter_slug, chapter_url):
-        """
-        Returns manga chapter data by scraping chapter HTML page content
-
-        Pages URLs are encoded in JS
-        """
-        r = self.session_get(
-            self.chapter_url.format(manga_slug=manga_slug, chapter_slug=chapter_slug),
-            headers={
-                'Referer': self.manga_url.format(manga_slug),
-            })
-        if r.status_code != 200:
-            return None
-
-        mime_type = get_buffer_mime_type(r.content)
-        if mime_type != 'text/html':
-            return None
-
-        soup = BeautifulSoup(r.text, 'lxml')
-
-        data = dict(
-            pages=[],
-        )
-        # Pages are loaded via javascript
-        for script in soup.select('script[src^="data:text/javascript;base64,"]'):
-            decoded_pages = base64.b64decode(script.get('src')[28:]).decode()
-            if 'ts_reader' not in decoded_pages:
-                continue
-
-            pages = json.loads(decoded_pages[14:-2])  # "ts_reader.run(...);"
-            for source in pages['sources']:
-                # Use first source
-                for url in source['images']:
-                    data['pages'].append(dict(
-                        slug=None,
-                        image=url,
-                    ))
-                break
-            break
-
-        return data
+    most_popular_selector = 'div.PopularPosts .item-thumbnail a'
+    details_name_selector = 'h1[itemprop="name"]'
+    details_cover_selector = 'img.thumb'
+    details_authors_selector = '#extra-info dl:-soup-contains("Autor") dd, #extra-info dl:-soup-contains("Artista") dd'
+    details_type_selector = 'dl:-soup-contains("Type") dd a'
+    details_genres_selector = 'dl:-soup-contains("Genre") dd a'
+    details_status_selector = 'span[data-status]'
+    details_synopsis_selector = '#synopsis'
+    chapters_selector = '#clwd ul li'
+    chapter_link_selector = 'a'
+    chapter_title_selector = 'span.chapternum'
+    chapter_date_selector = 'span.chapterdate'
+    pages_selector = '#reader #readarea img'

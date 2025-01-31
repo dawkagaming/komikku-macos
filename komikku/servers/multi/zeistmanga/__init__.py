@@ -2,6 +2,9 @@
 # SPDX-License-Identifier: GPL-3.0-only or GPL-3.0-or-later
 # Author: Valéry Febvre <vfebvre@easter-eggs.com>
 
+# Supported servers:
+# Neko Scans (ES)
+
 import json
 
 from bs4 import BeautifulSoup
