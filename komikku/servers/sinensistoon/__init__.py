@@ -4,12 +4,13 @@
 
 from komikku.servers.multi.peachscan import Peachscan
 
+# 2025/01 fusion of Sinensis and Cerise => SCtoon
+
 
 class Sinensistoon(Peachscan):
     id = 'sinensistoon'
-    name = 'Sinensistoon'
+    name = 'SCtoon'
     lang = 'pt_BR'
-
     has_cf = True
 
-    base_url = 'https://sinensis.leitorweb.com'
+    base_url = 'https://sctoon.net'
