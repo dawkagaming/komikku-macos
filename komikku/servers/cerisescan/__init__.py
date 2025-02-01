@@ -9,6 +9,7 @@ class Cerisescan(Peachscan):
     id = 'cerisescan'
     name = 'Cerise Scan'
     lang = 'pt_BR'
+    status = 'disabled'  # 2025/01 fusion of Cerise and Sinensis and Cerise => SCtoon
 
     has_cf = True
 
