@@ -336,6 +336,7 @@ class Mangalife(Mangasee):
     id = 'mangalife:mangasee'
     name = 'MangaLife'
     lang = 'en'
+    status = 'disabled'  # 2025/01 replaced by Weeb Central
 
     # Clone of MangaSee (with different IPV4 and IPV6 addresses)
 
