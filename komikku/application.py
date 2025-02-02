@@ -81,6 +81,7 @@ CREDITS = dict(
         'Fúlvio Alves (Brazilian Portuguese)',
         'twlvnn (Bulgarian)',
         'Roger VC (Catalan)',
+        'Lukáš Linhart (Czech)',
         'Dingzhong Chen (Simplified Chinese)',
         'Eric-Song-Nop (Simplified Chinese)',
         'Inaha (Simplified Chinese)',
@@ -532,11 +533,16 @@ available in your region/language."""))
         # Override release notes
         dialog.set_release_notes("""
             <ul>
-                <li>[Reader] Webtoon pager: Fixed pages jumping on initialization</li>
-                <li>[Servers] Added Poseidon Scans (FR)</li>
-                <li>[Servers] Mangago (EN): Update</li>
-                <li>[L10n] Added Tamil translation</li>
-                <li>[L10n] Updated Chinese (Simplified) and Finnish translations</li>
+                <li>[Servers] EZmanga (EN): Update</li>
+                <li>[Servers] Manga Demon (EN): Update</li>
+                <li>[Servers] MangaHub (EN): Update</li>
+                <li>[Servers] MangaWorld (IT): Update</li>
+                <li>[Servers] Neko Scans (ES): Update</li>
+                <li>[Servers] Sinensistoon (pt_BR): Renamed SCtoon (fusion with Cerise Scan)</li>
+                <li>[Servers] Cerise Scan (pt_BR): Disabled</li>
+                <li>[Servers] MangaLife (EN): Disabled</li>
+                <li>[Servers] MangaSee (EN): Disabled</li>
+                <li>[L10n] Added Czech translation</li>
             </ul>
             <p>Happy reading.</p>
         """)
