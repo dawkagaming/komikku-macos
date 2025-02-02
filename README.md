@@ -48,7 +48,7 @@
 
 **Komikku** is available as native package in the repositories of the following distributions:
 
-[![Packaging status](https://repology.org/badge/vertical-allrepos/komikku.svg)](https://repology.org/project/komikku/versions)
+[![Packaging status](https://repology.org/badge/vertical-allrepos/komikku.svg?columns=2)](https://repology.org/project/komikku/versions)
 
 ## 👨‍💻 Contributing
 
