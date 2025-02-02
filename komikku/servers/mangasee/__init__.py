@@ -27,6 +27,7 @@ class Mangasee(Server):
     name = 'MangaSee'
     lang = 'en'
     is_nsfw = True
+    status = 'disabled'  # 2025/01 replaced by Weeb Central
 
     base_url = 'https://mangasee123.com'
     search_url = base_url + '/search/'
