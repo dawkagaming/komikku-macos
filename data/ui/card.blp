@@ -203,14 +203,13 @@ template $CardPage : Adw.NavigationPage {
                             wrap: false;
                           }
 
-                          Label genres_label {
+                          Adw.WrapBox genres_wrapbox {
+                            align: 1;
                             halign: end;
                             hexpand: true;
-                            label: "genres";
-                            justify: right;
-                            wrap: true;
-                            wrap-mode: word_char;
-                            xalign: 1;
+                            valign: center;
+                            line-spacing: 6;
+                            child-spacing: 6;
                           }
                         }
                       }

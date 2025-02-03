@@ -53,7 +53,7 @@ class CardPage(Adw.NavigationPage):
     buttons_box = Gtk.Template.Child('buttons_box')
     add_button = Gtk.Template.Child('add_button')
     resume_button = Gtk.Template.Child('resume_button')
-    genres_label = Gtk.Template.Child('genres_label')
+    genres_wrapbox = Gtk.Template.Child('genres_wrapbox')
     scanlators_label = Gtk.Template.Child('scanlators_label')
     chapters_label = Gtk.Template.Child('chapters_label')
     last_update_label = Gtk.Template.Child('last_update_label')
@@ -514,7 +514,7 @@ class InfoBox:
         self.buttons_box = self.card.buttons_box
         self.add_button = self.card.add_button
         self.resume_button = self.card.resume_button
-        self.genres_label = self.card.genres_label
+        self.genres_wrapbox = self.card.genres_wrapbox
         self.scanlators_label = self.card.scanlators_label
         self.chapters_label = self.card.chapters_label
         self.last_update_label = self.card.last_update_label
@@ -588,10 +588,21 @@ class InfoBox:
             self.resume_button.remove_css_class('suggested-action')
 
         if manga.genres:
-            self.genres_label.set_markup(html_escape(', '.join(manga.genres)))
-            self.genres_label.get_parent().get_parent().set_visible(True)
+            label = self.genres_wrapbox.get_first_child()
+            while label:
+                next_label = label.get_next_sibling()
+                self.genres_wrapbox.remove(label)
+                label = next_label
+
+            for genre in sorted(manga.genres):
+                label = Gtk.Label()
+                label.set_markup(html_escape(genre))
+                label.set_css_classes(['genre-label', 'caption'])
+                self.genres_wrapbox.append(label)
+
+            self.genres_wrapbox.get_parent().get_parent().set_visible(True)
         else:
-            self.genres_label.get_parent().get_parent().set_visible(False)
+            self.genres_wrapbox.get_parent().get_parent().set_visible(False)
 
         if manga.scanlators:
             self.scanlators_label.set_markup(html_escape(', '.join(manga.scanlators)))
