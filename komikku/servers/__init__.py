@@ -83,20 +83,13 @@ class Server(BaseServer, ABC):
     has_captcha = False
     has_cf = False
     has_login = False
-    headers = None
-    headers_images = None
-    http_client = 'requests'  # HTTP client
-    ignore_ssl_errors = False
     is_nsfw = False
     is_nsfw_only = False
     logged_in = False
     long_strip_genres = []
     manga_title_css_selector = None  # Used to extract manga title in a manga URL
-    status = 'enabled'
     sync = False
     true_search = True  # If False, hide search in Explorer search page (XKCD, DBM, pepper&carotte…)
-
-    __sessions = {}  # to cache all existing sessions
 
     @classmethod
     def get_manga_initial_data_from_url(cls, url):
@@ -168,11 +161,11 @@ class Server(BaseServer, ABC):
             os.unlink(file_path)
 
         if all:
-            for id_ in Server.__sessions.copy():
+            for id_ in self._BaseServer__sessions.keys():
                 if id_.startswith(main_id):
-                    del Server.__sessions[id_]
-        elif self.id in Server.__sessions:
-            del Server.__sessions[self.id]
+                    del self._BaseServer__sessions[id_]
+        elif self.id in self._BaseServer__sessions:
+            del self._BaseServer__sessions[self.id]
 
     @abstractmethod
     def get_manga_data(self, initial_data):
