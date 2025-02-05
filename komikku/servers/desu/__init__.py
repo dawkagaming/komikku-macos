@@ -22,7 +22,7 @@ class Desu(Server):
     lang = 'ru'
     is_nsfw = True
 
-    base_url = 'https://desu.me'
+    base_url = 'https://desu.store'
     api_url = base_url + '/manga/api/'
     api_latest_updates_url = base_url + '/manga/api?limit=50&order=updated'
     api_most_populars_url = base_url + '/manga/api?limit=50&order=popular'
