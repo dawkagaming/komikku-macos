@@ -33,10 +33,11 @@ searchbar > revealer > box {
 /* Badges */
 label.badge {
     color: var(--light-1);
-    font-weight: 700;
     background-color: var(--accent-bg-color);
-    padding: 0 7px 1px 7px;
+    padding: 0 7px 0px 7px;
     border-radius: 999px;
+    font-family: var(--monospace-font-family);
+    font-weight: 700;
 }
 
 /* Covers */
@@ -84,7 +85,8 @@ flowbox flowboxchild:selected {
 /* Badge displays the number of unread chapter (per convention in blue) */
 /* Acceptable as long as it's the only badge used in an Adw.ViewSwitcher */
 viewswitcher indicatorbin > indicator {
-	background-color: var(--blue-2); /* unread chapters color */
+    background-color: var(--blue-2); /* unread chapters color */
+    font-family: var(--monospace-font-family);
 }
 
 .backdrop {

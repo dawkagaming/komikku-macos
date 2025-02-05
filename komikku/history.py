@@ -86,7 +86,7 @@ class HistoryDateChapterRow(Adw.ActionRow):
         # Time
         last_read = chapter.last_read.replace(tzinfo=pytz.UTC).astimezone(TIMEZONE)
         label = Gtk.Label(label=last_read.strftime('%H:%M'))
-        label.add_css_class('subtitle')
+        label.set_css_classes(['subtitle', 'monospace'])
         self.add_suffix(label)
 
         # Play/Resume button
