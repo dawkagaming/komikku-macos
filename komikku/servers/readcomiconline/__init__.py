@@ -137,8 +137,8 @@ class Readcomiconline(Server):
         def decode_url(url, server):
             # Scripts/rguard.min.js?v=1.5.4
             if not url.startswith('https'):
-                url = url.replace('HcVHR__aUe__', 'g')
-                url = url.replace('wQ__8gP3v6_', 'a')
+                url = url.replace('DcC4k__6UU__', 'g')
+                url = url.replace('sR__4kwqYI_', 'a')
                 if '?' in url:
                     url, qs = url.split('?')
                 else:
