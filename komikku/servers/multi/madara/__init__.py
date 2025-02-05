@@ -17,7 +17,7 @@
 # Best Manga [RU] (disabled)
 # Fr-Scan (Id frdashscan) [FR]
 # Hunlight Scans [EN] (disabled)
-# Leomanga [ES] (disabled)
+# Leomanga [ES]
 # Leviatanscans [EN] (disabled)
 # Manga-Scantrad [FR]
 # Mangas Origines [FR] (disabled)
@@ -182,7 +182,7 @@ class Madara(Server):
 
                 if status in ('Completed', 'Terminé', 'Completé', 'Completo', 'Finalizado', 'Concluído', 'Tamamlandı', 'مكتملة', 'Закончена'):
                     data['status'] = 'complete'
-                elif status in ('OnGoing', 'En Cours', 'En cours', 'Updating', 'Devam Ediyor', 'Em Lançamento', 'Em andamento', 'En Emision', 'مستمرة', 'Продолжается', 'Выпускается'):
+                elif status in ('OnGoing', 'En Cours', 'En cours', 'Updating', 'Devam Ediyor', 'Em Lançamento', 'Em andamento', 'En Emision', 'En emisión', 'مستمرة', 'Продолжается', 'Выпускается'):
                     data['status'] = 'ongoing'
                 elif status in ('Canceled', 'Cancelada'):
                     data['status'] = 'suspended'
