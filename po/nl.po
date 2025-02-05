@@ -1,5 +1,5 @@
 # Heimen Stoffels <vistausss@fastmail.com>, 2023.
-# Philip Goto <philip.goto@gmail.com>, 2023, 2024.
+# Philip Goto <philip.goto@gmail.com>, 2023, 2024, 2025.
 # Koen Benne <koen.benne@gmail.com>, 2023.
 # Mikachu <micah.sh@proton.me>, 2024.
 msgid ""
@@ -7,15 +7,15 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-12-06 11:45+0100\n"
-"PO-Revision-Date: 2024-09-29 23:15+0000\n"
-"Last-Translator: Mikachu <micah.sh@proton.me>\n"
+"PO-Revision-Date: 2025-02-05 07:31+0000\n"
+"Last-Translator: Philip Goto <philip.goto@gmail.com>\n"
 "Language-Team: Dutch <https://hosted.weblate.org/projects/komikku/main/nl/>\n"
 "Language: nl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.8-dev\n"
+"X-Generator: Weblate 5.10-dev\n"
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:11
 msgid "Discover and read manga &amp; comics"
@@ -62,7 +62,7 @@ msgstr "Categorieën om uw bibliotheek te organiseren"
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:22
 msgid "Automatic tracking of series with MyAnimeList and AniList"
-msgstr ""
+msgstr "Automatisch bĳhouden van series met MyAnimeList en AniList"
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:23
 msgid "Automatic update of series"
@@ -185,7 +185,7 @@ msgstr "Nieuw"
 
 #: ../data/ui/card_tracking.blp:9
 msgid "Tracking"
-msgstr ""
+msgstr "Bĳgehouden"
 
 #: ../data/ui/card_tracking_search.blp:10 ../data/ui/explorer_search.blp:10
 #: ../data/ui/explorer_search.blp:41 ../data/ui/history.blp:18
@@ -195,7 +195,7 @@ msgstr "Zoek"
 
 #: ../data/ui/card_tracking_search.blp:77
 msgid "Search for Tracking"
-msgstr ""
+msgstr "Zoeken in bĳgehouden"
 
 #: ../data/ui/categories_editor.blp:33
 msgid "Add"
@@ -421,11 +421,11 @@ msgstr "Pas het donkere thema 's avonds automatisch toe"
 
 #: ../data/ui/preferences.blp:36
 msgid "Accent Color"
-msgstr ""
+msgstr "Accent­kleur"
 
 #: ../data/ui/preferences.blp:37
 msgid "Use system accent colors"
-msgstr ""
+msgstr "Accent­kleur van systeem gebruiken"
 
 #: ../data/ui/preferences.blp:41
 msgid "Backdrop in Details Page"
@@ -445,7 +445,7 @@ msgstr "Gebruik bureaubladmeldingen voor downloads- en bibliotheekupdates"
 
 #: ../data/ui/preferences.blp:59
 msgid "Synchronize reading progress"
-msgstr ""
+msgstr "Lees­voortgang synchroniseren"
 
 #: ../data/ui/preferences.blp:70
 msgid "Display"
@@ -768,6 +768,9 @@ msgid ""
 "environment and therefore cannot disable animations globally via GNOME "
 "Settings (Accessibility ⇨ Seeing ⇨ Animation Effects)."
 msgstr ""
+"Deze aanpassing is alleen bedoeld voor gebruikers die de GNOME-desktop­"
+"omgeving niet gebruiken en daarom animaties niet globaal kunnen uitschakelen "
+"via de GNOME-instellingen (Toegankelĳkheid ⇨ Zien ⇨ Animatie-effecten)."
 
 #: ../data/ui/reader.blp:19
 msgid "Back"
@@ -1055,23 +1058,23 @@ msgstr "Markeer vorige hoofdstukken als gelezen"
 
 #: ../komikku/card/tracking.py:67
 msgid "Failed to get data from tracker"
-msgstr ""
+msgstr "Gegevens van bĳhouder ophalen mislukt"
 
 #: ../komikku/card/tracking.py:95
 msgid "No tracking services available"
-msgstr ""
+msgstr "Geen services voor bĳhouden beschikbaar"
 
 #: ../komikku/card/tracking.py:181
 msgid "Track"
-msgstr ""
+msgstr "Bĳhouden"
 
 #: ../komikku/card/tracking.py:210
 msgid "Use"
-msgstr ""
+msgstr "Gebruiken"
 
 #: ../komikku/card/tracking.py:218
 msgid "Cancel Tracking"
-msgstr ""
+msgstr "Niet meer bĳhouden"
 
 #: ../komikku/card/tracking.py:224 ../komikku/servers/mangadex/__init__.py:71
 #: ../komikku/servers/mangafire/__init__.py:58
@@ -1083,11 +1086,11 @@ msgstr "Status"
 
 #: ../komikku/card/tracking.py:233
 msgid "Score"
-msgstr ""
+msgstr "Score"
 
 #: ../komikku/card/tracking.py:238
 msgid "Chapter"
-msgstr ""
+msgstr "Hoofd­stuk"
 
 #: ../komikku/card/tracking.py:250 ../komikku/categories_editor.py:78
 #: ../komikku/library/__init__.py:372
@@ -1096,7 +1099,7 @@ msgstr "Verwijderen?"
 
 #: ../komikku/card/tracking.py:251
 msgid "Are you sure you want to cancel tracking?"
-msgstr ""
+msgstr "Weet u zeker dat u niet meer wilt bĳhouden?"
 
 #: ../komikku/card/tracking.py:252 ../komikku/categories_editor.py:80
 #: ../komikku/categories_editor.py:178 ../komikku/library/__init__.py:374
@@ -1485,23 +1488,23 @@ msgstr "Test"
 #: ../komikku/preferences.py:752 ../komikku/preferences.py:767
 #: ../komikku/preferences.py:790
 msgid "Disconnect"
-msgstr ""
+msgstr "Verbinding verbreken"
 
 #: ../komikku/preferences.py:755 ../komikku/preferences.py:782
 msgid "Connect"
-msgstr ""
+msgstr "Verbinden"
 
 #: ../komikku/preferences.py:770
 msgid "Failed to request client access"
-msgstr ""
+msgstr "Cliënt­toegang aanvragen mislukt"
 
 #: ../komikku/preferences.py:773
 msgid "Webview is currently in used. Please retry later."
-msgstr ""
+msgstr "Webview is momenteel in gebruik. Probeer het later opnieuw."
 
 #: ../komikku/preferences.py:790
 msgid "Disconnect from {}"
-msgstr ""
+msgstr "Verbinding verbreken met {}"
 
 #: ../komikku/reader/__init__.py:365
 #, python-brace-format
@@ -1566,7 +1569,7 @@ msgstr "Type"
 #: ../komikku/servers/multi/manga_stream/__init__.py:71
 #: ../komikku/servers/webtoon/__init__.py:48
 msgid "Filter by Type"
-msgstr ""
+msgstr "Filteren op type"
 
 #: ../komikku/servers/asurascans/__init__.py:39
 #: ../komikku/servers/coloredcouncil/__init__.py:72
@@ -1656,7 +1659,7 @@ msgstr "Categorieën"
 #: ../komikku/servers/mangaworld/__init__.py:32
 #: ../komikku/servers/weebcentral/__init__.py:36
 msgid "Filter by Types"
-msgstr ""
+msgstr "Filteren op typen"
 
 #: ../komikku/servers/dynasty/__init__.py:42
 #: ../komikku/servers/mangadex/__init__.py:103
@@ -1685,7 +1688,7 @@ msgstr "Met labels"
 
 #: ../komikku/servers/dynasty/__init__.py:53
 msgid "Comma separated list of tags to search for"
-msgstr ""
+msgstr "Door komma's gescheiden lĳst met tags waar­naar gezocht moet worden"
 
 #: ../komikku/servers/dynasty/__init__.py:59
 msgid "Without Tags"
@@ -1694,6 +1697,8 @@ msgstr "Zonder labels"
 #: ../komikku/servers/dynasty/__init__.py:60
 msgid "Comma separated list of tags to exclude from search"
 msgstr ""
+"Door komma's gescheiden lĳst met tags die van de zoek­opdracht moeten worden "
+"uitgesloten"
 
 #: ../komikku/servers/exceptions.py:10
 msgid "Error: {}"
@@ -1718,12 +1723,12 @@ msgstr "Bestaat niet meer."
 #: ../komikku/servers/flamescans/__init__.py:36
 #: ../komikku/servers/weebcentral/__init__.py:35
 msgid "Types"
-msgstr ""
+msgstr "Typen"
 
 #: ../komikku/servers/flamescans/__init__.py:48
 #: ../komikku/servers/weebcentral/__init__.py:48
 msgid "Statuses"
-msgstr ""
+msgstr "Statussen"
 
 #: ../komikku/servers/flamescans/__init__.py:49
 #: ../komikku/servers/mangadex/__init__.py:72
@@ -1731,7 +1736,7 @@ msgstr ""
 #: ../komikku/servers/mangaworld/__init__.py:47
 #: ../komikku/servers/weebcentral/__init__.py:49
 msgid "Filter by Statuses"
-msgstr ""
+msgstr "Filteren op statussen"
 
 #: ../komikku/servers/flamescans/__init__.py:53
 #: ../komikku/servers/mangadex/__init__.py:76
@@ -1743,7 +1748,7 @@ msgstr "Voltooid"
 #: ../komikku/servers/flamescans/__init__.py:55
 #: ../komikku/trackers/__init__.py:34
 msgid "Dropped"
-msgstr ""
+msgstr "Laten vallen"
 
 #: ../komikku/servers/flamescans/__init__.py:56
 #: ../komikku/servers/mangadex/__init__.py:78
@@ -1959,19 +1964,19 @@ msgstr "Canvas"
 
 #: ../komikku/trackers/__init__.py:31
 msgid "Reading"
-msgstr ""
+msgstr "Aan het lezen"
 
 #: ../komikku/trackers/__init__.py:33
 msgid "On Hold"
-msgstr ""
+msgstr "In de wacht"
 
 #: ../komikku/trackers/__init__.py:35
 msgid "Plan to Read"
-msgstr ""
+msgstr "Van plan te lezen"
 
 #: ../komikku/trackers/__init__.py:36
 msgid "Rereading"
-msgstr ""
+msgstr "Opnieuw aan het lezen"
 
 #: ../komikku/updater.py:106
 msgid "Library update completed with errors"
@@ -2032,7 +2037,7 @@ msgstr "Geen internetverbinding, time-out of server niet beschikbaar"
 
 #: ../komikku/webview.py:386
 msgid "Please wait…"
-msgstr ""
+msgstr "Even wachten…"
 
 #: ../komikku/webview.py:433
 msgid "Please complete CAPTCHA"
