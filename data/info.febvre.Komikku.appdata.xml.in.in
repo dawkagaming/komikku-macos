@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <component type="desktop-application">
     <id>@app_id@</id>
-    <translation type="gettext">@app_id@</translation>
+    <translation type="gettext">@projectname@</translation>
     <launchable type="desktop-id">@app_id@.desktop</launchable>
     <project_license>@license@</project_license>
     <metadata_license>CC-BY-4.0</metadata_license>
