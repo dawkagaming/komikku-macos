@@ -134,11 +134,12 @@ class Readcomiconline(Server):
         """
         Returns comic chapter data
         """
-        def decode_url(url, server):
-            # Scripts/rguard.min.js?v=1.5.4
+        def decode_url(url, substitutions, base_url):
+            # In `Scripts/rguard.min.js?v=1.5.4`
             if not url.startswith('https'):
-                url = url.replace('DcC4k__6UU__', 'g')
-                url = url.replace('sR__4kwqYI_', 'a')
+                for substitution in substitutions:
+                    url = url.replace(substitution[0], substitution[1])
+
                 if '?' in url:
                     url, qs = url.split('?')
                 else:
@@ -158,8 +159,8 @@ class Readcomiconline(Server):
                 if qs:
                     url += '?' + qs
 
-            if server:
-                url = url.replace('https://2.bp.blogspot.com', server)
+            if base_url:
+                url = url.replace('https://2.bp.blogspot.com', base_url)
 
             return url
 
@@ -170,22 +171,21 @@ class Readcomiconline(Server):
         soup = BeautifulSoup(r.text, 'lxml')
 
         encoded_urls = []
+        substitutions = []
         media_server = None
         for script_element in soup.select('script'):
             script = script_element.string
-            if not script or "var pth" not in script:
+            if not script or ('var pth' not in script and 'replace(' not in script):
                 continue
 
             for line in script.split('\n'):
                 line = line.strip()
                 if line.startswith("pth = '"):
-                    pth = line[7:-2]
+                    encoded_urls.append(line[7:-2])
 
-                    encoded_urls.append(pth)
-
-                elif matches := re.search(r".*replace\(\/(.*)\/g, '([a-z])'\);", line):
-                    encoded_urls[-1] = encoded_urls[-1].replace(matches.group(1), matches.group(2))
-            break
+                elif 'replace(' in line:
+                    if matches := re.search(r"replace\(/([a-zA-Z0-9_]+)/g, '([a-z])'\);", line):
+                        substitutions.append((matches.group(1), matches.group(2)))
 
         data = dict(
             pages=[],
@@ -193,7 +193,7 @@ class Readcomiconline(Server):
 
         for index, url in enumerate(encoded_urls):
             data['pages'].append(dict(
-                image=decode_url(url, media_server),
+                image=decode_url(url, substitutions, media_server),
                 slug=None,
                 index=index + 1,
             ))
