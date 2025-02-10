@@ -3,13 +3,14 @@
 # This file is distributed under the same license as the Komikku package.
 # Jesper <93771679+Bjorkan@users.noreply.github.com>, 2024.
 # PaneradFisk <andre.bergvall@icloud.com>, 2024.
+# Willem Dinkelspiel <mail@keii.dev>, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: Komikku 1.47.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-12-06 11:45+0100\n"
-"PO-Revision-Date: 2024-12-12 23:00+0000\n"
-"Last-Translator: PaneradFisk <andre.bergvall@icloud.com>\n"
+"PO-Revision-Date: 2025-02-11 17:02+0000\n"
+"Last-Translator: Willem Dinkelspiel <mail@keii.dev>\n"
 "Language-Team: Swedish <https://hosted.weblate.org/projects/komikku/main/sv/>"
 "\n"
 "Language: sv\n"
@@ -17,7 +18,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.9-dev\n"
+"X-Generator: Weblate 5.10-dev\n"
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:11
 msgid "Discover and read manga &amp; comics"
@@ -134,6 +135,8 @@ msgid ""
 "manga;reader;viewer;comic;manhwa;manhua;bd;webtoon;webcomic;scan;offline;GTK;"
 "GNOME;"
 msgstr ""
+"manga;läsare;tittare;serietidning;manhwa;manhua;bd;webtoon;webcomic;scan;offline;GTK;GNOME;"
+""
 
 #: ../data/ui/card.blp:32 ../data/ui/card.blp:437
 #: ../data/ui/card_chapters_list_row.blp:44 ../data/ui/download_manager.blp:22
@@ -420,19 +423,19 @@ msgstr "Automatiskt aktivera mörkt tema på natten"
 
 #: ../data/ui/preferences.blp:36
 msgid "Accent Color"
-msgstr ""
+msgstr "Accentfärg"
 
 #: ../data/ui/preferences.blp:37
 msgid "Use system accent colors"
-msgstr ""
+msgstr "Använd systemets accentfärg"
 
 #: ../data/ui/preferences.blp:41
 msgid "Backdrop in Details Page"
-msgstr ""
+msgstr "Bakgrund i detaljersidan"
 
 #: ../data/ui/preferences.blp:42
 msgid "Enable background recoloring to match cover"
-msgstr ""
+msgstr "Aktivera bakgrundsomfärgning för att motsvara omslaget"
 
 #: ../data/ui/preferences.blp:50
 msgid "Desktop Notifications"
@@ -449,31 +452,31 @@ msgstr "Synkronisera läsningsprogress"
 
 #: ../data/ui/preferences.blp:70
 msgid "Display"
-msgstr ""
+msgstr "Visa"
 
 #: ../data/ui/preferences.blp:73
 msgid "Display Mode"
-msgstr ""
+msgstr "Visningsläge"
 
 #: ../data/ui/preferences.blp:76
 msgid "Grid"
-msgstr ""
+msgstr "Rutnät"
 
 #: ../data/ui/preferences.blp:77
 msgid "Compact Grid"
-msgstr ""
+msgstr "Kompaktrutnät"
 
 #: ../data/ui/preferences.blp:83
 msgid "Servers Logo"
-msgstr ""
+msgstr "Servrarnas Logotyp"
 
 #: ../data/ui/preferences.blp:84
 msgid "Display servers logo"
-msgstr ""
+msgstr "Visa servrarnas logotyp"
 
 #: ../data/ui/preferences.blp:88
 msgid "Badges"
-msgstr ""
+msgstr "Märken"
 
 #: ../data/ui/preferences.blp:91
 msgid "Number of Unread Chapters"
@@ -524,15 +527,15 @@ msgstr "Serverinställningar"
 
 #: ../data/ui/preferences.blp:180
 msgid "Enable/disable and configure servers"
-msgstr ""
+msgstr "Aktivera/avaktivera och konfigurera servrar"
 
 #: ../data/ui/preferences.blp:188
 msgid "Long Strip Detection"
-msgstr ""
+msgstr "Lång remsa detektion"
 
 #: ../data/ui/preferences.blp:189
 msgid "Automatically detect long vertical strip when possible"
-msgstr ""
+msgstr "Uppfånga långa vertikala remsor automatiskt när det är möjligt"
 
 #: ../data/ui/preferences.blp:195
 msgid "NSFW Content (18+)"
@@ -540,29 +543,31 @@ msgstr "NSFW innehåll (18+)"
 
 #: ../data/ui/preferences.blp:196
 msgid "Whether to enable servers with NSFW content"
-msgstr ""
+msgstr "Visa servrar med NSFW innehåll"
 
 #: ../data/ui/preferences.blp:200
 msgid "NSFW Only Content (18+)"
-msgstr ""
+msgstr "Bara NSFW Inlägg (18+)"
 
 #: ../data/ui/preferences.blp:201
 msgid "Whether to enable servers with NSFW only content"
-msgstr ""
+msgstr "Visa servrar med bara NSFW inlägg"
 
 #: ../data/ui/preferences.blp:205
 msgid ""
 "These settings do not prevent potentially incorrectly flagged servers from "
 "surfacing NSFW content."
 msgstr ""
+"Dessa inställningar hindrar inte potentiellt inkorrekt markerade servrar att "
+"visa NSFW inlägg."
 
 #: ../data/ui/preferences.blp:220 ../data/ui/reader.blp:6
 msgid "Reader"
-msgstr ""
+msgstr "Läsare"
 
 #: ../data/ui/preferences.blp:225
 msgid "Reading Mode"
-msgstr ""
+msgstr "Läsläge"
 
 #: ../data/ui/preferences.blp:228
 msgid "⬅ Right to Left"
@@ -588,26 +593,27 @@ msgstr "Max bredd"
 msgid ""
 "Constrain reader's width to a given maximum size (Webtoon reading mode only)"
 msgstr ""
+"Begränsa läsarens bredd till en given max-storlek (Endast webtoon läsläge)"
 
 #: ../data/ui/preferences.blp:249
 msgid "Scaling"
-msgstr ""
+msgstr "Skala"
 
 #: ../data/ui/preferences.blp:250
 msgid "Type of scaling to adapt image"
-msgstr ""
+msgstr "Typ av skalning för att anpassa bilden"
 
 #: ../data/ui/preferences.blp:253
 msgid "Adapt to Screen"
-msgstr ""
+msgstr "Anpassa till skärm"
 
 #: ../data/ui/preferences.blp:254
 msgid "Adapt to Width"
-msgstr ""
+msgstr "Anpassa till bredd"
 
 #: ../data/ui/preferences.blp:255
 msgid "Adapt to Height"
-msgstr ""
+msgstr "Anpassa till höjd"
 
 #: ../data/ui/preferences.blp:256
 msgid "Original Size"
@@ -615,11 +621,11 @@ msgstr "Original Storlek"
 
 #: ../data/ui/preferences.blp:262
 msgid "Scaling Filter"
-msgstr ""
+msgstr "Skalningsfilter"
 
 #: ../data/ui/preferences.blp:263
 msgid "Interpolation method used when scaling images"
-msgstr ""
+msgstr "Interpolationsmetod som används när bilden skalas"
 
 #: ../data/ui/preferences.blp:266
 msgid "Linear"
@@ -627,16 +633,18 @@ msgstr "Linjär"
 
 #: ../data/ui/preferences.blp:267
 msgid "Trilinear"
-msgstr ""
+msgstr "Trilinjär"
 
 #: ../data/ui/preferences.blp:273
 msgid "Landscape Pages Zoom"
-msgstr ""
+msgstr "Landskapsidors zoom"
 
 #: ../data/ui/preferences.blp:274
 msgid ""
 "Zoom page to fit height when page is landscape (Adapt to Screen scaling only)"
 msgstr ""
+"Zooma sidan för att passa höjden när sidan är liggande (Endast "
+"\"Anpassa till skärm skalning\")"
 
 #: ../data/ui/preferences.blp:278
 msgid "Background Color"
@@ -656,11 +664,11 @@ msgstr "Svart"
 
 #: ../data/ui/preferences.blp:284
 msgid "System Style"
-msgstr ""
+msgstr "Systemstil"
 
 #: ../data/ui/preferences.blp:290
 msgid "Borders Crop"
-msgstr ""
+msgstr "Skär kanter"
 
 #: ../data/ui/preferences.blp:291
 msgid ""
@@ -669,6 +677,10 @@ msgid ""
 "NOTE: Requires more CPU usage and can cause rendering and animation "
 "slowdowns, especially on mobile devices."
 msgstr ""
+"Skär vita kanter av bilder\n"
+"\n"
+"OBS: Kräver mer CPU användning och kan leda till långsammare rendering och "
+"animationer, speciellt på mobila enheter."
 
 #: ../data/ui/preferences.blp:295
 msgid "Page Numbering"
@@ -696,7 +708,7 @@ msgstr "Data"
 
 #: ../data/ui/preferences.blp:313
 msgid "Data not saved in the library"
-msgstr ""
+msgstr "Datan är inte sparad i biblioteket"
 
 #: ../data/ui/preferences.blp:316
 msgid "Clear Chapters Cache and Database"
@@ -708,11 +720,11 @@ msgstr "Rensa kapitel cache och databas vid stängning"
 
 #: ../data/ui/preferences.blp:326
 msgid "Servers Modules"
-msgstr ""
+msgstr "Servermoduler"
 
 #: ../data/ui/preferences.blp:329
 msgid "Use Up-to-date Servers Modules"
-msgstr ""
+msgstr "Använd uppdaterade servermoduler"
 
 #: ../data/ui/preferences.blp:330
 msgid ""
@@ -720,32 +732,37 @@ msgid ""
 "code repository and updated at each startup, is used instead of the one "
 "delivered with the application."
 msgstr ""
+"En alternativ version av servermodulerna, installerad från källkoden och "
+"uppdaterad vid varje uppstart, används istället för den som kommer för "
+"paketerade med applikationen."
 
 #: ../data/ui/preferences.blp:335
 msgid "Credentials Storage"
-msgstr ""
+msgstr "Lagring av inloggningsuppgifter"
 
 #: ../data/ui/preferences.blp:338
 msgid "Allow Plaintext Storage as Fallback"
-msgstr ""
+msgstr "Tillåt klartextlagrning som reserv"
 
 #: ../data/ui/preferences.blp:339
 msgid "Used when no keyring backends are found"
-msgstr ""
+msgstr "Används när ingen nyckelringsbackends hittas"
 
 #: ../data/ui/preferences.blp:344
 msgid "Tweaks"
-msgstr ""
+msgstr "Anpassningar"
 
 #: ../data/ui/preferences.blp:347
 msgid "Disable Animations"
-msgstr ""
+msgstr "Stäng av animationer"
 
 #: ../data/ui/preferences.blp:348
 msgid ""
 "Useful with E Ink e-readers to avoid very choppy and unpleasant animations "
 "(due to the low refresh rate of the screen)"
 msgstr ""
+"Användbar med E Ink e-läsare för att undvika hackiga och obehagliga "
+"animationer (på grund av skärmens låga uppdateringsfrekvens)"
 
 #: ../data/ui/preferences.blp:352
 msgid ""
