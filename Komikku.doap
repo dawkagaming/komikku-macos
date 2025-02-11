@@ -20,9 +20,10 @@
     <foaf:Person>
       <foaf:name>Valéry Febvre</foaf:name>
       <foaf:mbox rdf:resource="mailto:vfebvre@easter-eggs.com" />
+      <gnome:userid>valos</gnome:userid>
       <foaf:account>
         <foaf:OnlineAccount>
-          <foaf:accountServiceHomepage rdf:resource="https://codeberg.org"/>
+          <foaf:accountServiceHomepage rdf:resource="https://gitlab.gnome.org"/>
           <foaf:accountName>valos</foaf:accountName>
         </foaf:OnlineAccount>
       </foaf:account>

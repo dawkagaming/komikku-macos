@@ -85,7 +85,7 @@
         </screenshot>
     </screenshots>
 
-    <developer id="gitlab.gnome.org">
+    <developer id="info.febvre">
         <name translate="no">@authorfullname@</name>
     </developer>
     <update_contact translate="no">@authoremail@</update_contact>
