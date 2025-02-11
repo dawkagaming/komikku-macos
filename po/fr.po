@@ -1,5 +1,5 @@
 # Irénée THIRION <irenee.thirion@e.email>, 2022.
-# Valéry Febvre <vfebvre@easter-eggs.com>, 2023, 2024.
+# Valéry Febvre <vfebvre@easter-eggs.com>, 2023, 2024, 2025.
 # "Mathieu B." <mathieu.bousquet2@gmail.com>, 2023.
 # rene-coty <irenee.thirion@e.email>, 2024.
 # paul verot <paulverot@free.fr>, 2024.
@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: unnamed project\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-12-06 11:45+0100\n"
-"PO-Revision-Date: 2024-12-06 10:50+0000\n"
+"PO-Revision-Date: 2025-02-11 17:02+0000\n"
 "Last-Translator: Valéry Febvre <vfebvre@easter-eggs.com>\n"
 "Language-Team: French <https://hosted.weblate.org/projects/komikku/main/fr/>"
 "\n"
@@ -18,11 +18,11 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 5.9-dev\n"
+"X-Generator: Weblate 5.10-dev\n"
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:11
 msgid "Discover and read manga &amp; comics"
-msgstr "Découvrez et lisez manga & BD"
+msgstr "Découvrir et lire des mangas et des BD"
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:13
 msgid ""
