@@ -18,7 +18,7 @@ from komikku.utils import is_flatpak
 
 logger = logging.getLogger(__name__)
 
-VERSION = 14
+VERSION = 15
 
 
 def adapt_json(data):
@@ -169,6 +169,7 @@ def init_db():
         status text,
         background_color text,
         borders_crop integer,
+        filters json,
         landscape_zoom integer,
         page_numbering integer,
         reading_mode text,
@@ -374,6 +375,11 @@ def init_db():
             execute_sql(db_conn, 'ALTER TABLE chapters ADD COLUMN num text;')
             execute_sql(db_conn, 'ALTER TABLE chapters ADD COLUMN num_volume text;')
             db_conn.execute('PRAGMA user_version = {0}'.format(14))
+
+        if 0 < db_version <= 15:
+            # Version 1.70.0
+            execute_sql(db_conn, 'ALTER TABLE mangas ADD COLUMN filters json;')
+            db_conn.execute('PRAGMA user_version = {0}'.format(15))
 
         logger.info('DB version {0}'.format(db_conn.execute('PRAGMA user_version').fetchone()[0]))
 

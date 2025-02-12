@@ -26,6 +26,7 @@ class CardPage(Adw.NavigationPage):
     __gtype_name__ = 'CardPage'
 
     left_button = Gtk.Template.Child('left_button')
+    filters_button = Gtk.Template.Child('filters_button')
     title_stack = Gtk.Template.Child('title_stack')
     title = Gtk.Template.Child('title')
     viewswitcher = Gtk.Template.Child('viewswitcher')
@@ -77,10 +78,12 @@ class CardPage(Adw.NavigationPage):
         Gtk.StyleContext.add_provider_for_display(Gdk.Display.get_default(), self.css_provider, Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION)
 
         self.connect('shown', self.on_shown)
+        self.stack.connect('notify::visible-child-name', self.on_page_changed)
         self.window.controller_key.connect('key-pressed', self.on_key_pressed)
 
         # Header bar
         self.left_button.connect('clicked', self.leave_selection_mode)
+        self.filters_button.connect('clicked', self.on_filters_button_clicked)
         self.menu_button.set_menu_model(self.builder.get_object('menu-card'))
         # Focus is lost after showing popover submenu (bug?)
         self.menu_button.get_popover().connect('closed', lambda _popover: self.menu_button.grab_focus())
@@ -101,6 +104,10 @@ class CardPage(Adw.NavigationPage):
         self.info_box = InfoBox(self)
         self.categories_list = CategoriesList(self)
         self.chapters_list = ChaptersList(self)
+
+        self.filters_dialog = Adw.PreferencesDialog.new()
+        self.filters_dialog.set_title(_('Filters'))
+        self.filters_dialog.props.presentation_mode = Adw.DialogPresentationMode.BOTTOM_SHEET
 
         self.window.updater.connect('manga-updated', self.on_manga_updated)
         self.window.trackers.connect('manga-tracker-synced', self.on_manga_tracker_synced)
@@ -201,6 +208,59 @@ class CardPage(Adw.NavigationPage):
     def on_delete_menu_clicked(self, _action, _gparam):
         self.window.library.delete_mangas([self.manga, ])
 
+    def on_filters_button_clicked(self, _button):
+        filters = self.manga.filters or {}
+
+        def on_active(row, _param, scanlator):
+            if 'scanlators' not in filters:
+                filters['scanlators'] = []
+
+            if row.get_active():
+                filters['scanlators'].remove(scanlator)
+            else:
+                filters['scanlators'].append(scanlator)
+
+            if filters['scanlators']:
+                self.filters_button.add_css_class('accent')
+            else:
+                self.filters_button.remove_css_class('accent')
+
+            self.manga.update({
+                'filters': filters,
+            })
+
+            self.chapters_list.list_model.invalidate_filter()
+
+        # Remove a previous used page if exists
+        if page := self.filters_dialog.get_visible_page():
+            self.filters_dialog.remove(page)
+
+        page = Adw.PreferencesPage(title=_('Filters'))
+        self.filters_dialog.add(page)
+
+        group = Adw.PreferencesGroup()
+        group.set_title('Chapters Scanlation Groups')
+
+        for scanlator in self.manga.chapters_scanlators:
+            title = html_escape(scanlator['name'])
+            if title == 'Unknown':
+                title = _('Unknown')
+
+            row = Adw.SwitchRow(title=title)
+            row.set_use_markup(True)
+            row.set_active(not filters or 'scanlators' not in filters or scanlator['name'] not in filters['scanlators'])
+            row.connect('notify::active', on_active, scanlator['name'])
+
+            label = Gtk.Label(label=scanlator['count'], valign=Gtk.Align.CENTER)
+            label.set_css_classes(['badge', 'caption'])
+            row.add_prefix(label)
+
+            group.add(row)
+
+        page.add(group)
+
+        self.filters_dialog.present(self.window)
+
     def on_gesture_drag_end(self, _controller, _offset_x, _offset_y):
         if not self.pool_to_update:
             return
@@ -280,12 +340,16 @@ class CardPage(Adw.NavigationPage):
                     self.toggle_resume(False)
 
             self.info_box.populate()
+            self.toggle_filters_button()
 
     def on_open_in_browser_menu_clicked(self, _action, _gparam):
         if uri := self.manga.server.get_manga_url(self.manga.slug, self.manga.url):
             Gtk.UriLauncher.new(uri=uri).launch()
         else:
             self.window.add_notification(_('Failed to get manga URL'))
+
+    def on_page_changed(self, _page, _gparam):
+        self.toggle_filters_button()
 
     def on_resume_button_clicked(self, *args):
         last_read_chapter = self.manga.last_read_chapter
@@ -376,14 +440,13 @@ class CardPage(Adw.NavigationPage):
         # Show unread chapters (with Adw.ViewStackPage badge) if any
         if unread_chapters := self.manga.nb_unread_chapters:
             self.stack.get_page(self.stack.get_child_by_name('chapters')).set_badge_number(unread_chapters)
-            # self.stack.get_page(self.stack.get_child_by_name('chapters')).set_needs_attention(True)
         else:
             self.stack.get_page(self.stack.get_child_by_name('chapters')).set_badge_number(0)
-            # self.stack.get_page(self.stack.get_child_by_name('chapters')).set_needs_attention(False)
 
     def show(self):
         self.props.title = self.manga.name  # Adw.NavigationPage title
 
+        self.toggle_filters_button()
         self.title.set_title(self.manga.name)
         self.info_box.populate()
 
@@ -417,6 +480,20 @@ class CardPage(Adw.NavigationPage):
             return GLib.SOURCE_REMOVE
 
         GLib.timeout_add(250, pulse, self.manga.id)
+
+    def toggle_filters_button(self):
+        name = self.stack.get_visible_child_name()
+
+        if name == 'chapters':
+            # Show button if chapters have at least 2 different scanlators
+            self.filters_button.set_visible(self.manga.chapters_scanlators and len(self.manga.chapters_scanlators) > 1)
+            if self.manga.filters and self.manga.filters.get('scanlators'):
+                self.filters_button.add_css_class('accent')
+            else:
+                self.filters_button.remove_css_class('accent')
+        else:
+            # Button is visible in `Chapters` page only
+            self.filters_button.set_visible(False)
 
     def toggle_resume(self, state):
         self.resume_action.set_enabled(state)

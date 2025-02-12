@@ -33,14 +33,31 @@ class ChapterItemWrapper(GObject.Object):
         self.emit('changed')
 
 
-class ChaptersListModel(Gtk.SortListModel):
+class ChaptersFilterListModel(Gtk.FilterListModel):
+    def __init__(self, model, filter_func):
+        self.filter = Gtk.CustomFilter()
+        self.filter_func = filter_func
+        self.filter.set_filter_func(self.filter_func)
+
+        super().__init__(model=model, filter=self.filter)
+
+    def invalidate_filter(self):
+        self.filter.set_filter_func(self.filter_func)
+
+    def invalidate_sort(self):
+        self.get_model().sorter.set_sort_func(self.get_model().sort_func)
+
+    def populate(self, chapters):
+        self.get_model().populate(chapters)
+
+
+class ChaptersSortListModel(Gtk.SortListModel):
     def __init__(self, sort_func):
         self.sorter = Gtk.CustomSorter()
         self.sort_func = sort_func
         self.sorter.set_sort_func(self.sort_func)
-        self.list_store = Gio.ListStore(item_type=ChapterItemWrapper)
 
-        super().__init__(model=self.list_store, sorter=self.sorter)
+        super().__init__(model=Gio.ListStore(item_type=ChapterItemWrapper), sorter=self.sorter)
 
     def invalidate_sort(self):
         self.sorter.set_sort_func(self.sort_func)
@@ -50,7 +67,7 @@ class ChaptersListModel(Gtk.SortListModel):
         for chapter in chapters:
             items.append(ChapterItemWrapper(chapter))
 
-        self.list_store.splice(0, self.list_store.props.n_items, items)
+        self.get_model().splice(0, self.get_model().props.n_items, items)
 
 
 class ChaptersList:
@@ -67,7 +84,7 @@ class ChaptersList:
         self.factory.connect('setup', self.on_factory_setup)
         self.factory.connect('unbind', self.on_factory_unbind)
 
-        self.list_model = ChaptersListModel(self.sort_func)
+        self.list_model = ChaptersFilterListModel(ChaptersSortListModel(self.sort_func), self.filter_func)
         self.model = Gtk.MultiSelection.new(self.list_model)
         self.selection_changed_handler_id = self.model.connect('selection-changed', self.on_selection_changed)
 
@@ -194,6 +211,18 @@ class ChaptersList:
         if init:
             # Init selection with clicked row (stored in self.selection_click_position)
             self.on_selection_changed(None, None, None)
+
+    def filter_func(self, item: ChapterItemWrapper) -> int:
+        if not self.card.manga.filters or not self.card.manga.filters.get('scanlators'):
+            # No scanlators filter
+            return True
+
+        if not item.chapter.scanlators:
+            # Chapter has no scanlators defined
+            # It is not filtered if 'Unknown' virtual scanlator does not belong to filter
+            return 'Unknown' not in self.card.manga.filters['scanlators']
+
+        return len(set(item.chapter.scanlators or []).difference(set(self.card.manga.filters['scanlators']))) > 0
 
     def get_selected_chapters_items(self):
         items = []
@@ -395,7 +424,7 @@ class ChaptersList:
         This function gets two children and has to return:
         - a negative integer if the firstone should come before the second one
         - zero if they are equal
-        - a positive integer if the second one should come before the firstone
+        - a positive integer if the second one should come before the first one
         """
         if self.sort_order in ('asc', 'desc'):
             if item1.chapter.rank > item2.chapter.rank:

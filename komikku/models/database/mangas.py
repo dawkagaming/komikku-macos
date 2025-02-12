@@ -31,6 +31,7 @@ logger = logging.getLogger(__name__)
 
 class Manga:
     _chapters = None
+    _chapters_scanlators = None
     _server = None
 
     STATUSES = dict(
@@ -178,6 +179,34 @@ class Manga:
         return self._chapters
 
     @property
+    def chapters_scanlators(self):
+        if self._chapters_scanlators is None:
+            db_conn = create_db_connection()
+
+            rows = db_conn.execute('SELECT DISTINCT scanlators, count(*) FROM chapters WHERE manga_id = ? GROUP BY scanlators', (self.id,))
+
+            scanlators = {}
+            for row in rows:
+                if not row[0]:  # None or []
+                    # Use 'Unknown' as virtual scanlator for chapters without scanlators defined
+                    row = (['Unknown'], row[1])
+
+                for scanlator in row[0]:
+                    if scanlator not in scanlators:
+                        scanlators[scanlator] = {
+                            'name': scanlator,
+                            'count': 0,
+                        }
+
+                    scanlators[scanlator]['count'] += row[1]
+
+            self._chapters_scanlators = list(scanlators.values()) or None
+
+            db_conn.close()
+
+        return self._chapters_scanlators
+
+    @property
     def class_name(self):
         return get_server_class_name_by_id(self.server_id)
 
@@ -321,24 +350,62 @@ class Manga:
 
         db_conn = create_db_connection()
 
-        order = 'ASC' if direction == 1 else 'DESC'
         op = '>' if direction == 1 else '<'
+        order = 'ASC' if direction == 1 else 'DESC'
+        if self.filters and self.filters.get('scanlators'):
+            # Chapters must be filtered by scanlators (some scanlators are excluded)
+            excluded_scanlators = self.filters['scanlators']
+
+            # Subquery to get IDs of not filtered chapters
+            scanlators_subquery = f"""
+                SELECT DISTINCT c.id
+                FROM chapters c, json_each(scanlators)
+                WHERE json_each.value NOT IN ("{'", "'.join(excluded_scanlators)}") AND c.manga_id = {self.id}
+            """
+            if 'Unknown' not in excluded_scanlators:
+                # Add chapters without scanlators defined
+                scanlators_subquery += f"""
+                    UNION
+                    SELECT id FROM chapters WHERE (scanlators IS NULL OR scanlators->0 IS NULL) AND manga_id = {self.id}
+                """
+        else:
+            scanlators_subquery = None
 
         if self.sort_order in ('asc', 'desc', None):
-            row = db_conn.execute(
-                f'SELECT * FROM chapters WHERE manga_id = ? AND rank {op} ? ORDER BY rank {order}',
-                (self.id, chapter.rank)
-            ).fetchone()
+            if scanlators_subquery:
+                row = db_conn.execute(
+                    f'SELECT * FROM chapters WHERE manga_id = ? AND id IN ({scanlators_subquery}) AND rank {op} ? ORDER BY rank {order}',
+                    (self.id, chapter.rank)
+                ).fetchone()
+            else:
+                row = db_conn.execute(
+                    f'SELECT * FROM chapters WHERE manga_id = ? AND rank {op} ? ORDER BY rank {order}',
+                    (self.id, chapter.rank)
+                ).fetchone()
+
         elif self.sort_order in ('date-asc', 'date-desc'):
-            row = db_conn.execute(
-                f'SELECT * FROM chapters WHERE manga_id = ? AND date {op} ? ORDER BY date {order}, id {order}',
-                (self.id, chapter.date)
-            ).fetchone()
+            if scanlators_subquery:
+                row = db_conn.execute(
+                    f'SELECT * FROM chapters WHERE manga_id = ? AND id IN ({scanlators_subquery}) AND date {op} ? ORDER BY date {order}, id {order}',
+                    (self.id, chapter.date)
+                ).fetchone()
+            else:
+                row = db_conn.execute(
+                    f'SELECT * FROM chapters WHERE manga_id = ? AND date {op} ? ORDER BY date {order}, id {order}',
+                    (self.id, chapter.date)
+                ).fetchone()
+
         elif self.sort_order in ('natural-asc', 'natural-desc'):
-            row = db_conn.execute(
-                f'SELECT * FROM chapters WHERE manga_id = ? AND title {op} ? COLLATE natsort ORDER BY title {order}, id {order}',
-                (self.id, chapter.title)
-            ).fetchone()
+            if scanlators_subquery:
+                row = db_conn.execute(
+                    f'SELECT * FROM chapters WHERE manga_id = ? AND id IN ({scanlators_subquery}) AND title {op} ? COLLATE natsort ORDER BY title {order}, id {order}',
+                    (self.id, chapter.title)
+                ).fetchone()
+            else:
+                row = db_conn.execute(
+                    f'SELECT * FROM chapters WHERE manga_id = ? AND title {op} ? COLLATE natsort ORDER BY title {order}, id {order}',
+                    (self.id, chapter.title)
+                ).fetchone()
 
         db_conn.close()
 
@@ -511,6 +578,7 @@ class Manga:
                 data['last_update'] = datetime.datetime.utcnow()
 
             self._chapters = None
+            self._chapters_scanlators = None
 
             # Store old path
             old_path = self.path

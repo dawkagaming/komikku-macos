@@ -16,6 +16,13 @@ template $CardPage : Adw.NavigationPage {
       Button left_button {
         visible: false;
       }
+
+      [start]
+      Button filters_button {
+        icon-name: "filter-symbolic";
+        tooltip-text: _("Filters");
+      }
+
       title-widget: Stack title_stack {
         Adw.ViewSwitcher viewswitcher {
           policy: wide;
