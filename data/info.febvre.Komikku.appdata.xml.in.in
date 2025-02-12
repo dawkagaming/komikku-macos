@@ -99,6 +99,18 @@
     <url type="donation">https://valos.gitlab.io/Komikku/#sponsor</url>
 
     <releases>
+        <release version="1.70.0" date="2025-02-13">
+            <description translate="no">
+                <ul>
+                    <li>[Card] Chapters list: Added Scanlators filter</li>
+                    <li>[Servers] Desu (RU): Update</li>
+                    <li>[Servers] Lector manga: Re-enabled</li>
+                    <li>[Servers] Read Comic Online (EN): Update</li>
+                    <li>[L10n] Updated Dutch, French, Swedish and Tamil translations</li>
+                </ul>
+                <p>Happy reading.</p>
+            </description>
+        </release>
         <release version="1.69.0" date="2025-02-01">
             <description translate="no">
                 <ul>

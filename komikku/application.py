@@ -129,6 +129,7 @@ CREDITS = dict(
         'gallegonovato (Spanish)',
         'Jesper (Swedish)',
         'PaneradFisk (Swedish)',
+        'Willem Dinkelspiel (Swedish)',
         'தமிழ்நேரம் (Tamil)',
         'Ege Çelikçi (Turkish)',
         'Sabri Ünal (Turkish)',
@@ -533,16 +534,11 @@ available in your region/language."""))
         # Override release notes
         dialog.set_release_notes("""
             <ul>
-                <li>[Servers] EZmanga (EN): Update</li>
-                <li>[Servers] Manga Demon (EN): Update</li>
-                <li>[Servers] MangaHub (EN): Update</li>
-                <li>[Servers] MangaWorld (IT): Update</li>
-                <li>[Servers] Neko Scans (ES): Update</li>
-                <li>[Servers] Sinensistoon (pt_BR): Renamed SCtoon (fusion with Cerise Scan)</li>
-                <li>[Servers] Cerise Scan (pt_BR): Disabled</li>
-                <li>[Servers] MangaLife (EN): Disabled</li>
-                <li>[Servers] MangaSee (EN): Disabled</li>
-                <li>[L10n] Added Czech translation</li>
+                <li>[Card] Chapters list: Added Scanlators filter</li>
+                <li>[Servers] Desu (RU): Update</li>
+                <li>[Servers] Lector manga: Re-enabled</li>
+                <li>[Servers] Read Comic Online (EN): Update</li>
+                <li>[L10n] Updated Dutch, French, Swedish and Tamil translations</li>
             </ul>
             <p>Happy reading.</p>
         """)
