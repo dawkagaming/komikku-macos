@@ -78,7 +78,7 @@ class Manga:
         data.update(dict(
             in_library=0,
             # Add fake last_read date: allows to display recently added manga at the top of the library
-            last_read=datetime.datetime.utcnow(),
+            last_read=datetime.datetime.now(datetime.UTC),
         ))
 
         # Long strip detection (Webtoon)
@@ -575,7 +575,7 @@ class Manga:
                         logger.info('[UPDATE] {0} ({1}): Add new chapter {2}'.format(self.name, self.server_id, chapter_data['title']))
 
             if len(recent_chapters_ids) > 0 or nb_deleted_chapters > 0:
-                data['last_update'] = datetime.datetime.utcnow()
+                data['last_update'] = datetime.datetime.now(datetime.UTC)
 
             self._chapters = None
             self._chapters_scanlators = None

@@ -102,7 +102,7 @@ class BasePager:
             read_pages.remove(page)
 
         # Update manga last read time
-        self.reader.manga.update(dict(last_read=datetime.datetime.utcnow()))
+        self.reader.manga.update(dict(last_read=datetime.datetime.now(datetime.UTC)))
 
         # Update chapters read progress
         for read_chapter in read_chapters.values():
@@ -129,7 +129,7 @@ class BasePager:
                 # Update chapter
                 chapter.update(dict(
                     last_page_read_index=page.index if not chapter_is_read else None,
-                    last_read=datetime.datetime.utcnow(),
+                    last_read=datetime.datetime.now(datetime.UTC),
                     read_progress=read_progress,
                     read=chapter_is_read,
                     recent=0,
