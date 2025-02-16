@@ -20,6 +20,7 @@ class Comicfans(Server):
     id = 'comicfans'
     name = 'Comic Fans'
     lang = 'en'
+    status = 'disabled'
 
     base_url = 'https://comicfans.io'
     api_base_url = 'https://api.comicfans.io/comic-backend/api/v1/content'
