@@ -8,9 +8,9 @@ from komikku.servers.multi.manga_stream import MangaStream
 class Tecnoscan(MangaStream):
     id = 'tecnoscan'
     name = 'Terco Scans (Tecno Scans)'
-    lang = 'es'
+    lang = 'en'
 
-    base_url = 'https://tencosoly.xyz'
+    base_url = 'https://terco-dooms.xyz'
 
     authors_selector = '.tsinfo .imptdt:-soup-contains("Artist") i, .tsinfo .imptdt:-soup-contains("Author") i'
     genres_selector = '.info-desc .mgen a'
