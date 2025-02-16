@@ -1,7 +1,7 @@
 beautifulsoup4
 brotli >= 1.1.0
 colorthief
-dateparser >= 1.1.4
+dateparser >= 1.1.6
 emoji
 keyring >= 21.6.0
 lxml >= 5.2.1
@@ -12,7 +12,7 @@ pillow-heif >= 0.16.0
 PyGObject
 python_magic
 rarfile
-requests >= 2.31.0
+requests >= 2.32.2
 Unidecode
 
 # Optional dependencies
