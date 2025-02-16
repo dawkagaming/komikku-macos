@@ -15,17 +15,17 @@ from komikku.utils import is_number
 
 class Readmanga(Server):
     id = 'readmanga'
-    name = 'Read Manga'
+    name = 'Usagi (Read Manga)'
     lang = 'ru'
     is_nsfw = True
 
-    base_url = 'https://zz.readmanga.io'
+    base_url = 'https://web.usagi.one'
     search_url = base_url + '/search/advancedResults'
     manga_url = base_url + '/{0}'
-    chapter_url = manga_url + '/{1}?mtr=1'
+    chapter_url = manga_url + '/{1}'
 
-    pages_js_start = 'rm_h.readerDoInit'
-    pages_js_offset = 18
+    pages_js_start = 'rm_h.readerInit'
+    pages_js_offset = 16
 
     def __init__(self):
         if self.session is None:
@@ -229,7 +229,7 @@ class Readmanga(Server):
             a_element = element.select_one('.desc > h3 > a')
             results.append(dict(
                 name=a_element.text.strip(),
-                slug=a_element.get('href')[1:],
+                slug=a_element.get('href').split('/')[-1],
                 cover=element.select_one('.img img.img-fluid').get('data-original'),
             ))
 
