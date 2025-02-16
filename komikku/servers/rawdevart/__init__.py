@@ -1,5 +1,5 @@
-# Copyright (C) 2024-2024 Zhao Se
-# SPDX-License-Identifier: GPL-3.0-only or GPL-3.0-or-later
+# SPDX-FileCopyrightText: 2024-2024 Zhao Se
+# SPDX-License-Identifier: GPL-3.0-or-later
 # Author: Zhao Se <zhaose233@outlook.com>
 
 import json

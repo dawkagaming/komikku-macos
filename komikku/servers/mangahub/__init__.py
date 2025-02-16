@@ -1,5 +1,5 @@
-# Copyright (C) 2019-2025 Valéry Febvre
-# SPDX-License-Identifier: GPL-3.0-only or GPL-3.0-or-later
+# SPDX-FileCopyrightText: 2019-2025 Valéry Febvre
+# SPDX-License-Identifier: GPL-3.0-or-later
 # Author: ISO-morphism <me@iso-morphism.name>
 
 from functools import wraps

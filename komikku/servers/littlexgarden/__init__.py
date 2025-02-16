@@ -1,5 +1,5 @@
-# Copyright (C) 2023-2024 Pierre-Emmanuel Devin
-# SPDX-License-Identifier: GPL-3.0-only or GPL-3.0-or-late
+# SPDX-FileCopyrightText: 2023-2024 Pierre-Emmanuel Devin
+# SPDX-License-Identifier: GPL-3.0-or-later
 # Author: Pierre-Emmanuel Devin <pierreemmanuel.devin@posteo.net>
 
 import json

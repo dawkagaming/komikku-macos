@@ -1,5 +1,5 @@
-# Copyright (C) 2021-2024 Valéry Febvre
-# SPDX-License-Identifier: GPL-3.0-only or GPL-3.0-or-later
+# SPDX-FileCopyrightText: 2021-2024 Valéry Febvre
+# SPDX-License-Identifier: GPL-3.0-or-later
 # Author: Valéry Febvre <vfebvre@easter-eggs.com>
 
 import base64

@@ -1,5 +1,5 @@
-# Copyright (C) 2022-2024 CakesTwix
-# SPDX-License-Identifier: GPL-3.0-only or GPL-3.0-or-later
+# SPDX-FileCopyrightText: 2022-2024 CakesTwix
+# SPDX-License-Identifier: GPL-3.0-or-later
 # Author: CakesTwix <oleg.kiryazov@gmail.com>
 
 import logging

@@ -1,5 +1,10 @@
 #!/bin/bash
 
+# SPDX-FileCopyrightText: 2019-2025 Valéry Febvre
+# SPDX-License-Identifier: GPL-3.0-or-later
+# Author: Valéry Febvre <vfebvre@easter-eggs.com>
+# Author: Liliana Prikler <liliana.prikler@gmail.com>
+
 version=$(fgrep "version: " ../meson.build | grep -v "meson" | grep -o "'.*'" | sed "s/'//g")
 
 find ../komikku -iname "*.py" | xargs xgettext --package-name=Komikku --package-version=$version --from-code=UTF-8 --output=komikku-python.pot

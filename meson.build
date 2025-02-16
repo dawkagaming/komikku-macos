@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2019-2025 Valéry Febvre
+# SPDX-License-Identifier: GPL-3.0-or-later
+# Author: Valéry Febvre <vfebvre@easter-eggs.com>
+
 project('komikku',
     version: '1.70.0',
     meson_version: '>= 0.59.0',

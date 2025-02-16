@@ -1,5 +1,5 @@
-# Copyright (C) 2021-2024 Lili Kurek
-# SPDX-License-Identifier: GPL-3.0-only or GPL-3.0-or-later
+# SPDX-FileCopyrightText: 2021-2024 Lili Kurek
+# SPDX-License-Identifier: GPL-3.0-or-later
 # Author: Lili Kurek <lilikurek@proton.me>
 
 from komikku.servers.multi.guya import Guya

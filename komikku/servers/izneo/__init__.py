@@ -1,5 +1,5 @@
-# Copyright (C) 2020-2024 tijder
-# SPDX-License-Identifier: GPL-3.0-only or GPL-3.0-or-later
+# SPDX-FileCopyrightText: 2020-2024 tijder
+# SPDX-License-Identifier: GPL-3.0-or-later
 # Author: tijder
 # Author: Valéry Febvre <vfebvre@easter-eggs.com>
 
