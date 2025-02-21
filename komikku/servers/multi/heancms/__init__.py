@@ -284,18 +284,19 @@ class HeanCMS(Server):
         """
         return self.manga_url.format(slug)
 
+    @CompleteChallenge()
     def get_latest_updates(self):
         """
         Returns latest updates
         """
         return self.get_manga_list(orderby='latest')
 
-    @CompleteChallenge()
     def get_manga_list(self, term=None, orderby=None):
         params = dict(
             adult='true',
             series_type='Comic',
             status='All',
+            tags_ids='[]',
         )
         if term:
             params['query_string'] = term
@@ -341,11 +342,13 @@ class HeanCMS(Server):
 
         return results
 
+    @CompleteChallenge()
     def get_most_populars(self):
         """
         Returns most popular mangas
         """
         return self.get_manga_list(orderby='popular')
 
+    @CompleteChallenge()
     def search(self, term):
         return self.get_manga_list(term=term)

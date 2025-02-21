@@ -260,15 +260,30 @@ class WebviewPage(Adw.NavigationPage):
 
 
 class CompleteChallenge:
-    """Allows user to complete a captcha using the Webview
+    """Allows user to complete a browser challenge using the Webview
 
     Several calls to this decorator can be concurrent. But only one will be honored at a time.
     """
 
+    ALLOWED_METHODS = (
+        'get_manga_data',
+        'get_manga_chapter_data',
+        'get_manga_chapter_page_image',
+        'get_latest_updates',
+        'get_most_populars',
+        'search',
+    )
+
     def __call__(self, func):
+        assert func.__name__ in self.ALLOWED_METHODS, f'@{self.__class__.__name__} decorator is not allowed on method `{func.__name__}`'
+
         self.func = func
 
         def wrapper(*args, **kwargs):
+            if self.func.__name__ not in self.ALLOWED_METHODS:
+                logger.error('@%s decorator is not allowed on method `%s`', self.__class__.__name__, self.func.__name__)
+                return self.func(*args, **kwargs)
+
             bound_args = inspect.signature(self.func).bind(*args, **kwargs)
             args_dict = dict(bound_args.arguments)
 
@@ -330,7 +345,7 @@ class CompleteChallenge:
         return wrapper
 
     def cancel(self):
-        self.error = 'Captcha challenge bypass aborted'
+        self.error = 'Challenge bypass aborted'
 
     def monitor_challenge(self):
         # Detect captcha via JavaScript in current page

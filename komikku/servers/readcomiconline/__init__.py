@@ -224,7 +224,6 @@ class Readcomiconline(Server):
         """
         return self.manga_url.format(slug)
 
-    @CompleteChallenge()
     def get_manga_list(self, term=None, orderby=None):
         results = []
 
@@ -271,17 +270,20 @@ class Readcomiconline(Server):
 
         return results
 
+    @CompleteChallenge()
     def get_latest_updates(self):
         """
         Returns latest updates
         """
         return self.get_manga_list(orderby='latest')
 
+    @CompleteChallenge()
     def get_most_populars(self):
         """
         Returns most popular comics
         """
         return self.get_manga_list(orderby='populars')
 
+    @CompleteChallenge()
     def search(self, term):
         return self.get_manga_list(term=term)
