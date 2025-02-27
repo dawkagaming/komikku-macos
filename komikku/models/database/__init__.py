@@ -376,7 +376,7 @@ def init_db():
             execute_sql(db_conn, 'ALTER TABLE chapters ADD COLUMN num_volume text;')
             db_conn.execute('PRAGMA user_version = {0}'.format(14))
 
-        if 0 < db_version <= 15:
+        if 0 < db_version <= 14:
             # Version 1.70.0
             execute_sql(db_conn, 'ALTER TABLE mangas ADD COLUMN filters json;')
             db_conn.execute('PRAGMA user_version = {0}'.format(15))
