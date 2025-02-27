@@ -118,7 +118,7 @@ class Webtoon(Server):
             # Original/Webtoon
             detail_element = soup.find('div', class_='detail_body')
 
-            data['cover'] = detail_element.get('style').split(' ')[1][4:-1].split('?')[0] + '?type=q90'
+            data['cover'] = detail_element.get('style').split(' ')[1][5:-1].split('?')[0] + '?type=q90'
 
             try:
                 for element in soup.find('div', class_='_authorInnerContent').find_all('h3'):
