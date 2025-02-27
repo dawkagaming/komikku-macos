@@ -29,6 +29,7 @@ class ExplorerSearchStackPageSearchGlobal(ExplorerSearchStackPage):
 
     lock = False
     selected_filters = []
+    server_ids = []
 
     def __init__(self, parent):
         ExplorerSearchStackPage.__init__(self, parent)
@@ -48,6 +49,18 @@ class ExplorerSearchStackPageSearchGlobal(ExplorerSearchStackPage):
         )
         action.connect('change-state', self.on_menu_action_changed)
         self.window.application.add_action(action)
+
+    def cancel(self):
+        def do_cancel():
+            if self.status in ('ended', 'cancelled'):
+                return False
+            if self.status == 'started':
+                return True
+
+            self.status = 'cancelling'
+            self.window.webview.cancel_challengers(self.server_ids, context='search')
+
+        GLib.idle_add(do_cancel)
 
     def init_filters_menu(self):
         # Show filter menu button in searchbar
@@ -88,6 +101,8 @@ class ExplorerSearchStackPageSearchGlobal(ExplorerSearchStackPage):
                     future = executor.submit(search_server, server_data)
                     tasks[future] = server_data
 
+                self.status = 'ongoing'
+
                 for index, future in enumerate(as_completed(tasks)):
                     if self.window.page != self.parent.props.tag and self.window.previous_page != self.parent.props.tag:
                         executor.shutdown(False, cancel_futures=True)
@@ -97,7 +112,7 @@ class ExplorerSearchStackPageSearchGlobal(ExplorerSearchStackPage):
                     try:
                         results = future.result()
                     except Exception as exc:
-                        GLib.idle_add(complete_server, None, server_data, None, message=log_error_traceback(exc))
+                        GLib.idle_add(complete_server, None, server_data, message=log_error_traceback(exc))
                     else:
                         GLib.idle_add(complete_server, results, server_data)
 
@@ -108,6 +123,7 @@ class ExplorerSearchStackPageSearchGlobal(ExplorerSearchStackPage):
             GLib.idle_add(complete)
 
         def complete():
+            self.status = 'ended' if self.status == 'ongoing' else 'cancelled'
             self.lock = False
             self.parent.progressbar.set_fraction(0)
 
@@ -135,7 +151,7 @@ class ExplorerSearchStackPageSearchGlobal(ExplorerSearchStackPage):
                     if row.has_cover:
                         self.queue.put((row, server))
             else:
-                # Error or no results
+                # Error, cancelled or no results
                 row = Gtk.ListBoxRow(activatable=False)
                 row.server_data = server_data
                 row.position = 1
@@ -144,10 +160,13 @@ class ExplorerSearchStackPageSearchGlobal(ExplorerSearchStackPage):
                 row.add_css_class('explorer-server-listboxrow')
                 label = Gtk.Label(halign=Gtk.Align.CENTER, justify=Gtk.Justification.CENTER)
                 if results is None:
-                    # Error
-                    text = _('Oops, search failed. Please try again.')
-                    if message:
-                        text = f'{text}\n{message}'
+                    if self.status == 'cancelling':
+                        text = _('Search cancelled')
+                    else:
+                        # Error
+                        text = _('Oops, search failed. Please try again.')
+                        if message:
+                            text = f'{text}\n{message}'
                 else:
                     # No results
                     text = _('No results')
@@ -164,6 +183,7 @@ class ExplorerSearchStackPageSearchGlobal(ExplorerSearchStackPage):
         def search_server(server_data):
             server = getattr(server_data['module'], server_data['class_name'])()
             filters = get_server_default_search_filters(server)
+
             return server.search(term, **filters)
 
         def sort_results(row1, row2):
@@ -218,7 +238,10 @@ class ExplorerSearchStackPageSearchGlobal(ExplorerSearchStackPage):
             servers = self.parent.parent.servers_page.servers
 
         # Init results list
+        self.server_ids = []
         for server_data in servers:
+            self.server_ids.append(server_data['id'])
+
             # Server row
             row = ExplorerServerRow(server_data, self.parent)
             row.server_data = server_data
@@ -239,6 +262,7 @@ class ExplorerSearchStackPageSearchGlobal(ExplorerSearchStackPage):
             self.listbox.append(row)
 
         self.lock = True
+        self.status = 'started'
         self.stack.set_visible_child_name('results')
         self.listbox.set_sort_func(sort_results)
         self.listbox.set_visible(True)

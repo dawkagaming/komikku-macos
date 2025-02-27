@@ -35,6 +35,7 @@ class ExplorerSearchStackPage:
         self.window = self.parent.window
 
         self.queue = Queue()
+        self.status = None
         self.thread_covers = None
         self.thread_covers_stop_flag = False
 

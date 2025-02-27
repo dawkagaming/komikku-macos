@@ -2,11 +2,12 @@
 # SPDX-License-Identifier: GPL-3.0-or-later
 # Author: Valéry Febvre <vfebvre@easter-eggs.com>
 
+from collections import deque
 from gettext import gettext as _
-import inspect
 import logging
 import os
 import platform
+import threading
 import time
 import tzlocal
 from urllib.parse import urlsplit
@@ -28,7 +29,7 @@ from gi.repository import GObject
 from gi.repository import Gtk
 from gi.repository import WebKit
 
-from komikku.servers.exceptions import CfBypassError
+from komikku.servers.exceptions import ChallengerError
 from komikku.servers.utils import get_session_cookies
 from komikku.utils import get_cache_dir
 from komikku.utils import REQUESTS_TIMEOUT
@@ -43,14 +44,15 @@ logger = logging.getLogger('komikku.webview')
 class WebviewPage(Adw.NavigationPage):
     __gtype_name__ = 'WebviewPage'
     __gsignals__ = {
-        'canceled': (GObject.SignalFlags.RUN_FIRST, None, ()),
+        'cancelled': (GObject.SignalFlags.RUN_FIRST, None, ()),
     }
 
     toolbarview = Gtk.Template.Child('toolbarview')
     title = Gtk.Template.Child('title')
 
-    cf_request = None  # Current CF request
-    cf_requests = []  # List of pending CF requests
+    challenger = None  # Current challenger
+    challengers = deque()  # List of pending challengers
+    concurrent_lock = threading.RLock()
     exited = True  # Whether webview has been exited (page has been popped)
     exited_auto = False  # Whether webview has been automatically left (no user interaction)
     handlers_ids = []  # List of handlers IDs (connected events)
@@ -145,6 +147,26 @@ class WebviewPage(Adw.NavigationPage):
         self.toolbarview.set_content(self.webkit_webview)
         self.window.navigationview.add(self)
 
+    def cancel_challengers(self, server_ids, context=None):
+        # Cancel pendings
+        if self.challengers:
+            with self.concurrent_lock:
+                for challenger in self.challengers.copy():
+                    if context and challenger.context != context:
+                        continue
+
+                    if challenger.server.id not in server_ids or self.challenger.server.id == challenger.server.id:
+                        continue
+
+                    challenger.cancel()
+                    self.challengers.remove(challenger)
+
+        # Cancel current
+        if self.challenger and self.challenger.server.id in server_ids:
+            self.challenger.cancel()
+            self.exit()
+            self.close_page()
+
     def close_page(self, blank=True):
         self.disconnect_all_signals()
 
@@ -157,12 +179,12 @@ class WebviewPage(Adw.NavigationPage):
                 return GLib.SOURCE_CONTINUE
 
             self.lock = False
-            self.pop_cf_request()
+            self.pop_challenger()
 
             return GLib.SOURCE_REMOVE
 
-        if self.cf_request:
-            # Wait page is exited to unlock and load next pending CF request (if exists)
+        if self.challenger:
+            # Wait page is exited to unlock and load next pending challenger (if exists)
             GLib.idle_add(do_next)
         else:
             self.exited = True
@@ -199,24 +221,24 @@ class WebviewPage(Adw.NavigationPage):
         self.exited_auto = True
         self.window.navigationview.pop()
 
-    def load_page(self, uri=None, cf_request=None, user_agent=None, auto_load_images=True):
+    def load_page(self, uri=None, challenger=None, user_agent=None, auto_load_images=True):
         if self.lock or not self.exited:
             # Already in use or page exiting is not ended (pop animation not ended)
             return False
 
+        self.lock = True
         self.exited = False
         self.exited_auto = False
-        self.lock = True
 
         self.webkit_webview.get_settings().set_user_agent(user_agent or self.user_agent)
         self.webkit_webview.get_settings().set_auto_load_images(auto_load_images)
 
-        self.cf_request = cf_request
-        if self.cf_request:
-            self.connect_webview_signal('load-changed', self.cf_request.on_load_changed)
-            self.connect_webview_signal('load-failed', self.cf_request.on_load_failed)
-            self.connect_webview_signal('notify::title', self.cf_request.on_title_changed)
-            uri = self.cf_request.url
+        self.challenger = challenger
+        if self.challenger:
+            self.connect_webview_signal('load-changed', self.challenger.on_load_changed)
+            self.connect_webview_signal('load-failed', self.challenger.on_load_failed)
+            self.connect_webview_signal('notify::title', self.challenger.on_title_changed)
+            uri = self.challenger.url
 
         logger.debug('Load page %s', uri)
 
@@ -227,33 +249,37 @@ class WebviewPage(Adw.NavigationPage):
     def on_hidden(self, _page):
         self.exited = True
 
-        if not self.exited_auto:
-            if self.cf_request:
-                # Webview has been left via a user interaction (back button, <ESC> key)
-                self.cf_request.cancel()
-            else:
-                self.emit('canceled')
+        if self.challenger and self.challenger.error:
+            # Cancel all pending challengers with same URL if challenge was not completed
+            for challenger in self.challengers.copy():
+                if challenger.url == self.challenger.url:
+                    self.challengers.remove(challenger)
+                    challenger.cancel()
+                    break
 
-        if self.cf_request and self.cf_request.error:
-            # Cancel all pending CF requests with same URL if challenge was not completed
-            for cf_request in self.cf_requests[:]:
-                if cf_request.url == self.cf_request.url:
-                    cf_request.cancel()
-                    self.cf_requests.remove(cf_request)
+        if not self.exited_auto:
+            if self.challenger:
+                # Webview has been left via a user interaction (back button, <ESC> key)
+                self.challenger.cancel()
+            else:
+                self.emit('cancelled')
 
         if not self.exited_auto:
             self.close_page()
 
-    def pop_cf_request(self):
-        if not self.cf_requests:
+    def pop_challenger(self):
+        if not self.challengers:
             return
 
-        if self.load_page(cf_request=self.cf_requests[0]):
-            self.cf_requests.pop(0)
+        with self.concurrent_lock:
+            if self.load_page(challenger=self.challengers[0]):
+                self.challengers.popleft()
 
-    def push_cf_request(self, cf_request):
-        self.cf_requests.append(cf_request)
-        self.pop_cf_request()
+    def push_challenger(self, challenger):
+        with self.concurrent_lock:
+            self.challengers.append(challenger)
+
+        self.pop_challenger()
 
     def show(self):
         self.window.navigationview.push(self)
@@ -277,75 +303,79 @@ class CompleteChallenge:
     def __call__(self, func):
         assert func.__name__ in self.ALLOWED_METHODS, f'@{self.__class__.__name__} decorator is not allowed on method `{func.__name__}`'
 
-        self.func = func
-
         def wrapper(*args, **kwargs):
-            if self.func.__name__ not in self.ALLOWED_METHODS:
-                logger.error('@%s decorator is not allowed on method `%s`', self.__class__.__name__, self.func.__name__)
-                return self.func(*args, **kwargs)
+            if func.__name__ not in self.ALLOWED_METHODS:
+                logger.error('@%s decorator is not allowed on method `%s`', self.__class__.__name__, func.__name__)
+                return func(*args, **kwargs)
 
-            bound_args = inspect.signature(self.func).bind(*args, **kwargs)
-            args_dict = dict(bound_args.arguments)
+            server = args[0]
+            url = server.bypass_cf_url or server.base_url
 
-            self.server = args_dict['self']
-            self.url = self.server.bypass_cf_url or self.server.base_url
-
-            if not self.server.has_cf and not self.server.has_captcha:
-                return self.func(*args, **kwargs)
+            if not server.has_cf and not server.has_captcha:
+                return func(*args, **kwargs)
 
             # Test CF challenge cookie
-            if self.server.has_cf and not self.server.has_captcha:
-                if self.server.session is None:
+            if server.has_cf and not server.has_captcha:
+                if server.session is None:
                     # Try loading a previous session
-                    self.server.load_session()
+                    server.load_session()
 
-                if self.server.session:
-                    logger.debug(f'{self.server.id}: Previous session found')
+                if server.session:
+                    logger.debug(f'{server.id}: Previous session found')
 
                     # Locate CF challenge cookie
                     cf_cookie_found = False
-                    for cookie in get_session_cookies(self.server.session):
+                    for cookie in get_session_cookies(server.session):
                         if cookie.name == 'cf_clearance':
-                            logger.debug(f'{self.server.id}: Session has CF challenge cookie')
+                            logger.debug(f'{server.id}: Session has CF challenge cookie')
                             cf_cookie_found = True
                             break
 
                     if cf_cookie_found:
                         # Check session validity
-                        logger.debug(f'{self.server.id}: Checking session...')
-                        r = self.server.session_get(self.url)
+                        logger.debug(f'{server.id}: Checking session...')
+                        r = server.session_get(url)
                         if r.ok:
-                            logger.debug(f'{self.server.id}: Session OK')
-                            return self.func(*args, **kwargs)
+                            logger.debug(f'{server.id}: Session OK')
+                            return func(*args, **kwargs)
 
-                        logger.debug(f'{self.server.id}: Session KO ({r.status_code})')
+                        logger.debug(f'{server.id}: Session KO ({r.status_code})')
                     else:
-                        logger.debug(f'{self.server.id}: Session has no CF challenge cookie')
+                        logger.debug(f'{server.id}: Session has no CF challenge cookie')
 
-            self.cf_reload_count = 0
-            self.done = False
-            self.error = None
-            self.load_event = None
-            self.load_event_finished_timeout = 10
-            self.load_events_monitor_id = None
-            self.load_events_monitor_ts = None
+            webview = Gio.Application.get_default().window.webview
+            challenger = Challenger(server, webview, func.__name__)
+            webview.push_challenger(challenger)
 
-            self.webview = Gio.Application.get_default().window.webview
-            self.webview.push_cf_request(self)
-
-            while not self.done and self.error is None:
+            while not challenger.done and challenger.error is None:
                 time.sleep(1)
 
-            if self.error:
-                logger.warning(self.error)
-                raise CfBypassError()
+            if challenger.error:
+                logger.info(challenger.error)
+                raise ChallengerError()
             else:
-                return self.func(*args, **kwargs)
+                return func(*args, **kwargs)
 
         return wrapper
 
+
+class Challenger:
+    def __init__(self, server, webview, context):
+        self.server = server
+        self.webview = webview
+        self.context = context
+        self.url = self.server.bypass_cf_url or self.server.base_url
+
+        self.cf_reload_count = 0
+        self.done = False
+        self.error = None
+        self.load_event = None
+        self.load_event_finished_timeout = 10
+        self.load_events_monitor_id = None
+        self.load_events_monitor_ts = None
+
     def cancel(self):
-        self.error = 'Challenge bypass aborted'
+        self.error = f'Challenge completion aborted: {self.server.id}'
 
     def monitor_challenge(self):
         # Detect captcha via JavaScript in current page
@@ -409,7 +439,7 @@ class CompleteChallenge:
             self.monitor_challenge()
 
     def on_load_failed(self, _webkit_webview, _event, uri, _gerror):
-        self.error = f'Captcha challenge bypass failure: {uri}'
+        self.error = f'Challenge completion error: failed to load URI {uri}'
 
         self.webview.exit()
         self.webview.close_page()
@@ -421,7 +451,7 @@ class CompleteChallenge:
         if title == 'error':
             # CF error message detected
             # settings or a features related?
-            self.error = 'CF challenge bypass error'
+            self.error = 'CF challenge completion error'
             self.webview.exit()
             self.webview.close_page()
             return
@@ -430,7 +460,7 @@ class CompleteChallenge:
             if title == 'cf_captcha':
                 self.cf_reload_count += 1
             if self.cf_reload_count > CF_RELOAD_MAX:
-                self.error = 'Max CF reload exceeded'
+                self.error = 'CF challenge completion error: max reload exceeded'
                 self.webview.exit()
                 self.webview.close_page()
                 return
@@ -683,7 +713,7 @@ def get_tracker_access_token(url, app_redirect_url, user_agent=None):
         if not webview.load_page(uri=url, user_agent=user_agent):
             return False
 
-        webview.connect_signal('canceled', on_canceled)
+        webview.connect_signal('cancelled', on_cancelled)
         webview.connect_webview_signal('load-changed', on_load_changed)
         webview.connect_webview_signal('load-failed', on_load_failed)
 
@@ -694,9 +724,9 @@ def get_tracker_access_token(url, app_redirect_url, user_agent=None):
 
         return True
 
-    def on_canceled(self):
+    def on_cancelled(self):
         nonlocal error
-        error = 'canceled'
+        error = 'cancelled'
 
     def on_load_changed(_webkit_webview, event):
         nonlocal redirect_url

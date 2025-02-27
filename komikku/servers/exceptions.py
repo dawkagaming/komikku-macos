@@ -21,9 +21,9 @@ class ArchiveUnrarMissingError(ServerException):
         super().__init__(_("Unable to extract page. Maybe the 'unrar' tool is missing?"))
 
 
-class CfBypassError(ServerException):
+class ChallengerError(ServerException):
     def __init__(self):
-        super().__init__(_('Failed to bypass Cloudflare protection. Please try again.'))
+        super().__init__(_('Failed to complete browser challenge. Please try again.'))
 
 
 class NotFoundError(ServerException):

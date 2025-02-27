@@ -69,6 +69,7 @@ class ExplorerSearchPage(Adw.NavigationPage):
 
         self.searchentry.connect('activate', self.search)
         self.searchentry.connect('search-changed', self.on_search_changed)
+        self.searchentry.connect('stop-search', self.on_search_stopped)
 
         self.filters_dialog = Adw.PreferencesDialog.new()
         self.filters_dialog.set_title(_('Filters'))
@@ -275,6 +276,12 @@ class ExplorerSearchPage(Adw.NavigationPage):
     def on_search_changed(self, _entry):
         if not self.searchentry.get_text().strip():
             self.search_stack.set_visible_child_name('intro')
+            self.on_search_stopped(_entry)
+
+    def on_search_stopped(self, _entry):
+        if self.page == 'search' and self.search_global_mode and self.search_global_page.lock:
+            self.window.add_notification(_('Search was cancelled'), timeout=2)
+            self.search_global_page.cancel()
 
     def on_server_website_button_clicked(self, _button):
         if self.server.base_url:
