@@ -19,7 +19,7 @@ class Tcbscans(Server):
     name = 'TCB Scans'
     lang = 'en'
 
-    base_url = 'https://tcbscans.me'
+    base_url = 'https://tcbonepiecechapters.com'
     most_populars_url = base_url + '/projects'
     manga_url = base_url + '/mangas/{0}'
     chapter_url = base_url + '/chapters/{0}'
