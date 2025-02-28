@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Komikku 1.18.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-12-06 11:45+0100\n"
+"POT-Creation-Date: 2025-02-28 11:58+0100\n"
 "PO-Revision-Date: 2023-10-30 11:01+0000\n"
 "Last-Translator: Roger VC <rogervilarasau@gmail.com>\n"
 "Language-Team: Catalan <https://hosted.weblate.org/projects/komikku/main/ca/"
@@ -133,50 +133,46 @@ msgid ""
 "GNOME;"
 msgstr ""
 
-#: ../data/ui/card.blp:32 ../data/ui/card.blp:437
-#: ../data/ui/card_chapters_list_row.blp:44 ../data/ui/download_manager.blp:22
-#: ../data/ui/library.blp:142 ../data/ui/reader.blp:33
+#: ../data/ui/card.blp:39 ../data/ui/card.blp:444
+#: ../data/ui/card_chapters_list_row.blp:48 ../data/ui/download_manager.blp:26
+#: ../data/ui/library.blp:146 ../data/ui/reader.blp:37
 msgid "Menu"
 msgstr "Menú"
 
-#: ../data/ui/card.blp:53
+#: ../data/ui/card.blp:60
 msgid "Info"
 msgstr "Informació"
 
-#: ../data/ui/card.blp:134
+#: ../data/ui/card.blp:141
 msgid "Add to Library"
 msgstr "Afegeix a la biblioteca"
 
-#: ../data/ui/card.blp:164
+#: ../data/ui/card.blp:171
 msgid "Details"
 msgstr "Detalls"
 
-#: ../data/ui/card.blp:195
-msgid "Genres"
-msgstr "Gèneres"
-
-#: ../data/ui/card.blp:228
+#: ../data/ui/card.blp:235
 msgid "Scanlators"
 msgstr "Scanlators"
 
-#: ../data/ui/card.blp:291
+#: ../data/ui/card.blp:298
 msgid "Last Update"
 msgstr "Darrera actualització"
 
-#: ../data/ui/card.blp:323
+#: ../data/ui/card.blp:330
 msgid "Size on Disk"
 msgstr "Mida al disc"
 
-#: ../data/ui/card.blp:349
+#: ../data/ui/card.blp:356
 msgid "Synopsis"
 msgstr "Sinopsi"
 
-#: ../data/ui/card.blp:477 ../data/ui/categories_editor.blp:64
-#: ../data/ui/library.blp:247
+#: ../data/ui/card.blp:484 ../data/ui/categories_editor.blp:68
+#: ../data/ui/library.blp:251
 msgid "No Categories"
 msgstr ""
 
-#: ../data/ui/card_chapters_list_row.blp:61
+#: ../data/ui/card_chapters_list_row.blp:65
 msgid "New"
 msgstr "Nou"
 
@@ -185,8 +181,8 @@ msgid "Tracking"
 msgstr ""
 
 #: ../data/ui/card_tracking_search.blp:10 ../data/ui/explorer_search.blp:10
-#: ../data/ui/explorer_search.blp:41 ../data/ui/history.blp:18
-#: ../data/ui/library.blp:36
+#: ../data/ui/explorer_search.blp:41 ../data/ui/history.blp:22
+#: ../data/ui/library.blp:40
 msgid "Search"
 msgstr "Cerca"
 
@@ -194,19 +190,19 @@ msgstr "Cerca"
 msgid "Search for Tracking"
 msgstr ""
 
-#: ../data/ui/categories_editor.blp:33
+#: ../data/ui/categories_editor.blp:37
 msgid "Add"
 msgstr "Afegir"
 
-#: ../data/ui/download_manager.blp:6 ../data/ui/download_manager.blp:16
+#: ../data/ui/download_manager.blp:10 ../data/ui/download_manager.blp:20
 msgid "Download Manager"
 msgstr "Gestor de descàrregues"
 
-#: ../data/ui/download_manager.blp:28
+#: ../data/ui/download_manager.blp:32
 msgid "Start/Stop Download"
 msgstr ""
 
-#: ../data/ui/download_manager.blp:65
+#: ../data/ui/download_manager.blp:69
 msgid "No Downloads"
 msgstr ""
 
@@ -226,59 +222,59 @@ msgstr "El més popular"
 msgid "Latest Updates"
 msgstr "Últimes actualitzacions"
 
-#: ../data/ui/explorer_servers.blp:6
+#: ../data/ui/explorer_servers.blp:10
 msgid "Servers"
 msgstr "Servidors"
 
-#: ../data/ui/explorer_servers.blp:13
+#: ../data/ui/explorer_servers.blp:17
 msgid "Search Comics Across All Servers"
 msgstr ""
 
-#: ../data/ui/explorer_servers.blp:19
+#: ../data/ui/explorer_servers.blp:23
 msgid "Search Servers"
 msgstr ""
 
-#: ../data/ui/explorer_servers.blp:33
+#: ../data/ui/explorer_servers.blp:37
 msgid "Search for servers by name or language"
 msgstr "Cerca servidors per nom o idioma"
 
-#: ../data/ui/history.blp:6 ../data/ui/history.blp:12
+#: ../data/ui/history.blp:10 ../data/ui/history.blp:16
 msgid "History"
 msgstr "Historial"
 
-#: ../data/ui/history.blp:69
+#: ../data/ui/history.blp:73
 msgid "No History"
 msgstr ""
 
-#: ../data/ui/library.blp:6 ../data/ui/preferences.blp:66
+#: ../data/ui/library.blp:10 ../data/ui/preferences.blp:66
 msgid "Library"
 msgstr "Biblioteca"
 
-#: ../data/ui/library.blp:19
+#: ../data/ui/library.blp:23
 msgid "Toggle Categories Sidebar"
 msgstr ""
 
-#: ../data/ui/library.blp:23
+#: ../data/ui/library.blp:27
 msgid "Komikku"
 msgstr "Komikku"
 
-#: ../data/ui/library.blp:30
+#: ../data/ui/library.blp:34
 msgid "Main Menu"
 msgstr "Menú principal"
 
-#: ../data/ui/library.blp:74
+#: ../data/ui/library.blp:78
 msgid "Search by name, server or genre"
 msgstr "Cerca per nom, servidor o gènere"
 
-#: ../data/ui/library.blp:121 ../data/ui/preferences.blp:153
+#: ../data/ui/library.blp:125 ../data/ui/preferences.blp:153
 msgid "Update"
 msgstr "Actualitzar"
 
-#: ../data/ui/library.blp:196
+#: ../data/ui/library.blp:200
 msgid "Discover Comics"
 msgstr "Descobriu Còmics"
 
-#: ../data/ui/library.blp:269
+#: ../data/ui/library.blp:273
 msgid "OK"
 msgstr "D'ACORD"
 
@@ -383,8 +379,8 @@ msgstr "Amaga la numeració de pàgines"
 msgid "Save Page"
 msgstr "Desa la pàgina"
 
-#: ../data/ui/preferences.blp:9 ../data/ui/preferences_servers_languages.blp:11
-#: ../data/ui/preferences_servers_settings.blp:11
+#: ../data/ui/preferences.blp:9 ../data/ui/preferences_servers_languages.blp:15
+#: ../data/ui/preferences_servers_settings.blp:15
 msgid "Preferences"
 msgstr "Preferències"
 
@@ -507,8 +503,8 @@ msgid "Explorer"
 msgstr ""
 
 #: ../data/ui/preferences.blp:170
-#: ../data/ui/preferences_servers_languages.blp:6
-#: ../data/ui/preferences_servers_languages.blp:12
+#: ../data/ui/preferences_servers_languages.blp:10
+#: ../data/ui/preferences_servers_languages.blp:16
 msgid "Servers Languages"
 msgstr "Idiomes dels servidors"
 
@@ -516,8 +512,9 @@ msgstr "Idiomes dels servidors"
 msgid "Restrict servers to selected languages"
 msgstr "Restringeix els servidors als idiomes seleccionats"
 
-#: ../data/ui/preferences.blp:179 ../data/ui/preferences_servers_settings.blp:6
-#: ../data/ui/preferences_servers_settings.blp:12
+#: ../data/ui/preferences.blp:179
+#: ../data/ui/preferences_servers_settings.blp:10
+#: ../data/ui/preferences_servers_settings.blp:16
 msgid "Servers Settings"
 msgstr "Configuració dels servidors"
 
@@ -555,7 +552,7 @@ msgid ""
 "surfacing NSFW content."
 msgstr ""
 
-#: ../data/ui/preferences.blp:220 ../data/ui/reader.blp:6
+#: ../data/ui/preferences.blp:220 ../data/ui/reader.blp:10
 msgid "Reader"
 msgstr "Lector"
 
@@ -765,164 +762,164 @@ msgid ""
 "Settings (Accessibility ⇨ Seeing ⇨ Animation Effects)."
 msgstr ""
 
-#: ../data/ui/reader.blp:19
+#: ../data/ui/reader.blp:23
 msgid "Back"
 msgstr "Enrere"
 
-#: ../data/ui/reader.blp:27
+#: ../data/ui/reader.blp:31
 msgid "Toggle Fullscreen Mode"
 msgstr ""
 
-#: ../data/ui/shortcuts_overview.blp:11
+#: ../data/ui/shortcuts_overview.blp:15
 msgctxt "Shortcut window description"
 msgid "Application"
 msgstr "Aplicació"
 
-#: ../data/ui/shortcuts_overview.blp:14
+#: ../data/ui/shortcuts_overview.blp:18
 msgctxt "Shortcut window description"
 msgid "Open Preferences"
 msgstr ""
 
-#: ../data/ui/shortcuts_overview.blp:19
+#: ../data/ui/shortcuts_overview.blp:23
 msgctxt "Shortcut window description"
 msgid "Toggle Fullscreen Mode"
 msgstr ""
 
-#: ../data/ui/shortcuts_overview.blp:24
+#: ../data/ui/shortcuts_overview.blp:28
 msgctxt "Shortcut window description"
 msgid "Open Keyboard Shortcuts"
 msgstr ""
 
-#: ../data/ui/shortcuts_overview.blp:30
+#: ../data/ui/shortcuts_overview.blp:34
 msgctxt "Shortcut window description"
 msgid "Library"
 msgstr "Biblioteca"
 
-#: ../data/ui/shortcuts_overview.blp:33
+#: ../data/ui/shortcuts_overview.blp:37
 msgctxt "Shortcut window description"
 msgid "Add Manga"
 msgstr ""
 
-#: ../data/ui/shortcuts_overview.blp:38
+#: ../data/ui/shortcuts_overview.blp:42
 msgctxt "Shortcut window description"
 msgid "Select All"
 msgstr ""
 
-#: ../data/ui/shortcuts_overview.blp:43
+#: ../data/ui/shortcuts_overview.blp:47
 msgctxt "Shortcut window description"
 msgid "Search"
 msgstr "Cerca"
 
-#: ../data/ui/shortcuts_overview.blp:49
+#: ../data/ui/shortcuts_overview.blp:53
 msgctxt "Shortcut window description"
 msgid "Manga Card"
 msgstr "Targeta Manga"
 
-#: ../data/ui/shortcuts_overview.blp:52
+#: ../data/ui/shortcuts_overview.blp:56
 msgctxt "Shortcut window description"
 msgid "Select All Chapters"
 msgstr ""
 
-#: ../data/ui/shortcuts_overview.blp:58
+#: ../data/ui/shortcuts_overview.blp:62
 msgctxt "Shortcut window description"
 msgid "Reader"
 msgstr "Lector"
 
-#: ../data/ui/shortcuts_overview.blp:61
+#: ../data/ui/shortcuts_overview.blp:65
 msgctxt "Shortcut window description"
 msgid "Save Page"
 msgstr "Desa la pàgina"
 
-#: ../data/ui/shortcuts_overview.blp:67
+#: ../data/ui/shortcuts_overview.blp:71
 msgctxt "Shortcut window description"
 msgid "Download Manager"
 msgstr "Gestor de descàrregues"
 
-#: ../data/ui/shortcuts_overview.blp:70
+#: ../data/ui/shortcuts_overview.blp:74
 msgctxt "Shortcut window description"
 msgid "Select All Downloads"
 msgstr ""
 
-#: ../data/ui/support.blp:6 ../data/ui/support.blp:12
+#: ../data/ui/support.blp:10 ../data/ui/support.blp:16
 msgid "Support Development"
 msgstr ""
 
-#: ../data/ui/support.blp:46
+#: ../data/ui/support.blp:50
 msgid "How can you support?"
 msgstr ""
 
-#: ../data/ui/support.blp:54
+#: ../data/ui/support.blp:58
 msgid ""
 "Developing and maintaining Komikku is a challenging task that takes up most "
 "of my free time."
 msgstr ""
 
-#: ../data/ui/support.blp:61
+#: ../data/ui/support.blp:65
 msgid "Komikku will always be free and open-source and will never contain ads."
 msgstr ""
 
-#: ../data/ui/support.blp:68
+#: ../data/ui/support.blp:72
 msgid ""
 "So if you like it, and you are able, please consider a one-time or recurring "
 "donation to support me, it will be hugely appreciated."
 msgstr ""
 
-#: ../data/ui/support.blp:82
+#: ../data/ui/support.blp:86
 msgid "Weekly, monthly or yearly donation"
 msgstr ""
 
-#: ../data/ui/support.blp:88 ../data/ui/support.blp:104
-#: ../data/ui/support.blp:120
+#: ../data/ui/support.blp:92 ../data/ui/support.blp:108
+#: ../data/ui/support.blp:124
 msgid "Donate and Support"
 msgstr ""
 
-#: ../data/ui/support.blp:98
+#: ../data/ui/support.blp:102
 msgid "One-time donation"
 msgstr ""
 
-#: ../data/ui/support.blp:114
+#: ../data/ui/support.blp:118
 msgid "One-time or monthly donation"
 msgstr ""
 
-#: ../data/ui/webview.blp:6
+#: ../data/ui/webview.blp:10
 msgid "Webview"
 msgstr "Vista web"
 
-#: ../komikku/application.py:180
+#: ../komikku/application.py:189
 msgid "Multiple URLs not supported"
 msgstr "No s'admeten diversos URL"
 
-#: ../komikku/application.py:196
+#: ../komikku/application.py:205
 msgid "Invalid URL {}, not handled by any server."
 msgstr "URL no vàlida {}, no gestionada per cap servidor."
 
-#: ../komikku/application.py:406 ../komikku/card/__init__.py:150
-#: ../komikku/card/__init__.py:151 ../komikku/categories_editor.py:189
+#: ../komikku/application.py:415 ../komikku/card/__init__.py:157
+#: ../komikku/card/__init__.py:158 ../komikku/categories_editor.py:189
 #: ../komikku/downloader.py:377 ../komikku/downloader.py:378
-#: ../komikku/library/__init__.py:804 ../komikku/library/__init__.py:805
+#: ../komikku/library/__init__.py:771 ../komikku/library/__init__.py:772
 msgid "Cancel"
 msgstr "Cancel·lar"
 
-#: ../komikku/application.py:481
+#: ../komikku/application.py:490
 msgid "Servers modules have been updated"
 msgstr ""
 
-#: ../komikku/application.py:489
+#: ../komikku/application.py:498
 msgid "External Servers Modules Update"
 msgstr ""
 
-#: ../komikku/application.py:490
+#: ../komikku/application.py:499
 msgid ""
 "Updating of external server modules is temporarily suspended, as changes are "
 "currently making them incompatible with the current version of the "
 "application. Please update it if a more recent version exists."
 msgstr ""
 
-#: ../komikku/application.py:493 ../komikku/explorer/common.py:273
+#: ../komikku/application.py:502 ../komikku/explorer/common.py:274
 msgid "Close"
 msgstr ""
 
-#: ../komikku/application.py:512
+#: ../komikku/application.py:521
 msgid ""
 "A manga, manhwa, manhua, webtoons, webcomics and comics reader for GNOME\n"
 "\n"
@@ -937,45 +934,55 @@ msgstr ""
 "comprant els còmics oficials quan són\n"
 "disponibles en la vostra regió/idioma."
 
-#: ../komikku/application.py:521
+#: ../komikku/application.py:530
 msgid "Supporters"
 msgstr ""
 
-#: ../komikku/application.py:523
+#: ../komikku/application.py:532
 msgid "Join Chat"
 msgstr "Uniu-vos al xat"
 
-#: ../komikku/application.py:636
+#: ../komikku/application.py:644
 msgid "Are you sure you want to quit?"
 msgstr "Esteu segur que voleu sortir?"
 
-#: ../komikku/application.py:639
+#: ../komikku/application.py:647
 msgid "Some chapters are currently being downloaded."
 msgstr "Alguns capítols s'estan descarregant actualment."
 
-#: ../komikku/application.py:641
+#: ../komikku/application.py:649
 msgid "Some mangas are currently being updated."
 msgstr "Alguns manga s'estan actualitzant actualment."
 
-#: ../komikku/application.py:645
+#: ../komikku/application.py:653
 msgid "Quit?"
 msgstr "Sortir?"
 
-#: ../komikku/application.py:647
+#: ../komikku/application.py:655
 msgid "Quit"
 msgstr "Sortir"
 
-#: ../komikku/card/__init__.py:274
+#: ../komikku/card/__init__.py:109 ../komikku/card/__init__.py:238
+#: ../komikku/explorer/search/__init__.py:75
+#: ../komikku/explorer/search/__init__.py:220
+msgid "Filters"
+msgstr ""
+
+#: ../komikku/card/__init__.py:247
+msgid "Unknown"
+msgstr ""
+
+#: ../komikku/card/__init__.py:334
 msgid "Read progress synchronization with server completed successfully"
 msgstr ""
 "La sincronització del progrés de lectura amb el servidor s'ha completat "
 "correctament"
 
-#: ../komikku/card/__init__.py:288
+#: ../komikku/card/__init__.py:349
 msgid "Failed to get manga URL"
 msgstr "No s'ha pogut obtenir l'URL del manga"
 
-#: ../komikku/card/__init__.py:309
+#: ../komikku/card/__init__.py:373
 #, python-brace-format
 msgid ""
 "NOTICE\n"
@@ -983,59 +990,59 @@ msgid ""
 "Please switch to another server."
 msgstr ""
 
-#: ../komikku/card/__init__.py:393 ../komikku/card/chapters_list.py:696
+#: ../komikku/card/__init__.py:456 ../komikku/card/chapters_list.py:725
 msgid "Clear and Reset"
 msgstr "Neteja i reinicia"
 
-#: ../komikku/card/__init__.py:393 ../komikku/card/chapters_list.py:696
+#: ../komikku/card/__init__.py:456 ../komikku/card/chapters_list.py:725
 msgid "Reset"
 msgstr "Reinicialitzar"
 
-#: ../komikku/card/__init__.py:486
+#: ../komikku/card/__init__.py:563
 msgid "Unknown author"
 msgstr "Autor desconegut"
 
-#: ../komikku/card/__init__.py:492 ../komikku/card/__init__.py:501
+#: ../komikku/card/__init__.py:569 ../komikku/card/__init__.py:578
 msgid "Unknown status"
 msgstr "Estat desconegut"
 
-#: ../komikku/card/__init__.py:502 ../komikku/explorer/common.py:227
+#: ../komikku/card/__init__.py:579 ../komikku/explorer/common.py:228
 msgid "Local"
 msgstr "Local"
 
-#: ../komikku/card/__init__.py:528 ../komikku/card/chapters_list.py:624
+#: ../komikku/card/__init__.py:605 ../komikku/card/chapters_list.py:653
 msgid "%m/%d/%Y"
 msgstr "%d/%m/%Y"
 
-#: ../komikku/card/chapters_list.py:309 ../komikku/downloader.py:522
-#: ../komikku/library/__init__.py:838
+#: ../komikku/card/chapters_list.py:338 ../komikku/downloader.py:522
+#: ../komikku/library/__init__.py:805
 #, python-brace-format
 msgid "{0} selected"
 msgid_plural "{0} selected"
 msgstr[0] "{0} seleccionat"
 msgstr[1] "{0} seleccionats"
 
-#: ../komikku/card/chapters_list.py:386 ../komikku/card/chapters_list.py:485
+#: ../komikku/card/chapters_list.py:415 ../komikku/card/chapters_list.py:514
 msgid "Failed to update chapters reading status"
 msgstr "No s'ha pogut actualitzar l'estat de lectura dels capítols"
 
-#: ../komikku/card/chapters_list.py:682 ../komikku/library/__init__.py:398
+#: ../komikku/card/chapters_list.py:711 ../komikku/library/__init__.py:391
 msgid "Download"
 msgstr "Descarregar"
 
-#: ../komikku/card/chapters_list.py:692 ../komikku/preferences.py:136
+#: ../komikku/card/chapters_list.py:721 ../komikku/preferences.py:136
 msgid "Clear"
 msgstr "Neteja"
 
-#: ../komikku/card/chapters_list.py:706
+#: ../komikku/card/chapters_list.py:735
 msgid "Mark as Read"
 msgstr "Marca com a llegit"
 
-#: ../komikku/card/chapters_list.py:710
+#: ../komikku/card/chapters_list.py:739
 msgid "Mark as Unread"
 msgstr "Marca com a no llegit"
 
-#: ../komikku/card/chapters_list.py:714
+#: ../komikku/card/chapters_list.py:743
 msgid "Mark Previous Chapters as Read"
 msgstr "Marca els capítols anteriors com a llegits"
 
@@ -1063,7 +1070,7 @@ msgstr ""
 #: ../komikku/servers/mangafire/__init__.py:58
 #: ../komikku/servers/mangamana/__init__.py:60
 #: ../komikku/servers/mangamana/__init__.py:61
-#: ../komikku/servers/mangaworld/__init__.py:46
+#: ../komikku/servers/mangaworld/__init__.py:73
 msgid "Status"
 msgstr "Estat"
 
@@ -1076,7 +1083,7 @@ msgid "Chapter"
 msgstr ""
 
 #: ../komikku/card/tracking.py:250 ../komikku/categories_editor.py:78
-#: ../komikku/library/__init__.py:372
+#: ../komikku/library/__init__.py:365
 msgid "Delete?"
 msgstr "Suprimir?"
 
@@ -1085,16 +1092,16 @@ msgid "Are you sure you want to cancel tracking?"
 msgstr ""
 
 #: ../komikku/card/tracking.py:252 ../komikku/categories_editor.py:80
-#: ../komikku/categories_editor.py:178 ../komikku/library/__init__.py:374
+#: ../komikku/categories_editor.py:178 ../komikku/library/__init__.py:367
 msgid "Delete"
 msgstr "Suprimir"
 
-#: ../komikku/card/tracking.py:396 ../komikku/explorer/search/__init__.py:371
+#: ../komikku/card/tracking.py:396 ../komikku/explorer/search/__init__.py:378
 msgid "Search {}"
 msgstr "Cercar {}"
 
 #: ../komikku/card/tracking.py:455 ../komikku/explorer/search/search.py:78
-#: ../komikku/explorer/search/search_global.py:148
+#: ../komikku/explorer/search/search_global.py:167
 msgid "Oops, search failed. Please try again."
 msgstr "Vaja, la cerca ha fallat. Siusplau torneu-ho a provar."
 
@@ -1146,35 +1153,35 @@ msgstr "[{0}] Capítol {1}"
 msgid "Download completed"
 msgstr "Descàrrega completada"
 
-#: ../komikku/explorer/common.py:116
+#: ../komikku/explorer/common.py:117
 #, python-brace-format
 msgid "{0} chapter"
 msgid_plural "{0} chapters"
 msgstr[0] ""
 msgstr[1] ""
 
-#: ../komikku/explorer/common.py:118
+#: ../komikku/explorer/common.py:119
 msgid "Last Chapter: {}"
 msgstr ""
 
-#: ../komikku/explorer/common.py:120
+#: ../komikku/explorer/common.py:121
 msgid "Last Volume: {}"
 msgstr ""
 
-#: ../komikku/explorer/common.py:228
+#: ../komikku/explorer/common.py:229
 msgid "Comics stored locally as archives in CBZ/CBR formats"
 msgstr "Còmics emmagatzemats localment com a arxius en formats CBZ/CBR"
 
-#: ../komikku/explorer/common.py:245 ../komikku/preferences.py:600
+#: ../komikku/explorer/common.py:246 ../komikku/preferences.py:600
 #: ../komikku/preferences.py:697 ../komikku/servers/mangatube/__init__.py:150
 msgid "18+"
 msgstr "18+"
 
-#: ../komikku/explorer/common.py:265
+#: ../komikku/explorer/common.py:266
 msgid "Help"
 msgstr "Ajuda"
 
-#: ../komikku/explorer/common.py:266
+#: ../komikku/explorer/common.py:267
 msgid ""
 "A specific folder structure is required for local comics to be properly "
 "processed.\n"
@@ -1197,36 +1204,35 @@ msgstr ""
 "NOTA: L'eina de línia d'ordres \"unrar\" o \"unar\" és necessària per als "
 "arxius CBR."
 
-#: ../komikku/explorer/common.py:273
+#: ../komikku/explorer/common.py:274
 msgid "Local Folder"
 msgstr ""
 
-#: ../komikku/explorer/common.py:279
+#: ../komikku/explorer/common.py:280
 msgid "Open local folder"
 msgstr "Obrir la carpeta local"
 
-#: ../komikku/explorer/common.py:287
+#: ../komikku/explorer/common.py:288
 msgid "Toggle pinned status"
 msgstr "Commuta l'estat fixat"
 
-#: ../komikku/explorer/search/__init__.py:74
-#: ../komikku/explorer/search/__init__.py:219
-msgid "Filters"
+#: ../komikku/explorer/search/__init__.py:283
+msgid "Search was cancelled"
 msgstr ""
 
-#: ../komikku/explorer/search/__init__.py:283
+#: ../komikku/explorer/search/__init__.py:290
 msgid "Oops, server website URL is unknown."
 msgstr "Vaja, l'URL del lloc web del servidor és desconegut."
 
-#: ../komikku/explorer/search/__init__.py:373
+#: ../komikku/explorer/search/__init__.py:380
 msgid "Search for Reading"
 msgstr "Cercador de lectura"
 
-#: ../komikku/explorer/search/__init__.py:375
+#: ../komikku/explorer/search/__init__.py:382
 msgid "Empty search is allowed."
 msgstr "Es permet la cerca buida."
 
-#: ../komikku/explorer/search/__init__.py:377
+#: ../komikku/explorer/search/__init__.py:384
 msgid ""
 "Alternatively, you can look up specific comics using the syntax:\n"
 "\n"
@@ -1236,19 +1242,19 @@ msgstr ""
 "\n"
 "<b>id:ID de l'URL del còmic</b>"
 
-#: ../komikku/explorer/search/__init__.py:405
+#: ../komikku/explorer/search/__init__.py:412
 msgid "Global Search"
 msgstr "Cerca Global"
 
-#: ../komikku/explorer/search/__init__.py:407
+#: ../komikku/explorer/search/__init__.py:414
 msgid "Search globally by name"
 msgstr "Cerca globalment per nom"
 
-#: ../komikku/explorer/search/__init__.py:409
+#: ../komikku/explorer/search/__init__.py:416
 msgid "Search for Comics"
 msgstr ""
 
-#: ../komikku/explorer/search/__init__.py:485
+#: ../komikku/explorer/search/__init__.py:492
 msgid "Oops, failed to retrieve manga's information."
 msgstr "Vaja, no s'ha pogut recuperar la informació del manga."
 
@@ -1263,7 +1269,7 @@ msgstr "No s'han trobat actualitzacions més recents"
 #: ../komikku/explorer/search/latest_updates.py:78
 #: ../komikku/explorer/search/most_popular.py:78
 #: ../komikku/explorer/search/search.py:92
-#: ../komikku/explorer/search/search_global.py:81
+#: ../komikku/explorer/search/search_global.py:94
 msgid "A request is already in progress."
 msgstr "Una sol·licitud ja està en curs."
 
@@ -1275,7 +1281,11 @@ msgstr "Vaja, no s'ha pogut recuperar el més popular."
 msgid "No Most Popular Found"
 msgstr "No s'han trobat els Més Populars"
 
-#: ../komikku/explorer/search/search_global.py:153
+#: ../komikku/explorer/search/search_global.py:164
+msgid "Search cancelled"
+msgstr ""
+
+#: ../komikku/explorer/search/search_global.py:172
 msgid "No results"
 msgstr "No hi ha resultats"
 
@@ -1303,45 +1313,45 @@ msgstr "%A, %B %e"
 msgid "Resume"
 msgstr "Reprendre"
 
-#: ../komikku/library/__init__.py:368
+#: ../komikku/library/__init__.py:361
 msgid "Are you sure you want to delete this manga?"
 msgstr "Esteu segur que voleu eliminar aquest manga?"
 
-#: ../komikku/library/__init__.py:370
+#: ../komikku/library/__init__.py:363
 msgid "Are you sure you want to delete selected mangas?"
 msgstr "Esteu segur que voleu suprimir els mangas seleccionats?"
 
-#: ../komikku/library/__init__.py:394
+#: ../komikku/library/__init__.py:387
 msgid "Are you sure you want to download all chapters of selected mangas?"
 msgstr ""
 "Esteu segur que voleu descarregar tots els capítols dels mangas seleccionats?"
 
-#: ../komikku/library/__init__.py:396
+#: ../komikku/library/__init__.py:389
 msgid "Download?"
 msgstr "Descarregar?"
 
-#: ../komikku/library/__init__.py:646
+#: ../komikku/library/__init__.py:613
 msgid "Welcome to Komikku"
 msgstr "Benvingut a Komikku"
 
-#: ../komikku/library/__init__.py:654
+#: ../komikku/library/__init__.py:621
 msgid "Loading…"
 msgstr "S'està carregant…"
 
-#: ../komikku/library/__init__.py:787
+#: ../komikku/library/__init__.py:754
 msgid "Failed to update reading status"
 msgstr "No s'ha pogut actualitzar l'estat de lectura"
 
-#: ../komikku/library/__init__.py:809
+#: ../komikku/library/__init__.py:776
 msgid "Add New Comic"
 msgstr ""
 
-#: ../komikku/library/__init__.py:842 ../komikku/library/categories_list.py:145
+#: ../komikku/library/__init__.py:809 ../komikku/library/categories_list.py:145
 msgid "Uncategorized"
 msgstr "Sense categoria"
 
 #: ../komikku/library/categories_list.py:139
-#: ../komikku/servers/asurascans/__init__.py:38
+#: ../komikku/servers/asurascans/__init__.py:40
 #: ../komikku/servers/bilibili/__init__.py:43
 #: ../komikku/servers/coloredcouncil/__init__.py:70
 #: ../komikku/servers/coloredcouncil/__init__.py:83
@@ -1368,32 +1378,32 @@ msgstr "Descarregant"
 msgid "Download error"
 msgstr "Error de descàrrega"
 
-#: ../komikku/models/database/mangas.py:37
+#: ../komikku/models/database/mangas.py:38
 #: ../komikku/servers/mangamana/__init__.py:66
-#: ../komikku/servers/mangaworld/__init__.py:51
+#: ../komikku/servers/mangaworld/__init__.py:78
 #: ../komikku/servers/weebcentral/__init__.py:53
 msgid "Complete"
 msgstr "Completat"
 
-#: ../komikku/models/database/mangas.py:38
+#: ../komikku/models/database/mangas.py:39
 #: ../komikku/servers/flamescans/__init__.py:52
 #: ../komikku/servers/mangadex/__init__.py:75
 #: ../komikku/servers/mangamana/__init__.py:65
-#: ../komikku/servers/mangaworld/__init__.py:50
+#: ../komikku/servers/mangaworld/__init__.py:77
 #: ../komikku/servers/weebcentral/__init__.py:52
 msgid "Ongoing"
 msgstr "En curs"
 
-#: ../komikku/models/database/mangas.py:39
+#: ../komikku/models/database/mangas.py:40
 #: ../komikku/servers/mangamana/__init__.py:67
-#: ../komikku/servers/mangaworld/__init__.py:52
+#: ../komikku/servers/mangaworld/__init__.py:79
 msgid "Suspended"
 msgstr "Suspès"
 
-#: ../komikku/models/database/mangas.py:40
+#: ../komikku/models/database/mangas.py:41
 #: ../komikku/servers/flamescans/__init__.py:54
 #: ../komikku/servers/mangafire/__init__.py:65
-#: ../komikku/servers/mangaworld/__init__.py:53
+#: ../komikku/servers/mangaworld/__init__.py:80
 #: ../komikku/servers/weebcentral/__init__.py:54
 msgid "Hiatus"
 msgstr "Pausat"
@@ -1514,75 +1524,75 @@ msgstr ""
 msgid "Failed to sync read progress with server"
 msgstr "No s'ha pogut sincronitzar el progrés de lectura amb el servidor"
 
-#: ../komikku/reader/pager/__init__.py:454
-#: ../komikku/reader/pager/webtoon.py:92
+#: ../komikku/reader/pager/__init__.py:458
+#: ../komikku/reader/pager/webtoon.py:95
 msgid "There is no previous chapter."
 msgstr "No hi ha cap capítol anterior."
 
-#: ../komikku/reader/pager/__init__.py:456
-#: ../komikku/reader/pager/webtoon.py:90
+#: ../komikku/reader/pager/__init__.py:460
+#: ../komikku/reader/pager/webtoon.py:93
 msgid "It was the last chapter."
 msgstr "Era l'últim capítol."
 
-#: ../komikku/reader/pager/__init__.py:622
-#: ../komikku/reader/pager/webtoon.py:149
+#: ../komikku/reader/pager/__init__.py:626
+#: ../komikku/reader/pager/webtoon.py:152
 msgid "This chapter is inaccessible."
 msgstr "Aquest capítol és inaccessible."
 
-#: ../komikku/reader/pager/page.py:263
+#: ../komikku/reader/pager/page.py:275
 msgid "Failed to load image"
 msgstr "No s'ha pogut carregar la imatge"
 
-#: ../komikku/reader/pager/page.py:306
+#: ../komikku/reader/pager/page.py:317
 msgid "Retry"
 msgstr "Reintentar"
 
-#: ../komikku/servers/asurascans/__init__.py:33
+#: ../komikku/servers/asurascans/__init__.py:35
 #: ../komikku/servers/mangafire/__init__.py:43
 #: ../komikku/servers/mangapill/__init__.py:32
 #: ../komikku/servers/mangatube/__init__.py:125
-#: ../komikku/servers/mangaworld/__init__.py:31
+#: ../komikku/servers/mangaworld/__init__.py:58
 #: ../komikku/servers/multi/manga_stream/__init__.py:70
 #: ../komikku/servers/webtoon/__init__.py:47
 msgid "Type"
 msgstr "Tipus"
 
-#: ../komikku/servers/asurascans/__init__.py:34
+#: ../komikku/servers/asurascans/__init__.py:36
 #: ../komikku/servers/mangapill/__init__.py:33
 #: ../komikku/servers/multi/manga_stream/__init__.py:71
 #: ../komikku/servers/webtoon/__init__.py:48
 msgid "Filter by Type"
 msgstr ""
 
-#: ../komikku/servers/asurascans/__init__.py:39
+#: ../komikku/servers/asurascans/__init__.py:41
 #: ../komikku/servers/coloredcouncil/__init__.py:72
 #: ../komikku/servers/flamescans/__init__.py:40
 #: ../komikku/servers/mangafire/__init__.py:47
 #: ../komikku/servers/mangapill/__init__.py:38
 #: ../komikku/servers/mangatube/__init__.py:131
-#: ../komikku/servers/mangaworld/__init__.py:35
+#: ../komikku/servers/mangaworld/__init__.py:62
 #: ../komikku/servers/multi/manga_stream/__init__.py:76
 #: ../komikku/servers/weebcentral/__init__.py:39
 msgid "Manga"
 msgstr "Manga"
 
-#: ../komikku/servers/asurascans/__init__.py:40
+#: ../komikku/servers/asurascans/__init__.py:42
 #: ../komikku/servers/flamescans/__init__.py:41
 #: ../komikku/servers/mangafire/__init__.py:51
 #: ../komikku/servers/mangapill/__init__.py:42
 #: ../komikku/servers/mangatube/__init__.py:132
-#: ../komikku/servers/mangaworld/__init__.py:37
+#: ../komikku/servers/mangaworld/__init__.py:64
 #: ../komikku/servers/multi/manga_stream/__init__.py:77
 #: ../komikku/servers/weebcentral/__init__.py:40
 msgid "Manhwa"
 msgstr "Manhwa"
 
-#: ../komikku/servers/asurascans/__init__.py:41
+#: ../komikku/servers/asurascans/__init__.py:43
 #: ../komikku/servers/flamescans/__init__.py:42
 #: ../komikku/servers/mangafire/__init__.py:52
 #: ../komikku/servers/mangapill/__init__.py:43
 #: ../komikku/servers/mangatube/__init__.py:133
-#: ../komikku/servers/mangaworld/__init__.py:36
+#: ../komikku/servers/mangaworld/__init__.py:63
 #: ../komikku/servers/multi/manga_stream/__init__.py:78
 #: ../komikku/servers/weebcentral/__init__.py:41
 msgid "Manhua"
@@ -1639,7 +1649,7 @@ msgstr "Categories"
 #: ../komikku/servers/dynasty/__init__.py:39
 #: ../komikku/servers/flamescans/__init__.py:37
 #: ../komikku/servers/mangafire/__init__.py:44
-#: ../komikku/servers/mangaworld/__init__.py:32
+#: ../komikku/servers/mangaworld/__init__.py:59
 #: ../komikku/servers/weebcentral/__init__.py:36
 msgid "Filter by Types"
 msgstr ""
@@ -1694,9 +1704,8 @@ msgid "Unable to extract page. Maybe the 'unrar' tool is missing?"
 msgstr "No es pot extreure la pàgina. Potser falta l'eina 'unrar'?"
 
 #: ../komikku/servers/exceptions.py:26
-msgid "Failed to bypass Cloudflare protection. Please try again."
+msgid "Failed to complete browser challenge. Please try again."
 msgstr ""
-"No s'ha pogut evitar la protecció de Cloudflare. Siusplau torna-ho a provar."
 
 #: ../komikku/servers/exceptions.py:31
 msgid "No longer exists."
@@ -1715,7 +1724,7 @@ msgstr ""
 #: ../komikku/servers/flamescans/__init__.py:49
 #: ../komikku/servers/mangadex/__init__.py:72
 #: ../komikku/servers/mangafire/__init__.py:59
-#: ../komikku/servers/mangaworld/__init__.py:47
+#: ../komikku/servers/mangaworld/__init__.py:74
 #: ../komikku/servers/weebcentral/__init__.py:49
 msgid "Filter by Statuses"
 msgstr ""
@@ -1734,7 +1743,7 @@ msgstr ""
 
 #: ../komikku/servers/flamescans/__init__.py:56
 #: ../komikku/servers/mangadex/__init__.py:78
-#: ../komikku/servers/mangaworld/__init__.py:54
+#: ../komikku/servers/mangaworld/__init__.py:81
 #: ../komikku/servers/weebcentral/__init__.py:55
 msgid "Canceled"
 msgstr "Cancel·lat"
@@ -1744,8 +1753,8 @@ msgid "Rating"
 msgstr "Qualificació"
 
 #: ../komikku/servers/mangadex/__init__.py:59
-msgid "Filter by content ratings"
-msgstr "Filtrar per classificacions de contingut"
+msgid "Filter by Content Ratings"
+msgstr ""
 
 #: ../komikku/servers/mangadex/__init__.py:62
 msgid "Safe"
@@ -1796,7 +1805,7 @@ msgid "Tags"
 msgstr ""
 
 #: ../komikku/servers/mangadex/__init__.py:98
-msgid "Filter by formats"
+msgid "Filter by Formats"
 msgstr ""
 
 #: ../komikku/servers/mangadex/__init__.py:101
@@ -1846,25 +1855,129 @@ msgid "Web Comic"
 msgstr ""
 
 #: ../komikku/servers/mangadex/__init__.py:118
-msgid "Tags Inclusion Mode"
-msgstr ""
+msgid "Genres"
+msgstr "Gèneres"
 
 #: ../komikku/servers/mangadex/__init__.py:119
-msgid "Include manga that match <b>all</b> tags (AND) or <b>any</b> tag (OR)"
+msgid "Filter by Genres"
+msgstr ""
+
+#: ../komikku/servers/mangadex/__init__.py:122
+msgid "Action"
 msgstr ""
 
 #: ../komikku/servers/mangadex/__init__.py:123
-msgid "AND"
+msgid "Adventure"
 msgstr ""
 
 #: ../komikku/servers/mangadex/__init__.py:124
+msgid "Boys Love"
+msgstr ""
+
+#: ../komikku/servers/mangadex/__init__.py:125
+msgid "Comedy"
+msgstr ""
+
+#: ../komikku/servers/mangadex/__init__.py:126
+msgid "Crime"
+msgstr ""
+
+#: ../komikku/servers/mangadex/__init__.py:127
+msgid "Drama"
+msgstr ""
+
+#: ../komikku/servers/mangadex/__init__.py:128
+msgid "Fantasy"
+msgstr ""
+
+#: ../komikku/servers/mangadex/__init__.py:129
+msgid "Girls Love"
+msgstr ""
+
+#: ../komikku/servers/mangadex/__init__.py:130
+msgid "Historical"
+msgstr ""
+
+#: ../komikku/servers/mangadex/__init__.py:131
+msgid "Horror"
+msgstr ""
+
+#: ../komikku/servers/mangadex/__init__.py:132
+msgid "Isekai"
+msgstr ""
+
+#: ../komikku/servers/mangadex/__init__.py:133
+msgid "Magical Girls"
+msgstr ""
+
+#: ../komikku/servers/mangadex/__init__.py:134
+msgid "Mecha"
+msgstr ""
+
+#: ../komikku/servers/mangadex/__init__.py:135
+msgid "Medical"
+msgstr ""
+
+#: ../komikku/servers/mangadex/__init__.py:136
+msgid "Mystery"
+msgstr ""
+
+#: ../komikku/servers/mangadex/__init__.py:137
+msgid "Philosophical"
+msgstr ""
+
+#: ../komikku/servers/mangadex/__init__.py:138
+msgid "Romance"
+msgstr ""
+
+#: ../komikku/servers/mangadex/__init__.py:139
+msgid "Sci-Fi"
+msgstr ""
+
+#: ../komikku/servers/mangadex/__init__.py:140
+msgid "Slice of Life"
+msgstr ""
+
+#: ../komikku/servers/mangadex/__init__.py:141
+msgid "Sports"
+msgstr ""
+
+#: ../komikku/servers/mangadex/__init__.py:142
+msgid "Superhero"
+msgstr ""
+
+#: ../komikku/servers/mangadex/__init__.py:143
+msgid "Thriller"
+msgstr ""
+
+#: ../komikku/servers/mangadex/__init__.py:144
+msgid "Tragedy"
+msgstr ""
+
+#: ../komikku/servers/mangadex/__init__.py:145
+msgid "Wuxia"
+msgstr ""
+
+#: ../komikku/servers/mangadex/__init__.py:151
+msgid "Tags Inclusion Mode"
+msgstr ""
+
+#: ../komikku/servers/mangadex/__init__.py:152
+msgid "Include manga that match <b>all</b> tags (AND) or <b>any</b> tag (OR)"
+msgstr ""
+
+#: ../komikku/servers/mangadex/__init__.py:156
+msgid "AND"
+msgstr ""
+
+#: ../komikku/servers/mangadex/__init__.py:157
 msgid "OR"
 msgstr ""
 
 #: ../komikku/servers/mangafire/__init__.py:48
 #: ../komikku/servers/mangapill/__init__.py:40
 #: ../komikku/servers/mangatube/__init__.py:136
-#: ../komikku/servers/mangaworld/__init__.py:38
+#: ../komikku/servers/mangaworld/__init__.py:65
 msgid "One Shot"
 msgstr "One Shot"
 
@@ -1919,17 +2032,17 @@ msgstr "Sense"
 msgid "16+"
 msgstr "16+"
 
-#: ../komikku/servers/multi/madara/__init__.py:424
+#: ../komikku/servers/multi/madara/__init__.py:425
 #: ../komikku/servers/readmanhwa/__init__.py:44
 msgid "NSFW Content"
 msgstr "Contingut NSFW"
 
-#: ../komikku/servers/multi/madara/__init__.py:425
+#: ../komikku/servers/multi/madara/__init__.py:426
 #: ../komikku/servers/readmanhwa/__init__.py:45
 msgid "Whether to show manga containing NSFW content"
 msgstr "Si voleu mostrar manga que contingui contingut NSFW"
 
-#: ../komikku/servers/multi/mangareader/__init__.py:106
+#: ../komikku/servers/multi/mangareader/__init__.py:108
 #, python-brace-format
 msgid "Not available in {0} language"
 msgstr ""
@@ -2017,13 +2130,21 @@ msgstr ""
 "Sense connexió a Internet, s'ha esgotat el temps d'espera o ha caigut el "
 "servidor"
 
-#: ../komikku/webview.py:386
+#: ../komikku/webview.py:432
 msgid "Please wait…"
 msgstr ""
 
-#: ../komikku/webview.py:433
+#: ../komikku/webview.py:479
 msgid "Please complete CAPTCHA"
 msgstr "Si us plau, completeu el CAPTCHA"
+
+#~ msgid "Failed to bypass Cloudflare protection. Please try again."
+#~ msgstr ""
+#~ "No s'ha pogut evitar la protecció de Cloudflare. Siusplau torna-ho a "
+#~ "provar."
+
+#~ msgid "Filter by content ratings"
+#~ msgstr "Filtrar per classificacions de contingut"
 
 #~ msgid "Filter by type"
 #~ msgstr "Filtra per tipus"
