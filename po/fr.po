@@ -9,16 +9,16 @@ msgstr ""
 "Project-Id-Version: unnamed project\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-02-28 11:58+0100\n"
-"PO-Revision-Date: 2025-02-11 17:02+0000\n"
+"PO-Revision-Date: 2025-02-28 11:42+0000\n"
 "Last-Translator: Valéry Febvre <vfebvre@easter-eggs.com>\n"
-"Language-Team: French <https://hosted.weblate.org/projects/komikku/main/fr/"
-">\n"
+"Language-Team: French <https://hosted.weblate.org/projects/komikku/main/fr/>"
+"\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 5.10-dev\n"
+"X-Generator: Weblate 5.10.2-rc\n"
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:11
 msgid "Discover and read manga &amp; comics"
@@ -996,7 +996,7 @@ msgstr "Filtres"
 
 #: ../komikku/card/__init__.py:247
 msgid "Unknown"
-msgstr ""
+msgstr "Inconnu"
 
 #: ../komikku/card/__init__.py:334
 msgid "Read progress synchronization with server completed successfully"
@@ -1313,7 +1313,7 @@ msgstr "Aucun populaire trouvé"
 
 #: ../komikku/explorer/search/search_global.py:164
 msgid "Search cancelled"
-msgstr ""
+msgstr "Recherche annulée"
 
 #: ../komikku/explorer/search/search_global.py:172
 msgid "No results"
@@ -1740,7 +1740,7 @@ msgstr ""
 
 #: ../komikku/servers/exceptions.py:26
 msgid "Failed to complete browser challenge. Please try again."
-msgstr ""
+msgstr "Le défi du navigateur n'a pas été relevé. Veuillez réessayer."
 
 #: ../komikku/servers/exceptions.py:31
 msgid "No longer exists."
@@ -1789,7 +1789,7 @@ msgstr "Classement"
 
 #: ../komikku/servers/mangadex/__init__.py:59
 msgid "Filter by Content Ratings"
-msgstr ""
+msgstr "Filtrer par notation du contenu"
 
 #: ../komikku/servers/mangadex/__init__.py:62
 msgid "Safe"
@@ -1841,7 +1841,7 @@ msgstr "Étiquettes"
 
 #: ../komikku/servers/mangadex/__init__.py:98
 msgid "Filter by Formats"
-msgstr ""
+msgstr "Filtrer par formats"
 
 #: ../komikku/servers/mangadex/__init__.py:101
 msgid "4-Koma"
@@ -1895,103 +1895,103 @@ msgstr "Genres"
 
 #: ../komikku/servers/mangadex/__init__.py:119
 msgid "Filter by Genres"
-msgstr ""
+msgstr "Filtrer par genres"
 
 #: ../komikku/servers/mangadex/__init__.py:122
 msgid "Action"
-msgstr ""
+msgstr "Action"
 
 #: ../komikku/servers/mangadex/__init__.py:123
 msgid "Adventure"
-msgstr ""
+msgstr "Aventure"
 
 #: ../komikku/servers/mangadex/__init__.py:124
 msgid "Boys Love"
-msgstr ""
+msgstr "Boys love"
 
 #: ../komikku/servers/mangadex/__init__.py:125
 msgid "Comedy"
-msgstr ""
+msgstr "Comédie"
 
 #: ../komikku/servers/mangadex/__init__.py:126
 msgid "Crime"
-msgstr ""
+msgstr "Crime"
 
 #: ../komikku/servers/mangadex/__init__.py:127
 msgid "Drama"
-msgstr ""
+msgstr "Drame"
 
 #: ../komikku/servers/mangadex/__init__.py:128
 msgid "Fantasy"
-msgstr ""
+msgstr "Fantaisie"
 
 #: ../komikku/servers/mangadex/__init__.py:129
 msgid "Girls Love"
-msgstr ""
+msgstr "Girls love"
 
 #: ../komikku/servers/mangadex/__init__.py:130
 msgid "Historical"
-msgstr ""
+msgstr "Historique"
 
 #: ../komikku/servers/mangadex/__init__.py:131
 msgid "Horror"
-msgstr ""
+msgstr "Horreur"
 
 #: ../komikku/servers/mangadex/__init__.py:132
 msgid "Isekai"
-msgstr ""
+msgstr "Isekai"
 
 #: ../komikku/servers/mangadex/__init__.py:133
 msgid "Magical Girls"
-msgstr ""
+msgstr "Magical girls"
 
 #: ../komikku/servers/mangadex/__init__.py:134
 msgid "Mecha"
-msgstr ""
+msgstr "Mecha"
 
 #: ../komikku/servers/mangadex/__init__.py:135
 msgid "Medical"
-msgstr ""
+msgstr "Médical"
 
 #: ../komikku/servers/mangadex/__init__.py:136
 msgid "Mystery"
-msgstr ""
+msgstr "Mystère"
 
 #: ../komikku/servers/mangadex/__init__.py:137
 msgid "Philosophical"
-msgstr ""
+msgstr "Philosophique"
 
 #: ../komikku/servers/mangadex/__init__.py:138
 msgid "Romance"
-msgstr ""
+msgstr "Romance"
 
 #: ../komikku/servers/mangadex/__init__.py:139
 msgid "Sci-Fi"
-msgstr ""
+msgstr "Sci-Fi"
 
 #: ../komikku/servers/mangadex/__init__.py:140
 msgid "Slice of Life"
-msgstr ""
+msgstr "Tranche de vie"
 
 #: ../komikku/servers/mangadex/__init__.py:141
 msgid "Sports"
-msgstr ""
+msgstr "Sports"
 
 #: ../komikku/servers/mangadex/__init__.py:142
 msgid "Superhero"
-msgstr ""
+msgstr "Super-héros"
 
 #: ../komikku/servers/mangadex/__init__.py:143
 msgid "Thriller"
-msgstr ""
+msgstr "Thriller"
 
 #: ../komikku/servers/mangadex/__init__.py:144
 msgid "Tragedy"
-msgstr ""
+msgstr "Tragédie"
 
 #: ../komikku/servers/mangadex/__init__.py:145
 msgid "Wuxia"
-msgstr ""
+msgstr "Wuxia"
 
 #: ../komikku/servers/mangadex/__init__.py:151
 msgid "Tags Inclusion Mode"
