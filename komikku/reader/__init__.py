@@ -3,7 +3,6 @@
 # Author: Valéry Febvre <vfebvre@easter-eggs.com>
 
 from gettext import gettext as _
-import os
 import shutil
 
 from gi.repository import Adw
@@ -17,7 +16,6 @@ from komikku.reader.controls import Controls
 from komikku.reader.pager import Pager
 from komikku.reader.pager.webtoon import WebtoonPager
 from komikku.utils import get_file_mime_type
-from komikku.utils import is_flatpak
 
 
 @Gtk.Template.from_resource('/info/febvre/Komikku/ui/reader.ui')
@@ -361,8 +359,12 @@ class ReaderPage(Adw.NavigationPage):
             return
 
         def do_save(dest_path):
-            shutil.copy(page.path, dest_path)
-            self.window.add_notification(_('Page successfully saved to {0}').format(dest_path.replace(os.path.expanduser('~'), '~')))
+            try:
+                shutil.copy(page.path, dest_path)
+            except Exception as error:
+                self.window.add_notification(str(error))
+            else:
+                self.window.add_notification(_('Page successfully saved'))
 
         def on_ready(dialog, result):
             try:
@@ -378,18 +380,12 @@ class ReaderPage(Adw.NavigationPage):
         filename = f'{self.manga.name}_{page.chapter.title}_{str(page.index + 1)}.{extension}'
         xdg_pictures_dir = GLib.get_user_special_dir(GLib.UserDirectory.DIRECTORY_PICTURES)
 
-        if not is_flatpak():
-            dialog = Gtk.FileDialog(modal=True)
-            dialog.set_initial_name(filename)
-            if xdg_pictures_dir is not None:
-                dialog.set_initial_folder(Gio.File.new_for_path(xdg_pictures_dir))
+        dialog = Gtk.FileDialog(modal=True)
+        dialog.set_initial_name(filename)
+        if xdg_pictures_dir is not None:
+            dialog.set_initial_folder(Gio.File.new_for_path(xdg_pictures_dir))
 
-            dialog.save(self.window, None, on_ready)
-        else:
-            if xdg_pictures_dir is not None:
-                do_save(os.path.join(xdg_pictures_dir, filename))
-            else:
-                self.window.add_notification(_('Failed to save page: missing permission to access the XDG pictures directory'))
+        dialog.save(self.window, None, on_ready)
 
     def set_action_background_color(self):
         self.background_color_action.set_state(GLib.Variant('s', self.background_color))
