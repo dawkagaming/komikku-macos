@@ -191,10 +191,10 @@ class LibraryPage(Adw.NavigationPage):
 
             sort_order = Settings.get_default().library_sort_order
             if sort_order == 'latest-read-desc':
-                if manga1.last_read > manga2.last_read:
+                if manga1.last_read.timestamp() > manga2.last_read.timestamp():
                     return -1
 
-                if manga1.last_read < manga2.last_read:
+                if manga1.last_read.timestamp() < manga2.last_read.timestamp():
                     return 1
 
             elif sort_order == 'latest-updated-desc':
@@ -212,10 +212,10 @@ class LibraryPage(Adw.NavigationPage):
 
                     return 0
 
-                if manga1.last_update > manga2.last_update:
+                if manga1.last_update.timestamp() > manga2.last_update.timestamp():
                     return -1
 
-                if manga1.last_update < manga2.last_update:
+                if manga1.last_update.timestamp() < manga2.last_update.timestamp():
                     return 1
 
             elif sort_order == 'alphanum-asc':
