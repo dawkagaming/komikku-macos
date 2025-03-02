@@ -16,6 +16,7 @@ LANGUAGES = dict(
     zh_CN='Simplified Chinese',
     zh_Hant='Traditional Chinese',
     nl='Dutch',
+    fa='Persian',
     fi='Finnish',
     fr='French',
     de='German',

@@ -99,6 +99,23 @@
     <url type="donation">https://valos.gitlab.io/Komikku/#sponsor</url>
 
     <releases>
+        <release version="1.71.0" date="2025-03-03">
+            <description translate="no">
+                <ul>
+                    <li>[Explorer] Global search: Added ability to cancel search</li>
+                    <li>[Servers] Comic Fans (EN): Disabled</li>
+                    <li>[Servers] Perf Scan (FR): Re-enabled</li>
+                    <li>[Servers] MangaCrab (ES): Update</li>
+                    <li>[Servers] TCB Scans (EN): Update</li>
+                    <li>[Servers] Terco Scans (EN): Update</li>
+                    <li>[Servers] Usagi (RU): Update</li>
+                    <li>[Servers] Webtoon: Fixed covers</li>
+                    <li>[L10n] Added Persian translation</li>
+                    <li>[L10n] Updated French and Russian translations</li>
+                </ul>
+                <p>Happy reading.</p>
+            </description>
+        </release>
         <release version="1.70.0" date="2025-02-13">
             <description translate="no">
                 <ul>

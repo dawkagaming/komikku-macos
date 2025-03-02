@@ -93,6 +93,7 @@ CREDITS = dict(
         'Philip Goto (Dutch)',
         'Koen Benne (Dutch)',
         'Mikachu (Dutch)',
+        'Danial Behzadi (Persian)',
         'Jiri Grönroos (Finnish)',
         'Ricky Tigg (Finnish)',
         'Irénée THIRION (French)',
@@ -534,11 +535,16 @@ available in your region/language."""))
         # Override release notes
         dialog.set_release_notes("""
             <ul>
-                <li>[Card] Chapters list: Added Scanlators filter</li>
-                <li>[Servers] Desu (RU): Update</li>
-                <li>[Servers] Lector manga: Re-enabled</li>
-                <li>[Servers] Read Comic Online (EN): Update</li>
-                <li>[L10n] Updated Dutch, French, Swedish and Tamil translations</li>
+                <li>[Explorer] Global search: Added ability to cancel search</li>
+                <li>[Servers] Comic Fans (EN): Disabled</li>
+                <li>[Servers] Perf Scan (FR): Re-enabled</li>
+                <li>[Servers] MangaCrab (ES): Update</li>
+                <li>[Servers] TCB Scans (EN): Update</li>
+                <li>[Servers] Terco Scans (EN): Update</li>
+                <li>[Servers] Usagi (RU): Update</li>
+                <li>[Servers] Webtoon: Fixed covers</li>
+                <li>[L10n] Added Persian translation</li>
+                <li>[L10n] Updated French and Russian translations</li>
             </ul>
             <p>Happy reading.</p>
         """)
