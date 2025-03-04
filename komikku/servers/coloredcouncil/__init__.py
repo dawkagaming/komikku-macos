@@ -234,7 +234,7 @@ class Coloredcouncil(Server):
         r = self.session_put(
             self.image_url,
             data={
-                'number': f'{page["index"]+1:04d}',  # noqa
+                'number': f'{page["index"] + 1:04d}',  # noqa
                 'path': f'/images/content/{manga_name}/{page["path"]}',
             },
             headers={
