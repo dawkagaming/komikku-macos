@@ -86,7 +86,7 @@ Komikku can be built in a Python virtual environment. However, some tools and de
     pre-commit install
     ```
 
-    NOTE: Python package `file-magic` is an possible alternative to `python-magic`.
+    NOTE: Python package `file-magic` is a possible alternative to `python-magic`.
 
 4. Setup build folder:
     ```sh
