@@ -2,6 +2,7 @@
 # SPDX-License-Identifier: GPL-3.0-or-later
 # Author: Valéry Febvre <vfebvre@easter-eggs.com>
 
+from gi.repository import Adw
 from gi.repository import Gdk
 from gi.repository import Gio
 from gi.repository import GObject
@@ -24,6 +25,7 @@ class Thumbnail(Gtk.FlowBoxChild):
     default_height = COVER_HEIGHT
     padding = 6  # padding is overriding via CSS
     margin = 3   # flowbox column spacing divided by 2
+    server_logo_size = 16
 
     def __init__(self, parent, manga, width, height):
         super().__init__(halign=Gtk.Align.CENTER, valign=Gtk.Align.CENTER)
@@ -38,6 +40,17 @@ class Thumbnail(Gtk.FlowBoxChild):
         self.picture.set_can_shrink(False)
         self.picture.set_paintable(ThumbnailCover(manga))
 
+        # Logo widget (Gtk.Image or Adw.Avatar as fallback)
+        if Settings.get_default().library_servers_logo:
+            if self.manga.server.logo_path:
+                logo = Gtk.Image.new_from_file(self.manga.server.logo_path)
+                logo.set_pixel_size(self.server_logo_size)
+            elif self.manga.server.id == 'local':
+                logo = Adw.Avatar.new(self.server_logo_size, None, False)
+                logo.set_icon_name('folder-symbolic')
+            else:
+                logo = Adw.Avatar.new(self.server_logo_size, self.manga.server.name, True)
+
         if Settings.get_default().library_display_mode == 'grid-compact':
             # Compact grid
             self.overlay = Gtk.Overlay()
@@ -48,6 +61,13 @@ class Thumbnail(Gtk.FlowBoxChild):
             self.name_label.set_valign(Gtk.Align.END)
             self.name_label.set_wrap(True)
             self.overlay.add_overlay(self.name_label)
+
+            if Settings.get_default().library_servers_logo:
+                logo.props.margin_start = 6
+                logo.props.margin_top = 6
+                logo.props.halign = Gtk.Align.START
+                logo.props.valign = Gtk.Align.START
+                self.overlay.add_overlay(logo)
 
             self.set_child(self.overlay)
         else:
@@ -66,15 +86,10 @@ class Thumbnail(Gtk.FlowBoxChild):
                 self.name_label.props.xalign = 0
                 box.attach(self.name_label, 0, 1, 1, 1)
 
-                if self.manga.server.logo_path:
-                    logo_image = Gtk.Image.new_from_file(self.manga.server.logo_path)
-                    logo_image.props.halign = Gtk.Align.END
-                    logo_image.props.valign = Gtk.Align.CENTER
-                else:
-                    logo_image = Gtk.Image()
-                logo_image.set_pixel_size(16)
+                logo.props.halign = Gtk.Align.END
+                logo.props.valign = Gtk.Align.CENTER
 
-                box.attach(logo_image, 1, 1, 1, 1)
+                box.attach(logo, 1, 1, 1, 1)
             else:
                 self.name_label.set_justify(Gtk.Justification.CENTER)
                 box.attach(self.name_label, 0, 1, 2, 1)
@@ -110,7 +125,6 @@ class ThumbnailCover(GObject.GObject, Gdk.Paintable):
     width = None
     height = None
     ratio = Thumbnail.default_width / Thumbnail.default_height
-    server_logo_size = 16
 
     def __init__(self, manga):
         super().__init__()
@@ -118,7 +132,6 @@ class ThumbnailCover(GObject.GObject, Gdk.Paintable):
         self.manga = manga
 
         self.cover_texture = None
-        self.server_logo_texture = None
 
         self.rect = Graphene.Rect().alloc()
         self.rounded_rect = Gsk.RoundedRect()
@@ -135,8 +148,6 @@ class ThumbnailCover(GObject.GObject, Gdk.Paintable):
 
         self.__get_badges_values()
         self.__create_cover_texture()
-        if Settings.get_default().library_servers_logo and Settings.get_default().library_display_mode == 'grid-compact':
-            self.__create_server_logo_texture()
 
     def __create_cover_texture(self):
         if self.manga.cover_fs_path is None:
@@ -147,14 +158,6 @@ class ThumbnailCover(GObject.GObject, Gdk.Paintable):
                 paintable = CoverLoader.new_from_resource(MISSING_IMG_RESOURCE_PATH, COVER_WIDTH, None)
 
         self.cover_texture = paintable.texture
-
-    def __create_server_logo_texture(self):
-        logo_path = self.manga.server.logo_path
-        if logo_path is None:
-            return
-
-        if paintable := CoverLoader.new_from_file(logo_path, self.server_logo_size, self.server_logo_size):
-            self.server_logo_texture = paintable.texture
 
     def __get_badges_values(self):
         badges = Settings.get_default().library_badges
@@ -218,11 +221,6 @@ class ThumbnailCover(GObject.GObject, Gdk.Paintable):
         draw_badge(self.nb_unread_chapters, '#62a0ea')      # @blue_2
         draw_badge(self.nb_downloaded_chapters, '#f68276')
         draw_badge(self.nb_recent_chapters, '#33d17a')      # @green_3
-
-        # Draw server logo (top left corner)
-        if self.server_logo_texture:
-            self.rect.init(6, 6, self.server_logo_size, self.server_logo_size)
-            snapshot.append_texture(self.server_logo_texture, self.rect)
 
     def resize(self, width, height):
         self.width = width

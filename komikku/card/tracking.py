@@ -14,8 +14,11 @@ from gi.repository import Gtk
 from gi.repository import Pango
 
 from komikku.servers import DOWNLOAD_MAX_DELAY
+from komikku.utils import convert_and_resize_image
 from komikku.utils import CoverPicture
 from komikku.utils import html_escape
+from komikku.utils import COVER_HEIGHT
+from komikku.utils import COVER_WIDTH
 from komikku.utils import MISSING_IMG_RESOURCE_PATH
 
 THUMB_WIDTH = 96
@@ -416,7 +419,9 @@ class TrackingSearchSubPage(Adw.NavigationPage):
                     continue
                 else:
                     try:
-                        data, _etag, rtime = self.tracker.get_manga_cover_image(row.data['cover'])
+                        data, _etag, rtime = self.tracker.get_image(row.data['cover'])
+                        # Covers in landscape format are converted to portrait format
+                        data = convert_and_resize_image(data, COVER_WIDTH, COVER_HEIGHT)
                     except Exception:
                         pass
                     else:

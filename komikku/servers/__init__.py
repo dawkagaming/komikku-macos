@@ -6,7 +6,6 @@ from abc import ABC
 from abc import abstractmethod
 from functools import cached_property
 import hashlib
-import inspect
 from io import BytesIO
 import json
 import logging
@@ -30,6 +29,8 @@ from komikku.servers.utils import get_server_main_id_by_id
 from komikku.servers.utils import get_servers_modules
 from komikku.utils import BaseServer
 from komikku.utils import get_cache_dir
+from komikku.utils import get_cached_logos_dir
+from komikku.utils import LOGO_SIZE
 from komikku.utils import REQUESTS_TIMEOUT
 from komikku.utils import retry_session
 
@@ -78,6 +79,7 @@ class Server(BaseServer, ABC):
     lang: str
 
     base_url = None
+    logo_url = None
 
     bypass_cf_url = None
     has_captcha = False
@@ -144,9 +146,7 @@ class Server(BaseServer, ABC):
 
     @cached_property
     def logo_path(self):
-        module_path = os.path.dirname(os.path.abspath(inspect.getfile(self.__class__)))
-
-        path = os.path.join(module_path, get_server_main_id_by_id(self.id) + '.png')
+        path = os.path.join(get_cached_logos_dir(), 'servers', f'{get_server_main_id_by_id(self.id)}.png')
         if not os.path.exists(path):
             return None
 
@@ -289,6 +289,12 @@ class Server(BaseServer, ABC):
                 return False
 
         return True
+
+    def save_logo(self):
+        return self.save_image(
+            self.logo_url, os.path.join(get_cached_logos_dir(), 'servers'), get_server_main_id_by_id(self.id),
+            LOGO_SIZE, LOGO_SIZE, keep_aspect_ratio=False, format='PNG'
+        )
 
     def save_session(self):
         """ Save session to disk """

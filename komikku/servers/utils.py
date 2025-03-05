@@ -27,6 +27,7 @@ from PIL import Image
 import requests
 
 from komikku.servers.loader import ServerFinder
+from komikku.utils import get_cached_logos_dir
 
 logger = logging.getLogger(__name__)
 
@@ -89,39 +90,6 @@ def convert_date_string(date_string, format=None, languages=None):
         d = dateparser.parse(date_string, languages=languages, locales=locales)
 
     return d.date() if d else None
-
-
-def convert_image(im, format='JPEG', ret_type='image'):
-    """
-    Convert an image to a specific format
-
-    :param im: A `PIL.Image.Image` or `bytes` object
-    :type im: PIL.Image.Image, bytes
-
-    :param format: Conversion formats documentation is available `here <https://pillow.readthedocs.io/en/stable/handbook/image-file-formats.html>`_
-    :type format: str
-
-    :param ret_type: image or bytes
-    :type ret_type: str
-
-    :return: An new image object in requested format
-    :rtype: PIL.Image.Image, bytes
-    """
-    if not isinstance(im, Image.Image):
-        im = Image.open(BytesIO(im))
-
-    io_buffer = BytesIO()
-    with im.convert('RGB') as im_rgb:
-        im_rgb.save(io_buffer, format)
-
-    im.close()
-
-    if ret_type == 'bytes':
-        return io_buffer.getvalue()
-
-    io_buffer.seek(0)
-
-    return Image.open(io_buffer)
 
 
 # https://github.com/italomaia/mangarock.py/blob/master/mangarock/mri_to_webp.py
@@ -253,7 +221,7 @@ def get_servers_list(include_disabled=False, order_by=('lang', 'name')):
                 continue
 
             if inspect.isclass(obj):
-                logo_path = os.path.join(os.path.dirname(os.path.abspath(module.__file__)), get_server_main_id_by_id(obj.id) + '.png')
+                logo_path = os.path.join(get_cached_logos_dir(), 'servers', get_server_main_id_by_id(obj.id) + '.png')
 
                 servers.append(dict(
                     id=obj.id,
@@ -263,6 +231,7 @@ def get_servers_list(include_disabled=False, order_by=('lang', 'name')):
                     is_nsfw=obj.is_nsfw,
                     is_nsfw_only=obj.is_nsfw_only,
                     logo_path=logo_path if os.path.exists(logo_path) else None,
+                    logo_url=obj.logo_url,
                     module=module,
                     class_name=get_server_class_name_by_id(obj.id),
                 ))

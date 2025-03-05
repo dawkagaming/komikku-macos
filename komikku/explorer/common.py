@@ -17,12 +17,14 @@ from gi.repository import Pango
 from komikku.models import Settings
 from komikku.servers import DOWNLOAD_MAX_DELAY
 from komikku.servers import LANGUAGES
+from komikku.utils import convert_and_resize_image
+from komikku.utils import COVER_HEIGHT
 from komikku.utils import COVER_WIDTH
 from komikku.utils import CoverPicture
+from komikku.utils import LOGO_SIZE
 from komikku.utils import html_escape
 from komikku.utils import MISSING_IMG_RESOURCE_PATH
 
-LOGO_SIZE = 28
 THUMB_WIDTH = 41
 THUMB_HEIGHT = 58
 
@@ -80,7 +82,9 @@ class ExplorerSearchStackPage:
                     continue
                 else:
                     try:
-                        data, _etag, rtime = server.get_manga_cover_image(row.manga_data['cover'])
+                        data, _etag, rtime = server.get_image(row.manga_data['cover'])
+                        # Covers in landscape format are converted to portrait format
+                        data = convert_and_resize_image(data, COVER_WIDTH, COVER_HEIGHT)
                     except Exception:
                         pass
                     else:
@@ -201,22 +205,11 @@ class ExplorerServerRow(Gtk.ListBoxRow):
         if 'manga_initial_data' in data:
             self.manga_data = data.pop('manga_initial_data')
 
-        box = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=12)
-        self.set_child(box)
+        self.box = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=12)
+        self.set_child(self.box)
 
         # Server logo
-        logo_image = Gtk.Image()
-        if page.props.tag == 'explorer.search':
-            # Align logos horizontally with covers
-            logo_image.set_margin_start(3)
-            logo_image.set_margin_end(3)
-        logo_image.set_size_request(LOGO_SIZE, LOGO_SIZE)
-        if data['id'] != 'local':
-            if data['logo_path']:
-                logo_image.set_from_file(data['logo_path'])
-        else:
-            logo_image.set_from_icon_name('folder-symbolic')
-        box.append(logo_image)
+        self.set_logo(get=True)
 
         # Server title & language
         vbox = Gtk.Box(orientation=Gtk.Orientation.VERTICAL, spacing=0)
@@ -249,7 +242,7 @@ class ExplorerServerRow(Gtk.ListBoxRow):
             subtitle_box.append(label)
 
         vbox.append(subtitle_box)
-        box.append(vbox)
+        self.box.append(vbox)
 
         if page.props.tag == 'explorer.search':
             return
@@ -257,7 +250,7 @@ class ExplorerServerRow(Gtk.ListBoxRow):
         # Server requires a user account
         if data['has_login']:
             login_image = Gtk.Image.new_from_icon_name('dialog-password-symbolic')
-            box.append(login_image)
+            self.box.append(login_image)
 
         if data['id'] == 'local':
             # Info button
@@ -272,7 +265,7 @@ The folder's name will be used as name for the comic.
 
 NOTE: The 'unrar' or 'unar' command-line tool is required for CBR archives.""")
             button.connect('clicked', lambda x: self.page.window.confirm(_('Local Folder'), message, None, None, cancel_label=_('Close')))
-            box.append(button)
+            self.box.append(button)
 
             # Button to open local folder
             self.local_folder_button = Gtk.Button(valign=Gtk.Align.CENTER)
@@ -280,7 +273,7 @@ NOTE: The 'unrar' or 'unar' command-line tool is required for CBR archives.""")
             self.local_folder_button.set_tooltip_text(_('Open local folder'))
             self.local_folder_button_clicked_handler_id = self.local_folder_button.connect(
                 'clicked', self.page.open_local_folder)
-            box.append(self.local_folder_button)
+            self.box.append(self.local_folder_button)
 
         # Button to pin/unpin
         self.pin_button = Gtk.ToggleButton(valign=Gtk.Align.CENTER)
@@ -289,13 +282,62 @@ NOTE: The 'unrar' or 'unar' command-line tool is required for CBR archives.""")
         self.pin_button.set_active(data['id'] in Settings.get_default().pinned_servers)
         self.pin_button_toggled_handler_id = self.pin_button.connect(
             'toggled', self.page.toggle_server_pinned_state, self)
-        box.append(self.pin_button)
+        self.box.append(self.pin_button)
 
     def dispose(self):
         if self.local_folder_button_clicked_handler_id:
             self.local_folder_button.disconnect(self.local_folder_button_clicked_handler_id)
         if self.pin_button_toggled_handler_id:
             self.pin_button.disconnect(self.pin_button_toggled_handler_id)
+
+    def get_logo(self):
+        server = getattr(self.server_data['module'], self.server_data['class_name'])()
+
+        def run():
+            try:
+                res = server.save_logo()
+            except Exception:
+                res = False
+
+            GLib.idle_add(complete, res)
+
+        def complete(res):
+            if res:
+                self.server_data['logo_path'] = server.logo_path
+            else:
+                self.page.window.application.logger.info('Failed to get `%s` server logo', server.id)
+
+            self.set_logo()
+
+        thread = threading.Thread(target=run)
+        thread.daemon = True
+        thread.start()
+
+    def set_logo(self, get=False):
+        if self.server_data['logo_url']:
+            if self.server_data['logo_path']:
+                self.logo = Gtk.Image()
+                self.logo.set_size_request(LOGO_SIZE, LOGO_SIZE)
+                self.logo.set_from_file(self.server_data['logo_path'])
+            elif get:
+                self.get_logo()
+                return
+            else:
+                self.logo = Adw.Avatar.new(LOGO_SIZE, self.server_data['name'], True)
+        else:
+            self.logo = Adw.Avatar.new(LOGO_SIZE, None, False)
+            if self.server_data['id'] == 'local':
+                self.logo.set_icon_name('folder-symbolic')
+            else:
+                self.logo.set_text(self.server_data['name'])
+                self.logo.set_show_initials(True)
+
+        if self.page.props.tag == 'explorer.search':
+            # Align horizontally with covers in global search
+            self.logo.set_margin_start(6)
+            self.logo.set_margin_end(4)
+
+        self.box.prepend(self.logo)
 
 
 def get_server_default_search_filters(server):

@@ -20,6 +20,8 @@ from komikku.models.database import update_rows
 from komikku.servers.utils import get_server_class_name_by_id
 from komikku.servers.utils import get_server_dir_name_by_id
 from komikku.servers.utils import get_server_module_name_by_id
+from komikku.utils import COVER_HEIGHT
+from komikku.utils import COVER_WIDTH
 from komikku.utils import get_cached_data_dir
 from komikku.utils import get_data_dir
 from komikku.utils import is_number
@@ -281,34 +283,8 @@ class Manga:
         return self._server
 
     def _save_cover(self, url):
-        if url is None:
-            return
-
-        # If cover has already been retrieved
-        # Check first if it has changed using ETag
-        current_etag = None
-        cover_etag_fs_path = os.path.join(self.path, 'cover.etag')
-        if os.path.exists(cover_etag_fs_path):
-            with open(cover_etag_fs_path, 'r') as fp:
-                current_etag = fp.read()
-
-        # Save cover image file
-        try:
-            cover_data, etag, _rtime = self.server.get_manga_cover_image(url, current_etag)
-        except Exception:
-            return
-        if cover_data is None:
-            return
-
-        cover_fs_path = os.path.join(self.path, 'cover.jpg')
-        with open(cover_fs_path, 'wb') as fp:
-            fp.write(cover_data)
-
-        if etag:
-            with open(cover_etag_fs_path, 'w') as fp:
-                fp.write(etag)
-        elif os.path.exists(cover_etag_fs_path):
-            os.remove(cover_etag_fs_path)
+        # Covers in landscape format are converted to portrait format
+        return self.server.save_image(url, self.path, 'cover', COVER_WIDTH, COVER_HEIGHT)
 
     def add_in_library(self):
         tmp_path = self.path

@@ -40,6 +40,7 @@ from gi.repository.GdkPixbuf import PixbufAnimation
 
 COVER_WIDTH = 180
 COVER_HEIGHT = 256
+LOGO_SIZE = 32
 MISSING_IMG_RESOURCE_PATH = '/info/febvre/Komikku/images/missing_file.png'
 REQUESTS_TIMEOUT = 5
 
@@ -62,10 +63,18 @@ def check_cmdline_tool(cmd):
         return p.returncode == 0, out.decode('utf-8').strip()
 
 
-def expand_and_resize_cover(buffer):
-    """Convert and resize a cover (except animated GIF)
+def convert_and_resize_image(buffer, width, height, keep_aspect_ratio=True, dominant_color=True, format='JPEG'):
+    """Convert and resize an image (except animated GIF)
 
-    Covers in landscape format are convert to portrait format"""
+    :param keep_aspect_ratio: Force to keep aspect ratio of the image
+    :type keep_aspect_ratio: bool
+
+    :param dominant_color: If scaling is not allowed, use image dominant color as background color of added borders
+    :type dominant_color: bool
+
+    :return: Converted image data
+    :rtype: bytes
+    """
 
     def get_dominant_color(img):
         # Resize image to reduce number of colors
@@ -92,21 +101,25 @@ def expand_and_resize_cover(buffer):
     if img.format == 'GIF' and img.is_animated:
         return buffer
 
-    width, height = img.size
-    new_width, new_height = (COVER_WIDTH, COVER_HEIGHT)
-    if width >= height:
+    old_width, old_height = img.size
+    if keep_aspect_ratio and old_width >= old_height:
         img = remove_alpha(img)
 
-        new_ratio = new_height / new_width
+        new_ratio = height / width
 
-        new_img = Image.new(img.mode, (width, int(width * new_ratio)), get_dominant_color(img))
-        new_img.paste(img, (0, (int(width * new_ratio) - height) // 2))
-        new_img.thumbnail((new_width, new_height), Image.LANCZOS)
+        new_img = Image.new(img.mode, (old_width, int(old_width * new_ratio)), get_dominant_color(img))
+        new_img.paste(img, (0, (int(old_width * new_ratio) - old_height) // 2))
+        new_img.thumbnail((width, height), Image.LANCZOS)
     else:
-        new_img = img.resize((new_width, new_height), Image.LANCZOS)
+        new_img = img.resize((width, height), Image.LANCZOS)
 
     new_buffer = BytesIO()
-    new_img.convert('RGB').save(new_buffer, 'JPEG', quality=65)
+    if format == 'JPEG':
+        new_img.convert('RGB').save(new_buffer, 'JPEG', quality=90)
+    else:
+        # Assume format supports alpha channel (transparency)
+        new_img.convert('RGBA').save(new_buffer, format)
+    new_img.close()
 
     return new_buffer.getvalue()
 
@@ -163,6 +176,15 @@ def get_cached_data_dir():
         os.mkdir(cached_data_dir_path)
 
     return cached_data_dir_path
+
+
+@cache
+def get_cached_logos_dir():
+    cached_logos_dir_path = os.path.join(get_cache_dir(), 'logos')
+    if not os.path.exists(cached_logos_dir_path):
+        os.mkdir(cached_logos_dir_path)
+
+    return cached_logos_dir_path
 
 
 @cache
@@ -537,17 +559,17 @@ class BaseServer:
 
         return dir_path
 
-    def get_manga_cover_image(self, url, etag=None):
+    def get_image(self, url, etag=None):
         """
-        Get a manga cover
+        Get an image
 
-        :param url: The cover image URL
+        :param url: The image URL
         :type url: str
 
-        :param etag: The current cover image ETag
+        :param etag: The current image ETag
         :type etag: str or None
 
-        :return: The cover image content, the cover image ETag if exists, the request time (seconds)
+        :return: The image content, the image ETag if exists, the request time (seconds)
         :rtype: tuple
         """
         if url is None:
@@ -564,7 +586,7 @@ class BaseServer:
             headers['If-None-Match'] = etag
 
         r = self.session.get(url, headers=headers, verify=not self.ignore_ssl_errors)
-        if r.status_code != 200:
+        if not r.ok:
             return None, None, get_response_elapsed(r)
 
         buffer = r.content
@@ -572,7 +594,46 @@ class BaseServer:
         if not mime_type.startswith('image'):
             return None, None, get_response_elapsed(r)
 
-        return expand_and_resize_cover(buffer), r.headers.get('ETag'), get_response_elapsed(r)
+        return buffer, r.headers.get('ETag'), get_response_elapsed(r)
+
+    def save_image(self, url, dir_path, name, width, height, keep_aspect_ratio=True, dominant_color=True, format='JPEG'):
+        if url is None:
+            return False
+
+        # If image has already been retrieved
+        # Check first if it has changed using ETag
+        current_etag = None
+        etag_fs_path = os.path.join(dir_path, f'{name}.etag')
+        if os.path.exists(etag_fs_path):
+            with open(etag_fs_path, 'r') as fp:
+                current_etag = fp.read()
+
+        # Save image file
+        try:
+            data, etag, _rtime = self.get_image(url, current_etag)
+        except Exception:
+            return False
+        if data is None:
+            return False
+
+        data = convert_and_resize_image(
+            data, width, height, keep_aspect_ratio=keep_aspect_ratio, dominant_color=dominant_color, format=format
+        )
+
+        if not os.path.exists(dir_path):
+            os.mkdir(dir_path)
+
+        fs_path = os.path.join(dir_path, f'{name}.{"jpg" if format == "JPEG" else format.lower()}')
+        with open(fs_path, 'wb') as fp:
+            fp.write(data)
+
+        if etag:
+            with open(etag_fs_path, 'w') as fp:
+                fp.write(etag)
+        elif os.path.exists(etag_fs_path):
+            os.remove(etag_fs_path)
+
+        return True
 
     def session_get(self, *args, **kwargs):
         kwargs['verify'] = not self.ignore_ssl_errors
