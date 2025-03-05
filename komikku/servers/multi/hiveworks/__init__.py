@@ -1,6 +1,12 @@
-# Copyright (C) 2025-2025 Seth Falco
-# SPDX-License-Identifier: GPL-3.0-only or GPL-3.0-or-later
+# SPDX-FileCopyrightText: 2025 Seth Falco
+# SPDX-License-Identifier: GPL-3.0-or-later
 # Author: Seth Falco <seth@falco.fun>
+
+# Supported servers:
+# Nix of Nothing [EN]
+# SMBC [EN]
+# Three Panel Soul [EN]
+# Wild Life [EN]
 
 import json
 
@@ -38,12 +44,11 @@ class Hiveworks(Server):
     def get_manga_data(self, initial_data):
         """Returns manga data by scraping manga HTML page content"""
         r = self.session_get(self.manga_url)
-        if r is None:
+        if r.status_code != 200:
             return None
 
         mime_type = get_buffer_mime_type(r.content)
-
-        if r.status_code != 200 or mime_type != 'text/html':
+        if mime_type != 'text/html':
             return None
 
         soup = BeautifulSoup(r.text, 'lxml')
@@ -80,12 +85,11 @@ class Hiveworks(Server):
         Currently, only pages are expected.
         """
         r = self.session_get(self.chapter_url.format(chapter_slug))
-        if r is None:
+        if r.status_code != 200:
             return None
 
         mime_type = get_buffer_mime_type(r.content)
-
-        if r.status_code != 200 or mime_type != 'text/html':
+        if mime_type != 'text/html':
             return None
 
         soup = BeautifulSoup(r.text, 'lxml')
@@ -121,7 +125,7 @@ class Hiveworks(Server):
             )
             name = '{0}-alt-text.png'.format(chapter_slug)
 
-        if r is None or r.status_code != 200:
+        if r.status_code != 200:
             return None
 
         mime_type = get_buffer_mime_type(r.content)
@@ -161,6 +165,7 @@ class Hiveworks(Server):
     def get_metadata(self, soup: BeautifulSoup):
         linked_data_str = soup.find('script', attrs={'type': 'application/ld+json'}).contents[0]
         linked_data = json.loads(linked_data_str)
+
         return {
             'authors': [linked_data['author'], ],
             'synopsis': linked_data['about'],

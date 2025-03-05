@@ -9,18 +9,18 @@ logging.basicConfig(level=logging.DEBUG)
 
 
 @pytest.fixture
-def smbc_server():
-    from komikku.servers.smbc import Smbc
+def threepanelsoul_server():
+    from komikku.servers.threepanelsoul import Threepanelsoul
 
-    return Smbc()
+    return Threepanelsoul()
 
 
 @do_server_test
 @test_steps('get_most_populars', 'get_manga_data', 'get_chapter_data', 'get_page_image')
-def test_smbc(smbc_server):
+def test_threepanelsoul(threepanelsoul_server):
     print('Get most popular')
     try:
-        response = smbc_server.get_most_populars()
+        response = threepanelsoul_server.get_most_populars()
     except Exception as e:
         response = None
         log_error_traceback(e)
@@ -30,7 +30,7 @@ def test_smbc(smbc_server):
 
     print('Get manga data')
     try:
-        response = smbc_server.get_manga_data(response[0])
+        response = threepanelsoul_server.get_manga_data(response[0])
         chapter_slug = response['chapters'][0]['slug']
     except Exception as e:
         chapter_slug = None
@@ -41,7 +41,7 @@ def test_smbc(smbc_server):
 
     print('Get chapter data')
     try:
-        response = smbc_server.get_manga_chapter_data(None, None, chapter_slug, None)
+        response = threepanelsoul_server.get_manga_chapter_data(None, None, chapter_slug, None)
         page = response['pages'][0]
     except Exception as e:
         page = None
@@ -52,7 +52,7 @@ def test_smbc(smbc_server):
 
     print('Get page image')
     try:
-        response = smbc_server.get_manga_chapter_page_image(None, None, chapter_slug, page)
+        response = threepanelsoul_server.get_manga_chapter_page_image(None, None, chapter_slug, page)
     except Exception as e:
         response = None
         log_error_traceback(e)
