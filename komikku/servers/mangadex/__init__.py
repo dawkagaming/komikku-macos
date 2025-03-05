@@ -37,6 +37,7 @@ class Mangadex(Server):
     long_strip_genres = ['Long Strip', ]
 
     base_url = 'https://mangadex.org'
+    logo_url = base_url + '/favicon.ico'
     api_base_url = 'https://api.mangadex.org'
     api_manga_base = api_base_url + '/manga'
     api_manga_url = api_manga_base + '/{0}'

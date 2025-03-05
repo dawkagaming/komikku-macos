@@ -12,4 +12,5 @@ class Apollcomics(Madara):
     is_nsfw = True
 
     base_url = 'https://apollcomics.es'
+    logo_url = base_url + '/wp-content/uploads/2022/02/cropped-assda-32x32.png'
     chapters_url = base_url + '/manga/{0}/ajax/chapters/'

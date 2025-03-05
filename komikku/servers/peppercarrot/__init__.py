@@ -40,6 +40,7 @@ class Peppercarrot(Server):
     true_search = False
 
     base_url = 'https://www.peppercarrot.com'
+    logo_url = base_url + '/core/img/favicon.png'
     manga_url = base_url + '/{0}/webcomics/index.html'
     chapters_url = base_url + '/0_sources/episodes-v1.json'
     image_url = base_url + '/0_sources/{0}/low-res/{1}_{2}'
