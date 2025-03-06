@@ -5,34 +5,33 @@
 from bs4 import BeautifulSoup
 import requests
 
-from komikku.utils import skip_past
 from komikku.servers import Server
 from komikku.servers import USER_AGENT
-from komikku.servers.exceptions import NotFoundError
 from komikku.servers.utils import convert_date_string
+from komikku.servers.utils import get_soup_element_inner_text
 from komikku.utils import get_buffer_mime_type
 from komikku.utils import is_number
 
-# NOTE: https://mangakakalot.com seems to be a clone (same IP)
-SERVER_NAME = 'MangaNato (MangaNelo)'
+# NOTE: https://mangakakalot.gg seems to be a clone (same IP)
 
 
 class Manganelo(Server):
     id = 'manganelo'
-    name = SERVER_NAME
+    name = 'MangaNato (MangaNelo)'
     lang = 'en'
     long_strip_genres = ['Webtoons', ]
 
-    base_url = 'https://manganato.com'
-    search_url = base_url + '/getstorysearchjson'
-    manga_list_url = base_url + '/genre-all'
-    manga_url = 'https://chapmanganato.com/manga-{0}'
-    chapter_url = manga_url + '/chapter-{1}'
+    base_url = 'https://www.manganato.gg'
+    logo_url = base_url + '/images/favicon.ico'
+    search_url = base_url + '/home/search/json'
+    manga_list_url = base_url + '/genre/all'
+    manga_url = base_url + '/manga/{0}'
+    chapter_url = base_url + '/manga/{0}/chapter-{1}'
 
     def __init__(self):
         if self.session is None:
             self.session = requests.Session()
-            self.session.headers.update({'user-agent': USER_AGENT})
+            self.session.headers.update({'User-Agent': USER_AGENT})
 
     def get_manga_data(self, initial_data):
         """
@@ -52,10 +51,6 @@ class Manganelo(Server):
 
         soup = BeautifulSoup(r.text, 'lxml')
 
-        if soup.find(class_='panel-not-found'):
-            # No longer exists
-            raise NotFoundError
-
         data = initial_data.copy()
         data.update(dict(
             authors=[],
@@ -68,48 +63,42 @@ class Manganelo(Server):
         ))
 
         # Name & cover
-        data['name'] = soup.find('div', class_='story-info-right').find('h1').text.strip()
-        if data.get('cover') is None:
-            data['cover'] = soup.find('span', class_='info-image').img.get('src')
+        data['name'] = soup.select_one('.manga-info-text h1').text.strip()
+        data['cover'] = soup.select_one('.manga-info-pic img').get('src')
 
         # Details
-        tr_elements = soup.find('table', class_='variations-tableInfo').find_all('tr')
-        for tr_element in tr_elements:
-            td_elements = tr_element.find_all('td')
-            label = td_elements[0].text.strip()
-            value = td_elements[1].text.strip()
+        for li_element in soup.select('ul.manga-info-text li'):
+            try:
+                label, value = li_element.text.split(':', 1)
+            except Exception:
+                continue
+
+            label = label.strip()
 
             if label.startswith('Author'):
-                data['authors'] = [t.strip() for t in value.split('-') if t]
+                data['authors'] = [t.strip() for t in value.split(',') if t.strip() != 'Unknown']
             elif label.startswith('Genres'):
-                data['genres'] = [t.strip() for t in value.split('-')]
+                data['genres'] = [t.strip() for t in value.split(',')]
             elif label.startswith('Status'):
-                status = value.lower()
+                status = value.strip().lower()
                 if status == 'completed':
                     data['status'] = 'complete'
                 elif status == 'ongoing':
                     data['status'] = 'ongoing'
 
         # Synopsis
-        div_synopsis = soup.find('div', id='panel-story-info-description')
-        div_synopsis.h3.extract()
-        data['synopsis'] = div_synopsis.text.strip()
+        data['synopsis'] = get_soup_element_inner_text(soup.select_one('#contentBox'), recursive=False)
 
         # Chapters
-        li_elements = soup.find('ul', class_='row-content-chapter').find_all('li')
-        for li_element in reversed(li_elements):
-            span_elements = li_element.find_all('span')
-
-            href = li_element.a.get('href')
-            slug = href[skip_past(href, '/chapter-'):]
-            title = li_element.a.text.strip()
-            date = span_elements[1].get('title')[:-6]
+        for element in reversed(soup.select('.chapter-list .row')):
+            a_element = element.select_one('a')
+            slug = a_element.get('href').split('/')[-1].split('-')[-1]
 
             data['chapters'].append(dict(
                 slug=slug,
-                title=title,
+                title=a_element.text.strip(),
                 num=slug if is_number(slug) else None,
-                date=convert_date_string(date, format='%b %d,%y'),
+                date=convert_date_string(element.select_one('span:last-child').get('title').split()[0], format='%b-%d-%Y'),
             ))
 
         return data
@@ -130,16 +119,10 @@ class Manganelo(Server):
 
         soup = BeautifulSoup(r.text, 'lxml')
 
-        if soup.find(class_='panel-not-found'):
-            # No longer exists
-            raise NotFoundError
-
-        pages_imgs = soup.find('div', class_='container-chapter-reader').find_all('img')
-
         data = dict(
             pages=[],
         )
-        for img in pages_imgs:
+        for img in soup.select('.container-chapter-reader img'):
             data['pages'].append(dict(
                 slug=None,  # slug can't be used to forge image URL
                 image=img.get('src'),
@@ -151,10 +134,14 @@ class Manganelo(Server):
         """
         Returns chapter page scan (image) content
         """
-        r = self.session_get(page['image'], headers={'referer': self.chapter_url.format(manga_slug, chapter_slug)})
-        if r.status_code == 404:
-            raise NotFoundError
-        elif r.status_code != 200:
+        r = self.session_get(
+            page['image'],
+            headers={
+                'Accept': 'image/avif,image/webp,image/png,image/svg+xml,image/*;q=0.8,*/*;q=0.5',
+                'Referer': f'{self.base_url}/',
+            }
+        )
+        if r.status_code != 200:
             return None
 
         mime_type = get_buffer_mime_type(r.content)
@@ -183,17 +170,23 @@ class Manganelo(Server):
         """
         Returns hot manga list
         """
-        return self.get_manga_list(orderby='populars')
+        return self.get_manga_list(orderby='topview')
 
     def get_manga_list(self, orderby=None):
         """
         Returns hot manga list
         """
-        params = {}
-        if orderby == 'populars':
-            params['type'] = 'topview'
+        params = {
+            'state': 'all',
+            'page': 1
+        }
+        if orderby:
+            params['type'] = orderby
 
-        r = self.session_get(self.manga_list_url, params=params)
+        r = self.session_get(
+            self.manga_list_url,
+            params=params,
+        )
         if r.status_code != 200:
             return None
 
@@ -204,30 +197,40 @@ class Manganelo(Server):
         soup = BeautifulSoup(r.text, 'lxml')
 
         results = []
-        for element in soup.select('.content-genres-item'):
-            url = element.div.h3.a.get('href')
+        for element in soup.select('.list-truyen-item-wrap'):
+            link_element = element.h3.a
+            link_cover_element = element.a
+            last_chapter_link_element = element.select_one('.list-story-item-wrap-chapter')
             results.append(dict(
-                name=element.div.h3.a.get('title').strip(),
-                slug=url[skip_past(url, '/manga-'):],
-                cover=element.a.img.get('src'),
+                name=link_element.get('title').strip(),
+                slug=link_element.get('href').split('/')[-1],
+                cover=link_cover_element.img.get('src'),
+                last_chapter=last_chapter_link_element.text.strip().split()[-1],
             ))
 
         return results
 
     def search(self, term):
-        r = self.session_post(self.search_url, data=dict(searchword=term))
+        r = self.session_get(
+            self.search_url,
+            params=dict(searchword=term.lower().replace(' ', '_')),
+            headers={
+                'Referer': f'{self.base_url}/',
+                'X-Requested-With': 'XMLHttpRequest',
+            }
+        )
         if r.status_code != 200:
             return None
 
         data = r.json()
 
         results = []
-        for item in data['searchlist']:
-            link = item['url_story']
+        for item in data:
             results.append(dict(
-                slug=link[skip_past(link, '/manga-'):],
-                name=BeautifulSoup(item['name'], 'lxml').text,
-                cover=item['image'],
+                slug=item['slug'],
+                name=item['name'],
+                cover=item['thumb'],
+                last_chapter=item['chapterLatest'].split()[-1],
             ))
 
         return results
