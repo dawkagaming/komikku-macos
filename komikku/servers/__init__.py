@@ -291,6 +291,8 @@ class Server(BaseServer, ABC):
         return True
 
     def save_logo(self):
+        del self.logo_path  # clear cache
+
         return self.save_image(
             self.logo_url, os.path.join(get_cached_logos_dir(), 'servers'), get_server_main_id_by_id(self.id),
             LOGO_SIZE, LOGO_SIZE, keep_aspect_ratio=False, format='PNG'

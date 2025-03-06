@@ -291,17 +291,23 @@ NOTE: The 'unrar' or 'unar' command-line tool is required for CBR archives.""")
             self.pin_button.disconnect(self.pin_button_toggled_handler_id)
 
     def get_logo(self):
-        server = getattr(self.server_data['module'], self.server_data['class_name'])()
-
         def run():
-            try:
-                res = server.save_logo()
-            except Exception:
-                res = False
+            server = getattr(self.server_data['module'], self.server_data['class_name'])()
 
-            GLib.idle_add(complete, res)
+            if server.logo_path:
+                # Avoid to fetch the same logo several times
+                # In the case of servers belonging to a multi-language server and therefore share the same logo,
+                # it's possible that logo has been fetched between the request and here
+                res = True
+            else:
+                try:
+                    res = server.save_logo()
+                except Exception:
+                    res = False
 
-        def complete(res):
+            GLib.idle_add(complete, server, res)
+
+        def complete(server, res):
             if res:
                 self.server_data['logo_path'] = server.logo_path
             else:
