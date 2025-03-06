@@ -14,8 +14,8 @@ from komikku.utils import get_buffer_mime_type
 SERVER_NAME = 'Manga Rock'
 
 headers = {
-    'User-Agent': USER_AGENT,
     'Origin': 'https://mangarock.com',
+    'User-Agent': USER_AGENT,
 }
 
 #

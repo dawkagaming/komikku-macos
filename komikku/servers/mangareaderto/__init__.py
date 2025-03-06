@@ -24,6 +24,7 @@ class Mangareaderto(Mangareader):
     )
 
     base_url = 'https://mangareader.to'
+    logo_url = base_url + '/favicon.ico?v=0.1'
     list_url = base_url + '/filter'
     search_url = base_url + '/search'
     manga_url = base_url + '/{0}'

@@ -19,6 +19,7 @@ class Monkeyuser(Server):
     true_search = False
 
     base_url = 'https://www.monkeyuser.com'
+    logo_url = base_url + '/images/logo.png'
     chapter_url = base_url + '{0}'
     image_url = base_url + '{0}'
     cover_url = base_url + '/images/logo.png'

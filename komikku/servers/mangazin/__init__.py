@@ -12,3 +12,4 @@ class Mangazin(Madara):
     is_nsfw = True
 
     base_url = 'https://mangazin.org'
+    logo_url = base_url + '/wp-content/uploads/2020/02/cropped-IMG_20200222_225535-32x32.jpg'

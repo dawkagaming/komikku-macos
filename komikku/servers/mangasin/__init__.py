@@ -58,6 +58,7 @@ class Mangasin(MyMangaReaderCMS):
     search_query_param = 'q'
 
     base_url = 'https://m440.in'
+    logo_url = base_url + '/favicon.ico'
     search_url = base_url + '/search'
     most_populars_url = base_url + '/filterList?page=1&cat=&alpha=&sortBy=views&asc=false&author=&tag=&artist='
     manga_url = base_url + '/manga/{0}'

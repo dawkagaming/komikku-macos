@@ -11,7 +11,7 @@ class Manhuaus(Madara2):
     lang = 'en'
     is_nsfw = True
 
-    # has_cf = True
+    has_cf = True
 
     base_url = 'https://manhuaus.com'
     chapters_url = base_url + '/manga/{0}/ajax/chapters/'

@@ -12,3 +12,4 @@ class Mangareadercc(Paprika):
     is_nsfw = True
 
     base_url = 'https://www.mangareader.cc'
+    logo_url = base_url + '/frontend/imgs/favicon16.png'
