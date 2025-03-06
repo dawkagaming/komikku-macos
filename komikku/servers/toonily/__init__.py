@@ -12,6 +12,7 @@ class Toonily(Madara):
     is_nsfw = True
 
     base_url = 'https://toonily.com'
+    logo_url = base_url + '/wp-content/uploads/2024/01/cropped-toonfavicon_color_changed-32x32.png'
 
     date_format = '%b %-d, %y'
     medium = None

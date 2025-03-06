@@ -12,6 +12,7 @@ class Scyllacomics(FuzzyDoodle):
     is_nsfw = True
 
     base_url = 'https://scyllacomics.xyz'
+    logo_url = base_url + '/storage/site/favicon.png'
     search_url = base_url + '/manga'
     manga_url = base_url + '/manga/{0}'
     chapter_url = base_url + '/manga/{0}/{1}'

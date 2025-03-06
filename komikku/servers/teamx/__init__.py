@@ -18,6 +18,7 @@ class Teamx(Server):
     has_cf = True
 
     base_url = 'https://olympustaff.com'
+    logo_url = base_url + '/assets/images/favicon.png'
     search_url = base_url + '/ajax/search'
     manga_url = base_url + '/series/{0}'
     chapter_url = base_url + '/series/{0}/{1}'

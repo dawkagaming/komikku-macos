@@ -22,6 +22,7 @@ class Scanvf(Server):
     lang = 'fr'
 
     base_url = 'https://scanvf.org'
+    logo_url = base_url + '/build/fav.b087d325.png'
     search_url = base_url + '/search'
     latest_updates_url = base_url + '/manga?q=u'
     most_populars_url = base_url + '/manga?q=p'

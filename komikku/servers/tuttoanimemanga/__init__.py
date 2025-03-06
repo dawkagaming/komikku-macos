@@ -11,3 +11,4 @@ class Tuttoanimemanga(PizzaReader):
     lang = 'it'
 
     base_url = 'http://tuttoanimemanga.net'
+    logo_url = base_url + '/storage/img/logo/Logo%20Tam%20reader-72.png'

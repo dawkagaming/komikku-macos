@@ -12,6 +12,7 @@ class Senpaiediciones(MangaStream):
     is_nsfw = True
 
     base_url = 'https://senpaimangas.online'
+    logo_url = 'https://i1.wp.com/senpaimangas.online/wp-content/uploads/2024/08/cropped-logo-1-32x32.png'
 
     authors_selector = '.tsinfo .imptdt:-soup-contains("Autor") i, .tsinfo .imptdt:-soup-contains("Artista") i'
     genres_selector = '.info-desc .mgen a'

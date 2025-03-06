@@ -20,6 +20,7 @@ class Tcbscans(Server):
     lang = 'en'
 
     base_url = 'https://tcbonepiecechapters.com'
+    logo_url = base_url + '/files/favicon-32x32.png'
     most_populars_url = base_url + '/projects'
     manga_url = base_url + '/mangas/{0}'
     chapter_url = base_url + '/chapters/{0}'

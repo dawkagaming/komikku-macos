@@ -11,6 +11,7 @@ class Scanonepiece(MyMangaReaderCMS):
     lang = 'fr'
 
     base_url = 'https://www.scan-vf.net'
+    logo_url = base_url + '/uploads/favicon.png'
     search_url = base_url + '/search'
     most_populars_url = base_url + '/filterList?page=1&sortBy=views&asc=false'
     manga_url = base_url + '/{0}'

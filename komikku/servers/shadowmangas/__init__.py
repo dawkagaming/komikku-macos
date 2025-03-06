@@ -12,6 +12,7 @@ class Shadowmangas(MangaStream):
     is_nsfw = True
 
     base_url = 'https://shadowmangas.com'
+    logo_url = 'https://i3.wp.com/shadowmangas.com/wp-content/uploads/2022/09/cropped-icoweb-32x32.png'
 
     authors_selector = '.infox .fmed:-soup-contains("Author") span, .infox .fmed:-soup-contains("Artist") span'
     genres_selector = '.mgen a'
