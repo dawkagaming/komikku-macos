@@ -7,7 +7,7 @@
 # Supported servers:
 # Asura Scans For Free [EN]
 # Cartel De Manhwas [ES]
-# Iris Scanlator [pt_BR]
+# Iris Scanlator [pt_BR] (Disabled)
 # Lelmanga [FR]
 # Manga Koleji [TR]
 # Noromax (ID)

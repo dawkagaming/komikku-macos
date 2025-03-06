@@ -9,6 +9,7 @@ class Irisscanlator(MangaStream):
     id = 'irisscanlator'
     name = 'Iris Scanlator'
     lang = 'pt_BR'
+    status = 'disabled'
 
     base_url = 'https://irisscanlator.com.br'
 
