@@ -25,6 +25,7 @@ class Dynasty(Server):
     long_strip_genres = ['Long strip', ]
 
     base_url = 'https://dynasty-scans.com'
+    logo_url = base_url + '/assets/favicon-96599a954b862bfaaa71372cc403a6ab.png'
     search_url = base_url + '/search'
     last_updates_url = base_url + '/chapters/added'
     manga_url = base_url + '/{0}'

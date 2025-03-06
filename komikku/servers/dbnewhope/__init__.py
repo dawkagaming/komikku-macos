@@ -27,6 +27,7 @@ class Dbnewhope(Server):
     true_search = False
 
     base_url = 'https://www.dbnewhope.com'
+    logo_url = base_url + '/assets/favicon.ico'
     manga_url = base_url + '/{0}/{0}readdbnh.php'
     page_url = base_url + '/{0}/manga/DB_New_Hope/{1}/{2}.php?id=1&chapter={1}'
     cover_url = base_url + '/fr/manga/DB_New_Hope/1/covers_1.png'

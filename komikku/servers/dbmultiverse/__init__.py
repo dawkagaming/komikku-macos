@@ -9,16 +9,15 @@ from komikku.servers import Server
 from komikku.servers import USER_AGENT
 from komikku.utils import get_buffer_mime_type
 
-SERVER_NAME = 'Dragon Ball Multiverse'
-
 
 class Dbmultiverse(Server):
     id = 'dbmultiverse'
-    name = SERVER_NAME
+    name = 'Dragon Ball Multiverse'
     lang = 'en'
     true_search = False
 
     base_url = 'https://www.dragonball-multiverse.com'
+    logo_url = base_url + '/favicon.ico'
     manga_url = base_url + '/en/chapters.html?comic=page'
     page_url = base_url + '/en/page-{0}.html'
     cover_url = base_url + '/image.php?comic=page&num=0&lg=en&ext=jpg&small=1&pw=8f3722a594856af867d55c57f31ee103'
@@ -172,7 +171,6 @@ class Dbmultiverse(Server):
 
 class Dbmultiverse_de(Dbmultiverse):
     id = 'dbmultiverse_de'
-    name = SERVER_NAME
     lang = 'de'
 
     base_url = 'https://www.dragonball-multiverse.com'
@@ -184,7 +182,6 @@ class Dbmultiverse_de(Dbmultiverse):
 
 class Dbmultiverse_es(Dbmultiverse):
     id = 'dbmultiverse_es'
-    name = SERVER_NAME
     lang = 'es'
 
     base_url = 'https://www.dragonball-multiverse.com'
@@ -196,7 +193,6 @@ class Dbmultiverse_es(Dbmultiverse):
 
 class Dbmultiverse_fr(Dbmultiverse):
     id = 'dbmultiverse_fr'
-    name = SERVER_NAME
     lang = 'fr'
 
     base_url = 'https://www.dragonball-multiverse.com'
@@ -208,7 +204,6 @@ class Dbmultiverse_fr(Dbmultiverse):
 
 class Dbmultiverse_it(Dbmultiverse):
     id = 'dbmultiverse_it'
-    name = SERVER_NAME
     lang = 'it'
 
     base_url = 'https://www.dragonball-multiverse.com'
@@ -220,7 +215,6 @@ class Dbmultiverse_it(Dbmultiverse):
 
 class Dbmultiverse_pt(Dbmultiverse):
     id = 'dbmultiverse_pt'
-    name = SERVER_NAME
     lang = 'pt'
 
     base_url = 'https://www.dragonball-multiverse.com'
@@ -232,7 +226,6 @@ class Dbmultiverse_pt(Dbmultiverse):
 
 class Dbmultiverse_ru(Dbmultiverse):
     id = 'dbmultiverse_ru'
-    name = SERVER_NAME
     lang = 'ru'
 
     base_url = 'https://www.dragonball-multiverse.com'
