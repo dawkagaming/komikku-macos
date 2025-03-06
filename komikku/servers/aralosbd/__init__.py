@@ -17,6 +17,7 @@ class Aralosbd(Server):
     long_strip_genres = ['Webtoon']
 
     base_url = 'https://aralosbd.fr'
+    logo_url = base_url + '/icon/favicon-32x32.png'
     search_url = base_url + '/manga/query'
     manga_url = base_url + '/manga/display?id={0}'
     chapter_url = base_url + '/manga/chapter?id={0}'

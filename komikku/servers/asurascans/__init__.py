@@ -24,6 +24,7 @@ class Asurascans(Server):
     lang = 'en'
 
     base_url = 'https://asuracomic.net'
+    logo_url = base_url + '/images/logo.webp'
     search_url = base_url + '/series'
     manga_url = base_url + '/series/{0}'
     chapter_url = base_url + '/series/{0}/chapter/{1}'

@@ -9,9 +9,9 @@ class Asurascansfree(MangaStream):
     id = 'asurascansfree'
     name = 'Asura Scans For Free'
     lang = 'en'
-    has_cf = True
 
     base_url = 'https://asurascansfree.com'
+    logo_url = base_url + '/wp-content/uploads/2024/12/cropped-Asura-scans-free-icon-32x32.png'
 
     series_name = 'serie'
 

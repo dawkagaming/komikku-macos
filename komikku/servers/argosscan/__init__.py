@@ -11,6 +11,7 @@ class Argosscan(Madara2):
     lang = 'pt'
 
     base_url = 'https://argoscomic.com'
+    logo_url = base_url + '/wp-content/uploads/2024/06/cropped-argos-1-32x32.webp'
     chapters_url = base_url + '/manga/{0}/ajax/chapters/'
 
     details_synopsis_selector = '.manga-excerpt'
