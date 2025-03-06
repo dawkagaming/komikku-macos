@@ -11,3 +11,4 @@ class Fmteam(PizzaReader):
     lang = 'fr'
 
     base_url = 'https://fmteam.fr'
+    logo_url = base_url + '/storage/img/logo/Logo_FMT_simple_72px-72.png'

@@ -17,6 +17,7 @@ class Ezmanga(HeanCMS):
     lang = 'en'
 
     base_url = 'https://ezmanga.org'
+    logo_url = base_url + '/favicon.ico'
     api_url = 'https://api.ezmanga.org'
 
     cover_css_path = 'img[width="640"]'

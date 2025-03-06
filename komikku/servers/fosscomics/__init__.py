@@ -21,6 +21,7 @@ class Fosscomics(Server):
     true_search = False
 
     base_url = 'https://fosscomics.com'
+    logo_url = base_url + '/images/favicon.png'
     manga_url = base_url + '/all_posts/'
     chapter_url = base_url + '/{0}'
     image_url = base_url + '/{0}/images/{1}'

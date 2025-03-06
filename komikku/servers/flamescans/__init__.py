@@ -22,6 +22,7 @@ class Flamescans(Server):
     lang = 'en'
 
     base_url = 'https://flamecomics.xyz'
+    logo_url = base_url + '/favicon.ico'
     search_url = base_url + '/browse'
     manga_url = base_url + '/series/{0}'
     chapter_url = base_url + '/series/{0}/{1}'
