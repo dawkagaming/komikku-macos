@@ -20,6 +20,7 @@ class Ninemanga(Server):
     is_nsfw = True
 
     base_url = 'https://www.ninemanga.com'
+    logo_url = base_url + '/favicon.png'
     search_url = base_url + '/search/'
     latest_updates_url = base_url + '/list/New-Update/'
     most_populars_url = base_url + '/list/Hot-Book/'

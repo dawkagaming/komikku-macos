@@ -12,3 +12,4 @@ class Phoenixscans(PizzaReader):
     is_nsfw = True
 
     base_url = 'https://www.phoenixscans.com'
+    logo_url = base_url + '/storage/img/logo/Icona%20(2)-72.png'

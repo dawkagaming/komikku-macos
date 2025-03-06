@@ -12,6 +12,7 @@ class Nekoscans(ZeistManga):
     is_nsfw = True
 
     base_url = 'https://nekoscanlation.blogspot.com'
+    logo_url = 'https://blogger.googleusercontent.com/img/a/AVvXsEinOxcHo69oeHQGKoVyALGVhPv3kbA05NehCwMaLz6oCUf31akeRV818156JeO2yK5tIygqPHnobdi5Ss8tsiuopYZwSs9MmpbsTqvx8oFZNu1acu2QTAapG3fqiZ1KsOXoNNXUf2DnMworooS4mhduU0g-craRkk6bPsB0nJ1a5y8X1sSeGOlmHGRc71o=s116'
 
     most_popular_selector = 'div.PopularPosts .item-thumbnail a'
     details_name_selector = 'h1[itemprop="name"]'

@@ -13,6 +13,7 @@ class Nightscans(MangaStream):
     series_name = 'series'
 
     base_url = 'https://nightsup.net'
+    logo_url = base_url + '/wp-content/uploads/2023/03/cropped-PicsArt_09-07-01.23.08-1-2.png'
 
     authors_selector = '.tsinfo .imptdt:-soup-contains("Artist") i, .tsinfo .imptdt:-soup-contains("Author") i'
     genres_selector = '.info-desc .mgen a'

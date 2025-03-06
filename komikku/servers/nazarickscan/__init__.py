@@ -11,3 +11,4 @@ class Nazarickscan(Peachscan):
     lang = 'pt_BR'
 
     base_url = 'https://nazarickscan.com.br'
+    logo_url = base_url + '/static/nazarickscan.com.br/favicon-32x32.png'
