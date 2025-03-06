@@ -21,6 +21,7 @@ class Grisebouille(Server):
     long_strip_genres = ['Long Strip', ]
 
     base_url = 'https://grisebouille.net'
+    logo_url = base_url + '/content/img/favicon-32x32.png'
     search_url = base_url + '/categories.html'
     manga_url = base_url + '/category/{0}/'
     chapter_url = base_url + '/{0}/'

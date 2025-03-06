@@ -9,7 +9,9 @@ class Guya(komikku.servers.multi.guya.Guya):
     id = 'guya'
     name = 'Guya.moe'
     lang = 'en'
+
     base_url = 'https://guya.cubari.moe'
+    logo_url = base_url + '/static/logo_small.png?v=a6fe86b'
     manga_url = base_url + '/read/manga/{0}/'
     api_manga_url = base_url + '/api/series/{0}/'
     page_image_url = base_url + '/media/manga/{0}/chapters/{1}/{2}'

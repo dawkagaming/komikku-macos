@@ -12,3 +12,4 @@ class Gtotgs(PizzaReader):
     is_nsfw = True
 
     base_url = 'https://reader.gtothegreatsite.net'
+    logo_url = base_url + '/storage/img/logo/gto-tgs-logo-72.png'

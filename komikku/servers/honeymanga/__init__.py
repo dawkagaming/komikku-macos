@@ -16,6 +16,7 @@ class Honeymanga(Server):
     lang = 'uk'
 
     base_url = 'https://honey-manga.com.ua'
+    logo_url = base_url + '/favicon.ico'
     manga_url = base_url + '/book/{0}'
     chapter_url = base_url + '/read/{0}/{1}'
     resource_url = 'https://hmvolumestorage.b-cdn.net/public-resources/{0}'
