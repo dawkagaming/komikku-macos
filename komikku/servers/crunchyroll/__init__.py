@@ -21,6 +21,7 @@ class Crunchyroll(Server):
     lang = 'en'
     locale = 'enUS'
     has_login = True
+    status = 'disabled'
 
     base_url = 'https://www.crunchyroll.com'
     manga_url = base_url + '/comics/manga/{0}/volumes'

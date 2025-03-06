@@ -25,6 +25,7 @@ class Comicbookplus(Server):
     lang = 'en'
 
     base_url = 'https://comicbookplus.com'
+    logo_url = base_url + '/favicon.ico'
     latest_updates_url = base_url + '/?cbplus=latestuploads_s_s_0'
     most_populars_url = base_url + '/?cbplus=mostviewed_s_s_0'
     manga_url = base_url + '/?cid={0}'
