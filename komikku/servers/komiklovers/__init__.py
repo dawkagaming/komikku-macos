@@ -10,11 +10,10 @@ class Komiklovers(MangaStream):
     name = 'KomikLovers'
     lang = 'id'
 
-    has_cf = True
-
     series_name = 'komik'
 
     base_url = 'https://komiklovers.com'
+    logo_url = 'https://i1.wp.com/komiklovers.com/wp-content/uploads/2024/05/cropped-SAVE_20240527_203449-32x32.jpg'
 
     authors_selector = '.infotable tr:-soup-contains("Artist") td:last-child, .infotable tr:-soup-contains("Author") td:last-child'
     genres_selector = '.seriestugenre a'

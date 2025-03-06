@@ -45,6 +45,7 @@ class Komga(Server):
     sync = True
 
     base_url = None  # Customizable via the settings
+    logo_url = 'https://komga.org/img/favicon.ico'
 
     headers = {
         'User-Agent': 'Komikku Komga',

@@ -26,6 +26,7 @@ class Izneo(Server):
     has_login = True
 
     base_url = 'https://www.izneo.com'
+    logo_url = base_url + '/favicon.ico'
     cover_base_url = 'https://image.izneo.com'
     api_base_url = base_url + '/{0}/api/web'
     login_url = base_url + '/{0}/login'

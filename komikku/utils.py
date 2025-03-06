@@ -585,7 +585,11 @@ class BaseServer:
         if etag:
             headers['If-None-Match'] = etag
 
-        r = self.session.get(url, headers=headers, verify=not self.ignore_ssl_errors)
+        if self.session:
+            r = self.session.get(url, headers=headers, verify=not self.ignore_ssl_errors)
+        else:
+            # Session object has not yet been instantiated (servers with login or using webview to complete challenge)
+            r = requests.get(url, headers=headers, verify=not self.ignore_ssl_errors)
         if not r.ok:
             return None, None, get_response_elapsed(r)
 
