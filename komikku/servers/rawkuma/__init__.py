@@ -12,6 +12,7 @@ class Rawkuma(MangaStream):
     is_nsfw = True
 
     base_url = 'https://rawkuma.com'
+    logo_url = base_url + '/wp-content/uploads/2024/02/ラークマのサイトアイコンHEADER-150x150.png'
 
     authors_selector = '.infox .fmed:-soup-contains("Artist") span, .infox .fmed:-soup-contains("Author") span'
     genres_selector = '.infox .mgen a'

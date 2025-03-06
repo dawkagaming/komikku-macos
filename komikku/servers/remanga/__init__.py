@@ -25,6 +25,7 @@ class Remanga(Server):
     lang = 'ru'
 
     base_url = 'https://xn--80aaig9ahr.xn--c1avg'
+    logo_url = base_url + '/icons/favicon-32x32.png'
     manga_url = base_url + '/manga/{0}'
     chapter_url = base_url + '/manga/{0}/{1}'
     api_base_url = 'https://api.xn--80aaig9ahr.xn--c1avg'

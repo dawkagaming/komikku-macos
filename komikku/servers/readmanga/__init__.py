@@ -20,6 +20,7 @@ class Readmanga(Server):
     is_nsfw = True
 
     base_url = 'https://web.usagi.one'
+    logo_url = base_url + '/static/favicon-8d70559a59e754c642d8ccf73bb55d47.ico'
     search_url = base_url + '/search/advancedResults'
     manga_url = base_url + '/{0}'
     chapter_url = manga_url + '/{1}'
@@ -243,6 +244,7 @@ class Allhentai(Readmanga):
     # FIXME: requires to be logged in
 
     base_url = 'https://20.allhen.online'
+    logo_url = base_url + '/static/favicon-dcc74ed15e02e1f03481426ba63716e9.ico'
     search_url = base_url + '/search/advanced'
     manga_url = base_url + '/{0}'
     chapter_url = manga_url + '/{1}?mtr=1'
@@ -266,6 +268,7 @@ class Selfmanga(Readmanga):
     is_nsfw = True
 
     base_url = 'https://selfmanga.live'
+    logo_url = base_url + '/static/favicon-29c351d867912538a132f31da35d87aa.ico'
     search_url = base_url + '/search/advancedResults'
     manga_url = base_url + '/{0}'
     chapter_url = manga_url + '/{1}?mtr=1'

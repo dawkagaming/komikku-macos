@@ -11,6 +11,7 @@ class Raikiscan(MangaStream):
     lang = 'es'
 
     base_url = 'https://raikiscan.com'
+    logo_url = base_url + '/wp-content/uploads/2021/08/cropped-logo.5-32x32.png'
 
     authors_selector = '.tsinfo .imptdt:-soup-contains("Autor") i, .tsinfo .imptdt:-soup-contains("Artista") i'
     genres_selector = '.info-desc .mgen a'

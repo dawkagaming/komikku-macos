@@ -23,6 +23,7 @@ class Reaperscans(HeanCMS):
     lang = 'en'
 
     base_url = 'https://reaperscans.com'
+    logo_url = base_url + '/wetried_only.png'
     api_url = 'https://api.reaperscans.com'
 
     cover_css_path = 'img[width="316"]'

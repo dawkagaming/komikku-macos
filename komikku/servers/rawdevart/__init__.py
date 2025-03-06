@@ -21,6 +21,7 @@ class Rawdevart(Server):
     is_nsfw = True
 
     base_url = 'https://rawdevart.art'
+    logo_url = base_url + '/public/icons/rawdevart-60x60.png'
     media_url = 'https://cghentai.com'  # server 2: https://s3-rawuwu.b-cdn.net
     manga_url = base_url + '/{0}'
     api_search_url = base_url + '/ajax/search-manga'
