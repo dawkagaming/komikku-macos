@@ -17,6 +17,7 @@ class Mangacrab(Madara2):
     series_name = 'series'
 
     base_url = 'https://mangacrab.org'
+    logo_url = base_url + '/wp-content/uploads/2024/07/cropped-cropped-logo99-Personalizado-e1722469564886-32x32.png'
 
     details_name_selector = 'h1.post-title'
     details_status_selector = '.post-content_item:-soup-contains("Estado") .summary-content'

@@ -19,6 +19,7 @@ class Mangapill(Server):
     is_nsfw = True
 
     base_url = 'https://mangapill.com'
+    logo_url = base_url + '/static/favicon/favicon-32x32.png'
     latest_updates_url = base_url + '/chapters'
     most_populars_url = base_url
     search_url = base_url + '/search'

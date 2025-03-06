@@ -24,6 +24,7 @@ class Mangahere(Server):
     is_nsfw = True
 
     base_url = 'https://www.mangahere.cc'
+    logo_url = base_url + '/favicon.ico'
     search_url = base_url + '/search'
     latest_updates_url = base_url + '/latest/'
     most_populars_url = base_url + '/ranking/'

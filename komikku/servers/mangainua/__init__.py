@@ -22,6 +22,7 @@ class Mangainua(Server):
     is_nsfw = True
 
     base_url = 'https://manga.in.ua'
+    logo_url = base_url + '/favicon-32x32.png'
     search_url = base_url + '/mangas/'
     api_chapters_url = base_url + '/engine/ajax/controller.php?mod=load_chapters'
     api_page_url = base_url + '/engine/ajax/controller.php?mod=load_chapters_image'

@@ -11,6 +11,7 @@ class Mangakoleji(MangaStream):
     lang = 'tr'
 
     base_url = 'https://mangakoleji.com'
+    logo_url = base_url + '/wp-content/uploads/2024/08/cropped-manga-koleji-com-32x32.png'
 
     authors_selector = '.tsinfo .imptdt:-soup-contains("Çizer") i, .tsinfo .imptdt:-soup-contains("Yazar") i'
     genres_selector = '.info-desc .mgen a'

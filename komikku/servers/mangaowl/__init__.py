@@ -14,4 +14,5 @@ class Mangaowl(Madara):
     series_name = 'read-online'  # This value changes regularly!
 
     base_url = 'https://mangaowl.io'
+    logo_url = base_url + '/wp-content/uploads/2017/10/logo.png'
     chapters_url = base_url + '/read-online/{0}/ajax/chapters/'

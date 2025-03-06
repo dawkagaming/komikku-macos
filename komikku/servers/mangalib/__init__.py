@@ -17,6 +17,7 @@ class Mangalib(Server):
     lang = 'ru'
 
     base_url = 'https://mangalib.org'
+    logo_url = base_url + '/static/images/logo/ml/favicon.ico?529e41ba742f20a52986d0dea3e6ab1b'
     search_url = base_url + '/ru/catalog'
     manga_url = base_url + '/ru/manga/{0}'
     api_base_url = 'https://api2.mangalib.me/api'

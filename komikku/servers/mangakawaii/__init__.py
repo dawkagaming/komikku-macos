@@ -45,6 +45,7 @@ class Mangakawaii(Server):
     long_strip_genres = ['Webtoon', ]
 
     base_url = 'https://www.mangakawaii.io'
+    logo_url = base_url + '/assets/img/favicon-32x32.png'
     search_url = base_url + '/recherche-manga'
     manga_list_url = base_url + '/filterMangaList'
     manga_list_referer_url = base_url + '/liste-manga'

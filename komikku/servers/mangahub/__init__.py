@@ -49,6 +49,7 @@ class Mangahub(Server):
     http_client = 'curl_cffi'
 
     base_url = 'https://mangahub.io'
+    logo_url = base_url + '/favicon-32x32.png'
     api_url = 'https://api.mghcdn.com/graphql'
     manga_url = base_url + '/manga/{0}'
     chapter_url = base_url + '/chapter/{0}/{1}'

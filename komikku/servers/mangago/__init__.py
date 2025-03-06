@@ -41,6 +41,7 @@ class Mangago(Server):
     http_client = 'curl_cffi'
 
     base_url = 'https://www.mangago.me'
+    logo_url = base_url + '/ywz.ico'
     search_url = base_url + '/r/l_search/'
     latest_updates_url = base_url + '/list/latest/all/{0}/'
     most_populars_url = base_url + '/topmanga/'

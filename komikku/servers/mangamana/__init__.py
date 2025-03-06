@@ -46,6 +46,7 @@ class Mangamana(Server):
     lang = 'fr'
 
     base_url = 'https://www.manga-mana.com'
+    logo_url = base_url + '/favicon-32x32.png'
     search_url = base_url + '/search-live'
     manga_list_url = base_url + '/liste-mangas'
     manga_url = base_url + '/m/{0}'

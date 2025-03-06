@@ -29,6 +29,7 @@ class Mangafire(Server):
     lang = 'en'
 
     base_url = 'https://mangafire.to'
+    logo_url = base_url + '/assets/sites/mangafire/favicon.png?v3'
     search_url = base_url + '/filter'
     manga_url = base_url + '/manga/{0}'                          # slug
     chapter_url = base_url + '/read/{0}/{1}/chapter-{2}'         # manga_slug, lang, slug
