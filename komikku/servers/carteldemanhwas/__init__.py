@@ -11,6 +11,8 @@ class Carteldemanhwas(MangaStream):
     lang = 'es'
     is_nsfw = True
 
+    has_cf = True
+
     chapters_order = 'asc'
     series_name = 'series'
 
