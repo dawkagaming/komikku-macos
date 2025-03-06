@@ -20,6 +20,7 @@ class Littlexgarden(Server):
     lang = 'fr'
 
     base_url = 'https://littlexgarden.com'
+    logo_url = base_url + '/favicon.ico'
     api_url = base_url + '/graphql'
     manga_url = base_url + '/{0}'
     chapter_url = manga_url + '/{1}'

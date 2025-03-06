@@ -13,6 +13,7 @@ class Lelmanga(MangaStream):
     slug_position = -1
 
     base_url = 'https://www.lelmanga.com'
+    logo_url = 'https://i3.wp.com/www.lelmanga.com/wp-content/uploads/2021/03/cropped-lelmanga-favicon-32x32.png'
     manga_url = base_url + '/manga/{0}'
 
     authors_selector = '.tsinfo .imptdt:-soup-contains("Artiste") i, .tsinfo .imptdt:-soup-contains("Auteur") i'

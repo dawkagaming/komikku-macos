@@ -18,6 +18,7 @@ class Lelscan(Server):
     true_search = False
 
     base_url = 'https://lelscans.net'
+    logo_url = base_url + '/images/icones/favicon.ico'
     most_populars_url = base_url + '/lecture-en-ligne-one-piece'
     chapter_url = base_url + '/scan-{0}/{1}'
     page_url = base_url + '/scan-{0}/{1}/{2}'

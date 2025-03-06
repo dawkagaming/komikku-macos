@@ -11,3 +11,4 @@ class Lupiteam(PizzaReader):
     lang = 'it'
 
     base_url = 'https://lupiteam.net'
+    logo_url = base_url + '/storage/img/logo/logo-lupiteam-72.png'

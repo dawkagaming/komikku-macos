@@ -2,6 +2,7 @@
 # SPDX-License-Identifier: GPL-3.0-or-later
 # Author: Valéry Febvre <vfebvre@easter-eggs.com>
 
+import json
 import logging
 from urllib.parse import urlparse
 
@@ -22,6 +23,7 @@ class Legacyscans(Server):
     lang = 'fr'
 
     base_url = 'https://legacy-scans.com'
+    logo_url = base_url + '/imgs/icon.webp'
     api_base_url = 'https://api.legacy-scans.com'
     api_search_url = api_base_url + '/misc/home/search'
     api_latest_updates_url = api_base_url + '/misc/comic/home/updates'
@@ -124,11 +126,19 @@ class Legacyscans(Server):
         data = dict(
             pages=[],
         )
-        for img_element in soup.select('.readerMainContainer.readerComics > img'):
-            data['pages'].append(dict(
-                slug=None,
-                image=img_element.get('src'),
-            ))
+        for script_element in soup.find_all('script'):
+            script = script_element.string
+            if not script or 'Reactive' not in script:
+                continue
+
+            for datum in json.loads(script):
+                if not isinstance(datum, str) or not datum.startswith(f'public/uploads/{manga_slug}'):
+                    continue
+
+                data['pages'].append(dict(
+                    slug=None,
+                    image=f'{self.base_url}/{datum}',
+                ))
 
         return data
 
@@ -172,7 +182,7 @@ class Legacyscans(Server):
             return None
 
         results = []
-        for item in r.json():
+        for item in r.json()['results']:
             results.append(dict(
                 cover='{0}/{1}'.format(self.api_base_url, item['cover']),
                 slug=item['slug'],
@@ -191,7 +201,7 @@ class Legacyscans(Server):
             return None
 
         results = []
-        for item in r.json():
+        for item in r.json()['results']:
             results.append(dict(
                 cover='{0}/{1}'.format(self.api_base_url, item['cover']),
                 slug=item['slug'],

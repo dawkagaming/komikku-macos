@@ -7,7 +7,7 @@ from komikku.servers.multi.fuzzydoodle import FuzzyDoodle
 
 class Lelscanvf(FuzzyDoodle):
     id = 'lelscanvf'
-    name = 'Lelscan-VF'
+    name = 'Lelscanfr'
     lang = 'fr'
 
     base_url = 'https://lelscanfr.com'
