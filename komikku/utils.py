@@ -623,6 +623,8 @@ class BaseServer:
         data = convert_and_resize_image(
             data, width, height, keep_aspect_ratio=keep_aspect_ratio, dominant_color=dominant_color, format=format
         )
+        if data is None:
+            return False
 
         if not os.path.exists(dir_path):
             os.mkdir(dir_path)

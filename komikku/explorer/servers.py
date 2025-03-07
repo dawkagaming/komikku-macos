@@ -11,6 +11,7 @@ from gi.repository import GObject
 from gi.repository import Gtk
 
 from komikku.explorer.common import ExplorerServerRow
+from komikku.explorer.common import set_missing_server_logos
 from komikku.models import Settings
 from komikku.servers import LANGUAGES
 from komikku.servers.utils import get_allowed_servers_list
@@ -172,6 +173,8 @@ class ExplorerServersPage(Adw.NavigationPage):
             row = ExplorerServerRow(server_data, self)
             self.listbox.append(row)
 
+        set_missing_server_logos(self.listbox)
+
         if self.preselection and len(self.servers) == 1:
             row = self.listbox.get_first_child().get_next_sibling()
             self.parent.server = getattr(row.server_data['module'], row.server_data['class_name'])()
@@ -191,6 +194,8 @@ class ExplorerServersPage(Adw.NavigationPage):
             row = ExplorerServerRow(server_data, self)
             self.pinned_listbox.append(row)
             count += 1
+
+        set_missing_server_logos(self.pinned_listbox)
 
         if count:
             # Add header

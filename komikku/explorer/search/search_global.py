@@ -22,6 +22,7 @@ from komikku.explorer.common import ExplorerServerRow
 from komikku.explorer.common import ExplorerSearchResultRow
 from komikku.explorer.common import ExplorerSearchStackPage
 from komikku.explorer.common import get_server_default_search_filters
+from komikku.explorer.common import set_missing_server_logos
 
 
 class ExplorerSearchStackPageSearchGlobal(ExplorerSearchStackPage):
@@ -260,6 +261,8 @@ class ExplorerSearchStackPageSearchGlobal(ExplorerSearchStackPage):
             spinner = Adw.Spinner()
             row.set_child(spinner)
             self.listbox.append(row)
+
+        set_missing_server_logos(self.listbox)
 
         self.lock = True
         self.status = 'started'

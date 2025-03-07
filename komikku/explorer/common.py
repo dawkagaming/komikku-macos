@@ -209,7 +209,7 @@ class ExplorerServerRow(Gtk.ListBoxRow):
         self.set_child(self.box)
 
         # Server logo
-        self.set_logo(get=True)
+        self.set_logo(use_fallback=False)
 
         # Server title & language
         vbox = Gtk.Box(orientation=Gtk.Orientation.VERTICAL, spacing=0)
@@ -291,52 +291,40 @@ NOTE: The 'unrar' or 'unar' command-line tool is required for CBR archives.""")
             self.pin_button.disconnect(self.pin_button_toggled_handler_id)
 
     def get_logo(self):
-        def run():
-            server = getattr(self.server_data['module'], self.server_data['class_name'])()
+        server = getattr(self.server_data['module'], self.server_data['class_name'])()
 
-            if server.logo_path:
-                # Avoid to fetch the same logo several times
-                # In the case of servers belonging to a multi-language server and therefore share the same logo,
-                # it's possible that logo has been fetched between the request and here
-                res = True
-            else:
-                try:
-                    res = server.save_logo()
-                except Exception:
-                    res = False
+        try:
+            res = server.save_logo()
+        except Exception:
+            res = False
 
-            GLib.idle_add(complete, server, res)
+        if res:
+            self.server_data['logo_path'] = server.logo_path
+        else:
+            self.page.window.application.logger.info('Failed to get `%s` server logo', server.id)
 
-        def complete(server, res):
-            if res:
-                self.server_data['logo_path'] = server.logo_path
-            else:
-                self.page.window.application.logger.info('Failed to get `%s` server logo', server.id)
+        GLib.idle_add(self.set_logo)
 
-            self.set_logo()
-
-        thread = threading.Thread(target=run)
-        thread.daemon = True
-        thread.start()
-
-    def set_logo(self, get=False):
+    def set_logo(self, use_fallback=True):
         if self.server_data['logo_url']:
             if self.server_data['logo_path']:
                 self.logo = Gtk.Image()
                 self.logo.set_size_request(LOGO_SIZE, LOGO_SIZE)
                 self.logo.set_from_file(self.server_data['logo_path'])
-            elif get:
-                self.get_logo()
-                return
-            else:
+            elif use_fallback:
+                # Fallback to an Adw.Avatar if logo fetching failed
                 self.logo = Adw.Avatar.new(LOGO_SIZE, self.server_data['name'], True)
+            else:
+                self.logo = None
+                return
+
         else:
             self.logo = Adw.Avatar.new(LOGO_SIZE, None, False)
             if self.server_data['id'] == 'local':
                 self.logo.set_icon_name('folder-symbolic')
             else:
-                self.logo.set_text(self.server_data['name'])
                 self.logo.set_show_initials(True)
+                self.logo.set_text(self.server_data['name'])
 
         if self.page.props.tag == 'explorer.search':
             # Align horizontally with covers in global search
@@ -359,3 +347,17 @@ def get_server_default_search_filters(server):
             filters[filter_['key']] = filter_['default']
 
     return filters
+
+
+def set_missing_server_logos(listbox):
+    def run():
+        row = listbox.get_first_child()
+        while row:
+            if isinstance(row, ExplorerServerRow) and row.logo is None:
+                row.get_logo()
+
+            row = row.get_next_sibling()
+
+    thread = threading.Thread(target=run)
+    thread.daemon = True
+    thread.start()
