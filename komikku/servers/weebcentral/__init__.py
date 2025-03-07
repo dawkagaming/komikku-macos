@@ -20,7 +20,7 @@ class Weebcentral(Server):
     lang = 'en'
 
     base_url = 'https://weebcentral.com'
-
+    logo_url = base_url + '/favicon.ico'
     search_url = base_url + '/search/data'
     manga_url = base_url + '/series/{0}'
     chapters_url = base_url + '/series/{0}/full-chapter-list'

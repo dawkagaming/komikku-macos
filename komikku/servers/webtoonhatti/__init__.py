@@ -15,4 +15,5 @@ class Webtoonhatti(Madara):
     series_name = 'webtoon'
 
     base_url = 'https://webtoonhatti.me'
+    logo_url = base_url + '/wp-content/uploads/2024/03/cropped-iconlogo.png'
     chapters_url = base_url + '/manga/{0}/ajax/chapters/'

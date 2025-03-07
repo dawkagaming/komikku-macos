@@ -1,3 +1,8 @@
+# SPDX-FileCopyrightText: 2019-2025 Valéry Febvre
+# SPDX-License-Identifier: GPL-3.0-or-later
+# Author: Valéry Febvre <vfebvre@easter-eggs.com>
+# Author: Arthur Williams (TAAPArthur)
+
 from PIL import Image
 import urllib.parse
 import piexif
@@ -22,6 +27,7 @@ class Vizmanga(Server):
     has_login = True
 
     base_url = 'https://www.viz.com'
+    logo_url = base_url + '/favicon/favicon-32x32.png?v=47MPqANpyj'
     login_url = base_url + '/account/try_login'
     refresh_login_url = base_url + '/account/refresh_login_links'
     api_series_url = base_url + '/shonenjump'

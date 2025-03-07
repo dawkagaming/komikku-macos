@@ -12,6 +12,7 @@ class Xoxocomics(WPComics):
     is_nsfw = True
 
     base_url = 'https://xoxocomic.com'
+    logo_url = base_url + '/images/sites/favicon.png'
     search_url = base_url + '/search-comic'
     latest_updates_url = base_url + '/comic-update'
     most_populars_url = base_url + '/popular-comic'

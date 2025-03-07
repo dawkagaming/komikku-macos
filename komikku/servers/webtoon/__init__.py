@@ -34,6 +34,7 @@ class Webtoon(Server):
     lang = 'en'
 
     base_url = 'https://www.webtoons.com'
+    logo_url = 'https://webtoons-static.pstatic.net/image/favicon/favicon.ico?dt=2017082301'
     search_url = base_url + '/{0}/search'
     most_populars_url = base_url + '/{0}/popular'
     manga_url = base_url + '{0}'

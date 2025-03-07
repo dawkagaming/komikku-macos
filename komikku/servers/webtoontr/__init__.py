@@ -15,6 +15,7 @@ class Webtoontr(Madara):
     series_name = 'webtoon'
 
     base_url = 'https://webtoontr.net'
+    logo_url = base_url + '/wp-content/uploads/2021/08/cropped-Icon2-32x32.png'
     chapter_url = base_url + '/' + series_name + '/{0}/{1}/'
 
     details_synopsis_selector = '.manga-excerpt'

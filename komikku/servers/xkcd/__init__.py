@@ -11,16 +11,15 @@ from komikku.servers import USER_AGENT
 from komikku.servers.utils import convert_date_string
 from komikku.utils import get_buffer_mime_type
 
-SERVER_NAME = 'xkcd'
-
 
 class Xkcd(Server):
     id = 'xkcd'
-    name = SERVER_NAME
+    name = 'xkcd'
     lang = 'en'
     true_search = False
 
     base_url = 'https://www.xkcd.com'
+    logo_url = base_url + '/s/919f27.ico'
     manga_url = base_url + '/archive/'
     chapter_url = base_url + '/{0}/info.0.json'
     image_url = 'https://imgs.xkcd.com/comics/{0}'
@@ -36,12 +35,11 @@ class Xkcd(Server):
         Returns manga data by scraping manga HTML page content
         """
         r = self.session_get(self.manga_url)
-        if r is None:
+        if r.status_code != 200:
             return None
 
         mime_type = get_buffer_mime_type(r.content)
-
-        if r.status_code != 200 or mime_type != 'text/html':
+        if mime_type != 'text/html':
             return None
 
         soup = BeautifulSoup(r.text, 'lxml')
@@ -77,7 +75,7 @@ class Xkcd(Server):
         Currently, only pages are expected.
         """
         r = self.session_get(self.chapter_url.format(chapter_slug))
-        if r is None:
+        if r.status_code != 200:
             return None
 
         try:
@@ -122,7 +120,7 @@ class Xkcd(Server):
             )
             name = '{0}-alt-text.png'.format(chapter_slug)
 
-        if r is None or r.status_code != 200:
+        if r.status_code != 200:
             return None
 
         mime_type = get_buffer_mime_type(r.content)

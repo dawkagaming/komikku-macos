@@ -17,6 +17,7 @@ class Zeroscans(Server):
     lang = 'en'
 
     base_url = 'https://zscans.com'
+    logo_url = base_url + '/favicon.ico'
     api_url = base_url + '/swordflake'
     api_latest_updates_url = api_url + '/new-chapters'
     api_search_url = api_url + '/comics'
