@@ -13,7 +13,6 @@ from komikku.servers import Server
 from komikku.servers.exceptions import ArchiveError
 from komikku.servers.exceptions import ArchiveUnrarMissingError
 from komikku.servers.exceptions import ServerException
-from komikku.utils import expand_and_resize_cover
 from komikku.utils import get_buffer_mime_type
 from komikku.utils import get_data_dir
 
@@ -164,7 +163,8 @@ class Local(Server):
     name = 'Local'
     lang = ''
 
-    def get_manga_cover_image(self, data, etag=None):
+    def get_image(self, data, etag=None):
+        """ Returns cover image """
         if data is None:
             return None, None, None
 
@@ -177,7 +177,7 @@ class Local(Server):
         if not mime_type.startswith('image'):
             return None, None, None
 
-        return expand_and_resize_cover(buffer), None, None
+        return buffer, None, None
 
     def get_manga_data(self, initial_data):
         data = initial_data.copy()
