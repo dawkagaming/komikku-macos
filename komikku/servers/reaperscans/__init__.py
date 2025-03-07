@@ -92,13 +92,14 @@ class Reaperscans_fr(Madara):
     id = 'reaperscans_fr'
     name = 'ReaperScansFR (GS)'
     lang = 'fr'
+    status = 'disabled'
 
     has_cf = True
 
     series_name = 'serie'
     date_format = '%d/%m/%Y'
 
-    base_url = 'https://reaperscans.fr'
+    base_url = 'https://reaper-scans.fr'  # Madara => Keyoapp
 
     details_scanlators_selector = '.post-content_item:-soup-contains("Team") .summary-content'
 
@@ -107,6 +108,7 @@ class Reaperscans_id(Madara):
     id = 'reaperscans_id'
     name = 'Reaper Scans'
     lang = 'id'
+    status = 'disabled'
 
     series_name = 'series'
 
@@ -312,6 +314,7 @@ class Reaperscans_tr(Madara):
     id = 'reaperscans_tr'
     name = 'Reaper Scans'
     lang = 'tr'
+    status = 'disabled'  # 08/2024: move to https://yugenweb.com
 
     series_name = 'seri'
 
