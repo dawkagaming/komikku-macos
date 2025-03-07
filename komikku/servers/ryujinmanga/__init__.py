@@ -9,6 +9,7 @@ class Ryujinmanga(MangaStream):
     id = 'ryujinmanga'
     name = 'Ryujinmanga'
     lang = 'es'
+    status = 'disabled'
 
     base_url = 'https://www.ryujinmanga.com'
 
