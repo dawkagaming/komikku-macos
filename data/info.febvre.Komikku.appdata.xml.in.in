@@ -99,6 +99,23 @@
     <url type="donation">https://valos.gitlab.io/Komikku/#sponsor</url>
 
     <releases>
+        <release version="1.72.0" date="2025-03-09">
+            <description translate="no">
+                <ul>
+                    <li>[Servers] Added Nix of Nothing (EN)</li>
+                    <li>[Servers] Added Three Panel Soul (EN)</li>
+                    <li>[Servers] Added Wild Life (EN)</li>
+                    <li>[Servers] Cartel De Manhwas (ES): Update</li>
+                    <li>[Servers] MangaNato (EN): Update</li>
+                    <li>[Servers] Terco Scans (EN): Update</li>
+                    <li>[Servers] Tres Daos (ES): Update</li>
+                    <li>[Servers] Crunchyroll (EN): Disabled</li>
+                    <li>[Servers] Iris Scanlator (pt_BR): Disabled</li>
+                    <li>[Servers] ReaperScans (FR,ID,TR): Disabled</li>
+                </ul>
+                <p>Happy reading.</p>
+            </description>
+        </release>
         <release version="1.71.0" date="2025-03-03">
             <description translate="no">
                 <ul>

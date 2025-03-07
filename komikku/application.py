@@ -535,16 +535,16 @@ available in your region/language."""))
         # Override release notes
         dialog.set_release_notes("""
             <ul>
-                <li>[Explorer] Global search: Added ability to cancel search</li>
-                <li>[Servers] Comic Fans (EN): Disabled</li>
-                <li>[Servers] Perf Scan (FR): Re-enabled</li>
-                <li>[Servers] MangaCrab (ES): Update</li>
-                <li>[Servers] TCB Scans (EN): Update</li>
+                <li>[Servers] Added Nix of Nothing (EN)</li>
+                <li>[Servers] Added Three Panel Soul (EN)</li>
+                <li>[Servers] Added Wild Life (EN)</li>
+                <li>[Servers] Cartel De Manhwas (ES): Update</li>
+                <li>[Servers] MangaNato (EN): Update</li>
                 <li>[Servers] Terco Scans (EN): Update</li>
-                <li>[Servers] Usagi (RU): Update</li>
-                <li>[Servers] Webtoon: Fixed covers</li>
-                <li>[L10n] Added Persian translation</li>
-                <li>[L10n] Updated French and Russian translations</li>
+                <li>[Servers] Tres Daos (ES): Update</li>
+                <li>[Servers] Crunchyroll (EN): Disabled</li>
+                <li>[Servers] Iris Scanlator (pt_BR): Disabled</li>
+                <li>[Servers] ReaperScans (FR,ID,TR): Disabled</li>
             </ul>
             <p>Happy reading.</p>
         """)
