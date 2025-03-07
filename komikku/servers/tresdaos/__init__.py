@@ -9,6 +9,7 @@ class Tresdaos(MangaStream):
     id = 'tresdaos'
     name = 'Tres Daos'
     lang = 'es'
+    has_cf = True
 
     date_format = None
 
