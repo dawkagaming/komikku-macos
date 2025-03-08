@@ -293,10 +293,16 @@ NOTE: The 'unrar' or 'unar' command-line tool is required for CBR archives.""")
     def get_logo(self):
         server = getattr(self.server_data['module'], self.server_data['class_name'])()
 
-        try:
-            res = server.save_logo()
-        except Exception:
-            res = False
+        if server.logo_path:
+            # Avoid to fetch the same logo several times
+            # In the case of servers belonging to a multi-language server and therefore sharing the same logo,
+            # it's possible that logo has been previously fetched
+            res = True
+        else:
+            try:
+                res = server.save_logo()
+            except Exception:
+                res = False
 
         if res:
             self.server_data['logo_path'] = server.logo_path
