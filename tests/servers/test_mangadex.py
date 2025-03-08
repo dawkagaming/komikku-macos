@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2019-2025 Contributors to Komikku
+#
+# SPDX-License-Identifier: GPL-3.0-or-later
+
 import logging
 import pytest
 from pytest_steps import test_steps, optional_step
