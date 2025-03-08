@@ -1,5 +1,9 @@
 #!/usr/bin/env python3
 
+# SPDX-FileCopyrightText: gasinvein Sergei von Alis, barthalion Bart Piotrowski
+#
+# SPDX-License-Identifier: MIT
+
 __license__ = 'MIT'
 import json
 from urllib.parse import urlparse, ParseResult, parse_qs
@@ -51,11 +55,11 @@ def get_git_tarball(repo_url, commit):
     else:
         repo = path[1]
     if url.hostname == 'github.com':
-        return f'https://codeload.{url.hostname}/{owner}/{repo}/tar.gz/{commit}'
+        return f'https://codeload.{url.hostname}/{owner}/{repo}/tar.gz/{commit}'  # noqa
     elif url.hostname.split('.')[0] == 'gitlab':
-        return f'https://{url.hostname}/{owner}/{repo}/-/archive/{commit}/{repo}-{commit}.tar.gz'
+        return f'https://{url.hostname}/{owner}/{repo}/-/archive/{commit}/{repo}-{commit}.tar.gz'  # noqa
     elif url.hostname == 'bitbucket.org':
-        return f'https://{url.hostname}/{owner}/{repo}/get/{commit}.tar.gz'
+        return f'https://{url.hostname}/{owner}/{repo}/get/{commit}.tar.gz'  # noqa
     else:
         raise ValueError(f'Don\'t know how to get tarball for {repo_url}')
 
