@@ -7,6 +7,7 @@ from abc import abstractmethod
 from gettext import gettext as _
 import json
 import logging
+import os
 import threading
 
 from gi.repository import GObject
@@ -15,6 +16,8 @@ from komikku.models import create_db_connection
 from komikku.models import Manga
 from komikku.models import Settings
 from komikku.utils import BaseServer
+from komikku.utils import get_cached_logos_dir
+from komikku.utils import LOGO_SIZE
 from komikku.trackers.utils import get_trackers_list
 
 logger = logging.getLogger(__name__)
@@ -36,6 +39,13 @@ class Tracker(BaseServer, ABC):
         'rereading': _('Rereading'),
     }
     STATUSES_MAPPING: dict = None
+
+    def logo_path(self):
+        path = os.path.join(get_cached_logos_dir(), 'trackers', f'{self.id}.png')
+        if not os.path.exists(path):
+            return None
+
+        return path
 
     def convert_internal_status(self, status):
         """Returns corresponding tracker status for an internal status"""
@@ -99,6 +109,12 @@ class Tracker(BaseServer, ABC):
 
         Settings.get_default().trackers = trackers
 
+    def save_logo(self):
+        return self.save_image(
+            self.logo_url, os.path.join(get_cached_logos_dir(), 'trackers'), self.id,
+            LOGO_SIZE, LOGO_SIZE, keep_aspect_ratio=False, format='PNG'
+        )
+
     @abstractmethod
     def search(self, term):
         """Search a manga"""
@@ -127,7 +143,6 @@ class Trackers(GObject.GObject):
         self.trackers = {}
         for info in get_trackers_list():
             tracker = getattr(info['module'], info['class_name'])()
-            tracker.logo_path = info['logo_path']
             self.trackers[tracker.id] = tracker
 
     def sync(self):

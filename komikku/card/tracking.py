@@ -19,6 +19,7 @@ from komikku.utils import CoverPicture
 from komikku.utils import html_escape
 from komikku.utils import COVER_HEIGHT
 from komikku.utils import COVER_WIDTH
+from komikku.utils import LOGO_SIZE
 from komikku.utils import MISSING_IMG_RESOURCE_PATH
 
 THUMB_WIDTH = 96
@@ -202,10 +203,7 @@ class TrackerRow(Adw.ExpanderRow):
 
         super().__init__(title=self.tracker.name)
 
-        logo = Gtk.Picture.new_for_filename(self.tracker.logo_path)
-        logo.props.margin_top = 9
-        logo.props.margin_bottom = 9
-        self.add_prefix(logo)
+        self.set_logo()
 
         self.set_arrow_visible(False)
 
@@ -256,6 +254,25 @@ class TrackerRow(Adw.ExpanderRow):
             confirm_callback,
             confirm_appearance=Adw.ResponseAppearance.DESTRUCTIVE
         )
+
+    def get_logo(self):
+        def run():
+            try:
+                res = self.tracker.save_logo()
+            except Exception:
+                res = False
+
+            GLib.idle_add(complete, res)
+
+        def complete(res):
+            if not res:
+                self.window.application.logger.info('Failed to get `%s` tracker logo', self.tracker.id)
+
+            self.set_logo(use_fallback=True)
+
+        thread = threading.Thread(target=run)
+        thread.daemon = True
+        thread.start()
 
     def init(self, data=None):
         def run():
@@ -340,6 +357,26 @@ class TrackerRow(Adw.ExpanderRow):
         action_row = self.get_first_child().get_first_child().get_first_child()
         arrow_img = action_row.get_first_child().get_last_child().get_last_child()
         arrow_img.set_visible(visible)
+
+    def set_logo(self, use_fallback=False):
+        if self.tracker.logo_url:
+            if self.tracker.logo_path:
+                self.logo = Gtk.Image()
+                self.logo.set_size_request(LOGO_SIZE, LOGO_SIZE)
+                self.logo.props.margin_top = 9
+                self.logo.props.margin_bottom = 9
+                self.logo.set_from_file(self.tracker.logo_path)
+            elif use_fallback:
+                # Fallback to an Adw.Avatar if logo fetching failed
+                self.logo = Adw.Avatar.new(LOGO_SIZE, self.tracker.name, True)
+            else:
+                self.get_logo()
+                return
+
+        else:
+            self.logo = Adw.Avatar.new(LOGO_SIZE, self.tracker.name, True)
+
+        self.add_prefix(self.logo)
 
     def update_tracking_data(self, _row, _gparam):
         data = {

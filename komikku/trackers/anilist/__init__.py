@@ -23,9 +23,11 @@ class Anilist(Tracker):
     name = 'AniList'
     client_id = '21273'
 
-    authorize_url = f'https://anilist.co/api/v2/oauth/authorize?client_id={client_id}&response_type=token'  # noqa: E231
+    base_url = 'https://anilist.co'
+    logo_url = base_url + '/img/icons/favicon-32x32.png'
+    authorize_url = f'{base_url}/api/v2/oauth/authorize?client_id={client_id}&response_type=token'
     api_url = 'https://graphql.anilist.co'
-    manga_url = 'https://anilist.co/manga/{0}'
+    manga_url = base_url + '/manga/{0}'
 
     RELEASE_STATUSES = {
         'CANCELLED': 'Cancelled',

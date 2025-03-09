@@ -6,7 +6,6 @@ import importlib
 import inspect
 import logging
 from operator import itemgetter
-import os
 from pkgutil import iter_modules
 import sys
 
@@ -26,12 +25,9 @@ def get_trackers_list(include_disabled=False, order_by=('name',)):
                 continue
 
             if inspect.isclass(obj):
-                logo_path = os.path.join(os.path.dirname(os.path.abspath(module.__file__)), obj.id + '.png')
-
                 trackers.append(dict(
                     id=obj.id,
                     name=obj.name,
-                    logo_path=logo_path if os.path.exists(logo_path) else None,
                     module=module,
                     class_name=obj.id.capitalize(),
                 ))

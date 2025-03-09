@@ -23,6 +23,7 @@ class Myanimelist(Tracker):
     client_id = '4d0e78e295a090211517bded6ebdaa49'
 
     base_url = 'https://myanimelist.net'
+    logo_url = base_url + '/images/favicon.ico'
     auth_url = base_url + '/v1/oauth2'
     authorize_url = auth_url + '/authorize?response_type=code&client_id={0}&state={1}&code_challenge={2}&code_challenge_method=plain'
     access_token_url = auth_url + '/token'
