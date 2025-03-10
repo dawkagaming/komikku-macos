@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2024-2025 gondolyr
+#
+# SPDX-License-Identifier: CC0-1.0
+
 name: Bug report
 about: File a bug report
 title: '[BUG] '
@@ -9,7 +13,7 @@ body:
     attributes:
       value: |
         Thanks for taking the time to fill out this bug report!
-        
+
         **If this is about a security vulnerability, please disclose it responsibly instead.**
     visible: [form]  # This is only visible in the form and not in the issue itself.
   - type: textarea
