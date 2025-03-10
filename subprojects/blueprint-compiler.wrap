@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2021 James Westman
+#
+# SPDX-License-Identifier: CC0-1.0
+
 [wrap-git]
 directory = blueprint-compiler
 url = https://gitlab.gnome.org/jwestman/blueprint-compiler.git
