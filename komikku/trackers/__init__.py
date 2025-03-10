@@ -40,6 +40,7 @@ class Tracker(BaseServer, ABC):
     }
     STATUSES_MAPPING: dict = None
 
+    @property
     def logo_path(self):
         path = os.path.join(get_cached_logos_dir(), 'trackers', f'{self.id}.png')
         if not os.path.exists(path):
