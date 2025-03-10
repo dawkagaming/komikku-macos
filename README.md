@@ -1,6 +1,7 @@
 # <a href="https://apps.gnome.org/Komikku/"><img height="88" src="data/icons/info.febvre.Komikku.svg" />Komikku</a>
 
 [![GNOME Circle](https://circle.gnome.org/assets/button/badge.svg)](https://apps.gnome.org/Komikku/)
+[![REUSE status](https://api.reuse.software/badge/codeberg.org/valos/Komikku)](https://api.reuse.software/info/codeberg.org/valos/Komikku)
 [![Please Don't Theme](https://stopthemingmy.app/badge.svg)](https://stopthemingmy.app)
 [![Chat on Matrix](https://raw.githubusercontent.com/matrix-org/matrix.to/main/images-nohash/matrix-badge.svg)](https://matrix.to/#/!YXjunwpNHcXYeSdbbb:matrix.org?via=matrix.org)
 [![Donate using Liberapay](https://img.shields.io/liberapay/receives/valos.svg?logo=liberapay)](https://en.liberapay.com/valos/donate)
