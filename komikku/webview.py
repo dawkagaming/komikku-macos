@@ -398,7 +398,9 @@ class Challenger:
                     else if (document.querySelector('.ray-id') || document.querySelector('style').innerText.indexOf('ray-id') > 0) {
                         document.title = 'cf_captcha';
                     }
-                    else if (document.querySelector('.g-recaptcha')) {
+                    else if (document.querySelector('.g-recaptcha') && !document.querySelector('form .g-recaptcha')) {
+                        // Google reCAPTCHA
+                        // Not in a form to avoid false positives (login form for ex.)
                         document.title = 're_captcha';
                     }
                     else if (document.querySelector('#formVerify')) {
