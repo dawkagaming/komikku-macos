@@ -380,6 +380,7 @@ class Challenger:
     def monitor_challenge(self):
         # Detect captcha via JavaScript in current page
         # - Cloudflare challenge
+        # - DDoS-Guard
         # - Google ReCAPTCHA
         # - AreYouHuman2 (2/3 images to identify)
         # - Challange (browser identification, no user interaction)
@@ -397,6 +398,9 @@ class Challenger:
                     }
                     else if (document.querySelector('.ray-id') || document.querySelector('style').innerText.indexOf('ray-id') > 0) {
                         document.title = 'cf_captcha';
+                    }
+                    else if (document.querySelector('#request-info')) {
+                        document.title = 'ddg_captcha';
                     }
                     else if (document.querySelector('.g-recaptcha') && !document.querySelector('form .g-recaptcha')) {
                         // Google reCAPTCHA
@@ -469,6 +473,8 @@ class Challenger:
 
             if title == 'cf_captcha':
                 logger.debug(f'{self.server.id}: CF captcha detected, try #{self.cf_reload_count}')
+            elif title == 'ddg_captcha':
+                logger.debug(f'{self.server.id}: DDoS-Guard detected')
             elif title == 're_captcha':
                 logger.debug(f'{self.server.id}: ReCAPTCHA detected')
             elif title == 'ayh2_captcha':
