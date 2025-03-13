@@ -4,15 +4,14 @@
 
 import logging
 import re
-import requests
 import time
 from urllib.parse import urlparse
 
 from komikku.servers import Server
-from komikku.servers import USER_AGENT
 from komikku.servers.utils import convert_date_string
 from komikku.utils import get_buffer_mime_type
 from komikku.utils import is_number
+from komikku.webview import CompleteChallenge
 
 logger = logging.getLogger('komikku.servers.remanga')
 
@@ -24,8 +23,9 @@ class Remanga(Server):
     name = 'Remanga'
     lang = 'ru'
 
+    has_captcha = True
+
     base_url = 'https://xn--80aaig9ahr.xn--c1avg'
-    logo_url = base_url + '/icons/favicon-32x32.png'
     manga_url = base_url + '/manga/{0}'
     chapter_url = base_url + '/manga/{0}/{1}'
     api_base_url = 'https://api.xn--80aaig9ahr.xn--c1avg'
@@ -35,14 +35,9 @@ class Remanga(Server):
     api_chapters_url = api_base_url + '/api/titles/chapters/'
 
     def __init__(self):
-        if self.session is None:
-            self.session = requests.Session()
-            self.session.headers = {
-                'Host': urlparse(self.base_url).netloc,
-                'Referer': self.base_url,
-                'User-Agent': USER_AGENT,
-            }
+        self.session = None
 
+    @CompleteChallenge()
     def get_manga_data(self, initial_data):
         """
         Returns manga data from API
@@ -139,6 +134,7 @@ class Remanga(Server):
 
         return data
 
+    @CompleteChallenge()
     def get_manga_chapter_data(self, manga_slug, manga_name, chapter_slug, chapter_url):
         """
         Returns manga chapter data from API
@@ -174,6 +170,7 @@ class Remanga(Server):
 
         return data
 
+    @CompleteChallenge()
     def get_manga_chapter_page_image(self, manga_slug, manga_name, chapter_slug, page):
         """
         Returns chapter page scan (image) content
@@ -182,6 +179,7 @@ class Remanga(Server):
             page['image'],
             headers={
                 'Host': urlparse(page['image']).netloc,
+                'Referer': f'{self.base_url}/',
             }
         )
         if r.status_code != 200:
@@ -229,18 +227,21 @@ class Remanga(Server):
 
         return results
 
+    @CompleteChallenge()
     def get_latest_updates(self):
         """
         Returns latest updates
         """
         return self.get_manga_list(orderby='latest')
 
+    @CompleteChallenge()
     def get_most_populars(self):
         """
         Returns most popular mangas
         """
         return self.get_manga_list(orderby='populars')
 
+    @CompleteChallenge()
     def search(self, term):
         r = self.session_get(
             self.api_search_url,
