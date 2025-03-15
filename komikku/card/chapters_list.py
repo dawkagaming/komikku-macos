@@ -613,11 +613,11 @@ class ChaptersListRow(Gtk.Box):
             )
 
         self.title_label.set_label(self.chapter.title)
-        self.title_label.remove_css_class('dim-label')
+        self.title_label.remove_css_class('dimmed')
         self.title_label.remove_css_class('warning')
         if self.chapter.read:
             # Chapter reading ended
-            self.title_label.add_css_class('dim-label')
+            self.title_label.add_css_class('dimmed')
         elif self.chapter.last_page_read_index is not None:
             # Chapter reading started
             self.title_label.add_css_class('warning')

@@ -654,7 +654,7 @@ class PreferencesServersSettingsSubPage(Adw.NavigationPage):
                         label = Gtk.Label(hexpand=True)
                         label.set_wrap(True)
                         if self.keyring_helper.is_disabled:
-                            label.add_css_class('dim-label')
+                            label.add_css_class('dimmed')
                             label.set_text(_('System keyring service is disabled. Credential cannot be saved.'))
                             box.append(label)
                         elif not self.keyring_helper.has_recommended_backend:
@@ -664,7 +664,7 @@ class PreferencesServersSettingsSubPage(Adw.NavigationPage):
                                 plaintext_checkbutton.set_child(label)
                                 box.append(plaintext_checkbutton)
                             else:
-                                label.add_css_class('dim-label')
+                                label.add_css_class('dimmed')
                                 label.set_text(_('No keyring backends were found to store credential. Plaintext storage will be used as fallback.'))
                                 box.append(label)
 
