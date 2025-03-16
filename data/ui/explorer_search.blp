@@ -36,6 +36,8 @@ template $ExplorerSearchPage : Adw.NavigationPage {
     }
 
     content: Adw.ViewStack stack {
+      enable-transitions: true;
+
       Adw.ViewStackPage {
         name: "search";
         title: _("Search");
