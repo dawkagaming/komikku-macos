@@ -49,6 +49,9 @@ label.badge {
 /*
  * Library
  */
+flowbox {
+	background-color: var(--overview-bg-color);
+}
 flowbox flowboxchild {
     padding: 6px; /* default is 4px */
     border-radius: 12px; /* default is 6px */
