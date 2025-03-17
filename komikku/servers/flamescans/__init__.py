@@ -26,7 +26,7 @@ class Flamescans(Server):
     search_url = base_url + '/browse'
     manga_url = base_url + '/series/{0}'
     chapter_url = base_url + '/series/{0}/{1}'
-    cover_url = base_url + '/_next/image?url=https%3A%2F%2Fcdn.flamecomics.xyz%2Fseries%2F{0}%2F{1}&w=256&q=75'
+    cover_url = base_url + '/_next/image?url=https%3A%2F%2Fcdn.flamecomics.xyz%2Fseries%2F{0}%2F{1}%3F{2}&w=720&q=100'
 
     long_strip_genres = ['Manhua', 'Manhwa']
 
@@ -102,7 +102,7 @@ class Flamescans(Server):
 
             found = True
             data['name'] = serie_data['title']
-            data['cover'] = self.cover_url.format(data['slug'], serie_data['cover'])
+            data['cover'] = self.cover_url.format(data['slug'], serie_data['cover'], serie_data['last_edit'])
 
             # Details
             if serie_data.get('author'):
@@ -111,7 +111,7 @@ class Flamescans(Server):
                 data['authors'].append(serie_data['artist'])
 
             if serie_data.get('tags'):
-                data['genres'] = json.loads(serie_data['tags'])
+                data['genres'] = serie_data['tags']
             if serie_data.get('type'):
                 data['genres'].append(serie_data['type'])
 
@@ -247,7 +247,7 @@ class Flamescans(Server):
                 results.append({
                     'slug': serie['series_id'],
                     'name': serie['title'],
-                    'cover': self.cover_url.format(serie['series_id'], serie['cover']),
+                    'cover': self.cover_url.format(serie['series_id'], serie['cover'], serie['last_edit']),
                 })
 
         if not found:
