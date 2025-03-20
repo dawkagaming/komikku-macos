@@ -4,7 +4,6 @@
 
 from abc import ABC
 from abc import abstractmethod
-from functools import cached_property
 import hashlib
 from io import BytesIO
 import json
@@ -144,7 +143,7 @@ class Server(BaseServer, ABC):
     def login(self, _username, _password):
         return False
 
-    @cached_property
+    @property
     def logo_path(self):
         path = os.path.join(get_cached_logos_dir(), 'servers', f'{get_server_main_id_by_id(self.id)}.png')
         if not os.path.exists(path):
