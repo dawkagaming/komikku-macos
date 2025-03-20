@@ -109,6 +109,7 @@ CREDITS = dict(
         'Sear Gasor (German)',
         'Vortex Acherontic (German)',
         'Scrambled777 (Hindi)',
+        'mondstern (Hungarian)',
         'Milo Ivir (Croatian)',
         'Alifiyan Rosyidi (Indonesian)',
         'Alim Satria (Indonesian)',
@@ -536,16 +537,15 @@ available in your region/language."""))
         # Override release notes
         dialog.set_release_notes("""
             <ul>
-                <li>[Servers] Added Nix of Nothing (EN)</li>
-                <li>[Servers] Added Three Panel Soul (EN)</li>
-                <li>[Servers] Added Wild Life (EN)</li>
-                <li>[Servers] Cartel De Manhwas (ES): Update</li>
-                <li>[Servers] MangaNato (EN): Update</li>
-                <li>[Servers] Terco Scans (EN): Update</li>
-                <li>[Servers] Tres Daos (ES): Update</li>
-                <li>[Servers] Crunchyroll (EN): Disabled</li>
-                <li>[Servers] Iris Scanlator (pt_BR): Disabled</li>
-                <li>[Servers] ReaperScans (FR,ID,TR): Disabled</li>
+                <li>[Library] Added ability to update with &lt;Ctrl+r&gt; shortcut</li>
+                <li>[Card] Info: Improved display of Genres using badges</li>
+                <li>[Servers] Added MangaBin (EN)</li>
+                <li>[Servers] Added Vortex Scans For Free (EN)</li>
+                <li>[Servers] Flame Comics (EN): Update</li>
+                <li>[Servers] Manhuaus (EN): Update</li>
+                <li>[Servers] Perf Scan (FR): Update</li>
+                <li>[Servers] Remanga (RU): Update</li>
+                <li>[L10n] Added Hungarian translation</li>
             </ul>
             <p>Happy reading.</p>
         """)

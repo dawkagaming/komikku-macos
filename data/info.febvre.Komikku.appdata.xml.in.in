@@ -99,6 +99,22 @@
     <url type="donation">https://valos.gitlab.io/Komikku/#sponsor</url>
 
     <releases>
+        <release version="1.73.0" date="2025-03-21">
+            <description translate="no">
+                <ul>
+                    <li>[Library] Added ability to update with &lt;Ctrl+r&gt; shortcut</li>
+                    <li>[Card] Info: Improved display of Genres using badges</li>
+                    <li>[Servers] Added MangaBin (EN)</li>
+                    <li>[Servers] Added Vortex Scans For Free (EN)</li>
+                    <li>[Servers] Flame Comics (EN): Update</li>
+                    <li>[Servers] Manhuaus (EN): Update</li>
+                    <li>[Servers] Perf Scan (FR): Update</li>
+                    <li>[Servers] Remanga (RU): Update</li>
+                    <li>[L10n] Added Hungarian translation</li>
+                </ul>
+                <p>Happy reading.</p>
+            </description>
+        </release>
         <release version="1.72.0" date="2025-03-09">
             <description translate="no">
                 <ul>

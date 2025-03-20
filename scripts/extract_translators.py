@@ -22,6 +22,7 @@ LANGUAGES = {
     'fr': 'French',
     'de': 'German',
     'hi': 'Hindi',
+    'hu': 'Hungarian',
     'hr': 'Croatian',
     'id': 'Indonesian',
     'it': 'Italian',

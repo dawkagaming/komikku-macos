@@ -50,7 +50,7 @@ Komikku can be built in a Python virtual environment. However, some tools and de
 * `meson` >= 0.59.0
 * `python` >= 3.8
 * `gtk` >= 4.8.1
-* `libadwaita` >= 1.5.0
+* `libadwaita` >= 1.7.0
 
 1. So, let's start with the system dependencies:
 
