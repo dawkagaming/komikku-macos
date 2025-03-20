@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: Komikku 1.70.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-02-28 11:58+0100\n"
-"PO-Revision-Date: 2025-03-20 18:56+0000\n"
+"PO-Revision-Date: 2025-03-20 21:57+0000\n"
 "Last-Translator: mondstern <mondstern@monocles.de>\n"
 "Language-Team: Hungarian <https://hosted.weblate.org/projects/komikku/main/"
 "hu/>\n"
@@ -20,27 +20,27 @@ msgstr ""
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:11
 msgid "Discover and read manga &amp; comics"
-msgstr "Otkrijte i čitajte mange i stripove"
+msgstr "Fedezze fel és olvassa el a manga & amp; képregényeket"
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:13
 msgid ""
 "With its simple, elegant and adaptive interface, this reader lets you "
 "search, sort and read your series with ease."
 msgstr ""
-"Zahvaljujući jednostavnom, elegantnom i responzivnom sučelju, ovaj čitač "
-"omogućuje vam pretraživanje, sortiranje i čitanje serija s lakoćom."
+"Egyszerű, elegáns és adaptív felületével ez az olvasó lehetővé teszi a "
+"sorozat könnyű keresését, rendezését és olvasását."
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:15
 msgid "Why you will love Komikku?"
-msgstr "Zašto ćete voljeti Strip?"
+msgstr "Miért szeretni fogja Komikku?"
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:17
 msgid "Online and offline reading from dozens of servers"
-msgstr "Online i offline čitanje s desetaka poslužitelja"
+msgstr "Online és offline olvasás több tucat szerverről"
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:18
 msgid "Support for locally stored series (in CBZ or CBR formats)"
-msgstr ""
+msgstr "Helyileg tárolt sorozatok támogatása (CBZ vagy CBR formátumban)"
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:19
 msgid "RTL, LTR, Vertical and Webtoon reading modes"
@@ -52,34 +52,35 @@ msgid ""
 "navigation layout via mouse click or tapping (touchpad/touch screen), mouse "
 "wheel, 2-fingers swipe gesture (touchpad), swipe gesture (touch screen)"
 msgstr ""
-"Podržava više vrsta navigacije: tipke sa strelicama na tipkovnici, desna i "
-"lijeva navigacija klikom miša ili tapkanjem (dodirna podloga / zaslon "
-"osjetljiv na dodir), kotačić miša, gesta prevlačenja s dva prsta (dodirna "
-"podloga), gesta prevlačenja (zaslon osjetljiv na dodir)"
+"Támogatás többféle navigációs: billentyűzet nyilakkal, jobb és bal "
+"navigációs elrendezés egérkattintással vagy megérinti (touchpad / "
+"érintőképernyő), egér kerék, 2 ujjal ellop gesztus (touchpad), ellop gesztus "
+"(érintőképernyő)"
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:21
 msgid "Categories to organize your library"
-msgstr ""
+msgstr "Kategóriák a könyvtár rendezéséhez"
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:22
 msgid "Automatic tracking of series with MyAnimeList and AniList"
 msgstr ""
+"Sorozatok automatikus nyomon követése MyAnimeList és AniList segítségével"
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:23
 msgid "Automatic update of series"
-msgstr ""
+msgstr "A sorozat automatikus frissítése"
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:24
 msgid "Automatic download of new chapters"
-msgstr ""
+msgstr "Új fejezetek automatikus letöltése"
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:25
 msgid "Reading history"
-msgstr ""
+msgstr "A történelem olvasása"
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:26
 msgid "Light and dark themes"
-msgstr ""
+msgstr "Világos és sötét témák"
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:47
 msgid "The Library page"
