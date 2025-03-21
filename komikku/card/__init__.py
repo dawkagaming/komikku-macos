@@ -9,6 +9,7 @@ from gi.repository import Gdk
 from gi.repository import Gio
 from gi.repository import GLib
 from gi.repository import Gtk
+from gi.repository import Pango
 
 from komikku.card.categories_list import CategoriesList
 from komikku.card.chapters_list import ChaptersList
@@ -596,6 +597,7 @@ class InfoBox:
 
             for genre in sorted(manga.genres):
                 label = Gtk.Label()
+                label.set_ellipsize(Pango.EllipsizeMode.END)
                 label.set_markup(html_escape(genre))
                 label.set_css_classes(['genre-label', 'caption'])
                 self.genres_wrapbox.append(label)
