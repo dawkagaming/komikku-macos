@@ -49,7 +49,7 @@ label.badge {
 /*
  * Library
  */
-flowbox {
+.library {
 	background-color: var(--overview-bg-color);
 }
 flowbox flowboxchild {
