@@ -85,62 +85,58 @@ template $ExplorerSearchPage : Adw.NavigationPage {
             vexpand: true;
             hscrollbar-policy: never;
 
-            child: Viewport {
-              scroll-to-focus: true;
+            Adw.Clamp {
+              maximum-size: 768;
+              margin-top: 12;
+              margin-end: 12;
+              margin-bottom: 12;
+              margin-start: 12;
 
-              Adw.Clamp {
-                maximum-size: 768;
-                margin-top: 12;
-                margin-end: 12;
-                margin-bottom: 12;
-                margin-start: 12;
+              Stack search_stack {
+                vhomogeneous: false;
 
-                Stack search_stack {
-                  vhomogeneous: false;
+                StackPage {
+                  name: "results";
+                  child: Adw.Bin {
+                    ListBox search_listbox {
+                      valign: start;
+                      selection-mode: none;
 
-                  StackPage {
-                    name: "results";
-                    child: Adw.Bin {
-                      ListBox search_listbox {
-                        valign: start;
-                        selection-mode: none;
+                      styles [
+                        "boxed-list",
+                      ]
+                    }
+                  };
+                }
 
-                        styles [
-                          "boxed-list",
-                        ]
-                      }
-                    };
-                  }
+                StackPage {
+                  name: "no_results";
+                  child: Adw.StatusPage search_no_results_status_page {
+                    icon-name: "computer-fail-symbolic";
+                  };
+                }
 
-                  StackPage {
-                    name: "no_results";
-                    child: Adw.StatusPage search_no_results_status_page {
-                      icon-name: "computer-fail-symbolic";
-                    };
-                  }
+                StackPage {
+                  name: "loading";
+                  child: Box {
+                    orientation: vertical;
+                    valign: center;
 
-                  StackPage {
-                    name: "loading";
-                    child: Box {
-                      orientation: vertical;
-                      valign: center;
+                    Adw.Spinner search_spinner {
+                      height-request: 48;
+                      width-request: 48;
+                    }
+                  };
+                }
 
-                      Adw.Spinner search_spinner {
-                        height-request: 48;
-                        width-request: 48;
-                      }
-                    };
-                  }
-
-                  StackPage {
-                    name: "intro";
-                    child: Adw.StatusPage search_intro_status_page {
-                      icon-name: "system-search-symbolic";
-                    };
-                  }
+                StackPage {
+                  name: "intro";
+                  child: Adw.StatusPage search_intro_status_page {
+                    icon-name: "system-search-symbolic";
+                  };
                 }
               }
-            };
+            }
           }
         };
       }
@@ -154,64 +150,60 @@ template $ExplorerSearchPage : Adw.NavigationPage {
           vexpand: true;
           hscrollbar-policy: never;
 
-          child: Viewport {
-            scroll-to-focus: true;
+          Adw.Clamp {
+            maximum-size: 768;
+            margin-top: 12;
+            margin-end: 12;
+            margin-bottom: 12;
+            margin-start: 12;
 
-            Adw.Clamp {
-              maximum-size: 768;
-              margin-top: 12;
-              margin-end: 12;
-              margin-bottom: 12;
-              margin-start: 12;
+            Stack most_popular_stack {
+              vhomogeneous: false;
 
-              Stack most_popular_stack {
-                vhomogeneous: false;
+              StackPage {
+                name: "results";
+                child: Adw.Bin {
+                  ListBox most_popular_listbox {
+                    valign: start;
+                    selection-mode: none;
 
-                StackPage {
-                  name: "results";
-                  child: Adw.Bin {
-                    ListBox most_popular_listbox {
-                      valign: start;
-                      selection-mode: none;
+                    styles [
+                      "boxed-list",
+                    ]
+                  }
+                };
+              }
 
-                      styles [
-                        "boxed-list",
-                      ]
-                    }
+              StackPage {
+                name: "no_results";
+                child: Adw.StatusPage most_popular_no_results_status_page {
+                  icon-name: "computer-fail-symbolic";
+                  child: Button {
+                    label: _("Retry");
+                    halign: center;
+
+                    styles [
+                      "pill",
+                      "suggested-action",
+                    ]
                   };
-                }
+                };
+              }
 
-                StackPage {
-                  name: "no_results";
-                  child: Adw.StatusPage most_popular_no_results_status_page {
-                    icon-name: "computer-fail-symbolic";
-                    child: Button {
-                      label: _("Retry");
-                      halign: center;
+              StackPage {
+                name: "loading";
+                child: Box {
+                  orientation: vertical;
+                  valign: center;
 
-                      styles [
-                        "pill",
-                        "suggested-action",
-                      ]
-                    };
-                  };
-                }
-
-                StackPage {
-                  name: "loading";
-                  child: Box {
-                    orientation: vertical;
-                    valign: center;
-
-                    Adw.Spinner most_popular_spinner {
-                      height-request: 48;
-                      width-request: 48;
-                    }
-                  };
-                }
+                  Adw.Spinner most_popular_spinner {
+                    height-request: 48;
+                    width-request: 48;
+                  }
+                };
               }
             }
-          };
+          }
         };
       }
 
@@ -224,64 +216,60 @@ template $ExplorerSearchPage : Adw.NavigationPage {
           vexpand: true;
           hscrollbar-policy: never;
 
-          child: Viewport {
-            scroll-to-focus: true;
+          Adw.Clamp {
+            maximum-size: 768;
+            margin-top: 12;
+            margin-end: 12;
+            margin-bottom: 12;
+            margin-start: 12;
 
-            Adw.Clamp {
-              maximum-size: 768;
-              margin-top: 12;
-              margin-end: 12;
-              margin-bottom: 12;
-              margin-start: 12;
+            Stack latest_updates_stack {
+              vhomogeneous: false;
 
-              Stack latest_updates_stack {
-                vhomogeneous: false;
+              StackPage {
+                name: "results";
+                child: Adw.Bin {
+                  ListBox latest_updates_listbox {
+                    valign: start;
+                    selection-mode: none;
 
-                StackPage {
-                  name: "results";
-                  child: Adw.Bin {
-                    ListBox latest_updates_listbox {
-                      valign: start;
-                      selection-mode: none;
+                    styles [
+                      "boxed-list",
+                    ]
+                  }
+                };
+              }
 
-                      styles [
-                        "boxed-list",
-                      ]
-                    }
+              StackPage {
+                name: "no_results";
+                child: Adw.StatusPage latest_updates_no_results_status_page {
+                  icon-name: "computer-fail-symbolic";
+                  child: Button {
+                    label: _("Retry");
+                    halign: center;
+
+                    styles [
+                      "pill",
+                      "suggested-action",
+                    ]
                   };
-                }
+                };
+              }
 
-                StackPage {
-                  name: "no_results";
-                  child: Adw.StatusPage latest_updates_no_results_status_page {
-                    icon-name: "computer-fail-symbolic";
-                    child: Button {
-                      label: _("Retry");
-                      halign: center;
+              StackPage {
+                name: "loading";
+                child: Box {
+                  orientation: vertical;
+                  valign: center;
 
-                      styles [
-                        "pill",
-                        "suggested-action",
-                      ]
-                    };
-                  };
-                }
-
-                StackPage {
-                  name: "loading";
-                  child: Box {
-                    orientation: vertical;
-                    valign: center;
-
-                    Adw.Spinner latest_updates_spinner {
-                      height-request: 48;
-                      width-request: 48;
-                    }
-                  };
-                }
+                  Adw.Spinner latest_updates_spinner {
+                    height-request: 48;
+                    width-request: 48;
+                  }
+                };
               }
             }
-          };
+          }
         };
       }
     };

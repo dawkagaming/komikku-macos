@@ -15,62 +15,60 @@ template $CategoriesEditorPage : Adw.NavigationPage {
 
     content: ScrolledWindow {
       hscrollbar-policy: never;
-      child: Viewport {
-        scroll-to-focus: true;
-        child: Adw.Clamp {
-          maximum-size: 768;
-          margin-top: 12;
-          margin-end: 12;
-          margin-bottom: 12;
-          margin-start: 12;
+
+      child: Adw.Clamp {
+        maximum-size: 768;
+        margin-top: 12;
+        margin-end: 12;
+        margin-bottom: 12;
+        margin-start: 12;
+
+        Box {
+          orientation: vertical;
+          spacing: 24;
 
           Box {
-            orientation: vertical;
-            spacing: 24;
-
-            Box {
-              Entry add_entry {
-                hexpand: true;
-              }
-
-              Button add_button {
-                tooltip-text: _("Add");
-
-                Image {
-                  icon-name: "bookmark-new-symbolic";
-                }
-              }
-
-              styles [
-                "linked",
-              ]
+            Entry add_entry {
+              hexpand: true;
             }
 
-            Stack stack {
-              vexpand: true;
+            Button add_button {
+              tooltip-text: _("Add");
 
-              StackPage {
-                name: "list";
-                child: ListBox listbox {
-                  selection-mode: none;
-                  valign: start;
-
-                  styles [
-                    "boxed-list",
-                  ]
-                };
+              Image {
+                icon-name: "bookmark-new-symbolic";
               }
+            }
 
-              StackPage {
-                name: "empty";
-                child: Adw.StatusPage empty_status_page {
-                  icon-name: "user-bookmarks-symbolic";
-                  title: _("No Categories");
-                };
-              }
+            styles [
+              "linked",
+            ]
+          }
+
+          Stack stack {
+            vexpand: true;
+
+            StackPage {
+              name: "list";
+              child: ListBox listbox {
+                selection-mode: none;
+                valign: start;
+
+                styles [
+                  "boxed-list",
+                ]
+              };
+            }
+
+            StackPage {
+              name: "empty";
+              child: Adw.StatusPage empty_status_page {
+                icon-name: "user-bookmarks-symbolic";
+                title: _("No Categories");
+              };
             }
           }
-        };
+        }
       };
     };
   };

@@ -47,35 +47,32 @@ template $HistoryPage : Adw.NavigationPage {
 
       ScrolledWindow {
         vexpand: true;
-        child: Viewport {
-          scroll-to-focus: true;
 
-          Adw.Clamp {
-            maximum-size: 768;
-            margin-top: 12;
-            margin-end: 12;
-            margin-bottom: 24;
-            margin-start: 12;
+        Adw.Clamp {
+          maximum-size: 768;
+          margin-top: 12;
+          margin-end: 12;
+          margin-bottom: 24;
+          margin-start: 12;
 
-            Stack stack {
-              StackPage {
-                name: "list";
-                child: Box dates_box {
-                  orientation: vertical;
-                  spacing: 24;
-                };
-              }
+          Stack stack {
+            StackPage {
+              name: "list";
+              child: Box dates_box {
+                orientation: vertical;
+                spacing: 24;
+              };
+            }
 
-              StackPage {
-                name: "empty";
-                child: Adw.StatusPage empty_status_page {
-                  icon-name: "document-open-recent-symbolic";
-                  title: _("No History");
-                };
-              }
+            StackPage {
+              name: "empty";
+              child: Adw.StatusPage empty_status_page {
+                icon-name: "document-open-recent-symbolic";
+                title: _("No History");
+              };
             }
           }
-        };
+        }
       }
     };
   };
