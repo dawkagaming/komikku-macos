@@ -77,7 +77,6 @@ class WebviewPage(Adw.NavigationPage):
         self.settings = WebKit.Settings.new()
         self.settings.set_enable_developer_extras(DEBUG)
         self.settings.set_enable_write_console_messages_to_stdout(DEBUG)
-        self.settings.set_enable_dns_prefetching(True)
 
         # Enable extra features
         all_feature_list = self.settings.get_all_features()
