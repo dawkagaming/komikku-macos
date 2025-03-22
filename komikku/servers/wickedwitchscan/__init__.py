@@ -9,7 +9,8 @@ class Wickedwitchscan(Peachscan):
     id = 'wickedwitchscan'
     name = 'Wicked Witch Scan'
     lang = 'pt_BR'
+    status = 'disabled'
 
     has_cf = True
 
-    base_url = 'https://wicked-witch-scan.com'
+    base_url = 'https://wickedscans.org'
