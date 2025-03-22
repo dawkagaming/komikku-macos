@@ -9,6 +9,7 @@ class Aurorascan(Peachscan):
     id = 'aurorascan'
     name = 'Aurora Scan'
     lang = 'pt_BR'
+    status = 'disabled'
 
     has_cf = True
 
