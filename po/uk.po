@@ -5,13 +5,13 @@
 # "Kislotniy (Acela)" <mylittleponyg5@gmail.com>, 2024.
 # mondstern <mondstern@monocles.de>, 2024.
 # DXCVII <dxcvii@duck.com>, 2024.
-# Bezruchenko Simon <worcposj44@gmail.com>, 2024.
+# Bezruchenko Simon <worcposj44@gmail.com>, 2024, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: Komikku 1.17.1\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-03-21 17:58+0100\n"
-"PO-Revision-Date: 2024-12-07 03:09+0000\n"
+"PO-Revision-Date: 2025-03-25 13:25+0000\n"
 "Last-Translator: Bezruchenko Simon <worcposj44@gmail.com>\n"
 "Language-Team: Ukrainian <https://hosted.weblate.org/projects/komikku/main/"
 "uk/>\n"
@@ -21,11 +21,11 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
 "n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
-"X-Generator: Weblate 5.9-dev\n"
+"X-Generator: Weblate 5.11-dev\n"
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:11
 msgid "Discover and read manga & comics"
-msgstr ""
+msgstr "Відкривайте та читайте мангу й комікси"
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:13
 msgid ""
@@ -827,7 +827,7 @@ msgstr "Пошук"
 #: ../data/ui/shortcuts_overview.blp:52
 msgctxt "Shortcut window description"
 msgid "Update"
-msgstr ""
+msgstr "Оновити"
 
 #: ../data/ui/shortcuts_overview.blp:58
 msgctxt "Shortcut window description"
@@ -999,7 +999,7 @@ msgstr "Фільтри"
 
 #: ../komikku/card/__init__.py:248
 msgid "Unknown"
-msgstr ""
+msgstr "Невідомо"
 
 #: ../komikku/card/__init__.py:335
 msgid "Read progress synchronization with server completed successfully"
@@ -1249,7 +1249,7 @@ msgstr "Переключити статус пришпилення"
 
 #: ../komikku/explorer/search/__init__.py:283
 msgid "Search was cancelled"
-msgstr ""
+msgstr "Пошук було скасовано"
 
 #: ../komikku/explorer/search/__init__.py:290
 msgid "Oops, server website URL is unknown."
@@ -1314,7 +1314,7 @@ msgstr "Найпопулярніших не знайдено"
 
 #: ../komikku/explorer/search/search_global.py:165
 msgid "Search cancelled"
-msgstr ""
+msgstr "Пошук скасовано"
 
 #: ../komikku/explorer/search/search_global.py:173
 msgid "No results"
@@ -1527,7 +1527,7 @@ msgstr "Відключитися від {}"
 
 #: ../komikku/reader/__init__.py:367
 msgid "Page successfully saved"
-msgstr ""
+msgstr "Сторінку успішно збережено"
 
 #: ../komikku/reader/pager/__init__.py:165
 msgid "Failed to sync read progress with server"
@@ -1715,7 +1715,7 @@ msgstr ""
 
 #: ../komikku/servers/exceptions.py:26
 msgid "Failed to complete browser challenge. Please try again."
-msgstr ""
+msgstr "Не вдалося завершити перевірку браузера. Будь ласка, спробуйте ще раз."
 
 #: ../komikku/servers/exceptions.py:31
 msgid "No longer exists."
@@ -1764,7 +1764,7 @@ msgstr "Рейтинг"
 
 #: ../komikku/servers/mangadex/__init__.py:60
 msgid "Filter by Content Ratings"
-msgstr ""
+msgstr "Фільтрувати за рейтингами контенту"
 
 #: ../komikku/servers/mangadex/__init__.py:63
 msgid "Safe"
@@ -1816,7 +1816,7 @@ msgstr "Теги"
 
 #: ../komikku/servers/mangadex/__init__.py:99
 msgid "Filter by Formats"
-msgstr ""
+msgstr "Фільтрувати за форматами"
 
 #: ../komikku/servers/mangadex/__init__.py:102
 msgid "4-Koma"
@@ -1870,103 +1870,103 @@ msgstr "Жанри"
 
 #: ../komikku/servers/mangadex/__init__.py:120
 msgid "Filter by Genres"
-msgstr ""
+msgstr "Фільтрувати за жанрами"
 
 #: ../komikku/servers/mangadex/__init__.py:123
 msgid "Action"
-msgstr ""
+msgstr "Бойовик"
 
 #: ../komikku/servers/mangadex/__init__.py:124
 msgid "Adventure"
-msgstr ""
+msgstr "Пригоди"
 
 #: ../komikku/servers/mangadex/__init__.py:125
 msgid "Boys Love"
-msgstr ""
+msgstr "Бойс-лав"
 
 #: ../komikku/servers/mangadex/__init__.py:126
 msgid "Comedy"
-msgstr ""
+msgstr "Комедія"
 
 #: ../komikku/servers/mangadex/__init__.py:127
 msgid "Crime"
-msgstr ""
+msgstr "Кримінал"
 
 #: ../komikku/servers/mangadex/__init__.py:128
 msgid "Drama"
-msgstr ""
+msgstr "Драма"
 
 #: ../komikku/servers/mangadex/__init__.py:129
 msgid "Fantasy"
-msgstr ""
+msgstr "Фантастика"
 
 #: ../komikku/servers/mangadex/__init__.py:130
 msgid "Girls Love"
-msgstr ""
+msgstr "Гірлс лав"
 
 #: ../komikku/servers/mangadex/__init__.py:131
 msgid "Historical"
-msgstr ""
+msgstr "Історичний"
 
 #: ../komikku/servers/mangadex/__init__.py:132
 msgid "Horror"
-msgstr ""
+msgstr "Жахи"
 
 #: ../komikku/servers/mangadex/__init__.py:133
 msgid "Isekai"
-msgstr ""
+msgstr "Ісекай"
 
 #: ../komikku/servers/mangadex/__init__.py:134
 msgid "Magical Girls"
-msgstr ""
+msgstr "Магічні дівчата"
 
 #: ../komikku/servers/mangadex/__init__.py:135
 msgid "Mecha"
-msgstr ""
+msgstr "Меха"
 
 #: ../komikku/servers/mangadex/__init__.py:136
 msgid "Medical"
-msgstr ""
+msgstr "Медичний"
 
 #: ../komikku/servers/mangadex/__init__.py:137
 msgid "Mystery"
-msgstr ""
+msgstr "Містика"
 
 #: ../komikku/servers/mangadex/__init__.py:138
 msgid "Philosophical"
-msgstr ""
+msgstr "Філософський"
 
 #: ../komikku/servers/mangadex/__init__.py:139
 msgid "Romance"
-msgstr ""
+msgstr "Романтика"
 
 #: ../komikku/servers/mangadex/__init__.py:140
 msgid "Sci-Fi"
-msgstr ""
+msgstr "Наукова фантастика"
 
 #: ../komikku/servers/mangadex/__init__.py:141
 msgid "Slice of Life"
-msgstr ""
+msgstr "Повсякденність"
 
 #: ../komikku/servers/mangadex/__init__.py:142
 msgid "Sports"
-msgstr ""
+msgstr "Спорт"
 
 #: ../komikku/servers/mangadex/__init__.py:143
 msgid "Superhero"
-msgstr ""
+msgstr "Супергерой"
 
 #: ../komikku/servers/mangadex/__init__.py:144
 msgid "Thriller"
-msgstr ""
+msgstr "Трилер"
 
 #: ../komikku/servers/mangadex/__init__.py:145
 msgid "Tragedy"
-msgstr ""
+msgstr "Трагедія"
 
 #: ../komikku/servers/mangadex/__init__.py:146
 msgid "Wuxia"
-msgstr ""
+msgstr "Уся"
 
 #: ../komikku/servers/mangadex/__init__.py:152
 msgid "Tags Inclusion Mode"
