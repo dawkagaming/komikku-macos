@@ -71,7 +71,7 @@ class WebviewPage(Adw.NavigationPage):
         session_type = GLib.getenv('XDG_SESSION_TYPE')
         session_type = session_type.capitalize() if session_type else 'Wayland'
         custom_part = f'{session_type}; Linux {cpu_arch}'  # noqa: E702
-        self.user_agent = f'Mozilla/5.0 ({custom_part}) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.0 Safari/605.1.15'
+        self.user_agent = f'Mozilla/5.0 ({custom_part}) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/60.5 Safari/605.1.15'
 
         # Settings
         self.settings = WebKit.Settings.new()
