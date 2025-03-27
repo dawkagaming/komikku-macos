@@ -308,6 +308,12 @@ template $PreferencesDialog : Adw.PreferencesDialog {
     title: _("Advanced");
     icon-name: "applications-science-symbolic";
 
+    banner: Adw.Banner advanced_banner {
+        title: _("A setting has changed that requires a restart to take effect");
+        button-label: _("Got it!");
+        button-style: suggested;
+    };
+
     Adw.PreferencesGroup {
       title: _("Data");
       description: _("Data not saved in the library");

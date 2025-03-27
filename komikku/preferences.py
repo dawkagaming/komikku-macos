@@ -55,6 +55,7 @@ class PreferencesDialog(Adw.PreferencesDialog):
     page_numbering_switch = Gtk.Template.Child('page_numbering_switch')
     fullscreen_switch = Gtk.Template.Child('fullscreen_switch')
 
+    advanced_banner = Gtk.Template.Child('advanced_banner')
     clear_cached_data_actionrow = Gtk.Template.Child('clear_cached_data_actionrow')
     clear_cached_data_on_app_close_switch = Gtk.Template.Child('clear_cached_data_on_app_close_switch')
     external_servers_modules_switch = Gtk.Template.Child('external_servers_modules_switch')
@@ -66,8 +67,10 @@ class PreferencesDialog(Adw.PreferencesDialog):
 
         self.window = window
         self.settings = Settings.get_default()
+        self.external_servers_modules_in_use = self.settings.external_servers_modules
 
         self.connect('closed', self.on_closed)
+        self.advanced_banner.connect('button-clicked', lambda banner: banner.set_revealed(False))
 
         self.set_config_values()
 
@@ -171,12 +174,9 @@ class PreferencesDialog(Adw.PreferencesDialog):
             Gtk.Settings.get_default().set_property('gtk-enable-animations', True)
 
     def on_external_servers_modules_changed(self, switch_button, _gparam):
-        self.settings.external_servers_modules = switch_button.get_active()
-
-        if switch_button.get_active():
-            self.window.install_servers_modules(reinit=True)
-        else:
-            self.window.reinit_servers_modules()
+        active = switch_button.get_active()
+        self.advanced_banner.set_revealed(active != self.external_servers_modules_in_use)
+        self.settings.external_servers_modules = active
 
     def on_fullscreen_changed(self, switch_button, _gparam):
         self.settings.fullscreen = switch_button.get_active()

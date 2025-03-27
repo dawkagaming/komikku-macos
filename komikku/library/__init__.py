@@ -665,13 +665,6 @@ class LibraryPage(Adw.NavigationPage):
         if self.selected_filters:
             self.flowbox.invalidate_filter()
 
-    def reinstantiate_servers(self):
-        """Used when servers modules origin change: servers variables need to be re-instantiated"""
-
-        # Clear thumbnails servers
-        for thumbnail in self.flowbox:
-            thumbnail.manga._server = None
-
     def remove_thumbnail(self, manga):
         # Remove manga thumbnail in flowbox
         thumbnail = self.flowbox.get_first_child()

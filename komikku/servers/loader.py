@@ -84,11 +84,3 @@ class ServerLoader(importlib.machinery.SourceFileLoader):
             module.__path__ = [os.path.dirname(spec.origin)]
 
         return module
-
-
-def clear_servers_finders():
-    for finder in reversed(sys.meta_path):
-        if not isinstance(finder, ServerFinder):
-            continue
-
-        sys.meta_path.remove(finder)

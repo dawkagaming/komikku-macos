@@ -7,6 +7,7 @@ import datetime
 from gettext import gettext as _
 import gi
 import logging
+import os
 import sys
 import threading
 
@@ -482,7 +483,7 @@ class ApplicationWindow(Adw.ApplicationWindow):
 
         set_color_scheme()
 
-    def install_servers_modules(self, reinit=False):
+    def install_servers_modules(self):
         def run():
             res, status = install_servers_modules_from_repo(self.application.version)
             GLib.idle_add(complete, res, status)
@@ -490,8 +491,7 @@ class ApplicationWindow(Adw.ApplicationWindow):
         def complete(res, status):
             if res is True:
                 if status == 'updated':
-                    self.add_notification(_('Servers modules have been updated'))
-                self.reinit_servers_modules()
+                    self.restart(_('Servers modules have been updated'))
 
             elif res is False:
                 if status == 'unchanged':
@@ -505,13 +505,9 @@ class ApplicationWindow(Adw.ApplicationWindow):
                         cancel_label=_('Close'),
                     )
                     self.application.logger.info('Failed to updates servers modules: incompatible app version')
-                if reinit:
-                    self.reinit_servers_modules()
 
             else:
                 self.application.logger.info('Failed to update servers modules')
-                if reinit:
-                    self.reinit_servers_modules()
 
         thread = threading.Thread(target=run)
         thread.daemon = True
@@ -669,20 +665,11 @@ available in your region/language."""))
 
         return Gdk.EVENT_STOP
 
-    def reinit_servers_modules(self):
-        """Used when origin of servers modules change"""
+    def restart(self, message):
+        def confirm_callback():
+            os.execv(sys.argv[0], sys.argv)
 
-        # Reload servers modules
-        init_servers_modules(Settings.get_default().external_servers_modules, reload_modules=True)
-
-        # Force re-instantiation of server instance variables
-        self.library.reinstantiate_servers()
-        self.card.reinstantiate_server()
-
-        for page in self.navigationview.get_navigation_stack():
-            if page.props.tag.startswith('explorer'):
-                self.explorer.reinstantiate_servers()
-                break
+        self.confirm(_('Restart?'), message, _('Restart'), confirm_callback)
 
     def save_window_size(self):
         if self.is_fullscreen():

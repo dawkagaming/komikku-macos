@@ -239,7 +239,7 @@ def get_servers_list(include_disabled=False, order_by=('lang', 'name')):
     return sorted(servers, key=itemgetter(*order_by))
 
 
-def get_servers_modules(reload=False):
+def get_servers_modules():
     def import_external_modules(servers_path, modules, modules_names, multi=False):
         if multi:
             servers_path = os.path.join(servers_path, 'multi')
@@ -258,8 +258,6 @@ def get_servers_modules(reload=False):
                 continue
 
             module = importlib.import_module(f'.{name}', package='komikku.servers.multi' if multi else 'komikku.servers')
-            if reload:
-                module = importlib.reload(module)
             modules.append(module)
             modules_names.append(module_name)
             count += 1
@@ -276,8 +274,6 @@ def get_servers_modules(reload=False):
                 continue
 
             module = importlib.import_module(module_name)
-            if reload:
-                module = importlib.reload(module)
             modules.append(module)
             modules_names.append(module_name)
             count += 1
@@ -305,23 +301,13 @@ def get_servers_modules(reload=False):
                     # Not very likely
                     continue
 
-                if reload:
-                    # Multi-servers must be imported first
-                    import_external_modules(servers_path, modules, modules_names, multi=True)
-
                 import_external_modules(servers_path, modules, modules_names, multi=False)
 
         elif not internal_done:
             # Import internal servers
             import komikku.servers
 
-            count = 0
-            if reload:
-                # Multi-servers must be imported first
-                import komikku.servers.multi
-                count += import_internal_modules(komikku.servers.multi, modules, modules_names)
-
-            count += import_internal_modules(komikku.servers, modules, modules_names)
+            count = import_internal_modules(komikku.servers, modules, modules_names)
 
             if count > 0:
                 internal_done = True

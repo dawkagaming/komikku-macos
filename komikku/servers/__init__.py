@@ -21,11 +21,9 @@ from http.cookiejar import CookieJar
 import requests
 
 from komikku.models.keyring import KeyringHelper
-from komikku.servers.loader import clear_servers_finders
 from komikku.servers.loader import ServerFinder
 from komikku.servers.loader import ServerFinderPriority
 from komikku.servers.utils import get_server_main_id_by_id
-from komikku.servers.utils import get_servers_modules
 from komikku.utils import BaseServer
 from komikku.utils import get_cache_dir
 from komikku.utils import get_cached_logos_dir
@@ -333,8 +331,6 @@ class Server(BaseServer, ABC):
 
 
 def init_servers_modules(use_external_servers_modules, reload_modules=False):
-    clear_servers_finders()
-
     # Add a first Finder with HIGH priority
     server_finder = ServerFinder(priority=ServerFinderPriority.HIGH)
     server_finder.add_path(os.environ.get('KOMIKKU_SERVERS_PATH'))
@@ -354,9 +350,6 @@ def init_servers_modules(use_external_servers_modules, reload_modules=False):
         server_finder = ServerFinder(ServerFinderPriority.LOW)
         server_finder.add_path(os.path.join(get_cache_dir(), 'servers/repo'))
         server_finder.install()
-
-    if reload_modules:
-        get_servers_modules(reload=reload_modules)
 
 
 def install_servers_modules_from_repo(app_version):
