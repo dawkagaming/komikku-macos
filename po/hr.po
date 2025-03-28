@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Komikku 1.47.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-03-21 17:58+0100\n"
+"POT-Creation-Date: 2025-03-28 11:01+0100\n"
 "PO-Revision-Date: 2024-11-15 13:00+0000\n"
 "Last-Translator: Milo Ivir <mail@milotype.de>\n"
 "Language-Team: Croatian <https://hosted.weblate.org/projects/komikku/main/hr/"
@@ -256,10 +256,6 @@ msgstr "Biblioteka"
 #: ../data/ui/library.blp:23
 msgid "Toggle Categories Sidebar"
 msgstr "Uključi/Isključi bočnu traku kategorija"
-
-#: ../data/ui/library.blp:27
-msgid "Komikku"
-msgstr "Komikku"
 
 #: ../data/ui/library.blp:34
 msgid "Main Menu"
@@ -699,31 +695,39 @@ msgid "Advanced"
 msgstr "Napredno"
 
 #: ../data/ui/preferences.blp:312
+msgid "A setting has changed that requires a restart to take effect"
+msgstr ""
+
+#: ../data/ui/preferences.blp:313
+msgid "Got it!"
+msgstr ""
+
+#: ../data/ui/preferences.blp:318
 msgid "Data"
 msgstr "Podaci"
 
-#: ../data/ui/preferences.blp:313
+#: ../data/ui/preferences.blp:319
 msgid "Data not saved in the library"
 msgstr "Podaci nisu spremljeni u biblioteku"
 
-#: ../data/ui/preferences.blp:316
+#: ../data/ui/preferences.blp:322
 msgid "Clear Chapters Cache and Database"
 msgstr "Izbriši predmemoriju poglavlja i bazu podataka"
 
-#: ../data/ui/preferences.blp:321
+#: ../data/ui/preferences.blp:327
 msgid "Clear Chapters Cache and Database on Exit"
 msgstr ""
 "Izbriši predmemoriju poglavlja i bazu podataka pri zatvaranju aplikacije"
 
-#: ../data/ui/preferences.blp:326
+#: ../data/ui/preferences.blp:332
 msgid "Servers Modules"
 msgstr "Moduli servera"
 
-#: ../data/ui/preferences.blp:329
+#: ../data/ui/preferences.blp:335
 msgid "Use Up-to-date Servers Modules"
 msgstr "Koristi aktualne module servera"
 
-#: ../data/ui/preferences.blp:330
+#: ../data/ui/preferences.blp:336
 msgid ""
 "An alternative version of the servers modules, installed from the source "
 "code repository and updated at each startup, is used instead of the one "
@@ -733,27 +737,27 @@ msgstr ""
 "izvornog koda i aktualizirana pri svakom pokretanju se koristi umjesto "
 "verzije koja je isporučena s aplikacijom."
 
-#: ../data/ui/preferences.blp:335
+#: ../data/ui/preferences.blp:341
 msgid "Credentials Storage"
 msgstr "Spremište podataka prijave"
 
-#: ../data/ui/preferences.blp:338
+#: ../data/ui/preferences.blp:344
 msgid "Allow Plaintext Storage as Fallback"
 msgstr "Dopusti spremanje običnog teksta kao rezervnu verziju"
 
-#: ../data/ui/preferences.blp:339
+#: ../data/ui/preferences.blp:345
 msgid "Used when no keyring backends are found"
 msgstr "Koristi se kada se ne pronađe nijedno spremište za privjesak ključeva"
 
-#: ../data/ui/preferences.blp:344
+#: ../data/ui/preferences.blp:350
 msgid "Tweaks"
 msgstr "Podešavanja"
 
-#: ../data/ui/preferences.blp:347
+#: ../data/ui/preferences.blp:353
 msgid "Disable Animations"
 msgstr "Deaktiviraj animacije"
 
-#: ../data/ui/preferences.blp:348
+#: ../data/ui/preferences.blp:354
 msgid ""
 "Useful with E Ink e-readers to avoid very choppy and unpleasant animations "
 "(due to the low refresh rate of the screen)"
@@ -761,7 +765,7 @@ msgstr ""
 "Korisno s E Ink e-čitačima za izbjegavanje vrlo isprekidanih i neugodnih "
 "animacije (zbog niske stope aktualiziranja)"
 
-#: ../data/ui/preferences.blp:352
+#: ../data/ui/preferences.blp:358
 msgid ""
 "This tweak is only intended for users who do not use the GNOME desktop "
 "environment and therefore cannot disable animations globally via GNOME "
@@ -905,22 +909,22 @@ msgstr "Jednokratna ili mjesečna donacija"
 msgid "Webview"
 msgstr "Web prikaz"
 
-#: ../komikku/application.py:191
+#: ../komikku/application.py:192
 msgid "Multiple URLs not supported"
 msgstr "Korištenje više URL-ova nije podržano"
 
-#: ../komikku/application.py:207
+#: ../komikku/application.py:208
 msgid "Invalid URL {}, not handled by any server."
 msgstr "Nevaljan URL {}, nijedan server ga ne koristi."
 
-#: ../komikku/application.py:418 ../komikku/card/__init__.py:158
+#: ../komikku/application.py:419 ../komikku/card/__init__.py:158
 #: ../komikku/card/__init__.py:159 ../komikku/categories_editor.py:189
 #: ../komikku/downloader.py:377 ../komikku/downloader.py:378
-#: ../komikku/library/__init__.py:771 ../komikku/library/__init__.py:772
+#: ../komikku/library/__init__.py:764 ../komikku/library/__init__.py:765
 msgid "Cancel"
 msgstr "Odustani"
 
-#: ../komikku/application.py:493
+#: ../komikku/application.py:494
 msgid "Servers modules have been updated"
 msgstr "Moduli servera su aktualizirani"
 
@@ -942,7 +946,7 @@ msgstr ""
 msgid "Close"
 msgstr "Zatvori"
 
-#: ../komikku/application.py:524
+#: ../komikku/application.py:520
 msgid ""
 "A manga, manhwa, manhua, webtoons, webcomics and comics reader for GNOME\n"
 "\n"
@@ -956,33 +960,41 @@ msgstr ""
 "kupnjom službenih stripova kada su\n"
 "dostupni u tvojoj regiji/jeziku."
 
-#: ../komikku/application.py:533
+#: ../komikku/application.py:529
 msgid "Supporters"
 msgstr "Podržavtelji"
 
-#: ../komikku/application.py:535
+#: ../komikku/application.py:531
 msgid "Join Chat"
 msgstr "Pridruži se chatu"
 
-#: ../komikku/application.py:651
+#: ../komikku/application.py:647
 msgid "Are you sure you want to quit?"
 msgstr "Stvarno želiš zatvoriti aplikaciju?"
 
-#: ../komikku/application.py:654
+#: ../komikku/application.py:650
 msgid "Some chapters are currently being downloaded."
 msgstr "Trenutačno se preuzimaju neka poglavlja."
 
-#: ../komikku/application.py:656
+#: ../komikku/application.py:652
 msgid "Some mangas are currently being updated."
 msgstr "Trenutačno se aktualiziraju neke mange."
 
-#: ../komikku/application.py:660
+#: ../komikku/application.py:656
 msgid "Quit?"
 msgstr "Zatvori aplikaciju?"
 
-#: ../komikku/application.py:662
+#: ../komikku/application.py:658
 msgid "Quit"
 msgstr "Zatvori aplikaciju"
+
+#: ../komikku/application.py:672
+msgid "Restart"
+msgstr ""
+
+#: ../komikku/application.py:672
+msgid "Restart?"
+msgstr ""
 
 #: ../komikku/card/__init__.py:110 ../komikku/card/__init__.py:239
 #: ../komikku/explorer/search/__init__.py:75
@@ -1013,32 +1025,32 @@ msgstr ""
 "{0} se više nepodržava.\n"
 "Prijeđi na jedan drugi server."
 
-#: ../komikku/card/__init__.py:457 ../komikku/card/chapters_list.py:725
+#: ../komikku/card/__init__.py:451 ../komikku/card/chapters_list.py:725
 msgid "Clear and Reset"
 msgstr "Izbriši i obnovi"
 
-#: ../komikku/card/__init__.py:457 ../komikku/card/chapters_list.py:725
+#: ../komikku/card/__init__.py:451 ../komikku/card/chapters_list.py:725
 msgid "Reset"
 msgstr "Obnovi"
 
-#: ../komikku/card/__init__.py:564
+#: ../komikku/card/__init__.py:558
 msgid "Unknown author"
 msgstr "Nepoznat autor"
 
-#: ../komikku/card/__init__.py:570 ../komikku/card/__init__.py:579
+#: ../komikku/card/__init__.py:564 ../komikku/card/__init__.py:573
 msgid "Unknown status"
 msgstr "Nepoznato stanje"
 
-#: ../komikku/card/__init__.py:580 ../komikku/explorer/common.py:221
+#: ../komikku/card/__init__.py:574 ../komikku/explorer/common.py:221
 msgid "Local"
 msgstr "Lokalno"
 
-#: ../komikku/card/__init__.py:618 ../komikku/card/chapters_list.py:653
+#: ../komikku/card/__init__.py:612 ../komikku/card/chapters_list.py:653
 msgid "%m/%d/%Y"
 msgstr "%d. %m. %Y."
 
 #: ../komikku/card/chapters_list.py:338 ../komikku/downloader.py:522
-#: ../komikku/library/__init__.py:805
+#: ../komikku/library/__init__.py:798
 #, python-brace-format
 msgid "{0} selected"
 msgid_plural "{0} selected"
@@ -1054,7 +1066,7 @@ msgstr "Aktualiziranje stanja čitanja poglavlja nije uspjelo"
 msgid "Download"
 msgstr "Preuzmi"
 
-#: ../komikku/card/chapters_list.py:721 ../komikku/preferences.py:136
+#: ../komikku/card/chapters_list.py:721 ../komikku/preferences.py:139
 msgid "Clear"
 msgstr "Izbriši"
 
@@ -1360,15 +1372,15 @@ msgstr "Dobro došli u Komikku"
 msgid "Loading…"
 msgstr "Učitava se …"
 
-#: ../komikku/library/__init__.py:754
+#: ../komikku/library/__init__.py:747
 msgid "Failed to update reading status"
 msgstr "Aktulaiziranje stanja čitanja nije uspjelo"
 
-#: ../komikku/library/__init__.py:776
+#: ../komikku/library/__init__.py:769
 msgid "Add New Comic"
 msgstr "Dodaj novi strip"
 
-#: ../komikku/library/__init__.py:809 ../komikku/library/categories_list.py:145
+#: ../komikku/library/__init__.py:802 ../komikku/library/categories_list.py:145
 msgid "Uncategorized"
 msgstr "Nekategorizirano"
 
@@ -1430,19 +1442,19 @@ msgstr "Odgođeno"
 msgid "Hiatus"
 msgstr "Stanka"
 
-#: ../komikku/preferences.py:134
+#: ../komikku/preferences.py:137
 msgid "Clear?"
 msgstr "Izbrisati?"
 
-#: ../komikku/preferences.py:135
+#: ../komikku/preferences.py:138
 msgid "Are you sure you want to clear chapters cache and database?"
 msgstr "Stvarno želiš izbrisati predmemoriju poglavlja i bazu podataka?"
 
-#: ../komikku/preferences.py:163
+#: ../komikku/preferences.py:166
 msgid "Disable animations?"
 msgstr "Deaktivirati animacije?"
 
-#: ../komikku/preferences.py:164
+#: ../komikku/preferences.py:167
 msgid ""
 "Are you sure you want to disable animations?\n"
 "\n"
@@ -1452,7 +1464,7 @@ msgstr ""
 "\n"
 "Navigacija gestama u čitaču više neće raditi ispravno."
 
-#: ../komikku/preferences.py:165
+#: ../komikku/preferences.py:168
 msgid "Disable"
 msgstr "Deaktiviraj"
 
@@ -2144,6 +2156,9 @@ msgstr ""
 #: ../komikku/webview.py:486
 msgid "Please complete CAPTCHA"
 msgstr "Riješi Captcha"
+
+#~ msgid "Komikku"
+#~ msgstr "Komikku"
 
 #~ msgid "Discover and read manga &amp; comics"
 #~ msgstr "Otkrij i čitaj mange i stripove"

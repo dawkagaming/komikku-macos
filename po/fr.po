@@ -8,11 +8,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: unnamed project\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-03-21 17:58+0100\n"
+"POT-Creation-Date: 2025-03-28 11:01+0100\n"
 "PO-Revision-Date: 2025-03-21 17:11+0000\n"
 "Last-Translator: Valéry Febvre <vfebvre@easter-eggs.com>\n"
-"Language-Team: French <https://hosted.weblate.org/projects/komikku/main/fr/>"
-"\n"
+"Language-Team: French <https://hosted.weblate.org/projects/komikku/main/fr/"
+">\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -256,10 +256,6 @@ msgstr "Bibliothèque"
 #: ../data/ui/library.blp:23
 msgid "Toggle Categories Sidebar"
 msgstr "Basculer la barre latérale des catégories"
-
-#: ../data/ui/library.blp:27
-msgid "Komikku"
-msgstr "Komikku"
 
 #: ../data/ui/library.blp:34
 msgid "Main Menu"
@@ -703,30 +699,38 @@ msgid "Advanced"
 msgstr "Avancé"
 
 #: ../data/ui/preferences.blp:312
+msgid "A setting has changed that requires a restart to take effect"
+msgstr ""
+
+#: ../data/ui/preferences.blp:313
+msgid "Got it!"
+msgstr ""
+
+#: ../data/ui/preferences.blp:318
 msgid "Data"
 msgstr "Données"
 
-#: ../data/ui/preferences.blp:313
+#: ../data/ui/preferences.blp:319
 msgid "Data not saved in the library"
 msgstr "Données non enregistrées dans la bibliothèque"
 
-#: ../data/ui/preferences.blp:316
+#: ../data/ui/preferences.blp:322
 msgid "Clear Chapters Cache and Database"
 msgstr "Effacer le cache des chapitres et la base de données"
 
-#: ../data/ui/preferences.blp:321
+#: ../data/ui/preferences.blp:327
 msgid "Clear Chapters Cache and Database on Exit"
 msgstr "Effacer le cache des chapitres et la base de données à la fermeture"
 
-#: ../data/ui/preferences.blp:326
+#: ../data/ui/preferences.blp:332
 msgid "Servers Modules"
 msgstr "Modules des serveurs"
 
-#: ../data/ui/preferences.blp:329
+#: ../data/ui/preferences.blp:335
 msgid "Use Up-to-date Servers Modules"
 msgstr "Utiliser des modules serveurs à jour"
 
-#: ../data/ui/preferences.blp:330
+#: ../data/ui/preferences.blp:336
 msgid ""
 "An alternative version of the servers modules, installed from the source "
 "code repository and updated at each startup, is used instead of the one "
@@ -736,27 +740,27 @@ msgstr ""
 "code source et mise à jour à chaque démarrage, est utilisée à la place de "
 "celle livrée avec l'application."
 
-#: ../data/ui/preferences.blp:335
+#: ../data/ui/preferences.blp:341
 msgid "Credentials Storage"
 msgstr "Stockage des informations d'identification"
 
-#: ../data/ui/preferences.blp:338
+#: ../data/ui/preferences.blp:344
 msgid "Allow Plaintext Storage as Fallback"
 msgstr "Autoriser le stockage en texte en clair comme solution de secours"
 
-#: ../data/ui/preferences.blp:339
+#: ../data/ui/preferences.blp:345
 msgid "Used when no keyring backends are found"
 msgstr "Utilisé lorsque aucun backend de trousseau de clés n'est trouvé"
 
-#: ../data/ui/preferences.blp:344
+#: ../data/ui/preferences.blp:350
 msgid "Tweaks"
 msgstr "Ajustements"
 
-#: ../data/ui/preferences.blp:347
+#: ../data/ui/preferences.blp:353
 msgid "Disable Animations"
 msgstr "Désactiver les animations"
 
-#: ../data/ui/preferences.blp:348
+#: ../data/ui/preferences.blp:354
 msgid ""
 "Useful with E Ink e-readers to avoid very choppy and unpleasant animations "
 "(due to the low refresh rate of the screen)"
@@ -764,7 +768,7 @@ msgstr ""
 "Utile avec les liseuses E Ink pour éviter les animations très hachées et "
 "désagréables (dues au faible taux de rafraîchissement de l'écran)"
 
-#: ../data/ui/preferences.blp:352
+#: ../data/ui/preferences.blp:358
 msgid ""
 "This tweak is only intended for users who do not use the GNOME desktop "
 "environment and therefore cannot disable animations globally via GNOME "
@@ -909,22 +913,22 @@ msgstr "Don unique ou mensuel"
 msgid "Webview"
 msgstr "Vue Web"
 
-#: ../komikku/application.py:191
+#: ../komikku/application.py:192
 msgid "Multiple URLs not supported"
 msgstr "Les URL multiples ne sont pas pris en charge"
 
-#: ../komikku/application.py:207
+#: ../komikku/application.py:208
 msgid "Invalid URL {}, not handled by any server."
 msgstr "URL invalide {}, gérée par aucun serveur."
 
-#: ../komikku/application.py:418 ../komikku/card/__init__.py:158
+#: ../komikku/application.py:419 ../komikku/card/__init__.py:158
 #: ../komikku/card/__init__.py:159 ../komikku/categories_editor.py:189
 #: ../komikku/downloader.py:377 ../komikku/downloader.py:378
-#: ../komikku/library/__init__.py:771 ../komikku/library/__init__.py:772
+#: ../komikku/library/__init__.py:764 ../komikku/library/__init__.py:765
 msgid "Cancel"
 msgstr "Annuler"
 
-#: ../komikku/application.py:493
+#: ../komikku/application.py:494
 msgid "Servers modules have been updated"
 msgstr "Les modules des serveurs ont été mis à jour"
 
@@ -947,7 +951,7 @@ msgstr ""
 msgid "Close"
 msgstr "Fermer"
 
-#: ../komikku/application.py:524
+#: ../komikku/application.py:520
 msgid ""
 "A manga, manhwa, manhua, webtoons, webcomics and comics reader for GNOME\n"
 "\n"
@@ -961,33 +965,41 @@ msgstr ""
 "en achetant les BD officielles lorsqu'elles sont\n"
 "disponibles dans votre région / langue."
 
-#: ../komikku/application.py:533
+#: ../komikku/application.py:529
 msgid "Supporters"
 msgstr "Supporteurs"
 
-#: ../komikku/application.py:535
+#: ../komikku/application.py:531
 msgid "Join Chat"
 msgstr "Rejoindre le salon de discussion"
 
-#: ../komikku/application.py:651
+#: ../komikku/application.py:647
 msgid "Are you sure you want to quit?"
 msgstr "Êtes-vous sûr de vouloir quitter ?"
 
-#: ../komikku/application.py:654
+#: ../komikku/application.py:650
 msgid "Some chapters are currently being downloaded."
 msgstr "Certains chapitres sont en cours de téléchargement."
 
-#: ../komikku/application.py:656
+#: ../komikku/application.py:652
 msgid "Some mangas are currently being updated."
 msgstr "Certains mangas sont en cours de mise à jour."
 
-#: ../komikku/application.py:660
+#: ../komikku/application.py:656
 msgid "Quit?"
 msgstr "Quitter ?"
 
-#: ../komikku/application.py:662
+#: ../komikku/application.py:658
 msgid "Quit"
 msgstr "Quitter"
+
+#: ../komikku/application.py:672
+msgid "Restart"
+msgstr ""
+
+#: ../komikku/application.py:672
+msgid "Restart?"
+msgstr ""
 
 #: ../komikku/card/__init__.py:110 ../komikku/card/__init__.py:239
 #: ../komikku/explorer/search/__init__.py:75
@@ -1020,32 +1032,32 @@ msgstr ""
 "{0} n'est plus pris en charge.\n"
 "Veuillez basculer vers un autre serveur."
 
-#: ../komikku/card/__init__.py:457 ../komikku/card/chapters_list.py:725
+#: ../komikku/card/__init__.py:451 ../komikku/card/chapters_list.py:725
 msgid "Clear and Reset"
 msgstr "Effacer et réinitialiser"
 
-#: ../komikku/card/__init__.py:457 ../komikku/card/chapters_list.py:725
+#: ../komikku/card/__init__.py:451 ../komikku/card/chapters_list.py:725
 msgid "Reset"
 msgstr "Réinitialiser"
 
-#: ../komikku/card/__init__.py:564
+#: ../komikku/card/__init__.py:558
 msgid "Unknown author"
 msgstr "Auteur inconnu"
 
-#: ../komikku/card/__init__.py:570 ../komikku/card/__init__.py:579
+#: ../komikku/card/__init__.py:564 ../komikku/card/__init__.py:573
 msgid "Unknown status"
 msgstr "Statut inconnu"
 
-#: ../komikku/card/__init__.py:580 ../komikku/explorer/common.py:221
+#: ../komikku/card/__init__.py:574 ../komikku/explorer/common.py:221
 msgid "Local"
 msgstr "Local"
 
-#: ../komikku/card/__init__.py:618 ../komikku/card/chapters_list.py:653
+#: ../komikku/card/__init__.py:612 ../komikku/card/chapters_list.py:653
 msgid "%m/%d/%Y"
 msgstr "%d/%m/%Y"
 
 #: ../komikku/card/chapters_list.py:338 ../komikku/downloader.py:522
-#: ../komikku/library/__init__.py:805
+#: ../komikku/library/__init__.py:798
 #, python-brace-format
 msgid "{0} selected"
 msgid_plural "{0} selected"
@@ -1060,7 +1072,7 @@ msgstr "Échec de la mise à jour de l'état de lecture des chapitres"
 msgid "Download"
 msgstr "Télécharger"
 
-#: ../komikku/card/chapters_list.py:721 ../komikku/preferences.py:136
+#: ../komikku/card/chapters_list.py:721 ../komikku/preferences.py:139
 msgid "Clear"
 msgstr "Effacer"
 
@@ -1370,15 +1382,15 @@ msgstr "Bienvenue dans Komikku"
 msgid "Loading…"
 msgstr "Chargement…"
 
-#: ../komikku/library/__init__.py:754
+#: ../komikku/library/__init__.py:747
 msgid "Failed to update reading status"
 msgstr "Échec de la mise à jour de l'état de lecture"
 
-#: ../komikku/library/__init__.py:776
+#: ../komikku/library/__init__.py:769
 msgid "Add New Comic"
 msgstr "Ajouter de nouvelles BD"
 
-#: ../komikku/library/__init__.py:809 ../komikku/library/categories_list.py:145
+#: ../komikku/library/__init__.py:802 ../komikku/library/categories_list.py:145
 msgid "Uncategorized"
 msgstr "Non classés"
 
@@ -1440,20 +1452,20 @@ msgstr "Suspendu"
 msgid "Hiatus"
 msgstr "Hiatus"
 
-#: ../komikku/preferences.py:134
+#: ../komikku/preferences.py:137
 msgid "Clear?"
 msgstr "Effacer ?"
 
-#: ../komikku/preferences.py:135
+#: ../komikku/preferences.py:138
 msgid "Are you sure you want to clear chapters cache and database?"
 msgstr ""
 "Êtes-vous sûr de vouloir vider le cache des chapitres et la base de données ?"
 
-#: ../komikku/preferences.py:163
+#: ../komikku/preferences.py:166
 msgid "Disable animations?"
 msgstr "Désactiver les animations ?"
 
-#: ../komikku/preferences.py:164
+#: ../komikku/preferences.py:167
 msgid ""
 "Are you sure you want to disable animations?\n"
 "\n"
@@ -1463,7 +1475,7 @@ msgstr ""
 "\n"
 "La navigation gestuelle dans le lecteur ne fonctionnera plus correctement."
 
-#: ../komikku/preferences.py:165
+#: ../komikku/preferences.py:168
 msgid "Disable"
 msgstr "Désactiver"
 
@@ -2156,6 +2168,9 @@ msgstr "Veuillez patienter…"
 #: ../komikku/webview.py:486
 msgid "Please complete CAPTCHA"
 msgstr "Veuillez compléter le CAPTCHA"
+
+#~ msgid "Komikku"
+#~ msgstr "Komikku"
 
 #~ msgid "Discover and read manga &amp; comics"
 #~ msgstr "Découvrir et lire des mangas et des BD"

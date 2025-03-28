@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Komikku 1.64.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-03-21 17:58+0100\n"
+"POT-Creation-Date: 2025-03-28 11:01+0100\n"
 "PO-Revision-Date: 2025-02-07 11:02+0000\n"
 "Last-Translator: Valéry Febvre <vfebvre@easter-eggs.com>\n"
 "Language-Team: Tamil <https://hosted.weblate.org/projects/komikku/main/ta/>\n"
@@ -254,10 +254,6 @@ msgstr "நூலகம்"
 #: ../data/ui/library.blp:23
 msgid "Toggle Categories Sidebar"
 msgstr "வகைகள் பக்கப்பட்டியை மாற்றவும்"
-
-#: ../data/ui/library.blp:27
-msgid "Komikku"
-msgstr "காமிக்"
 
 #: ../data/ui/library.blp:34
 msgid "Main Menu"
@@ -697,30 +693,38 @@ msgid "Advanced"
 msgstr "மேம்பட்ட"
 
 #: ../data/ui/preferences.blp:312
+msgid "A setting has changed that requires a restart to take effect"
+msgstr ""
+
+#: ../data/ui/preferences.blp:313
+msgid "Got it!"
+msgstr ""
+
+#: ../data/ui/preferences.blp:318
 msgid "Data"
 msgstr "தகவல்கள்"
 
-#: ../data/ui/preferences.blp:313
+#: ../data/ui/preferences.blp:319
 msgid "Data not saved in the library"
 msgstr "தரவு நூலகத்தில் சேமிக்கப்படவில்லை"
 
-#: ../data/ui/preferences.blp:316
+#: ../data/ui/preferences.blp:322
 msgid "Clear Chapters Cache and Database"
 msgstr "தற்காலிக கேச் மற்றும் தரவுத்தளத்தை அழிக்கவும்"
 
-#: ../data/ui/preferences.blp:321
+#: ../data/ui/preferences.blp:327
 msgid "Clear Chapters Cache and Database on Exit"
 msgstr "வெளியேறும்போது கேச் மற்றும் தரவுத்தளத்தை அழிக்கவும்"
 
-#: ../data/ui/preferences.blp:326
+#: ../data/ui/preferences.blp:332
 msgid "Servers Modules"
 msgstr "சேவையக தொகுதிகள்"
 
-#: ../data/ui/preferences.blp:329
+#: ../data/ui/preferences.blp:335
 msgid "Use Up-to-date Servers Modules"
 msgstr "புதுப்பித்த சேவையக தொகுதிகள் பயன்படுத்தவும்"
 
-#: ../data/ui/preferences.blp:330
+#: ../data/ui/preferences.blp:336
 msgid ""
 "An alternative version of the servers modules, installed from the source "
 "code repository and updated at each startup, is used instead of the one "
@@ -730,27 +734,27 @@ msgstr ""
 "சேவையக தொகுதிகளின் மாற்று பதிப்பு, பயன்பாட்டுடன் வழங்கப்பட்டதற்கு பதிலாக "
 "பயன்படுத்தப்படுகிறது."
 
-#: ../data/ui/preferences.blp:335
+#: ../data/ui/preferences.blp:341
 msgid "Credentials Storage"
 msgstr "நற்சான்றிதழ்கள் சேமிப்பு"
 
-#: ../data/ui/preferences.blp:338
+#: ../data/ui/preferences.blp:344
 msgid "Allow Plaintext Storage as Fallback"
 msgstr "எளிய உரை சேமிப்பிடத்தை குறைவடையும்"
 
-#: ../data/ui/preferences.blp:339
+#: ../data/ui/preferences.blp:345
 msgid "Used when no keyring backends are found"
 msgstr "கீரிங் பின்தளத்தில் எதுவும் காணப்படாதபோது பயன்படுத்தப்படுகிறது"
 
-#: ../data/ui/preferences.blp:344
+#: ../data/ui/preferences.blp:350
 msgid "Tweaks"
 msgstr "மாற்றங்கள்"
 
-#: ../data/ui/preferences.blp:347
+#: ../data/ui/preferences.blp:353
 msgid "Disable Animations"
 msgstr "அனிமேசன்களை முடக்கு"
 
-#: ../data/ui/preferences.blp:348
+#: ../data/ui/preferences.blp:354
 msgid ""
 "Useful with E Ink e-readers to avoid very choppy and unpleasant animations "
 "(due to the low refresh rate of the screen)"
@@ -758,7 +762,7 @@ msgstr ""
 "மிகவும் மென்மையான மற்றும் விரும்பத்தகாத அனிமேசன்களைத் தவிர்க்க மின் மை மின்-வாசகர்களுடன் "
 "பயனுள்ளதாக இருக்கும் (திரையின் குறைந்த புதுப்பிப்பு வீதம் காரணமாக)"
 
-#: ../data/ui/preferences.blp:352
+#: ../data/ui/preferences.blp:358
 msgid ""
 "This tweak is only intended for users who do not use the GNOME desktop "
 "environment and therefore cannot disable animations globally via GNOME "
@@ -902,22 +906,22 @@ msgstr "ஒரு முறை அல்லது மாதாந்திர �
 msgid "Webview"
 msgstr "வெப்வியூ"
 
-#: ../komikku/application.py:191
+#: ../komikku/application.py:192
 msgid "Multiple URLs not supported"
 msgstr "பல முகவரி கள் ஆதரிக்கப்படவில்லை"
 
-#: ../komikku/application.py:207
+#: ../komikku/application.py:208
 msgid "Invalid URL {}, not handled by any server."
 msgstr "தவறான முகவரி {}, எந்த சேவையகமும் கையாளப்படவில்லை."
 
-#: ../komikku/application.py:418 ../komikku/card/__init__.py:158
+#: ../komikku/application.py:419 ../komikku/card/__init__.py:158
 #: ../komikku/card/__init__.py:159 ../komikku/categories_editor.py:189
 #: ../komikku/downloader.py:377 ../komikku/downloader.py:378
-#: ../komikku/library/__init__.py:771 ../komikku/library/__init__.py:772
+#: ../komikku/library/__init__.py:764 ../komikku/library/__init__.py:765
 msgid "Cancel"
 msgstr "ரத்துசெய்"
 
-#: ../komikku/application.py:493
+#: ../komikku/application.py:494
 msgid "Servers modules have been updated"
 msgstr "சேவையக தொகுதிகள் புதுப்பிக்கப்பட்டுள்ளன"
 
@@ -939,7 +943,7 @@ msgstr ""
 msgid "Close"
 msgstr "மூடு"
 
-#: ../komikku/application.py:524
+#: ../komikku/application.py:520
 msgid ""
 "A manga, manhwa, manhua, webtoons, webcomics and comics reader for GNOME\n"
 "\n"
@@ -953,33 +957,41 @@ msgstr ""
 " அதிகாரப்பூர்வ காமிக்சை வாங்குவதன் மூலம்\n"
 " உங்கள் பகுதி/மொழியில் கிடைக்கிறது."
 
-#: ../komikku/application.py:533
+#: ../komikku/application.py:529
 msgid "Supporters"
 msgstr "ஆதரவாளர்கள்"
 
-#: ../komikku/application.py:535
+#: ../komikku/application.py:531
 msgid "Join Chat"
 msgstr "அரட்டையில் சேரவும்"
 
-#: ../komikku/application.py:651
+#: ../komikku/application.py:647
 msgid "Are you sure you want to quit?"
 msgstr "நீங்கள் நிச்சயமாக வெளியேற விரும்புகிறீர்களா?"
 
-#: ../komikku/application.py:654
+#: ../komikku/application.py:650
 msgid "Some chapters are currently being downloaded."
 msgstr "சில அத்தியாயங்கள் தற்போது பதிவிறக்கம் செய்யப்படுகின்றன."
 
-#: ../komikku/application.py:656
+#: ../komikku/application.py:652
 msgid "Some mangas are currently being updated."
 msgstr "சில மங்காக்கள் தற்போது புதுப்பிக்கப்பட்டு வருகின்றன."
 
-#: ../komikku/application.py:660
+#: ../komikku/application.py:656
 msgid "Quit?"
 msgstr "வெளியேறவா?"
 
-#: ../komikku/application.py:662
+#: ../komikku/application.py:658
 msgid "Quit"
 msgstr "வெளியேறு"
+
+#: ../komikku/application.py:672
+msgid "Restart"
+msgstr ""
+
+#: ../komikku/application.py:672
+msgid "Restart?"
+msgstr ""
 
 #: ../komikku/card/__init__.py:110 ../komikku/card/__init__.py:239
 #: ../komikku/explorer/search/__init__.py:75
@@ -1010,32 +1022,32 @@ msgstr ""
 " {0} இனி ஆதரிக்கப்படாது.\n"
 " தயவுசெய்து மற்றொரு சேவையகத்திற்கு மாறவும்."
 
-#: ../komikku/card/__init__.py:457 ../komikku/card/chapters_list.py:725
+#: ../komikku/card/__init__.py:451 ../komikku/card/chapters_list.py:725
 msgid "Clear and Reset"
 msgstr "அழி மீட்டமை"
 
-#: ../komikku/card/__init__.py:457 ../komikku/card/chapters_list.py:725
+#: ../komikku/card/__init__.py:451 ../komikku/card/chapters_list.py:725
 msgid "Reset"
 msgstr "மீட்டமை"
 
-#: ../komikku/card/__init__.py:564
+#: ../komikku/card/__init__.py:558
 msgid "Unknown author"
 msgstr "தெரியாத ஆசிரியர்"
 
-#: ../komikku/card/__init__.py:570 ../komikku/card/__init__.py:579
+#: ../komikku/card/__init__.py:564 ../komikku/card/__init__.py:573
 msgid "Unknown status"
 msgstr "தெரியாத நிலை"
 
-#: ../komikku/card/__init__.py:580 ../komikku/explorer/common.py:221
+#: ../komikku/card/__init__.py:574 ../komikku/explorer/common.py:221
 msgid "Local"
 msgstr "உள்ளக"
 
-#: ../komikku/card/__init__.py:618 ../komikku/card/chapters_list.py:653
+#: ../komikku/card/__init__.py:612 ../komikku/card/chapters_list.py:653
 msgid "%m/%d/%Y"
 msgstr "%m/%d/%y"
 
 #: ../komikku/card/chapters_list.py:338 ../komikku/downloader.py:522
-#: ../komikku/library/__init__.py:805
+#: ../komikku/library/__init__.py:798
 #, python-brace-format
 msgid "{0} selected"
 msgid_plural "{0} selected"
@@ -1050,7 +1062,7 @@ msgstr "வாசிப்பு நிலை அத்தியாயங்க�
 msgid "Download"
 msgstr "பதிவிறக்கம்"
 
-#: ../komikku/card/chapters_list.py:721 ../komikku/preferences.py:136
+#: ../komikku/card/chapters_list.py:721 ../komikku/preferences.py:139
 msgid "Clear"
 msgstr "தெளிவான"
 
@@ -1356,15 +1368,15 @@ msgstr "வா எல் அரிசி மற்றும் காமிக�
 msgid "Loading…"
 msgstr "ஏற்றுகிறது…"
 
-#: ../komikku/library/__init__.py:754
+#: ../komikku/library/__init__.py:747
 msgid "Failed to update reading status"
 msgstr "வாசிப்பு நிலையைப் புதுப்பிக்கத் தவறிவிட்டது"
 
-#: ../komikku/library/__init__.py:776
+#: ../komikku/library/__init__.py:769
 msgid "Add New Comic"
 msgstr "புதிய காமிக் சேர்க்கவும்"
 
-#: ../komikku/library/__init__.py:809 ../komikku/library/categories_list.py:145
+#: ../komikku/library/__init__.py:802 ../komikku/library/categories_list.py:145
 msgid "Uncategorized"
 msgstr "வகைப்படுத்தப்படாதது"
 
@@ -1426,19 +1438,19 @@ msgstr "இடைநீக்கம்"
 msgid "Hiatus"
 msgstr "இடைவெளி"
 
-#: ../komikku/preferences.py:134
+#: ../komikku/preferences.py:137
 msgid "Clear?"
 msgstr "அழிக்கப்படுகிறதா?"
 
-#: ../komikku/preferences.py:135
+#: ../komikku/preferences.py:138
 msgid "Are you sure you want to clear chapters cache and database?"
 msgstr "கேச் மற்றும் தரவுத்தளத்தை அத்தியாயங்களை அழிக்க விரும்புகிறீர்களா?"
 
-#: ../komikku/preferences.py:163
+#: ../komikku/preferences.py:166
 msgid "Disable animations?"
 msgstr "அனிமேசன்களை முடக்கவா?"
 
-#: ../komikku/preferences.py:164
+#: ../komikku/preferences.py:167
 msgid ""
 "Are you sure you want to disable animations?\n"
 "\n"
@@ -1448,7 +1460,7 @@ msgstr ""
 "\n"
 " வாசகரில் சைகை வழிசெலுத்தல் இனி சரியாக வேலை செய்யாது."
 
-#: ../komikku/preferences.py:165
+#: ../komikku/preferences.py:168
 msgid "Disable"
 msgstr "முடக்கு"
 
@@ -2134,6 +2146,9 @@ msgstr "தயவுசெய்து காத்திருங்கள்�
 #: ../komikku/webview.py:486
 msgid "Please complete CAPTCHA"
 msgstr "தயவுசெய்து கேப்ட்சாவை முடிக்கவும்"
+
+#~ msgid "Komikku"
+#~ msgstr "காமிக்"
 
 #~ msgid "Discover and read manga &amp; comics"
 #~ msgstr "மங்காவைக் கண்டுபிடித்து படிக்கவும் &amp; காமிக்ச்"

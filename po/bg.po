@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Komikku 1.53.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-03-21 17:58+0100\n"
+"POT-Creation-Date: 2025-03-28 11:01+0100\n"
 "PO-Revision-Date: 2025-03-23 12:02+0000\n"
 "Last-Translator: twlvnn <kraft_werk@tutanota.com>\n"
 "Language-Team: Bulgarian <https://hosted.weblate.org/projects/komikku/main/"
@@ -255,10 +255,6 @@ msgstr "Библиотека"
 #: ../data/ui/library.blp:23
 msgid "Toggle Categories Sidebar"
 msgstr "Превключване на страничната лента за категории"
-
-#: ../data/ui/library.blp:27
-msgid "Komikku"
-msgstr "Комикси"
 
 #: ../data/ui/library.blp:34
 msgid "Main Menu"
@@ -700,30 +696,38 @@ msgid "Advanced"
 msgstr "Допълнително"
 
 #: ../data/ui/preferences.blp:312
+msgid "A setting has changed that requires a restart to take effect"
+msgstr ""
+
+#: ../data/ui/preferences.blp:313
+msgid "Got it!"
+msgstr ""
+
+#: ../data/ui/preferences.blp:318
 msgid "Data"
 msgstr "Данни"
 
-#: ../data/ui/preferences.blp:313
+#: ../data/ui/preferences.blp:319
 msgid "Data not saved in the library"
 msgstr "Данните не са запазени в библиотеката"
 
-#: ../data/ui/preferences.blp:316
+#: ../data/ui/preferences.blp:322
 msgid "Clear Chapters Cache and Database"
 msgstr "Изчистване на кеша на главите и базата от данни"
 
-#: ../data/ui/preferences.blp:321
+#: ../data/ui/preferences.blp:327
 msgid "Clear Chapters Cache and Database on Exit"
 msgstr "Изчистване на кеша на главите и базата от данни при спиране"
 
-#: ../data/ui/preferences.blp:326
+#: ../data/ui/preferences.blp:332
 msgid "Servers Modules"
 msgstr "Сървъри Модули"
 
-#: ../data/ui/preferences.blp:329
+#: ../data/ui/preferences.blp:335
 msgid "Use Up-to-date Servers Modules"
 msgstr "Използване на актуални сървърни модули"
 
-#: ../data/ui/preferences.blp:330
+#: ../data/ui/preferences.blp:336
 msgid ""
 "An alternative version of the servers modules, installed from the source "
 "code repository and updated at each startup, is used instead of the one "
@@ -733,28 +737,28 @@ msgstr ""
 "хранилището на изходния код и обновена при всяко стартиране, вместо тази, "
 "доставена с програмата."
 
-#: ../data/ui/preferences.blp:335
+#: ../data/ui/preferences.blp:341
 msgid "Credentials Storage"
 msgstr "Съхранение на данните за идентификация"
 
-#: ../data/ui/preferences.blp:338
+#: ../data/ui/preferences.blp:344
 msgid "Allow Plaintext Storage as Fallback"
 msgstr "Позволяване на съхранение с обикновен текст като резервен вариант"
 
-#: ../data/ui/preferences.blp:339
+#: ../data/ui/preferences.blp:345
 msgid "Used when no keyring backends are found"
 msgstr ""
 "Използва се, когато не е намерен нито един заден слой за ключодържателя"
 
-#: ../data/ui/preferences.blp:344
+#: ../data/ui/preferences.blp:350
 msgid "Tweaks"
 msgstr "Промени"
 
-#: ../data/ui/preferences.blp:347
+#: ../data/ui/preferences.blp:353
 msgid "Disable Animations"
 msgstr "Изключване на анимациите"
 
-#: ../data/ui/preferences.blp:348
+#: ../data/ui/preferences.blp:354
 msgid ""
 "Useful with E Ink e-readers to avoid very choppy and unpleasant animations "
 "(due to the low refresh rate of the screen)"
@@ -763,7 +767,7 @@ msgstr ""
 "избегнат много накъсани и неприятни анимации (поради ниската честота на "
 "опресняване на екрана)"
 
-#: ../data/ui/preferences.blp:352
+#: ../data/ui/preferences.blp:358
 msgid ""
 "This tweak is only intended for users who do not use the GNOME desktop "
 "environment and therefore cannot disable animations globally via GNOME "
@@ -908,22 +912,22 @@ msgstr "Еднократно или месечно дарение"
 msgid "Webview"
 msgstr "Уеб изглед"
 
-#: ../komikku/application.py:191
+#: ../komikku/application.py:192
 msgid "Multiple URLs not supported"
 msgstr "Не се поддържат няколко адреса"
 
-#: ../komikku/application.py:207
+#: ../komikku/application.py:208
 msgid "Invalid URL {}, not handled by any server."
 msgstr "Неправилен адрес {}, не се обработва от нито един сървър."
 
-#: ../komikku/application.py:418 ../komikku/card/__init__.py:158
+#: ../komikku/application.py:419 ../komikku/card/__init__.py:158
 #: ../komikku/card/__init__.py:159 ../komikku/categories_editor.py:189
 #: ../komikku/downloader.py:377 ../komikku/downloader.py:378
-#: ../komikku/library/__init__.py:771 ../komikku/library/__init__.py:772
+#: ../komikku/library/__init__.py:764 ../komikku/library/__init__.py:765
 msgid "Cancel"
 msgstr "Отказване"
 
-#: ../komikku/application.py:493
+#: ../komikku/application.py:494
 msgid "Servers modules have been updated"
 msgstr "Модулите на сървърите са обновени"
 
@@ -945,7 +949,7 @@ msgstr ""
 msgid "Close"
 msgstr "Затваряне"
 
-#: ../komikku/application.py:524
+#: ../komikku/application.py:520
 msgid ""
 "A manga, manhwa, manhua, webtoons, webcomics and comics reader for GNOME\n"
 "\n"
@@ -960,33 +964,41 @@ msgstr ""
 "като си купувате официалните комикси, когато те са\n"
 "налични във вашия регион/език."
 
-#: ../komikku/application.py:533
+#: ../komikku/application.py:529
 msgid "Supporters"
 msgstr "Поддръжници"
 
-#: ../komikku/application.py:535
+#: ../komikku/application.py:531
 msgid "Join Chat"
 msgstr "Присъединете се към чата"
 
-#: ../komikku/application.py:651
+#: ../komikku/application.py:647
 msgid "Are you sure you want to quit?"
 msgstr "Сигурни ли сте, че искате да спрете програмата?"
 
-#: ../komikku/application.py:654
+#: ../komikku/application.py:650
 msgid "Some chapters are currently being downloaded."
 msgstr "В момента се изтеглят някои глави."
 
-#: ../komikku/application.py:656
+#: ../komikku/application.py:652
 msgid "Some mangas are currently being updated."
 msgstr "В момента се изтегля манга."
 
-#: ../komikku/application.py:660
+#: ../komikku/application.py:656
 msgid "Quit?"
 msgstr "Спиране?"
 
-#: ../komikku/application.py:662
+#: ../komikku/application.py:658
 msgid "Quit"
 msgstr "Спиране на програмата"
+
+#: ../komikku/application.py:672
+msgid "Restart"
+msgstr ""
+
+#: ../komikku/application.py:672
+msgid "Restart?"
+msgstr ""
 
 #: ../komikku/card/__init__.py:110 ../komikku/card/__init__.py:239
 #: ../komikku/explorer/search/__init__.py:75
@@ -1018,32 +1030,32 @@ msgstr ""
 "{0} вече не се поддържа.\n"
 "Превключете към друг сървър."
 
-#: ../komikku/card/__init__.py:457 ../komikku/card/chapters_list.py:725
+#: ../komikku/card/__init__.py:451 ../komikku/card/chapters_list.py:725
 msgid "Clear and Reset"
 msgstr "Изчистване и връщане"
 
-#: ../komikku/card/__init__.py:457 ../komikku/card/chapters_list.py:725
+#: ../komikku/card/__init__.py:451 ../komikku/card/chapters_list.py:725
 msgid "Reset"
 msgstr "Връщане"
 
-#: ../komikku/card/__init__.py:564
+#: ../komikku/card/__init__.py:558
 msgid "Unknown author"
 msgstr "Неизвестен автор"
 
-#: ../komikku/card/__init__.py:570 ../komikku/card/__init__.py:579
+#: ../komikku/card/__init__.py:564 ../komikku/card/__init__.py:573
 msgid "Unknown status"
 msgstr "Неизвестно състояние"
 
-#: ../komikku/card/__init__.py:580 ../komikku/explorer/common.py:221
+#: ../komikku/card/__init__.py:574 ../komikku/explorer/common.py:221
 msgid "Local"
 msgstr "Локално"
 
-#: ../komikku/card/__init__.py:618 ../komikku/card/chapters_list.py:653
+#: ../komikku/card/__init__.py:612 ../komikku/card/chapters_list.py:653
 msgid "%m/%d/%Y"
 msgstr "%m/%d/%Y"
 
 #: ../komikku/card/chapters_list.py:338 ../komikku/downloader.py:522
-#: ../komikku/library/__init__.py:805
+#: ../komikku/library/__init__.py:798
 #, python-brace-format
 msgid "{0} selected"
 msgid_plural "{0} selected"
@@ -1058,7 +1070,7 @@ msgstr "Състоянието на прочетеното на главите �
 msgid "Download"
 msgstr "Изтегляне"
 
-#: ../komikku/card/chapters_list.py:721 ../komikku/preferences.py:136
+#: ../komikku/card/chapters_list.py:721 ../komikku/preferences.py:139
 msgid "Clear"
 msgstr "Изчистване"
 
@@ -1366,15 +1378,15 @@ msgstr "Добре дошли в „Комикси“"
 msgid "Loading…"
 msgstr "Зареждане…"
 
-#: ../komikku/library/__init__.py:754
+#: ../komikku/library/__init__.py:747
 msgid "Failed to update reading status"
 msgstr "Състоянието на прочетеното не може да бъде обновено"
 
-#: ../komikku/library/__init__.py:776
+#: ../komikku/library/__init__.py:769
 msgid "Add New Comic"
 msgstr "Добавяне на нов комикс"
 
-#: ../komikku/library/__init__.py:809 ../komikku/library/categories_list.py:145
+#: ../komikku/library/__init__.py:802 ../komikku/library/categories_list.py:145
 msgid "Uncategorized"
 msgstr "Без категория"
 
@@ -1436,20 +1448,20 @@ msgstr "Спряно"
 msgid "Hiatus"
 msgstr "На пауза"
 
-#: ../komikku/preferences.py:134
+#: ../komikku/preferences.py:137
 msgid "Clear?"
 msgstr "Изчистване?"
 
-#: ../komikku/preferences.py:135
+#: ../komikku/preferences.py:138
 msgid "Are you sure you want to clear chapters cache and database?"
 msgstr ""
 "Сигурни ли сте, че искате да изчистите кеша на главите и базата от данни?"
 
-#: ../komikku/preferences.py:163
+#: ../komikku/preferences.py:166
 msgid "Disable animations?"
 msgstr "Изключване на анимациите?"
 
-#: ../komikku/preferences.py:164
+#: ../komikku/preferences.py:167
 msgid ""
 "Are you sure you want to disable animations?\n"
 "\n"
@@ -1459,7 +1471,7 @@ msgstr ""
 "\n"
 "Навигацията с жестове в четеца вече няма да работи правилно."
 
-#: ../komikku/preferences.py:165
+#: ../komikku/preferences.py:168
 msgid "Disable"
 msgstr "Изключване"
 
@@ -2152,6 +2164,9 @@ msgstr "Изчакайте…"
 #: ../komikku/webview.py:486
 msgid "Please complete CAPTCHA"
 msgstr "Направете CAPTCHA"
+
+#~ msgid "Komikku"
+#~ msgstr "Комикси"
 
 #~ msgid "Discover and read manga &amp; comics"
 #~ msgstr "Открийте и четете манга и комикси"
