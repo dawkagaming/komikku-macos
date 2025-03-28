@@ -2,24 +2,25 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the Komikku package.
 # Lukáš Linhart <l.linhos@gmail.com>, 2025.
+# Jakub Soukup <jakub@soukup.xyz>, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: Komikku 1.64.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-03-28 11:01+0100\n"
-"PO-Revision-Date: 2025-01-26 09:56+0000\n"
-"Last-Translator: Lukáš Linhart <l.linhos@gmail.com>\n"
+"POT-Creation-Date: 2025-03-21 17:58+0100\n"
+"PO-Revision-Date: 2025-03-28 10:17+0000\n"
+"Last-Translator: Jakub Soukup <jakub@soukup.xyz>\n"
 "Language-Team: Czech <https://hosted.weblate.org/projects/komikku/main/cs/>\n"
 "Language: cs\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=((n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2);\n"
-"X-Generator: Weblate 5.10-dev\n"
+"X-Generator: Weblate 5.11-dev\n"
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:11
 msgid "Discover and read manga & comics"
-msgstr ""
+msgstr "Prozkoumávejte a čtěte mangu a komiksy"
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:13
 msgid ""
@@ -580,10 +581,12 @@ msgstr "Maximální šířka"
 msgid ""
 "Constrain reader's width to a given maximum size (Webtoon reading mode only)"
 msgstr ""
+"Omezit maximální šířku čtečky na určitou velikost (Pouze pro režim čtení "
+"Webtoon)"
 
 #: ../data/ui/preferences.blp:249
 msgid "Scaling"
-msgstr ""
+msgstr "škálování"
 
 #: ../data/ui/preferences.blp:250
 msgid "Type of scaling to adapt image"
@@ -591,68 +594,70 @@ msgstr ""
 
 #: ../data/ui/preferences.blp:253
 msgid "Adapt to Screen"
-msgstr ""
+msgstr "Přizpůsobit obrazovce"
 
 #: ../data/ui/preferences.blp:254
 msgid "Adapt to Width"
-msgstr ""
+msgstr "Přizpůsobit šířce"
 
 #: ../data/ui/preferences.blp:255
 msgid "Adapt to Height"
-msgstr ""
+msgstr "Přizpůsobit výšce"
 
 #: ../data/ui/preferences.blp:256
 msgid "Original Size"
-msgstr ""
+msgstr "Původní velikost"
 
 #: ../data/ui/preferences.blp:262
 msgid "Scaling Filter"
-msgstr ""
+msgstr "Filtr škálování"
 
 #: ../data/ui/preferences.blp:263
 msgid "Interpolation method used when scaling images"
-msgstr ""
+msgstr "Použitá metoda interpolace pro škálování obrázků"
 
 #: ../data/ui/preferences.blp:266
 msgid "Linear"
-msgstr ""
+msgstr "Lineární"
 
 #: ../data/ui/preferences.blp:267
 msgid "Trilinear"
-msgstr ""
+msgstr "Trilineární"
 
 #: ../data/ui/preferences.blp:273
 msgid "Landscape Pages Zoom"
-msgstr ""
+msgstr "Přiblížení stránek na šířku"
 
 #: ../data/ui/preferences.blp:274
 msgid ""
 "Zoom page to fit height when page is landscape (Adapt to Screen scaling only)"
 msgstr ""
+"Přiblížit stránku tak, aby zaplnila výšku, když je na šířku (Přizpůsobit "
+"pouze pro škálování obrazovky)"
 
 #: ../data/ui/preferences.blp:278
 msgid "Background Color"
-msgstr ""
+msgstr "Barva Pozadí"
 
 #: ../data/ui/preferences.blp:281
 msgid "White"
-msgstr ""
+msgstr "Bílá"
 
 #: ../data/ui/preferences.blp:282
 msgid "Gray"
-msgstr ""
+msgstr "šedá"
 
 #: ../data/ui/preferences.blp:283
 msgid "Black"
-msgstr ""
+msgstr "černá"
 
 #: ../data/ui/preferences.blp:284
 msgid "System Style"
-msgstr ""
+msgstr "Dle systému"
 
 #: ../data/ui/preferences.blp:290
 msgid "Borders Crop"
-msgstr ""
+msgstr "Ořez rámečku"
 
 #: ../data/ui/preferences.blp:291
 msgid ""
@@ -661,30 +666,34 @@ msgid ""
 "NOTE: Requires more CPU usage and can cause rendering and animation "
 "slowdowns, especially on mobile devices."
 msgstr ""
+"Ořezat bílé rámečky obrázku\n"
+"\n"
+"Poznámka: Vyžaduje více použití procesoru a může způsobit zpomalení "
+"vykreslování a animací, zvlášť na telefonech."
 
 #: ../data/ui/preferences.blp:295
 msgid "Page Numbering"
-msgstr ""
+msgstr "číslování stránek"
 
 #: ../data/ui/preferences.blp:296
 msgid "Hide the page numbering at the bottom of the screen while reading"
-msgstr ""
+msgstr "Skrýt číslo stránky na konci stránky při čtení"
 
 #: ../data/ui/preferences.blp:300
 msgid "Fullscreen"
-msgstr ""
+msgstr "Celá obrazovka"
 
 #: ../data/ui/preferences.blp:301
 msgid "Automatically enter fullscreen mode"
-msgstr ""
+msgstr "Automaticky zapínat režim celé obrazovky"
 
 #: ../data/ui/preferences.blp:308
 msgid "Advanced"
-msgstr ""
+msgstr "Pokročilé"
 
 #: ../data/ui/preferences.blp:312
-msgid "A setting has changed that requires a restart to take effect"
-msgstr ""
+msgid "Data"
+msgstr "Data"
 
 #: ../data/ui/preferences.blp:313
 msgid "Got it!"
@@ -696,19 +705,19 @@ msgstr ""
 
 #: ../data/ui/preferences.blp:319
 msgid "Data not saved in the library"
-msgstr ""
+msgstr "Data nebyla uložena do knihovny"
 
 #: ../data/ui/preferences.blp:322
 msgid "Clear Chapters Cache and Database"
-msgstr ""
+msgstr "Vymazat mezipaměť kapitol a databázi"
 
 #: ../data/ui/preferences.blp:327
 msgid "Clear Chapters Cache and Database on Exit"
-msgstr ""
+msgstr "Vymazat mezipaměť kapitol a databázi při zavření"
 
 #: ../data/ui/preferences.blp:332
 msgid "Servers Modules"
-msgstr ""
+msgstr "Moduly Serveru"
 
 #: ../data/ui/preferences.blp:335
 msgid "Use Up-to-date Servers Modules"
