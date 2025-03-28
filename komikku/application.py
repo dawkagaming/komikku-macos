@@ -83,6 +83,7 @@ CREDITS = dict(
         'twlvnn (Bulgarian)',
         'Roger VC (Catalan)',
         'Lukáš Linhart (Czech)',
+        'Jakub Soukup (Czech)',
         'Dingzhong Chen (Simplified Chinese)',
         'Eric-Song-Nop (Simplified Chinese)',
         'Inaha (Simplified Chinese)',
@@ -533,15 +534,13 @@ available in your region/language."""))
         # Override release notes
         dialog.set_release_notes("""
             <ul>
-                <li>[Library] Added ability to update with &lt;Ctrl+r&gt; shortcut</li>
-                <li>[Card] Info: Improved display of Genres using badges</li>
-                <li>[Servers] Added MangaBin (EN)</li>
-                <li>[Servers] Added Vortex Scans For Free (EN)</li>
-                <li>[Servers] Flame Comics (EN): Update</li>
-                <li>[Servers] Manhuaus (EN): Update</li>
-                <li>[Servers] Perf Scan (FR): Update</li>
-                <li>[Servers] Remanga (RU): Update</li>
-                <li>[L10n] Added Hungarian translation</li>
+                <li>[Library] Fixed inconsistent background color introduced in previous version</li>
+                <li>[Servers] Aurora Scan (pt_BR): Disabled</li>
+                <li>[Servers] Noromax (ID): Update</li>
+                <li>[Servers] Tecno Scans (EN): Update</li>
+                <li>[Servers] Wicked Witch Scan (pt_BR): Disabled</li>
+                <li>[Servers] `Up-to-date modules` feature: an app restart is now required for a change to take effect (modules update or setting activation/deactivation)</li>
+                <li>[L10n] Updated Bulgarian, Czech, French, Russian and Ukrainian translations</li>
             </ul>
             <p>Happy reading.</p>
         """)
