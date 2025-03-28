@@ -691,17 +691,13 @@ msgstr "Automaticky zapínat režim celé obrazovky"
 msgid "Advanced"
 msgstr "Pokročilé"
 
-#: ../data/ui/preferences.blp:312
-msgid "Data"
-msgstr "Data"
-
 #: ../data/ui/preferences.blp:313
 msgid "Got it!"
 msgstr ""
 
 #: ../data/ui/preferences.blp:318
 msgid "Data"
-msgstr ""
+msgstr "Data"
 
 #: ../data/ui/preferences.blp:319
 msgid "Data not saved in the library"
