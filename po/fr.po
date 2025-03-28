@@ -9,10 +9,10 @@ msgstr ""
 "Project-Id-Version: unnamed project\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-03-28 11:01+0100\n"
-"PO-Revision-Date: 2025-03-21 17:11+0000\n"
+"PO-Revision-Date: 2025-03-28 13:08+0000\n"
 "Last-Translator: Valéry Febvre <vfebvre@easter-eggs.com>\n"
-"Language-Team: French <https://hosted.weblate.org/projects/komikku/main/fr/"
-">\n"
+"Language-Team: French <https://hosted.weblate.org/projects/komikku/main/fr/>"
+"\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -701,10 +701,12 @@ msgstr "Avancé"
 #: ../data/ui/preferences.blp:312
 msgid "A setting has changed that requires a restart to take effect"
 msgstr ""
+"Un paramètre a été modifié et nécessite un redémarrage pour être pris en "
+"compte"
 
 #: ../data/ui/preferences.blp:313
 msgid "Got it!"
-msgstr ""
+msgstr "C'est noté !"
 
 #: ../data/ui/preferences.blp:318
 msgid "Data"
@@ -995,11 +997,11 @@ msgstr "Quitter"
 
 #: ../komikku/application.py:672
 msgid "Restart"
-msgstr ""
+msgstr "Redémarrer"
 
 #: ../komikku/application.py:672
 msgid "Restart?"
-msgstr ""
+msgstr "Redémarrer ?"
 
 #: ../komikku/card/__init__.py:110 ../komikku/card/__init__.py:239
 #: ../komikku/explorer/search/__init__.py:75
