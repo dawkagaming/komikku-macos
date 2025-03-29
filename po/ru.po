@@ -8,10 +8,10 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-03-28 11:01+0100\n"
-"PO-Revision-Date: 2025-03-22 01:45+0000\n"
+"PO-Revision-Date: 2025-03-30 02:00+0000\n"
 "Last-Translator: Сергей <asvmail.as@gmail.com>\n"
-"Language-Team: Russian <https://hosted.weblate.org/projects/komikku/main/ru/"
-">\n"
+"Language-Team: Russian <https://hosted.weblate.org/projects/komikku/main/ru/>"
+"\n"
 "Language: ru\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -696,11 +696,11 @@ msgstr "Продвинутые"
 
 #: ../data/ui/preferences.blp:312
 msgid "A setting has changed that requires a restart to take effect"
-msgstr ""
+msgstr "Изменён параметр, для вступления в силу которого требуется перезагрузка"
 
 #: ../data/ui/preferences.blp:313
 msgid "Got it!"
-msgstr ""
+msgstr "Понятно!"
 
 #: ../data/ui/preferences.blp:318
 msgid "Data"
@@ -994,11 +994,11 @@ msgstr "Выход"
 
 #: ../komikku/application.py:672
 msgid "Restart"
-msgstr ""
+msgstr "Перезагрузить"
 
 #: ../komikku/application.py:672
 msgid "Restart?"
-msgstr ""
+msgstr "Перезагрузить?"
 
 #: ../komikku/card/__init__.py:110 ../komikku/card/__init__.py:239
 #: ../komikku/explorer/search/__init__.py:75
