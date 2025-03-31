@@ -20,9 +20,10 @@ class Ezmanga(HeanCMS):
     logo_url = base_url + '/favicon.ico'
     api_url = 'https://api.ezmanga.org'
 
-    cover_css_path = 'img[width="640"]'
+    name_css_path = 'h2'
+    cover_css_path = 'img[width="500"]'
     authors_css_path = 'div.flex:-soup-contains("Author") > span:last-child'
-    synopsis_css_path = 'div.text-muted-foreground > div:nth-child(1)'
+    synopsis_css_path = 'p'
 
     def get_manga_chapter_data(self, manga_slug, manga_name, chapter_slug, chapter_url):
         """
