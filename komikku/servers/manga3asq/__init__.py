@@ -11,6 +11,7 @@ class Manga3asq(Madara2):
     id = 'manga3asq'
     name = 'مانجا العاشق'
     lang = 'ar'
+    status = 'disabled'
 
     date_format = '%Y \u060c%B %-d'
 
