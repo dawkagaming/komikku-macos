@@ -20,6 +20,7 @@ class Paprika(Server):
     latest_updates_url: str = None
     most_populars_url: str = None
     manga_url: str = None
+    api_chapters_url: str = None
     chapter_url: str = None
 
     def __init__(self):
@@ -35,6 +36,8 @@ class Paprika(Server):
             self.most_populars_url = self.base_url + '/popular-manga'
         if self.manga_url is None:
             self.manga_url = self.base_url + '/manga/{0}'
+        if self.api_chapters_url is None:
+            self.api_chapters_url = self.base_url + '/ajax-list-chapter?mangaID={0}'
         if self.chapter_url is None:
             self.chapter_url = self.base_url + '/chapter/{0}'
 
@@ -89,12 +92,34 @@ class Paprika(Server):
             data['synopsis'] = element.text.strip()
 
         # Chapters
-        for a_element in reversed(soup.select('.cl li a')):
-            title = a_element.text.strip()
-            num = title.split(' ')[-1]  # chapter number theoretically is at end of chapter title
+        manga_id = None
+        for script_element in soup.find_all('script'):
+            script = script_element.string
+            if not script or 'mangaID' not in script:
+                continue
+
+            for line in script.split('\n'):
+                line = line.strip()
+
+                if 'mangaID' in line:
+                    manga_id = line.split("'")[-2]
+                    break
+
+        if manga_id is None:
+            return None
+
+        r = self.session_get(self.api_chapters_url.format(manga_id))
+        if r.status_code != 200:
+            return None
+
+        soup = BeautifulSoup(r.text, 'lxml')
+
+        for element in reversed(soup.select('span.leftoff')):
+            title = element.text.strip()
+            num = element.a.get('title').split(' ')[-1]  # chapter number theoretically is at end of chapter title
 
             data['chapters'].append(dict(
-                slug=a_element.get('href').split('/')[-1],
+                slug=element.a.get('href').split('/')[-1],
                 title=title,
                 num=num if is_number(num) else None,
                 date=None,
@@ -168,11 +193,12 @@ class Paprika(Server):
 
         results = []
         for element in soup.select('.anipost'):
-            a_element = element.select_one('.left a')
+            a_element = element.select_one('.thumb a')
             results.append(dict(
                 slug=a_element.get('href').split('/')[-1],
-                name=a_element.select_one('h3').text.strip(),
-                cover=element.select_one('.thumb img').get('src'),
+                name=a_element.get('title').strip(),
+                cover=a_element.img.get('src'),
+                last_chapter=element.select_one('span:last-child').text.strip(),
             ))
 
         return results
