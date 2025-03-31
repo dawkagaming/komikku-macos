@@ -72,7 +72,7 @@ def test_phenixscans(phenixscans_server):
     # Get chapter data
     print("Get chapter data")
     try:
-        response = phenixscans_server.get_manga_chapter_data(None, None, chapter_slug, None)
+        response = phenixscans_server.get_manga_chapter_data(slug, None, chapter_slug, None)
         page = response['pages'][0]
     except Exception as e:
         page = None
@@ -84,7 +84,7 @@ def test_phenixscans(phenixscans_server):
     # Get page image
     print('Get page image')
     try:
-        response = phenixscans_server.get_manga_chapter_page_image(None, None, chapter_slug, page)
+        response = phenixscans_server.get_manga_chapter_page_image(None, None, None, page)
     except Exception as e:
         response = None
         log_error_traceback(e)
