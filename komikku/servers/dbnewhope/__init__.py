@@ -12,9 +12,9 @@ from komikku.utils import get_buffer_mime_type
 
 # Conversion ISO_639-1 codes => server codes
 LANGUAGES_CODES = dict(
-    en='en',
-    es='es',
-    fr='fr',
+    en='english',
+    es='espanol',
+    fr='francais',
     ru='ru',
     zh_Hans='zh',  # diff
 )
@@ -26,11 +26,11 @@ class Dbnewhope(Server):
     lang = 'fr'
     true_search = False
 
-    base_url = 'https://www.dbnewhope.com'
+    base_url = 'https://dbnewhope.com'
     logo_url = base_url + '/assets/favicon.ico'
-    manga_url = base_url + '/{0}/{0}readdbnh.php'
-    page_url = base_url + '/{0}/manga/DB_New_Hope/{1}/{2}.php?id=1&chapter={1}'
-    cover_url = base_url + '/fr/manga/DB_New_Hope/1/covers_1.png'
+    manga_url = base_url + '/{0}/chapitres.php'
+    page_url = base_url + '/{0}/{1}/01.php?page={2}'
+    cover_url = base_url + '/francais/1/fe07eee1f0268775c646e844b05bff2d.png?ezimgfmt=rs%3Adevice%2Frscb1-1'
 
     synopsis = """
 Au lendemain de sa victoire écrasante contre Gohan lors du Cell Game, Cell s'est éclipsé de la Terre, laissant Krilin indemne mais marqué par le souvenir de sa propre misère. Sept années se sont écoulées, le monde s'est reconstruit, mais la menace persiste dans l'ombre. Krilin, se charge de former le dernier guerrier survivant de la planète, en prévision d'un éventuel retour du monstre créé par le machiavélique Dr. Gero.
@@ -43,7 +43,7 @@ Dans ce récit inédit, découvrez une aventure trépidante où les liens entre 
     def __init__(self):
         if self.session is None:
             self.session = requests.Session()
-            self.session.headers.update({'user-agent': USER_AGENT})
+            self.session.headers.update({'User-Agent': USER_AGENT})
 
     @property
     def lang_code(self):
@@ -76,11 +76,11 @@ Dans ce récit inédit, découvrez une aventure trépidante où les liens entre 
         ))
 
         # Chapters
-        for a_element in soup.select('.anime__details__widget > a'):
-            slug = a_element.get('href').split('/')[-2]
+        for element in soup.select('.card'):
+            slug = element.a.get('href').split('/')[0]
             data['chapters'].append(dict(
                 slug=slug,
-                title=get_soup_element_inner_text(a_element.select_one('ul > li'), recursive=False),
+                title=get_soup_element_inner_text(element.select_one('.card-title'), recursive=False),
                 num=slug,
                 date=None,
             ))
@@ -91,7 +91,7 @@ Dans ce récit inédit, découvrez une aventure trépidante où les liens entre 
         """
         Returns manga data by scraping manga HTML page content
         """
-        r = self.session_get(self.page_url.format(self.lang_code, chapter_slug, '01'))
+        r = self.session_get(self.page_url.format(self.lang_code, chapter_slug, 1))
         if r.status_code != 200:
             return None
 
@@ -101,17 +101,12 @@ Dans ce récit inédit, découvrez une aventure trépidante où les liens entre 
 
         soup = BeautifulSoup(r.text, 'lxml')
 
-        if element := soup.select_one('.anime__details__title h3'):
-            nb_pages = int(element.text.split('/')[-1].strip())
-        else:
-            return None
-
         data = dict(
             pages=[],
         )
-        for index in range(1, nb_pages + 1):
+        for element in soup.select('.nav select option'):
             data['pages'].append(dict(
-                slug=f'{index:02d}',  # noqa: E231
+                slug=element.get('value').split('=')[-1],
                 image=None,
             ))
 
@@ -127,13 +122,16 @@ Dans ce récit inédit, découvrez une aventure trépidante où les liens entre 
 
         soup = BeautifulSoup(r.text, 'lxml')
 
-        if img_element := soup.select_one('.anime__read__pic > div > img'):
-            url = f'{self.base_url}/{self.lang_code}' + img_element.get('src').replace('../../..', '')
-        else:
+        if img_element := soup.select_one('.image-wrapper img'):
+            url = img_element.get('data-ezsrc')
+            if not url:
+                url = img_element.get('src')
+
+        if not url:
             return None
 
         r = self.session_get(
-            url,
+            self.base_url + url,
             headers={
                 'Referer': self.page_url.format(self.lang_code, chapter_slug, page['slug']),
             }
@@ -181,6 +179,9 @@ class Dbnewhope_en(Dbnewhope):
     id = 'dbnewhope_en'
     lang = 'en'
 
+    base_url = 'https://dbnewhope.com'
+    manga_url = base_url + '/{0}/chapters.php'
+
     synopsis = """
 The day after his crushing victory over Gohan in the Cell Game, Cell vanished from Earth, leaving Krilin unharmed but scarred by the memory of his own misery. Seven years have passed, the world has been rebuilt, but the threat persists in the shadows. Krilin takes it upon himself to train the planet's last surviving warrior, in anticipation of the possible return of the monster created by the Machiavellian Dr. Gero.
 
@@ -194,6 +195,9 @@ class Dbnewhope_es(Dbnewhope):
     id = 'dbnewhope_es'
     lang = 'es'
 
+    base_url = 'https://dbnewhope.com'
+    manga_url = base_url + '/{0}/capitulos.php'
+
     synopsis = """
 Al día siguiente de su aplastante victoria sobre Gohan en el Cell Game, Célula desapareció de la Tierra, dejando a Krilin ileso pero marcado por el recuerdo de su propia miseria. Han pasado siete años, el mundo ha sido reconstruido, pero la amenaza persiste en las sombras. Krilin se encarga de entrenar al último guerrero superviviente del planeta, en previsión del posible regreso del monstruo creado por el maquiavélico Dr. Gero.
 
@@ -206,6 +210,7 @@ En esta historia totalmente nueva, descubre una emocionante aventura en la que l
 class Dbnewhope_ru(Dbnewhope):
     id = 'dbnewhope_ru'
     lang = 'ru'
+    status = 'disabled'
 
     synopsis = """
 На следующий день после сокрушительной победы над Гоханом в Игре Клеток, Клетка исчез с Земли, оставив Крилина невредимым, но с шрамами от воспоминаний о собственных страданиях. Прошло семь лет, мир был восстановлен, но угроза продолжает оставаться в тени. Крилин берется обучить последнего выжившего воина планеты в ожидании возможного возвращения монстра, созданного макиавеллистским доктором Геро.
@@ -219,6 +224,7 @@ class Dbnewhope_ru(Dbnewhope):
 class Dbnewhope_zh_hans(Dbnewhope):
     id = 'dbnewhope_zh_hans'
     lang = 'zh_Hans'
+    status = 'disabled'
 
     synopsis = """
 细胞在 "细胞游戏 "中战胜悟饭后的第二天，就从地球上消失了，克里林毫发无损，但却留下了痛苦的回忆。七年过去了，世界已经重建，但威胁依然存在。克里林开始训练地球上最后一名幸存的战士，以防那个由马基雅维利斯-吉罗博士创造的怪物可能卷土重来。
