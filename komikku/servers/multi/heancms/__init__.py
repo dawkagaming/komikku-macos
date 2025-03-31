@@ -67,6 +67,7 @@ class HeanCMS(Server):
 
     date_format = '%m/%d/%Y'
 
+    name_css_path: str
     cover_css_path: str
     authors_css_path: str
     synopsis_css_path: str
@@ -140,7 +141,7 @@ class HeanCMS(Server):
             cover=None,
         ))
 
-        data['name'] = soup.find('h1').text.strip()
+        data['name'] = soup.find(self.name_css_path).text.strip()
         if img_element := soup.select_one(self.cover_css_path):
             data['cover'] = img_element.get('src')
             if not data['cover'].startswith('http'):
@@ -198,6 +199,9 @@ class HeanCMS(Server):
             chapters_page, more, rtime = get_page(serie_id, page)
             if chapters_page:
                 for chapter in chapters_page:
+                    if chapter['price'] > 0:
+                        continue
+
                     num, _num_volume = self.extract_chapter_nums_from_slug(chapter['chapter_slug'])
 
                     chapters.append(dict(
