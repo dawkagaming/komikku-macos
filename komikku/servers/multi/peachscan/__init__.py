@@ -3,17 +3,18 @@
 # Author: Valéry Febvre <vfebvre@easter-eggs.com>
 
 # Supported servers:
-# Aurora Scan [pt_BR]
-# Cerise Scan [pt_BR]
+# Aurora Scan [pt_BR] (disabled)
+# Cerise Scan [pt_BR] (disabled)
 # Dango Scan [pt_BR]
 # Luratoon Scan [pt_BR] (disabled)
 # Nazarick Scan [pt_BR]
 # RF Dragon Scan [pt_BR]
 # Sinensistoon [pt_BR]
-# Wicked Witch Scan [pt_BR]
+# Wicked Witch Scan [pt_BR] (disabled)
 
 import base64
 from io import BytesIO
+import re
 from zipfile import ZipFile
 
 from bs4 import BeautifulSoup
@@ -26,6 +27,8 @@ from komikku.servers.utils import convert_date_string
 from komikku.servers.utils import get_soup_element_inner_text
 from komikku.utils import get_buffer_mime_type
 from komikku.webview import CompleteChallenge
+
+RE_ZIP_IMAGES = re.compile(r'base64,([a-zA-Z0-9+=\/\n]*)')
 
 
 class Peachscan(Server):
@@ -191,7 +194,7 @@ class Peachscan(Server):
             return None
 
         mime_type = get_buffer_mime_type(r.content)
-        if mime_type == 'application/zip':
+        if mime_type == 'application/zip' or page['image'].endswith('.zip'):
             # Image is cut into several chunks stored in a ZIP archive
             chunks = []
             with ZipFile(BytesIO(r.content), 'r') as zip:
@@ -204,8 +207,8 @@ class Peachscan(Server):
                     if type == 's':
                         # image data in a SVG
                         data = data.decode('utf-8')
-                        img_data = data.split('base64,')[-1].split('"')[0]
-                        chunks.append(base64.b64decode(img_data))
+                        if matches := RE_ZIP_IMAGES.search(data):
+                            chunks.append(base64.b64decode(matches.group(1)))
                     else:
                         chunks.append(data)
 
