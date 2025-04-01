@@ -6,6 +6,7 @@ import logging
 import pytest
 from pytest_steps import test_steps
 
+from . import do_server_test
 from komikku.utils import log_error_traceback
 
 logging.basicConfig(level=logging.DEBUG)
@@ -39,6 +40,7 @@ def reaperscans_tr_server():
     return Reaperscans_tr()
 
 
+@do_server_test
 @test_steps('get_latest_updates', 'get_most_popular', 'search', 'get_manga_data', 'get_chapter_data', 'get_page_image')
 def test_reaperscans(reaperscans_server):
     # Get latest updates
@@ -112,6 +114,7 @@ def test_reaperscans(reaperscans_server):
     yield
 
 
+@do_server_test
 @test_steps('get_latest_updates', 'get_most_populars', 'search', 'get_manga_data', 'get_chapter_data', 'get_page_image')
 def test_reaperscans_ar(reaperscans_ar_server):
     # Get latest updates
@@ -184,6 +187,7 @@ def test_reaperscans_ar(reaperscans_ar_server):
     yield
 
 
+@do_server_test
 @test_steps('get_latest_updates', 'get_most_populars', 'search', 'get_manga_data', 'get_chapter_data', 'get_page_image')
 def test_reaperscans_id(reaperscans_id_server):
     # Get latest updates
@@ -256,6 +260,7 @@ def test_reaperscans_id(reaperscans_id_server):
     yield
 
 
+@do_server_test
 @test_steps('get_latest_updates', 'get_most_populars', 'search', 'get_manga_data', 'get_chapter_data', 'get_page_image')
 def test_reaperscans_tr(reaperscans_tr_server):
     # Get latest updates

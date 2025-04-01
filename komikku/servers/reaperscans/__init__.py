@@ -80,6 +80,7 @@ class Reaperscans_ar(Madara):
     id = 'reaperscans_ar'
     name = 'ريبر العربي'
     lang = 'ar'
+    status = 'disabled'
 
     series_name = 'series'
     date_format = '%Y, %d %B'
