@@ -254,6 +254,7 @@ class Mintmanga(Readmanga):
     id = 'mintmanga:readmanga'
     name = 'Mint Manga'
     is_nsfw = True
+    status = 'disabled'
 
     # 16
     base_url = 'https://2.mintmanga.one'

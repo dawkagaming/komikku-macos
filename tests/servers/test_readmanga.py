@@ -6,6 +6,7 @@ import logging
 import pytest
 from pytest_steps import test_steps
 
+from . import do_server_test
 from komikku.utils import log_error_traceback
 
 logging.basicConfig(level=logging.DEBUG)
@@ -39,6 +40,7 @@ def selfmanga_server():
     return Selfmanga()
 
 
+@do_server_test
 @test_steps('get_latest_updates', 'get_most_popular', 'search', 'get_manga_data', 'get_chapter_data', 'get_page_image')
 def test_allhentai(allhentai_server):
     # Get latest updates
@@ -112,6 +114,7 @@ def test_allhentai(allhentai_server):
     yield
 
 
+@do_server_test
 @test_steps('get_latest_updates', 'get_most_popular', 'search', 'get_manga_data', 'get_chapter_data', 'get_page_image')
 def test_mintmanga(mintmanga_server):
     # Get latest updates
@@ -185,6 +188,7 @@ def test_mintmanga(mintmanga_server):
     yield
 
 
+@do_server_test
 @test_steps('get_latest_updates', 'get_most_popular', 'search', 'get_manga_data', 'get_chapter_data', 'get_page_image')
 def test_readmanga(readmanga_server):
     # Get latest updates
@@ -258,6 +262,7 @@ def test_readmanga(readmanga_server):
     yield
 
 
+@do_server_test
 @test_steps('get_latest_updates', 'get_most_popular', 'search', 'get_manga_data', 'get_chapter_data', 'get_page_image')
 def test_selfmanga(selfmanga_server):
     # Get latest updates
