@@ -11,6 +11,8 @@ class Xoxocomics(WPComics):
     lang = 'en'
     is_nsfw = True
 
+    has_cf = True
+
     base_url = 'https://xoxocomic.com'
     logo_url = base_url + '/images/sites/favicon.png'
     search_url = base_url + '/search-comic'

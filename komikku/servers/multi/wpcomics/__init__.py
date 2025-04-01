@@ -18,6 +18,7 @@ from komikku.servers.utils import convert_date_string
 from komikku.servers.utils import get_soup_element_inner_text
 from komikku.utils import get_buffer_mime_type
 from komikku.utils import is_number
+from komikku.webview import CompleteChallenge
 
 # WPComics Wordpress theme
 
@@ -45,12 +46,13 @@ class WPComics(Server):
     results_last_chapter_lastest_updates_link_selector: str = None
 
     def __init__(self):
-        if self.session is None:
+        if self.session is None and not self.has_cf:
             self.session = requests.Session()
             self.session.headers = {
                 'User-Agent': USER_AGENT,
             }
 
+    @CompleteChallenge()
     def get_manga_data(self, initial_data):
         """
         Returns comic data by scraping manga HTML page content
@@ -145,6 +147,7 @@ class WPComics(Server):
 
         return data
 
+    @CompleteChallenge()
     def get_manga_chapter_data(self, manga_slug, manga_name, chapter_slug, chapter_url):
         """
         Returns comic chapter data
@@ -173,6 +176,7 @@ class WPComics(Server):
 
         return data
 
+    @CompleteChallenge()
     def get_manga_chapter_page_image(self, manga_slug, manga_name, chapter_slug, page):
         """
         Returns chapter page scan (image) content
@@ -202,6 +206,7 @@ class WPComics(Server):
         """
         return self.manga_url.format(slug)
 
+    @CompleteChallenge()
     def get_latest_updates(self):
         """
         Returns daily updates
@@ -238,6 +243,7 @@ class WPComics(Server):
 
         return results
 
+    @CompleteChallenge()
     def get_most_populars(self):
         """
         Returns popular comics
@@ -272,6 +278,7 @@ class WPComics(Server):
 
         return results
 
+    @CompleteChallenge()
     def search(self, term):
         r = self.session.get(
             self.search_url,
