@@ -368,10 +368,7 @@ class Challenger:
         self.cf_reload_count = 0
         self.done = False
         self.error = None
-        self.load_event = None
-        self.load_event_finished_timeout = 10
-        self.load_events_monitor_id = None
-        self.load_events_monitor_ts = None
+        self.last_load_event = None
 
     def cancel(self):
         self.error = f'Challenge completion aborted: {self.server.id}'
@@ -429,7 +426,6 @@ class Challenger:
         self.webview.webkit_webview.evaluate_javascript(js, -1)
 
     def on_load_changed(self, _webkit_webview, event):
-        self.load_event = event
         logger.debug(f'Load changed: {event} {self.webview.webkit_webview.get_uri()}')
 
         if event != WebKit.LoadEvent.REDIRECTED and '__cf_chl_tk' in self.webview.webkit_webview.get_uri():
@@ -440,8 +436,14 @@ class Challenger:
             logger.debug('Disable images automatic loading')
             self.webview.webkit_webview.get_settings().set_auto_load_images(False)
 
-        elif event == WebKit.LoadEvent.COMMITTED:
+        elif event == WebKit.LoadEvent.COMMITTED or \
+                (event == WebKit.LoadEvent.FINISHED and self.last_load_event != WebKit.LoadEvent.COMMITTED):
+            # Normally, COMMITTED event is received and then FINISHED event.
+            # The challenge can be monitor as soon as COMMITTED event is emit,
+            # but sometimes it isn't, so we have to wait for FINISHED event too
             self.monitor_challenge()
+
+        self.last_load_event = event
 
     def on_load_failed(self, _webkit_webview, _event, uri, _gerror):
         self.error = f'Challenge completion error: failed to load URI {uri}'
