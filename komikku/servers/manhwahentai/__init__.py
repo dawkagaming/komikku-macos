@@ -16,6 +16,7 @@ class Manhwahentai(Madara):
     name = 'Manhwa Hentai'
     lang = 'en'
     is_nsfw_only = True
+    status = 'disabled'
 
     date_format = '%d %B %Y'
     series_name = 'pornhwa'
