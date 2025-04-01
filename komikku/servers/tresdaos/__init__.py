@@ -14,6 +14,7 @@ class Tresdaos(MangaStream):
     date_format = None
 
     base_url = 'https://tresdaos.com'
+    manga_list_url = base_url + '/'
 
     authors_selector = '.tsinfo .imptdt:-soup-contains("Autor") i, .tsinfo .imptdt:-soup-contains("Artista") i'
     genres_selector = '.info-desc .mgen a'
