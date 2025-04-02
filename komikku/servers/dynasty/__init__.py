@@ -1,6 +1,7 @@
-# SPDX-FileCopyrightText: 2020-2024 Liliana Prikler
+# SPDX-FileCopyrightText: 2020-2025 Liliana Prikler
 # SPDX-License-Identifier: GPL-3.0-or-later
 # Author: Liliana Prikler <liliana.prikler@gmail.com>
+# Author: Valéry Febvre <vfebvre@easter-eggs.com>
 
 from bs4 import BeautifulSoup
 from gettext import gettext as _
@@ -22,7 +23,6 @@ class Dynasty(Server):
     name = 'Dynasty Reader'
     lang = 'en'
     is_nsfw = True
-    long_strip_genres = ['Long strip', ]
 
     base_url = 'https://dynasty-scans.com'
     logo_url = base_url + '/assets/favicon-96599a954b862bfaaa71372cc403a6ab.png'
@@ -40,7 +40,7 @@ class Dynasty(Server):
             'description': _('Filter by Types'),
             'value_type': 'multiple',
             'options': [
-                {'key': 'Anthology', 'name': _('Anthology'), 'default': True},
+                {'key': 'Anthology', 'name': _('Anthologies'), 'default': True},
                 {'key': 'Doujin', 'name': _('Doujins'), 'default': True},
                 {'key': 'Issue', 'name': _('Issues'), 'default': True},
                 {'key': 'Series', 'name': _('Series'), 'default': True},
@@ -62,6 +62,7 @@ class Dynasty(Server):
             'default': '',
         },
     ]
+    long_strip_genres = ['Long strip', ]
 
     def __init__(self):
         if self.session is None:
@@ -119,30 +120,28 @@ class Dynasty(Server):
             cover=None,
         ))
 
+        class_ = initial_data['slug'].split('/')[0]
+
         return {
             'anthologies': self._fill_data_multi,
             'chapters': self._fill_data_single,
             'doujins': self._fill_data_multi,
             'issues': self._fill_data_multi,
             'series': self._fill_data_multi,
-        }[initial_data['slug'].split('/')[0]](data, soup)
+        }[class_](class_, data, soup)
 
-    def _fill_data_single(self, data, soup):
+    def _fill_data_single(self, class_, data, soup):
         # Fill metadata
-        name_element = soup.find('h3', id='chapter-title')
+        name_element = soup.select_one('#chapter-title')
         data['name'] = name_element.b.text.strip()
-        data['authors'] = [elt.text.strip() for elt in name_element.find_all('a')]
+        data['authors'] = [elt.text.strip() for elt in name_element.select('a')]
 
-        details = soup.find('div', id='chapter-details')
-        scanlators = details.find('span', class_='scanlators')
-        if scanlators:
-            data['scanlators'] = [elt.text.strip() for elt in scanlators.find_all('a')]
+        details = soup.select_one('#chapter-details')
+        data['scanlators'] = [elt.text.strip() for elt in details.select('span.scanlators a')]
 
-        tags = details.find('span', class_='tags')
-        if tags:
-            data['genres'] = [elt.text.strip() for elt in tags.find_all('a')]
+        data['genres'] = [elt.text.strip() for elt in details.select('span.tags a')]
 
-        date_text = details.find('span', class_='released').text.strip()
+        date_text = details.select_one('span.released').text.strip()
 
         data['chapters'].append(dict(
             slug=data['slug'].split('/')[-1],
@@ -151,7 +150,7 @@ class Dynasty(Server):
         ))
 
         # Use first page as cover
-        for script_element in soup.find_all('script'):
+        for script_element in soup.select('script'):
             script = script_element.string
             if script is None:
                 continue
@@ -170,47 +169,64 @@ class Dynasty(Server):
 
         return data
 
-    def _fill_data_multi(self, data, soup):
-        if name_element := soup.find('h2', class_='tag-title'):
-            data['name'] = name_element.b.text.strip()
-        elif name_element := soup.find('h2'):
-            data['name'] = name_element.b.text.strip()
+    def _fill_data_multi(self, class_, data, soup):
+        status = None
 
-        data['authors'] = [elt.text.strip() for elt in name_element.find_all('a')]
+        if class_ in ('anthologies', 'series'):
+            name_element = soup.select_one('.tag-title > b')
+            authors_elements = soup.select('.tag-title > a')
+            cover_element = soup.select_one('.cover-chapters .cover img.thumbnail')
+            full_title = soup.select_one('.tag-title').text
+            if len(full_title.split('—')) == 2:
+                status = full_title.split('—')[1].strip()
+            data['name'] = name_element.text.split('›')[-1].strip()
 
-        if name_element.find('small'):
-            # Status may contain additional information, such as 'Licensed'
-            status = name_element.small.text.split(' ')
-            if 'Ongoing' in status:
-                data['status'] = 'ongoing'
-            elif 'Completed' in status:
-                data['status'] = 'complete'
+        elif class_ == 'doujins':
+            name_element = soup.select_one('h2')
+            authors_elements = soup.select('.tag-tags a')
+            cover_element = soup.select_one('.tag-images a.thumbnail img')
+            data['name'] = name_element.text.split('›')[-1].strip()
 
-        try:
-            cover_rel = soup.find('div', class_='cover').find('img')['src']
-            data['cover'] = self.base_url + cover_rel
-        except AttributeError:
-            logger.info('No cover found.')
-        except TypeError:
-            logger.info("There appears to be a cover, but we can't find any images.")
+        elif class_ == 'issues':
+            name_element = soup.select_one('.tag-title b')
+            authors_elements = None
+            cover_element = soup.select_one('.cover-chapters .cover img.thumbnail')
+            full_title = soup.select_one('.tag-title').text
+            if len(full_title.split('—')) == 2:
+                status = full_title.split('—')[1].strip()
+            data['name'] = name_element.text.strip()
 
-        try:
-            elements = soup.find('div', class_='description').find_all('p')
-            data['synopsis'] = '\n\n'.join([p.text.strip() for p in elements])
-        except AttributeError:
-            logger.info('No synopsis found.')
+        if cover_element:
+            data['cover'] = self.base_url + cover_element.get('src')
 
-        elements = soup.find('div', class_='tag-tags').find_all('a', class_='label')
-        for element in elements:
+        if authors_elements:
+            data['authors'] = [element.text.strip() for element in authors_elements]
+
+        if status == 'Ongoing':
+            data['status'] = 'ongoing'
+        elif status == 'Completed':
+            data['status'] = 'complete'
+        elif status == 'On Hiatus':
+            data['status'] = 'hiatus'
+        elif status in ('Abandoned', 'Cancelled', 'Dropped', 'Not Updated', 'Removed'):
+            data['status'] = 'suspended'
+
+        # Genres
+        for element in soup.select('.tag-tags a.label'):
             value = element.text.strip()
             if value not in data['genres']:
                 data['genres'].append(value)
 
-        elements = soup.find('dl', class_='chapter-list').find_all('dd')
+        # Synopsis
+        if elements := soup.select('.description p'):
+            data['synopsis'] = '\n\n'.join([p.text.strip() for p in elements])
+
+        # Chapters
+        elements = soup.select('dl.chapter-list dd')
         for element in elements:
-            a_element = element.find('a')
+            a_element = element.select_one('a')
             date_text = None
-            for small in element.find_all('small'):
+            for small in element.select('small'):
                 small = small.text.strip()
                 if small.startswith('released'):
                     date_text = small[len('released'):]
@@ -240,7 +256,7 @@ class Dynasty(Server):
         soup = BeautifulSoup(r.text, 'lxml')
 
         pages = None
-        for script_element in soup.find_all('script'):
+        for script_element in soup.select('script'):
             script = script_element.string
             if script is None:
                 continue
@@ -318,17 +334,17 @@ class Dynasty(Server):
         try:
             results = []
             soup = BeautifulSoup(response.text, 'lxml')
-            elements = soup.find('dl', class_='chapter-list').find_all('dd')
+            elements = soup.select('dl.chapter-list dd')
 
             for element in elements:
-                a_element = element.find('a', class_='name')
+                a_element = element.select_one('a.name')
 
                 do_include = True
                 if with_tags or without_tags:
-                    tags_element = element.find('tags')
+                    tags_element = element.select_one('tags')
                     tags = set([])
                     if tags_element:
-                        tags = [t.text.strip() for t in tags_element.find_all('a')]
+                        tags = [t.text.strip() for t in tags_element.select('a')]
                         do_include = do_include and tags >= set(with_tags)
                         do_include = do_include and tags.isdisjoint(set(without_tags))
                     elif with_tags:
