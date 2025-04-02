@@ -16,6 +16,7 @@ class Viewcomics(Server):
     id = 'viewcomics'
     name = 'View Comics'
     lang = 'en'
+    status = 'disabled'
 
     base_url = 'https://azcomix.me'
     search_url = base_url + '/search'
