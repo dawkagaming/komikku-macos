@@ -60,9 +60,10 @@ def extract_info_from_script(soup, keyword):
 class HeanCMS(Server):
     base_url: str
     api_url: str
+    api_version: int
     manga_url: str = None
     chapter_url: str = None
-    api_chapter_url: str = None
+    api_chapters_url: str = None
     media_url: str = None
 
     date_format = '%m/%d/%Y'
@@ -77,7 +78,7 @@ class HeanCMS(Server):
             self.manga_url = self.base_url + '/series/{0}'
         if self.chapter_url is None:
             self.chapter_url = self.base_url + '/series/{0}/{1}'
-        if self.api_chapter_url is None:
+        if self.api_chapters_url is None:
             self.api_chapters_url = self.api_url + '/chapter/query'
 
         if self.session is None and not self.has_cf:
@@ -169,14 +170,23 @@ class HeanCMS(Server):
         chapters = []
 
         def get_page(serie_id, page):
-            r = self.session_get(
-                self.api_chapters_url,
-                params=dict(
-                    page=page,
-                    perPage=100,
-                    series_id=serie_id,
+            if self.api_version == 1:
+                r = self.session_get(
+                    self.api_chapters_url,
+                    params=dict(
+                        page=page,
+                        perPage=100,
+                        series_id=serie_id,
+                    )
                 )
-            )
+            elif self.api_version == 2:
+                r = self.session_get(
+                    self.api_chapters_url.format(serie_id),
+                    params=dict(
+                        page=page,
+                        perPage=100,
+                    )
+                )
             if r.status_code != 200:
                 return None, False, None
 

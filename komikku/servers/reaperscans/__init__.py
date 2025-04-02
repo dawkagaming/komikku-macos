@@ -25,7 +25,10 @@ class Reaperscans(HeanCMS):
     base_url = 'https://reaperscans.com'
     logo_url = base_url + '/wetried_only.png'
     api_url = 'https://api.reaperscans.com'
+    api_version = 2
+    api_chapters_url = api_url + '/chapters/{0}'
 
+    name_css_path = 'h1'
     cover_css_path = 'img[width="316"]'
     authors_css_path = 'div.flex:-soup-contains("Author") > span:last-child'
     synopsis_css_path = 'div.text-muted-foreground > div:nth-child(1)'
