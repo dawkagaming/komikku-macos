@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Komikku 1.41.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-03-28 11:01+0100\n"
+"POT-Creation-Date: 2025-04-04 00:19+0200\n"
 "PO-Revision-Date: 2024-08-16 15:54+0000\n"
 "Last-Translator: Scrambled777 <weblate.scrambled777@simplelogin.com>\n"
 "Language-Team: Hindi <https://hosted.weblate.org/projects/komikku/main/hi/>\n"
@@ -896,30 +896,30 @@ msgstr "एकमुश्त या मासिक दान"
 msgid "Webview"
 msgstr "वेब-दृश्य"
 
-#: ../komikku/application.py:192
+#: ../komikku/application.py:193
 msgid "Multiple URLs not supported"
 msgstr "एकाधिक URL समर्थित नहीं हैं"
 
-#: ../komikku/application.py:208
+#: ../komikku/application.py:209
 msgid "Invalid URL {}, not handled by any server."
 msgstr "अमान्य URL {}, किसी भी सर्वर द्वारा नियंत्रित नहीं किया जा रहा है।"
 
-#: ../komikku/application.py:419 ../komikku/card/__init__.py:158
+#: ../komikku/application.py:420 ../komikku/card/__init__.py:158
 #: ../komikku/card/__init__.py:159 ../komikku/categories_editor.py:189
 #: ../komikku/downloader.py:377 ../komikku/downloader.py:378
 #: ../komikku/library/__init__.py:764 ../komikku/library/__init__.py:765
 msgid "Cancel"
 msgstr "रद्द"
 
-#: ../komikku/application.py:494
+#: ../komikku/application.py:495
 msgid "Servers modules have been updated"
 msgstr "सर्वर मॉड्यूल अद्यतित किया गया"
 
-#: ../komikku/application.py:501
+#: ../komikku/application.py:502
 msgid "External Servers Modules Update"
 msgstr "बाहरी सर्वर मॉड्यूल अद्यतन"
 
-#: ../komikku/application.py:502
+#: ../komikku/application.py:503
 msgid ""
 "Updating of external server modules is temporarily suspended, as changes are "
 "currently making them incompatible with the current version of the "
@@ -929,11 +929,11 @@ msgstr ""
 "किए गए परिवर्तन उन्हें अनुप्रयोग के वर्तमान संस्करण के साथ असंगत बना रहे हैं। यदि कोई "
 "नवीनतम संस्करण मौजूद है तो कृपया उसे अद्यतन करें।"
 
-#: ../komikku/application.py:505 ../komikku/explorer/common.py:267
+#: ../komikku/application.py:506 ../komikku/explorer/common.py:267
 msgid "Close"
 msgstr "बंद"
 
-#: ../komikku/application.py:520
+#: ../komikku/application.py:521
 msgid ""
 "A manga, manhwa, manhua, webtoons, webcomics and comics reader for GNOME\n"
 "\n"
@@ -946,39 +946,39 @@ msgstr ""
 "👉 कभी न भूलें, जब आपके क्षेत्र/भाषा में आधिकारिक कॉमिक्स उपलब्ध हों तो आप उन्हें खरीदकर "
 "लेखकों का समर्थन कर सकते हैं।"
 
-#: ../komikku/application.py:529
+#: ../komikku/application.py:530
 msgid "Supporters"
 msgstr "समर्थक"
 
-#: ../komikku/application.py:531
+#: ../komikku/application.py:532
 msgid "Join Chat"
 msgstr "चैट से जुड़ें"
 
-#: ../komikku/application.py:647
+#: ../komikku/application.py:646
 msgid "Are you sure you want to quit?"
 msgstr "क्या आप वाकई छोड़ना चाहते हैं?"
 
-#: ../komikku/application.py:650
+#: ../komikku/application.py:649
 msgid "Some chapters are currently being downloaded."
 msgstr "कुछ अध्याय अभी डाउनलोड किये जा रहे हैं।"
 
-#: ../komikku/application.py:652
+#: ../komikku/application.py:651
 msgid "Some mangas are currently being updated."
 msgstr "कुछ मंगा वर्तमान में अद्यतन किए जा रहे हैं।"
 
-#: ../komikku/application.py:656
+#: ../komikku/application.py:655
 msgid "Quit?"
 msgstr "छोड़ें?"
 
-#: ../komikku/application.py:658
+#: ../komikku/application.py:657
 msgid "Quit"
 msgstr "छोड़ें"
 
-#: ../komikku/application.py:672
+#: ../komikku/application.py:671
 msgid "Restart"
 msgstr ""
 
-#: ../komikku/application.py:672
+#: ../komikku/application.py:671
 msgid "Restart?"
 msgstr ""
 
@@ -1377,6 +1377,7 @@ msgstr "अवर्गीकृत"
 #: ../komikku/servers/mangapill/__init__.py:38
 #: ../komikku/servers/mangatube/__init__.py:130
 #: ../komikku/servers/multi/manga_stream/__init__.py:75
+#: ../komikku/servers/phenixscans/__init__.py:39
 #: ../komikku/servers/webtoon/__init__.py:53
 msgid "All"
 msgstr "सभी"
@@ -1551,6 +1552,7 @@ msgstr "पुन: प्रयास"
 #: ../komikku/servers/mangatube/__init__.py:125
 #: ../komikku/servers/mangaworld/__init__.py:59
 #: ../komikku/servers/multi/manga_stream/__init__.py:70
+#: ../komikku/servers/phenixscans/__init__.py:34
 #: ../komikku/servers/webtoon/__init__.py:48
 msgid "Type"
 msgstr "प्रकार"
@@ -1558,6 +1560,7 @@ msgstr "प्रकार"
 #: ../komikku/servers/asurascans/__init__.py:37
 #: ../komikku/servers/mangapill/__init__.py:34
 #: ../komikku/servers/multi/manga_stream/__init__.py:71
+#: ../komikku/servers/phenixscans/__init__.py:35
 #: ../komikku/servers/webtoon/__init__.py:49
 msgid "Filter by Type"
 msgstr ""
@@ -1570,6 +1573,7 @@ msgstr ""
 #: ../komikku/servers/mangatube/__init__.py:131
 #: ../komikku/servers/mangaworld/__init__.py:63
 #: ../komikku/servers/multi/manga_stream/__init__.py:76
+#: ../komikku/servers/phenixscans/__init__.py:40
 #: ../komikku/servers/weebcentral/__init__.py:39
 msgid "Manga"
 msgstr "मंगा"
@@ -1581,6 +1585,7 @@ msgstr "मंगा"
 #: ../komikku/servers/mangatube/__init__.py:132
 #: ../komikku/servers/mangaworld/__init__.py:65
 #: ../komikku/servers/multi/manga_stream/__init__.py:77
+#: ../komikku/servers/phenixscans/__init__.py:41
 #: ../komikku/servers/weebcentral/__init__.py:40
 msgid "Manhwa"
 msgstr "मैनहवा"
@@ -1592,6 +1597,7 @@ msgstr "मैनहवा"
 #: ../komikku/servers/mangatube/__init__.py:133
 #: ../komikku/servers/mangaworld/__init__.py:64
 #: ../komikku/servers/multi/manga_stream/__init__.py:78
+#: ../komikku/servers/phenixscans/__init__.py:42
 #: ../komikku/servers/weebcentral/__init__.py:41
 msgid "Manhua"
 msgstr "मैनहुआ"
@@ -1653,9 +1659,8 @@ msgid "Filter by Types"
 msgstr ""
 
 #: ../komikku/servers/dynasty/__init__.py:43
-#: ../komikku/servers/mangadex/__init__.py:104
-msgid "Anthology"
-msgstr "संकलन"
+msgid "Anthologies"
+msgstr ""
 
 #: ../komikku/servers/dynasty/__init__.py:44
 msgid "Doujins"
@@ -1813,6 +1818,10 @@ msgstr "4-कोमा"
 #: ../komikku/servers/mangadex/__init__.py:103
 msgid "Adaptation"
 msgstr "अनुकूलन"
+
+#: ../komikku/servers/mangadex/__init__.py:104
+msgid "Anthology"
+msgstr "संकलन"
 
 #: ../komikku/servers/mangadex/__init__.py:105
 msgid "Award Winning"
@@ -2131,7 +2140,7 @@ msgstr "कोई इंटरनेट कनेक्शन नहीं, स�
 msgid "Please wait…"
 msgstr ""
 
-#: ../komikku/webview.py:486
+#: ../komikku/webview.py:489
 msgid "Please complete CAPTCHA"
 msgstr "कृपया CAPTCHA पूर्ण करें"
 
