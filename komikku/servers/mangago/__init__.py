@@ -117,17 +117,17 @@ class Mangago(Server):
             data['synopsis'] = synopsis_element.text.strip()
 
         # Chapters
+        manga_url = self.manga_url.format(data['slug'])
         for tr_element in reversed(soup.select('#chapter_table tr')):
             td_elements = tr_element.select('td')
             slug_element = td_elements[0].select_one('a.chico')
 
             url = slug_element.get('href')
-            if 'mangago' in url:
-                # mangago.me, mangago.zone
-                slug = '/'.join(slug_element.get('href').split('/')[-4:-2])
-            elif 'youhim' in url:
-                # youhim.me
-                slug = '/'.join(slug_element.get('href').split('/')[-3:-1])
+            if url.startswith(manga_url):
+                slug = url.replace(manga_url, '')
+            else:
+                logger.warning('Chapter ignored: url unknown %s', url)
+                continue
 
             data['chapters'].append(dict(
                 slug=slug,
