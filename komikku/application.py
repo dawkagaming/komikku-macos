@@ -534,13 +534,26 @@ available in your region/language."""))
         # Override release notes
         dialog.set_release_notes("""
             <ul>
-                <li>[Library] Fixed inconsistent background color introduced in previous version</li>
-                <li>[Servers] Aurora Scan (pt_BR): Disabled</li>
-                <li>[Servers] Noromax (ID): Update</li>
-                <li>[Servers] Tecno Scans (EN): Update</li>
-                <li>[Servers] Wicked Witch Scan (pt_BR): Disabled</li>
-                <li>[Servers] `Up-to-date modules` feature: an app restart is now required for a change to take effect (modules update or setting activation/deactivation)</li>
-                <li>[L10n] Updated Bulgarian, Czech, French, Russian and Ukrainian translations</li>
+                <li>[Servers] ريبر العربي (AR): Disabled</li>
+                <li>[Servers] 3asq (AR): Disabled</li>
+                <li>[Servers] Dango Scan (pt_BR): Update</li>
+                <li>[Servers] DB New Hope (EN/ES/FR): Update</li>
+                <li>[Servers] Dynasty Reader (EN): Update</li>
+                <li>[Servers] EZmanga (EN): Ignored chapters with price</li>
+                <li>[Servers] Mangago (EN): Update</li>
+                <li>[Servers] Mangaowl (EN): Update</li>
+                <li>[Servers] MangaReader (EN): Update</li>
+                <li>[Servers] MangaWorld (IT): Update</li>
+                <li>[Servers] Manhwa Hentai (EN): Disabled</li>
+                <li>[Servers] Mint Manga (RU): Disabled</li>
+                <li>[Servers] Nazarick Scan (pt_BR): Update</li>
+                <li>[Servers] PhenixScans (FR): Update</li>
+                <li>[Servers] Reaper Scans (EN): Update</li>
+                <li>[Servers] Terco Scans (EN): Update</li>
+                <li>[Servers] Tres Daos (ES): Update</li>
+                <li>[Servers] View Comics (EN): Update</li>
+                <li>[Servers] Xoxocomics (EN): Update</li>
+                <li>[L10n] Updated French and Russian translations</li>
             </ul>
             <p>Happy reading.</p>
         """)
