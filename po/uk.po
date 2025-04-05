@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: Komikku 1.17.1\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-04-04 00:19+0200\n"
-"PO-Revision-Date: 2025-03-25 13:25+0000\n"
+"PO-Revision-Date: 2025-04-06 09:03+0000\n"
 "Last-Translator: Bezruchenko Simon <worcposj44@gmail.com>\n"
 "Language-Team: Ukrainian <https://hosted.weblate.org/projects/komikku/main/"
 "uk/>\n"
@@ -702,11 +702,11 @@ msgstr "Розширений"
 
 #: ../data/ui/preferences.blp:312
 msgid "A setting has changed that requires a restart to take effect"
-msgstr ""
+msgstr "Змінилась налаштування, для застосування яких необхідно перезавантажити"
 
 #: ../data/ui/preferences.blp:313
 msgid "Got it!"
-msgstr ""
+msgstr "Зрозумів!"
 
 #: ../data/ui/preferences.blp:318
 msgid "Data"
@@ -997,11 +997,11 @@ msgstr "Вийти"
 
 #: ../komikku/application.py:671
 msgid "Restart"
-msgstr ""
+msgstr "Перезавантажити"
 
 #: ../komikku/application.py:671
 msgid "Restart?"
-msgstr ""
+msgstr "Перезавантажити?"
 
 #: ../komikku/card/__init__.py:110 ../komikku/card/__init__.py:239
 #: ../komikku/explorer/search/__init__.py:75
@@ -1683,7 +1683,7 @@ msgstr "Фільтрувати за типами"
 
 #: ../komikku/servers/dynasty/__init__.py:43
 msgid "Anthologies"
-msgstr ""
+msgstr "Антології"
 
 #: ../komikku/servers/dynasty/__init__.py:44
 msgid "Doujins"
