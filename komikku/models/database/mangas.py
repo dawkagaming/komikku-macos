@@ -11,7 +11,7 @@ import os
 import shutil
 import time
 
-from colorthief import ColorThief
+from modern_colorthief import get_palette
 
 from komikku.models.database import create_db_connection
 from komikku.models.database import insert_row
@@ -131,7 +131,7 @@ class Manga:
                     return data
 
         try:
-            palette = ColorThief(cover_path).get_palette(color_count=2, quality=1)[:2]
+            palette = get_palette(cover_path).get_palette(color_count=2, quality=1)[:2]
         except Exception:
             # Single color image?
             return None
