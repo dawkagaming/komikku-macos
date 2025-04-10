@@ -96,7 +96,7 @@
     <url type="vcs-browser">@gitrepo@</url>
     <url type="translate">https://hosted.weblate.org/projects/komikku</url>
     <url type="contribute">https://welcome.gnome.org/app/Komikku/</url>
-    <url type="donation">https://valos.gitlab.io/Komikku/#sponsor</url>
+    <url type="donation">https://febvre.info/donate.html</url>
 
     <releases>
         <release version="1.75.0" date="2025-04-04">
