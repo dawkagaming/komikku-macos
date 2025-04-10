@@ -4,13 +4,14 @@
 # Alifiyan Rosyidi <hello@ar14.works>, 2023, 2024.
 # Alim Satria <alimsatria2017@mail.ugm.ac.id>, 2023.
 # Juan Manuel <juanmanueldilo09@gmail.com>, 2024.
+# srntskl-111 <maskhraish@outlook.co.id>, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: Komikku 1.12.1\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-04-04 00:19+0200\n"
-"PO-Revision-Date: 2024-04-18 16:03+0000\n"
-"Last-Translator: Juan Manuel <juanmanueldilo09@gmail.com>\n"
+"PO-Revision-Date: 2025-04-11 11:05+0000\n"
+"Last-Translator: srntskl-111 <maskhraish@outlook.co.id>\n"
 "Language-Team: Indonesian <https://hosted.weblate.org/projects/komikku/main/"
 "id/>\n"
 "Language: id\n"
@@ -18,11 +19,12 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 5.5-dev\n"
+"X-Generator: Weblate 5.11-dev\n"
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:11
+#, fuzzy
 msgid "Discover and read manga & comics"
-msgstr ""
+msgstr "Menemukan dan baca manga & komik"
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:13
 msgid ""
@@ -64,8 +66,9 @@ msgid "Categories to organize your library"
 msgstr "Kategori untuk mengelola pustakamu"
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:22
+#, fuzzy
 msgid "Automatic tracking of series with MyAnimeList and AniList"
-msgstr ""
+msgstr "Otomatis melacak dari seri dengan MyAnimeList dan AniList"
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:23
 msgid "Automatic update of series"
@@ -171,16 +174,18 @@ msgstr "Sinopsis"
 
 #: ../data/ui/card.blp:487 ../data/ui/categories_editor.blp:67
 #: ../data/ui/library.blp:249
+#, fuzzy
 msgid "No Categories"
-msgstr ""
+msgstr "Tidak kategori"
 
 #: ../data/ui/card_chapters_list_row.blp:65
 msgid "New"
 msgstr "Baru"
 
 #: ../data/ui/card_tracking.blp:9
+#, fuzzy
 msgid "Tracking"
-msgstr ""
+msgstr "Melacak"
 
 #: ../data/ui/card_tracking_search.blp:10 ../data/ui/explorer_search.blp:10
 #: ../data/ui/explorer_search.blp:43 ../data/ui/history.blp:22
