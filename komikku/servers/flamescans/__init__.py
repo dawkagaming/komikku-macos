@@ -106,9 +106,13 @@ class Flamescans(Server):
 
             # Details
             if serie_data.get('author'):
-                data['authors'].append(serie_data['author'])
+                for author in serie_data['author']:
+                    data['authors'].append(author)
             if serie_data.get('artist'):
-                data['authors'].append(serie_data['artist'])
+                for artist in serie_data['artist']:
+                    if artist in data['authors']:
+                        continue
+                    data['authors'].append(artist)
 
             if serie_data.get('tags'):
                 data['genres'] = serie_data['tags']
