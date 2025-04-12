@@ -165,6 +165,7 @@ class Application(Adw.Application):
 
         self.window = None
 
+        self.add_main_option_entries([])
         self.set_resource_base_path('/info/febvre/Komikku')
         GLib.set_application_name('Komikku')
 
