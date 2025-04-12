@@ -159,3 +159,18 @@ app_resources = gnome.compile_resources(app_id,
     install: true,
     install_dir: pkgdatadir
 )
+
+#
+# D-Bus service file
+#
+service_conf = configuration_data()
+service_conf.set('appid', app_id)
+service_conf.set('projectname', meson.project_name())
+service_conf.set('bindir', join_paths(prefix, bindir))
+configure_file(
+    input: base_id + '.service.in',
+    output: app_id + '.service',
+    configuration: service_conf,
+    install: true,
+    install_dir: join_paths(datadir, 'dbus-1/services'),
+)
