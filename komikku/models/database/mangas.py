@@ -130,14 +130,13 @@ class Manga:
                 if '@define-color' not in data:
                     return data
 
-        try:
-            palette = get_palette(cover_path, color_count=2, quality=1)[:2]
-        except Exception:
+        palette = get_palette(cover_path, color_count=2)
+        if len(palette) != 2:
             # Single color image?
             return None
 
         colors = [':root {\n']
-        for index, color in enumerate(palette):
+        for index, color in enumerate(reversed(palette)):
             colors.append(f'\t--backdrop-background-color-{index}: rgb({color[0]} {color[1]} {color[2]} / 100%);\n')  # noqa: E702, E231
         colors.append('\t--backdrop-background-color-2: var(--window-bg-color);\n')
         colors.append('}\n')
