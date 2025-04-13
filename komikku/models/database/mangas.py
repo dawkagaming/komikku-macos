@@ -131,7 +131,7 @@ class Manga:
                     return data
 
         try:
-            palette = get_palette(cover_path).get_palette(color_count=2, quality=1)[:2]
+            palette = get_palette(cover_path, color_count=2, quality=1)[:2]
         except Exception:
             # Single color image?
             return None
