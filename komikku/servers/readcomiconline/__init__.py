@@ -40,8 +40,8 @@ class Readcomiconline(Server):
     most_populars_url = base_url + '/ComicList/MostPopular'
     search_url = base_url + '/AdvanceSearch'
     manga_url = base_url + '/Comic/{0}'
-    chapter_url = base_url + '/Comic/{0}/{1}?readType=1'
-    bypass_cf_url = base_url + '/Comic/Invincible/Issue-1'
+    chapter_url = base_url + '/Comic/{0}/{1}?s=&quality=hq#1'
+    bypass_cf_url = base_url + '/Comic/Invincible/Issue-1#1'
 
     def __init__(self):
         self.session = None
@@ -175,12 +175,12 @@ class Readcomiconline(Server):
         media_server = None
         for script_element in soup.select('script'):
             script = script_element.string
-            if not script or ('var pth' not in script and 'replace(' not in script):
+            if not script or ('var pht' not in script and 'replace(' not in script):
                 continue
 
             for line in script.split('\n'):
                 line = line.strip()
-                if line.startswith("pth = '"):
+                if line.startswith("pht = '"):
                     encoded_urls.append(line[7:-2])
 
                 elif 'replace(' in line:
@@ -204,7 +204,13 @@ class Readcomiconline(Server):
         """
         Returns chapter page scan (image) content
         """
-        r = self.session_get(page['image'])
+        r = self.session_get(
+            page['image'] + '&t=10',
+            headers={
+                'Alt-Used': '2.bp.blogspot.com',
+            }
+        )
+
         if r.status_code != 200:
             return None
 
