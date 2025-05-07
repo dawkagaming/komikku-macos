@@ -110,15 +110,18 @@ CREDITS = dict(
         'Tim (German)',
         'Sear Gasor (German)',
         'Vortex Acherontic (German)',
+        'Dlurak (German)',
         'Scrambled777 (Hindi)',
         'mondstern (Hungarian)',
         'Milo Ivir (Croatian)',
         'Alifiyan Rosyidi (Indonesian)',
         'Alim Satria (Indonesian)',
         'Juan Manuel (Indonesian)',
+        'srntskl-111 (Indonesian)',
         'Mek101 (Italian)',
         'dedocc (Italian)',
         'Davide Mora (Italian)',
+        'Andrea Scarano (Italian)',
         'Lili Kurek (Polish)',
         'Aleksander Warzyniak (Polish)',
         'ssantos (Portuguese)',
@@ -535,26 +538,13 @@ available in your region/language."""))
         # Override release notes
         dialog.set_release_notes("""
             <ul>
-                <li>[Servers] ريبر العربي (AR): Disabled</li>
-                <li>[Servers] 3asq (AR): Disabled</li>
-                <li>[Servers] Dango Scan (pt_BR): Update</li>
-                <li>[Servers] DB New Hope (EN/ES/FR): Update</li>
-                <li>[Servers] Dynasty Reader (EN): Update</li>
-                <li>[Servers] EZmanga (EN): Ignored chapters with price</li>
-                <li>[Servers] Mangago (EN): Update</li>
-                <li>[Servers] Mangaowl (EN): Update</li>
-                <li>[Servers] MangaReader (EN): Update</li>
-                <li>[Servers] MangaWorld (IT): Update</li>
-                <li>[Servers] Manhwa Hentai (EN): Disabled</li>
-                <li>[Servers] Mint Manga (RU): Disabled</li>
-                <li>[Servers] Nazarick Scan (pt_BR): Update</li>
-                <li>[Servers] PhenixScans (FR): Update</li>
-                <li>[Servers] Reaper Scans (EN): Update</li>
-                <li>[Servers] Terco Scans (EN): Update</li>
-                <li>[Servers] Tres Daos (ES): Update</li>
-                <li>[Servers] View Comics (EN): Update</li>
-                <li>[Servers] Xoxocomics (EN): Update</li>
-                <li>[L10n] Updated French and Russian translations</li>
+                <li>[Servers] Added ComicHubFree (EN)</li>
+                <li>[Servers] Asura Scans For Free (EN): Disabled</li>
+                <li>[Servers] Flame Comics (EN): Update</li>
+                <li>[Servers] Read Comic Online (EN): Update</li>
+                <li>[Servers] Team-X (AR): Update</li>
+                <li>[Servers] Terco Scans (EN):Update</li>
+                <li>[L10n] Updated Bulgarian, German, Indonesian, Italian and Ukrainian translations</li>
             </ul>
             <p>Happy reading.</p>
         """)

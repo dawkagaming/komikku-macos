@@ -99,6 +99,20 @@
     <url type="donation">https://febvre.info/donate.html</url>
 
     <releases>
+        <release version="1.76.0" date="2025-05-08">
+            <description translate="no">
+                <ul>
+                    <li>[Servers] Added ComicHubFree (EN)</li>
+                    <li>[Servers] Asura Scans For Free (EN): Disabled</li>
+                    <li>[Servers] Flame Comics (EN): Update</li>
+                    <li>[Servers] Read Comic Online (EN): Update</li>
+                    <li>[Servers] Team-X (AR): Update</li>
+                    <li>[Servers] Terco Scans (EN):Update</li>
+                    <li>[L10n] Updated Bulgarian, German, Indonesian, Italian and Ukrainian translations</li>
+                </ul>
+                <p>Happy reading.</p>
+            </description>
+        </release>
         <release version="1.75.0" date="2025-04-04">
             <description translate="no">
                 <ul>
