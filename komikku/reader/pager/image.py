@@ -89,6 +89,9 @@ class KImage(Gtk.Widget, Gtk.Scrollable):
         self.animation_iter = None
         self.animation_tick_callback_id = None
 
+        self.hadjustment_value_changed_handler_id = None
+        self.vadjustment_value_changed_handler_id = None
+
         self.gesture_click_timeout_id = None
         self.obscured = True
         self.pointer_position = None  # current pointer position
@@ -161,8 +164,8 @@ class KImage(Gtk.Widget, Gtk.Scrollable):
         if not adj:
             return
 
-        adj.connect('value-changed', lambda adj: self.queue_draw())
         self.__hadj = adj
+        self.hadjustment_value_changed_handler_id = adj.connect('value-changed', lambda _adj: self.queue_draw())
         self.configure_adjustments()
 
     @GObject.Property(type=Gtk.ScrollablePolicy, default=Gtk.ScrollablePolicy.MINIMUM)
@@ -300,8 +303,9 @@ class KImage(Gtk.Widget, Gtk.Scrollable):
     def vadjustment(self, adj):
         if not adj:
             return
-        adj.connect('value-changed', lambda adj: self.queue_draw())
+
         self.__vadj = adj
+        self.vadjustment_value_changed_handler_id = adj.connect('value-changed', lambda _adj: self.queue_draw())
         self.configure_adjustments()
 
     @GObject.Property(type=Gtk.ScrollablePolicy, default=Gtk.ScrollablePolicy.MINIMUM)
@@ -503,6 +507,11 @@ class KImage(Gtk.Widget, Gtk.Scrollable):
         return self.textures
 
     def dispose(self):
+        if self.hadjustment_value_changed_handler_id:
+            self.hadjustment.disconnect(self.hadjustment_value_changed_handler_id)
+        if self.vadjustment_value_changed_handler_id:
+            self.vadjustment.disconnect(self.vadjustment_value_changed_handler_id)
+
         if self.zoomable:
             self.controller_motion.disconnect_by_func(self.on_pointer_motion)
             self.controller_scroll.disconnect_by_func(self.on_scroll)
@@ -514,6 +523,7 @@ class KImage(Gtk.Widget, Gtk.Scrollable):
         if self.animation_tick_callback_id:
             self.remove_tick_callback(self.animation_tick_callback_id)
 
+        self.data = None
         self.pixbuf = None
         self.animation_iter = None
         self.textures = None

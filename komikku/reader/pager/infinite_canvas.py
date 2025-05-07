@@ -39,6 +39,8 @@ class KInfiniteCanvas(Gtk.Widget, Gtk.Scrollable):
         self.__hadj = None
         self.__vadj = None
 
+        self.vadjustment_value_changed_handler_id = None
+
         self.scroll_adjusting_delta = 0
         self.scroll_direction = None
         self.scroll_drag_offset = 0
@@ -89,12 +91,15 @@ class KInfiniteCanvas(Gtk.Widget, Gtk.Scrollable):
 
     @GObject.Property(type=Gtk.Adjustment)
     def vadjustment(self):
-        return self.__vadj
+        return self.__vadj or Gtk.Adjustment()
 
     @vadjustment.setter
     def vadjustment(self, adj):
-        self.vadjustment_value_changed_handler_id = adj.connect('value-changed', lambda adj: self.queue_allocate())
+        if not adj:
+            return
+
         self.__vadj = adj
+        self.vadjustment_value_changed_handler_id = adj.connect('value-changed', lambda _adj: self.queue_allocate())
 
     @GObject.Property(type=Gtk.ScrollablePolicy, default=Gtk.ScrollablePolicy.MINIMUM)
     def vscroll_policy(self):
@@ -186,9 +191,6 @@ class KInfiniteCanvas(Gtk.Widget, Gtk.Scrollable):
         self.queue_allocate()
 
     def configure_adjustments(self):
-        if self.vadjustment is None:
-            return
-
         lower = 0
         if first_page := self.get_first_child():
             if first_page.status == 'offlimit' and self.scroll_direction in (None, Gtk.DirectionType.UP):
@@ -216,9 +218,6 @@ class KInfiniteCanvas(Gtk.Widget, Gtk.Scrollable):
         self.scroll_adjusting_delta = 0
 
     def connect_signals(self):
-        if self.vadjustment:
-            self.vadjustment_value_changed_handler_id = self.vadjustment.connect('value-changed', lambda adj: self.queue_allocate())
-
         # Keyboard navigation
         self.key_pressed_handler_id = self.pager.window.controller_key.connect('key-pressed', self.on_key_pressed)
 
