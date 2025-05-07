@@ -134,9 +134,9 @@ class Teamx(Server):
         data = dict(
             pages=[],
         )
-        for img_element in soup.select('#manga-images-container canvas'):
+        for img_element in soup.select('.image_list canvas[data-src], .image_list img[src]'):
             data['pages'].append(dict(
-                image=img_element.get('data-src'),
+                image=img_element.get('src') or img_element.get('data-src'),
                 slug=None,
             ))
 
