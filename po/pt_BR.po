@@ -8,13 +8,14 @@
 # Juliano de Souza Camargo <julianosc@protonmail.com>, 2024.
 # Giovanne Menicheli <giovanne.lopes.menicheli@gmail.com>, 2024.
 # Fúlvio Alves <fga.fulvio@gmail.com>, 2024.
+# Felipe <felipe.bueno.ramos@gmail.com>, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: Komikku\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-04-04 00:19+0200\n"
-"PO-Revision-Date: 2024-12-17 03:00+0000\n"
-"Last-Translator: Fúlvio Alves <fga.fulvio@gmail.com>\n"
+"PO-Revision-Date: 2025-05-08 14:01+0000\n"
+"Last-Translator: Felipe <felipe.bueno.ramos@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) <https://hosted.weblate.org/projects/"
 "komikku/main/pt_BR/>\n"
 "Language: pt_BR\n"
@@ -22,11 +23,11 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 5.9\n"
+"X-Generator: Weblate 5.12-dev\n"
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:11
 msgid "Discover and read manga & comics"
-msgstr ""
+msgstr "Desubra e leia mangás e quadrinhos"
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:13
 msgid ""
@@ -704,10 +705,12 @@ msgstr "Avançado"
 #: ../data/ui/preferences.blp:312
 msgid "A setting has changed that requires a restart to take effect"
 msgstr ""
+"Uma configuração foi alterada que requer uma reinicialização para entrar em "
+"vigor"
 
 #: ../data/ui/preferences.blp:313
 msgid "Got it!"
-msgstr ""
+msgstr "Entendi!"
 
 #: ../data/ui/preferences.blp:318
 msgid "Data"
@@ -727,11 +730,11 @@ msgstr "Limpar Cache de Capítulos e do Banco de dados ao Sair"
 
 #: ../data/ui/preferences.blp:332
 msgid "Servers Modules"
-msgstr ""
+msgstr "Módulos dos Servidores"
 
 #: ../data/ui/preferences.blp:335
 msgid "Use Up-to-date Servers Modules"
-msgstr ""
+msgstr "Usar os Módulos Atualizados dos Servidores"
 
 #: ../data/ui/preferences.blp:336
 msgid ""
@@ -739,6 +742,9 @@ msgid ""
 "code repository and updated at each startup, is used instead of the one "
 "delivered with the application."
 msgstr ""
+"Uma versão alternativa dos módulos dos servidores, instalada a partir do "
+"código-fonte do repositório e atualizada a cada inicialização, é utilizada "
+"no lugar da oferecida pelo aplicativo."
 
 #: ../data/ui/preferences.blp:341
 msgid "Credentials Storage"
@@ -774,6 +780,9 @@ msgid ""
 "environment and therefore cannot disable animations globally via GNOME "
 "Settings (Accessibility ⇨ Seeing ⇨ Animation Effects)."
 msgstr ""
+"Esse ajuste destina-se apenas a usuários que não usam o ambiente de trabalho "
+"GNOME e, portanto, não podem desativar as animações globalmente por meio das "
+"Configurações do GNOME (Acessibilidade ⇨ Ver ⇨ Efeitos de animação)."
 
 #: ../data/ui/reader.blp:23
 msgid "Back"
@@ -826,7 +835,7 @@ msgstr "Pesquisa"
 #: ../data/ui/shortcuts_overview.blp:52
 msgctxt "Shortcut window description"
 msgid "Update"
-msgstr ""
+msgstr "Atualizar"
 
 #: ../data/ui/shortcuts_overview.blp:58
 msgctxt "Shortcut window description"
@@ -924,11 +933,11 @@ msgstr "Cancelar"
 
 #: ../komikku/application.py:495
 msgid "Servers modules have been updated"
-msgstr ""
+msgstr "Os módulos de servidores foram atualizados"
 
 #: ../komikku/application.py:502
 msgid "External Servers Modules Update"
-msgstr ""
+msgstr "Atualização de Módulos de Servidores Externos"
 
 #: ../komikku/application.py:503
 msgid ""
@@ -936,6 +945,9 @@ msgid ""
 "currently making them incompatible with the current version of the "
 "application. Please update it if a more recent version exists."
 msgstr ""
+"A atualização de módulos de servidores externos está temporariamente "
+"suspensa, pois as alterações estão tornando-os incompatíveis com a versão "
+"atual do aplicativo. Atualize-o se houver uma versão mais recente."
 
 #: ../komikku/application.py:506 ../komikku/explorer/common.py:267
 msgid "Close"
@@ -986,11 +998,11 @@ msgstr "Sair"
 
 #: ../komikku/application.py:671
 msgid "Restart"
-msgstr ""
+msgstr "Reiniciar"
 
 #: ../komikku/application.py:671
 msgid "Restart?"
-msgstr ""
+msgstr "Reiniciar?"
 
 #: ../komikku/card/__init__.py:110 ../komikku/card/__init__.py:239
 #: ../komikku/explorer/search/__init__.py:75
@@ -1000,7 +1012,7 @@ msgstr "Filtros"
 
 #: ../komikku/card/__init__.py:248
 msgid "Unknown"
-msgstr ""
+msgstr "Desconhecido"
 
 #: ../komikku/card/__init__.py:335
 msgid "Read progress synchronization with server completed successfully"
@@ -1080,15 +1092,15 @@ msgstr "Marcar capítulos anteriores como lidos"
 
 #: ../komikku/card/tracking.py:71
 msgid "Failed to get data from tracker"
-msgstr ""
+msgstr "Falha ao obter dados do rastreador"
 
 #: ../komikku/card/tracking.py:99
 msgid "No tracking services available"
-msgstr ""
+msgstr "Sem serviços de rastreamento disponíveis"
 
 #: ../komikku/card/tracking.py:185
 msgid "Track"
-msgstr ""
+msgstr "Rastrear"
 
 #: ../komikku/card/tracking.py:211
 msgid "Use"
@@ -1096,7 +1108,7 @@ msgstr ""
 
 #: ../komikku/card/tracking.py:219
 msgid "Cancel Tracking"
-msgstr ""
+msgstr "Cancelar rastreio"
 
 #: ../komikku/card/tracking.py:225 ../komikku/servers/mangadex/__init__.py:72
 #: ../komikku/servers/mangafire/__init__.py:59
