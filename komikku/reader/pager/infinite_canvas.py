@@ -218,12 +218,18 @@ class KInfiniteCanvas(Gtk.Widget, Gtk.Scrollable):
         self.scroll_adjusting_delta = 0
 
     def connect_signals(self):
+        if self.vadjustment and self.vadjustment_value_changed_handler_id is None:
+            self.vadjustment_value_changed_handler_id = self.vadjustment.connect('value-changed', lambda adj: self.queue_allocate())
+
         # Keyboard navigation
         self.key_pressed_handler_id = self.pager.window.controller_key.connect('key-pressed', self.on_key_pressed)
 
     def disconnect_signals(self):
         self.vadjustment.disconnect(self.vadjustment_value_changed_handler_id)
+        self.vadjustment_value_changed_handler_id = None
+
         self.pager.window.controller_key.disconnect(self.key_pressed_handler_id)
+        self.key_pressed_handler_id = None
 
     def dispose(self):
         self.disconnect_signals()
