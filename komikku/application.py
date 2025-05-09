@@ -80,6 +80,7 @@ CREDITS = dict(
         'Juliano de Souza Camargo (Brazilian Portuguese)',
         'Giovanne Menicheli (Brazilian Portuguese)',
         'Fúlvio Alves (Brazilian Portuguese)',
+        'Felipe (Brazilian Portuguese)',
         'twlvnn (Bulgarian)',
         'Roger VC (Catalan)',
         'Lukáš Linhart (Czech)',
@@ -537,6 +538,14 @@ available in your region/language."""))
 
         # Override release notes
         dialog.set_release_notes("""
+            <p>This is a bugfix version.</p>
+            <ul>
+                <li>[Reader] Webtoon mode: Fixed scrolling after a pages jump (using controls overlay)</li>
+                <li>[L10n] Updated Portuguese (Brazil) translation</li>
+            </ul>
+
+            <p>Changes in previous version 1.76.0</p>
+
             <ul>
                 <li>[Servers] Added ComicHubFree (EN)</li>
                 <li>[Servers] Asura Scans For Free (EN): Disabled</li>
