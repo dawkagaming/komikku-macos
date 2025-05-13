@@ -385,43 +385,38 @@ class Challenger:
         # - No challenge found: change title to 'ready'
         # - An error occurs during challenge: change title to 'error'
         js = """
-            function check() {
-                let intervalID = setInterval(() => {
-                    if (document.getElementById('challenge-error-title')) {
-                        // CF error: Browser is outdated?
-                        document.title = 'error';
-                        clearInterval(intervalID);
-                    }
-                    else if (document.querySelector('.ray-id') || document.querySelector('style').innerText.indexOf('ray-id') > 0) {
-                        document.title = 'cf_captcha';
-                    }
-                    else if (document.querySelector('#request-info')) {
-                        document.title = 'ddg_captcha';
-                    }
-                    else if (document.querySelector('.g-recaptcha') && !document.querySelector('form .g-recaptcha')) {
-                        // Google reCAPTCHA
-                        // Not in a form to avoid false positives (login form for ex.)
-                        document.title = 're_captcha';
-                    }
-                    else if (document.querySelector('#formVerify')) {
-                        document.title = 'ayh2_captcha';
-                    }
-                    else if (document.querySelector('script[src*="challange"]')) {
-                        document.title = 'challange_captcha';
-                    }
-                    else {
-                        document.title = 'ready';
-                        clearInterval(intervalID);
-                    }
-                }, 100);
-            };
+            let intervalID = setInterval(() => {
+                if (document.readyState === 'loading') {
+                    return;
+                }
 
-            if (document.readyState === 'loading') {
-                document.addEventListener('DOMContentLoaded', check);
-            }
-            else {
-                check();
-            }
+                if (document.getElementById('challenge-error-title')) {
+                    // CF error: Browser is outdated?
+                    document.title = 'error';
+                    clearInterval(intervalID);
+                }
+                else if (document.querySelector('.main-wrapper[role="main"] .main-content') || document.querySelector('.ray-id')) {
+                    document.title = 'cf_captcha';
+                }
+                else if (document.querySelector('#request-info')) {
+                    document.title = 'ddg_captcha';
+                }
+                else if (document.querySelector('.g-recaptcha') && !document.querySelector('form .g-recaptcha')) {
+                    // Google reCAPTCHA
+                    // Not in a form to avoid false positives (login form for ex.)
+                    document.title = 're_captcha';
+                }
+                else if (document.querySelector('#formVerify')) {
+                    document.title = 'ayh2_captcha';
+                }
+                else if (document.querySelector('script[src*="challange"]')) {
+                    document.title = 'challange_captcha';
+                }
+                else {
+                    document.title = 'ready';
+                    clearInterval(intervalID);
+                }
+            }, 100);
         """
         self.webview.webkit_webview.evaluate_javascript(js, -1)
 
@@ -438,9 +433,9 @@ class Challenger:
 
         elif event == WebKit.LoadEvent.COMMITTED or \
                 (event == WebKit.LoadEvent.FINISHED and self.last_load_event != WebKit.LoadEvent.COMMITTED):
-            # Normally, COMMITTED event is received and then FINISHED event.
-            # The challenge can be monitor as soon as COMMITTED event is emit,
-            # but sometimes it isn't, so we have to wait for FINISHED event too
+            # Normally, COMMITTED (2) event is received and then FINISHED (3) event.
+            # The challenge can be monitored as soon as COMMITTED event is emitted,
+            # but sometimes it isn't, so we have to wait for FINISHED event.
             self.monitor_challenge()
 
         self.last_load_event = event
@@ -497,7 +492,9 @@ class Challenger:
         self.webview.exit()
 
         logger.debug(f'{self.server.id}: Page loaded, getting cookies...')
-        self.webview.network_session.get_cookie_manager().get_cookies(self.server.base_url, None, self.on_get_cookies_finished, None)
+        self.webview.network_session.get_cookie_manager().get_cookies(
+            self.url, None, self.on_get_cookies_finished, None
+        )
 
     def on_get_cookies_finished(self, cookie_manager, result, _user_data):
         if self.server.http_client == 'requests':
