@@ -119,7 +119,7 @@ class Madara(Server):
         r = self.session_get(
             self.manga_url.format(initial_data['slug']),
             headers={
-                'Referer': self.base_url,
+                'Referer': f'{self.base_url}/',
             }
         )
         if r.status_code != 200:
