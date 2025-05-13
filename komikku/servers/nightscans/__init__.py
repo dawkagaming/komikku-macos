@@ -20,3 +20,4 @@ class Nightscans(MangaStream):
     scanlators_selector = '.tsinfo .imptdt:-soup-contains("Serialization") i'
     status_selector = '.tsinfo .imptdt:-soup-contains("Status") i'
     synopsis_selector = '[itemprop="description"]'
+    chapter_pages_selector = '#readerarea noscript img'

@@ -242,7 +242,7 @@ class MangaStream(Server):
             if ignore:
                 continue
 
-            title = li_element.select_one('.chapternum').text.strip().replace('\n', ' ')
+            title = ' '.join(li_element.select_one('.chapternum').text.split())
             if date_element := li_element.select_one('.chapterdate'):
                 date = convert_date_string(date_element.text.strip(), format=self.date_format)
             else:
