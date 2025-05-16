@@ -115,7 +115,8 @@ class Mangapill(Server):
             num = a_element.get('href').split('/')[-1].split('-')[-1]
 
             data['chapters'].append(dict(
-                url='/'.join(a_element.get('href').split('/')[2:]),
+                url='/'.join(a_element.get('href').split('/')[-2:]),
+                slug=a_element.get('href').split('/')[-1],
                 title=a_element.text.strip(),
                 num=num if is_number(num) else None,
                 date=None,  # not available
