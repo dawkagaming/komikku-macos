@@ -538,22 +538,13 @@ available in your region/language."""))
 
         # Override release notes
         dialog.set_release_notes("""
-            <p>This is a bugfix version.</p>
             <ul>
-                <li>[Reader] Webtoon mode: Fixed scrolling after a pages jump (using controls overlay)</li>
-                <li>[L10n] Updated Portuguese (Brazil) translation</li>
-            </ul>
-
-            <p>Changes in previous version 1.76.0</p>
-
-            <ul>
-                <li>[Servers] Added ComicHubFree (EN)</li>
-                <li>[Servers] Asura Scans For Free (EN): Disabled</li>
-                <li>[Servers] Flame Comics (EN): Update</li>
-                <li>[Servers] Read Comic Online (EN): Update</li>
-                <li>[Servers] Team-X (AR): Update</li>
-                <li>[Servers] Terco Scans (EN):Update</li>
-                <li>[L10n] Updated Bulgarian, German, Indonesian, Italian and Ukrainian translations</li>
+                <li>[Webview] Fixed Cloudflare challenge detection</li>
+                <li>[Servers] Manga-Scantrad (FR): Update</li>
+                <li>[Servers] Night scans (EN): Update</li>
+                <li>[Servers] Tres Daos (ES): Update</li>
+                <li>[Servers] Mangapill (EN): Update</li>
+                <li>[L10n] Updated Spanish translation</li>
             </ul>
             <p>Happy reading.</p>
         """)

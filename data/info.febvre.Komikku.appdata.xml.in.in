@@ -99,6 +99,19 @@
     <url type="donation">https://febvre.info/donate.html</url>
 
     <releases>
+        <release version="1.77.0" date="2025-05-17">
+            <description translate="no">
+                <ul>
+                    <li>[Webview] Fixed Cloudflare challenge detection</li>
+                    <li>[Servers] Manga-Scantrad (FR): Update</li>
+                    <li>[Servers] Night scans (EN): Update</li>
+                    <li>[Servers] Tres Daos (ES): Update</li>
+                    <li>[Servers] Mangapill (EN): Update</li>
+                    <li>[L10n] Updated Spanish translation</li>
+                </ul>
+                <p>Happy reading.</p>
+            </description>
+        </release>
         <release version="1.76.1" date="2025-05-09">
             <description translate="no">
                 <p>This is a bugfix version.</p>
