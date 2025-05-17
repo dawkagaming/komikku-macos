@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: Komikku 1.53.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-04-04 00:19+0200\n"
-"PO-Revision-Date: 2025-04-17 21:00+0000\n"
+"PO-Revision-Date: 2025-05-17 20:35+0000\n"
 "Last-Translator: twlvnn <kraft_werk@tutanota.com>\n"
 "Language-Team: Bulgarian <https://hosted.weblate.org/projects/komikku/main/"
 "bg/>\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.11.1-dev\n"
+"X-Generator: Weblate 5.12-dev\n"
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:11
 msgid "Discover and read manga & comics"
@@ -222,7 +222,7 @@ msgstr "Най-популярни"
 
 #: ../data/ui/explorer_search.blp:212
 msgid "Latest Updates"
-msgstr "Последни обновления"
+msgstr "Последно обновени"
 
 #: ../data/ui/explorer_servers.blp:10
 msgid "Servers"
@@ -1266,7 +1266,7 @@ msgstr "Опа, адресът на уеб сайта на сървъра е н�
 
 #: ../komikku/explorer/search/__init__.py:380
 msgid "Search for Reading"
-msgstr "Търсене на нещо за четене"
+msgstr "Търсете нещо за четене"
 
 #: ../komikku/explorer/search/__init__.py:382
 msgid "Empty search is allowed."
@@ -1331,7 +1331,7 @@ msgstr "Няма резултати"
 
 #: ../komikku/explorer/servers.py:108 ../komikku/explorer/servers.py:169
 msgid "Other"
-msgstr "Друго"
+msgstr "Други"
 
 #: ../komikku/explorer/servers.py:206
 msgid "Pinned"
