@@ -14,7 +14,7 @@ msgstr ""
 "Project-Id-Version: Komikku\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-04-04 00:19+0200\n"
-"PO-Revision-Date: 2025-05-08 14:01+0000\n"
+"PO-Revision-Date: 2025-05-21 06:02+0000\n"
 "Last-Translator: Felipe <felipe.bueno.ramos@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) <https://hosted.weblate.org/projects/"
 "komikku/main/pt_BR/>\n"
@@ -1104,7 +1104,7 @@ msgstr "Rastrear"
 
 #: ../komikku/card/tracking.py:211
 msgid "Use"
-msgstr ""
+msgstr "Usar"
 
 #: ../komikku/card/tracking.py:219
 msgid "Cancel Tracking"
