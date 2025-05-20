@@ -4,22 +4,23 @@
 # abidin toumi <abidin24@disroot.org>, 2023.
 # Rayen Ghanmi <ghanmirayen12@gmail.com>, 2023.
 # Mohamed Abdalah Noh <ahnue200572@gmail.com>, 2024.
+# Ahmed Najmawi <iramosu@protonmail.com>, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: Komikku 1.18.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-04-04 00:19+0200\n"
-"PO-Revision-Date: 2024-06-05 07:09+0000\n"
-"Last-Translator: Mohamed Abdalah Noh <ahnue200572@gmail.com>\n"
-"Language-Team: Arabic <https://hosted.weblate.org/projects/komikku/main/ar/"
-">\n"
+"PO-Revision-Date: 2025-05-21 06:02+0000\n"
+"Last-Translator: Ahmed Najmawi <iramosu@protonmail.com>\n"
+"Language-Team: Arabic <https://hosted.weblate.org/projects/komikku/main/ar/>"
+"\n"
 "Language: ar\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
 "&& n%100<=10 ? 3 : n%100>=11 ? 4 : 5;\n"
-"X-Generator: Weblate 5.6-dev\n"
+"X-Generator: Weblate 5.12-dev\n"
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:11
 msgid "Discover and read manga & comics"
@@ -358,7 +359,7 @@ msgstr "تبرّع"
 
 #: ../data/ui/menu/main.xml:68
 msgid "About Komikku"
-msgstr "حول كوميكو"
+msgstr "عَنْ كوميكو"
 
 #: ../data/ui/menu/reader.xml:114
 msgid "Zoom Landscape Pages"
@@ -1331,7 +1332,7 @@ msgstr ""
 
 #: ../komikku/library/__init__.py:613
 msgid "Welcome to Komikku"
-msgstr ""
+msgstr "مرحبًا في كوميكو"
 
 #: ../komikku/library/__init__.py:621
 msgid "Loading…"
