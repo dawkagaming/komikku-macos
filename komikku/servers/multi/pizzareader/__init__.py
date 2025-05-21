@@ -129,7 +129,7 @@ class PizzaReader(Server):
                 slug=item['slug'],
                 name=item['title'],
                 cover=item['thumbnail_small'],
-                last_chapter=item['last_chapter']['full_title'],
+                last_chapter=item['last_chapter']['full_title'] if item['last_chapter'] else None,
             ))
 
         return results
@@ -147,7 +147,7 @@ class PizzaReader(Server):
                 slug=item['slug'],
                 name=item['title'],
                 cover=item['thumbnail_small'],
-                last_chapter=item['last_chapter']['full_title'],
+                last_chapter=item['last_chapter']['full_title'] if item['last_chapter'] else None,
             ))
 
         return results
@@ -165,7 +165,7 @@ class PizzaReader(Server):
                 slug=item['slug'],
                 name=item['title'],
                 cover=item['thumbnail_small'],
-                last_chapter=item['last_chapter']['full_title'],
+                last_chapter=item['last_chapter']['full_title'] if item['last_chapter'] else None,
             ))
 
         return results
