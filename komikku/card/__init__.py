@@ -596,23 +596,23 @@ class InfoBox:
                 label.set_css_classes(['genre-label', 'caption'])
                 self.genres_wrapbox.append(label)
 
-            self.genres_wrapbox.get_parent().get_parent().set_visible(True)
+            self.genres_wrapbox.get_parent().set_visible(True)
         else:
-            self.genres_wrapbox.get_parent().get_parent().set_visible(False)
+            self.genres_wrapbox.get_parent().set_visible(False)
 
         if manga.scanlators:
             self.scanlators_label.set_markup(html_escape(', '.join(manga.scanlators)))
-            self.scanlators_label.get_parent().get_parent().set_visible(True)
+            self.scanlators_label.get_parent().set_visible(True)
         else:
-            self.scanlators_label.get_parent().get_parent().set_visible(False)
+            self.scanlators_label.get_parent().set_visible(False)
 
         self.chapters_label.set_markup(str(len(manga.chapters)))
 
         if manga.last_update:
             self.last_update_label.set_markup(manga.last_update.strftime(_('%m/%d/%Y')))
-            self.last_update_label.get_parent().get_parent().set_visible(True)
+            self.last_update_label.get_parent().set_visible(True)
         else:
-            self.last_update_label.get_parent().get_parent().set_visible(False)
+            self.last_update_label.get_parent().set_visible(False)
 
         self.set_disk_usage()
 

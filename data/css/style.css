@@ -36,7 +36,6 @@ label.badge {
     background-color: var(--accent-bg-color);
     padding: 0 7px 0px 7px;
     border-radius: 999px;
-    font-family: var(--monospace-font-family);
     font-weight: 700;
 }
 
@@ -89,7 +88,6 @@ flowbox flowboxchild:selected {
 /* Acceptable as long as it's the only badge used in an Adw.ViewSwitcher */
 viewswitcher indicatorbin > indicator {
     background-color: var(--blue-2); /* unread chapters color */
-    font-family: var(--monospace-font-family);
 }
 
 .backdrop {
@@ -171,7 +169,7 @@ carousel slider {
 .explorer-server-section-listboxrow {
     padding: 12px;
     font-weight: 900;
-    background: var(--headerbar-bg-color);
+    background-color: alpha(var(--window-fg-color), 0.05);
     color: var(--headerbar-fg-color);
 }
 

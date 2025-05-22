@@ -26,7 +26,7 @@ class Controls:
 
         # Number of pages
         self.label = Gtk.Label()
-        self.label.add_css_class('monospace')
+        self.label.add_css_class('numeric')
         self.label.props.margin_start = 6
         self.label.props.margin_end = 6
         self.label.set_halign(Gtk.Align.START)
