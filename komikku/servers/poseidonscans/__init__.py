@@ -10,6 +10,7 @@ class Poseidonscans(Madara):
     name = 'Poseidon Scans'
     lang = 'fr'
     is_nsfw = True
+    status = 'disabled'  # 2025/05: New site with dynamic HTML (Next.js)
 
     has_cf = True
 
