@@ -6,6 +6,7 @@ import datetime
 import logging
 import os
 import rarfile
+import tarfile
 import xml.etree.ElementTree as ET
 import zipfile
 
@@ -26,6 +27,8 @@ def is_archive(path):
         return True
     if rarfile.is_rarfile(path):
         return True
+    if tarfile.is_tarfile(path):
+        return True
 
     return False
 
@@ -38,6 +41,9 @@ class Archive:
 
             elif rarfile.is_rarfile(path):
                 self.obj = CBR(path)
+
+            elif tarfile.is_tarfile(path):
+                self.obj = CBT(path)
         except Exception as e:
             logger.exception(f'Bad/corrupt archive: {path}')
             raise ArchiveError from e
@@ -129,6 +135,29 @@ class CBR:
         except rarfile.RarCannotExec as e:
             logger.exception('Failed to execute unrar command')
             raise ArchiveUnrarMissingError from e
+        except Exception as e:
+            logger.info(f'{self.path}: {e}')
+            raise ServerException(e) from e
+
+
+class CBT:
+    """Comic Book Tar (CBT) format"""
+
+    def __init__(self, path):
+        self.path = path
+        self.archive = tarfile.open(self.path)
+
+    def get_namelist(self):
+        return self.archive.getnames()
+
+    def get_name_buffer(self, name):
+        try:
+            with self.archive.extractfile(name) as fp:
+                buf = fp.read()
+            return buf
+        except KeyError as e:
+            logger.info(f'{self.path}: {e}')
+            return None
         except Exception as e:
             logger.info(f'{self.path}: {e}')
             raise ServerException(e) from e
