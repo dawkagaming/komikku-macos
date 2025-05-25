@@ -12,7 +12,6 @@ from komikku.servers.multi.hiveworks import Hiveworks
 class Smbc(Hiveworks):
     id = 'smbc'
     name = 'SMBC'
-    status = 'disabled'  # 03/2025 switching over Hiveworks
 
     base_url = 'https://www.smbc-comics.com'
     logo_url = base_url + '/favicon.ico'

@@ -44,8 +44,7 @@ class Hiveworks(Server):
     def get_manga_data(self, initial_data):
         """Returns manga data by scraping manga HTML page content"""
         r = self.session_get(self.manga_url)
-        if r.status_code != 200:
-            return None
+        # Don't check status code (SMBC returns 500 - https://www.smbc-comics.com/comic/archive 2025/05/26)
 
         mime_type = get_buffer_mime_type(r.content)
         if mime_type != 'text/html':
