@@ -1,32 +1,34 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the Komikku package.
-# Roger VC <rogervilarasau@gmail.com>, 2023.
+# Roger VC <rogervilarasau@gmail.com>, 2023, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: Komikku 1.18.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-04-04 00:19+0200\n"
-"PO-Revision-Date: 2023-10-30 11:01+0000\n"
+"PO-Revision-Date: 2025-05-27 09:01+0000\n"
 "Last-Translator: Roger VC <rogervilarasau@gmail.com>\n"
-"Language-Team: Catalan <https://hosted.weblate.org/projects/komikku/main/ca/"
-">\n"
+"Language-Team: Catalan <https://hosted.weblate.org/projects/komikku/main/ca/>"
+"\n"
 "Language: ca\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.2-dev\n"
+"X-Generator: Weblate 5.12-dev\n"
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:11
 msgid "Discover and read manga & comics"
-msgstr ""
+msgstr "Descobriu i llegiu manga i còmics"
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:13
 msgid ""
 "With its simple, elegant and adaptive interface, this reader lets you "
 "search, sort and read your series with ease."
 msgstr ""
+"Amb la seva interfície simple, elegant i adaptativa, aquest lector us permet "
+"buscar, ordenar i llegir les vostres sèries amb facilitat."
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:15
 msgid "Why you will love Komikku?"
@@ -38,7 +40,7 @@ msgstr "Lectura en línia i fora de línia des de dotzenes de servidors"
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:18
 msgid "Support for locally stored series (in CBZ or CBR formats)"
-msgstr ""
+msgstr "Suport per a sèries emmagatzemades localment (en formats CBZ o CBR)"
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:19
 msgid "RTL, LTR, Vertical and Webtoon reading modes"
@@ -61,11 +63,11 @@ msgstr "Categories per organitzar la vostra biblioteca"
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:22
 msgid "Automatic tracking of series with MyAnimeList and AniList"
-msgstr ""
+msgstr "Seguiment automàtic de sèries amb MyAnimeList i AniList"
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:23
 msgid "Automatic update of series"
-msgstr ""
+msgstr "Actualització automàtica de sèries"
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:24
 msgid "Automatic download of new chapters"
@@ -130,6 +132,8 @@ msgstr "@description@"
 #: ../data/info.febvre.Komikku.desktop.in:12
 msgid "manga;reader;viewer;comic;manhwa;manhua;bd;webtoon;webcomic;scan;offline;GTK;GNOME;"
 msgstr ""
+"manga;lector;visor;còmic;manhwa;manhua;bd;webtoon;webcomic;scan;fora de "
+"línia;GTK;gnome;"
 
 #: ../data/ui/card.blp:39 ../data/ui/card.blp:450
 #: ../data/ui/card_chapters_list_row.blp:48 ../data/ui/download_manager.blp:26
@@ -168,7 +172,7 @@ msgstr "Sinopsi"
 #: ../data/ui/card.blp:487 ../data/ui/categories_editor.blp:67
 #: ../data/ui/library.blp:249
 msgid "No Categories"
-msgstr ""
+msgstr "No hi ha categories"
 
 #: ../data/ui/card_chapters_list_row.blp:65
 msgid "New"
@@ -176,7 +180,7 @@ msgstr "Nou"
 
 #: ../data/ui/card_tracking.blp:9
 msgid "Tracking"
-msgstr ""
+msgstr "Seguiment"
 
 #: ../data/ui/card_tracking_search.blp:10 ../data/ui/explorer_search.blp:10
 #: ../data/ui/explorer_search.blp:43 ../data/ui/history.blp:22
@@ -186,7 +190,7 @@ msgstr "Cerca"
 
 #: ../data/ui/card_tracking_search.blp:74
 msgid "Search for Tracking"
-msgstr ""
+msgstr "Cerca de seguiment"
 
 #: ../data/ui/categories_editor.blp:36
 msgid "Add"
@@ -198,15 +202,15 @@ msgstr "Gestor de descàrregues"
 
 #: ../data/ui/download_manager.blp:32
 msgid "Start/Stop Download"
-msgstr ""
+msgstr "Inicia/atura la descàrrega"
 
 #: ../data/ui/download_manager.blp:67
 msgid "No Downloads"
-msgstr ""
+msgstr "No hi ha descàrregues"
 
 #: ../data/ui/explorer_search.blp:28
 msgid "Search Filters"
-msgstr ""
+msgstr "Filtres de cerca"
 
 #: ../data/ui/explorer_search.blp:34
 msgid "Open in Browser"
@@ -226,11 +230,11 @@ msgstr "Servidors"
 
 #: ../data/ui/explorer_servers.blp:17
 msgid "Search Comics Across All Servers"
-msgstr ""
+msgstr "Cerca de còmics a través de tots els servidors"
 
 #: ../data/ui/explorer_servers.blp:23
 msgid "Search Servers"
-msgstr ""
+msgstr "Cerca servidors"
 
 #: ../data/ui/explorer_servers.blp:37
 msgid "Search for servers by name or language"
@@ -242,7 +246,7 @@ msgstr "Historial"
 
 #: ../data/ui/history.blp:71
 msgid "No History"
-msgstr ""
+msgstr "Sense historial"
 
 #: ../data/ui/library.blp:10 ../data/ui/preferences.blp:66
 msgid "Library"
@@ -250,7 +254,7 @@ msgstr "Biblioteca"
 
 #: ../data/ui/library.blp:23
 msgid "Toggle Categories Sidebar"
-msgstr ""
+msgstr "Commuta la barra lateral de categories"
 
 #: ../data/ui/library.blp:34
 msgid "Main Menu"
@@ -351,7 +355,7 @@ msgstr "Dreceres de teclat"
 
 #: ../data/ui/menu/main.xml:64
 msgid "Donate"
-msgstr ""
+msgstr "Doneu"
 
 #: ../data/ui/menu/main.xml:68
 msgid "About Komikku"
@@ -408,11 +412,11 @@ msgstr "Activa automàticament el tema fosc a la nit"
 
 #: ../data/ui/preferences.blp:36
 msgid "Accent Color"
-msgstr ""
+msgstr "Color d'Accent"
 
 #: ../data/ui/preferences.blp:37
 msgid "Use system accent colors"
-msgstr ""
+msgstr "Utilitzeu colors d'accent del sistema"
 
 #: ../data/ui/preferences.blp:41
 msgid "Backdrop in Details Page"
@@ -434,7 +438,7 @@ msgstr ""
 
 #: ../data/ui/preferences.blp:59
 msgid "Synchronize reading progress"
-msgstr ""
+msgstr "Sincronitza el progrés de lectura"
 
 #: ../data/ui/preferences.blp:70
 msgid "Display"
@@ -494,7 +498,7 @@ msgstr "Descarrega automàticament nous capítols"
 
 #: ../data/ui/preferences.blp:167
 msgid "Explorer"
-msgstr ""
+msgstr "Explorador"
 
 #: ../data/ui/preferences.blp:170
 #: ../data/ui/preferences_servers_languages.blp:10
@@ -607,19 +611,19 @@ msgstr "Mida Original"
 
 #: ../data/ui/preferences.blp:262
 msgid "Scaling Filter"
-msgstr ""
+msgstr "Filtre d'escalat"
 
 #: ../data/ui/preferences.blp:263
 msgid "Interpolation method used when scaling images"
-msgstr ""
+msgstr "Mètode d'interpolació utilitzat en l'escalat d'imatges"
 
 #: ../data/ui/preferences.blp:266
 msgid "Linear"
-msgstr ""
+msgstr "Lineal"
 
 #: ../data/ui/preferences.blp:267
 msgid "Trilinear"
-msgstr ""
+msgstr "Trilineal"
 
 #: ../data/ui/preferences.blp:273
 msgid "Landscape Pages Zoom"
@@ -692,11 +696,11 @@ msgstr "Avançat"
 
 #: ../data/ui/preferences.blp:312
 msgid "A setting has changed that requires a restart to take effect"
-msgstr ""
+msgstr "Una configuració ha canviat que requereix un reinici per fer efecte"
 
 #: ../data/ui/preferences.blp:313
 msgid "Got it!"
-msgstr ""
+msgstr "Rebut!"
 
 #: ../data/ui/preferences.blp:318
 msgid "Data"
@@ -708,19 +712,19 @@ msgstr "Dades no guardades a la biblioteca"
 
 #: ../data/ui/preferences.blp:322
 msgid "Clear Chapters Cache and Database"
-msgstr ""
+msgstr "Neteja la memòria cau dels capítols i la base de dades"
 
 #: ../data/ui/preferences.blp:327
 msgid "Clear Chapters Cache and Database on Exit"
-msgstr ""
+msgstr "Esborrar la memòria cau dels capítols i la base de dades en sortir"
 
 #: ../data/ui/preferences.blp:332
 msgid "Servers Modules"
-msgstr ""
+msgstr "Mòduls de Servidors"
 
 #: ../data/ui/preferences.blp:335
 msgid "Use Up-to-date Servers Modules"
-msgstr ""
+msgstr "Utilitzeu els mòduls de servidors actualitzats"
 
 #: ../data/ui/preferences.blp:336
 msgid ""
@@ -728,14 +732,17 @@ msgid ""
 "code repository and updated at each startup, is used instead of the one "
 "delivered with the application."
 msgstr ""
+"S'utilitza una versió alternativa dels mòduls de servidors, instal·lada dels "
+"del repositori de codi lliure i actualitzada en cada inici, en comptes de la "
+"lliurada amb l'aplicació."
 
 #: ../data/ui/preferences.blp:341
 msgid "Credentials Storage"
-msgstr ""
+msgstr "Emmagatzematge de credencials"
 
 #: ../data/ui/preferences.blp:344
 msgid "Allow Plaintext Storage as Fallback"
-msgstr ""
+msgstr "Permetre l'emmagatzematge de text pla com a alternativa"
 
 #: ../data/ui/preferences.blp:345
 msgid "Used when no keyring backends are found"
@@ -770,7 +777,7 @@ msgstr "Enrere"
 
 #: ../data/ui/reader.blp:31
 msgid "Toggle Fullscreen Mode"
-msgstr ""
+msgstr "Canvia al mode de pantalla completa"
 
 #: ../data/ui/shortcuts_overview.blp:15
 msgctxt "Shortcut window description"
@@ -800,12 +807,12 @@ msgstr "Biblioteca"
 #: ../data/ui/shortcuts_overview.blp:37
 msgctxt "Shortcut window description"
 msgid "Add Manga"
-msgstr ""
+msgstr "Afegeix manga"
 
 #: ../data/ui/shortcuts_overview.blp:42
 msgctxt "Shortcut window description"
 msgid "Select All"
-msgstr ""
+msgstr "Selecciona-ho tot"
 
 #: ../data/ui/shortcuts_overview.blp:47
 msgctxt "Shortcut window description"
@@ -815,7 +822,7 @@ msgstr "Cerca"
 #: ../data/ui/shortcuts_overview.blp:52
 msgctxt "Shortcut window description"
 msgid "Update"
-msgstr ""
+msgstr "Actualitza"
 
 #: ../data/ui/shortcuts_overview.blp:58
 msgctxt "Shortcut window description"
@@ -825,7 +832,7 @@ msgstr "Targeta Manga"
 #: ../data/ui/shortcuts_overview.blp:61
 msgctxt "Shortcut window description"
 msgid "Select All Chapters"
-msgstr ""
+msgstr "Selecciona tots els capítols"
 
 #: ../data/ui/shortcuts_overview.blp:67
 msgctxt "Shortcut window description"
@@ -845,7 +852,7 @@ msgstr "Gestor de descàrregues"
 #: ../data/ui/shortcuts_overview.blp:79
 msgctxt "Shortcut window description"
 msgid "Select All Downloads"
-msgstr ""
+msgstr "Selecciona totes les descàrregues"
 
 #: ../data/ui/support.blp:10 ../data/ui/support.blp:16
 msgid "Support Development"
@@ -853,40 +860,44 @@ msgstr ""
 
 #: ../data/ui/support.blp:48
 msgid "How can you support?"
-msgstr ""
+msgstr "Com ens podeu donar suport?"
 
 #: ../data/ui/support.blp:56
 msgid ""
 "Developing and maintaining Komikku is a challenging task that takes up most "
 "of my free time."
 msgstr ""
+"Desenvolupar i mantenir Komikku és una tasca desafiadora que ocupa la major "
+"part del meu temps lliure."
 
 #: ../data/ui/support.blp:63
 msgid "Komikku will always be free and open-source and will never contain ads."
-msgstr ""
+msgstr "Komikku sempre serà lliure i de codi obert i mai tindrà anuncis."
 
 #: ../data/ui/support.blp:70
 msgid ""
 "So if you like it, and you are able, please consider a one-time or recurring "
 "donation to support me, it will be hugely appreciated."
 msgstr ""
+"Així que si us agrada, i podeu, si us plau considereu una donació única o "
+"recurrent per a donar-me suport, serà enormement apreciada."
 
 #: ../data/ui/support.blp:84
 msgid "Weekly, monthly or yearly donation"
-msgstr ""
+msgstr "Donació setmanal, mensual o anual"
 
 #: ../data/ui/support.blp:90 ../data/ui/support.blp:106
 #: ../data/ui/support.blp:122
 msgid "Donate and Support"
-msgstr ""
+msgstr "Dona i suporta"
 
 #: ../data/ui/support.blp:100
 msgid "One-time donation"
-msgstr ""
+msgstr "Donació única"
 
 #: ../data/ui/support.blp:116
 msgid "One-time or monthly donation"
-msgstr ""
+msgstr "Donació única o mensual"
 
 #: ../data/ui/webview.blp:10
 msgid "Webview"
@@ -909,11 +920,11 @@ msgstr "Cancel·lar"
 
 #: ../komikku/application.py:495
 msgid "Servers modules have been updated"
-msgstr ""
+msgstr "Els mòduls de servidors han estat actualitzats"
 
 #: ../komikku/application.py:502
 msgid "External Servers Modules Update"
-msgstr ""
+msgstr "Actualització dels mòduls de Servidors externs"
 
 #: ../komikku/application.py:503
 msgid ""
@@ -924,7 +935,7 @@ msgstr ""
 
 #: ../komikku/application.py:506 ../komikku/explorer/common.py:267
 msgid "Close"
-msgstr ""
+msgstr "Tanca"
 
 #: ../komikku/application.py:521
 msgid ""
@@ -943,7 +954,7 @@ msgstr ""
 
 #: ../komikku/application.py:530
 msgid "Supporters"
-msgstr ""
+msgstr "Patrocinadors"
 
 #: ../komikku/application.py:532
 msgid "Join Chat"
@@ -971,21 +982,21 @@ msgstr "Sortir"
 
 #: ../komikku/application.py:671
 msgid "Restart"
-msgstr ""
+msgstr "Reiniciar"
 
 #: ../komikku/application.py:671
 msgid "Restart?"
-msgstr ""
+msgstr "Reiniciar?"
 
 #: ../komikku/card/__init__.py:110 ../komikku/card/__init__.py:239
 #: ../komikku/explorer/search/__init__.py:75
 #: ../komikku/explorer/search/__init__.py:220
 msgid "Filters"
-msgstr ""
+msgstr "Filtres"
 
 #: ../komikku/card/__init__.py:248
 msgid "Unknown"
-msgstr ""
+msgstr "Desconegut"
 
 #: ../komikku/card/__init__.py:335
 msgid "Read progress synchronization with server completed successfully"
@@ -1004,6 +1015,9 @@ msgid ""
 "{0} is no longer supported.\n"
 "Please switch to another server."
 msgstr ""
+"ANUNCI\n"
+"{0} ja no està suportat.\n"
+"Si us plau, canvieu a un altre servidor."
 
 #: ../komikku/card/__init__.py:451 ../komikku/card/chapters_list.py:725
 msgid "Clear and Reset"
@@ -1063,23 +1077,23 @@ msgstr "Marca els capítols anteriors com a llegits"
 
 #: ../komikku/card/tracking.py:71
 msgid "Failed to get data from tracker"
-msgstr ""
+msgstr "No s'ha pogut obtenir dades del rastrejador"
 
 #: ../komikku/card/tracking.py:99
 msgid "No tracking services available"
-msgstr ""
+msgstr "No hi ha serveis de seguiment disponibles"
 
 #: ../komikku/card/tracking.py:185
 msgid "Track"
-msgstr ""
+msgstr "Segueix"
 
 #: ../komikku/card/tracking.py:211
 msgid "Use"
-msgstr ""
+msgstr "Utilitza"
 
 #: ../komikku/card/tracking.py:219
 msgid "Cancel Tracking"
-msgstr ""
+msgstr "Cancel·lar Seguiment"
 
 #: ../komikku/card/tracking.py:225 ../komikku/servers/mangadex/__init__.py:72
 #: ../komikku/servers/mangafire/__init__.py:59
@@ -1091,11 +1105,11 @@ msgstr "Estat"
 
 #: ../komikku/card/tracking.py:234
 msgid "Score"
-msgstr ""
+msgstr "Puntuació"
 
 #: ../komikku/card/tracking.py:239
 msgid "Chapter"
-msgstr ""
+msgstr "Capítol"
 
 #: ../komikku/card/tracking.py:251 ../komikku/categories_editor.py:78
 #: ../komikku/library/__init__.py:365
@@ -1104,7 +1118,7 @@ msgstr "Suprimir?"
 
 #: ../komikku/card/tracking.py:252
 msgid "Are you sure you want to cancel tracking?"
-msgstr ""
+msgstr "Esteu segur que voleu cancel·lar el seguiment?"
 
 #: ../komikku/card/tracking.py:253 ../komikku/categories_editor.py:80
 #: ../komikku/categories_editor.py:178 ../komikku/library/__init__.py:367
@@ -1148,7 +1162,7 @@ msgstr "Desa"
 #: ../komikku/downloader.py:234
 #, python-brace-format
 msgid "Download failure: {0}"
-msgstr ""
+msgstr "Fallada de descàrrega: {0}"
 
 #: ../komikku/downloader.py:245
 #, python-brace-format
@@ -1172,16 +1186,16 @@ msgstr "Descàrrega completada"
 #, python-brace-format
 msgid "{0} chapter"
 msgid_plural "{0} chapters"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "{0} capítol"
+msgstr[1] "{0} capítols"
 
 #: ../komikku/explorer/common.py:123
 msgid "Last Chapter: {}"
-msgstr ""
+msgstr "Darrer capítol: {}"
 
 #: ../komikku/explorer/common.py:125
 msgid "Last Volume: {}"
-msgstr ""
+msgstr "Darrer volum: {}"
 
 #: ../komikku/explorer/common.py:222
 msgid "Comics stored locally as archives in CBZ/CBR formats"
@@ -1221,7 +1235,7 @@ msgstr ""
 
 #: ../komikku/explorer/common.py:267
 msgid "Local Folder"
-msgstr ""
+msgstr "Carpeta Local"
 
 #: ../komikku/explorer/common.py:273
 msgid "Open local folder"
@@ -1233,7 +1247,7 @@ msgstr "Commuta l'estat fixat"
 
 #: ../komikku/explorer/search/__init__.py:283
 msgid "Search was cancelled"
-msgstr ""
+msgstr "La cerca s'ha cancel·lat"
 
 #: ../komikku/explorer/search/__init__.py:290
 msgid "Oops, server website URL is unknown."
@@ -1267,7 +1281,7 @@ msgstr "Cerca globalment per nom"
 
 #: ../komikku/explorer/search/__init__.py:416
 msgid "Search for Comics"
-msgstr ""
+msgstr "Cerca de còmics"
 
 #: ../komikku/explorer/search/__init__.py:492
 msgid "Oops, failed to retrieve manga's information."
@@ -1298,7 +1312,7 @@ msgstr "No s'han trobat els Més Populars"
 
 #: ../komikku/explorer/search/search_global.py:165
 msgid "Search cancelled"
-msgstr ""
+msgstr "Cerca cancel·lada"
 
 #: ../komikku/explorer/search/search_global.py:173
 msgid "No results"
@@ -1359,7 +1373,7 @@ msgstr "No s'ha pogut actualitzar l'estat de lectura"
 
 #: ../komikku/library/__init__.py:769
 msgid "Add New Comic"
-msgstr ""
+msgstr "Afegeix un nou còmic"
 
 #: ../komikku/library/__init__.py:802 ../komikku/library/categories_list.py:145
 msgid "Uncategorized"
@@ -1497,11 +1511,11 @@ msgstr "Prova"
 #: ../komikku/preferences.py:752 ../komikku/preferences.py:767
 #: ../komikku/preferences.py:790
 msgid "Disconnect"
-msgstr ""
+msgstr "Desconnecta"
 
 #: ../komikku/preferences.py:755 ../komikku/preferences.py:782
 msgid "Connect"
-msgstr ""
+msgstr "Connecta"
 
 #: ../komikku/preferences.py:770
 msgid "Failed to request client access"
@@ -1513,11 +1527,11 @@ msgstr ""
 
 #: ../komikku/preferences.py:790
 msgid "Disconnect from {}"
-msgstr ""
+msgstr "Desconnecta de {}"
 
 #: ../komikku/reader/__init__.py:367
 msgid "Page successfully saved"
-msgstr ""
+msgstr "Pàgina desada correctament"
 
 #: ../komikku/reader/pager/__init__.py:165
 msgid "Failed to sync read progress with server"
@@ -1563,7 +1577,7 @@ msgstr "Tipus"
 #: ../komikku/servers/phenixscans/__init__.py:35
 #: ../komikku/servers/webtoon/__init__.py:49
 msgid "Filter by Type"
-msgstr ""
+msgstr "Filtra per tipus"
 
 #: ../komikku/servers/asurascans/__init__.py:42
 #: ../komikku/servers/coloredcouncil/__init__.py:72
@@ -1620,31 +1634,31 @@ msgstr "De Pagament"
 
 #: ../komikku/servers/coloredcouncil/__init__.py:65
 msgid "Format"
-msgstr ""
+msgstr "Format"
 
 #: ../komikku/servers/coloredcouncil/__init__.py:66
 msgid "Filter by format"
-msgstr ""
+msgstr "Filtrar per format"
 
 #: ../komikku/servers/coloredcouncil/__init__.py:71
 msgid "Manwha"
-msgstr ""
+msgstr "Manwha"
 
 #: ../komikku/servers/coloredcouncil/__init__.py:78
 msgid "Version"
-msgstr ""
+msgstr "Versió"
 
 #: ../komikku/servers/coloredcouncil/__init__.py:79
 msgid "Filter by version"
-msgstr ""
+msgstr "Filtrar per versió"
 
 #: ../komikku/servers/coloredcouncil/__init__.py:84
 msgid "Color"
-msgstr ""
+msgstr "Color"
 
 #: ../komikku/servers/coloredcouncil/__init__.py:85
 msgid "B/W"
-msgstr ""
+msgstr "Blanc i negre"
 
 #: ../komikku/servers/dynasty/__init__.py:39
 msgid "Categories"
@@ -1656,11 +1670,11 @@ msgstr "Categories"
 #: ../komikku/servers/mangaworld/__init__.py:60
 #: ../komikku/servers/weebcentral/__init__.py:36
 msgid "Filter by Types"
-msgstr ""
+msgstr "Filtra per tipus"
 
 #: ../komikku/servers/dynasty/__init__.py:43
 msgid "Anthologies"
-msgstr ""
+msgstr "Antologies"
 
 #: ../komikku/servers/dynasty/__init__.py:44
 msgid "Doujins"
@@ -1683,16 +1697,18 @@ msgid "With Tags"
 msgstr "Amb Etiquetes"
 
 #: ../komikku/servers/dynasty/__init__.py:54
+#, fuzzy
 msgid "Comma separated list of tags to search for"
-msgstr ""
+msgstr "Llista d'etiquetes separades per comes per les quals buscar"
 
 #: ../komikku/servers/dynasty/__init__.py:60
 msgid "Without Tags"
 msgstr "Sense Etiquetes"
 
 #: ../komikku/servers/dynasty/__init__.py:61
+#, fuzzy
 msgid "Comma separated list of tags to exclude from search"
-msgstr ""
+msgstr "Llista d'etiquetes separades per comes a excloure de la cerca"
 
 #: ../komikku/servers/exceptions.py:10
 msgid "Error: {}"
@@ -1717,12 +1733,12 @@ msgstr "Ja no existeix."
 #: ../komikku/servers/flamescans/__init__.py:37
 #: ../komikku/servers/weebcentral/__init__.py:35
 msgid "Types"
-msgstr ""
+msgstr "Tipus"
 
 #: ../komikku/servers/flamescans/__init__.py:49
 #: ../komikku/servers/weebcentral/__init__.py:48
 msgid "Statuses"
-msgstr ""
+msgstr "Estats"
 
 #: ../komikku/servers/flamescans/__init__.py:50
 #: ../komikku/servers/mangadex/__init__.py:73
@@ -1730,7 +1746,7 @@ msgstr ""
 #: ../komikku/servers/mangaworld/__init__.py:75
 #: ../komikku/servers/weebcentral/__init__.py:49
 msgid "Filter by Statuses"
-msgstr ""
+msgstr "Filtra per Estats"
 
 #: ../komikku/servers/flamescans/__init__.py:54
 #: ../komikku/servers/mangadex/__init__.py:77
@@ -1805,27 +1821,28 @@ msgstr "Seinen"
 
 #: ../komikku/servers/mangadex/__init__.py:98
 msgid "Tags"
-msgstr ""
+msgstr "Etiquetes"
 
 #: ../komikku/servers/mangadex/__init__.py:99
 msgid "Filter by Formats"
-msgstr ""
+msgstr "Filtrar per formats"
 
 #: ../komikku/servers/mangadex/__init__.py:102
 msgid "4-Koma"
-msgstr ""
+msgstr "4-Koma"
 
 #: ../komikku/servers/mangadex/__init__.py:103
 msgid "Adaptation"
-msgstr ""
+msgstr "Adaptació"
 
 #: ../komikku/servers/mangadex/__init__.py:104
 msgid "Anthology"
 msgstr "Antologia"
 
 #: ../komikku/servers/mangadex/__init__.py:105
+#, fuzzy
 msgid "Award Winning"
-msgstr ""
+msgstr "Premiat"
 
 #: ../komikku/servers/mangadex/__init__.py:106
 #: ../komikku/servers/mangafire/__init__.py:50
@@ -1835,31 +1852,31 @@ msgstr "Doujinshi"
 
 #: ../komikku/servers/mangadex/__init__.py:107
 msgid "Fan Colored"
-msgstr ""
+msgstr "Colorit per aficionats"
 
 #: ../komikku/servers/mangadex/__init__.py:108
 msgid "Full Color"
-msgstr ""
+msgstr "A tot color"
 
 #: ../komikku/servers/mangadex/__init__.py:109
 msgid "Long Strip"
-msgstr ""
+msgstr "Tira Llarga"
 
 #: ../komikku/servers/mangadex/__init__.py:110
 msgid "Official Colored"
-msgstr ""
+msgstr "Colorit Oficialment"
 
 #: ../komikku/servers/mangadex/__init__.py:111
 msgid "Oneshot"
-msgstr ""
+msgstr "Oneshot"
 
 #: ../komikku/servers/mangadex/__init__.py:112
 msgid "Self-Published"
-msgstr ""
+msgstr "Autoeditat"
 
 #: ../komikku/servers/mangadex/__init__.py:113
 msgid "Web Comic"
-msgstr ""
+msgstr "Comic Web"
 
 #: ../komikku/servers/mangadex/__init__.py:119
 msgid "Genres"
@@ -1867,47 +1884,47 @@ msgstr "Gèneres"
 
 #: ../komikku/servers/mangadex/__init__.py:120
 msgid "Filter by Genres"
-msgstr ""
+msgstr "Filtra per Gèneres"
 
 #: ../komikku/servers/mangadex/__init__.py:123
 msgid "Action"
-msgstr ""
+msgstr "Acció"
 
 #: ../komikku/servers/mangadex/__init__.py:124
 msgid "Adventure"
-msgstr ""
+msgstr "Aventura"
 
 #: ../komikku/servers/mangadex/__init__.py:125
 msgid "Boys Love"
-msgstr ""
+msgstr "Amor de Nois"
 
 #: ../komikku/servers/mangadex/__init__.py:126
 msgid "Comedy"
-msgstr ""
+msgstr "Comèdia"
 
 #: ../komikku/servers/mangadex/__init__.py:127
 msgid "Crime"
-msgstr ""
+msgstr "Crim"
 
 #: ../komikku/servers/mangadex/__init__.py:128
 msgid "Drama"
-msgstr ""
+msgstr "Drama"
 
 #: ../komikku/servers/mangadex/__init__.py:129
 msgid "Fantasy"
-msgstr ""
+msgstr "Fantasia"
 
 #: ../komikku/servers/mangadex/__init__.py:130
 msgid "Girls Love"
-msgstr ""
+msgstr "Amor de Noies"
 
 #: ../komikku/servers/mangadex/__init__.py:131
 msgid "Historical"
-msgstr ""
+msgstr "Històric"
 
 #: ../komikku/servers/mangadex/__init__.py:132
 msgid "Horror"
-msgstr ""
+msgstr "Horror"
 
 #: ../komikku/servers/mangadex/__init__.py:133
 msgid "Isekai"
@@ -1915,7 +1932,7 @@ msgstr ""
 
 #: ../komikku/servers/mangadex/__init__.py:134
 msgid "Magical Girls"
-msgstr ""
+msgstr "Noies Màgiques"
 
 #: ../komikku/servers/mangadex/__init__.py:135
 msgid "Mecha"
@@ -1923,23 +1940,23 @@ msgstr ""
 
 #: ../komikku/servers/mangadex/__init__.py:136
 msgid "Medical"
-msgstr ""
+msgstr "Mèdic"
 
 #: ../komikku/servers/mangadex/__init__.py:137
 msgid "Mystery"
-msgstr ""
+msgstr "Misteri"
 
 #: ../komikku/servers/mangadex/__init__.py:138
 msgid "Philosophical"
-msgstr ""
+msgstr "Filosòfic"
 
 #: ../komikku/servers/mangadex/__init__.py:139
 msgid "Romance"
-msgstr ""
+msgstr "Romanç"
 
 #: ../komikku/servers/mangadex/__init__.py:140
 msgid "Sci-Fi"
-msgstr ""
+msgstr "Ciència-ficció"
 
 #: ../komikku/servers/mangadex/__init__.py:141
 msgid "Slice of Life"
@@ -1947,19 +1964,19 @@ msgstr ""
 
 #: ../komikku/servers/mangadex/__init__.py:142
 msgid "Sports"
-msgstr ""
+msgstr "Esports"
 
 #: ../komikku/servers/mangadex/__init__.py:143
 msgid "Superhero"
-msgstr ""
+msgstr "Superherois"
 
 #: ../komikku/servers/mangadex/__init__.py:144
 msgid "Thriller"
-msgstr ""
+msgstr "Suspens"
 
 #: ../komikku/servers/mangadex/__init__.py:145
 msgid "Tragedy"
-msgstr ""
+msgstr "Tragèdia"
 
 #: ../komikku/servers/mangadex/__init__.py:146
 msgid "Wuxia"
@@ -1999,7 +2016,7 @@ msgstr ""
 
 #: ../komikku/servers/mangafire/__init__.py:65
 msgid "Discontinued"
-msgstr ""
+msgstr "Descatalogat"
 
 #: ../komikku/servers/mangapill/__init__.py:45
 #: ../komikku/servers/weebcentral/__init__.py:42
@@ -2052,31 +2069,32 @@ msgstr "Si voleu mostrar manga que contingui contingut NSFW"
 #: ../komikku/servers/multi/mangareader/__init__.py:108
 #, python-brace-format
 msgid "Not available in {0} language"
-msgstr ""
+msgstr "No disponible en l'idioma {0}"
 
 #: ../komikku/servers/webtoon/__init__.py:54
 msgid "Originals"
-msgstr ""
+msgstr "Originals"
 
 #: ../komikku/servers/webtoon/__init__.py:55
 msgid "Canvas"
-msgstr ""
+msgstr "Llenç"
 
 #: ../komikku/trackers/__init__.py:34
 msgid "Reading"
-msgstr ""
+msgstr "Llegint"
 
 #: ../komikku/trackers/__init__.py:36
 msgid "On Hold"
-msgstr ""
+msgstr "En espera"
 
 #: ../komikku/trackers/__init__.py:38
+#, fuzzy
 msgid "Plan to Read"
-msgstr ""
+msgstr "Planeja llegir-lo"
 
 #: ../komikku/trackers/__init__.py:39
 msgid "Rereading"
-msgstr ""
+msgstr "Rellegint"
 
 #: ../komikku/updater.py:106
 msgid "Library update completed with errors"
@@ -2139,7 +2157,7 @@ msgstr ""
 
 #: ../komikku/webview.py:437
 msgid "Please wait…"
-msgstr ""
+msgstr "Si us plau, espereu…"
 
 #: ../komikku/webview.py:489
 msgid "Please complete CAPTCHA"
