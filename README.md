@@ -6,7 +6,7 @@
 [![Chat on Matrix](https://raw.githubusercontent.com/matrix-org/matrix.to/main/images-nohash/matrix-badge.svg)](https://matrix.to/#/!YXjunwpNHcXYeSdbbb:matrix.org?via=matrix.org)
 [![Donate using Liberapay](https://img.shields.io/liberapay/receives/valos.svg?logo=liberapay)](https://en.liberapay.com/valos/donate)
 [![Flathub download stats](https://img.shields.io/badge/dynamic/json?color=informational&label=downloads&logo=flathub&logoColor=white&query=%24.installs_total&url=https%3A%2F%2Fflathub.org%2Fapi%2Fv2%2Fstats%2Finfo.febvre.Komikku)](https://klausenbusk.github.io/flathub-stats/#ref=info.febvre.Komikku&interval=infinity&downloadType=installs)
-[![Translation status](https://hosted.weblate.org/widgets/komikku/-/main/svg-badge.svg)](https://hosted.weblate.org/engage/komikku/)
+[![Translation status](https://hosted.weblate.org/widget/komikku/svg-badge.svg)](https://hosted.weblate.org/engage/komikku/)
 [![Open Hub](https://www.openhub.net/p/komikku/widgets/project_thin_badge?format=gif)](https://www.openhub.net/p/komikku)
 [![Made with Python](https://img.shields.io/badge/Made%20with-Python-1f425f.svg)](https://www.python.org)
 
@@ -61,7 +61,7 @@ Please follow our [contributing guidelines](CONTRIBUTING.md).
 
 If you'd like to help translating **Komikku** into your language, please head over to [Weblate](https://hosted.weblate.org/engage/komikku/).
 
-[![Translation status](https://hosted.weblate.org/widgets/komikku/-/main/multi-auto.svg)](https://hosted.weblate.org/engage/komikku/)
+[![Translation status](https://hosted.weblate.org/widget/komikku/multi-auto.svg)](https://hosted.weblate.org/engage/komikku/)
 
 ### Code of Conduct
 We follow the [GNOME Code of Conduct](https://conduct.gnome.org/).
