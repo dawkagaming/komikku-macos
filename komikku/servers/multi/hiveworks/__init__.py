@@ -17,6 +17,7 @@ import textwrap
 from komikku.servers import Server
 from komikku.servers import USER_AGENT
 from komikku.servers.utils import convert_date_string
+from komikku.servers.utils import TextImage
 from komikku.utils import get_buffer_mime_type
 
 
@@ -112,27 +113,25 @@ class Hiveworks(Server):
         """Returns chapter page scan (image) content"""
         if page.get('image'):
             r = self.session_get(self.image_url.format(page['image']))
+            if r.status_code != 200:
+                return None
+
+            mime_type = get_buffer_mime_type(r.content)
+            if not mime_type.startswith('image'):
+                return None
+
             name = page['image']
+            content = r.content
         else:
-            r = self.session_get(
-                'https://fakeimg.pl/1500x2126/ffffff/000000/',
-                params=dict(
-                    text='\n'.join(textwrap.wrap(page['text'], 25)),
-                    font_size=64,
-                    font='museo'
-                )
-            )
-            name = '{0}-alt-text.png'.format(chapter_slug)
+            text = '\n'.join(textwrap.wrap(page['text'], 25))
+            image = TextImage(text)
 
-        if r.status_code != 200:
-            return None
-
-        mime_type = get_buffer_mime_type(r.content)
-        if not mime_type.startswith('image'):
-            return None
+            mime_type = image.mime_type
+            name = f'{chapter_slug}-alt-text.{image.format}'
+            content = image.content
 
         return dict(
-            buffer=r.content,
+            buffer=content,
             mime_type=mime_type,
             name=name,
         )

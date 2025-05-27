@@ -36,6 +36,9 @@
         <!-- CSS -->
         <file compressed="true" alias="style.css">css/style.css</file>
 
+        <!-- Fonts -->
+        <file compressed="true" alias="text-image.otf">fonts/0xPropo-Medium.otf</file>
+
         <!-- Icons -->
         <file compressed="true" preprocess="xml-stripblanks" alias="icons/scalable/apps/brush-symbolic.svg">icons/brush-symbolic.svg</file>
         <file compressed="true" preprocess="xml-stripblanks" alias="icons/scalable/apps/computer-fail-symbolic.svg">icons/computer-fail-symbolic.svg</file>

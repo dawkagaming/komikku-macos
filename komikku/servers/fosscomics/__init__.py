@@ -11,6 +11,7 @@ import requests
 from komikku.servers import Server
 from komikku.servers import USER_AGENT
 from komikku.servers.utils import convert_date_string
+from komikku.servers.utils import TextImage
 from komikku.utils import get_buffer_mime_type
 
 
@@ -122,27 +123,25 @@ class Fosscomics(Server):
 
         if page.get('image'):
             r = self.session_get(self.image_url.format(chapter_slug, page['image']))
-            name = f'{chapter_num:02d}_{page["index"]:02d}.png'  # noqa: E231
+            if r.status_code != 200:
+                return None
+
+            mime_type = get_buffer_mime_type(r.content)
+            if not mime_type.startswith('image'):
+                return None
+
+            name = f'{chapter_num:02d}_{page["index"]:02d}.{mime_type.split("/")[-1]}'  # noqa: E231
+            content = r.content
         else:
-            r = self.session_get(
-                'https://fakeimg.pl/1500x2126/ffffff/000000/',
-                params=dict(
-                    text='\n'.join(textwrap.wrap(page['text'], 40)),
-                    font_size=64,
-                    font='museo'
-                )
-            )
-            name = f'{chapter_num:02d}_{page["index"]:02d}_text_{page["subindex"]:02d}.png'  # noqa: E231
+            text = '\n'.join(textwrap.wrap(page['text'], 25))
+            image = TextImage(text)
 
-        if r.status_code != 200:
-            return None
-
-        mime_type = get_buffer_mime_type(r.content)
-        if not mime_type.startswith('image'):
-            return None
+            mime_type = image.mime_type
+            name = f'{chapter_num:02d}_{page["index"]:02d}_text_{page["subindex"]:02d}.{image.format}'  # noqa: E231
+            content = image.content
 
         return dict(
-            buffer=r.content,
+            buffer=content,
             mime_type=mime_type,
             name=name,
         )

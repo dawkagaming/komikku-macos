@@ -23,13 +23,52 @@ from bs4 import BeautifulSoup
 from bs4 import NavigableString
 import dateparser
 import emoji
+from gi.repository import Gio
 from PIL import Image
+from PIL import ImageDraw
+from PIL import ImageFont
 import requests
 
 from komikku.servers.loader import ServerFinder
 from komikku.utils import get_cached_logos_dir
 
 logger = logging.getLogger(__name__)
+
+
+class TextImage:
+    def __init__(self, text, width=1500, height=2126, bg_color='#fff', fg_color='#000', font_size=64, format='webp'):
+        self.format = format
+        self.image = Image.new('RGB', (width, height), bg_color)
+
+        if text is None:
+            text = ''
+
+        rfont = Gio.resources_lookup_data('/info/febvre/Komikku/text-image.otf', Gio.ResourceLookupFlags.NONE)
+        font = ImageFont.truetype(BytesIO(rfont.get_data()), font_size)
+
+        draw = ImageDraw.Draw(self.image)
+        if '\n' in text:
+            left, top, right, bottom = draw.multiline_textbbox((0, 0), text, font, font_size=font_size)
+        else:
+            left, top, right, bottom = draw.textbbox((0, 0), text, font, font_size=font_size)
+
+        text_width = right - left
+        text_height = bottom - top
+        text_coord = ((width - text_width) // 2, (height - text_height) // 2)
+
+        draw.multiline_text(text_coord, text, fill=fg_color, font=font, align='center')
+        del draw
+
+    @property
+    def content(self):
+        buf = BytesIO()
+        self.image.save(buf, self.format.upper())
+
+        return buf.getvalue()
+
+    @property
+    def mime_type(self):
+        return f'image/{self.format}'
 
 
 def convert_date_string(date_string, format=None, languages=None):

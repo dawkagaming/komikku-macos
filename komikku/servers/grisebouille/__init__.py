@@ -9,6 +9,7 @@ import textwrap
 from komikku.servers import Server
 from komikku.servers import USER_AGENT
 from komikku.servers.utils import convert_date_string
+from komikku.servers.utils import TextImage
 from komikku.utils import get_buffer_mime_type
 
 
@@ -123,27 +124,22 @@ class Grisebouille(Server):
             if r.status_code != 200:
                 return None
 
-            name = page['image'].split('/')[-1]
-        else:
-            r = self.session_get(
-                'https://fakeimg.pl/1500x2126/ffffff/000000/',
-                params=dict(
-                    text='\n'.join(textwrap.wrap(page['text'], 25)),
-                    font_size=64,
-                    font='museo',
-                )
-            )
-            if r.status_code != 200:
+            mime_type = get_buffer_mime_type(r.content)
+            if not mime_type.startswith('image'):
                 return None
 
-            name = 'txt_{0:03d}.png'.format(page['index'])
+            name = page['image'].split('/')[-1]
+            content = r.content
+        else:
+            text = '\n'.join(textwrap.wrap(page['text'], 25))
+            image = TextImage(text)
 
-        mime_type = get_buffer_mime_type(r.content)
-        if not mime_type.startswith('image'):
-            return None
+            mime_type = image.mime_type
+            name = f'txt_{page["index"]:03d}.{image.format}'  # noqa: E231
+            content = image.content
 
         return dict(
-            buffer=r.content,
+            buffer=content,
             mime_type=mime_type,
             name=name,
         )
