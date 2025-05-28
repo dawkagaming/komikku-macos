@@ -5,13 +5,14 @@
 # Alim Satria <alimsatria2017@mail.ugm.ac.id>, 2023.
 # Juan Manuel <juanmanueldilo09@gmail.com>, 2024.
 # srntskl-111 <maskhraish@outlook.co.id>, 2025.
+# Valéry Febvre <vfebvre@easter-eggs.com>, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: Komikku 1.12.1\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-04-04 00:19+0200\n"
-"PO-Revision-Date: 2025-04-11 11:05+0000\n"
-"Last-Translator: srntskl-111 <maskhraish@outlook.co.id>\n"
+"PO-Revision-Date: 2025-05-28 23:19+0000\n"
+"Last-Translator: Valéry Febvre <vfebvre@easter-eggs.com>\n"
 "Language-Team: Indonesian <https://hosted.weblate.org/projects/komikku/main/"
 "id/>\n"
 "Language: id\n"
@@ -19,12 +20,11 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 5.11-dev\n"
+"X-Generator: Weblate 5.12-dev\n"
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:11
-#, fuzzy
 msgid "Discover and read manga & comics"
-msgstr "Menemukan dan baca manga & komik"
+msgstr "Menemukan dan baca manga &amp; komik"
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:13
 msgid ""
