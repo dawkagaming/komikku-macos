@@ -73,6 +73,7 @@ CREDITS = dict(
         'abidin toumi (Arabic)',
         'Rayen Ghanmi (Arabic)',
         'Mohamed Abdalah Noh (Arabic)',
+        'Ahmed Najmawi (Arabic)',
         'Rafael Fontenelle (Brazilian Portuguese)',
         'Infinitive Witch (Brazilian Portuguese)',
         'Unidealistic Raccoon (Brazilian Portuguese)',
@@ -539,12 +540,12 @@ available in your region/language."""))
         # Override release notes
         dialog.set_release_notes("""
             <ul>
-                <li>[Webview] Fixed Cloudflare challenge detection</li>
-                <li>[Servers] Manga-Scantrad (FR): Update</li>
-                <li>[Servers] Night scans (EN): Update</li>
-                <li>[Servers] Tres Daos (ES): Update</li>
-                <li>[Servers] Mangapill (EN): Update</li>
-                <li>[L10n] Updated Spanish translation</li>
+                <li>[Card] Details page: Redesign</li>
+                <li>[Servers] Local: Added support of CBT archive format (TAR)</li>
+                <li>[Servers] Added Blue Solo (FR)</li>
+                <li>[Servers] SMBC (EN): Re-enabled</li>
+                <li>[Servers] Poseidon Scans (FR): Disabled</li>
+                <li>[L10n] Updated Arabic, Bulgarian, Catalan and Portuguese (Brazil) translations</li>
             </ul>
             <p>Happy reading.</p>
         """)

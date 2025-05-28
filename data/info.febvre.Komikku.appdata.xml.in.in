@@ -99,6 +99,19 @@
     <url type="donation">https://febvre.info/donate.html</url>
 
     <releases>
+        <release version="1.78.0" date="2025-05-29">
+            <description translate="no">
+                <ul>
+                    <li>[Card] Details page: Redesign</li>
+                    <li>[Servers] Local: Added support of CBT archive format (TAR)</li>
+                    <li>[Servers] Added Blue Solo (FR)</li>
+                    <li>[Servers] SMBC (EN): Re-enabled</li>
+                    <li>[Servers] Poseidon Scans (FR): Disabled</li>
+                    <li>[L10n] Updated Arabic, Bulgarian, Catalan and Portuguese (Brazil) translations</li>
+                </ul>
+                <p>Happy reading.</p>
+            </description>
+        </release>
         <release version="1.77.0" date="2025-05-17">
             <description translate="no">
                 <ul>
