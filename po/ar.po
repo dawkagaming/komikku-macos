@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: Komikku 1.18.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-04-04 00:19+0200\n"
-"PO-Revision-Date: 2025-05-21 06:02+0000\n"
+"PO-Revision-Date: 2025-05-31 13:03+0000\n"
 "Last-Translator: Ahmed Najmawi <iramosu@protonmail.com>\n"
 "Language-Team: Arabic <https://hosted.weblate.org/projects/komikku/main/ar/>"
 "\n"
@@ -24,29 +24,31 @@ msgstr ""
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:11
 msgid "Discover and read manga & comics"
-msgstr ""
+msgstr "استكشف واقرأ القصص المصورة والمانجا"
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:13
 msgid ""
 "With its simple, elegant and adaptive interface, this reader lets you "
 "search, sort and read your series with ease."
 msgstr ""
+"يسمح لك هذا القارئ بالبحث والفرز وقراءة سلاسلك المفضلة بسهولة عبر واجهته "
+"البسيطة والمنفصلة والتكيفية."
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:15
 msgid "Why you will love Komikku?"
-msgstr "لماذا ستفضل كوميكو؟"
+msgstr "لمَ ستحب كوميكو؟"
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:17
 msgid "Online and offline reading from dozens of servers"
-msgstr "يتيح لك المطالعة من عديد الخوادم والتنزيل منها"
+msgstr "القراءة عبر الشبكة أو دونها عبر عشرات الخوادم"
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:18
 msgid "Support for locally stored series (in CBZ or CBR formats)"
-msgstr ""
+msgstr "دعم السلاسل المخزنة محليًا (بصيغتي CBZ أو CBR)"
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:19
 msgid "RTL, LTR, Vertical and Webtoon reading modes"
-msgstr "أوضاع القراءة من اليمين لليسار ومن اليسار لليمين والعمودي و ويبتون"
+msgstr "أوضاع القراءة من اليمين لليسار، ومن اليسار لليمين، والعامودي، وويبتون"
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:20
 msgid ""
