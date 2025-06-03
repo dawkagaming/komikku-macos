@@ -37,9 +37,16 @@ template $PreferencesDialog : Adw.PreferencesDialog {
         subtitle: _("Use system accent colors");
       }
 
-      Adw.SwitchRow card_backdrop_switch {
+      Adw.ComboRow card_backdrop_method_row {
         title: _("Backdrop in Details Page");
-        subtitle: _("Enable background recoloring to match cover");
+        subtitle: _("Method used to recolor background to match cover");
+        model: StringList {
+          strings [
+            _("None"),
+            _("Linear gradient"),
+            _("Blurred cover"),
+          ]
+        };
       }
     }
 

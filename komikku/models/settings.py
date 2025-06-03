@@ -18,7 +18,7 @@ class Settings(Gio.Settings):
     instance = None
 
     def __init__(self):
-        Gio.Settings.__init__(self)
+        super().__init__()
 
     @staticmethod
     def new():
@@ -80,12 +80,44 @@ class Settings(Gio.Settings):
         self.set_boolean('borders-crop', state)
 
     @property
-    def card_backdrop(self):
-        return self.get_boolean('card-backdrop')
+    def card_backdrop_method(self):
+        """Return the card's backdrop method """
+        value = self.card_backdrop_method_value
 
-    @card_backdrop.setter
-    def card_backdrop(self, state):
-        self.set_boolean('card-backdrop', state)
+        if value == 0:
+            return None
+        if value == 1:
+            return 'linear-gradient'
+        if value == 2:
+            return 'blurred-cover'
+
+    @property
+    def card_backdrop_method_value(self):
+        """Return the card's backdrop method value"""
+        value = self.get_enum('card-backdrop-method')
+
+        if value == -1:
+            # Before 1.79.0, value was a boolean and key was `card-backdrop`
+            # Convert old value if value is unset (-1)
+            old_value = self.get_boolean('card-backdrop')
+            value = 1 if old_value else 0
+
+        return value
+
+    @card_backdrop_method.setter
+    def card_backdrop_method(self, method):
+        """
+        Set the card's backdrop method
+
+        :param method: card's backdrop method
+        :type method: string
+        """
+        if method == 'none':
+            self.set_enum('card-backdrop-method', 0)
+        elif method == 'linear-gradient':
+            self.set_enum('card-backdrop-method', 1)
+        elif method == 'blurred-cover':
+            self.set_enum('card-backdrop-method', 2)
 
     @property
     def clamp_size(self):

@@ -46,6 +46,7 @@ class CardPage(Adw.NavigationPage):
     chapters_selection_mode_clear_reset_button = Gtk.Template.Child('chapters_selection_mode_clear_reset_button')
     chapters_selection_mode_menubutton = Gtk.Template.Child('chapters_selection_mode_menubutton')
     info_scrolledwindow = Gtk.Template.Child('info_scrolledwindow')
+    backdrop_picture = Gtk.Template.Child('backdrop_picture')
     title_box = Gtk.Template.Child('title_box')
     cover_box = Gtk.Template.Child('cover_box')
     name_label = Gtk.Template.Child('name_label')
@@ -417,6 +418,8 @@ class CardPage(Adw.NavigationPage):
 
     def remove_backdrop(self):
         self.remove_css_class('backdrop')
+        self.backdrop_picture.set_paintable(None)
+        self.backdrop_picture.set_opacity(1)
 
     def set_actions_enabled(self, enabled):
         self.delete_action.set_enabled(enabled)
@@ -424,12 +427,28 @@ class CardPage(Adw.NavigationPage):
         self.sort_order_action.set_enabled(enabled)
 
     def set_backdrop(self):
-        if not self.manga or Adw.StyleManager.get_default().get_high_contrast() or not Settings.get_default().card_backdrop:
+        self.remove_backdrop()
+
+        method = Settings.get_default().card_backdrop_method
+        if not self.manga or Adw.StyleManager.get_default().get_high_contrast() or not method:
             return
 
-        if backdrop_colors_css := self.manga.backdrop_colors_css:
-            self.css_provider.load_from_string(backdrop_colors_css)
-            self.add_css_class('backdrop')
+        if method == 'blurred-cover':
+            if path := self.manga.backdrop_image_fs_path:
+                self.backdrop_picture.set_filename(path)
+
+                if info := self.manga.backdrop_info:
+                    if Adw.StyleManager.get_default().get_dark():
+                        opacity = 1 - info['luminance'][0]
+                    else:
+                        opacity = info['luminance'][1]
+                    self.backdrop_picture.set_opacity(opacity)
+
+        elif method == 'linear-gradient':
+            if css := self.manga.backdrop_colors_css:
+                self.css_provider.load_from_string(css)
+
+        self.add_css_class('backdrop')
 
     def set_unread_chapters_badge(self):
         # Show unread chapters (with Adw.ViewStackPage badge) if any

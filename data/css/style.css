@@ -109,6 +109,9 @@ viewswitcher indicatorbin > indicator {
     transition-property: background;
 }
 .backdrop button:focus:focus-visible,
+.backdrop row {
+	border-bottom: 1px solid rgb(from currentColor r g b / calc(alpha * 0.1));
+}
 .backdrop row:focus:focus-visible {
     outline-color: rgb(from currentColor r g b / calc(alpha * 0.25));
 }

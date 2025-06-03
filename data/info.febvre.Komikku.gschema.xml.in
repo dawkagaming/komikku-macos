@@ -6,6 +6,12 @@
         <value nick="gray" value="2" />
         <value nick="system-style" value="3" />
     </enum>
+    <enum id="@appid@.CardBackdropMethod">
+        <value nick="unset" value="-1" />
+        <value nick="none" value="0" />
+        <value nick="linear-gradient" value="1" />
+        <value nick="blurred-cover" value="2" />
+    </enum>
     <enum id="@appid@.ColorScheme">
         <value nick="light" value="0" />
         <value nick="dark" value="1" />
@@ -99,7 +105,12 @@
         <key type="b" name="card-backdrop">
             <default>false</default>
             <summary>Backdrop in Details Page</summary>
-            <description>Enable background recoloring to match cover</description>
+            <description>Enable background recoloring to match cover (DEPRECATED since 1.79.0)</description>
+        </key>
+        <key enum="@appid@.CardBackdropMethod" name="card-backdrop-method">
+            <default>"unset"</default>
+            <summary>Backdrop in Details Page</summary>
+            <description>Method used to recolor background to match cover</description>
         </key>
 
         <key type="b" name="desktop-notifications">

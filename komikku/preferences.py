@@ -27,7 +27,7 @@ class PreferencesDialog(Adw.PreferencesDialog):
     color_scheme_row = Gtk.Template.Child('color_scheme_row')
     night_light_switch = Gtk.Template.Child('night_light_switch')
     system_accent_colors_switch = Gtk.Template.Child('system_accent_colors_switch')
-    card_backdrop_switch = Gtk.Template.Child('card_backdrop_switch')
+    card_backdrop_method_row = Gtk.Template.Child('card_backdrop_method_row')
     desktop_notifications_switch = Gtk.Template.Child('desktop_notifications_switch')
     tracking_group = Gtk.Template.Child('tracking_group')
     tracking_switch = Gtk.Template.Child('tracking_switch')
@@ -89,13 +89,18 @@ class PreferencesDialog(Adw.PreferencesDialog):
     def on_borders_crop_changed(self, switch_button, _gparam):
         self.settings.borders_crop = switch_button.get_active()
 
-    def on_card_backdrop_changed(self, switch_button, _gparam):
-        if switch_button.get_active():
-            self.settings.card_backdrop = True
-            self.window.card.set_backdrop()
-        else:
-            self.settings.card_backdrop = False
+    def on_card_backdrop_method_changed(self, row, _gparam):
+        index = row.get_selected()
+
+        if index == 0:
+            self.settings.card_backdrop_method = 'none'
             self.window.card.remove_backdrop()
+        elif index == 1:
+            self.settings.card_backdrop_method = 'linear-gradient'
+            self.window.card.set_backdrop()
+        elif index == 2:
+            self.settings.card_backdrop_method = 'blurred-cover'
+            self.window.card.set_backdrop()
 
     def on_closed(self, _dialog):
         # Pop subpage if one is opened when dialog is closed
@@ -114,6 +119,7 @@ class PreferencesDialog(Adw.PreferencesDialog):
             self.settings.color_scheme = 'default'
 
         self.window.init_theme()
+        self.window.card.set_backdrop()
 
     def on_clamp_size_changed(self, adjustment):
         self.settings.clamp_size = int(adjustment.get_value())
@@ -315,9 +321,9 @@ class PreferencesDialog(Adw.PreferencesDialog):
         self.desktop_notifications_switch.set_active(self.settings.desktop_notifications)
         self.desktop_notifications_switch.connect('notify::active', self.on_desktop_notifications_changed)
 
-        # Card backdrop
-        self.card_backdrop_switch.set_active(self.settings.card_backdrop)
-        self.card_backdrop_switch.connect('notify::active', self.on_card_backdrop_changed)
+        # Card backdrop method
+        self.card_backdrop_method_row.set_selected(self.settings.card_backdrop_method_value)
+        self.card_backdrop_method_row.connect('notify::selected', self.on_card_backdrop_method_changed)
 
         # Tracking
         self.tracking_switch.set_active(self.settings.tracking)

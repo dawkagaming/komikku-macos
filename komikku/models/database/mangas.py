@@ -6,12 +6,16 @@ import datetime
 from gettext import gettext as _
 import gc
 import importlib
+import json
 import logging
 import os
 import shutil
 import time
 
 from modern_colorthief import get_palette
+from PIL import Image
+from PIL import ImageFilter
+from PIL import ImageStat
 
 from komikku.models.database import create_db_connection
 from komikku.models.database import insert_row
@@ -145,6 +149,45 @@ class Manga:
             fp.writelines(colors)
 
         return ''.join(colors)
+
+    @property
+    def backdrop_image_fs_path(self):
+        if self.cover_fs_path is None:
+            return None
+
+        path = os.path.join(self.path, 'backdrop_image.jpg')
+        if os.path.exists(path):
+            return path
+
+        with Image.open(self.cover_fs_path) as image:
+            image = image.convert('RGB').filter(ImageFilter.GaussianBlur(35))
+            image.save(path, 'JPEG')
+
+        return path
+
+    @property
+    def backdrop_info(self):
+        if self.backdrop_image_fs_path is None:
+            return None
+
+        path = os.path.join(self.path, 'backdrop_info.json')
+        if os.path.exists(path):
+            with open(path) as fp:
+                return json.load(fp)
+
+        with Image.open(self.backdrop_image_fs_path) as image:
+            stat = ImageStat.Stat(image.convert('L'))
+            info = {
+                # Luninance values used to apply an opacity on Picture depending of color scheme (dark/light)
+                'luminance': [
+                    min((stat.mean[0] + stat.extrema[0][0]) / 510, 0.7),
+                    max((stat.mean[0] + stat.extrema[0][1]) / 510, 0.3),
+                ]
+            }
+            with open(path, 'w') as fp:
+                json.dump(info, fp)
+
+        return info
 
     @property
     def categories(self):
