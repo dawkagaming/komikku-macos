@@ -135,7 +135,7 @@ class Readcomiconline(Server):
         Returns comic chapter data
         """
         def decode_url(url, substitutions, base_url):
-            # In `Scripts/rguard.min.js?v=1.5.4`
+            # In `Scripts/rguard.min.js?v=1.5.8`
             if not url.startswith('https'):
                 for substitution in substitutions:
                     url = url.replace(substitution[0], substitution[1])
@@ -159,7 +159,7 @@ class Readcomiconline(Server):
                 if qs:
                     url += '?' + qs
 
-            if base_url:
+            if base_url and base_url != '' and url.find('ip=') > 0:
                 url = url.replace('https://2.bp.blogspot.com', base_url)
 
             return url
@@ -170,18 +170,27 @@ class Readcomiconline(Server):
 
         soup = BeautifulSoup(r.text, 'lxml')
 
+        var_rnd_name = None
         encoded_urls = []
         substitutions = []
         media_server = None
         for script_element in soup.select('script'):
             script = script_element.string
-            if not script or ('var pht' not in script and 'replace(' not in script):
+            if not script or ('var pth' not in script and 'replace(' not in script):
                 continue
 
             for line in script.split('\n'):
                 line = line.strip()
-                if line.startswith("pht = '"):
-                    encoded_urls.append(line[7:-2])
+
+                # URLs (encoded) are stored in a variable with a random name
+                if var_rnd_name is None:
+                    # Search for a line of the form:
+                    # var _1oXikvMxnz = '';
+                    if matches := re.search(r"var\s+_([0-9a-zA-Z]+)\s+=\s+''", line):
+                        var_rnd_name = '_' + matches.group(1)
+
+                if var_rnd_name and line.startswith(var_rnd_name):
+                    encoded_urls.append(line.split()[2][1:-2])
 
                 elif 'replace(' in line:
                     if matches := re.search(r"replace\(/([a-zA-Z0-9_]+)/g, '([a-z])'\);", line):
