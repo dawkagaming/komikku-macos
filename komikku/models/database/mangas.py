@@ -9,6 +9,7 @@ import importlib
 import json
 import logging
 import os
+from pathlib import Path
 import shutil
 import time
 
@@ -326,7 +327,10 @@ class Manga:
 
     def _save_cover(self, url):
         # Covers in landscape format are converted to portrait format
-        return self.server.save_image(url, self.path, 'cover', COVER_WIDTH, COVER_HEIGHT)
+        if self.server.save_image(url, self.path, 'cover', COVER_WIDTH, COVER_HEIGHT):
+            # Remove backdrop files (image, css, info)
+            for file in Path(self.path).glob('backdrop_*'):
+                os.unlink(file)
 
     def add_in_library(self):
         tmp_path = self.path
