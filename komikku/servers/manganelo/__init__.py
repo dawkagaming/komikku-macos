@@ -11,14 +11,18 @@ from komikku.servers.utils import convert_date_string
 from komikku.servers.utils import get_soup_element_inner_text
 from komikku.utils import get_buffer_mime_type
 from komikku.utils import is_number
+from komikku.webview import CompleteChallenge
 
 # NOTE: https://mangakakalot.gg seems to be a clone (same IP)
+# https://www.mangabats.com
 
 
 class Manganelo(Server):
     id = 'manganelo'
     name = 'MangaNato (MangaNelo)'
     lang = 'en'
+
+    has_cf = True
     long_strip_genres = ['Webtoons', ]
 
     base_url = 'https://www.manganato.gg'
@@ -27,6 +31,8 @@ class Manganelo(Server):
     manga_list_url = base_url + '/genre/all'
     manga_url = base_url + '/manga/{0}'
     chapter_url = base_url + '/manga/{0}/chapter-{1}'
+
+    bypass_cf_url = search_url + '?searchword=blossom'
 
     def __init__(self):
         if self.session is None:
@@ -210,6 +216,7 @@ class Manganelo(Server):
 
         return results
 
+    @CompleteChallenge()
     def search(self, term):
         r = self.session_get(
             self.search_url,
