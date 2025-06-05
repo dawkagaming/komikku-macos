@@ -12,6 +12,7 @@ from komikku.servers import Server
 from komikku.servers import USER_AGENT
 from komikku.utils import get_buffer_mime_type
 from komikku.utils import is_number
+from komikku.webview import CompleteChallenge
 
 
 class Paprika(Server):
@@ -24,7 +25,7 @@ class Paprika(Server):
     chapter_url: str = None
 
     def __init__(self):
-        if self.session is None:
+        if self.session is None and not self.has_cf:
             self.session = requests.Session()
             self.session.headers.update({'User-Agent': USER_AGENT})
 
@@ -41,6 +42,7 @@ class Paprika(Server):
         if self.chapter_url is None:
             self.chapter_url = self.base_url + '/chapter/{0}'
 
+    @CompleteChallenge()
     def get_manga_data(self, initial_data):
         """
         Returns manga data by scraping manga HTML page content
@@ -127,6 +129,7 @@ class Paprika(Server):
 
         return data
 
+    @CompleteChallenge()
     def get_manga_chapter_data(self, manga_slug, manga_name, chapter_slug, chapter_url):
         r = self.session_get(self.chapter_url.format(chapter_slug))
         if r.status_code != 200:
@@ -145,6 +148,7 @@ class Paprika(Server):
 
         return data
 
+    @CompleteChallenge()
     def get_manga_chapter_page_image(self, manga_slug, manga_name, chapter_slug, page):
         """
         Returns chapter page scan (image) content
@@ -174,6 +178,7 @@ class Paprika(Server):
         """
         return self.manga_url.format(slug)
 
+    @CompleteChallenge()
     def get_latest_updates(self):
         r = self.session_get(self.latest_updates_url)
         if r.status_code != 200:
@@ -181,6 +186,7 @@ class Paprika(Server):
 
         return self.parse_manga_list(r.text)
 
+    @CompleteChallenge()
     def get_most_populars(self):
         r = self.session_get(self.most_populars_url)
         if r.status_code != 200:
@@ -193,16 +199,17 @@ class Paprika(Server):
 
         results = []
         for element in soup.select('.anipost'):
-            a_element = element.select_one('.thumb a')
+            a_element = element.select_one('.left a')
             results.append(dict(
                 slug=a_element.get('href').split('/')[-1],
-                name=a_element.get('title').strip(),
-                cover=a_element.img.get('src'),
+                name=a_element.text.strip(),
+                cover=element.select_one('.thumb img').get('src'),
                 last_chapter=element.select_one('span:last-child').text.strip(),
             ))
 
         return results
 
+    @CompleteChallenge()
     def search(self, term):
         r = self.session_get(
             self.search_url,
@@ -211,7 +218,7 @@ class Paprika(Server):
                 'post_type': 'manga',
             },
             headers={
-                'Referer': self.base_url,
+                'Referer': f'{self.base_url}/',
             }
         )
         if r.status_code != 200:
