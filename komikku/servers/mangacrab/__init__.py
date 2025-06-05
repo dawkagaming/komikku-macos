@@ -16,7 +16,7 @@ class Mangacrab(Madara2):
     date_format = '%d/%m/%Y'
     series_name = 'series'
 
-    base_url = 'https://mangacrab.org'
+    base_url = 'https://mangacrab2.yopres.com'
     logo_url = base_url + '/wp-content/uploads/2024/07/cropped-cropped-logo99-Personalizado-e1722469564886-32x32.png'
 
     details_name_selector = 'h1.post-title'
