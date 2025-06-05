@@ -2,25 +2,26 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the Komikku package.
 # Danial Behzadi <dani.behzi@ubuntu.com>, 2025.
+# Muhammad Hussein Ammari <xmha97@gmail.com>, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: Komikku 1.64.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-04-04 00:19+0200\n"
-"PO-Revision-Date: 2025-02-17 18:21+0000\n"
-"Last-Translator: Danial Behzadi <dani.behzi@ubuntu.com>\n"
-"Language-Team: Persian <https://hosted.weblate.org/projects/komikku/main/fa/"
-">\n"
+"PO-Revision-Date: 2025-06-06 15:02+0000\n"
+"Last-Translator: Muhammad Hussein Ammari <xmha97@gmail.com>\n"
+"Language-Team: Persian <https://hosted.weblate.org/projects/komikku/main/fa/>"
+"\n"
 "Language: fa\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 5.10.1-dev\n"
+"X-Generator: Weblate 5.12-dev\n"
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:11
 msgid "Discover and read manga & comics"
-msgstr ""
+msgstr "کشف و خواندن مانگا و کمیک‌ها"
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:13
 msgid ""
@@ -2035,11 +2036,11 @@ msgstr ""
 
 #: ../komikku/updater.py:111
 msgid "Update completed with errors"
-msgstr ""
+msgstr "به‌روزرسانی با خطا کامل شد"
 
 #: ../komikku/updater.py:113
 msgid "Update completed"
-msgstr ""
+msgstr "به‌روزرسانی کامل شد"
 
 #: ../komikku/updater.py:117
 #, python-brace-format
@@ -2072,7 +2073,7 @@ msgstr ""
 
 #: ../komikku/updater.py:169
 msgid "Library update started"
-msgstr ""
+msgstr "به‌روزرسانی کتابخانه آغاز شد"
 
 #: ../komikku/utils.py:332
 msgid "You are currently offline"
@@ -2084,11 +2085,11 @@ msgstr ""
 
 #: ../komikku/webview.py:437
 msgid "Please wait…"
-msgstr ""
+msgstr "لطفا صبر کنید…"
 
 #: ../komikku/webview.py:489
 msgid "Please complete CAPTCHA"
-msgstr ""
+msgstr "لطفا کپچا را کامل کنید"
 
 #~ msgid "Komikku"
 #~ msgstr "کمیکو"
