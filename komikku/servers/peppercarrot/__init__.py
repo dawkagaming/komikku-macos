@@ -214,7 +214,6 @@ class Peppercarrot_es(Peppercarrot):
     name = SERVER_NAME
     lang = 'es'
 
-<<<<<<< HEAD
 class Peppercarrot_fa(Peppercarrot):
     id = 'peppercarrot_fa'
     name = SERVER_NAME
@@ -222,16 +221,6 @@ class Peppercarrot_fa(Peppercarrot):
 
     synopsis = "این داستان جادوگر جوان فلفل و گربه‌اش هویج در دنیای جادویی هروا است. پپر جادوی چائوسا، جادوی آشوب، را به همراه مادربزرگ‌هایش کاین، آویشن و زیره می‌آموزد. جادوگران دیگری مانند زعفران، گشنیز، بابونه و شیچیمی جادوهایی را یاد می‌گیرند که هر کدام ویژگی‌های خاص خود را دارند."
 
-||||||| parent of 4c6ed954 (Update komikku/servers/peppercarrot/__init__.py)
-=======
-class Peppercarrot_fr(Peppercarrot):
-    id = 'peppercarrot_fa'
-    name = SERVER_NAME
-    lang = 'fa'
-
-    synopsis = "این داستان جادوگر جوان فلفل و گربه‌اش هویج در دنیای جادویی هروا است. پپر جادوی چائوسا، جادوی آشوب، را به همراه مادربزرگ‌هایش کاین، آویشن و زیره می‌آموزد. جادوگران دیگری مانند زعفران، گشنیز، بابونه و شیچیمی جادوهایی را یاد می‌گیرند که هر کدام ویژگی‌های خاص خود را دارند."
-
->>>>>>> 4c6ed954 (Update komikku/servers/peppercarrot/__init__.py)
 
 class Peppercarrot_fr(Peppercarrot):
     id = 'peppercarrot_fr'
