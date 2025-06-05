@@ -8,14 +8,13 @@ import json
 import re
 
 from bs4 import BeautifulSoup
-import requests
 
 from komikku.servers import Server
-from komikku.servers import USER_AGENT
 from komikku.servers.utils import convert_date_string
 from komikku.servers.utils import get_soup_element_inner_text
 from komikku.utils import get_buffer_mime_type
 from komikku.utils import is_number
+from komikku.webview import CompleteChallenge
 
 RE_CHAPTER_PAGES = r'.*pages\s+=\s+([a-zA-Z0-9":,-_.\[\]{}]+);.*'
 RE_CHAPTER_PAGES_CDN = r'.*var\s+cdn\s+=\s+"([a-z1-9]+[^"])";.*'
@@ -45,6 +44,8 @@ class Mangamana(Server):
     name = 'Manga Mana'
     lang = 'fr'
 
+    has_cf = True
+
     base_url = 'https://www.manga-mana.com'
     logo_url = base_url + '/favicon-32x32.png'
     search_url = base_url + '/search-live'
@@ -73,10 +74,9 @@ class Mangamana(Server):
     csrf_token = None
 
     def __init__(self):
-        if self.session is None:
-            self.session = requests.Session()
-            self.session.headers.update({'User-Agent': USER_AGENT})
+        self.session = None
 
+    @CompleteChallenge()
     def get_manga_data(self, initial_data):
         """
         Returns manga data by scraping manga HTML page content
@@ -146,6 +146,7 @@ class Mangamana(Server):
 
         return data
 
+    @CompleteChallenge()
     def get_manga_chapter_data(self, manga_slug, manga_name, chapter_slug, chapter_url):
         """
         Returns manga chapter data by scraping chpater HTML page content
@@ -258,12 +259,15 @@ class Mangamana(Server):
 
         return result
 
+    @CompleteChallenge()
     def get_latest_updates(self, status=None):
         return self.get_manga_list('updated_at', status)
 
+    @CompleteChallenge()
     def get_most_populars(self, status=None):
         return self.get_manga_list('score', status)
 
+    @CompleteChallenge()
     @get_data
     def search(self, term, status=None):
         r = self.session_get(
