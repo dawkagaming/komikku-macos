@@ -67,6 +67,7 @@ class HeanCMS(Server):
     media_url: str = None
 
     date_format = '%m/%d/%Y'
+    re_serie_id = r'.*{"series_id":(\d*).*'
 
     name_css_path: str
     cover_css_path: str
@@ -125,7 +126,7 @@ class HeanCMS(Server):
 
         if info := extract_info_from_script(soup, 'series_slug'):
             # Extract serie_id
-            if matches := re.search(r'.*{"id":(\d*).*', info):
+            if matches := re.search(self.re_serie_id, info):
                 serie_id = matches.group(1)
             else:
                 return None
