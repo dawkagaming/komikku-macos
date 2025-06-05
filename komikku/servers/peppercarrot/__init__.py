@@ -214,7 +214,7 @@ class Peppercarrot_es(Peppercarrot):
     name = SERVER_NAME
     lang = 'es'
 
-class Peppercarrot_fr(Peppercarrot):
+class Peppercarrot_fa(Peppercarrot):
     id = 'peppercarrot_fa'
     name = SERVER_NAME
     lang = 'fa'
