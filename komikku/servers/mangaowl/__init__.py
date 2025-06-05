@@ -11,8 +11,8 @@ class Mangaowl(Madara):
     lang = 'en'
     is_nsfw = True
 
-    series_name = 'read'  # This value changes regularly!
+    series_name = 'read-1'  # This value changes regularly!
 
     base_url = 'https://mangaowl.io'
     logo_url = base_url + '/wp-content/uploads/2017/10/logo.png'
-    chapters_url = base_url + '/read/{0}/ajax/chapters/'
+    chapters_url = base_url + '/read-1/{0}/ajax/chapters/'
