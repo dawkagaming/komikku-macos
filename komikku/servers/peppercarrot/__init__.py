@@ -16,6 +16,7 @@ LANGUAGES_CODES = dict(
     en='en',
     eo='eo',
     es='es',
+    fa='fa',
     fr='fr',
     id='id',
     it='it',
@@ -212,6 +213,13 @@ class Peppercarrot_es(Peppercarrot):
     id = 'peppercarrot_es'
     name = SERVER_NAME
     lang = 'es'
+
+class Peppercarrot_fr(Peppercarrot):
+    id = 'peppercarrot_fa'
+    name = SERVER_NAME
+    lang = 'fa'
+
+    synopsis = "این داستان جادوگر جوان فلفل و گربه‌اش هویج در دنیای جادویی هروا است. پپر جادوی چائوسا، جادوی آشوب، را به همراه مادربزرگ‌هایش کاین، آویشن و زیره می‌آموزد. جادوگران دیگری مانند زعفران، گشنیز، بابونه و شیچیمی جادوهایی را یاد می‌گیرند که هر کدام ویژگی‌های خاص خود را دارند."
 
 
 class Peppercarrot_fr(Peppercarrot):
