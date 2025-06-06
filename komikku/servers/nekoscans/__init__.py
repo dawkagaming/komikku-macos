@@ -9,6 +9,8 @@ class Nekoscans(ZeistManga):
     id = 'nekoscans'
     name = 'Neko Scans'
     lang = 'es'
+    status = 'disabled'
+
     is_nsfw = True
 
     base_url = 'https://nekoscanlation.blogspot.com'
