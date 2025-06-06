@@ -17,6 +17,8 @@ class Readmanga(Server):
     id = 'readmanga'
     name = 'Usagi (Read Manga)'
     lang = 'ru'
+    status = 'disabled'
+
     is_nsfw = True
 
     base_url = 'https://web.usagi.one'
