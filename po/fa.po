@@ -3,13 +3,14 @@
 # This file is distributed under the same license as the Komikku package.
 # Danial Behzadi <dani.behzi@ubuntu.com>, 2025.
 # Muhammad Hussein Ammari <xmha97@gmail.com>, 2025.
+# Muhammadhussein Ammari <xmha97@gmail.com>, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: Komikku 1.64.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-04-04 00:19+0200\n"
-"PO-Revision-Date: 2025-06-06 15:02+0000\n"
-"Last-Translator: Muhammad Hussein Ammari <xmha97@gmail.com>\n"
+"PO-Revision-Date: 2025-06-07 23:01+0000\n"
+"Last-Translator: Muhammadhussein Ammari <xmha97@gmail.com>\n"
 "Language-Team: Persian <https://hosted.weblate.org/projects/komikku/main/fa/>"
 "\n"
 "Language: fa\n"
@@ -24,26 +25,29 @@ msgid "Discover and read manga & comics"
 msgstr "کشف و خواندن مانگا و کمیک‌ها"
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:13
+#, fuzzy
 msgid ""
 "With its simple, elegant and adaptive interface, this reader lets you "
 "search, sort and read your series with ease."
 msgstr ""
+"با رابط کاربری ساده، ظریف و سازگار، این خواننده به شما اجازه می دهد تا سریال "
+"خود را با سهولت جستجو، مرتب و خواندن کنید."
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:15
 msgid "Why you will love Komikku?"
-msgstr ""
+msgstr "چرا عاشق کومیککو هستید؟"
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:17
 msgid "Online and offline reading from dozens of servers"
-msgstr ""
+msgstr "بَرخط و بُرون‌خط از ده‌ها سرور"
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:18
 msgid "Support for locally stored series (in CBZ or CBR formats)"
-msgstr ""
+msgstr "پشتیبانی از مجموعه‌های ذخیره شده محلی (در فرمت‌های CBZ یا CBR)"
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:19
 msgid "RTL, LTR, Vertical and Webtoon reading modes"
-msgstr ""
+msgstr "حالت‌های خواندن راست‌به‌چپ، چپ‌به‌راست، عمودی و نگارتار"
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:20
 msgid ""
