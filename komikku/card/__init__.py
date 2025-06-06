@@ -26,6 +26,7 @@ from komikku.utils import MISSING_IMG_RESOURCE_PATH
 class CardPage(Adw.NavigationPage):
     __gtype_name__ = 'CardPage'
 
+    toolbar_view = Gtk.Template.Child('toolbar_view')
     left_button = Gtk.Template.Child('left_button')
     filters_button = Gtk.Template.Child('filters_button')
     title_stack = Gtk.Template.Child('title_stack')
@@ -296,7 +297,7 @@ class CardPage(Adw.NavigationPage):
         if not self.pool_to_update:
             self.pool_to_update = True
             # Adjust revealer position
-            self.pool_to_update_revealer.set_margin_top(self.get_child().get_top_bar_height())
+            self.pool_to_update_revealer.set_margin_top(self.toolbar_view.get_top_bar_height())
             self.pool_to_update_revealer.props.transition_type = Gtk.RevealerTransitionType.NONE
             self.pool_to_update_revealer.set_reveal_child(True)
         else:
