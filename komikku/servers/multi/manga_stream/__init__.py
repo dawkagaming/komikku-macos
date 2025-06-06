@@ -10,7 +10,8 @@
 # Iris Scanlator [pt_BR] (Disabled)
 # Lelmanga [FR]
 # Manga Koleji [TR]
-# Noromax (ID)
+# Neko Scans [ES]
+# Noromax [ID]
 # Night scans [EN]
 # PhenixScans [FR]
 # Ragna Scan [ES] (Disabled)
