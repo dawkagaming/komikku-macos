@@ -31,7 +31,7 @@ from komikku.utils import LOGO_SIZE
 from komikku.utils import REQUESTS_TIMEOUT
 from komikku.utils import retry_session
 
-APP_MIN_VERSION = '1.78.0'  # Minimum app version required to use `Up-to-date servers modules`
+APP_MIN_VERSION = '1.79.0'  # Minimum app version required to use `Up-to-date servers modules`
 DOWNLOAD_MAX_DELAY = 1  # in seconds
 
 # https://www.localeplanet.com/icu/
@@ -44,6 +44,7 @@ LANGUAGES = dict(
     eo='Espéranto',
     es='Español',
     es_419='Español (Latinoamérica)',
+    fa='فارسی',
     fr='Français',
     it='Italiano',
     nl='Nederlands',
