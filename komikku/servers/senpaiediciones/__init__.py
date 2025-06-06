@@ -9,6 +9,8 @@ class Senpaiediciones(MangaStream):
     id = 'senpaiediciones'
     name = 'Senpai Ediciones'
     lang = 'es'
+    status = 'disabled'
+
     is_nsfw = True
 
     base_url = 'https://senpaimangas.online'
