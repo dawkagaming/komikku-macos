@@ -129,8 +129,9 @@ def folder_size(path):
         return 0
 
     res = subprocess.run(['du', '-sh', path], stdout=subprocess.PIPE, check=False)
+    size = res.stdout.split()[0].decode()
 
-    return res.stdout.split()[0].decode()
+    return f'{size[:-1]} {size[-1]}iB'
 
 
 def get_buffer_mime_type(buffer):
