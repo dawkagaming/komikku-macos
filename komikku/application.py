@@ -540,12 +540,22 @@ available in your region/language."""))
         # Override release notes
         dialog.set_release_notes("""
             <ul>
-                <li>[Card] Details page: Redesign</li>
-                <li>[Servers] Local: Added support of CBT archive format (TAR)</li>
-                <li>[Servers] Added Blue Solo (FR)</li>
-                <li>[Servers] SMBC (EN): Re-enabled</li>
-                <li>[Servers] Poseidon Scans (FR): Disabled</li>
-                <li>[L10n] Updated Arabic, Bulgarian, Catalan and Portuguese (Brazil) translations</li>
+                <li>[Card] Added new backdrop method: Blurred cover</li>
+                <li>[Servers] Dragon Ball Multiverse: Update</li>
+                <li>[Servers] EZmanga (EN): Update</li>
+                <li>[Servers] MangaCrab (ES): Update</li>
+                <li>[Servers] MangaMana (FR): Update</li>
+                <li>[Servers] MangaNato (EN): Update</li>
+                <li>[Servers] Mangaowl (EN): Update</li>
+                <li>[Servers] MangaReader (cc) (EN): Update</li>
+                <li>[Servers] Neko Scans(ES): Update</li>
+                <li>[Servers] Pepper&amp;Carrot: Added support of Persian language</li>
+                <li>[Servers] Rawdevart (JA): Update</li>
+                <li>[Servers] Read Comic Online (EN): Update</li>
+                <li>[Servers] Senpai Ediciones (ES): Disabled</li>
+                <li>[Servers] Terco Scans (EN): Update</li>
+                <li>[Servers] Usagi (RU): Disabled</li>
+                <li>[L10n] Updated Arabic and Persian translations</li>
             </ul>
             <p>Happy reading.</p>
         """)

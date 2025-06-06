@@ -12,7 +12,7 @@
 
 **Komikku** is a manga reader for [GNOME](https://www.gnome.org). It focuses on providing a clean, intuitive and adaptive interface.
 
-## 🪪 License
+## 📄 License
 
 **Komikku** is licensed under the [GPLv3+](https://www.gnu.org/licenses/gpl-3.0.html).
 
