@@ -539,6 +539,12 @@ available in your region/language."""))
 
         # Override release notes
         dialog.set_release_notes("""
+            <p>This is a bugfix version.</p>
+            <ul>
+                <li>[Card] Fixed Pull-to-Update</li>
+            </ul>
+
+            <p>Changes in previous version 1.79.0</p>
             <ul>
                 <li>[Card] Added new backdrop method: Blurred cover</li>
                 <li>[Servers] Dragon Ball Multiverse: Update</li>
