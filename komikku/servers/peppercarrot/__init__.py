@@ -31,7 +31,7 @@ LANGUAGES_CODES = dict(
     zh_Hans='cn',  # diff
 )
 
-SERVER_NAME = 'Pepper&Carrot'
+SERVER_NAME = 'Pepper & Carrot'
 
 
 class Peppercarrot(Server):
@@ -46,7 +46,9 @@ class Peppercarrot(Server):
     chapters_url = base_url + '/0_sources/episodes-v1.json'
     image_url = base_url + '/0_sources/{0}/low-res/{1}_{2}'
     cover_url = base_url + '/0_sources/0ther/artworks/low-res/2016-02-24_vertical-cover_remake_by-David-Revoy.jpg'
-
+    
+    author = 'David Revoy'
+    scanlator = 'David Revoy'
     synopsis = 'This is the story of the young witch Pepper and her cat Carrot in the magical world of Hereva. Pepper learns the magic of Chaosah, the magic of chaos, with his godmothers Cayenne, Thyme and Cumin. Other witches like Saffron, Coriander, Camomile and Schichimi learn magics that each have their specificities.'
 
     def __init__(self):
@@ -71,9 +73,9 @@ class Peppercarrot(Server):
 
         data = initial_data.copy()
         data.update(dict(
-            authors=['David Revoy', ],
-            scanlators=[],
-            genres=[],
+            authors=[self.author, ],
+            scanlators=[self.scanlator, ],
+            genres = ['Mystery', ],
             status='ongoing',
             synopsis=self.synopsis,
             chapters=[],
@@ -174,7 +176,7 @@ class Peppercarrot(Server):
     def get_most_populars(self):
         return [dict(
             slug='',
-            name='Pepper&Carrot',
+            name='Pepper & Carrot',
             cover=self.cover_url,
         )]
 
@@ -216,9 +218,10 @@ class Peppercarrot_es(Peppercarrot):
 
 class Peppercarrot_fa(Peppercarrot):
     id = 'peppercarrot_fa'
-    name = SERVER_NAME
+    name = "فلفل و هویج"
     lang = 'fa'
-
+    author = 'دیوید ریوی'
+    scanlator = 'محمد کاظمی'
     synopsis = "این داستان جادوگر جوان فلفل و گربه‌اش هویج در دنیای جادویی هروا است. پپر جادوی چائوسا، جادوی آشوب، را به همراه مادربزرگ‌هایش کاین، آویشن و زیره می‌آموزد. جادوگران دیگری مانند زعفران، گشنیز، بابونه و شیچیمی جادوهایی را یاد می‌گیرند که هر کدام ویژگی‌های خاص خود را دارند."
 
 
