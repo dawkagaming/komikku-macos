@@ -10,6 +10,8 @@ class Mangalek(Madara):
     name = 'مانجا ليك Mangalek'
     lang = 'ar'
 
+    has_cf = True
+
     date_format = '%Y ,%d %B'
 
     base_url = 'https://lekmanga.net'
