@@ -3,13 +3,12 @@
 # Author: Valéry Febvre <vfebvre@easter-eggs.com>
 
 from gettext import gettext as _
-import requests
 
 from komikku.servers import Server
-from komikku.servers import USER_AGENT
 from komikku.servers.utils import convert_date_string
 from komikku.utils import get_buffer_mime_type
 from komikku.utils import is_number
+from komikku.webview import CompleteChallenge
 
 
 class Phenixscans(Server):
@@ -17,9 +16,11 @@ class Phenixscans(Server):
     name = 'Phenix Scans'
     lang = 'fr'
 
+    has_cf = True
+
     base_url = 'https://phenix-scans.com'
     logo_url = base_url + '/logo.png'
-    api_base_url = 'https://api.phenix-scans.com'
+    api_base_url = base_url + '/api'
     api_list_url = api_base_url + '/front/manga'
     api_search_url = api_base_url + '/front/manga/search'
     api_manga_url = api_base_url + '/front/manga/{0}'
@@ -46,10 +47,9 @@ class Phenixscans(Server):
     long_strip_genres = ['Manhua', 'Manhwa']
 
     def __init__(self):
-        if self.session is None:
-            self.session = requests.Session()
-            self.session.headers.update({'User-Agent': USER_AGENT})
+        self.session = None
 
+    @CompleteChallenge()
     def get_manga_data(self, initial_data):
         """
         Returns manga data using API
@@ -96,6 +96,7 @@ class Phenixscans(Server):
 
         return data
 
+    @CompleteChallenge()
     def get_manga_chapter_data(self, manga_slug, manga_name, chapter_slug, chapter_url):
         r = self.session_get(self.api_chapter_url.format(manga_slug, chapter_slug))
         if r.status_code != 200:
@@ -115,6 +116,7 @@ class Phenixscans(Server):
 
         return data
 
+    @CompleteChallenge()
     def get_manga_chapter_page_image(self, manga_slug, manga_name, chapter_slug, page):
         """
         Returns chapter page scan (image) content
@@ -166,15 +168,18 @@ class Phenixscans(Server):
 
         return result
 
+    @CompleteChallenge()
     def get_latest_updates(self, type=None):
         return self.get_manga_list(orderby='updatedAt', type=type)
 
     def get_manga_url(self, slug, url):
         return self.manga_url.format(slug)
 
+    @CompleteChallenge()
     def get_most_populars(self, type=None):
         return self.get_manga_list(orderby='rating', type=type)
 
+    @CompleteChallenge()
     def search(self, term, type=None):
         # Filtering by type is not available in search endpoint
         r = self.session_get(
