@@ -13,7 +13,7 @@ class Tresdaos(MangaStream):
 
     date_format = None
 
-    base_url = 'https://3daos.mewingzone.com'
+    base_url = 'https://threedaos.drublood.com'
     manga_list_url = base_url + '/'
 
     authors_selector = '.tsinfo .imptdt:-soup-contains("Autor") i, .tsinfo .imptdt:-soup-contains("Artista") i'
