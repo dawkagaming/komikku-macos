@@ -43,39 +43,38 @@ class Peppercarrot(Server):
     base_url = 'https://www.peppercarrot.com'
     logo_url = base_url + '/core/img/favicon.png'
     manga_url = base_url + '/{0}/webcomics/index.html'
+    langs_url = base_url + '/0_sources/langs.json'
     chapters_url = base_url + '/0_sources/episodes-v1.json'
     image_url = base_url + '/0_sources/{0}/low-res/{1}_{2}'
     cover_url = base_url + '/0_sources/0ther/artworks/low-res/2016-02-24_vertical-cover_remake_by-David-Revoy.jpg'
-    
-    author = 'David Revoy'
-    scanlator = 'David Revoy'
+
+    genres = ['Fantasy', 'Magical girl', 'Coming-of-age']
     synopsis = 'This is the story of the young witch Pepper and her cat Carrot in the magical world of Hereva. Pepper learns the magic of Chaosah, the magic of chaos, with his godmothers Cayenne, Thyme and Cumin. Other witches like Saffron, Coriander, Camomile and Schichimi learn magics that each have their specificities.'
 
     def __init__(self):
         if self.session is None:
             self.session = requests.Session()
-            self.session.headers.update({'user-agent': USER_AGENT})
+            self.session.headers.update({'User-Agent': USER_AGENT})
 
     def get_manga_data(self, initial_data):
         """
         Returns manga data by scraping manga HTML page content
         """
         r = self.session_get(self.manga_url.format(LANGUAGES_CODES[self.lang]))
-        if r is None:
+        if r.status_code != 200:
             return None
 
         mime_type = get_buffer_mime_type(r.content)
-
-        if r.status_code != 200 or mime_type != 'text/html':
+        if mime_type != 'text/html':
             return None
 
         soup = BeautifulSoup(r.text, 'lxml')
 
         data = initial_data.copy()
         data.update(dict(
-            authors=[self.author, ],
-            scanlators=[self.scanlator, ],
-            genres = ['Mystery', ],
+            authors=['David Revoy', ],
+            scanlators=[],
+            genres=self.genres,
             status='ongoing',
             synopsis=self.synopsis,
             chapters=[],
@@ -83,13 +82,19 @@ class Peppercarrot(Server):
             cover=self.cover_url,
         ))
 
+        # Scanlators (translators here)
+        r = self.session_get(self.langs_url)
+        if r.ok:
+            if lang_data := r.json().get(LANGUAGES_CODES[self.lang]):
+                data['scanlators'] = lang_data['translators']
+
+        # Chapters
         r = self.session_get(self.chapters_url)
-        if r is None:
+        if r.status_code != 200:
             return None
 
         chapters_data = r.json()
 
-        # Chapters
         for index, element in enumerate(reversed(soup.select('figure.thumbnail'))):
             if 'notranslation' in element.get('class'):
                 # Skipped not translated episodes
@@ -108,7 +113,7 @@ class Peppercarrot(Server):
         Returns manga chapter data using episodes API service
         """
         r = self.session_get(self.chapters_url)
-        if r is None:
+        if r.status_code != 200:
             return None
 
         chapters_data = r.json()
@@ -154,7 +159,7 @@ class Peppercarrot(Server):
         Returns chapter page scan (image) content
         """
         r = self.session_get(self.image_url.format(chapter_slug, LANGUAGES_CODES[self.lang], page['slug']))
-        if r is None or r.status_code != 200:
+        if r.status_code != 200:
             return None
 
         mime_type = get_buffer_mime_type(r.content)
@@ -176,7 +181,7 @@ class Peppercarrot(Server):
     def get_most_populars(self):
         return [dict(
             slug='',
-            name='Pepper & Carrot',
+            name=self.name,
             cover=self.cover_url,
         )]
 
@@ -216,12 +221,12 @@ class Peppercarrot_es(Peppercarrot):
     name = SERVER_NAME
     lang = 'es'
 
+
 class Peppercarrot_fa(Peppercarrot):
     id = 'peppercarrot_fa'
     name = "فلفل و هویج"
     lang = 'fa'
-    author = 'دیوید ریوی'
-    scanlator = 'محمد کاظمی'
+
     synopsis = "این داستان جادوگر جوان فلفل و گربه‌اش هویج در دنیای جادویی هروا است. پپر جادوی چائوسا، جادوی آشوب، را به همراه مادربزرگ‌هایش کاین، آویشن و زیره می‌آموزد. جادوگران دیگری مانند زعفران، گشنیز، بابونه و شیچیمی جادوهایی را یاد می‌گیرند که هر کدام ویژگی‌های خاص خود را دارند."
 
 
