@@ -35,8 +35,8 @@ class Webtoon(Server):
 
     base_url = 'https://www.webtoons.com'
     logo_url = 'https://webtoons-static.pstatic.net/image/favicon/favicon.ico?dt=2017082301'
-    search_url = base_url + '/{0}/search'
-    most_populars_url = base_url + '/{0}/popular'
+    search_url = base_url + '/{0}/search/{1}'
+    most_populars_url = base_url + '/{0}/ranking/{1}'
     manga_url = base_url + '{0}'
     chapters_url = 'https://m.webtoons.com{0}'
     chapter_url = base_url + '{0}'
@@ -51,8 +51,8 @@ class Webtoon(Server):
             'default': 'all',
             'options': [
                 {'key': 'all', 'name': _('All')},
-                {'key': 'webtoon', 'name': _('Originals')},
-                {'key': 'challenge', 'name': _('Canvas')},
+                {'key': 'originals', 'name': _('Originals')},
+                {'key': 'canvas', 'name': _('Canvas')},
             ],
         },
     ]
@@ -65,6 +65,80 @@ class Webtoon(Server):
     def get_manga_initial_data_from_url(cls, url):
         return dict(url=url.replace(cls.base_url, ''), slug=url.split('=')[-1])
 
+    def _get_manga_cover_url(self, url):
+        # No cover in manga page, use RSS feed
+        r = self.session_get(self.manga_url.format(url.replace('list?', 'rss?')), headers={'User-Agent': USER_AGENT})
+        if r.status_code != 200:
+            return None
+
+        mime_type = get_buffer_mime_type(r.content)
+        if mime_type != 'text/xml':
+            return None
+
+        soup = BeautifulSoup(r.text, features='xml')
+        if element := soup.select_one('image url'):
+            return element.text.strip()
+
+        return None
+
+    def _parse_results_page(self, response):
+        soup = BeautifulSoup(response.text, 'lxml')
+
+        results = []
+        for a_element in soup.select('.webtoon_list > li > a'):
+            # Small difference here compared to the majority of servers
+            # slug can't be used to forge manga URL, we must store the full url (relative)
+            results.append(dict(
+                slug=a_element.get('href').split('=')[-1],
+                url=a_element.get('href').replace(self.base_url, ''),
+                name=a_element.select_one('.info_text .title').text.strip(),
+                cover=a_element.select_one('img').get('src'),
+            ))
+
+        return results
+
+    def _search_by_ranking(self, ranking):
+        # Clear cookies
+        # Seems to help to bypass some region-based restrictions?!?
+        self.session.cookies.clear()
+
+        r = self.session_get(
+            self.most_populars_url.format(LANGUAGES_CODES[self.lang], ranking),
+            headers={
+                'User-Agent': USER_AGENT,
+            }
+        )
+        if r.status_code != 200:
+            return None
+
+        mime_type = get_buffer_mime_type(r.content)
+        if mime_type != 'text/html':
+            return None
+
+        return self._parse_results_page(r)
+
+    def _search_by_type(self, term, type):
+        # Clear cookies
+        # Seems to help to bypass some region-based restrictions?!?
+        self.session.cookies.clear()
+
+        r = self.session_get(
+            self.search_url.format(LANGUAGES_CODES[self.lang], type),
+            params=dict(
+                keyword=term,
+                searchMode='ALL',
+            ),
+            headers={'User-Agent': USER_AGENT}
+        )
+        if r.status_code != 200:
+            return None
+
+        mime_type = get_buffer_mime_type(r.content)
+        if mime_type != 'text/html':
+            return None
+
+        return self._parse_results_page(r)
+
     def get_manga_data(self, initial_data):
         """
         Returns manga data by scraping manga HTML page content
@@ -73,7 +147,7 @@ class Webtoon(Server):
         """
         assert 'url' in initial_data, 'Manga url is missing in initial data'
 
-        r = self.session_get(self.manga_url.format(initial_data['url']), headers={'user-agent': USER_AGENT})
+        r = self.session_get(self.manga_url.format(initial_data['url']), headers={'User-Agent': USER_AGENT})
         if r.status_code != 200:
             return None
 
@@ -119,7 +193,7 @@ class Webtoon(Server):
             # Original/Webtoon
             detail_element = soup.find('div', class_='detail_body')
 
-            data['cover'] = detail_element.get('style').split(' ')[1][5:-1].split('?')[0] + '?type=q90'
+            data['cover'] = self._get_manga_cover_url(data['url'])
 
             try:
                 for element in soup.find('div', class_='_authorInnerContent').find_all('h3'):
@@ -147,7 +221,7 @@ class Webtoon(Server):
 
         Currently, only pages are expected.
         """
-        r = self.session_get(self.chapter_url.format(chapter_url), headers={'user-agent': USER_AGENT})
+        r = self.session_get(self.chapter_url.format(chapter_url), headers={'User-Agent': USER_AGENT})
         if r.status_code != 200:
             return None
 
@@ -176,7 +250,7 @@ class Webtoon(Server):
         Returns manga chapters data by scraping content of manga Mobile HTML page
         """
         # Use a Mobile user agent
-        r = self.session_get(self.chapters_url.format(url), headers={'user-agent': USER_AGENT_MOBILE})
+        r = self.session_get(self.chapters_url.format(url), headers={'User-Agent': USER_AGENT_MOBILE})
         if r.status_code != 200:
             return []
 
@@ -216,7 +290,7 @@ class Webtoon(Server):
         """
         Returns chapter page scan (image) content
         """
-        r = self.session_get(page['image'], headers={'referer': self.base_url, 'user-agent': USER_AGENT})
+        r = self.session_get(page['image'], headers={'Referer': self.base_url, 'User-Agent': USER_AGENT})
         if r.status_code != 200:
             return None
 
@@ -238,43 +312,20 @@ class Webtoon(Server):
 
     def get_most_populars(self, type='all'):
         """
-        Returns TOP 10 manga
+        Returns popular manga
         """
-        headers = {'user-agent': USER_AGENT}
-        if self.lang != 'zh_Hant':
-            url = self.most_populars_url.format(LANGUAGES_CODES[self.lang])
-        else:
-            url = self.most_populars_url
+        results = None
 
-        r = self.session_get(url, headers=headers)
-        if r.status_code != 200:
-            return None
+        if type == 'all' or type == 'originals':
+            if originals_results := self._search_by_ranking('popular'):
+                results = originals_results
 
-        mime_type = get_buffer_mime_type(r.content)
-        if mime_type != 'text/html':
-            return None
-
-        soup = BeautifulSoup(r.text, 'lxml')
-
-        classes = []
-        if type in ('all', 'webtoon'):
-            classes.append('NE=a:tgt')
-        if type in ('all', 'challenge'):
-            classes.append('NE=a:tct')
-
-        results = []
-        for class_ in classes:
-            for li_element in soup.find(class_=class_).select('.lst_type1 li'):
-                split_url = urlsplit(li_element.a.get('href'))
-                url = '{0}?{1}'.format(split_url.path, split_url.query)
-                slug = split_url.query.split('=')[-1]
-
-                results.append(dict(
-                    slug=slug,
-                    url=url,
-                    name=li_element.a.find('p', class_='subj').text.strip(),
-                    cover=li_element.a.img.get('src'),
-                ))
+        if type == 'all' or type == 'canvas':
+            if canvas_results := self._search_by_ranking('canvas'):
+                if results is None:
+                    results = canvas_results
+                else:
+                    results += canvas_results
 
         return results
 
@@ -284,65 +335,16 @@ class Webtoon(Server):
     def search(self, term, type='all'):
         results = None
 
-        if type == 'all' or type == 'webtoon':
-            webtoon_results = self.search_by_type(term, 'WEBTOON')
-            if webtoon_results is not None:
-                results = webtoon_results
+        if type == 'all' or type == 'originals':
+            if originals_results := self._search_by_type(term, 'originals'):
+                results = originals_results
 
-        if type == 'all' or type == 'challenge':
-            challenge_results = self.search_by_type(term, 'CHALLENGE')
-            if challenge_results is not None:
+        if type == 'all' or type == 'canvas':
+            if canvas_results := self._search_by_type(term, 'canvas'):
                 if results is None:
-                    results = challenge_results
+                    results = canvas_results
                 else:
-                    results += challenge_results
-
-        return results
-
-    def search_by_type(self, term, type):
-        assert type in ('CHALLENGE', 'WEBTOON', ), 'Invalid type'
-
-        # Clear cookies
-        # Seems to help to bypass some region-based restrictions?!?
-        self.session.cookies.clear()
-
-        if self.lang != 'zh_Hant':
-            url = self.search_url.format(LANGUAGES_CODES[self.lang])
-        else:
-            url = self.search_url
-
-        r = self.session_get(
-            url,
-            params=dict(
-                keyword=term,
-                searchType=type,
-            ),
-            headers={'user-agent': USER_AGENT}
-        )
-        if r.status_code != 200:
-            return None
-
-        mime_type = get_buffer_mime_type(r.content)
-        if mime_type != 'text/html':
-            return None
-
-        soup = BeautifulSoup(r.text, 'lxml')
-
-        if type == 'CHALLENGE':
-            a_elements = soup.select('a.challenge_item')
-        elif type == 'WEBTOON':
-            a_elements = soup.select('a.card_item')
-
-        results = []
-        for a_element in a_elements:
-            # Small difference here compared to the majority of servers
-            # slug can't be used to forge manga URL, we must store the full url (relative)
-            results.append(dict(
-                slug=a_element.get('href').split('=')[-1],
-                url=a_element.get('href').replace(self.base_url, ''),
-                name=a_element.select_one('p.subj').text.strip(),
-                cover=a_element.select_one('img').get('src'),
-            ))
+                    results += canvas_results
 
         return results
 
