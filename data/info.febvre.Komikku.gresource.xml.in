@@ -41,11 +41,13 @@
 
         <!-- Icons -->
         <file compressed="true" preprocess="xml-stripblanks" alias="icons/scalable/apps/brush-symbolic.svg">icons/brush-symbolic.svg</file>
+        <file compressed="true" preprocess="xml-stripblanks" alias="icons/scalable/apps/categories-symbolic.svg">icons/categories-symbolic.svg</file>
+        <file compressed="true" preprocess="xml-stripblanks" alias="icons/scalable/apps/chapters-symbolic.svg">icons/chapters-symbolic.svg</file>
         <file compressed="true" preprocess="xml-stripblanks" alias="icons/scalable/apps/computer-fail-symbolic.svg">icons/computer-fail-symbolic.svg</file>
         <file compressed="true" preprocess="xml-stripblanks" alias="icons/scalable/apps/explore-symbolic.svg">icons/explore-symbolic.svg</file>
         <file compressed="true" preprocess="xml-stripblanks" alias="icons/scalable/apps/filter-symbolic.svg">icons/filter-symbolic.svg</file>
+        <file compressed="true" preprocess="xml-stripblanks" alias="icons/scalable/apps/genres-symbolic.svg">icons/genres-symbolic.svg</file>
         <file compressed="true" preprocess="xml-stripblanks" alias="icons/scalable/apps/library-symbolic.svg">icons/library-symbolic.svg</file>
-        <file compressed="true" preprocess="xml-stripblanks" alias="icons/scalable/apps/tag-outline-symbolic.svg">icons/tag-outline-symbolic.svg</file>
 
         <!-- Images -->
         <file compressed="true">images/logo.png</file>

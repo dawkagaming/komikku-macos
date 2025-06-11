@@ -180,7 +180,7 @@ template $CardPage : Adw.NavigationPage {
                       Image {
                         halign: start;
                         valign: start;
-                        icon-name: "tag-outline-symbolic";
+                        icon-name: "genres-symbolic";
                       }
 
                       Adw.WrapBox genres_wrapbox {
@@ -230,7 +230,7 @@ template $CardPage : Adw.NavigationPage {
 
                       Image {
                         halign: start;
-                        icon-name: "view-list-bullet-symbolic";
+                        icon-name: "chapters-symbolic";
                       }
 
                       Label {
@@ -351,7 +351,7 @@ template $CardPage : Adw.NavigationPage {
           Adw.ViewStackPage {
             name: "chapters";
             title: _("Chapters");
-            icon-name: "view-list-bullet-symbolic";
+            icon-name: "chapters-symbolic";
             child: Box {
               orientation: vertical;
 
@@ -419,7 +419,7 @@ template $CardPage : Adw.NavigationPage {
           Adw.ViewStackPage {
             name: "categories";
             title: _("Categories");
-            icon-name: "user-bookmarks-symbolic";
+            icon-name: "categories-symbolic";
             child: ScrolledWindow categories_scrolledwindow {
               Adw.Clamp {
                 maximum-size: 768;
@@ -444,7 +444,7 @@ template $CardPage : Adw.NavigationPage {
                   StackPage {
                     name: "empty";
                     child: Adw.StatusPage {
-                      icon-name: "user-bookmarks-symbolic";
+                      icon-name: "categories-symbolic";
                       title: _("No Categories");
                     };
                   }

@@ -19,7 +19,7 @@ template $LibraryPage : Adw.NavigationPage {
 
       [start]
       ToggleButton categories_togglebutton {
-        icon-name: "user-bookmarks-symbolic";
+        icon-name: "categories-symbolic";
         tooltip-text: _("Toggle Categories Sidebar");
       }
 
@@ -245,7 +245,7 @@ template $LibraryPage : Adw.NavigationPage {
           StackPage {
             name: "empty";
             child: Adw.StatusPage {
-              icon-name: "user-bookmarks-symbolic";
+              icon-name: "categories-symbolic";
               title: _("No Categories");
 
               styles [
