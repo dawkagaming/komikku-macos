@@ -84,7 +84,7 @@ class Comick(Server):
             'key': 'origination',
             'type': 'select',
             'name': _('Origination'),
-            'description': _('[Latest Updates only] Filter by origination'),
+            'description': _('[Latest Updates only] Filter by Origination'),
             'value_type': 'multiple',
             'options': [
                 {'key': 'manga', 'name': _('Manga'), 'default': False},
@@ -97,7 +97,7 @@ class Comick(Server):
             'type': 'select',
             'name': _('Countries'),
             'description': _(
-                '[Search and Most Popular only] Filter by country (origination)'
+                '[Search and Most Popular only] Filter by Country (origination)'
             ),
             'value_type': 'multiple',
             'options': [
@@ -110,7 +110,7 @@ class Comick(Server):
             'key': 'publication_demographics',
             'type': 'select',
             'name': _('Publication Demographic'),
-            'description': _('Filter by publication demographics'),
+            'description': _('Filter by Publication Demographics'),
             'value_type': 'multiple',
             'options': [
                 {'key': '1', 'name': _('Shounen'), 'default': False},
@@ -181,7 +181,7 @@ class Comick(Server):
                 {'key': 'tragedy', 'name': _('Tragedy'), 'default': False},
                 {'key': 'wuxia', 'name': _('Wuxia'), 'default': False},
                 {'key': 'yaoi', 'name': _('Yaoi'), 'default': False},
-                {'key': 'yuri', 'name': _('yuri'), 'default': False},
+                {'key': 'yuri', 'name': _('Yuri'), 'default': False},
             ],
         },
     ]
