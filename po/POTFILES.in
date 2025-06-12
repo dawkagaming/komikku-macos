@@ -51,6 +51,7 @@ komikku/reader/pager/webtoon.py
 komikku/servers/asurascans/__init__.py
 komikku/servers/bilibili/__init__.py
 komikku/servers/coloredcouncil/__init__.py
+komikku/servers/comick/__init__.py
 komikku/servers/dynasty/__init__.py
 komikku/servers/exceptions.py
 komikku/servers/flamescans/__init__.py

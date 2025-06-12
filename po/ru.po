@@ -7,11 +7,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-04-04 00:19+0200\n"
+"POT-Creation-Date: 2025-06-13 01:22+0200\n"
 "PO-Revision-Date: 2025-04-04 09:15+0000\n"
 "Last-Translator: Сергей <asvmail.as@gmail.com>\n"
-"Language-Team: Russian <https://hosted.weblate.org/projects/komikku/main/ru/>"
-"\n"
+"Language-Team: Russian <https://hosted.weblate.org/projects/komikku/main/ru/"
+">\n"
 "Language: ru\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -132,45 +132,41 @@ msgstr "@prettyname@"
 msgid "@description@"
 msgstr "@description@"
 
-#: ../data/info.febvre.Komikku.desktop.in:12
+#: ../data/info.febvre.Komikku.desktop.in:13
 msgid "manga;reader;viewer;comic;manhwa;manhua;bd;webtoon;webcomic;scan;offline;GTK;GNOME;"
 msgstr "manga;reader;viewer;comic;manhwa;manhua;bd;webtoon;webcomic;scan;offline;GTK;GNOME;манга;читалка;комикс;"
 
-#: ../data/ui/card.blp:39 ../data/ui/card.blp:450
+#: ../data/ui/card.blp:47 ../data/ui/card.blp:411
 #: ../data/ui/card_chapters_list_row.blp:48 ../data/ui/download_manager.blp:26
 #: ../data/ui/library.blp:146 ../data/ui/reader.blp:37
 msgid "Menu"
 msgstr "Меню"
 
-#: ../data/ui/card.blp:60
+#: ../data/ui/card.blp:68
 msgid "Info"
 msgstr "Информация"
 
-#: ../data/ui/card.blp:140
+#: ../data/ui/card.blp:148
 msgid "Add to Library"
 msgstr "Добавить в библиотеку"
 
-#: ../data/ui/card.blp:170
-msgid "Details"
-msgstr "Подробности"
-
-#: ../data/ui/card.blp:233
+#: ../data/ui/card.blp:208
 msgid "Scanlators"
 msgstr "Переводчики"
 
-#: ../data/ui/card.blp:299
+#: ../data/ui/card.blp:267
 msgid "Last Update"
 msgstr "Последнее обновление"
 
-#: ../data/ui/card.blp:334
+#: ../data/ui/card.blp:298
 msgid "Size on Disk"
 msgstr "Размер на диске"
 
-#: ../data/ui/card.blp:363
+#: ../data/ui/card.blp:323
 msgid "Synopsis"
 msgstr "Описание"
 
-#: ../data/ui/card.blp:487 ../data/ui/categories_editor.blp:67
+#: ../data/ui/card.blp:448 ../data/ui/categories_editor.blp:67
 #: ../data/ui/library.blp:249
 msgid "No Categories"
 msgstr "Категории отсутствуют"
@@ -189,7 +185,7 @@ msgstr "Отслеживание"
 msgid "Search"
 msgstr "Поиск"
 
-#: ../data/ui/card_tracking_search.blp:74
+#: ../data/ui/card_tracking_search.blp:75
 msgid "Search for Tracking"
 msgstr "Поиск отслеживания"
 
@@ -217,11 +213,11 @@ msgstr "Фильтры поиска"
 msgid "Open in Browser"
 msgstr "Открыть в браузере"
 
-#: ../data/ui/explorer_search.blp:146
+#: ../data/ui/explorer_search.blp:147
 msgid "Most Popular"
 msgstr "Самые популярные"
 
-#: ../data/ui/explorer_search.blp:212
+#: ../data/ui/explorer_search.blp:214
 msgid "Latest Updates"
 msgstr "Последние обновления"
 
@@ -249,7 +245,7 @@ msgstr "История"
 msgid "No History"
 msgstr "История отсутствует"
 
-#: ../data/ui/library.blp:10 ../data/ui/preferences.blp:66
+#: ../data/ui/library.blp:10 ../data/ui/preferences.blp:73
 msgid "Library"
 msgstr "Библиотека"
 
@@ -265,7 +261,7 @@ msgstr "Главное меню"
 msgid "Search by name, server or genre"
 msgstr "Поиск по названию, серверу или жанру"
 
-#: ../data/ui/library.blp:125 ../data/ui/preferences.blp:153
+#: ../data/ui/library.blp:125 ../data/ui/preferences.blp:160
 msgid "Update"
 msgstr "Обновить"
 
@@ -424,127 +420,135 @@ msgid "Backdrop in Details Page"
 msgstr "Фон на странице информации"
 
 #: ../data/ui/preferences.blp:42
-msgid "Enable background recoloring to match cover"
-msgstr "Включить перекрашивание фона в соответствии с обложкой"
+msgid "Method used to recolor background to match cover"
+msgstr ""
 
-#: ../data/ui/preferences.blp:50
+#: ../data/ui/preferences.blp:46
+msgid "Linear gradient"
+msgstr ""
+
+#: ../data/ui/preferences.blp:47
+msgid "Blurred cover"
+msgstr ""
+
+#: ../data/ui/preferences.blp:57
 msgid "Desktop Notifications"
 msgstr "Уведомления рабочего стола"
 
-#: ../data/ui/preferences.blp:51
+#: ../data/ui/preferences.blp:58
 msgid "Use desktop notifications for downloads and library updates"
 msgstr ""
 "Использовать уведомления рабочего стола для загрузок и обновления библиотеки"
 
-#: ../data/ui/preferences.blp:59
+#: ../data/ui/preferences.blp:66
 msgid "Synchronize reading progress"
 msgstr "Синхронизировать прогресс чтения"
 
-#: ../data/ui/preferences.blp:70
+#: ../data/ui/preferences.blp:77
 msgid "Display"
 msgstr "Отображение"
 
-#: ../data/ui/preferences.blp:73
+#: ../data/ui/preferences.blp:80
 msgid "Display Mode"
 msgstr "Режим отображения"
 
-#: ../data/ui/preferences.blp:76
+#: ../data/ui/preferences.blp:83
 msgid "Grid"
 msgstr "Сетка"
 
-#: ../data/ui/preferences.blp:77
+#: ../data/ui/preferences.blp:84
 msgid "Compact Grid"
 msgstr "Компактная сетка"
 
-#: ../data/ui/preferences.blp:83
+#: ../data/ui/preferences.blp:90
 msgid "Servers Logo"
 msgstr "Логотипы серверов"
 
-#: ../data/ui/preferences.blp:84
+#: ../data/ui/preferences.blp:91
 msgid "Display servers logo"
 msgstr "Отображать логотипы серверов"
 
-#: ../data/ui/preferences.blp:88
+#: ../data/ui/preferences.blp:95
 msgid "Badges"
 msgstr "Информационные бирки"
 
-#: ../data/ui/preferences.blp:91
+#: ../data/ui/preferences.blp:98
 msgid "Number of Unread Chapters"
 msgstr "Количество непрочитанных глав"
 
-#: ../data/ui/preferences.blp:111
+#: ../data/ui/preferences.blp:118
 msgid "Number of Downloaded Chapters"
 msgstr "Количество загруженных глав"
 
-#: ../data/ui/preferences.blp:131
+#: ../data/ui/preferences.blp:138
 msgid "Number of Recent and Unread Chapters"
 msgstr "Количество последних и непрочитанных глав"
 
-#: ../data/ui/preferences.blp:156
+#: ../data/ui/preferences.blp:163
 msgid "Update at Startup"
 msgstr "Обновлять при запуске"
 
-#: ../data/ui/preferences.blp:157
+#: ../data/ui/preferences.blp:164
 msgid "Automatically update library at startup"
 msgstr "Автоматически обновлять библиотеку при запуске"
 
-#: ../data/ui/preferences.blp:161
+#: ../data/ui/preferences.blp:168
 msgid "Auto Download of New Chapters"
 msgstr "Авто-загрузка новых глав"
 
-#: ../data/ui/preferences.blp:162
+#: ../data/ui/preferences.blp:169
 msgid "Automatically download new chapters"
 msgstr "Автоматически загружать новые главы"
 
-#: ../data/ui/preferences.blp:167
+#: ../data/ui/preferences.blp:174
 msgid "Explorer"
 msgstr "Обозреватель"
 
-#: ../data/ui/preferences.blp:170
+#: ../data/ui/preferences.blp:177
 #: ../data/ui/preferences_servers_languages.blp:10
 #: ../data/ui/preferences_servers_languages.blp:16
 msgid "Servers Languages"
 msgstr "Языки источников"
 
-#: ../data/ui/preferences.blp:171
+#: ../data/ui/preferences.blp:178
 msgid "Restrict servers to selected languages"
 msgstr "Ограничить источники выбранными языками"
 
-#: ../data/ui/preferences.blp:179
+#: ../data/ui/preferences.blp:186
 #: ../data/ui/preferences_servers_settings.blp:10
 #: ../data/ui/preferences_servers_settings.blp:16
 msgid "Servers Settings"
 msgstr "Настройка серверов"
 
-#: ../data/ui/preferences.blp:180
+#: ../data/ui/preferences.blp:187
 msgid "Enable/disable and configure servers"
 msgstr "Включение/отключение и настройка серверов"
 
-#: ../data/ui/preferences.blp:188
+#: ../data/ui/preferences.blp:195
 msgid "Long Strip Detection"
 msgstr "Обнаружение длинных лент"
 
-#: ../data/ui/preferences.blp:189
+#: ../data/ui/preferences.blp:196
 msgid "Automatically detect long vertical strip when possible"
 msgstr "По возможности, автоматически обнаруживать длинные вертикальные ленты"
 
-#: ../data/ui/preferences.blp:195
+#: ../data/ui/preferences.blp:202
 msgid "NSFW Content (18+)"
 msgstr "NSFW-контент (18+)"
 
-#: ../data/ui/preferences.blp:196
+#: ../data/ui/preferences.blp:203
 msgid "Whether to enable servers with NSFW content"
 msgstr "Следует ли использовать серверы имеющие NSFW-контент"
 
-#: ../data/ui/preferences.blp:200
+#: ../data/ui/preferences.blp:207
 msgid "NSFW Only Content (18+)"
 msgstr "Только NSFW-контент (18+)"
 
-#: ../data/ui/preferences.blp:201
+#: ../data/ui/preferences.blp:208
 msgid "Whether to enable servers with NSFW only content"
 msgstr "Следует ли использовать серверы имеющие только NSFW-контент"
 
-#: ../data/ui/preferences.blp:205
+#: ../data/ui/preferences.blp:212
 msgid ""
 "These settings do not prevent potentially incorrectly flagged servers from "
 "surfacing NSFW content."
@@ -552,117 +556,117 @@ msgstr ""
 "Эти настройки не предотвращают отображение контента NSFW на потенциально "
 "неправильно помеченных серверах."
 
-#: ../data/ui/preferences.blp:220 ../data/ui/reader.blp:10
+#: ../data/ui/preferences.blp:227 ../data/ui/reader.blp:10
 msgid "Reader"
 msgstr "Читалка"
 
-#: ../data/ui/preferences.blp:225
+#: ../data/ui/preferences.blp:232
 msgid "Reading Mode"
 msgstr "Режим чтения"
 
-#: ../data/ui/preferences.blp:228
+#: ../data/ui/preferences.blp:235
 msgid "⬅ Right to Left"
 msgstr "⬅ Справа налево"
 
-#: ../data/ui/preferences.blp:229
+#: ../data/ui/preferences.blp:236
 msgid "➡ Left to Right"
 msgstr "➡ Слева направо"
 
-#: ../data/ui/preferences.blp:230
+#: ../data/ui/preferences.blp:237
 msgid "⬇ Vertical"
 msgstr "⬇ Вертикальный"
 
-#: ../data/ui/preferences.blp:231
+#: ../data/ui/preferences.blp:238
 msgid "⬇ Webtoon"
 msgstr "⬇ Вебтун"
 
-#: ../data/ui/preferences.blp:237
+#: ../data/ui/preferences.blp:244
 msgid "Maximum Width"
 msgstr "Максимальная ширина"
 
-#: ../data/ui/preferences.blp:238
+#: ../data/ui/preferences.blp:245
 msgid ""
 "Constrain reader's width to a given maximum size (Webtoon reading mode only)"
 msgstr ""
 "Ограничить ширину читалки заданным максимальным размером (только в режиме "
 "чтения «Вебтун»)"
 
-#: ../data/ui/preferences.blp:249
+#: ../data/ui/preferences.blp:256
 msgid "Scaling"
 msgstr "Масштабирование"
 
-#: ../data/ui/preferences.blp:250
+#: ../data/ui/preferences.blp:257
 msgid "Type of scaling to adapt image"
 msgstr "Тип масштабирования изображения"
 
-#: ../data/ui/preferences.blp:253
+#: ../data/ui/preferences.blp:260
 msgid "Adapt to Screen"
 msgstr "По размеру экрана"
 
-#: ../data/ui/preferences.blp:254
+#: ../data/ui/preferences.blp:261
 msgid "Adapt to Width"
 msgstr "По ширине"
 
-#: ../data/ui/preferences.blp:255
+#: ../data/ui/preferences.blp:262
 msgid "Adapt to Height"
 msgstr "По высоте"
 
-#: ../data/ui/preferences.blp:256
+#: ../data/ui/preferences.blp:263
 msgid "Original Size"
 msgstr "Оригинальный размер"
 
-#: ../data/ui/preferences.blp:262
+#: ../data/ui/preferences.blp:269
 msgid "Scaling Filter"
 msgstr "Фильтр масштабирования"
 
-#: ../data/ui/preferences.blp:263
+#: ../data/ui/preferences.blp:270
 msgid "Interpolation method used when scaling images"
 msgstr "Метод интерполяции, используемый при масштабировании изображений"
 
-#: ../data/ui/preferences.blp:266
+#: ../data/ui/preferences.blp:273
 msgid "Linear"
 msgstr "Линейный"
 
-#: ../data/ui/preferences.blp:267
+#: ../data/ui/preferences.blp:274
 msgid "Trilinear"
 msgstr "Трилинейный"
 
-#: ../data/ui/preferences.blp:273
+#: ../data/ui/preferences.blp:280
 msgid "Landscape Pages Zoom"
 msgstr "Масштабирование страниц в альбомной ориентации"
 
-#: ../data/ui/preferences.blp:274
+#: ../data/ui/preferences.blp:281
 msgid ""
 "Zoom page to fit height when page is landscape (Adapt to Screen scaling only)"
 msgstr ""
 "Масштабировать страницу по высоте при её альбомном расположении (только при "
 "масштабировании по размеру экрана)"
 
-#: ../data/ui/preferences.blp:278
+#: ../data/ui/preferences.blp:285
 msgid "Background Color"
 msgstr "Цвет фона"
 
-#: ../data/ui/preferences.blp:281
+#: ../data/ui/preferences.blp:288
 msgid "White"
 msgstr "Белый"
 
-#: ../data/ui/preferences.blp:282
+#: ../data/ui/preferences.blp:289
 msgid "Gray"
 msgstr "Серый"
 
-#: ../data/ui/preferences.blp:283
+#: ../data/ui/preferences.blp:290
 msgid "Black"
 msgstr "Чёрный"
 
-#: ../data/ui/preferences.blp:284
+#: ../data/ui/preferences.blp:291
 msgid "System Style"
 msgstr "Системный"
 
-#: ../data/ui/preferences.blp:290
+#: ../data/ui/preferences.blp:297
 msgid "Borders Crop"
 msgstr "Обрезка краёв"
 
-#: ../data/ui/preferences.blp:291
+#: ../data/ui/preferences.blp:298
 msgid ""
 "Crop white borders of images\n"
 "\n"
@@ -674,60 +678,60 @@ msgstr ""
 "ПРИМЕЧАНИЕ: Это действие увеличивает нагрузку на процессор и может вызвать "
 "замедление отрисовки и анимации, особенно на мобильных устройствах."
 
-#: ../data/ui/preferences.blp:295
+#: ../data/ui/preferences.blp:302
 msgid "Page Numbering"
 msgstr "Нумерация страниц"
 
-#: ../data/ui/preferences.blp:296
+#: ../data/ui/preferences.blp:303
 msgid "Hide the page numbering at the bottom of the screen while reading"
 msgstr "Скрыть нумерацию страниц в нижней части экрана во время чтения"
 
-#: ../data/ui/preferences.blp:300
+#: ../data/ui/preferences.blp:307
 msgid "Fullscreen"
 msgstr "Во весь экран"
 
-#: ../data/ui/preferences.blp:301
+#: ../data/ui/preferences.blp:308
 msgid "Automatically enter fullscreen mode"
 msgstr "Автоматически переходить в полноэкранный режим"
 
-#: ../data/ui/preferences.blp:308
+#: ../data/ui/preferences.blp:315
 msgid "Advanced"
 msgstr "Продвинутые"
 
-#: ../data/ui/preferences.blp:312
+#: ../data/ui/preferences.blp:319
 msgid "A setting has changed that requires a restart to take effect"
 msgstr ""
 "Изменён параметр, для вступления в силу которого требуется перезагрузка"
 
-#: ../data/ui/preferences.blp:313
+#: ../data/ui/preferences.blp:320
 msgid "Got it!"
 msgstr "Понятно!"
 
-#: ../data/ui/preferences.blp:318
+#: ../data/ui/preferences.blp:325
 msgid "Data"
 msgstr "Данные"
 
-#: ../data/ui/preferences.blp:319
+#: ../data/ui/preferences.blp:326
 msgid "Data not saved in the library"
 msgstr "Данные не были сохранены в библиотеке"
 
-#: ../data/ui/preferences.blp:322
+#: ../data/ui/preferences.blp:329
 msgid "Clear Chapters Cache and Database"
 msgstr "Очистить кэш глав и базу данных"
 
-#: ../data/ui/preferences.blp:327
+#: ../data/ui/preferences.blp:334
 msgid "Clear Chapters Cache and Database on Exit"
 msgstr "Очищать кэш глав и базу данных при выходе"
 
-#: ../data/ui/preferences.blp:332
+#: ../data/ui/preferences.blp:339
 msgid "Servers Modules"
 msgstr "Серверные модули"
 
-#: ../data/ui/preferences.blp:335
+#: ../data/ui/preferences.blp:342
 msgid "Use Up-to-date Servers Modules"
 msgstr "Использовать актуальные серверные модули"
 
-#: ../data/ui/preferences.blp:336
+#: ../data/ui/preferences.blp:343
 msgid ""
 "An alternative version of the servers modules, installed from the source "
 "code repository and updated at each startup, is used instead of the one "
@@ -737,29 +741,29 @@ msgstr ""
 "альтернативная версия серверных модулей, устанавливаемая из репозитория "
 "исходного кода и обновляемая при каждом запуске."
 
-#: ../data/ui/preferences.blp:341
+#: ../data/ui/preferences.blp:348
 msgid "Credentials Storage"
 msgstr "Хранение учётных данных"
 
-#: ../data/ui/preferences.blp:344
+#: ../data/ui/preferences.blp:351
 msgid "Allow Plaintext Storage as Fallback"
 msgstr "Разрешить хранение в виде простого текста, как запасной вариант"
 
-#: ../data/ui/preferences.blp:345
+#: ../data/ui/preferences.blp:352
 msgid "Used when no keyring backends are found"
 msgstr ""
 "Используется, если не найдено ни одного приложения управляющего связками "
 "ключей"
 
-#: ../data/ui/preferences.blp:350
+#: ../data/ui/preferences.blp:357
 msgid "Tweaks"
 msgstr "Дополнительные настройки"
 
-#: ../data/ui/preferences.blp:353
+#: ../data/ui/preferences.blp:360
 msgid "Disable Animations"
 msgstr "Отключить анимацию"
 
-#: ../data/ui/preferences.blp:354
+#: ../data/ui/preferences.blp:361
 msgid ""
 "Useful with E Ink e-readers to avoid very choppy and unpleasant animations "
 "(due to the low refresh rate of the screen)"
@@ -767,7 +771,7 @@ msgstr ""
 "Используется в электронных читалках E-Ink, чтобы избежать дёрганой и "
 "неприятной анимации (из-за низкой частоты обновления экрана)"
 
-#: ../data/ui/preferences.blp:358
+#: ../data/ui/preferences.blp:365
 msgid ""
 "This tweak is only intended for users who do not use the GNOME desktop "
 "environment and therefore cannot disable animations globally via GNOME "
@@ -913,30 +917,30 @@ msgstr "Однократное или ежемесячное пожертвов�
 msgid "Webview"
 msgstr "Webview"
 
-#: ../komikku/application.py:193
+#: ../komikku/application.py:199
 msgid "Multiple URLs not supported"
 msgstr "Множественные URL не поддерживаются"
 
-#: ../komikku/application.py:209
+#: ../komikku/application.py:215
 msgid "Invalid URL {}, not handled by any server."
 msgstr "Недопустимый URL {}, который не обрабатывается ни одним сервером."
 
-#: ../komikku/application.py:420 ../komikku/card/__init__.py:158
-#: ../komikku/card/__init__.py:159 ../komikku/categories_editor.py:189
+#: ../komikku/application.py:426 ../komikku/card/__init__.py:160
+#: ../komikku/card/__init__.py:161 ../komikku/categories_editor.py:189
 #: ../komikku/downloader.py:377 ../komikku/downloader.py:378
 #: ../komikku/library/__init__.py:764 ../komikku/library/__init__.py:765
 msgid "Cancel"
 msgstr "Отменить"
 
-#: ../komikku/application.py:495
+#: ../komikku/application.py:501
 msgid "Servers modules have been updated"
 msgstr "Серверные модули были обновлены"
 
-#: ../komikku/application.py:502
+#: ../komikku/application.py:508
 msgid "External Servers Modules Update"
 msgstr "Обновление модулей внешних серверов"
 
-#: ../komikku/application.py:503
+#: ../komikku/application.py:509
 msgid ""
 "Updating of external server modules is temporarily suspended, as changes are "
 "currently making them incompatible with the current version of the "
@@ -946,11 +950,11 @@ msgstr ""
 "изменения делают их несовместимыми с текущей версией приложения. Пожалуйста, "
 "обновите приложение, если существует более свежая версия."
 
-#: ../komikku/application.py:506 ../komikku/explorer/common.py:267
+#: ../komikku/application.py:512 ../komikku/explorer/common.py:267
 msgid "Close"
 msgstr "Закрыть"
 
-#: ../komikku/application.py:521
+#: ../komikku/application.py:527
 msgid ""
 "A manga, manhwa, manhua, webtoons, webcomics and comics reader for GNOME\n"
 "\n"
@@ -965,61 +969,61 @@ msgstr ""
 "покупая официальные комиксы, когда они\n"
 "будут доступны в вашем регионе/на вашем языке."
 
-#: ../komikku/application.py:530
+#: ../komikku/application.py:536
 msgid "Supporters"
 msgstr "Помощники"
 
-#: ../komikku/application.py:532
+#: ../komikku/application.py:538
 msgid "Join Chat"
 msgstr "Присоединиться к чату"
 
-#: ../komikku/application.py:646
+#: ../komikku/application.py:667
 msgid "Are you sure you want to quit?"
 msgstr "Вы уверены что хотите выйти?"
 
-#: ../komikku/application.py:649
+#: ../komikku/application.py:670
 msgid "Some chapters are currently being downloaded."
 msgstr "Некоторые главы загружаются прямо сейчас."
 
-#: ../komikku/application.py:651
+#: ../komikku/application.py:672
 msgid "Some mangas are currently being updated."
 msgstr "Некоторые манги обновляются прямо сейчас."
 
-#: ../komikku/application.py:655
+#: ../komikku/application.py:676
 msgid "Quit?"
 msgstr "Выйти?"
 
-#: ../komikku/application.py:657
+#: ../komikku/application.py:678
 msgid "Quit"
 msgstr "Выход"
 
-#: ../komikku/application.py:671
+#: ../komikku/application.py:692
 msgid "Restart"
 msgstr "Перезагрузить"
 
-#: ../komikku/application.py:671
+#: ../komikku/application.py:692
 msgid "Restart?"
 msgstr "Перезагрузить?"
 
-#: ../komikku/card/__init__.py:110 ../komikku/card/__init__.py:239
+#: ../komikku/card/__init__.py:112 ../komikku/card/__init__.py:241
 #: ../komikku/explorer/search/__init__.py:75
 #: ../komikku/explorer/search/__init__.py:220
 msgid "Filters"
 msgstr "Фильтры"
 
-#: ../komikku/card/__init__.py:248
+#: ../komikku/card/__init__.py:250
 msgid "Unknown"
 msgstr "Неизвестно"
 
-#: ../komikku/card/__init__.py:335
+#: ../komikku/card/__init__.py:343
 msgid "Read progress synchronization with server completed successfully"
 msgstr "Синхронизация прогресса чтения с сервером завершена успешно"
 
-#: ../komikku/card/__init__.py:350
+#: ../komikku/card/__init__.py:358
 msgid "Failed to get manga URL"
 msgstr "Не удалось получить URL манги"
 
-#: ../komikku/card/__init__.py:374
+#: ../komikku/card/__init__.py:382
 #, python-brace-format
 msgid ""
 "NOTICE\n"
@@ -1030,27 +1034,27 @@ msgstr ""
 "{0} больше не поддерживается.\n"
 "Пожалуйста, переключитесь на другой сервер."
 
-#: ../komikku/card/__init__.py:451 ../komikku/card/chapters_list.py:725
+#: ../komikku/card/__init__.py:477 ../komikku/card/chapters_list.py:725
 msgid "Clear and Reset"
 msgstr "Очистить и сбросить"
 
-#: ../komikku/card/__init__.py:451 ../komikku/card/chapters_list.py:725
+#: ../komikku/card/__init__.py:477 ../komikku/card/chapters_list.py:725
 msgid "Reset"
 msgstr "Сбросить"
 
-#: ../komikku/card/__init__.py:558
+#: ../komikku/card/__init__.py:584
 msgid "Unknown author"
 msgstr "Неизвестный автор"
 
-#: ../komikku/card/__init__.py:564 ../komikku/card/__init__.py:573
+#: ../komikku/card/__init__.py:590 ../komikku/card/__init__.py:599
 msgid "Unknown status"
 msgstr "Неизвестный статус"
 
-#: ../komikku/card/__init__.py:574 ../komikku/explorer/common.py:221
+#: ../komikku/card/__init__.py:600 ../komikku/explorer/common.py:221
 msgid "Local"
 msgstr "Расположенные локально"
 
-#: ../komikku/card/__init__.py:612 ../komikku/card/chapters_list.py:653
+#: ../komikku/card/__init__.py:638 ../komikku/card/chapters_list.py:653
 msgid "%m/%d/%Y"
 msgstr "%d/%m/%Y"
 
@@ -1071,7 +1075,7 @@ msgstr "Не удалось обновить статус чтения глав"
 msgid "Download"
 msgstr "Загрузить"
 
-#: ../komikku/card/chapters_list.py:721 ../komikku/preferences.py:139
+#: ../komikku/card/chapters_list.py:721 ../komikku/preferences.py:145
 msgid "Clear"
 msgstr "Очистить"
 
@@ -1107,10 +1111,11 @@ msgstr "Использовать"
 msgid "Cancel Tracking"
 msgstr "Отменить отслеживание"
 
-#: ../komikku/card/tracking.py:225 ../komikku/servers/mangadex/__init__.py:72
+#: ../komikku/card/tracking.py:225 ../komikku/servers/comick/__init__.py:70
+#: ../komikku/servers/mangadex/__init__.py:72
 #: ../komikku/servers/mangafire/__init__.py:59
-#: ../komikku/servers/mangamana/__init__.py:61
 #: ../komikku/servers/mangamana/__init__.py:62
+#: ../komikku/servers/mangamana/__init__.py:63
 #: ../komikku/servers/mangaworld/__init__.py:74
 msgid "Status"
 msgstr "Статус"
@@ -1214,8 +1219,8 @@ msgstr "Последний том: {}"
 msgid "Comics stored locally as archives in CBZ/CBR formats"
 msgstr "Комиксы, хранящиеся локально в виде архивов формата CBZ/CBR"
 
-#: ../komikku/explorer/common.py:239 ../komikku/preferences.py:600
-#: ../komikku/preferences.py:697 ../komikku/servers/mangatube/__init__.py:150
+#: ../komikku/explorer/common.py:239 ../komikku/preferences.py:606
+#: ../komikku/preferences.py:703 ../komikku/servers/mangatube/__init__.py:150
 msgid "18+"
 msgstr "18+"
 
@@ -1398,8 +1403,8 @@ msgstr "Без категории"
 #: ../komikku/servers/coloredcouncil/__init__.py:83
 #: ../komikku/servers/mangapill/__init__.py:38
 #: ../komikku/servers/mangatube/__init__.py:130
-#: ../komikku/servers/multi/manga_stream/__init__.py:75
-#: ../komikku/servers/phenixscans/__init__.py:39
+#: ../komikku/servers/multi/manga_stream/__init__.py:76
+#: ../komikku/servers/phenixscans/__init__.py:40
 #: ../komikku/servers/webtoon/__init__.py:53
 msgid "All"
 msgstr "Все"
@@ -1420,29 +1425,30 @@ msgstr "Загружается"
 msgid "Download error"
 msgstr "Ошибка загрузки"
 
-#: ../komikku/models/database/mangas.py:40
-#: ../komikku/servers/mangamana/__init__.py:67
+#: ../komikku/models/database/mangas.py:45
+#: ../komikku/servers/mangamana/__init__.py:68
 #: ../komikku/servers/mangaworld/__init__.py:79
 #: ../komikku/servers/weebcentral/__init__.py:53
 msgid "Complete"
 msgstr "Завершено"
 
-#: ../komikku/models/database/mangas.py:41
+#: ../komikku/models/database/mangas.py:46
+#: ../komikku/servers/comick/__init__.py:74
 #: ../komikku/servers/flamescans/__init__.py:53
 #: ../komikku/servers/mangadex/__init__.py:76
-#: ../komikku/servers/mangamana/__init__.py:66
+#: ../komikku/servers/mangamana/__init__.py:67
 #: ../komikku/servers/mangaworld/__init__.py:78
 #: ../komikku/servers/weebcentral/__init__.py:52
 msgid "Ongoing"
 msgstr "Выходит"
 
-#: ../komikku/models/database/mangas.py:42
-#: ../komikku/servers/mangamana/__init__.py:68
+#: ../komikku/models/database/mangas.py:47
+#: ../komikku/servers/mangamana/__init__.py:69
 #: ../komikku/servers/mangaworld/__init__.py:80
 msgid "Suspended"
 msgstr "Приостановлено"
 
-#: ../komikku/models/database/mangas.py:43
+#: ../komikku/models/database/mangas.py:48
 #: ../komikku/servers/flamescans/__init__.py:55
 #: ../komikku/servers/mangafire/__init__.py:66
 #: ../komikku/servers/mangaworld/__init__.py:81
@@ -1450,19 +1456,19 @@ msgstr "Приостановлено"
 msgid "Hiatus"
 msgstr "Перерыв"
 
-#: ../komikku/preferences.py:137
+#: ../komikku/preferences.py:143
 msgid "Clear?"
 msgstr "Очистить?"
 
-#: ../komikku/preferences.py:138
+#: ../komikku/preferences.py:144
 msgid "Are you sure you want to clear chapters cache and database?"
 msgstr "Вы уверены, что хотите очистить кэш глав и базу данных?"
 
-#: ../komikku/preferences.py:166
+#: ../komikku/preferences.py:172
 msgid "Disable animations?"
 msgstr "Отключить анимацию?"
 
-#: ../komikku/preferences.py:167
+#: ../komikku/preferences.py:173
 msgid ""
 "Are you sure you want to disable animations?\n"
 "\n"
@@ -1472,33 +1478,33 @@ msgstr ""
 "\n"
 "Навигация с помощью жестов в читалке не будет работать должным образом."
 
-#: ../komikku/preferences.py:168
+#: ../komikku/preferences.py:174
 msgid "Disable"
 msgstr "Отключить"
 
-#: ../komikku/preferences.py:628
+#: ../komikku/preferences.py:634
 msgid "User Account"
 msgstr "Учётная запись пользователя"
 
-#: ../komikku/preferences.py:636
+#: ../komikku/preferences.py:642
 msgid "Address"
 msgstr "Адрес"
 
-#: ../komikku/preferences.py:642
+#: ../komikku/preferences.py:648
 msgid "Username"
 msgstr "Имя пользователя"
 
-#: ../komikku/preferences.py:646
+#: ../komikku/preferences.py:652
 msgid "Password"
 msgstr "Пароль"
 
-#: ../komikku/preferences.py:658
+#: ../komikku/preferences.py:664
 msgid "System keyring service is disabled. Credential cannot be saved."
 msgstr ""
 "Служба управления и хранения системных ключей отключена. Учётные данные не "
 "могут быть сохранены."
 
-#: ../komikku/preferences.py:663
+#: ../komikku/preferences.py:669
 msgid ""
 "No keyring backends were found to store credential. Use plaintext storage as "
 "fallback."
@@ -1507,7 +1513,7 @@ msgstr ""
 "учётных данных. В качестве запасного варианта используйте сохранение в виде "
 "простого текста."
 
-#: ../komikku/preferences.py:668
+#: ../komikku/preferences.py:674
 msgid ""
 "No keyring backends were found to store credential. Plaintext storage will "
 "be used as fallback."
@@ -1516,29 +1522,29 @@ msgstr ""
 "учётных данных. В качестве запасного варианта будет использоваться "
 "сохранение в виде простого текста."
 
-#: ../komikku/preferences.py:676
+#: ../komikku/preferences.py:682
 msgid "Test"
 msgstr "Тест"
 
-#: ../komikku/preferences.py:752 ../komikku/preferences.py:767
-#: ../komikku/preferences.py:790
+#: ../komikku/preferences.py:758 ../komikku/preferences.py:773
+#: ../komikku/preferences.py:796
 msgid "Disconnect"
 msgstr "Отключиться"
 
-#: ../komikku/preferences.py:755 ../komikku/preferences.py:782
+#: ../komikku/preferences.py:761 ../komikku/preferences.py:788
 msgid "Connect"
 msgstr "Подключиться"
 
-#: ../komikku/preferences.py:770
+#: ../komikku/preferences.py:776
 msgid "Failed to request client access"
 msgstr "Не удалось запросить клиентский доступ"
 
-#: ../komikku/preferences.py:773
+#: ../komikku/preferences.py:779
 msgid "Webview is currently in used. Please retry later."
 msgstr ""
 "Webview в настоящее время используется. Пожалуйста, повторите попытку позже."
 
-#: ../komikku/preferences.py:790
+#: ../komikku/preferences.py:796
 msgid "Disconnect from {}"
 msgstr "Отключиться от {}"
 
@@ -1578,53 +1584,56 @@ msgstr "Повторить"
 #: ../komikku/servers/mangapill/__init__.py:33
 #: ../komikku/servers/mangatube/__init__.py:125
 #: ../komikku/servers/mangaworld/__init__.py:59
-#: ../komikku/servers/multi/manga_stream/__init__.py:70
-#: ../komikku/servers/phenixscans/__init__.py:34
+#: ../komikku/servers/multi/manga_stream/__init__.py:71
+#: ../komikku/servers/phenixscans/__init__.py:35
 #: ../komikku/servers/webtoon/__init__.py:48
 msgid "Type"
 msgstr "Тип"
 
 #: ../komikku/servers/asurascans/__init__.py:37
 #: ../komikku/servers/mangapill/__init__.py:34
-#: ../komikku/servers/multi/manga_stream/__init__.py:71
-#: ../komikku/servers/phenixscans/__init__.py:35
+#: ../komikku/servers/multi/manga_stream/__init__.py:72
+#: ../komikku/servers/phenixscans/__init__.py:36
 #: ../komikku/servers/webtoon/__init__.py:49
 msgid "Filter by Type"
 msgstr "Фильтровать по типу"
 
 #: ../komikku/servers/asurascans/__init__.py:42
 #: ../komikku/servers/coloredcouncil/__init__.py:72
+#: ../komikku/servers/comick/__init__.py:87
 #: ../komikku/servers/flamescans/__init__.py:41
 #: ../komikku/servers/mangafire/__init__.py:48
 #: ../komikku/servers/mangapill/__init__.py:39
 #: ../komikku/servers/mangatube/__init__.py:131
 #: ../komikku/servers/mangaworld/__init__.py:63
-#: ../komikku/servers/multi/manga_stream/__init__.py:76
-#: ../komikku/servers/phenixscans/__init__.py:40
+#: ../komikku/servers/multi/manga_stream/__init__.py:77
+#: ../komikku/servers/phenixscans/__init__.py:41
 #: ../komikku/servers/weebcentral/__init__.py:39
 msgid "Manga"
 msgstr "Манга"
 
 #: ../komikku/servers/asurascans/__init__.py:43
+#: ../komikku/servers/comick/__init__.py:88
 #: ../komikku/servers/flamescans/__init__.py:42
 #: ../komikku/servers/mangafire/__init__.py:52
 #: ../komikku/servers/mangapill/__init__.py:43
 #: ../komikku/servers/mangatube/__init__.py:132
 #: ../komikku/servers/mangaworld/__init__.py:65
-#: ../komikku/servers/multi/manga_stream/__init__.py:77
-#: ../komikku/servers/phenixscans/__init__.py:41
+#: ../komikku/servers/multi/manga_stream/__init__.py:78
+#: ../komikku/servers/phenixscans/__init__.py:42
 #: ../komikku/servers/weebcentral/__init__.py:40
 msgid "Manhwa"
 msgstr "Манхва"
 
 #: ../komikku/servers/asurascans/__init__.py:44
+#: ../komikku/servers/comick/__init__.py:89
 #: ../komikku/servers/flamescans/__init__.py:43
 #: ../komikku/servers/mangafire/__init__.py:53
 #: ../komikku/servers/mangapill/__init__.py:44
 #: ../komikku/servers/mangatube/__init__.py:133
 #: ../komikku/servers/mangaworld/__init__.py:64
-#: ../komikku/servers/multi/manga_stream/__init__.py:78
-#: ../komikku/servers/phenixscans/__init__.py:42
+#: ../komikku/servers/multi/manga_stream/__init__.py:79
+#: ../komikku/servers/phenixscans/__init__.py:43
 #: ../komikku/servers/weebcentral/__init__.py:41
 msgid "Manhua"
 msgstr "Маньхуа"
@@ -1672,6 +1681,345 @@ msgstr "Цветная"
 #: ../komikku/servers/coloredcouncil/__init__.py:85
 msgid "B/W"
 msgstr "Чёрно-белая"
+
+#: ../komikku/servers/comick/__init__.py:58
+#: ../komikku/servers/mangadex/__init__.py:59
+msgid "Rating"
+msgstr "Рейтинг"
+
+#: ../komikku/servers/comick/__init__.py:59
+#: ../komikku/servers/mangadex/__init__.py:60
+msgid "Filter by Content Ratings"
+msgstr "Фильтровать по рейтингу содержимого"
+
+#: ../komikku/servers/comick/__init__.py:62
+#: ../komikku/servers/mangadex/__init__.py:63
+msgid "Safe"
+msgstr "Безопасное содержимое"
+
+#: ../komikku/servers/comick/__init__.py:63
+#: ../komikku/servers/mangadex/__init__.py:64
+msgid "Suggestive"
+msgstr "Непристойное содержимое"
+
+#: ../komikku/servers/comick/__init__.py:64
+#: ../komikku/servers/mangadex/__init__.py:65
+msgid "Erotica"
+msgstr "Эротика"
+
+#: ../komikku/servers/comick/__init__.py:71
+#: ../komikku/servers/flamescans/__init__.py:50
+#: ../komikku/servers/mangadex/__init__.py:73
+#: ../komikku/servers/mangafire/__init__.py:60
+#: ../komikku/servers/mangaworld/__init__.py:75
+#: ../komikku/servers/weebcentral/__init__.py:49
+msgid "Filter by Statuses"
+msgstr "Фильтровать по статусам"
+
+#: ../komikku/servers/comick/__init__.py:75
+#: ../komikku/servers/flamescans/__init__.py:54
+#: ../komikku/servers/mangadex/__init__.py:77
+#: ../komikku/servers/mangafire/__init__.py:64
+#: ../komikku/trackers/__init__.py:35
+msgid "Completed"
+msgstr "Завершено"
+
+#: ../komikku/servers/comick/__init__.py:76
+#: ../komikku/servers/flamescans/__init__.py:57
+#: ../komikku/servers/mangadex/__init__.py:79
+#: ../komikku/servers/mangaworld/__init__.py:82
+#: ../komikku/servers/weebcentral/__init__.py:55
+msgid "Canceled"
+msgstr "Отменено"
+
+#: ../komikku/servers/comick/__init__.py:77
+#: ../komikku/servers/mangadex/__init__.py:78
+msgid "Paused"
+msgstr "Приостановлено"
+
+#: ../komikku/servers/comick/__init__.py:83
+msgid "Origination"
+msgstr ""
+
+#: ../komikku/servers/comick/__init__.py:84
+msgid "[Latest Updates only] Filter by Origination"
+msgstr ""
+
+#: ../komikku/servers/comick/__init__.py:95
+msgid "Countries"
+msgstr ""
+
+#: ../komikku/servers/comick/__init__.py:97
+msgid "[Search and Most Popular only] Filter by Country (origination)"
+msgstr ""
+
+#: ../komikku/servers/comick/__init__.py:101
+msgid "Japan (Manga)"
+msgstr ""
+
+#: ../komikku/servers/comick/__init__.py:102
+msgid "Korea (Manhwa)"
+msgstr ""
+
+#: ../komikku/servers/comick/__init__.py:103
+msgid "China (Manhua)"
+msgstr ""
+
+#: ../komikku/servers/comick/__init__.py:109
+#: ../komikku/servers/mangadex/__init__.py:85
+msgid "Publication Demographic"
+msgstr "Публикации по возрастно-половым критериям"
+
+#: ../komikku/servers/comick/__init__.py:110
+msgid "Filter by Publication Demographics"
+msgstr ""
+
+#: ../komikku/servers/comick/__init__.py:113
+#: ../komikku/servers/mangadex/__init__.py:89
+msgid "Shounen"
+msgstr "Сёнэн"
+
+#: ../komikku/servers/comick/__init__.py:114
+#: ../komikku/servers/mangadex/__init__.py:90
+msgid "Shoujo"
+msgstr "Сёдзё"
+
+#: ../komikku/servers/comick/__init__.py:115
+#: ../komikku/servers/mangadex/__init__.py:92
+msgid "Seinen"
+msgstr "Сэйнэн"
+
+#: ../komikku/servers/comick/__init__.py:116
+#: ../komikku/servers/mangadex/__init__.py:91
+msgid "Josei"
+msgstr "Дзёсэй"
+
+#: ../komikku/servers/comick/__init__.py:117
+msgid "None"
+msgstr ""
+
+#: ../komikku/servers/comick/__init__.py:123
+#: ../komikku/servers/mangadex/__init__.py:98
+msgid "Tags"
+msgstr "Метки"
+
+#: ../komikku/servers/comick/__init__.py:124
+#: ../komikku/servers/mangadex/__init__.py:99
+msgid "Filter by Formats"
+msgstr "Фильтровать по форматам"
+
+#: ../komikku/servers/comick/__init__.py:127
+#: ../komikku/servers/mangadex/__init__.py:102
+msgid "4-Koma"
+msgstr "Ёнкома"
+
+#: ../komikku/servers/comick/__init__.py:128
+#: ../komikku/servers/mangadex/__init__.py:103
+msgid "Adaptation"
+msgstr "Адаптация"
+
+#: ../komikku/servers/comick/__init__.py:129
+#: ../komikku/servers/mangadex/__init__.py:104
+msgid "Anthology"
+msgstr "Антология"
+
+#: ../komikku/servers/comick/__init__.py:130
+#: ../komikku/servers/mangadex/__init__.py:105
+msgid "Award Winning"
+msgstr "Имеющий награды"
+
+#: ../komikku/servers/comick/__init__.py:131
+#: ../komikku/servers/mangadex/__init__.py:106
+#: ../komikku/servers/mangafire/__init__.py:50
+#: ../komikku/servers/mangapill/__init__.py:42
+msgid "Doujinshi"
+msgstr "Додзинси"
+
+#: ../komikku/servers/comick/__init__.py:132
+#: ../komikku/servers/mangadex/__init__.py:107
+msgid "Fan Colored"
+msgstr "Фанатская цветная версия"
+
+#: ../komikku/servers/comick/__init__.py:133
+#: ../komikku/servers/mangadex/__init__.py:108
+msgid "Full Color"
+msgstr "Полноцветный"
+
+#: ../komikku/servers/comick/__init__.py:134
+#: ../komikku/servers/mangadex/__init__.py:109
+msgid "Long Strip"
+msgstr "Длинная лента"
+
+#: ../komikku/servers/comick/__init__.py:137
+#: ../komikku/servers/mangadex/__init__.py:110
+msgid "Official Colored"
+msgstr "Официальная цветная версия"
+
+#: ../komikku/servers/comick/__init__.py:140
+#: ../komikku/servers/mangadex/__init__.py:111
+msgid "Oneshot"
+msgstr "Ваншот"
+
+#: ../komikku/servers/comick/__init__.py:141
+msgid "User Created"
+msgstr ""
+
+#: ../komikku/servers/comick/__init__.py:142
+#: ../komikku/servers/mangadex/__init__.py:113
+msgid "Web Comic"
+msgstr "Веб-комикс"
+
+#: ../komikku/servers/comick/__init__.py:148
+#: ../komikku/servers/mangadex/__init__.py:119
+msgid "Genres"
+msgstr "Жанры"
+
+#: ../komikku/servers/comick/__init__.py:149
+#: ../komikku/servers/mangadex/__init__.py:120
+msgid "Filter by Genres"
+msgstr "Фильтровать по жанрам"
+
+#: ../komikku/servers/comick/__init__.py:152
+#: ../komikku/servers/mangadex/__init__.py:123
+msgid "Action"
+msgstr "Боевик"
+
+#: ../komikku/servers/comick/__init__.py:153
+msgid "Adult"
+msgstr ""
+
+#: ../komikku/servers/comick/__init__.py:154
+#: ../komikku/servers/mangadex/__init__.py:124
+msgid "Adventure"
+msgstr "Приключение"
+
+#: ../komikku/servers/comick/__init__.py:155
+#: ../komikku/servers/mangadex/__init__.py:126
+msgid "Comedy"
+msgstr "Комедия"
+
+#: ../komikku/servers/comick/__init__.py:156
+#: ../komikku/servers/mangadex/__init__.py:127
+msgid "Crime"
+msgstr "Преступление"
+
+#: ../komikku/servers/comick/__init__.py:157
+#: ../komikku/servers/mangadex/__init__.py:128
+msgid "Drama"
+msgstr "Драма"
+
+#: ../komikku/servers/comick/__init__.py:158
+msgid "Ecchi"
+msgstr ""
+
+#: ../komikku/servers/comick/__init__.py:159
+#: ../komikku/servers/mangadex/__init__.py:129
+msgid "Fantasy"
+msgstr "Фантастика"
+
+#: ../komikku/servers/comick/__init__.py:160
+msgid "Gender Bender"
+msgstr ""
+
+#: ../komikku/servers/comick/__init__.py:161
+#: ../komikku/servers/mangadex/__init__.py:131
+msgid "Historical"
+msgstr "Исторический жанр"
+
+#: ../komikku/servers/comick/__init__.py:162
+#: ../komikku/servers/mangadex/__init__.py:132
+msgid "Horror"
+msgstr "Ужасы"
+
+#: ../komikku/servers/comick/__init__.py:163
+#: ../komikku/servers/mangadex/__init__.py:133
+msgid "Isekai"
+msgstr "Другой мир"
+
+#: ../komikku/servers/comick/__init__.py:164
+#: ../komikku/servers/mangadex/__init__.py:134
+msgid "Magical Girls"
+msgstr "Девушки волшебницы"
+
+#: ../komikku/servers/comick/__init__.py:165
+msgid "Mature"
+msgstr ""
+
+#: ../komikku/servers/comick/__init__.py:166
+#: ../komikku/servers/mangadex/__init__.py:135
+msgid "Mecha"
+msgstr "Меха"
+
+#: ../komikku/servers/comick/__init__.py:167
+#: ../komikku/servers/mangadex/__init__.py:136
+msgid "Medical"
+msgstr "Медицина"
+
+#: ../komikku/servers/comick/__init__.py:168
+#: ../komikku/servers/mangadex/__init__.py:137
+msgid "Mystery"
+msgstr "Мистика"
+
+#: ../komikku/servers/comick/__init__.py:169
+#: ../komikku/servers/mangadex/__init__.py:138
+msgid "Philosophical"
+msgstr "Философия"
+
+#: ../komikku/servers/comick/__init__.py:170
+msgid "Psychological"
+msgstr ""
+
+#: ../komikku/servers/comick/__init__.py:171
+#: ../komikku/servers/mangadex/__init__.py:139
+msgid "Romance"
+msgstr "Романтика"
+
+#: ../komikku/servers/comick/__init__.py:172
+#: ../komikku/servers/mangadex/__init__.py:140
+msgid "Sci-Fi"
+msgstr "Научная фантастика"
+
+#: ../komikku/servers/comick/__init__.py:173
+msgid "Shoujo Ai"
+msgstr ""
+
+#: ../komikku/servers/comick/__init__.py:174
+#: ../komikku/servers/mangadex/__init__.py:141
+msgid "Slice of Life"
+msgstr "Повседневность"
+
+#: ../komikku/servers/comick/__init__.py:175
+#: ../komikku/servers/mangadex/__init__.py:142
+msgid "Sports"
+msgstr "Спорт"
+
+#: ../komikku/servers/comick/__init__.py:176
+#: ../komikku/servers/mangadex/__init__.py:143
+msgid "Superhero"
+msgstr "Супергерой"
+
+#: ../komikku/servers/comick/__init__.py:177
+#: ../komikku/servers/mangadex/__init__.py:144
+msgid "Thriller"
+msgstr "Триллер"
+
+#: ../komikku/servers/comick/__init__.py:178
+#: ../komikku/servers/mangadex/__init__.py:145
+msgid "Tragedy"
+msgstr "Трагедия"
+
+#: ../komikku/servers/comick/__init__.py:179
+#: ../komikku/servers/mangadex/__init__.py:146
+msgid "Wuxia"
+msgstr "Уся"
+
+#: ../komikku/servers/comick/__init__.py:180
+msgid "Yaoi"
+msgstr ""
+
+#: ../komikku/servers/comick/__init__.py:181
+msgid "Yuri"
+msgstr ""
 
 #: ../komikku/servers/dynasty/__init__.py:39
 msgid "Categories"
@@ -1751,246 +2099,30 @@ msgstr "Типы"
 msgid "Statuses"
 msgstr "Статусы"
 
-#: ../komikku/servers/flamescans/__init__.py:50
-#: ../komikku/servers/mangadex/__init__.py:73
-#: ../komikku/servers/mangafire/__init__.py:60
-#: ../komikku/servers/mangaworld/__init__.py:75
-#: ../komikku/servers/weebcentral/__init__.py:49
-msgid "Filter by Statuses"
-msgstr "Фильтровать по статусам"
-
-#: ../komikku/servers/flamescans/__init__.py:54
-#: ../komikku/servers/mangadex/__init__.py:77
-#: ../komikku/servers/mangafire/__init__.py:64
-#: ../komikku/trackers/__init__.py:35
-msgid "Completed"
-msgstr "Завершено"
-
 #: ../komikku/servers/flamescans/__init__.py:56
 #: ../komikku/trackers/__init__.py:37
 msgid "Dropped"
 msgstr "Заброшено"
 
-#: ../komikku/servers/flamescans/__init__.py:57
-#: ../komikku/servers/mangadex/__init__.py:79
-#: ../komikku/servers/mangaworld/__init__.py:82
-#: ../komikku/servers/weebcentral/__init__.py:55
-msgid "Canceled"
-msgstr "Отменено"
-
-#: ../komikku/servers/mangadex/__init__.py:59
-msgid "Rating"
-msgstr "Рейтинг"
-
-#: ../komikku/servers/mangadex/__init__.py:60
-msgid "Filter by Content Ratings"
-msgstr "Фильтровать по рейтингу содержимого"
-
-#: ../komikku/servers/mangadex/__init__.py:63
-msgid "Safe"
-msgstr "Безопасное содержимое"
-
-#: ../komikku/servers/mangadex/__init__.py:64
-msgid "Suggestive"
-msgstr "Непристойное содержимое"
-
-#: ../komikku/servers/mangadex/__init__.py:65
-msgid "Erotica"
-msgstr "Эротика"
-
 #: ../komikku/servers/mangadex/__init__.py:66
 msgid "Pornographic"
 msgstr "Порнография"
-
-#: ../komikku/servers/mangadex/__init__.py:78
-msgid "Paused"
-msgstr "Приостановлено"
-
-#: ../komikku/servers/mangadex/__init__.py:85
-msgid "Publication Demographic"
-msgstr "Публикации по возрастно-половым критериям"
 
 #: ../komikku/servers/mangadex/__init__.py:86
 msgid "Filter by publication demographics"
 msgstr "Фильтровать публикации по возрастно-половым критериям"
 
-#: ../komikku/servers/mangadex/__init__.py:89
-msgid "Shounen"
-msgstr "Сёнэн"
-
-#: ../komikku/servers/mangadex/__init__.py:90
-msgid "Shoujo"
-msgstr "Сёдзё"
-
-#: ../komikku/servers/mangadex/__init__.py:91
-msgid "Josei"
-msgstr "Дзёсэй"
-
-#: ../komikku/servers/mangadex/__init__.py:92
-msgid "Seinen"
-msgstr "Сэйнэн"
-
-#: ../komikku/servers/mangadex/__init__.py:98
-msgid "Tags"
-msgstr "Метки"
-
-#: ../komikku/servers/mangadex/__init__.py:99
-msgid "Filter by Formats"
-msgstr "Фильтровать по форматам"
-
-#: ../komikku/servers/mangadex/__init__.py:102
-msgid "4-Koma"
-msgstr "Ёнкома"
-
-#: ../komikku/servers/mangadex/__init__.py:103
-msgid "Adaptation"
-msgstr "Адаптация"
-
-#: ../komikku/servers/mangadex/__init__.py:104
-msgid "Anthology"
-msgstr "Антология"
-
-#: ../komikku/servers/mangadex/__init__.py:105
-msgid "Award Winning"
-msgstr "Имеющий награды"
-
-#: ../komikku/servers/mangadex/__init__.py:106
-#: ../komikku/servers/mangafire/__init__.py:50
-#: ../komikku/servers/mangapill/__init__.py:42
-msgid "Doujinshi"
-msgstr "Додзинси"
-
-#: ../komikku/servers/mangadex/__init__.py:107
-msgid "Fan Colored"
-msgstr "Фанатская цветная версия"
-
-#: ../komikku/servers/mangadex/__init__.py:108
-msgid "Full Color"
-msgstr "Полноцветный"
-
-#: ../komikku/servers/mangadex/__init__.py:109
-msgid "Long Strip"
-msgstr "Длинная лента"
-
-#: ../komikku/servers/mangadex/__init__.py:110
-msgid "Official Colored"
-msgstr "Официальная цветная версия"
-
-#: ../komikku/servers/mangadex/__init__.py:111
-msgid "Oneshot"
-msgstr "Ваншот"
-
 #: ../komikku/servers/mangadex/__init__.py:112
 msgid "Self-Published"
 msgstr "Самостоятельно публикуемый"
-
-#: ../komikku/servers/mangadex/__init__.py:113
-msgid "Web Comic"
-msgstr "Веб-комикс"
-
-#: ../komikku/servers/mangadex/__init__.py:119
-msgid "Genres"
-msgstr "Жанры"
-
-#: ../komikku/servers/mangadex/__init__.py:120
-msgid "Filter by Genres"
-msgstr "Фильтровать по жанрам"
-
-#: ../komikku/servers/mangadex/__init__.py:123
-msgid "Action"
-msgstr "Боевик"
-
-#: ../komikku/servers/mangadex/__init__.py:124
-msgid "Adventure"
-msgstr "Приключение"
 
 #: ../komikku/servers/mangadex/__init__.py:125
 msgid "Boys Love"
 msgstr "Любовь мальчиков"
 
-#: ../komikku/servers/mangadex/__init__.py:126
-msgid "Comedy"
-msgstr "Комедия"
-
-#: ../komikku/servers/mangadex/__init__.py:127
-msgid "Crime"
-msgstr "Преступление"
-
-#: ../komikku/servers/mangadex/__init__.py:128
-msgid "Drama"
-msgstr "Драма"
-
-#: ../komikku/servers/mangadex/__init__.py:129
-msgid "Fantasy"
-msgstr "Фантастика"
-
 #: ../komikku/servers/mangadex/__init__.py:130
 msgid "Girls Love"
 msgstr "Любовь девочек"
-
-#: ../komikku/servers/mangadex/__init__.py:131
-msgid "Historical"
-msgstr "Исторический жанр"
-
-#: ../komikku/servers/mangadex/__init__.py:132
-msgid "Horror"
-msgstr "Ужасы"
-
-#: ../komikku/servers/mangadex/__init__.py:133
-msgid "Isekai"
-msgstr "Другой мир"
-
-#: ../komikku/servers/mangadex/__init__.py:134
-msgid "Magical Girls"
-msgstr "Девушки волшебницы"
-
-#: ../komikku/servers/mangadex/__init__.py:135
-msgid "Mecha"
-msgstr "Меха"
-
-#: ../komikku/servers/mangadex/__init__.py:136
-msgid "Medical"
-msgstr "Медицина"
-
-#: ../komikku/servers/mangadex/__init__.py:137
-msgid "Mystery"
-msgstr "Мистика"
-
-#: ../komikku/servers/mangadex/__init__.py:138
-msgid "Philosophical"
-msgstr "Философия"
-
-#: ../komikku/servers/mangadex/__init__.py:139
-msgid "Romance"
-msgstr "Романтика"
-
-#: ../komikku/servers/mangadex/__init__.py:140
-msgid "Sci-Fi"
-msgstr "Научная фантастика"
-
-#: ../komikku/servers/mangadex/__init__.py:141
-msgid "Slice of Life"
-msgstr "Повседневность"
-
-#: ../komikku/servers/mangadex/__init__.py:142
-msgid "Sports"
-msgstr "Спорт"
-
-#: ../komikku/servers/mangadex/__init__.py:143
-msgid "Superhero"
-msgstr "Супергерой"
-
-#: ../komikku/servers/mangadex/__init__.py:144
-msgid "Thriller"
-msgstr "Триллер"
-
-#: ../komikku/servers/mangadex/__init__.py:145
-msgid "Tragedy"
-msgstr "Трагедия"
-
-#: ../komikku/servers/mangadex/__init__.py:146
-msgid "Wuxia"
-msgstr "Уся"
 
 #: ../komikku/servers/mangadex/__init__.py:152
 msgid "Tags Inclusion Mode"
@@ -2044,7 +2176,7 @@ msgid "Webtoon"
 msgstr "Вебтун"
 
 #: ../komikku/servers/mangatube/__init__.py:135
-#: ../komikku/servers/multi/manga_stream/__init__.py:79
+#: ../komikku/servers/multi/manga_stream/__init__.py:80
 msgid "Comic"
 msgstr "Комикс"
 
@@ -2159,21 +2291,27 @@ msgstr "Упс, обновление не удалось. Попробуйте �
 msgid "Library update started"
 msgstr "Начато обновление библиотеки"
 
-#: ../komikku/utils.py:332
+#: ../komikku/utils.py:333
 msgid "You are currently offline"
 msgstr "Вы сейчас не в сети"
 
-#: ../komikku/utils.py:359
+#: ../komikku/utils.py:360
 msgid "No Internet connection, timeout or server down"
 msgstr "Нет подключения к Интернету, тайм-аут или сервер недоступен"
 
-#: ../komikku/webview.py:437
+#: ../komikku/webview.py:428
 msgid "Please wait…"
 msgstr "Пожалуйста, подождите…"
 
-#: ../komikku/webview.py:489
+#: ../komikku/webview.py:483
 msgid "Please complete CAPTCHA"
 msgstr "Пожалуйста, заполните CAPTCHA"
+
+#~ msgid "Details"
+#~ msgstr "Подробности"
+
+#~ msgid "Enable background recoloring to match cover"
+#~ msgstr "Включить перекрашивание фона в соответствии с обложкой"
 
 #~ msgid "Komikku"
 #~ msgstr "Komikku"
