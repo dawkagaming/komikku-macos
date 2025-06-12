@@ -525,6 +525,7 @@ class Comick(Server):
                         'cover': self.image_url.format(
                             b2key=comic['md_covers'][-1]['b2key']
                         ),
+                        'last_chapter': comic['last_chapter'],
                     }
                 )
             else:
