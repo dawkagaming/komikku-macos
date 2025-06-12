@@ -20,168 +20,168 @@ from komikku.servers.utils import convert_date_string
 from komikku.utils import get_buffer_mime_type
 from komikku.webview import CompleteChallenge
 
-logger = logging.getLogger("komikku.servers.comick")
+logger = logging.getLogger('komikku.servers.comick')
 
-SERVER_NAME = "ComicK"
+SERVER_NAME = 'ComicK'
 
 CHAPTERS_PER_REQUEST = 100
 SEARCH_RESULTS_LIMIT = 50
 
 
 class Comick(Server):
-    id = "comick"
+    id = 'comick'
     name = SERVER_NAME
-    lang = "en"
-    lang_code = "en"
+    lang = 'en'
+    lang_code = 'en'
 
     has_cf = True
     is_nsfw = False
     is_nsfw_only = False
     long_strip_genres = []
 
-    base_url = "https://comick.io"
-    logo_url = base_url + "/favicon.ico"
-    api_base_url = "https://api.comick.fun"
-    api_manga_base = api_base_url + "/comic"
-    api_manga_url = api_manga_base + "/{hid}"
-    api_manga_chapters_url = api_manga_url + "/chapters"
-    api_chapter_base = api_base_url + "/chapter"
-    api_chapter_url = api_chapter_base + "/{hid}"
-    api_author_base = api_base_url + "/people"
-    api_scanlator_base = api_base_url + "/group"
+    base_url = 'https://comick.io'
+    logo_url = base_url + '/favicon.ico'
+    api_base_url = 'https://api.comick.fun'
+    api_manga_base = api_base_url + '/comic'
+    api_manga_url = api_manga_base + '/{hid}'
+    api_manga_chapters_url = api_manga_url + '/chapters'
+    api_chapter_base = api_base_url + '/chapter'
+    api_chapter_url = api_chapter_base + '/{hid}'
+    api_author_base = api_base_url + '/people'
+    api_scanlator_base = api_base_url + '/group'
 
-    manga_url = base_url + "/comic/{slug}"
-    api_page_image_url = api_chapter_url + "/get_images"
-    image_url = "https://meo.comick.pictures/{b2key}"
+    manga_url = base_url + '/comic/{slug}'
+    api_page_image_url = api_chapter_url + '/get_images'
+    image_url = 'https://meo.comick.pictures/{b2key}'
 
     filters = [
         {
-            "key": "ratings",
-            "type": "select",
-            "name": _("Rating"),
-            "description": _("Filter by Content Ratings"),
-            "value_type": "multiple",
-            "options": [
-                {"key": "safe", "name": _("Safe"), "default": True},
-                {"key": "suggestive", "name": _("Suggestive"), "default": True},
-                {"key": "erotica", "name": _("Erotica"), "default": False},
+            'key': 'ratings',
+            'type': 'select',
+            'name': _('Rating'),
+            'description': _('Filter by Content Ratings'),
+            'value_type': 'multiple',
+            'options': [
+                {'key': 'safe', 'name': _('Safe'), 'default': True},
+                {'key': 'suggestive', 'name': _('Suggestive'), 'default': True},
+                {'key': 'erotica', 'name': _('Erotica'), 'default': False},
             ],
         },
         {
-            "key": "statuses",
-            "type": "select",
-            "name": _("Status"),
-            "description": _("Filter by Statuses"),
-            "value_type": "multiple",
-            "options": [
-                {"key": "1", "name": _("Ongoing"), "default": False},
-                {"key": "2", "name": _("Completed"), "default": False},
-                {"key": "3", "name": _("Canceled"), "default": False},
-                {"key": "4", "name": _("Paused"), "default": False},
+            'key': 'statuses',
+            'type': 'select',
+            'name': _('Status'),
+            'description': _('Filter by Statuses'),
+            'value_type': 'multiple',
+            'options': [
+                {'key': '1', 'name': _('Ongoing'), 'default': False},
+                {'key': '2', 'name': _('Completed'), 'default': False},
+                {'key': '3', 'name': _('Canceled'), 'default': False},
+                {'key': '4', 'name': _('Paused'), 'default': False},
             ],
         },
         {
-            "key": "origination",
-            "type": "select",
-            "name": _("Origination"),
-            "description": _("[Latest Updates only] Filter by origination"),
-            "value_type": "multiple",
-            "options": [
-                {"key": "manga", "name": _("Manga"), "default": False},
-                {"key": "manhwa", "name": _("Manhwa"), "default": False},
-                {"key": "manhua", "name": _("Manhua"), "default": False},
+            'key': 'origination',
+            'type': 'select',
+            'name': _('Origination'),
+            'description': _('[Latest Updates only] Filter by origination'),
+            'value_type': 'multiple',
+            'options': [
+                {'key': 'manga', 'name': _('Manga'), 'default': False},
+                {'key': 'manhwa', 'name': _('Manhwa'), 'default': False},
+                {'key': 'manhua', 'name': _('Manhua'), 'default': False},
             ],
         },
         {
-            "key": "countries",
-            "type": "select",
-            "name": _("Countries"),
-            "description": _(
-                "[Search and Most Popular only] Filter by country (origination)"
+            'key': 'countries',
+            'type': 'select',
+            'name': _('Countries'),
+            'description': _(
+                '[Search and Most Popular only] Filter by country (origination)'
             ),
-            "value_type": "multiple",
-            "options": [
-                {"key": "jp", "name": _("Japan (Manga)"), "default": False},
-                {"key": "kr", "name": _("Korea (Manhwa)"), "default": False},
-                {"key": "cn", "name": _("China (Manhua)"), "default": False},
+            'value_type': 'multiple',
+            'options': [
+                {'key': 'jp', 'name': _('Japan (Manga)'), 'default': False},
+                {'key': 'kr', 'name': _('Korea (Manhwa)'), 'default': False},
+                {'key': 'cn', 'name': _('China (Manhua)'), 'default': False},
             ],
         },
         {
-            "key": "publication_demographics",
-            "type": "select",
-            "name": _("Publication Demographic"),
-            "description": _("Filter by publication demographics"),
-            "value_type": "multiple",
-            "options": [
-                {"key": "1", "name": _("Shounen"), "default": False},
-                {"key": "2", "name": _("Shoujo"), "default": False},
-                {"key": "3", "name": _("Seinen"), "default": False},
-                {"key": "4", "name": _("Josei"), "default": False},
-                {"key": "5", "name": _("None"), "default": False},
+            'key': 'publication_demographics',
+            'type': 'select',
+            'name': _('Publication Demographic'),
+            'description': _('Filter by publication demographics'),
+            'value_type': 'multiple',
+            'options': [
+                {'key': '1', 'name': _('Shounen'), 'default': False},
+                {'key': '2', 'name': _('Shoujo'), 'default': False},
+                {'key': '3', 'name': _('Seinen'), 'default': False},
+                {'key': '4', 'name': _('Josei'), 'default': False},
+                {'key': '5', 'name': _('None'), 'default': False},
             ],
         },
         {
-            "key": "tags",
-            "type": "select",
-            "name": _("Tags"),
-            "description": _("Filter by Formats"),
-            "value_type": "multiple",
-            "options": [
-                {"key": "4-koma", "name": _("4-Koma"), "default": False},
-                {"key": "adaptation", "name": _("Adaptation"), "default": False},
-                {"key": "anthology", "name": _("Anthology"), "default": False},
-                {"key": "award-winning", "name": _("Award Winning"), "default": False},
-                {"key": "doujinshi", "name": _("Doujinshi"), "default": False},
-                {"key": "fan-colored", "name": _("Fan Colored"), "default": False},
-                {"key": "full-color", "name": _("Full Color"), "default": False},
-                {"key": "long-strip", "name": _("Long Strip"), "default": False},
+            'key': 'tags',
+            'type': 'select',
+            'name': _('Tags'),
+            'description': _('Filter by Formats'),
+            'value_type': 'multiple',
+            'options': [
+                {'key': '4-koma', 'name': _('4-Koma'), 'default': False},
+                {'key': 'adaptation', 'name': _('Adaptation'), 'default': False},
+                {'key': 'anthology', 'name': _('Anthology'), 'default': False},
+                {'key': 'award-winning', 'name': _('Award Winning'), 'default': False},
+                {'key': 'doujinshi', 'name': _('Doujinshi'), 'default': False},
+                {'key': 'fan-colored', 'name': _('Fan Colored'), 'default': False},
+                {'key': 'full-color', 'name': _('Full Color'), 'default': False},
+                {'key': 'long-strip', 'name': _('Long Strip'), 'default': False},
                 {
-                    "key": "official-colored",
-                    "name": _("Official Colored"),
-                    "default": False,
+                    'key': 'official-colored',
+                    'name': _('Official Colored'),
+                    'default': False,
                 },
-                {"key": "oneshot", "name": _("Oneshot"), "default": False},
-                {"key": "user-created", "name": _("User Created"), "default": False},
-                {"key": "web-comic", "name": _("Web Comic"), "default": False},
+                {'key': 'oneshot', 'name': _('Oneshot'), 'default': False},
+                {'key': 'user-created', 'name': _('User Created'), 'default': False},
+                {'key': 'web-comic', 'name': _('Web Comic'), 'default': False},
             ],
         },
         {
-            "key": "genres",
-            "type": "select",
-            "name": _("Genres"),
-            "description": _("Filter by Genres"),
-            "value_type": "multiple",
-            "options": [
-                {"key": "action", "name": _("Action"), "default": False},
-                {"key": "adult", "name": _("Adult"), "default": False},
-                {"key": "adventure", "name": _("Adventure"), "default": False},
-                {"key": "comedy", "name": _("Comedy"), "default": False},
-                {"key": "crime", "name": _("Crime"), "default": False},
-                {"key": "drama", "name": _("Drama"), "default": False},
-                {"key": "ecchi", "name": _("Ecchi"), "default": False},
-                {"key": "fantasy", "name": _("Fantasy"), "default": False},
-                {"key": "gender-bender", "name": _("Gender Bender"), "default": False},
-                {"key": "historical", "name": _("Historical"), "default": False},
-                {"key": "horror", "name": _("Horror"), "default": False},
-                {"key": "isekai", "name": _("Isekai"), "default": False},
-                {"key": "magical-girls", "name": _("Magical Girls"), "default": False},
-                {"key": "mature", "name": _("Mature"), "default": False},
-                {"key": "mecha", "name": _("Mecha"), "default": False},
-                {"key": "medical", "name": _("Medical"), "default": False},
-                {"key": "mystery", "name": _("Mystery"), "default": False},
-                {"key": "philosophical", "name": _("Philosophical"), "default": False},
-                {"key": "psychological", "name": _("Psychological"), "default": False},
-                {"key": "romance", "name": _("Romance"), "default": False},
-                {"key": "sci-fi", "name": _("Sci-Fi"), "default": False},
-                {"key": "shoujo-ai", "name": _("Shoujo Ai"), "default": False},
-                {"key": "slice-of-life", "name": _("Slice of Life"), "default": False},
-                {"key": "sports", "name": _("Sports"), "default": False},
-                {"key": "superhero", "name": _("Superhero"), "default": False},
-                {"key": "thriller", "name": _("Thriller"), "default": False},
-                {"key": "tragedy", "name": _("Tragedy"), "default": False},
-                {"key": "wuxia", "name": _("Wuxia"), "default": False},
-                {"key": "yaoi", "name": _("Yaoi"), "default": False},
-                {"key": "yuri", "name": _("yuri"), "default": False},
+            'key': 'genres',
+            'type': 'select',
+            'name': _('Genres'),
+            'description': _('Filter by Genres'),
+            'value_type': 'multiple',
+            'options': [
+                {'key': 'action', 'name': _('Action'), 'default': False},
+                {'key': 'adult', 'name': _('Adult'), 'default': False},
+                {'key': 'adventure', 'name': _('Adventure'), 'default': False},
+                {'key': 'comedy', 'name': _('Comedy'), 'default': False},
+                {'key': 'crime', 'name': _('Crime'), 'default': False},
+                {'key': 'drama', 'name': _('Drama'), 'default': False},
+                {'key': 'ecchi', 'name': _('Ecchi'), 'default': False},
+                {'key': 'fantasy', 'name': _('Fantasy'), 'default': False},
+                {'key': 'gender-bender', 'name': _('Gender Bender'), 'default': False},
+                {'key': 'historical', 'name': _('Historical'), 'default': False},
+                {'key': 'horror', 'name': _('Horror'), 'default': False},
+                {'key': 'isekai', 'name': _('Isekai'), 'default': False},
+                {'key': 'magical-girls', 'name': _('Magical Girls'), 'default': False},
+                {'key': 'mature', 'name': _('Mature'), 'default': False},
+                {'key': 'mecha', 'name': _('Mecha'), 'default': False},
+                {'key': 'medical', 'name': _('Medical'), 'default': False},
+                {'key': 'mystery', 'name': _('Mystery'), 'default': False},
+                {'key': 'philosophical', 'name': _('Philosophical'), 'default': False},
+                {'key': 'psychological', 'name': _('Psychological'), 'default': False},
+                {'key': 'romance', 'name': _('Romance'), 'default': False},
+                {'key': 'sci-fi', 'name': _('Sci-Fi'), 'default': False},
+                {'key': 'shoujo-ai', 'name': _('Shoujo Ai'), 'default': False},
+                {'key': 'slice-of-life', 'name': _('Slice of Life'), 'default': False},
+                {'key': 'sports', 'name': _('Sports'), 'default': False},
+                {'key': 'superhero', 'name': _('Superhero'), 'default': False},
+                {'key': 'thriller', 'name': _('Thriller'), 'default': False},
+                {'key': 'tragedy', 'name': _('Tragedy'), 'default': False},
+                {'key': 'wuxia', 'name': _('Wuxia'), 'default': False},
+                {'key': 'yaoi', 'name': _('Yaoi'), 'default': False},
+                {'key': 'yuri', 'name': _('yuri'), 'default': False},
             ],
         },
     ]
@@ -189,7 +189,7 @@ class Comick(Server):
     def __init__(self) -> None:
         if self.session is None:
             self.session = requests.Session()
-            self.session.headers.update({"User-Agent": USER_AGENT})
+            self.session.headers.update({'User-Agent': USER_AGENT})
 
     def _resolve_chapters(self, comic_hid: str) -> list[dict[str, str]]:
         chapters = []
@@ -201,41 +201,41 @@ class Comick(Server):
             r = self.session_get(
                 comic_chapters_url,
                 params={
-                    "limit": CHAPTERS_PER_REQUEST,
-                    "page": page,
-                    "chap-order": 1,
-                    "lang": self.lang_code,
+                    'limit': CHAPTERS_PER_REQUEST,
+                    'page': page,
+                    'chap-order': 1,
+                    'lang': self.lang_code,
                 },
             )
             if r.status_code != 200:
                 return None
 
             r_json = r.json()
-            results = r_json["chapters"]
+            results = r_json['chapters']
             for chapter in results:
-                title = ""
-                if chapter["vol"]:
+                title = ''
+                if chapter['vol']:
                     title += f'[{chapter["vol"]}] '
-                if chapter["chap"]:
+                if chapter['chap']:
                     title += f'#{chapter["chap"]} '
-                if chapter["title"]:
+                if chapter['title']:
                     title += f'- {chapter["title"]}'
 
-                scanlators = chapter["group_name"]
+                scanlators = chapter['group_name']
 
                 data = {
-                    "slug": chapter["hid"],
-                    "title": title,
-                    "num": chapter["chap"],
-                    "num_volume": chapter["vol"],
-                    "date": convert_date_string(
-                        chapter["created_at"].split("T")[0], format="%Y-%m-%d"
+                    'slug': chapter['hid'],
+                    'title': title,
+                    'num': chapter['chap'],
+                    'num_volume': chapter['vol'],
+                    'date': convert_date_string(
+                        chapter['created_at'].split('T')[0], format='%Y-%m-%d'
                     ),
-                    "scanlators": scanlators,
+                    'scanlators': scanlators,
                 }
                 chapters.append(data)
 
-            if len(chapters) == r_json["total"]:
+            if len(chapters) == r_json['total']:
                 break
 
             page += 1
@@ -253,9 +253,9 @@ class Comick(Server):
             - url
             - last_read
         """
-        assert "slug" in initial_data, "Slug is missing in initial data"
+        assert 'slug' in initial_data, 'Slug is missing in initial data'
 
-        r = self.session_get(self.api_manga_url.format(hid=initial_data["slug"]))
+        r = self.session_get(self.api_manga_url.format(hid=initial_data['slug']))
         if r.status_code != 200:
             return None
         resp_json = r.json()
@@ -263,52 +263,52 @@ class Comick(Server):
         data = initial_data.copy()
         data.update(
             {
-                "authors": [],
-                "scanlators": [],
-                "genres": [],
-                "status": None,
-                "cover": None,
-                "synopsis": None,
-                "chapters": [],
-                "server_id": self.id,
+                'authors': [],
+                'scanlators': [],
+                'genres': [],
+                'status': None,
+                'cover': None,
+                'synopsis': None,
+                'chapters': [],
+                'server_id': self.id,
             }
         )
 
-        comic_data = resp_json["comic"]
+        comic_data = resp_json['comic']
 
-        data["name"] = html.unescape(comic_data["title"])
-        assert data["name"] is not None
+        data['name'] = html.unescape(comic_data['title'])
+        assert data['name'] is not None
 
-        data["authors"] = [author["name"] for author in resp_json["authors"]]
+        data['authors'] = [author['name'] for author in resp_json['authors']]
 
         # Always grab the last cover.
-        data["cover"] = self.image_url.format(
-            b2key=comic_data["md_covers"][-1]["b2key"]
+        data['cover'] = self.image_url.format(
+            b2key=comic_data['md_covers'][-1]['b2key']
         )
 
-        data["genres"] = [
-            genre["md_genres"]["name"] for genre in comic_data["md_comic_md_genres"]
+        data['genres'] = [
+            genre['md_genres']['name'] for genre in comic_data['md_comic_md_genres']
         ]
 
-        match comic_data["status"]:
+        match comic_data['status']:
             case 1:
                 # Ongoing.
-                data["status"] = "ongoing"
+                data['status'] = 'ongoing'
             case 2:
                 # Completed.
-                data["status"] = "complete"
+                data['status'] = 'complete'
             case 3:
                 # Cancelled.
-                data["status"] = "suspended"
+                data['status'] = 'suspended'
             case 4:
                 # Hiatus.
-                data["status"] = "hiatus"
+                data['status'] = 'hiatus'
             case _:
-                data["status"] = None
+                data['status'] = None
 
-        data["synopsis"] = html.unescape(comic_data["desc"])
+        data['synopsis'] = html.unescape(comic_data['desc'])
 
-        data["chapters"] += self._resolve_chapters(comic_data["hid"])
+        data['chapters'] += self._resolve_chapters(comic_data['hid'])
 
         return data
 
@@ -330,36 +330,36 @@ class Comick(Server):
             return None
 
         json_data = r.json()
-        chapter_data = json_data["chapter"]
+        chapter_data = json_data['chapter']
 
-        title = ""
-        if chapter_data["vol"]:
+        title = ''
+        if chapter_data['vol']:
             title += f'[{chapter_data["vol"]}] '
-        if chapter_data["chap"]:
+        if chapter_data['chap']:
             title += f'#{chapter_data["chap"]} '
-        if chapter_data["title"]:
+        if chapter_data['title']:
             title += f'- {chapter_data["title"]}'
 
         pages = [
             {
-                "name": page["name"],
-                "slug": page["b2key"],
-                "image": None,
+                'name': page['name'],
+                'slug': page['b2key'],
+                'image': None,
             }
-            for page in chapter_data["md_images"]
+            for page in chapter_data['md_images']
         ]
 
-        scanlators = chapter_data["group_name"]
+        scanlators = chapter_data['group_name']
 
         return {
-            "num": chapter_data["chap"],
-            "num_volume": chapter_data["vol"],
-            "title": title,
-            "pages": pages,
-            "date": convert_date_string(
-                chapter_data["publish_at"].split("T")[0], format="%Y-%m-%d"
+            'num': chapter_data['chap'],
+            'num_volume': chapter_data['vol'],
+            'title': title,
+            'pages': pages,
+            'date': convert_date_string(
+                chapter_data['publish_at'].split('T')[0], format='%Y-%m-%d'
             ),
-            "scanlators": scanlators,
+            'scanlators': scanlators,
         }
 
     def get_manga_chapter_page_image(
@@ -368,18 +368,18 @@ class Comick(Server):
         """
         Return chapter page scan (image) content.
         """
-        r = self.session_get(self.image_url.format(b2key=page["slug"]))
+        r = self.session_get(self.image_url.format(b2key=page['slug']))
         if r.status_code != 200:
             return None
 
         mime_type = get_buffer_mime_type(r.content)
-        if not mime_type.startswith("image"):
+        if not mime_type.startswith('image'):
             return None
 
         return {
-            "buffer": r.content,
-            "mime_type": mime_type,
-            "name": page["slug"],
+            'buffer': r.content,
+            'mime_type': mime_type,
+            'name': page['slug'],
         }
 
     def get_manga_url(self, slug: str, url: str) -> str:
@@ -400,12 +400,12 @@ class Comick(Server):
         countries: list[str] | None = None,
     ) -> list[dict]:
         params = {
-            "lang": [self.lang_code],
-            "order": "new",
+            'lang': [self.lang_code],
+            'order': 'new',
         }
 
         if origination:
-            params["type"] = origination
+            params['type'] = origination
 
         r = self.session_get(self.api_chapter_base, params=params)
         if r.status_code != 200:
@@ -415,19 +415,19 @@ class Comick(Server):
         # Use a dictionary to only have unique entries and to store the comic attributes.
         comics = {}
         for chapter in data:
-            comic_data = chapter["md_comics"]
+            comic_data = chapter['md_comics']
 
-            if comic_data["title"]:
-                comics[comic_data["id"]] = {
-                    "slug": comic_data["slug"],
-                    "name": comic_data["title"],
-                    "cover": self.image_url.format(
-                        b2key=comic_data["md_covers"][-1]["b2key"]
+            if comic_data['title']:
+                comics[comic_data['id']] = {
+                    'slug': comic_data['slug'],
+                    'name': comic_data['title'],
+                    'cover': self.image_url.format(
+                        b2key=comic_data['md_covers'][-1]['b2key']
                     ),
                 }
             else:
                 logger.warning(
-                    "Ignoring result {}, missing name".format(comic_data["id"])
+                    'Ignoring result {}, missing name'.format(comic_data['id'])
                 )
 
         return list(comics.values())
@@ -451,7 +451,7 @@ class Comick(Server):
             tags=tags,
             genres=genres,
             countries=countries,
-            orderby="view",
+            orderby='view',
         )
 
     @CompleteChallenge()
@@ -468,182 +468,182 @@ class Comick(Server):
         orderby: str | None = None,
     ) -> list[dict]:
         params = {
-            "genres": genres,
-            "tags": tags,
-            "demographic": publication_demographics,
-            "limit": SEARCH_RESULTS_LIMIT,
+            'genres': genres,
+            'tags': tags,
+            'demographic': publication_demographics,
+            'limit': SEARCH_RESULTS_LIMIT,
         }
 
         if countries:
-            params["country"] = countries
+            params['country'] = countries
 
         if statuses:
             # The API only accepts one status.
-            params["status"] = statuses[0]
+            params['status'] = statuses[0]
 
         if ratings:
             # The API only accepts one content rating.
-            params["content_ratings"] = ratings[0]
+            params['content_ratings'] = ratings[0]
 
         if orderby:
-            params["sort"] = orderby
+            params['sort'] = orderby
         else:
-            params["sort"] = "view"
+            params['sort'] = 'view'
 
         if term:
-            params["q"] = term
+            params['q'] = term
 
-        r = self.session_get(f"{self.api_base_url}/v1.0/search", params=params)
+        r = self.session_get(f'{self.api_base_url}/v1.0/search', params=params)
         if r.status_code != 200:
             return None
         r_json = r.json()
 
         results = []
         for comic in r_json:
-            if comic["title"]:
+            if comic['title']:
                 results.append(
                     {
-                        "slug": comic["slug"],
-                        "name": comic["title"],
-                        "cover": self.image_url.format(
-                            b2key=comic["md_covers"][-1]["b2key"]
+                        'slug': comic['slug'],
+                        'name': comic['title'],
+                        'cover': self.image_url.format(
+                            b2key=comic['md_covers'][-1]['b2key']
                         ),
                     }
                 )
             else:
-                logger.warning("Ignoring result {}, missing name".format(comic["id"]))
+                logger.warning('Ignoring result {}, missing name'.format(comic['id']))
 
         return results
 
 
 class Comick_cs(Comick):
-    id = "comick_cs"
+    id = 'comick_cs'
     name = SERVER_NAME
-    lang = "cs"
-    lang_code = "cs"
+    lang = 'cs'
+    lang_code = 'cs'
 
 
 class Comick_de(Comick):
-    id = "comick_de"
+    id = 'comick_de'
     name = SERVER_NAME
-    lang = "de"
-    lang_code = "de"
+    lang = 'de'
+    lang_code = 'de'
 
 
 class Comick_es(Comick):
-    id = "comick_es"
+    id = 'comick_es'
     name = SERVER_NAME
-    lang = "es"
-    lang_code = "es"
+    lang = 'es'
+    lang_code = 'es'
 
 
 class ComicK_esk419(Comick):
-    id = "comick_es_419"
+    id = 'comick_es_419'
     name = SERVER_NAME
-    lang = "es_419"
-    lang_code = "es-la"
+    lang = 'es_419'
+    lang_code = 'es-la'
 
 
 class Comick_fr(Comick):
-    id = "comick_fr"
+    id = 'comick_fr'
     name = SERVER_NAME
-    lang = "fr"
-    lang_code = "fr"
+    lang = 'fr'
+    lang_code = 'fr'
 
 
 class Comick_id(Comick):
-    id = "comick_id"
+    id = 'comick_id'
     name = SERVER_NAME
-    lang = "id"
-    lang_code = "id"
+    lang = 'id'
+    lang_code = 'id'
 
 
 class Comick_it(Comick):
-    id = "comick_it"
+    id = 'comick_it'
     name = SERVER_NAME
-    lang = "it"
-    lang_code = "it"
+    lang = 'it'
+    lang_code = 'it'
 
 
 class Comick_ja(Comick):
-    id = "comick_ja"
+    id = 'comick_ja'
     name = SERVER_NAME
-    lang = "ja"
-    lang_code = "ja"
+    lang = 'ja'
+    lang_code = 'ja'
 
 
 class Comick_ko(Comick):
-    id = "comick_ko"
+    id = 'comick_ko'
     name = SERVER_NAME
-    lang = "ko"
-    lang_code = "kr"
+    lang = 'ko'
+    lang_code = 'kr'
 
 
 class Comick_nl(Comick):
-    id = "comick_nl"
+    id = 'comick_nl'
     name = SERVER_NAME
-    lang = "nl"
-    lang_code = "nl"
+    lang = 'nl'
+    lang_code = 'nl'
 
 
 class Comick_pl(Comick):
-    id = "comick_pl"
+    id = 'comick_pl'
     name = SERVER_NAME
-    lang = "pl"
-    lang_code = "pl"
+    lang = 'pl'
+    lang_code = 'pl'
 
 
 class Comick_pt(Comick):
-    id = "comick_pt"
+    id = 'comick_pt'
     name = SERVER_NAME
-    lang = "pt"
-    lang_code = "pt"
+    lang = 'pt'
+    lang_code = 'pt'
 
 
 class ComicK_pk_br(Comick):
-    id = "comick_pt_br"
+    id = 'comick_pt_br'
     name = SERVER_NAME
-    lang = "pt_BR"
-    lang_code = "pt-br"
+    lang = 'pt_BR'
+    lang_code = 'pt-br'
 
 
 class Comick_ru(Comick):
-    id = "comick_ru"
+    id = 'comick_ru'
     name = SERVER_NAME
-    lang = "ru"
-    lang_code = "ru"
+    lang = 'ru'
+    lang_code = 'ru'
 
 
 class Comick_th(Comick):
-    id = "comick_th"
+    id = 'comick_th'
     name = SERVER_NAME
-    lang = "th"
-    lang_code = "th"
+    lang = 'th'
+    lang_code = 'th'
 
 
 class Comick_uk(Comick):
-    id = "comick_uk"
+    id = 'comick_uk'
     name = SERVER_NAME
-    lang = "uk"
-    lang_code = "uk"
+    lang = 'uk'
+    lang_code = 'uk'
 
 
 class Comick_vi(Comick):
-    id = "comick_vi"
+    id = 'comick_vi'
     name = SERVER_NAME
-    lang = "vi"
-    lang_code = "vi"
+    lang = 'vi'
+    lang_code = 'vi'
 
 
 class ComicK_zh_kans(Comick):
-    id = "comick_zh_hans"
+    id = 'comick_zh_hans'
     name = SERVER_NAME
-    lang = "zh_Hans"
-    lang_code = "zh"
+    lang = 'zh_Hans'
+    lang_code = 'zh'
 
 
 class ComicK_zh_kant(Comick):
-    id = "comick_zh_hant"
+    id = 'comick_zh_hant'
     name = SERVER_NAME
-    lang = "zh_Hant"
-    lang_code = "zh-hk"
+    lang = 'zh_Hant'
+    lang_code = 'zh-hk'
