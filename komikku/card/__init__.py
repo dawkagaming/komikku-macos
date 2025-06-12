@@ -265,6 +265,9 @@ class CardPage(Adw.NavigationPage):
         self.filters_dialog.present(self.window)
 
     def on_gesture_drag_end(self, _controller, _offset_x, _offset_y):
+        self.stack.set_opacity(1)
+        self.stack.remove_css_class('grayscale')
+
         if not self.pool_to_update:
             return
 
@@ -291,6 +294,9 @@ class CardPage(Adw.NavigationPage):
 
         if scroll_value != 0 or offset_y < 0 or self.selection_mode or start_x < 32 or start_y > self.get_height() / 3:
             return
+
+        self.stack.set_opacity(0.5)
+        self.stack.add_css_class('grayscale')
 
         self.pool_to_update_offset = offset_y
 

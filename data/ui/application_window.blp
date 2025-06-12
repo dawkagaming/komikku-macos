@@ -21,9 +21,14 @@ template $ApplicationWindow: Adw.ApplicationWindow {
       child: Revealer pool_to_update_revealer {
         can-target: false;
         halign: center;
+
         child: Adw.Spinner pool_to_update_spinner {
-          height-request: 32;
-          width-request: 32;
+          height-request: 48;
+          width-request: 48;
+
+          styles [
+            "pool-to-update-spinner",
+          ]
         };
       };
     }
@@ -32,9 +37,11 @@ template $ApplicationWindow: Adw.ApplicationWindow {
     Overlay {
       can-target: false;
       valign: start;
+
       child: Revealer notification_revealer {
         can-target: false;
         halign: center;
+
         child: Box {
           Label notification_label {
             label: "app notification message";
