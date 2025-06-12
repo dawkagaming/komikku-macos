@@ -342,7 +342,6 @@ class Comick(Server):
 
         pages = [
             {
-                'name': page['name'],
                 'slug': page['b2key'],
                 'image': None,
             }
