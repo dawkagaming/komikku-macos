@@ -250,8 +250,8 @@ class Comick(Server):
         :param initial_data: Contains the following fields:
             - slug
             - name
-            - url
-            - last_read
+            - cover
+            - last_chapter
         """
         assert 'slug' in initial_data, 'Slug is missing in initial data'
 
@@ -393,12 +393,18 @@ class Comick(Server):
         self,
         ratings: list[str] | None = None,
         statuses: list[str] | None = None,
-        publication_demographics: int | None = None,
+        publication_demographics: str | None = None,
         tags: list[str] | None = None,
         genres: list[str] | None = None,
         origination: list[str] | None = None,
         countries: list[str] | None = None,
     ) -> list[dict]:
+        """
+        :param publication_demographics:
+            The ComicK API uses integers for its values, however,
+            they will be strings when passed to this function.
+            Refer to the `publication_demographics` filter for the key-value mapping.
+        """
         params = {
             'lang': [self.lang_code],
             'order': 'new',
@@ -437,12 +443,18 @@ class Comick(Server):
         self,
         ratings: list[str] | None = None,
         statuses: list[str] | None = None,
-        publication_demographics: int | None = None,
+        publication_demographics: str | None = None,
         tags: list[str] | None = None,
         genres: list[str] | None = None,
         origination: list[str] | None = None,
         countries: list[str] | None = None,
     ) -> list[dict]:
+        """
+        :param publication_demographics:
+            The ComicK API uses integers for its values, however,
+            they will be strings when passed to this function.
+            Refer to the `publication_demographics` filter for the key-value mapping.
+        """
         return self.search(
             None,
             ratings=ratings,
@@ -460,13 +472,19 @@ class Comick(Server):
         term,
         ratings: list[str] | None = None,
         statuses: list[str] | None = None,
-        publication_demographics: int | None = None,
+        publication_demographics: str | None = None,
         tags: list[str] | None = None,
         genres: list[str] | None = None,
         origination: list[str] | None = None,
         countries: list[str] | None = None,
         orderby: str | None = None,
     ) -> list[dict]:
+        """
+        :param publication_demographics:
+            The ComicK API uses integers for its values, however,
+            they will be strings when passed to this function.
+            Refer to the `publication_demographics` filter for the key-value mapping.
+        """
         params = {
             'genres': genres,
             'tags': tags,
