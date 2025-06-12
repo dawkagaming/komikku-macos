@@ -223,14 +223,13 @@ class Comick(Server):
 
                 scanlators = chapter['group_name']
 
+                date = chapter['publish_at'] or chapter['updated_at']
                 data = {
                     'slug': chapter['hid'],
                     'title': title,
                     'num': chapter['chap'],
                     'num_volume': chapter['vol'],
-                    'date': convert_date_string(
-                        chapter['created_at'].split('T')[0], format='%Y-%m-%d'
-                    ),
+                    'date': convert_date_string(date.split('T')[0], format='%Y-%m-%d'),
                     'scanlators': scanlators,
                 }
                 chapters.append(data)
@@ -350,14 +349,13 @@ class Comick(Server):
 
         scanlators = chapter_data['group_name']
 
+        date = chapter_data['publish_at'] or chapter_data['updated_at']
         return {
             'num': chapter_data['chap'],
             'num_volume': chapter_data['vol'],
             'title': title,
             'pages': pages,
-            'date': convert_date_string(
-                chapter_data['publish_at'].split('T')[0], format='%Y-%m-%d'
-            ),
+            'date': convert_date_string(date.split('T')[0], format='%Y-%m-%d'),
             'scanlators': scanlators,
         }
 
