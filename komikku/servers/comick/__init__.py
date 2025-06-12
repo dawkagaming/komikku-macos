@@ -8,13 +8,14 @@
 # API doc: https://api.comick.fun/docs/
 #
 
+from gettext import gettext as _
 import html
 import logging
-from gettext import gettext as _
 
 import requests
 
-from komikku.servers import USER_AGENT, Server
+from komikku.servers import Server
+from komikku.servers import USER_AGENT
 from komikku.servers.exceptions import NotFoundError
 from komikku.servers.utils import convert_date_string
 from komikku.utils import get_buffer_mime_type
@@ -22,10 +23,10 @@ from komikku.webview import CompleteChallenge
 
 logger = logging.getLogger('komikku.servers.comick')
 
-SERVER_NAME = 'ComicK'
-
 CHAPTERS_PER_REQUEST = 100
 SEARCH_RESULTS_LIMIT = 50
+
+SERVER_NAME = 'ComicK'
 
 
 class Comick(Server):
@@ -35,23 +36,19 @@ class Comick(Server):
     lang_code = 'en'
 
     has_cf = True
-    is_nsfw = False
-    is_nsfw_only = False
-    long_strip_genres = []
+    is_nsfw = True
 
     base_url = 'https://comick.io'
     logo_url = base_url + '/favicon.ico'
+
     api_base_url = 'https://api.comick.fun'
-    api_manga_base = api_base_url + '/comic'
-    api_manga_url = api_manga_base + '/{hid}'
-    api_manga_chapters_url = api_manga_url + '/chapters'
-    api_chapter_base = api_base_url + '/chapter'
-    api_chapter_url = api_chapter_base + '/{hid}'
-    api_author_base = api_base_url + '/people'
-    api_scanlator_base = api_base_url + '/group'
+    api_search_url = api_base_url + '/v1.0/search/'
+    api_latest_chapters_url = api_base_url + '/chapter/'
+    api_manga_url = api_base_url + '/comic/{slug}/'
+    api_manga_chapters_url = api_base_url + '/comic/{hid}/chapters'
+    api_chapter_url = api_base_url + '/chapter/{hid}/'
 
     manga_url = base_url + '/comic/{slug}'
-    api_page_image_url = api_chapter_url + '/get_images'
     image_url = 'https://meo.comick.pictures/{b2key}'
 
     filters = [
@@ -195,11 +192,9 @@ class Comick(Server):
         chapters = []
         page = 1
 
-        comic_chapters_url = self.api_manga_chapters_url.format(hid=comic_hid)
-
         while True:
             r = self.session_get(
-                comic_chapters_url,
+                self.api_manga_chapters_url.format(hid=comic_hid),
                 params={
                     'limit': CHAPTERS_PER_REQUEST,
                     'page': page,
@@ -210,9 +205,9 @@ class Comick(Server):
             if r.status_code != 200:
                 return None
 
-            r_json = r.json()
-            results = r_json['chapters']
-            for chapter in results:
+            data = r.json()
+
+            for chapter in data['chapters']:
                 title = ''
                 if chapter['vol']:
                     title += f'[{chapter["vol"]}] '
@@ -221,20 +216,18 @@ class Comick(Server):
                 if chapter['title']:
                     title += f'- {chapter["title"]}'
 
-                scanlators = chapter['group_name']
-
                 date = chapter['publish_at'] or chapter['updated_at']
-                data = {
+
+                chapters.append({
                     'slug': chapter['hid'],
                     'title': title,
                     'num': chapter['chap'],
                     'num_volume': chapter['vol'],
                     'date': convert_date_string(date.split('T')[0], format='%Y-%m-%d'),
-                    'scanlators': scanlators,
-                }
-                chapters.append(data)
+                    'scanlators': chapter['group_name'],
+                })
 
-            if len(chapters) == r_json['total']:
+            if len(chapters) == data['total']:
                 break
 
             page += 1
@@ -254,40 +247,40 @@ class Comick(Server):
         """
         assert 'slug' in initial_data, 'Slug is missing in initial data'
 
-        r = self.session_get(self.api_manga_url.format(hid=initial_data['slug']))
+        r = self.session_get(
+            self.api_manga_url.format(slug=initial_data['slug']),
+            params={
+                'tachiyomi': 'false',
+            },
+        )
         if r.status_code != 200:
             return None
+
         resp_json = r.json()
 
         data = initial_data.copy()
-        data.update(
-            {
-                'authors': [],
-                'scanlators': [],
-                'genres': [],
-                'status': None,
-                'cover': None,
-                'synopsis': None,
-                'chapters': [],
-                'server_id': self.id,
-            }
-        )
+        data.update({
+            'authors': [],
+            'scanlators': [],
+            'genres': [],
+            'status': None,
+            'cover': None,
+            'synopsis': None,
+            'chapters': [],
+            'server_id': self.id,
+        })
 
         comic_data = resp_json['comic']
 
         data['name'] = html.unescape(comic_data['title'])
-        assert data['name'] is not None
-
-        data['authors'] = [author['name'] for author in resp_json['authors']]
 
         # Always grab the last cover.
-        data['cover'] = self.image_url.format(
-            b2key=comic_data['md_covers'][-1]['b2key']
-        )
+        data['cover'] = self.image_url.format(b2key=comic_data['md_covers'][-1]['b2key'])
 
-        data['genres'] = [
-            genre['md_genres']['name'] for genre in comic_data['md_comic_md_genres']
-        ]
+        data['authors'] = [author['name'] for author in resp_json['authors']]
+        data['authors'] += [author['name'] for author in resp_json['artists'] if author not in data['authors']]
+
+        data['genres'] = [genre['md_genres']['name'] for genre in comic_data['md_comic_md_genres']]
 
         match comic_data['status']:
             case 1:
@@ -305,7 +298,8 @@ class Comick(Server):
             case _:
                 data['status'] = None
 
-        data['synopsis'] = html.unescape(comic_data['desc'])
+        if comic_data.get('desc'):
+            data['synopsis'] = html.unescape(comic_data['desc'])
 
         data['chapters'] += self._resolve_chapters(comic_data['hid'])
 
@@ -322,14 +316,18 @@ class Comick(Server):
         """
         Return manga chapter data from the API.
         """
-        r = self.session_get(self.api_chapter_url.format(hid=chapter_slug))
+        r = self.session_get(
+            self.api_chapter_url.format(hid=chapter_slug),
+            params={
+                'tachiyomi': 'false',
+            },
+        )
         if r.status_code == 404:
             raise NotFoundError
         if r.status_code != 200:
             return None
 
-        json_data = r.json()
-        chapter_data = json_data['chapter']
+        chapter_data = r.json()['chapter']
 
         title = ''
         if chapter_data['vol']:
@@ -347,9 +345,9 @@ class Comick(Server):
             for page in chapter_data['md_images']
         ]
 
+        date = chapter_data['publish_at'] or chapter_data['updated_at']
         scanlators = chapter_data['group_name']
 
-        date = chapter_data['publish_at'] or chapter_data['updated_at']
         return {
             'num': chapter_data['chap'],
             'num_volume': chapter_data['vol'],
@@ -396,42 +394,36 @@ class Comick(Server):
         origination: list[str] | None = None,
         countries: list[str] | None = None,
     ) -> list[dict]:
-        """
-        :param publication_demographics:
-            The ComicK API uses integers for its values, however,
-            they will be strings when passed to this function.
-            Refer to the `publication_demographics` filter for the key-value mapping.
-        """
         params = {
             'lang': [self.lang_code],
             'order': 'new',
+            'accept_erotic_content': 'true' if 'erotica' in ratings else 'false',
+            'tachiyomi': 'false',
         }
 
         if origination:
             params['type'] = origination
 
-        r = self.session_get(self.api_chapter_base, params=params)
+        r = self.session_get(self.api_latest_chapters_url, params=params)
         if r.status_code != 200:
             return None
-        data = r.json()
 
         # Use a dictionary to only have unique entries and to store the comic attributes.
         comics = {}
-        for chapter in data:
+        for chapter in r.json():
             comic_data = chapter['md_comics']
+            if comic_data['id'] in comics:
+                continue
 
             if comic_data['title']:
                 comics[comic_data['id']] = {
                     'slug': comic_data['slug'],
                     'name': comic_data['title'],
-                    'cover': self.image_url.format(
-                        b2key=comic_data['md_covers'][-1]['b2key']
-                    ),
+                    'cover': self.image_url.format(b2key=comic_data['md_covers'][-1]['b2key']),
+                    'last_chapter': comic_data['last_chapter'],
                 }
             else:
-                logger.warning(
-                    'Ignoring result {}, missing name'.format(comic_data['id'])
-                )
+                logger.warning('Ignoring result {}, missing name'.format(comic_data['id']))
 
         return list(comics.values())
 
@@ -446,12 +438,6 @@ class Comick(Server):
         origination: list[str] | None = None,
         countries: list[str] | None = None,
     ) -> list[dict]:
-        """
-        :param publication_demographics:
-            The ComicK API uses integers for its values, however,
-            they will be strings when passed to this function.
-            Refer to the `publication_demographics` filter for the key-value mapping.
-        """
         return self.search(
             None,
             ratings=ratings,
@@ -476,17 +462,12 @@ class Comick(Server):
         countries: list[str] | None = None,
         orderby: str | None = None,
     ) -> list[dict]:
-        """
-        :param publication_demographics:
-            The ComicK API uses integers for its values, however,
-            they will be strings when passed to this function.
-            Refer to the `publication_demographics` filter for the key-value mapping.
-        """
         params = {
             'genres': genres,
             'tags': tags,
             'demographic': publication_demographics,
             'limit': SEARCH_RESULTS_LIMIT,
+            'tachiyomi': 'false',
         }
 
         if countries:
@@ -508,24 +489,19 @@ class Comick(Server):
         if term:
             params['q'] = term
 
-        r = self.session_get(f'{self.api_base_url}/v1.0/search', params=params)
+        r = self.session_get(self.api_search_url, params=params)
         if r.status_code != 200:
             return None
-        r_json = r.json()
 
         results = []
-        for comic in r_json:
+        for comic in r.json():
             if comic['title']:
-                results.append(
-                    {
-                        'slug': comic['slug'],
-                        'name': comic['title'],
-                        'cover': self.image_url.format(
-                            b2key=comic['md_covers'][-1]['b2key']
-                        ),
-                        'last_chapter': comic['last_chapter'],
-                    }
-                )
+                results.append({
+                    'slug': comic['slug'],
+                    'name': comic['title'],
+                    'cover': self.image_url.format(b2key=comic['md_covers'][-1]['b2key']),
+                    'last_chapter': comic['last_chapter'],
+                })
             else:
                 logger.warning('Ignoring result {}, missing name'.format(comic['id']))
 
