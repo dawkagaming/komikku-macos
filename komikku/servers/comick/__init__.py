@@ -10,6 +10,7 @@
 
 import html
 import logging
+from gettext import gettext as _
 
 import requests
 
@@ -52,6 +53,138 @@ class Comick(Server):
     manga_url = base_url + "/comic/{slug}"
     api_page_image_url = api_chapter_url + "/get_images"
     image_url = "https://meo.comick.pictures/{b2key}"
+
+    filters = [
+        {
+            "key": "ratings",
+            "type": "select",
+            "name": _("Rating"),
+            "description": _("Filter by Content Ratings"),
+            "value_type": "multiple",
+            "options": [
+                {"key": "safe", "name": _("Safe"), "default": True},
+                {"key": "suggestive", "name": _("Suggestive"), "default": True},
+                {"key": "erotica", "name": _("Erotica"), "default": False},
+            ],
+        },
+        {
+            "key": "statuses",
+            "type": "select",
+            "name": _("Status"),
+            "description": _("Filter by Statuses"),
+            "value_type": "multiple",
+            "options": [
+                {"key": "1", "name": _("Ongoing"), "default": False},
+                {"key": "2", "name": _("Completed"), "default": False},
+                {"key": "3", "name": _("Canceled"), "default": False},
+                {"key": "4", "name": _("Paused"), "default": False},
+            ],
+        },
+        {
+            "key": "origination",
+            "type": "select",
+            "name": _("Origination"),
+            "description": _("[Latest Updates only] Filter by origination"),
+            "value_type": "multiple",
+            "options": [
+                {"key": "manga", "name": _("Manga"), "default": False},
+                {"key": "manhwa", "name": _("Manhwa"), "default": False},
+                {"key": "manhua", "name": _("Manhua"), "default": False},
+            ],
+        },
+        {
+            "key": "countries",
+            "type": "select",
+            "name": _("Countries"),
+            "description": _(
+                "[Search and Most Popular only] Filter by country (origination)"
+            ),
+            "value_type": "multiple",
+            "options": [
+                {"key": "jp", "name": _("Japan (Manga)"), "default": False},
+                {"key": "kr", "name": _("Korea (Manhwa)"), "default": False},
+                {"key": "cn", "name": _("China (Manhua)"), "default": False},
+            ],
+        },
+        {
+            "key": "publication_demographics",
+            "type": "select",
+            "name": _("Publication Demographic"),
+            "description": _("Filter by publication demographics"),
+            "value_type": "multiple",
+            "options": [
+                {"key": "1", "name": _("Shounen"), "default": False},
+                {"key": "2", "name": _("Shoujo"), "default": False},
+                {"key": "3", "name": _("Seinen"), "default": False},
+                {"key": "4", "name": _("Josei"), "default": False},
+                {"key": "5", "name": _("None"), "default": False},
+            ],
+        },
+        {
+            "key": "tags",
+            "type": "select",
+            "name": _("Tags"),
+            "description": _("Filter by Formats"),
+            "value_type": "multiple",
+            "options": [
+                {"key": "4-koma", "name": _("4-Koma"), "default": False},
+                {"key": "adaptation", "name": _("Adaptation"), "default": False},
+                {"key": "anthology", "name": _("Anthology"), "default": False},
+                {"key": "award-winning", "name": _("Award Winning"), "default": False},
+                {"key": "doujinshi", "name": _("Doujinshi"), "default": False},
+                {"key": "fan-colored", "name": _("Fan Colored"), "default": False},
+                {"key": "full-color", "name": _("Full Color"), "default": False},
+                {"key": "long-strip", "name": _("Long Strip"), "default": False},
+                {
+                    "key": "official-colored",
+                    "name": _("Official Colored"),
+                    "default": False,
+                },
+                {"key": "oneshot", "name": _("Oneshot"), "default": False},
+                {"key": "user-created", "name": _("User Created"), "default": False},
+                {"key": "web-comic", "name": _("Web Comic"), "default": False},
+            ],
+        },
+        {
+            "key": "genres",
+            "type": "select",
+            "name": _("Genres"),
+            "description": _("Filter by Genres"),
+            "value_type": "multiple",
+            "options": [
+                {"key": "action", "name": _("Action"), "default": False},
+                {"key": "adult", "name": _("Adult"), "default": False},
+                {"key": "adventure", "name": _("Adventure"), "default": False},
+                {"key": "comedy", "name": _("Comedy"), "default": False},
+                {"key": "crime", "name": _("Crime"), "default": False},
+                {"key": "drama", "name": _("Drama"), "default": False},
+                {"key": "ecchi", "name": _("Ecchi"), "default": False},
+                {"key": "fantasy", "name": _("Fantasy"), "default": False},
+                {"key": "gender-bender", "name": _("Gender Bender"), "default": False},
+                {"key": "historical", "name": _("Historical"), "default": False},
+                {"key": "horror", "name": _("Horror"), "default": False},
+                {"key": "isekai", "name": _("Isekai"), "default": False},
+                {"key": "magical-girls", "name": _("Magical Girls"), "default": False},
+                {"key": "mature", "name": _("Mature"), "default": False},
+                {"key": "mecha", "name": _("Mecha"), "default": False},
+                {"key": "medical", "name": _("Medical"), "default": False},
+                {"key": "mystery", "name": _("Mystery"), "default": False},
+                {"key": "philosophical", "name": _("Philosophical"), "default": False},
+                {"key": "psychological", "name": _("Psychological"), "default": False},
+                {"key": "romance", "name": _("Romance"), "default": False},
+                {"key": "sci-fi", "name": _("Sci-Fi"), "default": False},
+                {"key": "shoujo-ai", "name": _("Shoujo Ai"), "default": False},
+                {"key": "slice-of-life", "name": _("Slice of Life"), "default": False},
+                {"key": "sports", "name": _("Sports"), "default": False},
+                {"key": "superhero", "name": _("Superhero"), "default": False},
+                {"key": "thriller", "name": _("Thriller"), "default": False},
+                {"key": "tragedy", "name": _("Tragedy"), "default": False},
+                {"key": "wuxia", "name": _("Wuxia"), "default": False},
+                {"key": "yaoi", "name": _("Yaoi"), "default": False},
+                {"key": "yuri", "name": _("yuri"), "default": False},
+            ],
+        },
+    ]
 
     def __init__(self) -> None:
         if self.session is None:
@@ -263,17 +396,16 @@ class Comick(Server):
         publication_demographics: int | None = None,
         tags: list[str] | None = None,
         genres: list[str] | None = None,
-        tags_mode: list[str] | None = None,
+        origination: list[str] | None = None,
+        countries: list[str] | None = None,
     ) -> list[dict]:
         params = {
             "lang": [self.lang_code],
             "order": "new",
-            "type": [
-                "manga",
-                "manhwa",
-                "manhua",
-            ],
         }
+
+        if origination:
+            params["type"] = origination
 
         r = self.session_get(self.api_chapter_base, params=params)
         if r.status_code != 200:
@@ -308,7 +440,8 @@ class Comick(Server):
         publication_demographics: int | None = None,
         tags: list[str] | None = None,
         genres: list[str] | None = None,
-        tags_mode: list[str] | None = None,
+        origination: list[str] | None = None,
+        countries: list[str] | None = None,
     ) -> list[dict]:
         return self.search(
             None,
@@ -317,7 +450,7 @@ class Comick(Server):
             publication_demographics=publication_demographics,
             tags=tags,
             genres=genres,
-            tags_mode=tags_mode,
+            countries=countries,
             orderby="view",
         )
 
@@ -330,15 +463,19 @@ class Comick(Server):
         publication_demographics: int | None = None,
         tags: list[str] | None = None,
         genres: list[str] | None = None,
-        tags_mode: str | None = None,
+        origination: list[str] | None = None,
+        countries: list[str] | None = None,
         orderby: str | None = None,
     ) -> list[dict]:
         params = {
-            "genres[]": genres,
-            "tags[]": tags,
-            "demographic[]": publication_demographics,
+            "genres": genres,
+            "tags": tags,
+            "demographic": publication_demographics,
             "limit": SEARCH_RESULTS_LIMIT,
         }
+
+        if countries:
+            params["country"] = countries
 
         if statuses:
             # The API only accepts one status.
