@@ -99,6 +99,22 @@
     <url type="donation">https://febvre.info/donate.html</url>
 
     <releases>
+        <release version="1.80.0" date="2025-06-16">
+            <description translate="no">
+                <ul>
+                    <li>[Card] Pool-to-Update: Improved spinner visibility</li>
+                    <li>[Servers] Added ComicK (comick.io)</li>
+                    <li>[Servers] Added Raijin Scan (FR)</li>
+                    <li>[Servers] Pepper &amp; Carrot: Update</li>
+                    <li>[Servers] Phenix Scans (FR): Update</li>
+                    <li>[Servers] Mangalek (AR): Update</li>
+                    <li>[Servers] Tres Daos (ES): Update</li>
+                    <li>[Servers] WEBTOON (EN/ES/FR/ID/TH/ZH): Update</li>
+                    <li>[L10n] Updated French and Persian translations</li>
+                </ul>
+                <p>Happy reading.</p>
+            </description>
+        </release>
         <release version="1.79.1" date="2025-06-07">
             <description translate="no">
                 <p>This is a bugfix version.</p>

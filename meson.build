@@ -3,7 +3,7 @@
 # Author: Valéry Febvre <vfebvre@easter-eggs.com>
 
 project('komikku',
-    version: '1.79.1',
+    version: '1.80.0',
     meson_version: '>= 0.59.0',
     license: 'GPL-3.0-or-later'
 )

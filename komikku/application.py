@@ -98,6 +98,7 @@ CREDITS = dict(
         'Koen Benne (Dutch)',
         'Mikachu (Dutch)',
         'Danial Behzadi (Persian)',
+        'Muhammad Hussein Ammari (Persian)',
         'Jiri Grönroos (Finnish)',
         'Ricky Tigg (Finnish)',
         'Irénée THIRION (French)',
@@ -539,29 +540,16 @@ available in your region/language."""))
 
         # Override release notes
         dialog.set_release_notes("""
-            <p>This is a bugfix version.</p>
             <ul>
-                <li>[Card] Fixed Pull-to-Update</li>
-            </ul>
-
-            <p>Changes in previous version 1.79.0</p>
-            <ul>
-                <li>[Card] Added new backdrop method: Blurred cover</li>
-                <li>[Servers] Dragon Ball Multiverse: Update</li>
-                <li>[Servers] EZmanga (EN): Update</li>
-                <li>[Servers] MangaCrab (ES): Update</li>
-                <li>[Servers] MangaMana (FR): Update</li>
-                <li>[Servers] MangaNato (EN): Update</li>
-                <li>[Servers] Mangaowl (EN): Update</li>
-                <li>[Servers] MangaReader (cc) (EN): Update</li>
-                <li>[Servers] Neko Scans(ES): Update</li>
-                <li>[Servers] Pepper&amp;Carrot: Added support of Persian language</li>
-                <li>[Servers] Rawdevart (JA): Update</li>
-                <li>[Servers] Read Comic Online (EN): Update</li>
-                <li>[Servers] Senpai Ediciones (ES): Disabled</li>
-                <li>[Servers] Terco Scans (EN): Update</li>
-                <li>[Servers] Usagi (RU): Disabled</li>
-                <li>[L10n] Updated Arabic and Persian translations</li>
+                <li>[Card] Pool-to-Update: Improved spinner visibility</li>
+                <li>[Servers] Added ComicK (comick.io)</li>
+                <li>[Servers] Added Raijin Scan (FR)</li>
+                <li>[Servers] Pepper &amp; Carrot: Update</li>
+                <li>[Servers] Phenix Scans (FR): Update</li>
+                <li>[Servers] Mangalek (AR): Update</li>
+                <li>[Servers] Tres Daos (ES): Update</li>
+                <li>[Servers] WEBTOON (EN/ES/FR/ID/TH/ZH): Update</li>
+                <li>[L10n] Updated French and Persian translations</li>
             </ul>
             <p>Happy reading.</p>
         """)
