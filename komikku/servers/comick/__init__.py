@@ -529,7 +529,7 @@ class Comick_es(Comick):
     lang_code = 'es'
 
 
-class ComicK_es_419(Comick):
+class Comick_es_419(Comick):
     id = 'comick_es_419'
     name = SERVER_NAME
     lang = 'es_419'
@@ -592,7 +592,7 @@ class Comick_pt(Comick):
     lang_code = 'pt'
 
 
-class ComicK_pt_br(Comick):
+class Comick_pt_br(Comick):
     id = 'comick_pt_br'
     name = SERVER_NAME
     lang = 'pt_BR'
@@ -627,14 +627,14 @@ class Comick_vi(Comick):
     lang_code = 'vi'
 
 
-class ComicK_zh_kans(Comick):
+class Comick_zh_hans(Comick):
     id = 'comick_zh_hans'
     name = SERVER_NAME
     lang = 'zh_Hans'
     lang_code = 'zh'
 
 
-class ComicK_zh_kant(Comick):
+class Comick_zh_hant(Comick):
     id = 'comick_zh_hant'
     name = SERVER_NAME
     lang = 'zh_Hant'
