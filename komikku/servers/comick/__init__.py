@@ -12,14 +12,21 @@ from gettext import gettext as _
 import html
 import logging
 
-import requests
+try:
+    # For some reasons, under flatpak sandbox, API calls return 403 errors!
+    # API works perfectly well in terminal with curl
+    # Only solution found, use curl_cffi (JA3/TLS and HTTP2 fingerprints impersonation) in place of requests
+    # What's wrong with sandbox?
+    from curl_cffi import requests
+except Exception:
+    # Server will be disabled
+    requests = None
 
+from komikku.servers import REQUESTS_TIMEOUT
 from komikku.servers import Server
-from komikku.servers import USER_AGENT
 from komikku.servers.exceptions import NotFoundError
 from komikku.servers.utils import convert_date_string
 from komikku.utils import get_buffer_mime_type
-from komikku.webview import CompleteChallenge
 
 logger = logging.getLogger('komikku.servers.comick')
 
@@ -35,8 +42,8 @@ class Comick(Server):
     lang = 'en'
     lang_code = 'en'
 
-    has_cf = True
     is_nsfw = True
+    status = 'enabled' if requests is not None else 'disabled'
 
     base_url = 'https://comick.io'
     logo_url = base_url + '/favicon.ico'
@@ -184,9 +191,12 @@ class Comick(Server):
     ]
 
     def __init__(self) -> None:
-        if self.session is None:
-            self.session = requests.Session()
-            self.session.headers.update({'User-Agent': USER_AGENT})
+        if self.session is None and requests is not None:
+            self.session = requests.Session(
+                allow_redirects=True,
+                impersonate='chrome',
+                timeout=(REQUESTS_TIMEOUT, REQUESTS_TIMEOUT * 2)
+            )
 
     def _resolve_chapters(self, comic_hid: str) -> list[dict[str, str]]:
         chapters = []
@@ -234,7 +244,6 @@ class Comick(Server):
 
         return chapters
 
-    @CompleteChallenge()
     def get_manga_data(self, initial_data: dict) -> dict:
         """
         Return manga data from the API.
@@ -305,7 +314,6 @@ class Comick(Server):
 
         return data
 
-    @CompleteChallenge()
     def get_manga_chapter_data(
         self,
         manga_slug: str,
@@ -383,7 +391,6 @@ class Comick(Server):
         """
         return self.manga_url.format(slug=slug)
 
-    @CompleteChallenge()
     def get_latest_updates(
         self,
         ratings: list[str] | None = None,
@@ -427,7 +434,6 @@ class Comick(Server):
 
         return list(comics.values())
 
-    @CompleteChallenge()
     def get_most_populars(
         self,
         ratings: list[str] | None = None,
@@ -449,7 +455,6 @@ class Comick(Server):
             orderby='view',
         )
 
-    @CompleteChallenge()
     def search(
         self,
         term,
@@ -489,7 +494,14 @@ class Comick(Server):
         if term:
             params['q'] = term
 
-        r = self.session_get(self.api_search_url, params=params)
+        r = self.session_get(
+            self.api_search_url,
+            params=params,
+            headers={
+                'accept': 'application/json',
+                'content-type': 'application/json; charset=utf-8',
+            }
+        )
         if r.status_code != 200:
             return None
 
