@@ -162,7 +162,7 @@ class Perfscan(Server):
     def get_manga_list(self, term=None, orderby=None):
         def get_page(page):
             params = dict(
-                take=10,
+                take=24,
                 page=page,
                 type='COMIC',
             )
