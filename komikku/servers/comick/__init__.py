@@ -14,7 +14,7 @@ import logging
 
 try:
     # For some reasons, under flatpak sandbox, API calls return 403 errors!
-    # API works perfectly well in terminal with curl
+    # API works perfectly well in terminal with curl (Note that `--tlsv1.3` option is required with GNOME 48 runtime)
     # Only solution found, use curl_cffi (JA3/TLS and HTTP2 fingerprints impersonation) in place of requests
     # What's wrong with sandbox?
     from curl_cffi import requests
@@ -418,19 +418,24 @@ class Comick(Server):
         # Use a dictionary to only have unique entries and to store the comic attributes.
         comics = {}
         for chapter in r.json():
-            comic_data = chapter['md_comics']
-            if comic_data['id'] in comics:
+            comic = chapter['md_comics']
+            if comic['id'] in comics:
                 continue
 
-            if comic_data['title']:
-                comics[comic_data['id']] = {
-                    'slug': comic_data['slug'],
-                    'name': comic_data['title'],
-                    'cover': self.image_url.format(b2key=comic_data['md_covers'][-1]['b2key']),
-                    'last_chapter': comic_data['last_chapter'],
+            if comic['title']:
+                if comic['md_covers']:
+                    cover_b2key = comic['md_covers'][-1]['b2key']
+                else:
+                    cover_b2key = None
+
+                comics[comic['id']] = {
+                    'slug': comic['slug'],
+                    'name': comic['title'],
+                    'cover': self.image_url.format(b2key=cover_b2key) if cover_b2key else None,
+                    'last_chapter': comic['last_chapter'],
                 }
             else:
-                logger.warning('Ignoring result {}, missing name'.format(comic_data['id']))
+                logger.warning('Ignoring result {}, missing name'.format(comic['id']))
 
         return list(comics.values())
 
@@ -494,24 +499,22 @@ class Comick(Server):
         if term:
             params['q'] = term
 
-        r = self.session_get(
-            self.api_search_url,
-            params=params,
-            headers={
-                'accept': 'application/json',
-                'content-type': 'application/json; charset=utf-8',
-            }
-        )
+        r = self.session_get(self.api_search_url, params=params)
         if r.status_code != 200:
             return None
 
         results = []
         for comic in r.json():
             if comic['title']:
+                if comic['md_covers']:
+                    cover_b2key = comic['md_covers'][-1]['b2key']
+                else:
+                    cover_b2key = None
+
                 results.append({
                     'slug': comic['slug'],
                     'name': comic['title'],
-                    'cover': self.image_url.format(b2key=comic['md_covers'][-1]['b2key']),
+                    'cover': self.image_url.format(b2key=cover_b2key) if cover_b2key else None,
                     'last_chapter': comic['last_chapter'],
                 })
             else:
