@@ -446,9 +446,9 @@ class ExplorerSearchPage(Adw.NavigationPage):
         def run_update(server, manga_id):
             manga = Manga.get(manga_id, server)
             try:
-                status, recent_chapters_ids, nb_deleted_chapters, synced = manga.update_full()
-                if status is True:
-                    GLib.idle_add(complete_update, manga, server, recent_chapters_ids, nb_deleted_chapters, synced)
+                success, chapters_changes, synced = manga.update_full()
+                if success:
+                    GLib.idle_add(complete_update, manga, server, chapters_changes, synced)
                 else:
                     GLib.idle_add(error, server)
             except Exception as e:
@@ -465,13 +465,11 @@ class ExplorerSearchPage(Adw.NavigationPage):
 
             self.window.card.init(manga)
 
-        def complete_update(manga, server, recent_chapters_ids, _nb_deleted_chapters, _synced):
-            nb_recent_chapters = len(recent_chapters_ids)
-
-            if nb_recent_chapters > 0:
+        def complete_update(manga, server, chapters_changes, _synced):
+            if chapters_changes['recent_ids']:
                 # Auto download new chapters
                 if Settings.get_default().new_chapters_auto_download and not manga.is_local:
-                    self.window.downloader.add(recent_chapters_ids, emit_signal=True)
+                    self.window.downloader.add(chapters_changes['recent_ids'], emit_signal=True)
                     self.window.downloader.start()
 
                 self.window.library.refresh_on_manga_state_changed(manga)

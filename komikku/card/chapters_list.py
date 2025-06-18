@@ -351,7 +351,10 @@ class ChaptersList:
         chapters = self.card.manga.chapters
         self.list_model.populate(chapters)
 
-        return len(chapters) > 0
+        if len(chapters) > 0:
+            self.card.toggle_resume(True)
+        else:
+            self.card.toggle_resume(False)
 
     def refresh(self, chapters):
         for chapter in chapters:

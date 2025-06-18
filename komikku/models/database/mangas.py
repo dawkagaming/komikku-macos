@@ -474,12 +474,15 @@ class Manga:
         """
         Updates manga
 
-        :return: True on success False otherwise, recent chapters IDs, number of deleted chapters
+        :return: True on success False otherwise, chapters_changes, synced
         :rtype: tuple
         """
+        chapters_changes = {
+            'recent_ids': [],
+            'nb_updated': 0,
+            'nb_deleted': 0,
+        }
         gone_chapters_ranks = []
-        recent_chapters_ids = []
-        nb_deleted_chapters = 0
 
         def get_free_rank(rank):
             if rank not in gone_chapters_ranks:
@@ -496,7 +499,7 @@ class Manga:
         gc.collect()
 
         if data is None:
-            return False, 0, 0, False
+            return False, chapters_changes, False
 
         synced = self.server.sync and data['last_read'] != self.last_read
 
@@ -525,7 +528,7 @@ class Manga:
                         # Chapter is not dowmloaded or server is 'local'
                         # Delete chapter
                         gone_chapter.delete(db_conn)
-                        nb_deleted_chapters += 1
+                        chapters_changes['nb_deleted'] += 1
 
                         logger.warning(
                             '[UPDATE] {0} ({1}): Delete chapter {2} (no longer available)'.format(
@@ -558,16 +561,20 @@ class Manga:
                             else:
                                 changes[key] = chapter_data.get(key)
 
+                    if row['rank'] != rank:
+                        changes['rank'] = rank
+
+                    if changes:
+                        chapters_changes['nb_updated'] += 1
+
                     # Sync fields
                     for key in ('last_page_read_index', 'last_read', 'read'):
                         if chapter_data.get(key) and row[key] != chapter_data[key]:
                             changes[key] = chapter_data[key]
 
-                    if row['rank'] != rank:
-                        changes['rank'] = rank
-
                     if changes:
                         update_row(db_conn, 'chapters', row['id'], changes)
+
                     rank += 1
                 else:
                     # Add new chapter
@@ -591,12 +598,12 @@ class Manga:
                     ))
                     id_ = insert_row(db_conn, 'chapters', chapter_data)
                     if id_ is not None:
-                        recent_chapters_ids.append(id_)
+                        chapters_changes['recent_ids'].append(id_)
                         rank += 1
 
                         logger.info('[UPDATE] {0} ({1}): Add new chapter {2}'.format(self.name, self.server_id, chapter_data['title']))
 
-            if len(recent_chapters_ids) > 0 or nb_deleted_chapters > 0:
+            if chapters_changes['recent_ids'] or chapters_changes['nb_updated'] or chapters_changes['nb_deleted']:
                 data['last_update'] = datetime.datetime.now(datetime.UTC)
 
             self._chapters = None
@@ -617,7 +624,7 @@ class Manga:
 
         db_conn.close()
 
-        return True, recent_chapters_ids, nb_deleted_chapters, synced
+        return True, chapters_changes, synced
 
 
 class Chapter:

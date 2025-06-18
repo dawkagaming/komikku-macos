@@ -22,7 +22,7 @@ class Updater(GObject.GObject):
     Mangas updater
     """
     __gsignals__ = {
-        'manga-updated': (GObject.SignalFlags.RUN_FIRST, None, (GObject.TYPE_PYOBJECT, GObject.TYPE_PYOBJECT)),
+        'manga-updated': (GObject.SignalFlags.RUN_FIRST, None, (GObject.TYPE_PYOBJECT, GObject.TYPE_PYOBJECT, bool)),
     }
 
     current_id = None
@@ -77,13 +77,12 @@ class Updater(GObject.GObject):
 
                 self.current_id = manga_id
                 try:
-                    status, recent_chapters_ids, nb_deleted_chapters, synced = manga.update_full()
-                    if status is True:
+                    success, chapters_changes, synced = manga.update_full()
+                    if success:
                         total_successes += 1
-                        nb_chapters = len(recent_chapters_ids)
-                        if nb_chapters > 0:
-                            total_chapters += nb_chapters
-                        GLib.idle_add(complete, manga, in_batch, recent_chapters_ids, nb_deleted_chapters, synced)
+                        if nb_recents := len(chapters_changes['recent_ids']):
+                            total_chapters += nb_recents
+                        GLib.idle_add(complete, manga, in_batch, chapters_changes, synced)
                     else:
                         total_errors += 1
                         GLib.idle_add(error, manga)
@@ -124,8 +123,8 @@ class Updater(GObject.GObject):
 
             show_notification('updater.0', title, '\n'.join(messages))
 
-        def complete(manga, in_batch, recent_chapters_ids, nb_deleted_chapters, synced):
-            nb_recent_chapters = len(recent_chapters_ids)
+        def complete(manga, in_batch, chapters_changes, synced):
+            nb_recent_chapters = len(chapters_changes['recent_ids'])
 
             if nb_recent_chapters > 0:
                 show_notification(
@@ -136,7 +135,7 @@ class Updater(GObject.GObject):
 
                 # Auto download new chapters
                 if Settings.get_default().new_chapters_auto_download and not manga.is_local:
-                    self.window.downloader.add(recent_chapters_ids, emit_signal=True)
+                    self.window.downloader.add(chapters_changes['recent_ids'], emit_signal=True)
                     self.window.downloader.start()
             elif not in_batch:
                 show_notification(f'updater.{manga.id}', manga.name, _('No new chapters'))
@@ -145,10 +144,11 @@ class Updater(GObject.GObject):
                 'manga-updated',
                 manga,
                 dict(
-                    nb_deleted_chapters=nb_deleted_chapters,
                     nb_recent_chapters=nb_recent_chapters,
-                    synced=synced,
-                )
+                    nb_updated_chapters=chapters_changes['nb_updated'],
+                    nb_deleted_chapters=chapters_changes['nb_deleted'],
+                ),
+                synced
             )
 
             return False

@@ -335,20 +335,18 @@ class CardPage(Adw.NavigationPage):
         if (self.window.page == self.props.tag or self.window.previous_page == self.props.tag) and self.manga.id == manga.id:
             self.manga = manga
 
-    def on_manga_updated(self, _updater, manga, result):
+    def on_manga_updated(self, _updater, manga, chapters_changes, synced):
         if (self.window.page == self.props.tag or self.window.previous_page == self.props.tag) and self.manga.id == manga.id:
             self.manga = manga
 
-            if manga.server.sync:
+            if synced:
                 self.window.add_notification(_('Read progress synchronization with server completed successfully'))
 
-            if result['nb_recent_chapters'] > 0 or result['nb_deleted_chapters'] > 0 or result['synced']:
-                if self.chapters_list.populate():
-                    self.toggle_resume(True)
-                else:
-                    self.toggle_resume(False)
+            has_chapters_changes = sum(chapters_changes.values()) > 0
+            if has_chapters_changes:
+                self.chapters_list.populate()
 
-            self.info_box.populate()
+            self.refresh(unread_chapters=has_chapters_changes, info=True)
             self.toggle_filters_button()
 
     def on_open_in_browser_menu_clicked(self, _action, _gparam):
@@ -408,18 +406,16 @@ class CardPage(Adw.NavigationPage):
     def populate(self):
         self.chapters_list.set_sort_order(invalidate=False)
 
-        if self.chapters_list.populate():
-            self.toggle_resume(True)
-        else:
-            self.toggle_resume(False)
-
+        self.chapters_list.populate()
         self.categories_list.populate()
 
     def refresh(self, unread_chapters=False, info=False, chapters=None):
         if unread_chapters:
             self.set_unread_chapters_badge()
+
         if info:
             self.info_box.refresh()
+
         if chapters is not None:
             self.chapters_list.refresh(chapters)
 
