@@ -339,15 +339,15 @@ class CardPage(Adw.NavigationPage):
         if (self.window.page == self.props.tag or self.window.previous_page == self.props.tag) and self.manga.id == manga.id:
             self.manga = manga
 
+            self.info_box.populate()
+            self.toggle_filters_button()
+
+            if sum(chapters_changes.values()) > 0:
+                self.chapters_list.populate()
+                self.refresh(unread_chapters=True)
+
             if synced:
                 self.window.add_notification(_('Read progress synchronization with server completed successfully'))
-
-            has_chapters_changes = sum(chapters_changes.values()) > 0
-            if has_chapters_changes:
-                self.chapters_list.populate()
-
-            self.refresh(unread_chapters=has_chapters_changes, info=True)
-            self.toggle_filters_button()
 
     def on_open_in_browser_menu_clicked(self, _action, _gparam):
         if uri := self.manga.server.get_manga_url(self.manga.slug, self.manga.url):
