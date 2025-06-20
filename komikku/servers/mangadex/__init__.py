@@ -8,7 +8,6 @@
 
 from gettext import gettext as _
 from functools import lru_cache
-import html
 import logging
 from uuid import UUID
 
@@ -256,9 +255,7 @@ class Mangadex(Server):
 
         attributes = resp_json['data']['attributes']
 
-        _name = self.__get_manga_title(attributes)
-        data['name'] = html.unescape(_name)
-        assert data['name'] is not None
+        data['name'] = self.__get_manga_title(attributes)
 
         for relationship in resp_json['data']['relationships']:
             if relationship['type'] == 'author':
@@ -279,12 +276,10 @@ class Mangadex(Server):
             data['status'] = 'hiatus'
 
         if self.lang_code in attributes['description']:
-            data['synopsis'] = html.unescape(attributes['description'][self.lang_code])
+            data['synopsis'] = attributes['description'][self.lang_code]
         elif 'en' in attributes['description']:
             # Fall back to english synopsis
-            data['synopsis'] = html.unescape(attributes['description']['en'])
-        else:
-            logger.warning('{}: No synopsis', data['name'])
+            data['synopsis'] = attributes['description']['en']
 
         data['chapters'] += self.resolve_chapters(data['slug'])
 

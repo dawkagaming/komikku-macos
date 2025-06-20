@@ -10,6 +10,7 @@ import json
 import logging
 import os
 from pathlib import Path
+import re
 import shutil
 import time
 
@@ -505,15 +506,6 @@ class Manga:
 
         db_conn = create_db_connection()
         with db_conn:
-            # Re-create the manga directory if it does not exist.
-            if not os.path.exists(self.path):
-                os.makedirs(self.path)
-
-            # Update cover
-            cover = data.pop('cover', None)
-            if cover:
-                self._save_cover(cover)
-
             # Update chapters
             chapters_data = data.pop('chapters')
 
@@ -606,6 +598,21 @@ class Manga:
             if chapters_changes['recent_ids'] or chapters_changes['nb_updated'] or chapters_changes['nb_deleted']:
                 data['last_update'] = datetime.datetime.now(datetime.UTC)
 
+            # Update cover
+            cover = data.pop('cover', None)
+            if cover:
+                self._save_cover(cover)
+
+            # Convert synopsis Markdown links (if any) into HTML <a> tags
+            if data.get('synopsis'):
+                data['synopsis'] = re.sub(
+                    r'\[([^\[\]]*)\]\((.*?)\)',
+                    r'<a href="\g<2>">\g<1></a>',
+                    data['synopsis'],
+                    flags=re.M
+                )
+
+            # Clear cache
             self._chapters = None
             self._chapters_scanlators = None
 

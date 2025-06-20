@@ -9,7 +9,6 @@
 #
 
 from gettext import gettext as _
-import html
 import logging
 
 try:
@@ -281,7 +280,7 @@ class Comick(Server):
 
         comic_data = resp_json['comic']
 
-        data['name'] = html.unescape(comic_data['title'])
+        data['name'] = comic_data['title']
 
         # Always grab the last cover.
         data['cover'] = self.image_url.format(b2key=comic_data['md_covers'][-1]['b2key'])
@@ -307,8 +306,7 @@ class Comick(Server):
             case _:
                 data['status'] = None
 
-        if comic_data.get('desc'):
-            data['synopsis'] = html.unescape(comic_data['desc'])
+        data['synopsis'] = comic_data.get('desc')
 
         data['chapters'] += self._resolve_chapters(comic_data['hid'])
 
