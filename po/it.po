@@ -5,21 +5,22 @@
 # dedocc <andrewwilliams@outlook.it>, 2023.
 # Davide Mora <Il_Demiurgo@users.noreply.hosted.weblate.org>, 2024.
 # Andrea Scarano <ascarano263@gmail.com>, 2025.
+# pasquale ruotolo <pachiruo@gmail.com>, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: Komikku 0.25.1\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-06-13 01:22+0200\n"
-"PO-Revision-Date: 2025-05-02 17:26+0000\n"
-"Last-Translator: Andrea Scarano <ascarano263@gmail.com>\n"
-"Language-Team: Italian <https://hosted.weblate.org/projects/komikku/main/it/"
-">\n"
+"PO-Revision-Date: 2025-06-24 07:31+0000\n"
+"Last-Translator: pasquale ruotolo <pachiruo@gmail.com>\n"
+"Language-Team: Italian <https://hosted.weblate.org/projects/komikku/main/it/>"
+"\n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.12-dev\n"
+"X-Generator: Weblate 5.13-dev\n"
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:11
 #, fuzzy
@@ -88,37 +89,36 @@ msgid "Light and dark themes"
 msgstr "Tema chiaro e scuro"
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:47
-#, fuzzy
 msgid "The Library page"
-msgstr "Biblioteca"
+msgstr "Pagina della Libreria"
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:51
 msgid "The Library page with the category sidebar open"
-msgstr ""
+msgstr "La pagina della  libreria con la barra laterale delle categorie aperta"
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:55
 msgid "The Preferences page (Library settings)"
-msgstr ""
+msgstr "La pagina delle preferenze (Opzioni della libreria)"
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:59
 msgid "The Explorer page in mobile format (Servers list)"
-msgstr ""
+msgstr "La pagina dell'Explorer in formato mobile (lista dei Server)"
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:63
 msgid "The Details page"
-msgstr ""
+msgstr "La pagina dei dettagli"
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:67
 msgid "The Details page (chapters list)"
-msgstr ""
+msgstr "La pagina dei Dettagli (lista dei capitoli)"
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:71
 msgid "The Reader page"
-msgstr ""
+msgstr "La pagina del Lettore"
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:75
 msgid "The Reader page in mobile format"
-msgstr ""
+msgstr "La pagina del Lettore in formato mobile"
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:79
 msgid "The Category editor page in mobile format"
