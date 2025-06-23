@@ -4,15 +4,15 @@
 # CakesTwix <cakestwix1@gmail.com>, 2023.
 # "Kislotniy (Acela)" <mylittleponyg5@gmail.com>, 2024.
 # mondstern <mondstern@monocles.de>, 2024.
-# DXCVII <dxcvii@duck.com>, 2024.
+# DXCVII <dxcvii@duck.com>, 2024, 2025.
 # Bezruchenko Simon <worcposj44@gmail.com>, 2024, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: Komikku 1.17.1\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-06-13 01:22+0200\n"
-"PO-Revision-Date: 2025-04-06 09:03+0000\n"
-"Last-Translator: Bezruchenko Simon <worcposj44@gmail.com>\n"
+"PO-Revision-Date: 2025-06-24 07:31+0000\n"
+"Last-Translator: DXCVII <dxcvii@duck.com>\n"
 "Language-Team: Ukrainian <https://hosted.weblate.org/projects/komikku/main/"
 "uk/>\n"
 "Language: uk\n"
@@ -21,7 +21,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
 "n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
-"X-Generator: Weblate 5.11-dev\n"
+"X-Generator: Weblate 5.13-dev\n"
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:11
 msgid "Discover and read manga & comics"
@@ -2016,7 +2016,7 @@ msgstr ""
 
 #: ../komikku/servers/comick/__init__.py:181
 msgid "Yuri"
-msgstr ""
+msgstr "Юрі"
 
 #: ../komikku/servers/dynasty/__init__.py:39
 msgid "Categories"
@@ -2040,7 +2040,7 @@ msgstr "Дуджин"
 
 #: ../komikku/servers/dynasty/__init__.py:45
 msgid "Issues"
-msgstr "Питання"
+msgstr "Проблеми"
 
 #: ../komikku/servers/dynasty/__init__.py:46
 msgid "Series"
@@ -2056,7 +2056,7 @@ msgstr "З тегами"
 
 #: ../komikku/servers/dynasty/__init__.py:54
 msgid "Comma separated list of tags to search for"
-msgstr "Список тегів, розділених комами, для пошуку"
+msgstr "Список тегів для пошуку (через кому)"
 
 #: ../komikku/servers/dynasty/__init__.py:60
 msgid "Without Tags"
@@ -2064,7 +2064,7 @@ msgstr "Без тегів"
 
 #: ../komikku/servers/dynasty/__init__.py:61
 msgid "Comma separated list of tags to exclude from search"
-msgstr "Список тегів, розділених комами, для виключення з пошуку"
+msgstr "Список тегів для виключення з пошуку (через кому)"
 
 #: ../komikku/servers/exceptions.py:10
 msgid "Error: {}"
@@ -2081,7 +2081,7 @@ msgstr ""
 
 #: ../komikku/servers/exceptions.py:26
 msgid "Failed to complete browser challenge. Please try again."
-msgstr "Не вдалося завершити перевірку браузера. Будь ласка, спробуйте ще раз."
+msgstr "Не вдалося виконати виклик браузера. Будь ласка, спробуйте ще раз."
 
 #: ../komikku/servers/exceptions.py:31
 msgid "No longer exists."
@@ -2100,11 +2100,11 @@ msgstr "Статуси"
 #: ../komikku/servers/flamescans/__init__.py:56
 #: ../komikku/trackers/__init__.py:37
 msgid "Dropped"
-msgstr "Скасовано"
+msgstr "Покинуто"
 
 #: ../komikku/servers/mangadex/__init__.py:66
 msgid "Pornographic"
-msgstr "Порнографічний"
+msgstr "Порнографія"
 
 #: ../komikku/servers/mangadex/__init__.py:86
 msgid "Filter by publication demographics"
@@ -2129,7 +2129,7 @@ msgstr "Режим включення тегів"
 #: ../komikku/servers/mangadex/__init__.py:153
 msgid "Include manga that match <b>all</b> tags (AND) or <b>any</b> tag (OR)"
 msgstr ""
-"Включити мальописи, що виключають <b>всі</b> теги (та) або <b>будь-які</b> "
+"Включити мальописи, що відповідають <b>всі</b> теги (та) або <b>будь-які</b> "
 "теги"
 
 #: ../komikku/servers/mangadex/__init__.py:157
@@ -2167,7 +2167,7 @@ msgstr "OEL"
 
 #: ../komikku/servers/mangatube/__init__.py:126
 msgid "Type of Serie"
-msgstr "Тип серії"
+msgstr "Тип добірки"
 
 #: ../komikku/servers/mangatube/__init__.py:134
 msgid "Webtoon"
