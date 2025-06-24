@@ -2,20 +2,26 @@
 # SPDX-License-Identifier: GPL-3.0-or-later
 # Author: Valéry Febvre <vfebvre@easter-eggs.com>
 
+import datetime
 from gettext import gettext as _
+import time
+from urllib.parse import parse_qs
+from urllib.parse import urlparse
 
 from bs4 import BeautifulSoup
 import requests
 from urllib.parse import urlsplit
 
+from komikku.servers import DOWNLOAD_MAX_DELAY
 from komikku.servers import Server
 from komikku.servers import USER_AGENT
 from komikku.servers import USER_AGENT_MOBILE
-from komikku.servers.utils import convert_date_string
 from komikku.servers.utils import get_soup_element_inner_text
 from komikku.utils import get_buffer_mime_type
+from komikku.utils import get_response_elapsed
 from komikku.utils import is_number
 
+CHAPTERS_PER_REQUEST = 30
 LANGUAGES_CODES = dict(
     en='en',
     es='es',
@@ -38,7 +44,7 @@ class Webtoon(Server):
     search_url = base_url + '/{0}/search/{1}'
     most_populars_url = base_url + '/{0}/ranking/{1}'
     manga_url = base_url + '{0}'
-    chapters_url = 'https://m.webtoons.com{0}'
+    api_chapters_url = 'https://m.webtoons.com/api/v1/{type}/{sid}/episodes'
     chapter_url = base_url + '{0}'
 
     filters = [
@@ -247,44 +253,61 @@ class Webtoon(Server):
 
     def get_manga_chapters_data(self, url):
         """
-        Returns manga chapters data by scraping content of manga Mobile HTML page
+        Returns manga chapters data using API of mobile site
         """
-        # Use a Mobile user agent
-        r = self.session_get(self.chapters_url.format(url), headers={'User-Agent': USER_AGENT_MOBILE})
-        if r.status_code != 200:
-            return []
+        chapters = []
+        sid = parse_qs(urlparse(url).query)['title_no'][0]
+        if '/canvas/' in url:
+            type = 'canvas'
+        else:
+            type = 'webtoon'
 
-        mime_type = get_buffer_mime_type(r.content)
-        if mime_type != 'text/html':
-            return []
+        def get_page(cursor):
+            params = dict(
+                pageSize=CHAPTERS_PER_REQUEST,
+            )
+            if cursor:
+                params['cursor'] = cursor
 
-        soup = BeautifulSoup(r.text, 'lxml')
+            r = self.session_get(
+                self.api_chapters_url.format(type=type, sid=sid),
+                params=params,
+                headers={
+                    'User-Agent': USER_AGENT_MOBILE,
+                }
+            )
+            if r.status_code != 200:
+                return None
 
-        li_elements = soup.find('ul', id='_episodeList').find_all('li', recursive=False)
+            next_cursor = r.json()['result']['nextCursor']
 
-        data = []
-        for li_element in reversed(li_elements):
-            num = li_element.get('data-episode-no')
-            if num is None:
-                continue
+            return r.json()['result']['episodeList'], next_cursor, get_response_elapsed(r)
 
-            date_element = li_element.find('span', class_='date')
-            if date_element.span:
-                date_element.span.decompose()
+        chapters = []
+        cursor = None
+        delay = None
+        while cursor != 0:
+            if delay:
+                time.sleep(delay)
 
-            # Small difference here compared to the majority of servers
-            # the slug can't be used to forge chapter URL, we must store the full url
-            url_split = urlsplit(li_element.a.get('href'))
+            episodes, cursor, rtime = get_page(cursor)
+            for episode in episodes:
+                title = episode['episodeTitle']
+                if episode.get('hasBgm'):
+                    title += ' ♫'
+                num = episode['episodeNo']
 
-            data.append(dict(
-                slug=url_split.path.split('/')[-2],
-                title=li_element.find('p', class_='sub_title').find('span', class_='ellipsis').text.strip(),
-                num=num if is_number(num) else None,
-                date=convert_date_string(date_element.text.strip(), format='%b %d, %Y'),
-                url='{0}?{1}'.format(url_split.path, url_split.query),
-            ))
+                chapters.append(dict(
+                    slug=str(num),  # slug nust be a string
+                    title=title,
+                    num=num if is_number(num) else None,
+                    date=datetime.datetime.fromtimestamp(episode['exposureDateMillis'] / 1000).date(),
+                    url=episode['viewerLink'],
+                ))
 
-        return data
+            delay = min(rtime * 2, DOWNLOAD_MAX_DELAY) if rtime else None
+
+        return chapters
 
     def get_manga_chapter_page_image(self, manga_slug, manga_name, chapter_slug, page):
         """
