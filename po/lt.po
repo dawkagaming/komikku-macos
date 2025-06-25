@@ -7,42 +7,47 @@ msgstr ""
 "Project-Id-Version: Komikku 1.79.1\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-06-13 01:22+0200\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: Automatically generated\n"
-"Language-Team: none\n"
+"PO-Revision-Date: 2025-06-27 00:02+0000\n"
+"Last-Translator: Velyvis <velyvismok@gmail.com>\n"
+"Language-Team: Lithuanian <https://hosted.weblate.org/projects/komikku/main/"
+"lt/>\n"
 "Language: lt\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n % 10 == 1 && (n % 100 < 11 || n % 100 > "
-"19)) ? 0 : ((n % 10 >= 2 && n % 10 <= 9 && (n % 100 < 11 || n % 100 > 19)) ? "
-"1 : 2);\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && ("
+"n%100<10 || n%100>=20) ? 1 : 2);\n"
+"X-Generator: Weblate 5.13-dev\n"
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:11
 msgid "Discover and read manga & comics"
-msgstr ""
+msgstr "Atraskite ir skaitykite manga ir komiksus"
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:13
 msgid ""
 "With its simple, elegant and adaptive interface, this reader lets you "
 "search, sort and read your series with ease."
 msgstr ""
+"Ši skaityklė turi paprastą, elegantišką ir adaptyvią sąsają, kuri leidžia "
+"lengvai ieškoti, rūšiuoti ir skaityti serijas."
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:15
 msgid "Why you will love Komikku?"
-msgstr ""
+msgstr "Kodėl Jums patiks \"Komikku\"?"
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:17
 msgid "Online and offline reading from dozens of servers"
-msgstr ""
+msgstr "Skaitymas internetu, bei neprisijungus, iš tuzino serverių"
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:18
 msgid "Support for locally stored series (in CBZ or CBR formats)"
-msgstr ""
+msgstr "Lokaliai saugomų serijų palaikymas (CBZ ar CBR formatais)"
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:19
 msgid "RTL, LTR, Vertical and Webtoon reading modes"
 msgstr ""
+"Iš dešinės į kairę(RTL), iš kairės į dešinę(LTR), vertikalus, bei Webtoon "
+"skaitymo režimai"
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:20
 msgid ""
@@ -53,75 +58,75 @@ msgstr ""
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:21
 msgid "Categories to organize your library"
-msgstr ""
+msgstr "Kategorijos bibliotekai tvarkyti"
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:22
 msgid "Automatic tracking of series with MyAnimeList and AniList"
-msgstr ""
+msgstr "Automatinis serijų sekimas su \"MyAnimeList\" ir \"AniList\""
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:23
 msgid "Automatic update of series"
-msgstr ""
+msgstr "Automatiniai serijų atnaujinimai"
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:24
 msgid "Automatic download of new chapters"
-msgstr ""
+msgstr "Automatinis naujų skyrių atsisiuntimas"
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:25
 msgid "Reading history"
-msgstr ""
+msgstr "Skaitymo istorija"
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:26
 msgid "Light and dark themes"
-msgstr ""
+msgstr "Šviesi ir tamsi tema"
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:47
 msgid "The Library page"
-msgstr ""
+msgstr "Bibliotekos puslapis"
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:51
 msgid "The Library page with the category sidebar open"
-msgstr ""
+msgstr "Bibliotekos puslapis su atidaryta šonine juosta"
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:55
 msgid "The Preferences page (Library settings)"
-msgstr ""
+msgstr "Nustatymų puslapis (Bibliotekos nustatymai)"
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:59
 msgid "The Explorer page in mobile format (Servers list)"
-msgstr ""
+msgstr "Naršyklės puslapis mobiliuoju formatu (Serverių sąrašas)"
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:63
 msgid "The Details page"
-msgstr ""
+msgstr "Išsamios informacijos puslapis"
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:67
 msgid "The Details page (chapters list)"
-msgstr ""
+msgstr "Išsamios informacijos puslapis (skyrių sąrašas)"
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:71
 msgid "The Reader page"
-msgstr ""
+msgstr "Skaityklės puslapis"
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:75
 msgid "The Reader page in mobile format"
-msgstr ""
+msgstr "Skaityklės puslapis mobiliajame formate"
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:79
 msgid "The Category editor page in mobile format"
-msgstr ""
+msgstr "Kategorijų redaktoriaus puslapis mobiliajame formate"
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:83
 msgid "The Reading history page in mobile format"
-msgstr ""
+msgstr "Skaitymo istorijos puslapis mobiliajame formate"
 
 #: ../data/info.febvre.Komikku.desktop.in:2
 msgid "@prettyname@"
-msgstr ""
+msgstr "@prettyname@"
 
 #: ../data/info.febvre.Komikku.desktop.in:3
 msgid "@description@"
-msgstr ""
+msgstr "@description@"
 
 #: ../data/info.febvre.Komikku.desktop.in:13
 msgid "manga;reader;viewer;comic;manhwa;manhua;bd;webtoon;webcomic;scan;offline;GTK;GNOME;"
@@ -131,15 +136,15 @@ msgstr ""
 #: ../data/ui/card_chapters_list_row.blp:48 ../data/ui/download_manager.blp:26
 #: ../data/ui/library.blp:146 ../data/ui/reader.blp:37
 msgid "Menu"
-msgstr ""
+msgstr "Meniu"
 
 #: ../data/ui/card.blp:68
 msgid "Info"
-msgstr ""
+msgstr "Informacija"
 
 #: ../data/ui/card.blp:148
 msgid "Add to Library"
-msgstr ""
+msgstr "Pridėti į biblioteką"
 
 #: ../data/ui/card.blp:208
 msgid "Scanlators"
@@ -147,34 +152,34 @@ msgstr ""
 
 #: ../data/ui/card.blp:267
 msgid "Last Update"
-msgstr ""
+msgstr "Paskutinis atnaujinimas"
 
 #: ../data/ui/card.blp:298
 msgid "Size on Disk"
-msgstr ""
+msgstr "Dydis ant disko"
 
 #: ../data/ui/card.blp:323
 msgid "Synopsis"
-msgstr ""
+msgstr "Santrauka"
 
 #: ../data/ui/card.blp:448 ../data/ui/categories_editor.blp:67
 #: ../data/ui/library.blp:249
 msgid "No Categories"
-msgstr ""
+msgstr "Nėra kategorijų"
 
 #: ../data/ui/card_chapters_list_row.blp:65
 msgid "New"
-msgstr ""
+msgstr "Nauja"
 
 #: ../data/ui/card_tracking.blp:9
 msgid "Tracking"
-msgstr ""
+msgstr "Sekama"
 
 #: ../data/ui/card_tracking_search.blp:10 ../data/ui/explorer_search.blp:10
 #: ../data/ui/explorer_search.blp:43 ../data/ui/history.blp:22
 #: ../data/ui/library.blp:40
 msgid "Search"
-msgstr ""
+msgstr "Ieškoti"
 
 #: ../data/ui/card_tracking_search.blp:75
 msgid "Search for Tracking"
@@ -182,19 +187,19 @@ msgstr ""
 
 #: ../data/ui/categories_editor.blp:36
 msgid "Add"
-msgstr ""
+msgstr "Pridėti"
 
 #: ../data/ui/download_manager.blp:10 ../data/ui/download_manager.blp:20
 msgid "Download Manager"
-msgstr ""
+msgstr "Atsisiuntimų tvarkyklė"
 
 #: ../data/ui/download_manager.blp:32
 msgid "Start/Stop Download"
-msgstr ""
+msgstr "Pradėti/Stabdyti siuntimą"
 
 #: ../data/ui/download_manager.blp:67
 msgid "No Downloads"
-msgstr ""
+msgstr "Nėra atsisiuntimų"
 
 #: ../data/ui/explorer_search.blp:28
 msgid "Search Filters"
@@ -202,43 +207,43 @@ msgstr ""
 
 #: ../data/ui/explorer_search.blp:34
 msgid "Open in Browser"
-msgstr ""
+msgstr "Atidaryti naršyklėje"
 
 #: ../data/ui/explorer_search.blp:147
 msgid "Most Popular"
-msgstr ""
+msgstr "Populiariausi"
 
 #: ../data/ui/explorer_search.blp:214
 msgid "Latest Updates"
-msgstr ""
+msgstr "Naujausi atnaujinimai"
 
 #: ../data/ui/explorer_servers.blp:10
 msgid "Servers"
-msgstr ""
+msgstr "Serveriai"
 
 #: ../data/ui/explorer_servers.blp:17
 msgid "Search Comics Across All Servers"
-msgstr ""
+msgstr "Ieškoti komiksų tarp visų serverių"
 
 #: ../data/ui/explorer_servers.blp:23
 msgid "Search Servers"
-msgstr ""
+msgstr "Ieškoti serverių"
 
 #: ../data/ui/explorer_servers.blp:37
 msgid "Search for servers by name or language"
-msgstr ""
+msgstr "Ieškoti serverių pagal pavadinimą ar kalbą"
 
 #: ../data/ui/history.blp:10 ../data/ui/history.blp:16
 msgid "History"
-msgstr ""
+msgstr "Istorija"
 
 #: ../data/ui/history.blp:71
 msgid "No History"
-msgstr ""
+msgstr "Nėra istorijos"
 
 #: ../data/ui/library.blp:10 ../data/ui/preferences.blp:73
 msgid "Library"
-msgstr ""
+msgstr "Biblioteka"
 
 #: ../data/ui/library.blp:23
 msgid "Toggle Categories Sidebar"
@@ -246,15 +251,15 @@ msgstr ""
 
 #: ../data/ui/library.blp:34
 msgid "Main Menu"
-msgstr ""
+msgstr "Pagrindinis Meniu"
 
 #: ../data/ui/library.blp:78
 msgid "Search by name, server or genre"
-msgstr ""
+msgstr "Ieškoti pagal pavadinima, serverį ar žanrą"
 
 #: ../data/ui/library.blp:125 ../data/ui/preferences.blp:160
 msgid "Update"
-msgstr ""
+msgstr "Atnaujinti"
 
 #: ../data/ui/library.blp:200
 msgid "Discover Comics"
@@ -262,7 +267,7 @@ msgstr ""
 
 #: ../data/ui/library.blp:271
 msgid "OK"
-msgstr ""
+msgstr "Gerai"
 
 #: ../data/ui/menu/card.xml:30
 msgid "Order of Chapters"
@@ -270,40 +275,40 @@ msgstr ""
 
 #: ../data/ui/menu/card.xml:35
 msgid "⬆ By Source"
-msgstr ""
+msgstr "⬆Pagal šaltinį"
 
 #: ../data/ui/menu/card.xml:40
 msgid "⬇ By Source"
-msgstr ""
+msgstr "⬇Pagal šaltinį"
 
 #: ../data/ui/menu/card.xml:46
 msgid "⬆ By Date"
-msgstr ""
+msgstr "⬆Pagal datą"
 
 #: ../data/ui/menu/card.xml:51
 msgid "⬇ By Date"
-msgstr ""
+msgstr "⬇Pagal datą"
 
 #: ../data/ui/menu/card.xml:57
 msgid "⬆ By Title"
-msgstr ""
+msgstr "⬆Pagal pavadinimą"
 
 #: ../data/ui/menu/card.xml:62
 msgid "⬇ By Title"
-msgstr ""
+msgstr "⬇ Pagal pavadinimą"
 
 #: ../data/ui/menu/card_selection_mode.xml:23
 #: ../data/ui/menu/library_selection_mode.xml:30
 msgid "Select All"
-msgstr ""
+msgstr "Pasirinkti viską"
 
 #: ../data/ui/menu/download_manager.xml:12
 msgid "Delete All"
-msgstr ""
+msgstr "Ištrinti viską"
 
 #: ../data/ui/menu/explorer_search_global_search.xml:12
 msgid "Pinned Servers Only"
-msgstr ""
+msgstr "Tik prisegti serveriai"
 
 #: ../data/ui/menu/library_search.xml:12
 msgid "Unread"
@@ -311,23 +316,23 @@ msgstr ""
 
 #: ../data/ui/menu/library_search.xml:20
 msgid "Recents"
-msgstr ""
+msgstr "Naujausi"
 
 #: ../data/ui/menu/library_selection_mode.xml:12
 msgid "Edit Categories"
-msgstr ""
+msgstr "Koreguoti kategorijas"
 
 #: ../data/ui/menu/main.xml:12
 msgid "Update Library"
-msgstr ""
+msgstr "Atnaujinti biblioteką"
 
 #: ../data/ui/menu/main.xml:16
 msgid "Sort"
-msgstr ""
+msgstr "Rūšiuoti"
 
 #: ../data/ui/menu/main.xml:21
 msgid "Alphabetical"
-msgstr ""
+msgstr "Pagal abėcėlę"
 
 #: ../data/ui/menu/main.xml:26
 msgid "Latest Read First"
@@ -339,15 +344,15 @@ msgstr ""
 
 #: ../data/ui/menu/main.xml:60
 msgid "Keyboard Shortcuts"
-msgstr ""
+msgstr "Klaviatūros spartieji klavišai"
 
 #: ../data/ui/menu/main.xml:64
 msgid "Donate"
-msgstr ""
+msgstr "Aukoti"
 
 #: ../data/ui/menu/main.xml:68
 msgid "About Komikku"
-msgstr ""
+msgstr "Apie \"Komikku\""
 
 #: ../data/ui/menu/reader.xml:114
 msgid "Zoom Landscape Pages"
@@ -359,32 +364,32 @@ msgstr ""
 
 #: ../data/ui/menu/reader.xml:122
 msgid "Hide Page Numbering"
-msgstr ""
+msgstr "Paslėpti puslapių numerius"
 
 #: ../data/ui/menu/reader.xml:129
 msgid "Save Page"
-msgstr ""
+msgstr "Išsaugoti puslapį"
 
 #: ../data/ui/preferences.blp:9 ../data/ui/preferences_servers_languages.blp:15
 #: ../data/ui/preferences_servers_settings.blp:15
 msgid "Preferences"
-msgstr ""
+msgstr "Nustatymai"
 
 #: ../data/ui/preferences.blp:14
 msgid "General"
-msgstr ""
+msgstr "Bendra"
 
 #: ../data/ui/preferences.blp:20
 msgid "Theme"
-msgstr ""
+msgstr "Tema"
 
 #: ../data/ui/preferences.blp:23
 msgid "Light"
-msgstr ""
+msgstr "Šviesi"
 
 #: ../data/ui/preferences.blp:24
 msgid "Dark"
-msgstr ""
+msgstr "Tamsi"
 
 #: ../data/ui/preferences.blp:25
 msgid "Follow System"
@@ -392,19 +397,19 @@ msgstr ""
 
 #: ../data/ui/preferences.blp:31
 msgid "Night Light"
-msgstr ""
+msgstr "Naktinis apšvietimas"
 
 #: ../data/ui/preferences.blp:32
 msgid "Automatically enable dark theme at night"
-msgstr ""
+msgstr "Automatiškai įjungti tamsią temą nakty"
 
 #: ../data/ui/preferences.blp:36
 msgid "Accent Color"
-msgstr ""
+msgstr "Akcento spalva"
 
 #: ../data/ui/preferences.blp:37
 msgid "Use system accent colors"
-msgstr ""
+msgstr "Naudoti sistemos akcento spalvas"
 
 #: ../data/ui/preferences.blp:41
 msgid "Backdrop in Details Page"
@@ -416,79 +421,80 @@ msgstr ""
 
 #: ../data/ui/preferences.blp:46
 msgid "Linear gradient"
-msgstr ""
+msgstr "Linijinis gradientas"
 
 #: ../data/ui/preferences.blp:47
 msgid "Blurred cover"
-msgstr ""
+msgstr "Sulietas viršelis"
 
 #: ../data/ui/preferences.blp:57
 msgid "Desktop Notifications"
-msgstr ""
+msgstr "Darbalaukio pranešimai"
 
 #: ../data/ui/preferences.blp:58
 msgid "Use desktop notifications for downloads and library updates"
 msgstr ""
+"Naudoti darbalaukio pranešimus atsisiuntimams ir bibliotekos atnaujinimus"
 
 #: ../data/ui/preferences.blp:66
 msgid "Synchronize reading progress"
-msgstr ""
+msgstr "Sinchronizuoti skaitymo progresą"
 
 #: ../data/ui/preferences.blp:77
 msgid "Display"
-msgstr ""
+msgstr "Ekranas"
 
 #: ../data/ui/preferences.blp:80
 msgid "Display Mode"
-msgstr ""
+msgstr "Vaizdavimo režimas"
 
 #: ../data/ui/preferences.blp:83
 msgid "Grid"
-msgstr ""
+msgstr "Tinklelis"
 
 #: ../data/ui/preferences.blp:84
 msgid "Compact Grid"
-msgstr ""
+msgstr "Kompaktiškas tinklelis"
 
 #: ../data/ui/preferences.blp:90
 msgid "Servers Logo"
-msgstr ""
+msgstr "Serverių logotipai"
 
 #: ../data/ui/preferences.blp:91
 msgid "Display servers logo"
-msgstr ""
+msgstr "Rodyti serverių logotipus"
 
 #: ../data/ui/preferences.blp:95
 msgid "Badges"
-msgstr ""
+msgstr "Ženkliukai"
 
 #: ../data/ui/preferences.blp:98
 msgid "Number of Unread Chapters"
-msgstr ""
+msgstr "Neperskaitytų skyrių skaičius"
 
 #: ../data/ui/preferences.blp:118
 msgid "Number of Downloaded Chapters"
-msgstr ""
+msgstr "Atsisiųstų skyrių skaičius"
 
 #: ../data/ui/preferences.blp:138
 msgid "Number of Recent and Unread Chapters"
-msgstr ""
+msgstr "Naujausiu ir neperskaitytų skyrių skaičius"
 
 #: ../data/ui/preferences.blp:163
 msgid "Update at Startup"
-msgstr ""
+msgstr "Atnaujinti įjungus"
 
 #: ../data/ui/preferences.blp:164
 msgid "Automatically update library at startup"
-msgstr ""
+msgstr "Automatiškai atnaujinti biblioteką įjungus"
 
 #: ../data/ui/preferences.blp:168
 msgid "Auto Download of New Chapters"
-msgstr ""
+msgstr "Automatinis naujų skyrių atsisiuntimas"
 
 #: ../data/ui/preferences.blp:169
 msgid "Automatically download new chapters"
-msgstr ""
+msgstr "Automatiškai atsisiųsti naujus skyrius"
 
 #: ../data/ui/preferences.blp:174
 msgid "Explorer"
@@ -498,7 +504,7 @@ msgstr ""
 #: ../data/ui/preferences_servers_languages.blp:10
 #: ../data/ui/preferences_servers_languages.blp:16
 msgid "Servers Languages"
-msgstr ""
+msgstr "Serverių kalbos"
 
 #: ../data/ui/preferences.blp:178
 msgid "Restrict servers to selected languages"
