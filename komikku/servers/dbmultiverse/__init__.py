@@ -187,14 +187,14 @@ class Dbmultiverse_de(Dbmultiverse):
     id = 'dbmultiverse_de'
     lang = 'de'
 
-    synopsis = "Dragon Ball Multiverse ist ein kostenloser Online-Comic, gezeichnet von Fans, u. a. Gogeta Jr, Asura und Salagir. Es knüpft direkt an DBZ an als eine Art Fortsetzung. Veröffentlichung dreimal pro Woche: Mittwoch, Freitag und Sonntag um 20.00 MEZ."
+    synopsis = 'Dragon Ball Multiverse ist ein kostenloser Online-Comic, gezeichnet von Fans, u. a. Gogeta Jr, Asura und Salagir. Es knüpft direkt an DBZ an als eine Art Fortsetzung. Veröffentlichung dreimal pro Woche: Mittwoch, Freitag und Sonntag um 20.00 MEZ.'
 
 
 class Dbmultiverse_es(Dbmultiverse):
     id = 'dbmultiverse_es'
     lang = 'es'
 
-    synopsis = "Dragon Ball Multiverse (DBM) es un cómic online gratuito, realizado por un gran equipo de fans. Es nuestra propia continuación de DBZ."
+    synopsis = 'Dragon Ball Multiverse (DBM) es un cómic online gratuito, realizado por un gran equipo de fans. Es nuestra propia continuación de DBZ.'
 
 
 class Dbmultiverse_fr(Dbmultiverse):
@@ -208,18 +208,18 @@ class Dbmultiverse_it(Dbmultiverse):
     id = 'dbmultiverse_it'
     lang = 'it'
 
-    synopsis = "Dragon Ball Multiverse (abbreviato in DBM) è un Fumetto gratuito pubblicato online e rappresenta un possibile seguito di DBZ. I creatori sono due fan: Gogeta Jr e Salagir."
+    synopsis = 'Dragon Ball Multiverse (abbreviato in DBM) è un Fumetto gratuito pubblicato online e rappresenta un possibile seguito di DBZ. I creatori sono due fan: Gogeta Jr e Salagir.'
 
 
 class Dbmultiverse_pt(Dbmultiverse):
     id = 'dbmultiverse_pt'
     lang = 'pt'
 
-    synopsis = "Dragon Ball Multiverse (DBM) é uma BD online grátis, feita por dois fãs Gogeta Jr e Salagir. É a sequela do DBZ."
+    synopsis = 'Dragon Ball Multiverse (DBM) é uma BD online grátis, feita por dois fãs Gogeta Jr e Salagir. É a sequela do DBZ.'
 
 
 class Dbmultiverse_ru(Dbmultiverse):
     id = 'dbmultiverse_ru'
     lang = 'ru'
 
-    synopsis = "Dragon Ball Multiverse (DBM) это бесплатный онлайн комикс (манга), сделана двумя фанатами, Gogeta Jr и Salagir. Это продолжение DBZ."
+    synopsis = 'Dragon Ball Multiverse (DBM) это бесплатный онлайн комикс (манга), сделана двумя фанатами, Gogeta Jr и Salagir. Это продолжение DBZ.'

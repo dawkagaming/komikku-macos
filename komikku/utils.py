@@ -45,9 +45,9 @@ MISSING_IMG_RESOURCE_PATH = '/info/febvre/Komikku/images/missing_file.png'
 REQUESTS_TIMEOUT = 5
 
 logger = logging.getLogger('komikku')
-logging.getLogger("PIL.Image").propagate = False
-logging.getLogger("PIL.PngImagePlugin").propagate = False
-logging.getLogger("PIL.TiffImagePlugin").propagate = False
+logging.getLogger('PIL.Image').propagate = False
+logging.getLogger('PIL.PngImagePlugin').propagate = False
+logging.getLogger('PIL.TiffImagePlugin').propagate = False
 
 pillow_heif.register_avif_opener()
 pillow_heif.register_heif_opener()
@@ -518,7 +518,7 @@ class AsyncWorker(GObject.Object):
           RESULT turns out to be invalid, return an error dictionary
           in the form
 
-          {"AsyncWorkerError": "Gio.Task.is_valid returned False."}
+          {'AsyncWorkerError': 'Gio.Task.is_valid returned False.'}
 
         """
         value = None
@@ -526,8 +526,8 @@ class AsyncWorker(GObject.Object):
         if Gio.Task.is_valid(result, self):
             value = result.propagate_value().value
         else:
-            error = "Gio.Task.is_valid returned False."
-            value = {"AsyncWorkerError": error}
+            error = 'Gio.Task.is_valid returned False.'
+            value = {'AsyncWorkerError': error}
 
         return value
 

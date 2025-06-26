@@ -72,7 +72,7 @@ class Phenixscans(Server):
             synopsis=resp_data['manga'].get('synopsis'),
             chapters=[],
             server_id=self.id,
-            cover=self.media_url.format(resp_data["manga"]["coverImage"]),
+            cover=self.media_url.format(resp_data['manga']['coverImage']),
         ))
 
         if resp_data['manga'].get('type'):
@@ -163,7 +163,7 @@ class Phenixscans(Server):
             result.append(dict(
                 name=item['title'],
                 slug=item['slug'],
-                cover=self.media_url.format(item["coverImage"]),
+                cover=self.media_url.format(item['coverImage']),
             ))
 
         return result
@@ -198,7 +198,7 @@ class Phenixscans(Server):
             result.append(dict(
                 name=item['title'],
                 slug=item['slug'],
-                cover=self.media_url.format(item["coverImage"]),
+                cover=self.media_url.format(item['coverImage']),
             ))
 
         return result

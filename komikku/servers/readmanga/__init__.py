@@ -151,7 +151,7 @@ class Readmanga(Server):
                     continue
 
                 pages_data = line.split(', ')[0][self.pages_js_offset:]
-                pages_data = pages_data.replace('\'', '"')
+                pages_data = pages_data.replace("'", '"')
                 pages = json.loads(pages_data)
 
                 for split_url in pages:

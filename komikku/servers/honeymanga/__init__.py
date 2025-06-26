@@ -120,7 +120,7 @@ class Honeymanga(Server):
                 title=title,
                 num=chapter['chapterNum'],
                 num_volume=chapter['volume'],
-                date=convert_date_string(chapter["lastUpdated"].split('T')[0], format='%Y-%m-%d'),
+                date=convert_date_string(chapter['lastUpdated'].split('T')[0], format='%Y-%m-%d'),
             ))
 
         if resp_data['cursorNext']:

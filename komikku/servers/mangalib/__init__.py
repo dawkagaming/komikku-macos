@@ -125,7 +125,7 @@ class Mangalib(Server):
                     scanlators.append(team['name'])
 
             data['chapters'].append(dict(
-                slug=f'v{chapter['volume']}/c{chapter['number']}',
+                slug=f'v{chapter["volume"]}/c{chapter["number"]}',
                 title=f'Том {chapter["volume"]} Глава {chapter["number"]} - {chapter["name"]}',
                 num=chapter['number'] if is_number(chapter['number']) else None,
                 num_volume=chapter['volume'] if is_number(chapter['volume']) else None,

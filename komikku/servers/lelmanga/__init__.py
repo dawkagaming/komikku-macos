@@ -30,7 +30,7 @@ class Lelmanga(MangaStream):
         def convert(s):
             # Fix bad encoding
             try:
-                s = s.replace('“', '"').replace('”', '"').replace("’", "'").replace("…", '...').encode('iso-8859-1').decode()
+                s = s.replace('“', '"').replace('”', '"').replace('’', "'").replace('…', '...').encode('iso-8859-1').decode()
             except Exception:
                 pass
 

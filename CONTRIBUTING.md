@@ -135,7 +135,7 @@ To test changes you make to the code, re-run the last step.
 
 ## Commit
 
-We expect all code contributions to be checked with `pycodestyle` and `flake8`.
+We expect all code contributions to be checked with `flake8`.
 
 ### Commit Message Example
 

@@ -69,7 +69,7 @@ class Perfscan(Server):
         ))
 
         data['name'] = resp_data['title']
-        data['cover'] = f'{self.media_url}/{resp_data['cover']}'
+        data['cover'] = f'{self.media_url}/{resp_data["cover"]}'
 
         if resp_data.get('author'):
             data['authors'].append(resp_data['author'])
@@ -95,7 +95,7 @@ class Perfscan(Server):
         for chapter in resp_data.get('Chapter'):
             title = chapter['title'].strip()
             if title in (None, '', '-'):
-                title = f'Chapitre {chapter['index']}'
+                title = f'Chapitre {chapter["index"]}'
 
             data['chapters'].append({
                 'slug': chapter['id'],

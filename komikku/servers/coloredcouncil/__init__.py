@@ -168,7 +168,7 @@ class Coloredcouncil(Server):
                     data['chapters'].append(dict(
                         slug=chapter['id'],
                         title=title,
-                        num=chapter["number"],
+                        num=chapter['number'],
                         num_volume=volume.get('number'),
                         date=convert_date_string(chapter['date'][:-7], format='%B %d, %Y'),
                         url='/'.join(chapter_path),  # relative path used to retrieve chapter images

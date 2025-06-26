@@ -137,7 +137,7 @@ class Tapas(Server):
 
                 chapters.append(dict(
                     slug=str(episode['id']),  # slug nust be a string
-                    title=episode["title"],
+                    title=episode['title'],
                     date=convert_date_string(episode['publish_date'].split('T')[0], format='%Y-%m-%d'),
                 ))
 

@@ -125,7 +125,7 @@ class DebugInfo:
         info += 'System:\n'
         info += f'- Name: {GLib.get_os_info("NAME")}\n'
         info += f'- Version: {GLib.get_os_info("VERSION") or "N/A"}\n'
-        info += f"- CPU arch: {platform.machine()}\n"
+        info += f'- CPU arch: {platform.machine()}\n'
         info += '\n'
 
         if flatpak_info := self.get_flatpak_info():
@@ -147,7 +147,7 @@ class DebugInfo:
         info += '\n'
 
         info += 'Python:\n'
-        info += f"- Version: {platform.python_version()}\n"
+        info += f'- Version: {platform.python_version()}\n'
         info += f"- PyGObject: {'.'.join(str(v) for v in gi.version_info)}\n"
         info += '\n'
 
@@ -156,15 +156,15 @@ class DebugInfo:
         info += f'- Session: {GLib.getenv("XDG_SESSION_DESKTOP")} ({GLib.getenv("XDG_SESSION_TYPE")})\n'
         info += f'- Language: {GLib.getenv("LANG")}\n'
         info += f'- Running inside Builder: {"Yes" if GLib.getenv("INSIDE_GNOME_BUILDER") else "No"}\n'
-        if gtk_debug := GLib.getenv("GTK_DEBUG"):
+        if gtk_debug := GLib.getenv('GTK_DEBUG'):
             info += f'- GTK_DEBUG: {gtk_debug}\n'
-        if gtk_theme := GLib.getenv("GTK_THEME"):
+        if gtk_theme := GLib.getenv('GTK_THEME'):
             info += f'- GTK_THEME: {gtk_theme}\n'
-        if adw_debug_color_scheme := GLib.getenv("ADW_DEBUG_COLOR_SCHEME"):
+        if adw_debug_color_scheme := GLib.getenv('ADW_DEBUG_COLOR_SCHEME'):
             info += f'- ADW_DEBUG_COLOR_SCHEME: {adw_debug_color_scheme}\n'
-        if adw_debug_high_contrast := GLib.getenv("ADW_DEBUG_HIGH_CONTRAST"):
+        if adw_debug_high_contrast := GLib.getenv('ADW_DEBUG_HIGH_CONTRAST'):
             info += f'- ADW_DEBUG_HIGH_CONTRAST: {adw_debug_high_contrast}\n'
-        if adw_disable_portal := GLib.getenv("ADW_DISABLE_PORTAL"):
+        if adw_disable_portal := GLib.getenv('ADW_DISABLE_PORTAL'):
             info += f'- ADW_DISABLE_PORTAL: {adw_disable_portal}\n'
         info += '\n'
 
