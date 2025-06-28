@@ -1253,7 +1253,7 @@ msgstr "பின் நிலையை மாற்றவும்"
 
 #: ../komikku/explorer/search/__init__.py:283
 msgid "Search was cancelled"
-msgstr "தேடல் கைவிடப்பட்டது"
+msgstr "தேடல் என்பது கைவிடப்பட்டது"
 
 #: ../komikku/explorer/search/__init__.py:290
 msgid "Oops, server website URL is unknown."
