@@ -1253,7 +1253,7 @@ msgstr "பின் நிலையை மாற்றவும்"
 
 #: ../komikku/explorer/search/__init__.py:283
 msgid "Search was cancelled"
-msgstr "தேடல் ரத்து செய்யப்பட்டது"
+msgstr "தேடல் கைவிடப்பட்டது"
 
 #: ../komikku/explorer/search/__init__.py:290
 msgid "Oops, server website URL is unknown."
@@ -1318,7 +1318,7 @@ msgstr "மிகவும் பிரபலமான எதுவும் இ
 
 #: ../komikku/explorer/search/search_global.py:165
 msgid "Search cancelled"
-msgstr "தேடல் ரத்து செய்யப்பட்டது"
+msgstr "தேடல் கைவிடப்பட்டது"
 
 #: ../komikku/explorer/search/search_global.py:173
 msgid "No results"
