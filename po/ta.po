@@ -8,19 +8,19 @@ msgstr ""
 "Project-Id-Version: Komikku 1.64.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-06-13 01:22+0200\n"
-"PO-Revision-Date: 2025-02-07 11:02+0000\n"
-"Last-Translator: Valéry Febvre <vfebvre@easter-eggs.com>\n"
+"PO-Revision-Date: 2025-06-29 11:10+0000\n"
+"Last-Translator: தமிழ்நேரம் <anishprabu.t@gmail.com>\n"
 "Language-Team: Tamil <https://hosted.weblate.org/projects/komikku/main/ta/>\n"
 "Language: ta\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.10-dev\n"
+"X-Generator: Weblate 5.13-dev\n"
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:11
 msgid "Discover and read manga & comics"
-msgstr ""
+msgstr "மங்கா & காமிக்சைக் கண்டுபிடித்து படிக்கவும்"
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:13
 msgid ""
@@ -419,15 +419,15 @@ msgstr "விவரங்கள் பக்கத்தில் பின்�
 
 #: ../data/ui/preferences.blp:42
 msgid "Method used to recolor background to match cover"
-msgstr ""
+msgstr "அட்டையை பொருத்த பின்னணியை நினைவுகூர பயன்படுத்தப்படுகிறது"
 
 #: ../data/ui/preferences.blp:46
 msgid "Linear gradient"
-msgstr ""
+msgstr "நேரியல் சாய்வு"
 
 #: ../data/ui/preferences.blp:47
 msgid "Blurred cover"
-msgstr ""
+msgstr "மங்கலான கவர்"
 
 #: ../data/ui/preferences.blp:57
 msgid "Desktop Notifications"
@@ -627,7 +627,7 @@ msgstr "நேரியல்"
 
 #: ../data/ui/preferences.blp:274
 msgid "Trilinear"
-msgstr "Trilinear"
+msgstr "முக்கோடு"
 
 #: ../data/ui/preferences.blp:280
 msgid "Landscape Pages Zoom"
@@ -698,11 +698,11 @@ msgstr "மேம்பட்ட"
 
 #: ../data/ui/preferences.blp:319
 msgid "A setting has changed that requires a restart to take effect"
-msgstr ""
+msgstr "நடைமுறைக்கு வர மறுதொடக்கம் தேவைப்படும் ஒரு அமைப்பு மாறிவிட்டது"
 
 #: ../data/ui/preferences.blp:320
 msgid "Got it!"
-msgstr ""
+msgstr "கிடைத்தது!"
 
 #: ../data/ui/preferences.blp:325
 msgid "Data"
@@ -827,7 +827,7 @@ msgstr "தேடல்"
 #: ../data/ui/shortcuts_overview.blp:52
 msgctxt "Shortcut window description"
 msgid "Update"
-msgstr ""
+msgstr "புதுப்பிப்பு"
 
 #: ../data/ui/shortcuts_overview.blp:58
 msgctxt "Shortcut window description"
@@ -991,11 +991,11 @@ msgstr "வெளியேறு"
 
 #: ../komikku/application.py:692
 msgid "Restart"
-msgstr ""
+msgstr "மறுதொடக்கம்"
 
 #: ../komikku/application.py:692
 msgid "Restart?"
-msgstr ""
+msgstr "மறுதொடக்கம் செய்யவா?"
 
 #: ../komikku/card/__init__.py:112 ../komikku/card/__init__.py:241
 #: ../komikku/explorer/search/__init__.py:75
@@ -1005,7 +1005,7 @@ msgstr "வடிப்பான்கள்"
 
 #: ../komikku/card/__init__.py:250
 msgid "Unknown"
-msgstr ""
+msgstr "தெரியவில்லை"
 
 #: ../komikku/card/__init__.py:343
 msgid "Read progress synchronization with server completed successfully"
@@ -1056,7 +1056,7 @@ msgstr "%m/%d/%y"
 msgid "{0} selected"
 msgid_plural "{0} selected"
 msgstr[0] "{0} தேர்ந்தெடுக்கப்பட்டது"
-msgstr[1] "{0} தேர்ந்தெடுக்கப்பட்டது"
+msgstr[1] "{0} தேர்ந்தெடுக்கப்பட்டன"
 
 #: ../komikku/card/chapters_list.py:415 ../komikku/card/chapters_list.py:514
 msgid "Failed to update chapters reading status"
@@ -1117,7 +1117,7 @@ msgstr "கெலிப்பெண்"
 
 #: ../komikku/card/tracking.py:239
 msgid "Chapter"
-msgstr "பாடங்கள்"
+msgstr "பாடம்"
 
 #: ../komikku/card/tracking.py:251 ../komikku/categories_editor.py:78
 #: ../komikku/library/__init__.py:365
@@ -1253,7 +1253,7 @@ msgstr "பின் நிலையை மாற்றவும்"
 
 #: ../komikku/explorer/search/__init__.py:283
 msgid "Search was cancelled"
-msgstr ""
+msgstr "தேடல் ரத்து செய்யப்பட்டது"
 
 #: ../komikku/explorer/search/__init__.py:290
 msgid "Oops, server website URL is unknown."
@@ -1318,7 +1318,7 @@ msgstr "மிகவும் பிரபலமான எதுவும் இ
 
 #: ../komikku/explorer/search/search_global.py:165
 msgid "Search cancelled"
-msgstr ""
+msgstr "தேடல் ரத்து செய்யப்பட்டது"
 
 #: ../komikku/explorer/search/search_global.py:173
 msgid "No results"
@@ -1534,7 +1534,7 @@ msgstr "{} இலிருந்து துண்டிக்கவும்"
 
 #: ../komikku/reader/__init__.py:367
 msgid "Page successfully saved"
-msgstr ""
+msgstr "பக்கம் வெற்றிகரமாக சேமிக்கப்பட்டது"
 
 #: ../komikku/reader/pager/__init__.py:165
 msgid "Failed to sync read progress with server"
@@ -1674,7 +1674,7 @@ msgstr "செயல்வரம்பு"
 #: ../komikku/servers/comick/__init__.py:59
 #: ../komikku/servers/mangadex/__init__.py:60
 msgid "Filter by Content Ratings"
-msgstr ""
+msgstr "உள்ளடக்க மதிப்பீடுகள் மூலம் வடிகட்டவும்"
 
 #: ../komikku/servers/comick/__init__.py:62
 #: ../komikku/servers/mangadex/__init__.py:63
@@ -1723,31 +1723,31 @@ msgstr "இடைநிறுத்தப்பட்டது"
 
 #: ../komikku/servers/comick/__init__.py:83
 msgid "Origination"
-msgstr ""
+msgstr "தோற்றம்"
 
 #: ../komikku/servers/comick/__init__.py:84
 msgid "[Latest Updates only] Filter by Origination"
-msgstr ""
+msgstr "[சமீபத்திய புதுப்பிப்புகள் மட்டும்] தோற்றம் மூலம் வடிகட்டவும்"
 
 #: ../komikku/servers/comick/__init__.py:95
 msgid "Countries"
-msgstr ""
+msgstr "நாடுகள்"
 
 #: ../komikku/servers/comick/__init__.py:97
 msgid "[Search and Most Popular only] Filter by Country (origination)"
-msgstr ""
+msgstr "[தேடல் மற்றும் மிகவும் பிரபலமான மட்டும்] நாட்டின் வடிகட்டி (தோற்றம்)"
 
 #: ../komikku/servers/comick/__init__.py:101
 msgid "Japan (Manga)"
-msgstr ""
+msgstr "சப்பான் (மங்கா)"
 
 #: ../komikku/servers/comick/__init__.py:102
 msgid "Korea (Manhwa)"
-msgstr ""
+msgstr "கொரியா (மன்அ்வா)"
 
 #: ../komikku/servers/comick/__init__.py:103
 msgid "China (Manhua)"
-msgstr ""
+msgstr "சீனா (மன்உவா)"
 
 #: ../komikku/servers/comick/__init__.py:109
 #: ../komikku/servers/mangadex/__init__.py:85
@@ -1756,7 +1756,7 @@ msgstr "வெளியீட்டு புள்ளிவிவரங்க�
 
 #: ../komikku/servers/comick/__init__.py:110
 msgid "Filter by Publication Demographics"
-msgstr ""
+msgstr "வெளியீட்டு புள்ளிவிவரங்கள் மூலம் வடிகட்டவும்"
 
 #: ../komikku/servers/comick/__init__.py:113
 #: ../komikku/servers/mangadex/__init__.py:89
@@ -1780,7 +1780,7 @@ msgstr "சோசி"
 
 #: ../komikku/servers/comick/__init__.py:117
 msgid "None"
-msgstr ""
+msgstr "எதுவுமில்லை"
 
 #: ../komikku/servers/comick/__init__.py:123
 #: ../komikku/servers/mangadex/__init__.py:98
@@ -1790,7 +1790,7 @@ msgstr "குறிச்சொற்கள்"
 #: ../komikku/servers/comick/__init__.py:124
 #: ../komikku/servers/mangadex/__init__.py:99
 msgid "Filter by Formats"
-msgstr ""
+msgstr "வடிவங்களால் வடிகட்டவும்"
 
 #: ../komikku/servers/comick/__init__.py:127
 #: ../komikku/servers/mangadex/__init__.py:102
@@ -1846,7 +1846,7 @@ msgstr "ஒன்சாட்"
 
 #: ../komikku/servers/comick/__init__.py:141
 msgid "User Created"
-msgstr ""
+msgstr "பயனர் உருவாக்கப்பட்டது"
 
 #: ../komikku/servers/comick/__init__.py:142
 #: ../komikku/servers/mangadex/__init__.py:113
@@ -1861,149 +1861,149 @@ msgstr "வகைகள்"
 #: ../komikku/servers/comick/__init__.py:149
 #: ../komikku/servers/mangadex/__init__.py:120
 msgid "Filter by Genres"
-msgstr ""
+msgstr "வகைகளால் வடிகட்டவும்"
 
 #: ../komikku/servers/comick/__init__.py:152
 #: ../komikku/servers/mangadex/__init__.py:123
 msgid "Action"
-msgstr ""
+msgstr "செயல்"
 
 #: ../komikku/servers/comick/__init__.py:153
 msgid "Adult"
-msgstr ""
+msgstr "அகவை வந்தோர்"
 
 #: ../komikku/servers/comick/__init__.py:154
 #: ../komikku/servers/mangadex/__init__.py:124
 msgid "Adventure"
-msgstr ""
+msgstr "துணிவு"
 
 #: ../komikku/servers/comick/__init__.py:155
 #: ../komikku/servers/mangadex/__init__.py:126
 msgid "Comedy"
-msgstr ""
+msgstr "நகைச்சுவை"
 
 #: ../komikku/servers/comick/__init__.py:156
 #: ../komikku/servers/mangadex/__init__.py:127
 msgid "Crime"
-msgstr ""
+msgstr "குற்றம்"
 
 #: ../komikku/servers/comick/__init__.py:157
 #: ../komikku/servers/mangadex/__init__.py:128
 msgid "Drama"
-msgstr ""
+msgstr "நாடகம்"
 
 #: ../komikku/servers/comick/__init__.py:158
 msgid "Ecchi"
-msgstr ""
+msgstr "Cchi"
 
 #: ../komikku/servers/comick/__init__.py:159
 #: ../komikku/servers/mangadex/__init__.py:129
 msgid "Fantasy"
-msgstr ""
+msgstr "கற்பனை"
 
 #: ../komikku/servers/comick/__init__.py:160
 msgid "Gender Bender"
-msgstr ""
+msgstr "பாலின பெண்டர்"
 
 #: ../komikku/servers/comick/__init__.py:161
 #: ../komikku/servers/mangadex/__init__.py:131
 msgid "Historical"
-msgstr ""
+msgstr "வரலாற்று"
 
 #: ../komikku/servers/comick/__init__.py:162
 #: ../komikku/servers/mangadex/__init__.py:132
 msgid "Horror"
-msgstr ""
+msgstr "அதிர்ச்சி"
 
 #: ../komikku/servers/comick/__init__.py:163
 #: ../komikku/servers/mangadex/__init__.py:133
 msgid "Isekai"
-msgstr ""
+msgstr "மற்றொரு உலகம்"
 
 #: ../komikku/servers/comick/__init__.py:164
 #: ../komikku/servers/mangadex/__init__.py:134
 msgid "Magical Girls"
-msgstr ""
+msgstr "மந்திர பெண்கள்"
 
 #: ../komikku/servers/comick/__init__.py:165
 msgid "Mature"
-msgstr ""
+msgstr "முதிர்ந்த"
 
 #: ../komikku/servers/comick/__init__.py:166
 #: ../komikku/servers/mangadex/__init__.py:135
 msgid "Mecha"
-msgstr ""
+msgstr "மெச்சா"
 
 #: ../komikku/servers/comick/__init__.py:167
 #: ../komikku/servers/mangadex/__init__.py:136
 msgid "Medical"
-msgstr ""
+msgstr "மருத்துவ"
 
 #: ../komikku/servers/comick/__init__.py:168
 #: ../komikku/servers/mangadex/__init__.py:137
 msgid "Mystery"
-msgstr ""
+msgstr "மர்மம்"
 
 #: ../komikku/servers/comick/__init__.py:169
 #: ../komikku/servers/mangadex/__init__.py:138
 msgid "Philosophical"
-msgstr ""
+msgstr "தத்துவ"
 
 #: ../komikku/servers/comick/__init__.py:170
 msgid "Psychological"
-msgstr ""
+msgstr "உளவியல்"
 
 #: ../komikku/servers/comick/__init__.py:171
 #: ../komikku/servers/mangadex/__init__.py:139
 msgid "Romance"
-msgstr ""
+msgstr "காதல்"
 
 #: ../komikku/servers/comick/__init__.py:172
 #: ../komikku/servers/mangadex/__init__.py:140
 msgid "Sci-Fi"
-msgstr ""
+msgstr "அறிவியல் புனைகதை"
 
 #: ../komikku/servers/comick/__init__.py:173
 msgid "Shoujo Ai"
-msgstr ""
+msgstr "பெண் காதல்"
 
 #: ../komikku/servers/comick/__init__.py:174
 #: ../komikku/servers/mangadex/__init__.py:141
 msgid "Slice of Life"
-msgstr ""
+msgstr "வாழ்க்கையின் துண்டு"
 
 #: ../komikku/servers/comick/__init__.py:175
 #: ../komikku/servers/mangadex/__init__.py:142
 msgid "Sports"
-msgstr ""
+msgstr "விளையாட்டு"
 
 #: ../komikku/servers/comick/__init__.py:176
 #: ../komikku/servers/mangadex/__init__.py:143
 msgid "Superhero"
-msgstr ""
+msgstr "சூப்பர் ஈரோ"
 
 #: ../komikku/servers/comick/__init__.py:177
 #: ../komikku/servers/mangadex/__init__.py:144
 msgid "Thriller"
-msgstr ""
+msgstr "த்ரில்லர்"
 
 #: ../komikku/servers/comick/__init__.py:178
 #: ../komikku/servers/mangadex/__init__.py:145
 msgid "Tragedy"
-msgstr ""
+msgstr "சோகம்"
 
 #: ../komikku/servers/comick/__init__.py:179
 #: ../komikku/servers/mangadex/__init__.py:146
 msgid "Wuxia"
-msgstr ""
+msgstr "w U- ஏவன்"
 
 #: ../komikku/servers/comick/__init__.py:180
 msgid "Yaoi"
-msgstr ""
+msgstr "யாயோய்"
 
 #: ../komikku/servers/comick/__init__.py:181
 msgid "Yuri"
-msgstr ""
+msgstr "யூரி"
 
 #: ../komikku/servers/dynasty/__init__.py:39
 msgid "Categories"
@@ -2019,7 +2019,7 @@ msgstr "வகைகளால் வடிகட்டவும்"
 
 #: ../komikku/servers/dynasty/__init__.py:43
 msgid "Anthologies"
-msgstr ""
+msgstr "தொகுதிகள்"
 
 #: ../komikku/servers/dynasty/__init__.py:44
 msgid "Doujins"
@@ -2067,7 +2067,7 @@ msgstr "பக்கத்தை பிரித்தெடுக்க மு�
 
 #: ../komikku/servers/exceptions.py:26
 msgid "Failed to complete browser challenge. Please try again."
-msgstr ""
+msgstr "உலாவி சவாலை முடிக்கத் தவறிவிட்டது. மீண்டும் முயற்சிக்கவும்."
 
 #: ../komikku/servers/exceptions.py:31
 msgid "No longer exists."
@@ -2102,11 +2102,11 @@ msgstr "தன்வய வெளியீடு"
 
 #: ../komikku/servers/mangadex/__init__.py:125
 msgid "Boys Love"
-msgstr ""
+msgstr "சிறுவர்கள் நேசிக்கிறார்கள்"
 
 #: ../komikku/servers/mangadex/__init__.py:130
 msgid "Girls Love"
-msgstr ""
+msgstr "பெண்கள் நேசிக்கிறார்கள்"
 
 #: ../komikku/servers/mangadex/__init__.py:152
 msgid "Tags Inclusion Mode"
