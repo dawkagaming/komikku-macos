@@ -18,6 +18,8 @@ class Mangalek(Madara):
     logo_url = 'https://io.lekmanga.net/wp-content/uploads/2020/05/cropped-%D9%85%D8%A7%D9%86%D8%AC%D8%A7-%D9%84%D9%8A%D9%83-1-300x114-1-32x32.png'
     chapter_url = base_url + '/manga/{0}/{1}/'
 
+    bypass_cf_url = base_url + '/manga/apotheosis/'
+
     # Mirrors
     # https://lekmanga.org
     # https://lekmanga.com
