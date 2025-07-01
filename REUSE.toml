@@ -71,7 +71,7 @@ path = [
 	".gitignore",
 	".pre-commit-config.yaml",
 	"pylintrc",
-	"setup.cfg",
+	"pyproject.toml",
 ]
 SPDX-FileCopyrightText = "NONE"
 SPDX-License-Identifier = "GPL-3.0-or-later"

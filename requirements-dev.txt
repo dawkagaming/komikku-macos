@@ -3,9 +3,9 @@
 # Author: Valéry Febvre <vfebvre@easter-eggs.com>
 
 flake8
+flake8-pyproject
 flake8-quotes
 pre-commit
-pycodestyle
 pytest
 pytest-steps
 reuse
