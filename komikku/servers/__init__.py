@@ -115,6 +115,29 @@ class Server(BaseServer, ABC):
 
         return dict(slug=slug)
 
+    @property
+    def logo_path(self):
+        path = os.path.join(get_cached_logos_dir(), 'servers', f'{get_server_main_id_by_id(self.id)}.png')
+        if not os.path.exists(path):
+            return None
+
+        return path
+
+    def clear_session(self, all=False):
+        main_id = get_server_main_id_by_id(self.id)
+
+        # Remove session from disk
+        file_path = os.path.join(self.sessions_dir, '{0}.pickle'.format(main_id))
+        if os.path.exists(file_path):
+            os.unlink(file_path)
+
+        if all:
+            for id_ in self._BaseServer__sessions.keys():
+                if id_.startswith(main_id):
+                    del self._BaseServer__sessions[id_]
+        elif self.id in self._BaseServer__sessions:
+            del self._BaseServer__sessions[self.id]
+
     def do_login(self, username=None, password=None):
         if username and password:
             # Username and password are provided only when user defines the credentials in the settings
@@ -138,32 +161,6 @@ class Server(BaseServer, ABC):
                     self.logged_in = self.login(username, password)
         else:
             self.logged_in = True
-
-    def login(self, _username, _password):
-        return False
-
-    @property
-    def logo_path(self):
-        path = os.path.join(get_cached_logos_dir(), 'servers', f'{get_server_main_id_by_id(self.id)}.png')
-        if not os.path.exists(path):
-            return None
-
-        return path
-
-    def clear_session(self, all=False):
-        main_id = get_server_main_id_by_id(self.id)
-
-        # Remove session from disk
-        file_path = os.path.join(self.sessions_dir, '{0}.pickle'.format(main_id))
-        if os.path.exists(file_path):
-            os.unlink(file_path)
-
-        if all:
-            for id_ in self._BaseServer__sessions.keys():
-                if id_.startswith(main_id):
-                    del self._BaseServer__sessions[id_]
-        elif self.id in self._BaseServer__sessions:
-            del self._BaseServer__sessions[self.id]
 
     @abstractmethod
     def get_manga_data(self, initial_data):
@@ -254,6 +251,17 @@ class Server(BaseServer, ABC):
 
         return False
 
+    def is_up(self):
+        if self.id == 'local':
+            return True
+
+        try:
+            requests.get(self.base_url, headers={'User-Agent': USER_AGENT})
+        except Exception:
+            return False
+
+        return True
+
     def load_session(self):
         """ Load ptevious session from disk """
 
@@ -287,6 +295,9 @@ class Server(BaseServer, ABC):
                 return False
 
         return True
+
+    def login(self, _username, _password):
+        return False
 
     def save_logo(self):
         return self.save_image(

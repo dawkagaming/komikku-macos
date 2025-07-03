@@ -121,7 +121,6 @@ class Existentialcomics(Server):
 
             mime_type = image.mime_type
             name = f'{page["name"]}-alt-text.{image.format}'
-            print(name)
             content = image.content
 
         return dict(

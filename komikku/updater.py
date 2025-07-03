@@ -28,6 +28,7 @@ class Updater(GObject.GObject):
     current_id = None
     queue = []
     running = False
+    servers_down = []
     stop_flag = False
     update_at_startup_done = False
     update_library_flag = False
@@ -71,8 +72,19 @@ class Updater(GObject.GObject):
 
                 manga_id, in_batch = self.queue.pop(0)
                 manga = Manga.get(manga_id)
+
                 if manga is None or (not manga.is_local and not self.window.network_available):
                     # Skip manga if not found or if network is not available (except for local which don't require an Internet connection)
+                    continue
+
+                if manga.server_id in self.servers_down:
+                    continue
+
+                if not manga.server.is_up():
+                    self.servers_down.append(manga.server_id)
+                    self.window.add_notification(
+                        _('{0} seems down. Please try updating later').format(manga.server.name)
+                    )
                     continue
 
                 self.current_id = manga_id
@@ -93,6 +105,7 @@ class Updater(GObject.GObject):
 
             self.current_id = None
             self.running = False
+            self.servers_down = []
 
             if not self.update_library_flag and total_successes + total_errors <= 1:
                 # If only one or no comic has been updated, it's not necessary to send end notification
