@@ -65,6 +65,7 @@ komikku/servers/multi/madara/__init__.py
 komikku/servers/multi/mangareader/__init__.py
 komikku/servers/multi/manga_stream/__init__.py
 komikku/servers/phenixscans/__init__.py
+komikku/servers/raijinscan/__init__.py
 komikku/servers/readmanhwa/__init__.py
 komikku/servers/webtoon/__init__.py
 komikku/servers/weebcentral/__init__.py

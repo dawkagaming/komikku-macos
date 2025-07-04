@@ -8,11 +8,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: unnamed project\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-06-13 01:22+0200\n"
+"POT-Creation-Date: 2025-07-04 15:36+0200\n"
 "PO-Revision-Date: 2025-06-15 21:35+0000\n"
 "Last-Translator: Valéry Febvre <vfebvre@easter-eggs.com>\n"
-"Language-Team: French <https://hosted.weblate.org/projects/komikku/main/fr/>"
-"\n"
+"Language-Team: French <https://hosted.weblate.org/projects/komikku/main/fr/"
+">\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -919,30 +919,30 @@ msgstr "Don unique ou mensuel"
 msgid "Webview"
 msgstr "Vue Web"
 
-#: ../komikku/application.py:199
+#: ../komikku/application.py:200
 msgid "Multiple URLs not supported"
 msgstr "Les URL multiples ne sont pas pris en charge"
 
-#: ../komikku/application.py:215
+#: ../komikku/application.py:216
 msgid "Invalid URL {}, not handled by any server."
 msgstr "URL invalide {}, gérée par aucun serveur."
 
-#: ../komikku/application.py:426 ../komikku/card/__init__.py:160
+#: ../komikku/application.py:427 ../komikku/card/__init__.py:160
 #: ../komikku/card/__init__.py:161 ../komikku/categories_editor.py:189
 #: ../komikku/downloader.py:377 ../komikku/downloader.py:378
 #: ../komikku/library/__init__.py:764 ../komikku/library/__init__.py:765
 msgid "Cancel"
 msgstr "Annuler"
 
-#: ../komikku/application.py:501
+#: ../komikku/application.py:502
 msgid "Servers modules have been updated"
 msgstr "Les modules des serveurs ont été mis à jour"
 
-#: ../komikku/application.py:508
+#: ../komikku/application.py:509
 msgid "External Servers Modules Update"
 msgstr "Mise à jour des modules externes des serveurs"
 
-#: ../komikku/application.py:509
+#: ../komikku/application.py:510
 msgid ""
 "Updating of external server modules is temporarily suspended, as changes are "
 "currently making them incompatible with the current version of the "
@@ -953,11 +953,11 @@ msgstr ""
 "actuelle de l'application. Veuillez le mettre à jour si une version plus "
 "récente existe."
 
-#: ../komikku/application.py:512 ../komikku/explorer/common.py:267
+#: ../komikku/application.py:513 ../komikku/explorer/common.py:267
 msgid "Close"
 msgstr "Fermer"
 
-#: ../komikku/application.py:527
+#: ../komikku/application.py:528
 msgid ""
 "A manga, manhwa, manhua, webtoons, webcomics and comics reader for GNOME\n"
 "\n"
@@ -971,39 +971,39 @@ msgstr ""
 "en achetant les BD officielles lorsqu'elles sont\n"
 "disponibles dans votre région / langue."
 
-#: ../komikku/application.py:536
+#: ../komikku/application.py:537
 msgid "Supporters"
 msgstr "Supporteurs"
 
-#: ../komikku/application.py:538
+#: ../komikku/application.py:539
 msgid "Join Chat"
 msgstr "Rejoindre le salon de discussion"
 
-#: ../komikku/application.py:667
+#: ../komikku/application.py:655
 msgid "Are you sure you want to quit?"
 msgstr "Êtes-vous sûr de vouloir quitter ?"
 
-#: ../komikku/application.py:670
+#: ../komikku/application.py:658
 msgid "Some chapters are currently being downloaded."
 msgstr "Certains chapitres sont en cours de téléchargement."
 
-#: ../komikku/application.py:672
+#: ../komikku/application.py:660
 msgid "Some mangas are currently being updated."
 msgstr "Certains mangas sont en cours de mise à jour."
 
-#: ../komikku/application.py:676
+#: ../komikku/application.py:664
 msgid "Quit?"
 msgstr "Quitter ?"
 
-#: ../komikku/application.py:678
+#: ../komikku/application.py:666
 msgid "Quit"
 msgstr "Quitter"
 
-#: ../komikku/application.py:692
+#: ../komikku/application.py:680
 msgid "Restart"
 msgstr "Redémarrer"
 
-#: ../komikku/application.py:692
+#: ../komikku/application.py:680
 msgid "Restart?"
 msgstr "Redémarrer ?"
 
@@ -1017,17 +1017,17 @@ msgstr "Filtres"
 msgid "Unknown"
 msgstr "Inconnu"
 
-#: ../komikku/card/__init__.py:343
+#: ../komikku/card/__init__.py:350
 msgid "Read progress synchronization with server completed successfully"
 msgstr ""
 "Synchronisation de la progression de la lecture avec le serveur terminée "
 "avec succès"
 
-#: ../komikku/card/__init__.py:358
+#: ../komikku/card/__init__.py:356
 msgid "Failed to get manga URL"
 msgstr "Impossible de récupérer l'URL du manga"
 
-#: ../komikku/card/__init__.py:382
+#: ../komikku/card/__init__.py:380
 #, python-brace-format
 msgid ""
 "NOTICE\n"
@@ -1038,27 +1038,27 @@ msgstr ""
 "{0} n'est plus pris en charge.\n"
 "Veuillez basculer vers un autre serveur."
 
-#: ../komikku/card/__init__.py:477 ../komikku/card/chapters_list.py:725
+#: ../komikku/card/__init__.py:473 ../komikku/card/chapters_list.py:728
 msgid "Clear and Reset"
 msgstr "Effacer et réinitialiser"
 
-#: ../komikku/card/__init__.py:477 ../komikku/card/chapters_list.py:725
+#: ../komikku/card/__init__.py:473 ../komikku/card/chapters_list.py:728
 msgid "Reset"
 msgstr "Réinitialiser"
 
-#: ../komikku/card/__init__.py:584
+#: ../komikku/card/__init__.py:580
 msgid "Unknown author"
 msgstr "Auteur inconnu"
 
-#: ../komikku/card/__init__.py:590 ../komikku/card/__init__.py:599
+#: ../komikku/card/__init__.py:586 ../komikku/card/__init__.py:595
 msgid "Unknown status"
 msgstr "Statut inconnu"
 
-#: ../komikku/card/__init__.py:600 ../komikku/explorer/common.py:221
+#: ../komikku/card/__init__.py:596 ../komikku/explorer/common.py:221
 msgid "Local"
 msgstr "Local"
 
-#: ../komikku/card/__init__.py:638 ../komikku/card/chapters_list.py:653
+#: ../komikku/card/__init__.py:634 ../komikku/card/chapters_list.py:656
 msgid "%m/%d/%Y"
 msgstr "%d/%m/%Y"
 
@@ -1070,27 +1070,27 @@ msgid_plural "{0} selected"
 msgstr[0] "{0} sélectionné"
 msgstr[1] "{0} sélectionnés"
 
-#: ../komikku/card/chapters_list.py:415 ../komikku/card/chapters_list.py:514
+#: ../komikku/card/chapters_list.py:418 ../komikku/card/chapters_list.py:517
 msgid "Failed to update chapters reading status"
 msgstr "Échec de la mise à jour de l'état de lecture des chapitres"
 
-#: ../komikku/card/chapters_list.py:711 ../komikku/library/__init__.py:391
+#: ../komikku/card/chapters_list.py:714 ../komikku/library/__init__.py:391
 msgid "Download"
 msgstr "Télécharger"
 
-#: ../komikku/card/chapters_list.py:721 ../komikku/preferences.py:145
+#: ../komikku/card/chapters_list.py:724 ../komikku/preferences.py:145
 msgid "Clear"
 msgstr "Effacer"
 
-#: ../komikku/card/chapters_list.py:735
+#: ../komikku/card/chapters_list.py:738
 msgid "Mark as Read"
 msgstr "Marquer comme lu"
 
-#: ../komikku/card/chapters_list.py:739
+#: ../komikku/card/chapters_list.py:742
 msgid "Mark as Unread"
 msgstr "Marquer comme non lu"
 
-#: ../komikku/card/chapters_list.py:743
+#: ../komikku/card/chapters_list.py:746
 msgid "Mark Previous Chapters as Read"
 msgstr "Marquer les chapitres précédents comme lus"
 
@@ -1114,12 +1114,13 @@ msgstr "Utiliser"
 msgid "Cancel Tracking"
 msgstr "Annuler le suivi"
 
-#: ../komikku/card/tracking.py:225 ../komikku/servers/comick/__init__.py:70
-#: ../komikku/servers/mangadex/__init__.py:72
+#: ../komikku/card/tracking.py:225 ../komikku/servers/comick/__init__.py:76
+#: ../komikku/servers/mangadex/__init__.py:71
 #: ../komikku/servers/mangafire/__init__.py:59
 #: ../komikku/servers/mangamana/__init__.py:62
 #: ../komikku/servers/mangamana/__init__.py:63
 #: ../komikku/servers/mangaworld/__init__.py:74
+#: ../komikku/servers/raijinscan/__init__.py:33
 msgid "Status"
 msgstr "Statut"
 
@@ -1304,7 +1305,7 @@ msgstr "Faire une recherche globale par nom"
 msgid "Search for Comics"
 msgstr "Rechercher des BD"
 
-#: ../komikku/explorer/search/__init__.py:492
+#: ../komikku/explorer/search/__init__.py:490
 msgid "Oops, failed to retrieve manga's information."
 msgstr "Oups, les informations du manga n'ont pas pu être récupérées ."
 
@@ -1410,7 +1411,7 @@ msgstr "Non classés"
 #: ../komikku/servers/mangatube/__init__.py:130
 #: ../komikku/servers/multi/manga_stream/__init__.py:76
 #: ../komikku/servers/phenixscans/__init__.py:40
-#: ../komikku/servers/webtoon/__init__.py:53
+#: ../komikku/servers/webtoon/__init__.py:59
 msgid "All"
 msgstr "Toutes"
 
@@ -1430,30 +1431,31 @@ msgstr "Téléchargement en cours"
 msgid "Download error"
 msgstr "Erreur de téléchargement"
 
-#: ../komikku/models/database/mangas.py:45
+#: ../komikku/models/database/mangas.py:46
 #: ../komikku/servers/mangamana/__init__.py:68
 #: ../komikku/servers/mangaworld/__init__.py:79
 #: ../komikku/servers/weebcentral/__init__.py:53
 msgid "Complete"
 msgstr "Terminé"
 
-#: ../komikku/models/database/mangas.py:46
-#: ../komikku/servers/comick/__init__.py:74
+#: ../komikku/models/database/mangas.py:47
+#: ../komikku/servers/comick/__init__.py:80
 #: ../komikku/servers/flamescans/__init__.py:53
-#: ../komikku/servers/mangadex/__init__.py:76
+#: ../komikku/servers/mangadex/__init__.py:75
 #: ../komikku/servers/mangamana/__init__.py:67
 #: ../komikku/servers/mangaworld/__init__.py:78
+#: ../komikku/servers/raijinscan/__init__.py:37
 #: ../komikku/servers/weebcentral/__init__.py:52
 msgid "Ongoing"
 msgstr "En cours"
 
-#: ../komikku/models/database/mangas.py:47
+#: ../komikku/models/database/mangas.py:48
 #: ../komikku/servers/mangamana/__init__.py:69
 #: ../komikku/servers/mangaworld/__init__.py:80
 msgid "Suspended"
 msgstr "Suspendu"
 
-#: ../komikku/models/database/mangas.py:48
+#: ../komikku/models/database/mangas.py:49
 #: ../komikku/servers/flamescans/__init__.py:55
 #: ../komikku/servers/mangafire/__init__.py:66
 #: ../komikku/servers/mangaworld/__init__.py:81
@@ -1593,7 +1595,8 @@ msgstr "Réessayer"
 #: ../komikku/servers/mangaworld/__init__.py:59
 #: ../komikku/servers/multi/manga_stream/__init__.py:71
 #: ../komikku/servers/phenixscans/__init__.py:35
-#: ../komikku/servers/webtoon/__init__.py:48
+#: ../komikku/servers/raijinscan/__init__.py:44
+#: ../komikku/servers/webtoon/__init__.py:54
 msgid "Type"
 msgstr "Type"
 
@@ -1601,13 +1604,13 @@ msgstr "Type"
 #: ../komikku/servers/mangapill/__init__.py:34
 #: ../komikku/servers/multi/manga_stream/__init__.py:72
 #: ../komikku/servers/phenixscans/__init__.py:36
-#: ../komikku/servers/webtoon/__init__.py:49
+#: ../komikku/servers/webtoon/__init__.py:55
 msgid "Filter by Type"
 msgstr "Filtrer par type"
 
 #: ../komikku/servers/asurascans/__init__.py:42
 #: ../komikku/servers/coloredcouncil/__init__.py:72
-#: ../komikku/servers/comick/__init__.py:87
+#: ../komikku/servers/comick/__init__.py:93
 #: ../komikku/servers/flamescans/__init__.py:41
 #: ../komikku/servers/mangafire/__init__.py:48
 #: ../komikku/servers/mangapill/__init__.py:39
@@ -1615,12 +1618,13 @@ msgstr "Filtrer par type"
 #: ../komikku/servers/mangaworld/__init__.py:63
 #: ../komikku/servers/multi/manga_stream/__init__.py:77
 #: ../komikku/servers/phenixscans/__init__.py:41
+#: ../komikku/servers/raijinscan/__init__.py:48
 #: ../komikku/servers/weebcentral/__init__.py:39
 msgid "Manga"
 msgstr "Manga"
 
 #: ../komikku/servers/asurascans/__init__.py:43
-#: ../komikku/servers/comick/__init__.py:88
+#: ../komikku/servers/comick/__init__.py:94
 #: ../komikku/servers/flamescans/__init__.py:42
 #: ../komikku/servers/mangafire/__init__.py:52
 #: ../komikku/servers/mangapill/__init__.py:43
@@ -1628,12 +1632,13 @@ msgstr "Manga"
 #: ../komikku/servers/mangaworld/__init__.py:65
 #: ../komikku/servers/multi/manga_stream/__init__.py:78
 #: ../komikku/servers/phenixscans/__init__.py:42
+#: ../komikku/servers/raijinscan/__init__.py:49
 #: ../komikku/servers/weebcentral/__init__.py:40
 msgid "Manhwa"
 msgstr "Manhwa"
 
 #: ../komikku/servers/asurascans/__init__.py:44
-#: ../komikku/servers/comick/__init__.py:89
+#: ../komikku/servers/comick/__init__.py:95
 #: ../komikku/servers/flamescans/__init__.py:43
 #: ../komikku/servers/mangafire/__init__.py:53
 #: ../komikku/servers/mangapill/__init__.py:44
@@ -1641,6 +1646,7 @@ msgstr "Manhwa"
 #: ../komikku/servers/mangaworld/__init__.py:64
 #: ../komikku/servers/multi/manga_stream/__init__.py:79
 #: ../komikku/servers/phenixscans/__init__.py:43
+#: ../komikku/servers/raijinscan/__init__.py:50
 #: ../komikku/servers/weebcentral/__init__.py:41
 msgid "Manhua"
 msgstr "Manhua"
@@ -1689,342 +1695,344 @@ msgstr "Couleur"
 msgid "B/W"
 msgstr "N/B"
 
-#: ../komikku/servers/comick/__init__.py:58
-#: ../komikku/servers/mangadex/__init__.py:59
+#: ../komikku/servers/comick/__init__.py:64
+#: ../komikku/servers/mangadex/__init__.py:58
 msgid "Rating"
 msgstr "Classement"
 
-#: ../komikku/servers/comick/__init__.py:59
-#: ../komikku/servers/mangadex/__init__.py:60
+#: ../komikku/servers/comick/__init__.py:65
+#: ../komikku/servers/mangadex/__init__.py:59
 msgid "Filter by Content Ratings"
 msgstr "Filtrer par notation du contenu"
 
-#: ../komikku/servers/comick/__init__.py:62
-#: ../komikku/servers/mangadex/__init__.py:63
+#: ../komikku/servers/comick/__init__.py:68
+#: ../komikku/servers/mangadex/__init__.py:62
 msgid "Safe"
 msgstr "Sûr"
 
-#: ../komikku/servers/comick/__init__.py:63
-#: ../komikku/servers/mangadex/__init__.py:64
+#: ../komikku/servers/comick/__init__.py:69
+#: ../komikku/servers/mangadex/__init__.py:63
 msgid "Suggestive"
 msgstr "Suggestif"
 
-#: ../komikku/servers/comick/__init__.py:64
-#: ../komikku/servers/mangadex/__init__.py:65
+#: ../komikku/servers/comick/__init__.py:70
+#: ../komikku/servers/mangadex/__init__.py:64
 msgid "Erotica"
 msgstr "Érotique"
 
-#: ../komikku/servers/comick/__init__.py:71
+#: ../komikku/servers/comick/__init__.py:77
 #: ../komikku/servers/flamescans/__init__.py:50
-#: ../komikku/servers/mangadex/__init__.py:73
+#: ../komikku/servers/mangadex/__init__.py:72
 #: ../komikku/servers/mangafire/__init__.py:60
 #: ../komikku/servers/mangaworld/__init__.py:75
+#: ../komikku/servers/raijinscan/__init__.py:34
 #: ../komikku/servers/weebcentral/__init__.py:49
 msgid "Filter by Statuses"
 msgstr "Filtrer par statuts"
 
-#: ../komikku/servers/comick/__init__.py:75
+#: ../komikku/servers/comick/__init__.py:81
 #: ../komikku/servers/flamescans/__init__.py:54
-#: ../komikku/servers/mangadex/__init__.py:77
+#: ../komikku/servers/mangadex/__init__.py:76
 #: ../komikku/servers/mangafire/__init__.py:64
+#: ../komikku/servers/raijinscan/__init__.py:38
 #: ../komikku/trackers/__init__.py:35
 msgid "Completed"
 msgstr "Complété"
 
-#: ../komikku/servers/comick/__init__.py:76
+#: ../komikku/servers/comick/__init__.py:82
 #: ../komikku/servers/flamescans/__init__.py:57
-#: ../komikku/servers/mangadex/__init__.py:79
+#: ../komikku/servers/mangadex/__init__.py:78
 #: ../komikku/servers/mangaworld/__init__.py:82
 #: ../komikku/servers/weebcentral/__init__.py:55
 msgid "Canceled"
 msgstr "Annulé"
 
-#: ../komikku/servers/comick/__init__.py:77
-#: ../komikku/servers/mangadex/__init__.py:78
+#: ../komikku/servers/comick/__init__.py:83
+#: ../komikku/servers/mangadex/__init__.py:77
 msgid "Paused"
 msgstr "En pause"
 
-#: ../komikku/servers/comick/__init__.py:83
+#: ../komikku/servers/comick/__init__.py:89
 msgid "Origination"
 msgstr "Origine"
 
-#: ../komikku/servers/comick/__init__.py:84
+#: ../komikku/servers/comick/__init__.py:90
 msgid "[Latest Updates only] Filter by Origination"
 msgstr "[Seulement avec Récents] Filtrer par origine"
 
-#: ../komikku/servers/comick/__init__.py:95
+#: ../komikku/servers/comick/__init__.py:101
 msgid "Countries"
 msgstr "Pays"
 
-#: ../komikku/servers/comick/__init__.py:97
+#: ../komikku/servers/comick/__init__.py:103
 msgid "[Search and Most Popular only] Filter by Country (origination)"
 msgstr "[Seulement avec Populaires et Rechercher] Filtrer par pays (origine)"
 
-#: ../komikku/servers/comick/__init__.py:101
+#: ../komikku/servers/comick/__init__.py:107
 msgid "Japan (Manga)"
 msgstr "Japon (Manga)"
 
-#: ../komikku/servers/comick/__init__.py:102
+#: ../komikku/servers/comick/__init__.py:108
 msgid "Korea (Manhwa)"
 msgstr "Corée (Manhwa)"
 
-#: ../komikku/servers/comick/__init__.py:103
+#: ../komikku/servers/comick/__init__.py:109
 msgid "China (Manhua)"
 msgstr "Chine (Manhua)"
 
-#: ../komikku/servers/comick/__init__.py:109
-#: ../komikku/servers/mangadex/__init__.py:85
+#: ../komikku/servers/comick/__init__.py:115
+#: ../komikku/servers/mangadex/__init__.py:84
 msgid "Publication Demographic"
 msgstr "Publication démographique"
 
-#: ../komikku/servers/comick/__init__.py:110
+#: ../komikku/servers/comick/__init__.py:116
 msgid "Filter by Publication Demographics"
 msgstr "Filtrer par démographies de publication"
 
-#: ../komikku/servers/comick/__init__.py:113
-#: ../komikku/servers/mangadex/__init__.py:89
+#: ../komikku/servers/comick/__init__.py:119
+#: ../komikku/servers/mangadex/__init__.py:88
 msgid "Shounen"
 msgstr "Shounen"
 
-#: ../komikku/servers/comick/__init__.py:114
-#: ../komikku/servers/mangadex/__init__.py:90
+#: ../komikku/servers/comick/__init__.py:120
+#: ../komikku/servers/mangadex/__init__.py:89
 msgid "Shoujo"
 msgstr "Shoujo"
 
-#: ../komikku/servers/comick/__init__.py:115
-#: ../komikku/servers/mangadex/__init__.py:92
+#: ../komikku/servers/comick/__init__.py:121
+#: ../komikku/servers/mangadex/__init__.py:91
 msgid "Seinen"
 msgstr "Seinen"
 
-#: ../komikku/servers/comick/__init__.py:116
-#: ../komikku/servers/mangadex/__init__.py:91
+#: ../komikku/servers/comick/__init__.py:122
+#: ../komikku/servers/mangadex/__init__.py:90
 msgid "Josei"
 msgstr "Josei"
 
-#: ../komikku/servers/comick/__init__.py:117
+#: ../komikku/servers/comick/__init__.py:123
 msgid "None"
 msgstr "Aucun(e)"
 
-#: ../komikku/servers/comick/__init__.py:123
-#: ../komikku/servers/mangadex/__init__.py:98
+#: ../komikku/servers/comick/__init__.py:129
+#: ../komikku/servers/mangadex/__init__.py:97
 msgid "Tags"
 msgstr "Étiquettes"
 
-#: ../komikku/servers/comick/__init__.py:124
-#: ../komikku/servers/mangadex/__init__.py:99
+#: ../komikku/servers/comick/__init__.py:130
+#: ../komikku/servers/mangadex/__init__.py:98
 msgid "Filter by Formats"
 msgstr "Filtrer par formats"
 
-#: ../komikku/servers/comick/__init__.py:127
-#: ../komikku/servers/mangadex/__init__.py:102
+#: ../komikku/servers/comick/__init__.py:133
+#: ../komikku/servers/mangadex/__init__.py:101
 msgid "4-Koma"
 msgstr "4-Koma"
 
-#: ../komikku/servers/comick/__init__.py:128
-#: ../komikku/servers/mangadex/__init__.py:103
+#: ../komikku/servers/comick/__init__.py:134
+#: ../komikku/servers/mangadex/__init__.py:102
 msgid "Adaptation"
 msgstr "Adaptation"
 
-#: ../komikku/servers/comick/__init__.py:129
-#: ../komikku/servers/mangadex/__init__.py:104
+#: ../komikku/servers/comick/__init__.py:135
+#: ../komikku/servers/mangadex/__init__.py:103
 msgid "Anthology"
 msgstr "Anthologie"
 
-#: ../komikku/servers/comick/__init__.py:130
-#: ../komikku/servers/mangadex/__init__.py:105
+#: ../komikku/servers/comick/__init__.py:136
+#: ../komikku/servers/mangadex/__init__.py:104
 msgid "Award Winning"
 msgstr "Récompensé par un prix"
 
-#: ../komikku/servers/comick/__init__.py:131
-#: ../komikku/servers/mangadex/__init__.py:106
+#: ../komikku/servers/comick/__init__.py:137
+#: ../komikku/servers/mangadex/__init__.py:105
 #: ../komikku/servers/mangafire/__init__.py:50
 #: ../komikku/servers/mangapill/__init__.py:42
 msgid "Doujinshi"
 msgstr "Doujinshi"
 
-#: ../komikku/servers/comick/__init__.py:132
-#: ../komikku/servers/mangadex/__init__.py:107
+#: ../komikku/servers/comick/__init__.py:138
+#: ../komikku/servers/mangadex/__init__.py:106
 msgid "Fan Colored"
 msgstr "Coloré par un fan"
 
-#: ../komikku/servers/comick/__init__.py:133
-#: ../komikku/servers/mangadex/__init__.py:108
+#: ../komikku/servers/comick/__init__.py:139
+#: ../komikku/servers/mangadex/__init__.py:107
 msgid "Full Color"
 msgstr "Entièrement colorisé"
 
-#: ../komikku/servers/comick/__init__.py:134
-#: ../komikku/servers/mangadex/__init__.py:109
+#: ../komikku/servers/comick/__init__.py:140
+#: ../komikku/servers/mangadex/__init__.py:108
 msgid "Long Strip"
 msgstr "Long Strip"
 
-#: ../komikku/servers/comick/__init__.py:137
-#: ../komikku/servers/mangadex/__init__.py:110
+#: ../komikku/servers/comick/__init__.py:143
+#: ../komikku/servers/mangadex/__init__.py:109
 msgid "Official Colored"
 msgstr "Coloration officielle"
 
-#: ../komikku/servers/comick/__init__.py:140
-#: ../komikku/servers/mangadex/__init__.py:111
+#: ../komikku/servers/comick/__init__.py:146
+#: ../komikku/servers/mangadex/__init__.py:110
 msgid "Oneshot"
 msgstr "Oneshot"
 
-#: ../komikku/servers/comick/__init__.py:141
+#: ../komikku/servers/comick/__init__.py:147
 msgid "User Created"
 msgstr "Crée par un utilisateur"
 
-#: ../komikku/servers/comick/__init__.py:142
-#: ../komikku/servers/mangadex/__init__.py:113
+#: ../komikku/servers/comick/__init__.py:148
+#: ../komikku/servers/mangadex/__init__.py:112
 msgid "Web Comic"
 msgstr "Web Comic"
 
-#: ../komikku/servers/comick/__init__.py:148
-#: ../komikku/servers/mangadex/__init__.py:119
+#: ../komikku/servers/comick/__init__.py:154
+#: ../komikku/servers/mangadex/__init__.py:118
 msgid "Genres"
 msgstr "Genres"
 
-#: ../komikku/servers/comick/__init__.py:149
-#: ../komikku/servers/mangadex/__init__.py:120
+#: ../komikku/servers/comick/__init__.py:155
+#: ../komikku/servers/mangadex/__init__.py:119
 msgid "Filter by Genres"
 msgstr "Filtrer par genres"
 
-#: ../komikku/servers/comick/__init__.py:152
-#: ../komikku/servers/mangadex/__init__.py:123
+#: ../komikku/servers/comick/__init__.py:158
+#: ../komikku/servers/mangadex/__init__.py:122
 msgid "Action"
 msgstr "Action"
 
-#: ../komikku/servers/comick/__init__.py:153
+#: ../komikku/servers/comick/__init__.py:159
 msgid "Adult"
 msgstr "Adulte"
 
-#: ../komikku/servers/comick/__init__.py:154
-#: ../komikku/servers/mangadex/__init__.py:124
+#: ../komikku/servers/comick/__init__.py:160
+#: ../komikku/servers/mangadex/__init__.py:123
 msgid "Adventure"
 msgstr "Aventure"
 
-#: ../komikku/servers/comick/__init__.py:155
-#: ../komikku/servers/mangadex/__init__.py:126
+#: ../komikku/servers/comick/__init__.py:161
+#: ../komikku/servers/mangadex/__init__.py:125
 msgid "Comedy"
 msgstr "Comédie"
 
-#: ../komikku/servers/comick/__init__.py:156
-#: ../komikku/servers/mangadex/__init__.py:127
+#: ../komikku/servers/comick/__init__.py:162
+#: ../komikku/servers/mangadex/__init__.py:126
 msgid "Crime"
 msgstr "Crime"
 
-#: ../komikku/servers/comick/__init__.py:157
-#: ../komikku/servers/mangadex/__init__.py:128
+#: ../komikku/servers/comick/__init__.py:163
+#: ../komikku/servers/mangadex/__init__.py:127
 msgid "Drama"
 msgstr "Drame"
 
-#: ../komikku/servers/comick/__init__.py:158
+#: ../komikku/servers/comick/__init__.py:164
 msgid "Ecchi"
 msgstr "Ecchi"
 
-#: ../komikku/servers/comick/__init__.py:159
-#: ../komikku/servers/mangadex/__init__.py:129
+#: ../komikku/servers/comick/__init__.py:165
+#: ../komikku/servers/mangadex/__init__.py:128
 msgid "Fantasy"
 msgstr "Fantaisie"
 
-#: ../komikku/servers/comick/__init__.py:160
+#: ../komikku/servers/comick/__init__.py:166
 msgid "Gender Bender"
 msgstr "Genderfuck"
 
-#: ../komikku/servers/comick/__init__.py:161
-#: ../komikku/servers/mangadex/__init__.py:131
+#: ../komikku/servers/comick/__init__.py:167
+#: ../komikku/servers/mangadex/__init__.py:130
 msgid "Historical"
 msgstr "Historique"
 
-#: ../komikku/servers/comick/__init__.py:162
-#: ../komikku/servers/mangadex/__init__.py:132
+#: ../komikku/servers/comick/__init__.py:168
+#: ../komikku/servers/mangadex/__init__.py:131
 msgid "Horror"
 msgstr "Horreur"
 
-#: ../komikku/servers/comick/__init__.py:163
-#: ../komikku/servers/mangadex/__init__.py:133
+#: ../komikku/servers/comick/__init__.py:169
+#: ../komikku/servers/mangadex/__init__.py:132
 msgid "Isekai"
 msgstr "Isekai"
 
-#: ../komikku/servers/comick/__init__.py:164
-#: ../komikku/servers/mangadex/__init__.py:134
+#: ../komikku/servers/comick/__init__.py:170
+#: ../komikku/servers/mangadex/__init__.py:133
 msgid "Magical Girls"
 msgstr "Magical girls"
 
-#: ../komikku/servers/comick/__init__.py:165
+#: ../komikku/servers/comick/__init__.py:171
 msgid "Mature"
 msgstr "Mature"
 
-#: ../komikku/servers/comick/__init__.py:166
-#: ../komikku/servers/mangadex/__init__.py:135
+#: ../komikku/servers/comick/__init__.py:172
+#: ../komikku/servers/mangadex/__init__.py:134
 msgid "Mecha"
 msgstr "Mecha"
 
-#: ../komikku/servers/comick/__init__.py:167
-#: ../komikku/servers/mangadex/__init__.py:136
+#: ../komikku/servers/comick/__init__.py:173
+#: ../komikku/servers/mangadex/__init__.py:135
 msgid "Medical"
 msgstr "Médical"
 
-#: ../komikku/servers/comick/__init__.py:168
-#: ../komikku/servers/mangadex/__init__.py:137
+#: ../komikku/servers/comick/__init__.py:174
+#: ../komikku/servers/mangadex/__init__.py:136
 msgid "Mystery"
 msgstr "Mystère"
 
-#: ../komikku/servers/comick/__init__.py:169
-#: ../komikku/servers/mangadex/__init__.py:138
+#: ../komikku/servers/comick/__init__.py:175
+#: ../komikku/servers/mangadex/__init__.py:137
 msgid "Philosophical"
 msgstr "Philosophique"
 
-#: ../komikku/servers/comick/__init__.py:170
+#: ../komikku/servers/comick/__init__.py:176
 msgid "Psychological"
 msgstr "Psychologique"
 
-#: ../komikku/servers/comick/__init__.py:171
-#: ../komikku/servers/mangadex/__init__.py:139
+#: ../komikku/servers/comick/__init__.py:177
+#: ../komikku/servers/mangadex/__init__.py:138
 msgid "Romance"
 msgstr "Romance"
 
-#: ../komikku/servers/comick/__init__.py:172
-#: ../komikku/servers/mangadex/__init__.py:140
+#: ../komikku/servers/comick/__init__.py:178
+#: ../komikku/servers/mangadex/__init__.py:139
 msgid "Sci-Fi"
 msgstr "Sci-Fi"
 
-#: ../komikku/servers/comick/__init__.py:173
+#: ../komikku/servers/comick/__init__.py:179
 msgid "Shoujo Ai"
 msgstr "Shoujo Ai"
 
-#: ../komikku/servers/comick/__init__.py:174
-#: ../komikku/servers/mangadex/__init__.py:141
+#: ../komikku/servers/comick/__init__.py:180
+#: ../komikku/servers/mangadex/__init__.py:140
 msgid "Slice of Life"
 msgstr "Tranche de vie"
 
-#: ../komikku/servers/comick/__init__.py:175
-#: ../komikku/servers/mangadex/__init__.py:142
+#: ../komikku/servers/comick/__init__.py:181
+#: ../komikku/servers/mangadex/__init__.py:141
 msgid "Sports"
 msgstr "Sports"
 
-#: ../komikku/servers/comick/__init__.py:176
-#: ../komikku/servers/mangadex/__init__.py:143
+#: ../komikku/servers/comick/__init__.py:182
+#: ../komikku/servers/mangadex/__init__.py:142
 msgid "Superhero"
 msgstr "Super-héros"
 
-#: ../komikku/servers/comick/__init__.py:177
-#: ../komikku/servers/mangadex/__init__.py:144
+#: ../komikku/servers/comick/__init__.py:183
+#: ../komikku/servers/mangadex/__init__.py:143
 msgid "Thriller"
 msgstr "Thriller"
 
-#: ../komikku/servers/comick/__init__.py:178
-#: ../komikku/servers/mangadex/__init__.py:145
+#: ../komikku/servers/comick/__init__.py:184
+#: ../komikku/servers/mangadex/__init__.py:144
 msgid "Tragedy"
 msgstr "Tragédie"
 
-#: ../komikku/servers/comick/__init__.py:179
-#: ../komikku/servers/mangadex/__init__.py:146
+#: ../komikku/servers/comick/__init__.py:185
+#: ../komikku/servers/mangadex/__init__.py:145
 msgid "Wuxia"
 msgstr "Wuxia"
 
-#: ../komikku/servers/comick/__init__.py:180
+#: ../komikku/servers/comick/__init__.py:186
 msgid "Yaoi"
 msgstr "Yaoi"
 
-#: ../komikku/servers/comick/__init__.py:181
+#: ../komikku/servers/comick/__init__.py:187
 msgid "Yuri"
 msgstr "Yuri"
 
@@ -2036,6 +2044,7 @@ msgstr "Catégories"
 #: ../komikku/servers/flamescans/__init__.py:38
 #: ../komikku/servers/mangafire/__init__.py:45
 #: ../komikku/servers/mangaworld/__init__.py:60
+#: ../komikku/servers/raijinscan/__init__.py:45
 #: ../komikku/servers/weebcentral/__init__.py:36
 msgid "Filter by Types"
 msgstr "Filtrer par types"
@@ -2112,41 +2121,41 @@ msgstr "Statuts"
 msgid "Dropped"
 msgstr "Abandonné"
 
-#: ../komikku/servers/mangadex/__init__.py:66
+#: ../komikku/servers/mangadex/__init__.py:65
 msgid "Pornographic"
 msgstr "Pornographique"
 
-#: ../komikku/servers/mangadex/__init__.py:86
+#: ../komikku/servers/mangadex/__init__.py:85
 msgid "Filter by publication demographics"
 msgstr "Filtrer par publications démographiques"
 
-#: ../komikku/servers/mangadex/__init__.py:112
+#: ../komikku/servers/mangadex/__init__.py:111
 msgid "Self-Published"
 msgstr "Auto-publié"
 
-#: ../komikku/servers/mangadex/__init__.py:125
+#: ../komikku/servers/mangadex/__init__.py:124
 msgid "Boys Love"
 msgstr "Boys love"
 
-#: ../komikku/servers/mangadex/__init__.py:130
+#: ../komikku/servers/mangadex/__init__.py:129
 msgid "Girls Love"
 msgstr "Girls love"
 
-#: ../komikku/servers/mangadex/__init__.py:152
+#: ../komikku/servers/mangadex/__init__.py:151
 msgid "Tags Inclusion Mode"
 msgstr "Mode d'inclusion des étiquettes"
 
-#: ../komikku/servers/mangadex/__init__.py:153
+#: ../komikku/servers/mangadex/__init__.py:152
 msgid "Include manga that match <b>all</b> tags (AND) or <b>any</b> tag (OR)"
 msgstr ""
 "Inclure les mangas qui correspondent à <b>toutes</b> les étiquettes (ET) ou "
 "à <b>n'importe quelle<b> étiquette (OU)"
 
-#: ../komikku/servers/mangadex/__init__.py:157
+#: ../komikku/servers/mangadex/__init__.py:156
 msgid "AND"
 msgstr "ET"
 
-#: ../komikku/servers/mangadex/__init__.py:158
+#: ../komikku/servers/mangadex/__init__.py:157
 msgid "OR"
 msgstr "OU"
 
@@ -2223,11 +2232,11 @@ msgstr "Afficher ou non les mangas avec du contenu NSFW"
 msgid "Not available in {0} language"
 msgstr "Non disponible dans la langue {0}"
 
-#: ../komikku/servers/webtoon/__init__.py:54
+#: ../komikku/servers/webtoon/__init__.py:60
 msgid "Originals"
 msgstr "Originals"
 
-#: ../komikku/servers/webtoon/__init__.py:55
+#: ../komikku/servers/webtoon/__init__.py:61
 msgid "Canvas"
 msgstr "Canvas"
 
@@ -2247,52 +2256,57 @@ msgstr "Projet de lecture"
 msgid "Rereading"
 msgstr "Relecture"
 
-#: ../komikku/updater.py:106
+#: ../komikku/updater.py:86
+#, python-brace-format
+msgid "{0} seems down. Please try updating later"
+msgstr ""
+
+#: ../komikku/updater.py:118
 msgid "Library update completed with errors"
 msgstr "Mise à jour de la bibliothèque terminée avec des erreurs"
 
-#: ../komikku/updater.py:108
+#: ../komikku/updater.py:120
 msgid "Library update completed"
 msgstr "Mise à jour de la bibliothèque terminée"
 
-#: ../komikku/updater.py:111
+#: ../komikku/updater.py:123
 msgid "Update completed with errors"
 msgstr "Mise à jour terminée avec des erreurs"
 
-#: ../komikku/updater.py:113
+#: ../komikku/updater.py:125
 msgid "Update completed"
 msgstr "Mise à jour terminée"
 
-#: ../komikku/updater.py:117
+#: ../komikku/updater.py:129
 #, python-brace-format
 msgid "{0} successful update"
 msgid_plural "{0} successful updates"
 msgstr[0] "{0} mise à jour réussie"
 msgstr[1] "{0} mises à jour réussies"
 
-#: ../komikku/updater.py:118 ../komikku/updater.py:134
+#: ../komikku/updater.py:130 ../komikku/updater.py:146
 #, python-brace-format
 msgid "{0} new chapter"
 msgid_plural "{0} new chapters"
 msgstr[0] "{0} nouveau chapitre"
 msgstr[1] "{0} nouveaux chapitres"
 
-#: ../komikku/updater.py:120 ../komikku/updater.py:142
+#: ../komikku/updater.py:132 ../komikku/updater.py:154
 msgid "No new chapters"
 msgstr "Pas de nouveaux chapitres"
 
-#: ../komikku/updater.py:123
+#: ../komikku/updater.py:135
 #, python-brace-format
 msgid "{0} update failed"
 msgid_plural "{0} updates failed"
 msgstr[0] "{0} mise à jour a échoué"
 msgstr[1] "{0} mises à jour ont échoué"
 
-#: ../komikku/updater.py:160
+#: ../komikku/updater.py:173
 msgid "Oops, update has failed. Please try again."
 msgstr "Oups, la mise à jour a échoué. Veuillez réessayer."
 
-#: ../komikku/updater.py:169
+#: ../komikku/updater.py:182
 msgid "Library update started"
 msgstr "Mise à jour de la bibliothèque démarrée"
 
