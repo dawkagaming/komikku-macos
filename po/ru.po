@@ -2251,7 +2251,7 @@ msgstr "Перечитывание"
 #: ../komikku/updater.py:86
 #, python-brace-format
 msgid "{0} seems down. Please try updating later"
-msgstr "{0}, похоже, не работает. Попробуйте обновить позже."
+msgstr "{0}, похоже, не работает. Попробуйте обновить позже"
 
 #: ../komikku/updater.py:118
 msgid "Library update completed with errors"
