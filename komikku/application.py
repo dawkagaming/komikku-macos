@@ -125,6 +125,8 @@ CREDITS = dict(
         'dedocc (Italian)',
         'Davide Mora (Italian)',
         'Andrea Scarano (Italian)',
+        'pasquale ruotolo (Italian)',
+        'Velyvis (Lithuanian)',
         'Lili Kurek (Polish)',
         'Aleksander Warzyniak (Polish)',
         'ssantos (Portuguese)',
@@ -541,15 +543,18 @@ available in your region/language."""))
         # Override release notes
         dialog.set_release_notes("""
             <ul>
-                <li>[Card] Pool-to-Update: Improved spinner visibility</li>
-                <li>[Servers] Added ComicK (comick.io)</li>
-                <li>[Servers] Added Raijin Scan (FR)</li>
-                <li>[Servers] Pepper &amp; Carrot: Update</li>
-                <li>[Servers] Phenix Scans (FR): Update</li>
+                <li>[Card] Improved interface refresh after an update</li>
+                <li>[Updater] Added detection of downed servers (avoids unnecessary manga updates)</li>
+                <li>[Servers] ComicK: Fixed covers in search results</li>
                 <li>[Servers] Mangalek (AR): Update</li>
+                <li>[Servers] NHentai (EN/JA/ZH): Update</li>
+                <li>[Servers] Perf Scan (FR): Update</li>
+                <li>[Servers] Rawkuma (JA): Update</li>
+                <li>[Servers] Terco Scans (EN): Update</li>
                 <li>[Servers] Tres Daos (ES): Update</li>
-                <li>[Servers] WEBTOON (EN/ES/FR/ID/TH/ZH): Update</li>
-                <li>[L10n] Updated French and Persian translations</li>
+                <li>[Servers] WEBTOON: Update</li>
+                <li>[L10n] Added Lithuanian translation</li>
+                <li>[L10n] Updated French, Italian, Russian, Tamil and Ukrainian translations</li>
             </ul>
             <p>Happy reading.</p>
         """)

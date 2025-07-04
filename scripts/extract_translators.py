@@ -26,6 +26,7 @@ LANGUAGES = {
     'hr': 'Croatian',
     'id': 'Indonesian',
     'it': 'Italian',
+    'lt': 'Lithuanian',
     'pl': 'Polish',
     'pt': 'Portuguese',
     'ru': 'Russian',
