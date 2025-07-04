@@ -64,10 +64,11 @@ If you'd like to help translating **Komikku** into your language, please head ov
 [![Translation status](https://hosted.weblate.org/widget/komikku/multi-auto.svg)](https://hosted.weblate.org/engage/komikku/)
 
 ### Code of Conduct
+
 We follow the [GNOME Code of Conduct](https://conduct.gnome.org/).
 All communications in project spaces are expected to follow it.
 
-## ❤️ Sponsor this project
+## 💖 Sponsor this project
 
 **Komikku** is a `Free software`. If you like it and would like to support and fund it, you may donate through one of the plateform below. Any amount will be greatly appreciated 🤩.
 
@@ -76,6 +77,12 @@ All communications in project spaces are expected to follow it.
 |Ko-fi|[![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/X8X06EM3L)|One-time or monthly donation|
 |Liberapay|[![lp Donate](https://liberapay.com/assets/widgets/donate.svg)](https://liberapay.com/valos/donate)|Weekly/monthly/yearly donation|
 |PayPal|[![PayPal](https://www.paypalobjects.com/en_US/i/btn/btn_donate_LG.gif)](https://www.paypal.com/donate?business=GSRGEQ78V97PU&no_recurring=0&item_name=You+can+help+me+to+keep+developing+apps+through+donations.&currency_code=EUR)|One-time donation|
+
+Can't sponsor right now? No problem — you can still help a lot by:
+- ⭐ Starring this repository
+- 🐛 Giving feedback or reporting issues
+- 💡 Suggesting new features or new servers
+- 🔄 Sharing on social media
 
 ## 💡 About the name
 
