@@ -721,19 +721,19 @@ msgstr "Dados não gravados na biblioteca"
 
 #: ../data/ui/preferences.blp:329
 msgid "Clear Chapters Cache and Database"
-msgstr "Limpar  cache de capítulos e banco de dados"
+msgstr "Limpar cache de capítulos e banco de dados"
 
 #: ../data/ui/preferences.blp:334
 msgid "Clear Chapters Cache and Database on Exit"
-msgstr ""
+msgstr "Limpar cache de capítulos e banco de dados ao sair"
 
 #: ../data/ui/preferences.blp:339
 msgid "Servers Modules"
-msgstr ""
+msgstr "Módulos de servidor"
 
 #: ../data/ui/preferences.blp:342
 msgid "Use Up-to-date Servers Modules"
-msgstr ""
+msgstr "Use módulos de servidores atualizados"
 
 #: ../data/ui/preferences.blp:343
 msgid ""
@@ -741,10 +741,13 @@ msgid ""
 "code repository and updated at each startup, is used instead of the one "
 "delivered with the application."
 msgstr ""
+"Uma versão alternativa dos módulos dos servidores instalada a partir do "
+"repositório de código-fonte e atualizada a cada inicialização, é usada em "
+"vez daquela entregue com o aplicativo."
 
 #: ../data/ui/preferences.blp:348
 msgid "Credentials Storage"
-msgstr ""
+msgstr "Armazenamento de credenciais"
 
 #: ../data/ui/preferences.blp:351
 msgid "Allow Plaintext Storage as Fallback"
@@ -776,6 +779,10 @@ msgid ""
 "environment and therefore cannot disable animations globally via GNOME "
 "Settings (Accessibility ⇨ Seeing ⇨ Animation Effects)."
 msgstr ""
+"Este ajuste é destinado apenas a usuários que não utilizam o ambiente de "
+"área de trabalho GNOME e, portanto, não podem desabilitar animações "
+"globalmente por meio das Configurações do GNOME (Acessibilidade ⇨ "
+"Visualização ⇨ Efeitos de animação)."
 
 #: ../data/ui/reader.blp:23
 msgid "Back"
@@ -828,7 +835,7 @@ msgstr "Pesquisa"
 #: ../data/ui/shortcuts_overview.blp:52
 msgctxt "Shortcut window description"
 msgid "Update"
-msgstr ""
+msgstr "Atualize"
 
 #: ../data/ui/shortcuts_overview.blp:58
 msgctxt "Shortcut window description"
@@ -926,11 +933,11 @@ msgstr "Cancelar"
 
 #: ../komikku/application.py:502
 msgid "Servers modules have been updated"
-msgstr ""
+msgstr "Módulos de servidor foram atualizados"
 
 #: ../komikku/application.py:509
 msgid "External Servers Modules Update"
-msgstr ""
+msgstr "Módulos externos do servidor foram atualizados"
 
 #: ../komikku/application.py:510
 msgid ""
@@ -938,10 +945,13 @@ msgid ""
 "currently making them incompatible with the current version of the "
 "application. Please update it if a more recent version exists."
 msgstr ""
+"A atualização dos módulos do servidor externo está temporariamente suspensa, "
+"pois as alterações estão tornando-os incompatíveis com a versão atual do "
+"aplicativo. Atualize-o se houver uma versão mais recente."
 
 #: ../komikku/application.py:513 ../komikku/explorer/common.py:267
 msgid "Close"
-msgstr ""
+msgstr "Feche"
 
 #: ../komikku/application.py:528
 msgid ""
@@ -960,7 +970,7 @@ msgstr ""
 
 #: ../komikku/application.py:537
 msgid "Supporters"
-msgstr ""
+msgstr "Apoiadores"
 
 #: ../komikku/application.py:539
 msgid "Join Chat"
@@ -988,21 +998,21 @@ msgstr "Sair"
 
 #: ../komikku/application.py:680
 msgid "Restart"
-msgstr ""
+msgstr "Reinicie"
 
 #: ../komikku/application.py:680
 msgid "Restart?"
-msgstr ""
+msgstr "Reiniciar?"
 
 #: ../komikku/card/__init__.py:112 ../komikku/card/__init__.py:241
 #: ../komikku/explorer/search/__init__.py:75
 #: ../komikku/explorer/search/__init__.py:220
 msgid "Filters"
-msgstr ""
+msgstr "Filtros"
 
 #: ../komikku/card/__init__.py:250
 msgid "Unknown"
-msgstr ""
+msgstr "Desconhecido"
 
 #: ../komikku/card/__init__.py:350
 msgid "Read progress synchronization with server completed successfully"
@@ -1020,6 +1030,9 @@ msgid ""
 "{0} is no longer supported.\n"
 "Please switch to another server."
 msgstr ""
+"AVISO\n"
+"{0} não é mais suportado.\n"
+"Mude para outro servidor."
 
 #: ../komikku/card/__init__.py:473 ../komikku/card/chapters_list.py:728
 msgid "Clear and Reset"
@@ -1079,23 +1092,23 @@ msgstr "Marcar capítulos anteriores como lidos"
 
 #: ../komikku/card/tracking.py:71
 msgid "Failed to get data from tracker"
-msgstr ""
+msgstr "Falha ao obter dados do fornecedor"
 
 #: ../komikku/card/tracking.py:99
 msgid "No tracking services available"
-msgstr ""
+msgstr "Sem fornecedores disponiveis"
 
 #: ../komikku/card/tracking.py:185
 msgid "Track"
-msgstr ""
+msgstr "Acompanhar"
 
 #: ../komikku/card/tracking.py:211
 msgid "Use"
-msgstr ""
+msgstr "Usar"
 
 #: ../komikku/card/tracking.py:219
 msgid "Cancel Tracking"
-msgstr ""
+msgstr "Cancelar rastreamento"
 
 #: ../komikku/card/tracking.py:225 ../komikku/servers/comick/__init__.py:76
 #: ../komikku/servers/mangadex/__init__.py:71
@@ -1109,11 +1122,11 @@ msgstr "Estado"
 
 #: ../komikku/card/tracking.py:234
 msgid "Score"
-msgstr ""
+msgstr "Pontuação"
 
 #: ../komikku/card/tracking.py:239
 msgid "Chapter"
-msgstr ""
+msgstr "Capítulo"
 
 #: ../komikku/card/tracking.py:251 ../komikku/categories_editor.py:78
 #: ../komikku/library/__init__.py:365
@@ -1122,7 +1135,7 @@ msgstr "Apagar?"
 
 #: ../komikku/card/tracking.py:252
 msgid "Are you sure you want to cancel tracking?"
-msgstr ""
+msgstr "Tem certeza de que deseja cancelar o rastreamento?"
 
 #: ../komikku/card/tracking.py:253 ../komikku/categories_editor.py:80
 #: ../komikku/categories_editor.py:178 ../komikku/library/__init__.py:367
@@ -1166,7 +1179,7 @@ msgstr "Gravar"
 #: ../komikku/downloader.py:234
 #, python-brace-format
 msgid "Download failure: {0}"
-msgstr ""
+msgstr "Falha no download: {0}"
 
 #: ../komikku/downloader.py:245
 #, python-brace-format
@@ -1239,7 +1252,7 @@ msgstr ""
 
 #: ../komikku/explorer/common.py:267
 msgid "Local Folder"
-msgstr ""
+msgstr "Pasta local"
 
 #: ../komikku/explorer/common.py:273
 msgid "Open local folder"
@@ -1251,7 +1264,7 @@ msgstr "Alternar o estado de fixado"
 
 #: ../komikku/explorer/search/__init__.py:283
 msgid "Search was cancelled"
-msgstr ""
+msgstr "A pesquisa foi cancelada"
 
 #: ../komikku/explorer/search/__init__.py:290
 msgid "Oops, server website URL is unknown."
@@ -1285,7 +1298,7 @@ msgstr "Pesquisar globalmente pelo nome"
 
 #: ../komikku/explorer/search/__init__.py:416
 msgid "Search for Comics"
-msgstr ""
+msgstr "Procure por quadrinhos"
 
 #: ../komikku/explorer/search/__init__.py:490
 msgid "Oops, failed to retrieve manga's information."
@@ -1316,7 +1329,7 @@ msgstr "Não foi encontrado o Mais Popular"
 
 #: ../komikku/explorer/search/search_global.py:165
 msgid "Search cancelled"
-msgstr ""
+msgstr "Pesquisa cancelada"
 
 #: ../komikku/explorer/search/search_global.py:173
 msgid "No results"
@@ -1378,7 +1391,7 @@ msgstr "Falha ao atualizar o estado de leitura"
 
 #: ../komikku/library/__init__.py:769
 msgid "Add New Comic"
-msgstr ""
+msgstr "Adicionar novo quadrinho"
 
 #: ../komikku/library/__init__.py:802 ../komikku/library/categories_list.py:145
 msgid "Uncategorized"
