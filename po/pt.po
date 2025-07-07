@@ -135,8 +135,8 @@ msgstr "@description@"
 #: ../data/info.febvre.Komikku.desktop.in:13
 msgid "manga;reader;viewer;comic;manhwa;manhua;bd;webtoon;webcomic;scan;offline;GTK;GNOME;"
 msgstr ""
-"manga;leitor;vizualizador;quadrinho,manhwa;manhua,bd,webtoon,webcomic,scanear;"
-"sem internet;GTK;GNOME"
+"manga;leitor;vizualizador;quadrinho,manhwa;manhua,bd,webtoon,webcomic,scanear"
+";sem-internet;GTK;GNOME"
 
 #: ../data/ui/card.blp:47 ../data/ui/card.blp:411
 #: ../data/ui/card_chapters_list_row.blp:48 ../data/ui/download_manager.blp:26
@@ -179,7 +179,7 @@ msgstr "Novo"
 
 #: ../data/ui/card_tracking.blp:9
 msgid "Tracking"
-msgstr ""
+msgstr "monitorando"
 
 #: ../data/ui/card_tracking_search.blp:10 ../data/ui/explorer_search.blp:10
 #: ../data/ui/explorer_search.blp:43 ../data/ui/history.blp:22
@@ -189,7 +189,7 @@ msgstr "Pesquisar"
 
 #: ../data/ui/card_tracking_search.blp:75
 msgid "Search for Tracking"
-msgstr ""
+msgstr "buscar acompanhamento"
 
 #: ../data/ui/categories_editor.blp:36
 msgid "Add"
@@ -245,7 +245,7 @@ msgstr "Histórico"
 
 #: ../data/ui/history.blp:71
 msgid "No History"
-msgstr ""
+msgstr "sem histórico"
 
 #: ../data/ui/library.blp:10 ../data/ui/preferences.blp:73
 msgid "Library"
@@ -253,7 +253,7 @@ msgstr "Biblioteca"
 
 #: ../data/ui/library.blp:23
 msgid "Toggle Categories Sidebar"
-msgstr ""
+msgstr "alterar barra lateral de categorias"
 
 #: ../data/ui/library.blp:34
 msgid "Main Menu"
@@ -411,11 +411,11 @@ msgstr "Ativa automaticamente tema escuro à noite"
 
 #: ../data/ui/preferences.blp:36
 msgid "Accent Color"
-msgstr ""
+msgstr "cor de destaque"
 
 #: ../data/ui/preferences.blp:37
 msgid "Use system accent colors"
-msgstr ""
+msgstr "Usar cor de destaque do sistema"
 
 #: ../data/ui/preferences.blp:41
 msgid "Backdrop in Details Page"
@@ -423,15 +423,15 @@ msgstr "Fundo na Página de Pormenores"
 
 #: ../data/ui/preferences.blp:42
 msgid "Method used to recolor background to match cover"
-msgstr ""
+msgstr "Método usado para recolorir o fundo para combinar com a capa"
 
 #: ../data/ui/preferences.blp:46
 msgid "Linear gradient"
-msgstr ""
+msgstr "gradiente linear"
 
 #: ../data/ui/preferences.blp:47
 msgid "Blurred cover"
-msgstr ""
+msgstr "Capa borrada"
 
 #: ../data/ui/preferences.blp:57
 msgid "Desktop Notifications"
@@ -445,7 +445,7 @@ msgstr ""
 
 #: ../data/ui/preferences.blp:66
 msgid "Synchronize reading progress"
-msgstr ""
+msgstr "Sincronização de leitura em processo"
 
 #: ../data/ui/preferences.blp:77
 msgid "Display"
@@ -505,7 +505,7 @@ msgstr "Descarga automaticamente novos capítulos"
 
 #: ../data/ui/preferences.blp:174
 msgid "Explorer"
-msgstr ""
+msgstr "Explorar"
 
 #: ../data/ui/preferences.blp:177
 #: ../data/ui/preferences_servers_languages.blp:10
@@ -620,7 +620,7 @@ msgstr "Tamanho original"
 
 #: ../data/ui/preferences.blp:269
 msgid "Scaling Filter"
-msgstr ""
+msgstr "Filtro de escala"
 
 #: ../data/ui/preferences.blp:270
 msgid "Interpolation method used when scaling images"
@@ -632,7 +632,7 @@ msgstr "Linear"
 
 #: ../data/ui/preferences.blp:274
 msgid "Trilinear"
-msgstr ""
+msgstr "Trilinear"
 
 #: ../data/ui/preferences.blp:280
 msgid "Landscape Pages Zoom"
@@ -705,10 +705,11 @@ msgstr "Avançado"
 #: ../data/ui/preferences.blp:319
 msgid "A setting has changed that requires a restart to take effect"
 msgstr ""
+"Uma configuração foi alterada e requer uma reinicialização para ter efeito"
 
 #: ../data/ui/preferences.blp:320
 msgid "Got it!"
-msgstr ""
+msgstr "Beleza!"
 
 #: ../data/ui/preferences.blp:325
 msgid "Data"
@@ -720,7 +721,7 @@ msgstr "Dados não gravados na biblioteca"
 
 #: ../data/ui/preferences.blp:329
 msgid "Clear Chapters Cache and Database"
-msgstr ""
+msgstr "Limpar  cache de capítulos e banco de dados"
 
 #: ../data/ui/preferences.blp:334
 msgid "Clear Chapters Cache and Database on Exit"
