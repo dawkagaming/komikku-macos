@@ -17,7 +17,6 @@ import traceback
 import gi
 from PIL import Image
 import magic
-import pillow_heif
 import requests
 from requests.adapters import HTTPAdapter
 from requests.adapters import TimeoutSauce
@@ -48,9 +47,6 @@ logger = logging.getLogger('komikku')
 logging.getLogger('PIL.Image').propagate = False
 logging.getLogger('PIL.PngImagePlugin').propagate = False
 logging.getLogger('PIL.TiffImagePlugin').propagate = False
-
-pillow_heif.register_avif_opener()
-pillow_heif.register_heif_opener()
 
 
 def check_cmdline_tool(cmd):

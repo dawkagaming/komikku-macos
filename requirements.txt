@@ -11,8 +11,7 @@ keyring >= 21.6.0
 lxml >= 5.2.1
 natsort
 piexif
-pillow >= 10.3.0
-pillow-heif >= 0.16.0
+pillow >= 11.3.0
 PyGObject
 python_magic
 rarfile
