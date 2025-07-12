@@ -535,7 +535,6 @@ class BaseServer:
     headers = None
     headers_images = None
     http_client = 'requests'  # HTTP client
-    ignore_ssl_errors = False
     status = 'enabled'
 
     __sessions = {}  # to cache all existing sessions
@@ -583,10 +582,10 @@ class BaseServer:
             headers['If-None-Match'] = etag
 
         if self.session:
-            r = self.session.get(url, headers=headers, verify=not self.ignore_ssl_errors)
+            r = self.session.get(url, headers=headers)
         else:
             # Session object has not yet been instantiated (servers with login or using webview to complete challenge)
-            r = requests.get(url, headers=headers, verify=not self.ignore_ssl_errors)
+            r = requests.get(url, headers=headers)
         if not r.ok:
             return None, None, get_response_elapsed(r)
 
@@ -639,7 +638,6 @@ class BaseServer:
         return True
 
     def session_get(self, *args, **kwargs):
-        kwargs['verify'] = not self.ignore_ssl_errors
         try:
             r = retry_session(session=self.session).get(*args, **kwargs)
         except Exception as error:
@@ -649,7 +647,6 @@ class BaseServer:
         return r
 
     def session_patch(self, *args, **kwargs):
-        kwargs['verify'] = not self.ignore_ssl_errors
         try:
             r = self.session.patch(*args, **kwargs)
         except Exception as error:
@@ -659,7 +656,6 @@ class BaseServer:
         return r
 
     def session_post(self, *args, **kwargs):
-        kwargs['verify'] = not self.ignore_ssl_errors
         try:
             r = self.session.post(*args, **kwargs)
         except Exception as error:
@@ -669,7 +665,6 @@ class BaseServer:
         return r
 
     def session_put(self, *args, **kwargs):
-        kwargs['verify'] = not self.ignore_ssl_errors
         try:
             r = self.session.put(*args, **kwargs)
         except Exception as error:
