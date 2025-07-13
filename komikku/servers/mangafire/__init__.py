@@ -2,8 +2,9 @@
 # SPDX-License-Identifier: GPL-3.0-or-later
 # Author: Valéry Febvre <vfebvre@easter-eggs.com>
 
-from bs4 import BeautifulSoup
 from gettext import gettext as _
+
+from bs4 import BeautifulSoup
 import requests
 
 from komikku.servers import Server
@@ -207,11 +208,23 @@ class Mangafire(Server):
         """
         Returns chapter page scan (image) content
         """
+        # SSL cert verification fails for *.mfcdn1.xzy CDNs
+        domains = [
+            'mfcdn1.xyz',
+        ]
+        verify = True
+
+        for domain in domains:
+            if domain in page['image']:
+                verify = False
+                break
+
         r = self.session_get(
             page['image'],
             headers={
-                'Referer': self.chapter_url.format(manga_slug, LANGUAGES_CODES[self.lang], chapter_slug),
-            }
+                'Referer': f'{self.base_url}/',
+            },
+            verify=verify
         )
         if r.status_code != 200:
             return None
