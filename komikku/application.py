@@ -132,6 +132,7 @@ CREDITS = dict(
         'ssantos (Portuguese)',
         'Ademario Cunha (Portuguese)',
         'SpiralPack 527 (Portuguese)',
+        'Lucas Silva Goulart (Portuguese)',
         'shima (Russian)',
         'Valentin Chernetsov (Russian)',
         'FIONover (Russian)',
@@ -543,18 +544,9 @@ available in your region/language."""))
         # Override release notes
         dialog.set_release_notes("""
             <ul>
-                <li>[Card] Improved interface refresh after an update</li>
-                <li>[Updater] Added detection of downed servers (avoids unnecessary manga updates)</li>
-                <li>[Servers] ComicK: Fixed covers in search results</li>
-                <li>[Servers] Mangalek (AR): Update</li>
-                <li>[Servers] NHentai (EN/JA/ZH): Update</li>
-                <li>[Servers] Perf Scan (FR): Update</li>
-                <li>[Servers] Rawkuma (JA): Update</li>
-                <li>[Servers] Terco Scans (EN): Update</li>
-                <li>[Servers] Tres Daos (ES): Update</li>
-                <li>[Servers] WEBTOON: Update</li>
-                <li>[L10n] Added Lithuanian translation</li>
-                <li>[L10n] Updated French, Italian, Russian, Tamil and Ukrainian translations</li>
+                <li>Fixed app crash due to changes in AVIF image format support</li>
+                <li>[Servers] MangaFire (EN/ES/ES_LA/FR/JA/PT/pt_BR): Update</li>
+                <li>[L10n] Updated Portuguese and Russian translations</li>
             </ul>
             <p>Happy reading.</p>
         """)

@@ -99,6 +99,16 @@
     <url type="donation">https://febvre.info/donate.html</url>
 
     <releases>
+        <release version="1.82.0" date="2025-07-14">
+            <description translate="no">
+                <ul>
+                    <li>Fixed app crash due to changes in AVIF image format support</li>
+                    <li>[Servers] MangaFire (EN/ES/ES_LA/FR/JA/PT/pt_BR): Update</li>
+                    <li>[L10n] Updated Portuguese and Russian translations</li>
+                </ul>
+                <p>Happy reading.</p>
+            </description>
+        </release>
         <release version="1.81.0" date="2025-07-03">
             <description translate="no">
                 <ul>
