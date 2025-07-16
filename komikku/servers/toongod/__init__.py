@@ -17,3 +17,7 @@ class Toongod(Madara2):
     series_name = 'webtoon'
 
     base_url = 'https://www.toongod.org'
+    chapter_url = base_url + '/webtoon/{0}/{1}/'
+    bypass_cf_url = base_url + '/webtoons/'
+
+    images_src_attr = 'data-src'
