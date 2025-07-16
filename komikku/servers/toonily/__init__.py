@@ -21,6 +21,7 @@ class Toonily(Madara):
     results_selector = '.manga'
     result_name_slug_selector = '.post-title a'
     result_cover_selector = '.item-thumb img'
+    images_src_attr = 'data-src'
 
     def is_long_strip(self, _manga_data):
         return True

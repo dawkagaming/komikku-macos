@@ -16,11 +16,13 @@ class Mangacrab(Madara2):
     date_format = '%d/%m/%Y'
     series_name = 'series'
 
-    base_url = 'https://mangacrab2.yopres.com'
-    logo_url = base_url + '/wp-content/uploads/2024/07/cropped-cropped-logo99-Personalizado-e1722469564886-32x32.png'
+    base_url = 'https://mangacrab.topmanhuas.org'
+    logo_url = base_url + '/wp-content/uploads/2017/10/cropped-logo100-Personalizado-32x32.png'
+    chapters_url = base_url + '/series/{0}/ajax/chapters/'
 
     details_name_selector = 'h1.post-title'
     details_status_selector = '.post-content_item:-soup-contains("Estado") .summary-content'
+    images_src_attr = 'data-src-base64'
 
     def search(self, term, nsfw, orderby=None):
         params = {

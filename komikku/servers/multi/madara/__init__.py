@@ -15,7 +15,7 @@
 # Asura Scans [TR]
 # Atikrost [TR] (disabled)
 # Best Manga [RU] (disabled)
-# Fr-Scan (Id frdashscan) [FR]
+# Fr-Scan (Id frdashscan) [FR] (disabled)
 # Hunlight Scans [EN] (disabled)
 # Leomanga [ES]
 # Leviatanscans [EN] (disabled)
@@ -23,10 +23,10 @@
 # Mangas Origines [FR] (disabled)
 # MangaWeebs [EN] (disabled)
 # Manhuaus [EN]
-# Manhwa Hentai [EN]
+# Manhwa Hentai [EN] (disabled)
 # Phoenix Fansub [ES] (disabled)
-# Poseidon Scans [FR]
-# Reaperscans [AR/FR/ID/TR]
+# Poseidon Scans [FR] (disabled)
+# Reaperscans [AR/FR/ID/TR] (disabled)
 # Submanga [ES] (disabled)
 # ToonGod [EN]
 # Toonily [EN]
@@ -78,6 +78,8 @@ class Madara(Server):
     chapters_selector = '.wp-manga-chapter'
     chapters_slug_range = (-2, -1)
     chapters_order = 'desc'
+
+    images_src_attr = 'src'
 
     def __init__(self):
         self.api_url = self.base_url + '/wp-admin/admin-ajax.php'
@@ -291,11 +293,9 @@ class Madara(Server):
                 # In case server uses a second <img> encapsulated in a <noscript> element
                 continue
 
-            img_url = img_element.get('data-src')
+            img_url = img_element.get(self.images_src_attr)
             if img_url is None:
-                img_url = img_element.get('data-lazy-src')
-                if img_url is None:
-                    img_url = img_element.get('src')
+                continue
 
             data['pages'].append(dict(
                 slug=None,

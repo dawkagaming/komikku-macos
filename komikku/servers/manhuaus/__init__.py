@@ -15,3 +15,5 @@ class Manhuaus(Madara2):
 
     base_url = 'https://manhuaus.com'
     chapters_url = base_url + '/manga/{0}/ajax/chapters/'
+
+    images_src_attr = 'data-src'
