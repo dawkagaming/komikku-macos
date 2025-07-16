@@ -2,10 +2,10 @@
 # SPDX-License-Identifier: GPL-3.0-or-later
 # Author: Valéry Febvre <vfebvre@easter-eggs.com>
 
-from komikku.servers.multi.madara import Madara
+from komikku.servers.multi.madara import Madara2
 
 
-class Leomanga(Madara):
+class Leomanga(Madara2):
     id = 'leomanga'
     name = 'Lectormanga (Leomanga)'
     lang = 'es'
@@ -15,4 +15,3 @@ class Leomanga(Madara):
     series_name = 'biblioteca'
 
     base_url = 'https://lectormangaa.com'
-    chapters_url = base_url + '/manga/{0}/ajax/chapters/'

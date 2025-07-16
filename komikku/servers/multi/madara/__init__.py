@@ -182,13 +182,13 @@ class Madara(Server):
                 # Remove emoji
                 status = remove_emoji_from_string(status)
 
-                if status in ('Completed', 'Terminé', 'Completé', 'Completo', 'Finalizado', 'Concluído', 'Tamamlandı', 'مكتملة', 'Закончена'):
+                if status in ('Completed', 'Terminé', 'Completé', 'Completo', 'Finalizado', 'Terminado', 'Concluído', 'Tamamlandı', 'مكتملة', 'Закончена'):
                     data['status'] = 'complete'
-                elif status in ('OnGoing', 'En Cours', 'En cours', 'Updating', 'Devam Ediyor', 'Em Lançamento', 'Em andamento', 'En Emision', 'En emisión', 'En Emisión', 'مستمرة', 'Продолжается', 'Выпускается'):
+                elif status in ('OnGoing', 'En Cours', 'En cours', 'Updating', 'Devam Ediyor', 'Em Lançamento', 'Em andamento', 'En curso', 'En Emision', 'En emisión', 'En Emisión', 'مستمرة', 'Продолжается', 'Выпускается'):
                     data['status'] = 'ongoing'
-                elif status in ('Canceled', 'Cancelada'):
+                elif status in ('Canceled', 'Cancelada', 'Cancelado'):
                     data['status'] = 'suspended'
-                elif status in ('On Hold', 'En pause', 'En Hiatus'):
+                elif status in ('On Hold', 'En pause', 'En Hiatus', 'En espera'):
                     data['status'] = 'hiatus'
 
         if self.details_synopsis_selector:
