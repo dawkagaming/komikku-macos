@@ -14,9 +14,9 @@ class Carteldemanhwas(MangaStream):
     has_cf = True
 
     chapters_order = 'asc'
-    series_name = 'series'
+    series_name = 'proyectos'
 
-    base_url = 'https://carteldemanhwas.com'
+    base_url = 'https://carteldemanhwas.net'
 
     authors_selector = '.infotable tr:-soup-contains("Artist") td:last-child, .infotable tr:-soup-contains("Author") td:last-child'
     genres_selector = '.seriestugenre a'
