@@ -2,10 +2,10 @@
 # SPDX-License-Identifier: GPL-3.0-or-later
 # Author: Valéry Febvre <vfebvre@easter-eggs.com>
 
-from komikku.servers.multi.madara import Madara
+from komikku.servers.multi.madara import Madara2
 
 
-class Webtoonhatti(Madara):
+class Webtoonhatti(Madara2):
     id = 'webtoonhatti'
     name = 'Webtoon Hatti'
     lang = 'tr'
@@ -14,6 +14,9 @@ class Webtoonhatti(Madara):
     date_format = None
     series_name = 'webtoon'
 
-    base_url = 'https://webtoonhatti.me'
+    base_url = 'https://webtoonhatti.club'
     logo_url = base_url + '/wp-content/uploads/2024/03/cropped-iconlogo.png'
-    chapters_url = base_url + '/manga/{0}/ajax/chapters/'
+
+    def __init__(self):
+        super().__init__()
+        self.session.verify = False
