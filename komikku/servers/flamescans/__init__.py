@@ -59,6 +59,8 @@ class Flamescans(Server):
         },
     ]
 
+    ignored_images_keywords = ['read_on_flame']
+
     def __init__(self):
         if self.session is None:
             self.session = requests.Session()
@@ -169,10 +171,20 @@ class Flamescans(Server):
         data = dict(
             pages=[],
         )
-        for element in soup.select('img[fit="contain"]'):
+        for element in soup.select('img[my="none"]'):
+            ignore = False
+            image = element.get('src')
+            for keyword in self.ignored_images_keywords:
+                if keyword in image:
+                    ignore = True
+                    break
+
+            if ignore:
+                continue
+
             data['pages'].append(dict(
                 slug=None,
-                image=element.get('src'),
+                image=image,
             ))
 
         return data
