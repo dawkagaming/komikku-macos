@@ -1,11 +1,19 @@
 # SPDX-FileCopyrightText: 2020-2024 GrownNed
 # SPDX-License-Identifier: GPL-3.0-or-later
 # Author: GrownNed <grownned@gmail.com>
+# Author: valos <vfebvre@easter-eggs.com>
 
-import requests
+try:
+    # For some reasons, under flatpak sandbox, HTTP requests return 403 errors!
+    # Only solution found, use curl_cffi (JA3/TLS and HTTP2 fingerprints impersonation) in place of requests
+    # What's wrong with sandbox?
+    from curl_cffi import requests
+except Exception:
+    # Server will be disabled
+    requests = None
 
+from komikku.servers import REQUESTS_TIMEOUT
 from komikku.servers import Server
-from komikku.servers import USER_AGENT
 from komikku.servers.utils import convert_date_string
 from komikku.utils import get_buffer_mime_type
 from komikku.utils import is_number
@@ -24,7 +32,7 @@ class Mangalib(Server):
     api_manga_url = api_base_url + '/manga/{0}'
     api_chapters_url = api_base_url + '/manga/{0}/chapters'
     api_chapter_url = api_base_url + '/manga/{0}/chapter'
-    image_base_url = 'https://img33.imgslib.link'
+    image_base_url = 'https://img3.mixlib.me/'  # beware, an additional slash required
 
     api_headers = {
         'Accept': '*/*',
@@ -35,9 +43,12 @@ class Mangalib(Server):
     }
 
     def __init__(self):
-        if self.session is None:
-            self.session = requests.Session()
-            self.session.headers.update({'User-Agent': USER_AGENT})
+        if self.session is None and requests is not None:
+            self.session = requests.Session(
+                allow_redirects=True,
+                impersonate='chrome',
+                timeout=(REQUESTS_TIMEOUT, REQUESTS_TIMEOUT * 2),
+            )
 
     def get_manga_data(self, initial_data):
         """
