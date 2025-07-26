@@ -10,45 +10,45 @@ msgstr ""
 "Project-Id-Version: Komikku 1.18.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-07-04 15:36+0200\n"
-"PO-Revision-Date: 2025-05-31 13:03+0000\n"
+"PO-Revision-Date: 2025-07-27 11:07+0000\n"
 "Last-Translator: Ahmed Najmawi <iramosu@protonmail.com>\n"
-"Language-Team: Arabic <https://hosted.weblate.org/projects/komikku/main/ar/"
-">\n"
+"Language-Team: Arabic <https://hosted.weblate.org/projects/komikku/main/ar/>"
+"\n"
 "Language: ar\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
 "&& n%100<=10 ? 3 : n%100>=11 ? 4 : 5;\n"
-"X-Generator: Weblate 5.12-dev\n"
+"X-Generator: Weblate 5.13-dev\n"
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:11
 msgid "Discover and read manga & comics"
-msgstr "استكشف واقرأ القصص المصورة والمانجا"
+msgstr "اكتشف واقرأ المانجا والقصص المصوَّرة"
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:13
 msgid ""
 "With its simple, elegant and adaptive interface, this reader lets you "
 "search, sort and read your series with ease."
 msgstr ""
-"يسمح لك هذا القارئ بالبحث والفرز وقراءة سلاسلك المفضلة بسهولة عبر واجهته "
-"البسيطة والمنفصلة والتكيفية."
+"يتيح لك هذا القارئ البحث في سلاسلك وفرزها وقراءتها بكل سهولة بواجهته البسيطة "
+"والأنيقة والمتكيِّفة."
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:15
 msgid "Why you will love Komikku?"
-msgstr "لمَ ستحب كوميكو؟"
+msgstr "لماذا ستحب كوميكو؟"
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:17
 msgid "Online and offline reading from dozens of servers"
-msgstr "القراءة عبر الشبكة أو دونها عبر عشرات الخوادم"
+msgstr "القراءة عبر الإنترنت أو دونه من عشرات الخوادم"
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:18
 msgid "Support for locally stored series (in CBZ or CBR formats)"
-msgstr "دعم السلاسل المخزنة محليًا (بصيغتي CBZ أو CBR)"
+msgstr "دعم سلاسلك المخزَّنة محليًّا (بنسق CBZ أو CBR)"
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:19
 msgid "RTL, LTR, Vertical and Webtoon reading modes"
-msgstr "أوضاع القراءة من اليمين لليسار، ومن اليسار لليمين، والعامودي، وويبتون"
+msgstr "أوضاع قراءة من اليمين لليسار، ومن اليسار لليمين، والعمودي، والوِبتون"
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:20
 msgid ""
@@ -56,34 +56,33 @@ msgid ""
 "navigation layout via mouse click or tapping (touchpad/touch screen), mouse "
 "wheel, 2-fingers swipe gesture (touchpad), swipe gesture (touch screen)"
 msgstr ""
-"يدعم أنواع تنقل متعددة: مفاتيح الأسهم من لوحة المفاتيح أو عبر تخطيط تنقل "
-"لليمن ولليسر عن طريق النقر بالفأرة يدعم كذلك الضغط على لوحة اللمس/الشاشة "
-"اللمسية أو بعجلة الفأرة أو عبر إيماءة التمرير بإصبعين للوحة اللمس أو إيماءات "
-"التمرير للشاشة اللمسية"
+"التنقل بين الصفحات بعدة طرق: باستخدام مفاتيح الأسهم، أو النقر بالفأرة يمينًا "
+"ويسارًا، أو لمس الشاشة (عبر لوحة اللمس أو شاشة اللمس)، أو استخدام عجلة الفأرة،"
+" أو إيماءة السحب بإصبعين (للوحة اللمس) أو إيماءة السحب (لشاشة اللمس)"
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:21
 msgid "Categories to organize your library"
-msgstr "فئات لتنظيم مكتبتك"
+msgstr "تنظيم مكتبتك بالتصنيفات"
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:22
 msgid "Automatic tracking of series with MyAnimeList and AniList"
-msgstr ""
+msgstr "تتبع السلاسل آليًا عبر MyAnimeList و AniList"
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:23
 msgid "Automatic update of series"
-msgstr ""
+msgstr "تحديث السلاسل آليًا"
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:24
 msgid "Automatic download of new chapters"
-msgstr "تنزيل تلقائي للفصول الجديدة"
+msgstr "تنزيل الفصول الجديدة آليًا"
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:25
 msgid "Reading history"
-msgstr "سجل مطالعة"
+msgstr "سجل القراءة"
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:26
 msgid "Light and dark themes"
-msgstr "سمة داكنة وسمة فاتحة"
+msgstr "سِمَتان فاتحة وداكنة"
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:47
 msgid "The Library page"
@@ -91,7 +90,7 @@ msgstr "صفحة المكتبة"
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:51
 msgid "The Library page with the category sidebar open"
-msgstr ""
+msgstr "صفحة المكتبة مع الشريط الجانبي للتصنيفات مفتوحًا"
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:55
 msgid "The Preferences page (Library settings)"
@@ -99,7 +98,7 @@ msgstr "صفحة التفضيلات (إعدادات المكتبة)"
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:59
 msgid "The Explorer page in mobile format (Servers list)"
-msgstr ""
+msgstr "صفحة المستكشف بنسق المحمول (قائمة الخوادم)"
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:63
 msgid "The Details page"
@@ -115,27 +114,31 @@ msgstr "صفحة القارئ"
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:75
 msgid "The Reader page in mobile format"
-msgstr ""
+msgstr "صفحة القارئ بنسق المحمول"
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:79
 msgid "The Category editor page in mobile format"
-msgstr ""
+msgstr "صفحة محرِّر التصنيفات بنسق المحمول"
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:83
 msgid "The Reading history page in mobile format"
-msgstr ""
+msgstr "صفحة تأريخ القراءة بنسق المحمول"
 
 #: ../data/info.febvre.Komikku.desktop.in:2
 msgid "@prettyname@"
-msgstr "@prettyname@"
+msgstr "كوميكو"
 
 #: ../data/info.febvre.Komikku.desktop.in:3
 msgid "@description@"
-msgstr ""
+msgstr "اكتشف واقرأ المانجا والقصص المصوَّرة"
 
 #: ../data/info.febvre.Komikku.desktop.in:13
 msgid "manga;reader;viewer;comic;manhwa;manhua;bd;webtoon;webcomic;scan;offline;GTK;GNOME;"
 msgstr ""
+"كوميكو;المانجا;القارئ;العارض;القصص مصورة;الكوميك;المانهوا;المانها;الويبتون;"
+"الويب كوميك;الوبتون;الوبكوميك;المسح;السكان;الدون "
+"اتصال;جتك;جنوم;Komikku;manga;reader;viewer;comic;manhwa;manhua;bd;webtoon;webcomic;scan;offline;GTK;GNOME;"
+""
 
 #: ../data/ui/card.blp:47 ../data/ui/card.blp:411
 #: ../data/ui/card_chapters_list_row.blp:48 ../data/ui/download_manager.blp:26
@@ -149,28 +152,28 @@ msgstr "معلومات"
 
 #: ../data/ui/card.blp:148
 msgid "Add to Library"
-msgstr "أضف للمكتبة"
+msgstr "أضِف إلى المكتبة"
 
 #: ../data/ui/card.blp:208
 msgid "Scanlators"
-msgstr ""
+msgstr "فِرق المسح والترجمة"
 
 #: ../data/ui/card.blp:267
 msgid "Last Update"
-msgstr "آخر التحديثات"
+msgstr "آخر تحديث"
 
 #: ../data/ui/card.blp:298
 msgid "Size on Disk"
-msgstr "الحجم المستغل على القرص"
+msgstr "الحجم على القرص"
 
 #: ../data/ui/card.blp:323
 msgid "Synopsis"
-msgstr "ملخص"
+msgstr "نبذة"
 
 #: ../data/ui/card.blp:448 ../data/ui/categories_editor.blp:67
 #: ../data/ui/library.blp:249
 msgid "No Categories"
-msgstr ""
+msgstr "لا توجد تصنيفات"
 
 #: ../data/ui/card_chapters_list_row.blp:65
 msgid "New"
@@ -178,7 +181,7 @@ msgstr "جديد"
 
 #: ../data/ui/card_tracking.blp:9
 msgid "Tracking"
-msgstr ""
+msgstr "التتبُّع"
 
 #: ../data/ui/card_tracking_search.blp:10 ../data/ui/explorer_search.blp:10
 #: ../data/ui/explorer_search.blp:43 ../data/ui/history.blp:22
@@ -188,11 +191,11 @@ msgstr "ابحث"
 
 #: ../data/ui/card_tracking_search.blp:75
 msgid "Search for Tracking"
-msgstr ""
+msgstr "ابحث عن تتبُّع"
 
 #: ../data/ui/categories_editor.blp:36
 msgid "Add"
-msgstr "أضف"
+msgstr "أضِف"
 
 #: ../data/ui/download_manager.blp:10 ../data/ui/download_manager.blp:20
 msgid "Download Manager"
@@ -200,15 +203,15 @@ msgstr "مدير التنزيلات"
 
 #: ../data/ui/download_manager.blp:32
 msgid "Start/Stop Download"
-msgstr ""
+msgstr "ابدأ\\أوقف التنزيل"
 
 #: ../data/ui/download_manager.blp:67
 msgid "No Downloads"
-msgstr ""
+msgstr "لا توجد تنزيلات"
 
 #: ../data/ui/explorer_search.blp:28
 msgid "Search Filters"
-msgstr ""
+msgstr "مرشِّحات البحث"
 
 #: ../data/ui/explorer_search.blp:34
 msgid "Open in Browser"
@@ -216,35 +219,35 @@ msgstr "افتح في المتصفح"
 
 #: ../data/ui/explorer_search.blp:147
 msgid "Most Popular"
-msgstr "المتداول"
+msgstr "الأكثر شعبيَّة"
 
 #: ../data/ui/explorer_search.blp:214
 msgid "Latest Updates"
-msgstr "آخر تحديثات"
+msgstr "آخر التحديثات"
 
 #: ../data/ui/explorer_servers.blp:10
 msgid "Servers"
-msgstr "خوادم"
+msgstr "الخوادم"
 
 #: ../data/ui/explorer_servers.blp:17
 msgid "Search Comics Across All Servers"
-msgstr ""
+msgstr "ابحث عن القصص المصوَّرة في كل الخوادم"
 
 #: ../data/ui/explorer_servers.blp:23
 msgid "Search Servers"
-msgstr ""
+msgstr "ابحث في الخوادم"
 
 #: ../data/ui/explorer_servers.blp:37
 msgid "Search for servers by name or language"
-msgstr "ابحث عن خادم حسب الاسم أو اللغة"
+msgstr "ابحث عن الخوادم بالاسم أو اللغة"
 
 #: ../data/ui/history.blp:10 ../data/ui/history.blp:16
 msgid "History"
-msgstr "سجل"
+msgstr "التأريخ"
 
 #: ../data/ui/history.blp:71
 msgid "No History"
-msgstr ""
+msgstr "لا يوجد سجل تأريخ"
 
 #: ../data/ui/library.blp:10 ../data/ui/preferences.blp:73
 msgid "Library"
@@ -252,60 +255,60 @@ msgstr "المكتبة"
 
 #: ../data/ui/library.blp:23
 msgid "Toggle Categories Sidebar"
-msgstr ""
+msgstr "أظهر\\أخفِ الشريط الجانبي للتصنيفات"
 
 #: ../data/ui/library.blp:34
 msgid "Main Menu"
-msgstr "القائمة الرئيسية"
+msgstr "القائمة الرئيسة"
 
 #: ../data/ui/library.blp:78
 msgid "Search by name, server or genre"
-msgstr "ابحث حسب الاسم أو التصنيف أو الخادم"
+msgstr "ابحث بالاسم، أو الخادوم، أو الصنف"
 
 #: ../data/ui/library.blp:125 ../data/ui/preferences.blp:160
 msgid "Update"
-msgstr "حدّث"
+msgstr "تحديث"
 
 #: ../data/ui/library.blp:200
 msgid "Discover Comics"
-msgstr ""
+msgstr "اكتشف قصصًا مصوَّرة"
 
 #: ../data/ui/library.blp:271
 msgid "OK"
-msgstr "موافق"
+msgstr "حسنًا"
 
 #: ../data/ui/menu/card.xml:30
 msgid "Order of Chapters"
-msgstr "ترتيب الفصول"
+msgstr "رتِّب الفصول"
 
 #: ../data/ui/menu/card.xml:35
 msgid "⬆ By Source"
-msgstr "⬆حسب المصدر"
+msgstr "⬆ حسب المصدر"
 
 #: ../data/ui/menu/card.xml:40
 msgid "⬇ By Source"
-msgstr "⬇حسب المصدر"
+msgstr "⬇ حسب المصدر"
 
 #: ../data/ui/menu/card.xml:46
 msgid "⬆ By Date"
-msgstr "⬆حسب التاريخ"
+msgstr "⬆ حسب التاريخ"
 
 #: ../data/ui/menu/card.xml:51
 msgid "⬇ By Date"
-msgstr "⬇حسب التاريخ"
+msgstr "⬇ حسب التاريخ"
 
 #: ../data/ui/menu/card.xml:57
 msgid "⬆ By Title"
-msgstr "⬆حسب العنوان"
+msgstr "⬆ حسب العنوان"
 
 #: ../data/ui/menu/card.xml:62
 msgid "⬇ By Title"
-msgstr "⬇حسب العنوان"
+msgstr "⬇ حسب العنوان"
 
 #: ../data/ui/menu/card_selection_mode.xml:23
 #: ../data/ui/menu/library_selection_mode.xml:30
 msgid "Select All"
-msgstr "حدد الكل"
+msgstr "حدِّد الكل"
 
 #: ../data/ui/menu/download_manager.xml:12
 msgid "Delete All"
@@ -313,27 +316,27 @@ msgstr "احذف الكل"
 
 #: ../data/ui/menu/explorer_search_global_search.xml:12
 msgid "Pinned Servers Only"
-msgstr "الخوادم المثبتة فقط"
+msgstr "الخوادم المثبَّتة فقط"
 
 #: ../data/ui/menu/library_search.xml:12
 msgid "Unread"
-msgstr "غير المقروءة"
+msgstr "غير مقروءة"
 
 #: ../data/ui/menu/library_search.xml:20
 msgid "Recents"
-msgstr "حديثة"
+msgstr "الحديثة"
 
 #: ../data/ui/menu/library_selection_mode.xml:12
 msgid "Edit Categories"
-msgstr "عدّل الفئات"
+msgstr "حرِّر التصنيفات"
 
 #: ../data/ui/menu/main.xml:12
 msgid "Update Library"
-msgstr "حدّث المكتبة"
+msgstr "حدِّث المكتبة"
 
 #: ../data/ui/menu/main.xml:16
 msgid "Sort"
-msgstr "ترتيب"
+msgstr "رتِّب"
 
 #: ../data/ui/menu/main.xml:21
 msgid "Alphabetical"
@@ -341,11 +344,11 @@ msgstr "أبجديًا"
 
 #: ../data/ui/menu/main.xml:26
 msgid "Latest Read First"
-msgstr "تاريخ القراءة"
+msgstr "المقروءة حديثًا أولًا"
 
 #: ../data/ui/menu/main.xml:31
 msgid "Latest Updated First"
-msgstr ""
+msgstr "المحدَّثة حديثًا أولًا"
 
 #: ../data/ui/menu/main.xml:60
 msgid "Keyboard Shortcuts"
@@ -353,23 +356,23 @@ msgstr "اختصارات لوحة المفاتيح"
 
 #: ../data/ui/menu/main.xml:64
 msgid "Donate"
-msgstr "تبرّع"
+msgstr "تبرَّع"
 
 #: ../data/ui/menu/main.xml:68
 msgid "About Komikku"
-msgstr "عَنْ كوميكو"
+msgstr "عَنْ «كوميكو»"
 
 #: ../data/ui/menu/reader.xml:114
 msgid "Zoom Landscape Pages"
-msgstr "كبر الصفحات الأفقية"
+msgstr "كبِّر الصفحات الأفقية"
 
 #: ../data/ui/menu/reader.xml:118
 msgid "Crop Borders"
-msgstr "اقتصاص الحواف"
+msgstr "اقصص الحواف"
 
 #: ../data/ui/menu/reader.xml:122
 msgid "Hide Page Numbering"
-msgstr "اخف ترقيم الصفحات"
+msgstr "أخفِ ترقيم الصفحات"
 
 #: ../data/ui/menu/reader.xml:129
 msgid "Save Page"
@@ -386,19 +389,19 @@ msgstr "عام"
 
 #: ../data/ui/preferences.blp:20
 msgid "Theme"
-msgstr "السمة"
+msgstr "السِّمَة"
 
 #: ../data/ui/preferences.blp:23
 msgid "Light"
-msgstr "فاتح"
+msgstr "فاتحة"
 
 #: ../data/ui/preferences.blp:24
 msgid "Dark"
-msgstr "داكن"
+msgstr "داكنة"
 
 #: ../data/ui/preferences.blp:25
 msgid "Follow System"
-msgstr "اتبِعْ النظام"
+msgstr "اتبع النظام"
 
 #: ../data/ui/preferences.blp:31
 msgid "Night Light"
@@ -406,43 +409,43 @@ msgstr "الإضاءة الليلية"
 
 #: ../data/ui/preferences.blp:32
 msgid "Automatically enable dark theme at night"
-msgstr "فعّل السمة الداكنة في الليل تلقائيًا"
+msgstr "يفعِّل السِّمَة الداكنة ليلًا"
 
 #: ../data/ui/preferences.blp:36
 msgid "Accent Color"
-msgstr ""
+msgstr "لون التمييز"
 
 #: ../data/ui/preferences.blp:37
 msgid "Use system accent colors"
-msgstr ""
+msgstr "يستخدم ألوان تمييز النظام"
 
 #: ../data/ui/preferences.blp:41
 msgid "Backdrop in Details Page"
-msgstr ""
+msgstr "خلفية صفحة التفاصيل"
 
 #: ../data/ui/preferences.blp:42
 msgid "Method used to recolor background to match cover"
-msgstr ""
+msgstr "الطريقة المستخدَمة لتلوين الخلفية لتطابق الغلاف"
 
 #: ../data/ui/preferences.blp:46
 msgid "Linear gradient"
-msgstr ""
+msgstr "تدرُّج خطِّي"
 
 #: ../data/ui/preferences.blp:47
 msgid "Blurred cover"
-msgstr ""
+msgstr "غلاف مموَّه"
 
 #: ../data/ui/preferences.blp:57
 msgid "Desktop Notifications"
-msgstr "إشعارات سطح المكتب"
+msgstr "تنبيهات سطح المكتب"
 
 #: ../data/ui/preferences.blp:58
 msgid "Use desktop notifications for downloads and library updates"
-msgstr "استخد الإشعارات لإظهار التنزيلات والتحديثات"
+msgstr "يستخدم تنبيهات سطح المكتب للتنزيلات وتحديثات المكتبة"
 
 #: ../data/ui/preferences.blp:66
 msgid "Synchronize reading progress"
-msgstr ""
+msgstr "زامن تقدُّم القراءة"
 
 #: ../data/ui/preferences.blp:77
 msgid "Display"
@@ -450,7 +453,7 @@ msgstr "العرض"
 
 #: ../data/ui/preferences.blp:80
 msgid "Display Mode"
-msgstr "نمط العرض"
+msgstr "وضع العرض"
 
 #: ../data/ui/preferences.blp:83
 msgid "Grid"
@@ -458,19 +461,19 @@ msgstr "شبكة"
 
 #: ../data/ui/preferences.blp:84
 msgid "Compact Grid"
-msgstr ""
+msgstr "شبكة مضغوطة"
 
 #: ../data/ui/preferences.blp:90
 msgid "Servers Logo"
-msgstr "شعار الخادم"
+msgstr "شعار الخوادم"
 
 #: ../data/ui/preferences.blp:91
 msgid "Display servers logo"
-msgstr "اعرض شعار الخادم"
+msgstr "يعرض شعار الخوادم"
 
 #: ../data/ui/preferences.blp:95
 msgid "Badges"
-msgstr "شارات"
+msgstr "الشارات"
 
 #: ../data/ui/preferences.blp:98
 msgid "Number of Unread Chapters"
@@ -478,31 +481,31 @@ msgstr "عدد الفصول غير المقروءة"
 
 #: ../data/ui/preferences.blp:118
 msgid "Number of Downloaded Chapters"
-msgstr "عدد الفصول المنزّلة"
+msgstr "عدد الفصول المنزَّلة"
 
 #: ../data/ui/preferences.blp:138
 msgid "Number of Recent and Unread Chapters"
-msgstr "عدد الفصول الحديثة غير المقروءة"
+msgstr "عدد الفصول الحديثة وغير المقروءة"
 
 #: ../data/ui/preferences.blp:163
 msgid "Update at Startup"
-msgstr "حدّث عند التشغيل"
+msgstr "حدِّث عند البدء"
 
 #: ../data/ui/preferences.blp:164
 msgid "Automatically update library at startup"
-msgstr "حدِّث المكتبة تلقائيًا عند التشغيل"
+msgstr "يحدِّث المكتبة آليًا عند البدء"
 
 #: ../data/ui/preferences.blp:168
 msgid "Auto Download of New Chapters"
-msgstr "تنزيل الفصول الجديدة تلقائيًا"
+msgstr "تنزيل آلي للفصول الجديدة"
 
 #: ../data/ui/preferences.blp:169
 msgid "Automatically download new chapters"
-msgstr "نزّل الفصول الجديدة تلقائيًا"
+msgstr "ينزِّل الفصول الجديدة آليًا"
 
 #: ../data/ui/preferences.blp:174
 msgid "Explorer"
-msgstr ""
+msgstr "المستكشِف"
 
 #: ../data/ui/preferences.blp:177
 #: ../data/ui/preferences_servers_languages.blp:10
@@ -512,7 +515,7 @@ msgstr "لغات الخوادم"
 
 #: ../data/ui/preferences.blp:178
 msgid "Restrict servers to selected languages"
-msgstr "حَدُ الخوادم باللغات المختارة"
+msgstr "يقصر الخوادم على اللغات المحدَّدة"
 
 #: ../data/ui/preferences.blp:186
 #: ../data/ui/preferences_servers_settings.blp:10
@@ -522,92 +525,92 @@ msgstr "إعدادات الخوادم"
 
 #: ../data/ui/preferences.blp:187
 msgid "Enable/disable and configure servers"
-msgstr "تفعيل/تعطيل الخوادم وضبطها"
+msgstr "يفعِّل\\يعطِّل ويضبط الخوادم"
 
 #: ../data/ui/preferences.blp:195
 msgid "Long Strip Detection"
-msgstr ""
+msgstr "كشف الشريط الطويل"
 
 #: ../data/ui/preferences.blp:196
 msgid "Automatically detect long vertical strip when possible"
-msgstr ""
+msgstr "يكشف الشريط العمودي الطويل آليًا متى أمكن"
 
 #: ../data/ui/preferences.blp:202
 msgid "NSFW Content (18+)"
-msgstr "محتوى حساس NSFW (18+)"
+msgstr "محتوى للبالغين (+18)"
 
 #: ../data/ui/preferences.blp:203
 msgid "Whether to enable servers with NSFW content"
-msgstr "تفعيل الخوادم التي تنطوي على محتوى حساس NSFW"
+msgstr "فيما لو تفعَّل الخوادم التي تحوي محتوى للبالغين"
 
 #: ../data/ui/preferences.blp:207
 msgid "NSFW Only Content (18+)"
-msgstr ""
+msgstr "محتوى للبالغين حصرًا (+18)"
 
 #: ../data/ui/preferences.blp:208
 msgid "Whether to enable servers with NSFW only content"
-msgstr ""
+msgstr "فيما لو تفعَّل الخوادم التي تحوي محتوى للبالغين حصرًا"
 
 #: ../data/ui/preferences.blp:212
 msgid ""
 "These settings do not prevent potentially incorrectly flagged servers from "
 "surfacing NSFW content."
 msgstr ""
+"هذه الإعدادات لا تمنع الخوادم التي قد تكون معلَّمة بالخطأ من عرض محتوى "
+"للبالغين."
 
 #: ../data/ui/preferences.blp:227 ../data/ui/reader.blp:10
-#, fuzzy
 msgid "Reader"
 msgstr "القارئ"
 
 #: ../data/ui/preferences.blp:232
 msgid "Reading Mode"
-msgstr "وضع المطالعة"
+msgstr "وضع القراءة"
 
 #: ../data/ui/preferences.blp:235
 msgid "⬅ Right to Left"
-msgstr "من اليمين لليسار ⬅"
+msgstr "⬅ من اليمين إلى اليسار"
 
 #: ../data/ui/preferences.blp:236
 msgid "➡ Left to Right"
-msgstr "من اليسار لليمين ➡"
+msgstr "➡ من اليسار إلى اليمين"
 
 #: ../data/ui/preferences.blp:237
 msgid "⬇ Vertical"
-msgstr "عمودي ⬇"
+msgstr "⬇ عمودي"
 
 #: ../data/ui/preferences.blp:238
 msgid "⬇ Webtoon"
-msgstr "ويب تون ⬇"
+msgstr "⬇ وِبتون"
 
 #: ../data/ui/preferences.blp:244
 msgid "Maximum Width"
-msgstr "العرض الأقصى"
+msgstr "أقصى عرض"
 
 #: ../data/ui/preferences.blp:245
-#, fuzzy
 msgid ""
 "Constrain reader's width to a given maximum size (Webtoon reading mode only)"
-msgstr "فرض عرض القارئ أقصى حجم مُعطى (وضع قراءة ويبتون فقط)"
+msgstr "يقيِّد عرض القارئ إلى حجم أقصى محدَّد (في وضع قراءة الوِبتون فقط)"
 
 #: ../data/ui/preferences.blp:256
 msgid "Scaling"
-msgstr "التحجيم"
+msgstr "تغيير الحجم"
 
 #: ../data/ui/preferences.blp:257
 msgid "Type of scaling to adapt image"
-msgstr "نوع التحجيم لتكييف حجم الصورة"
+msgstr "نوع تغيير الحجم لمواءمة الصورة"
 
 #: ../data/ui/preferences.blp:260
 msgid "Adapt to Screen"
-msgstr "تكيف مع أبعاد الشاشة"
+msgstr "وائم مع الشاشة"
 
 #: ../data/ui/preferences.blp:261
 msgid "Adapt to Width"
-msgstr "تكيف مع عرض الشاشة"
+msgstr "وائم مع العرض"
 
 #: ../data/ui/preferences.blp:262
 msgid "Adapt to Height"
-msgstr "تكيف مع ارتفاع الشاشة"
+msgstr "وائم مع الارتفاع"
 
 #: ../data/ui/preferences.blp:263
 msgid "Original Size"
@@ -615,29 +618,29 @@ msgstr "الحجم الأصلي"
 
 #: ../data/ui/preferences.blp:269
 msgid "Scaling Filter"
-msgstr ""
+msgstr "مرشِّح تغيير الحجم"
 
 #: ../data/ui/preferences.blp:270
 msgid "Interpolation method used when scaling images"
-msgstr ""
+msgstr "طريقة الاستيفاء المستخدَمة عند تغيير حجم الصور"
 
 #: ../data/ui/preferences.blp:273
 msgid "Linear"
-msgstr ""
+msgstr "خطِّي"
 
 #: ../data/ui/preferences.blp:274
 msgid "Trilinear"
-msgstr ""
+msgstr "خطِّي ثلاثي"
 
 #: ../data/ui/preferences.blp:280
-#, fuzzy
 msgid "Landscape Pages Zoom"
-msgstr "تكبير الصور العرضية"
+msgstr "تكبير الصفحات الأفقية"
 
 #: ../data/ui/preferences.blp:281
 msgid ""
 "Zoom page to fit height when page is landscape (Adapt to Screen scaling only)"
 msgstr ""
+"يكبِّر الصفحة لتناسب الارتفاع عندما تكون أفقيَّة (في وضع مواءمة الشاشة فقط)"
 
 #: ../data/ui/preferences.blp:285
 msgid "Background Color"
@@ -657,11 +660,11 @@ msgstr "أسود"
 
 #: ../data/ui/preferences.blp:291
 msgid "System Style"
-msgstr "سمة النظام"
+msgstr "نمط النظام"
 
 #: ../data/ui/preferences.blp:297
 msgid "Borders Crop"
-msgstr "اقتصاص الحواف"
+msgstr "قص الحواف"
 
 #: ../data/ui/preferences.blp:298
 msgid ""
@@ -670,10 +673,10 @@ msgid ""
 "NOTE: Requires more CPU usage and can cause rendering and animation "
 "slowdowns, especially on mobile devices."
 msgstr ""
-"قص الحواف البيضاء من الصور\n"
+"يقص الحواف البيضاء للصور\n"
 "\n"
-"ملاحظة: قد يسبب زيادة في استخدام المعالج ويترتب عنه بطء في تصيير الصور "
-"والتأثيرات خصوصًا في الهواتف."
+"ملاحظة: يتطلَّب هذا استهلاكًا أكبر للمعالج وقد يسبِّب بطئًا في العرض والتحريك، "
+"وخصوصًا على الأجهزة المحمولة."
 
 #: ../data/ui/preferences.blp:302
 msgid "Page Numbering"
@@ -681,7 +684,7 @@ msgstr "ترقيم الصفحات"
 
 #: ../data/ui/preferences.blp:303
 msgid "Hide the page numbering at the bottom of the screen while reading"
-msgstr "اخفاء رقم الصفحة أسفل القارئ"
+msgstr "يخفِ ترقيم الصفحات أسفل الشاشة أثناء القراءة"
 
 #: ../data/ui/preferences.blp:307
 msgid "Fullscreen"
@@ -689,7 +692,7 @@ msgstr "ملء الشاشة"
 
 #: ../data/ui/preferences.blp:308
 msgid "Automatically enter fullscreen mode"
-msgstr "دخول وضع ملء الشاشة تلقائيًا"
+msgstr "يدخل وضع ملء الشاشة آليًا"
 
 #: ../data/ui/preferences.blp:315
 msgid "Advanced"
@@ -697,36 +700,35 @@ msgstr "متقدم"
 
 #: ../data/ui/preferences.blp:319
 msgid "A setting has changed that requires a restart to take effect"
-msgstr ""
+msgstr "لقد تغيَّر أحد الإعدادات ويتطلَّب إعادة التشغيل لتطبيقه"
 
 #: ../data/ui/preferences.blp:320
 msgid "Got it!"
-msgstr ""
+msgstr "فهمت!"
 
 #: ../data/ui/preferences.blp:325
 msgid "Data"
-msgstr "بيانات"
+msgstr "البيانات"
 
 #: ../data/ui/preferences.blp:326
-#, fuzzy
 msgid "Data not saved in the library"
-msgstr "لم تُحفظ البيانات في المكتبة"
+msgstr "البيانات غير المحفوظة في المكتبة"
 
 #: ../data/ui/preferences.blp:329
 msgid "Clear Chapters Cache and Database"
-msgstr ""
+msgstr "امحُ اختزان الفصول وقاعدة البيانات"
 
 #: ../data/ui/preferences.blp:334
 msgid "Clear Chapters Cache and Database on Exit"
-msgstr ""
+msgstr "امحُ اختزان الفصول وقاعدة البيانات عند الخروج"
 
 #: ../data/ui/preferences.blp:339
 msgid "Servers Modules"
-msgstr ""
+msgstr "وحدات الخوادم"
 
 #: ../data/ui/preferences.blp:342
 msgid "Use Up-to-date Servers Modules"
-msgstr ""
+msgstr "استخدم أحدث وحدات الخوادم"
 
 #: ../data/ui/preferences.blp:343
 msgid ""
@@ -734,32 +736,36 @@ msgid ""
 "code repository and updated at each startup, is used instead of the one "
 "delivered with the application."
 msgstr ""
+"تُستخدَم نسخة بديلة من وحدات الخوادم، منصَّبة من مستودع المصدر البرمجي ومحدَّثة "
+"عند كل بدء، بدلًا من تلك المضمَّنة مع التطبيق."
 
 #: ../data/ui/preferences.blp:348
 msgid "Credentials Storage"
-msgstr ""
+msgstr "تخزين البيانات"
 
 #: ../data/ui/preferences.blp:351
 msgid "Allow Plaintext Storage as Fallback"
-msgstr ""
+msgstr "اسمح بالتخزين كنص صريح كحل بديل"
 
 #: ../data/ui/preferences.blp:352
 msgid "Used when no keyring backends are found"
-msgstr ""
+msgstr "يُستخدَم عند عدم العثور على أي خلفية لسلسلة المفاتيح"
 
 #: ../data/ui/preferences.blp:357
 msgid "Tweaks"
-msgstr "تطويعات"
+msgstr "التطويعات"
 
 #: ../data/ui/preferences.blp:360
 msgid "Disable Animations"
-msgstr "تعطيل التأثيرات"
+msgstr "عطِّل التحريكات"
 
 #: ../data/ui/preferences.blp:361
 msgid ""
 "Useful with E Ink e-readers to avoid very choppy and unpleasant animations "
 "(due to the low refresh rate of the screen)"
 msgstr ""
+"مفيد مع قارئات الحبر الإلكتروني لتجنب التحريكات المتقطِّعة والمزعجة جدًا (بسبب "
+"معدَّل التحديث المنخفض للشاشة)"
 
 #: ../data/ui/preferences.blp:365
 msgid ""
@@ -767,34 +773,37 @@ msgid ""
 "environment and therefore cannot disable animations globally via GNOME "
 "Settings (Accessibility ⇨ Seeing ⇨ Animation Effects)."
 msgstr ""
+"هذا التطويع مخصَّص فقط للمستخدمين الذين لا يستخدمون بيئة سطح مكتب جنوم، "
+"وبالتالي لا يمكنهم تعطيل التحريكات عمومًا عبر إعدادات جنوم (تسهيلات الاستخدام "
+"⇦ الرؤية ⇦ تأثيرات التحريك)."
 
 #: ../data/ui/reader.blp:23
 msgid "Back"
-msgstr "رجوع"
+msgstr "عُد"
 
 #: ../data/ui/reader.blp:31
 msgid "Toggle Fullscreen Mode"
-msgstr ""
+msgstr "بدِّل وضع ملء الشاشة"
 
 #: ../data/ui/shortcuts_overview.blp:15
 msgctxt "Shortcut window description"
 msgid "Application"
-msgstr ""
+msgstr "التطبيق"
 
 #: ../data/ui/shortcuts_overview.blp:18
 msgctxt "Shortcut window description"
 msgid "Open Preferences"
-msgstr ""
+msgstr "افتح التفضيلات"
 
 #: ../data/ui/shortcuts_overview.blp:23
 msgctxt "Shortcut window description"
 msgid "Toggle Fullscreen Mode"
-msgstr ""
+msgstr "بدِّل وضع ملء الشاشة"
 
 #: ../data/ui/shortcuts_overview.blp:28
 msgctxt "Shortcut window description"
 msgid "Open Keyboard Shortcuts"
-msgstr ""
+msgstr "افتح اختصارات لوحة المفاتيح"
 
 #: ../data/ui/shortcuts_overview.blp:34
 msgctxt "Shortcut window description"
@@ -804,12 +813,12 @@ msgstr "المكتبة"
 #: ../data/ui/shortcuts_overview.blp:37
 msgctxt "Shortcut window description"
 msgid "Add Manga"
-msgstr ""
+msgstr "أضِف مانجا"
 
 #: ../data/ui/shortcuts_overview.blp:42
 msgctxt "Shortcut window description"
 msgid "Select All"
-msgstr ""
+msgstr "حدِّد الكل"
 
 #: ../data/ui/shortcuts_overview.blp:47
 msgctxt "Shortcut window description"
@@ -819,17 +828,17 @@ msgstr "ابحث"
 #: ../data/ui/shortcuts_overview.blp:52
 msgctxt "Shortcut window description"
 msgid "Update"
-msgstr ""
+msgstr "حدِّث"
 
 #: ../data/ui/shortcuts_overview.blp:58
 msgctxt "Shortcut window description"
 msgid "Manga Card"
-msgstr "بطاقة المنغا"
+msgstr "بطاقة المانجا"
 
 #: ../data/ui/shortcuts_overview.blp:61
 msgctxt "Shortcut window description"
 msgid "Select All Chapters"
-msgstr ""
+msgstr "حدِّد كل الفصول"
 
 #: ../data/ui/shortcuts_overview.blp:67
 msgctxt "Shortcut window description"
@@ -849,61 +858,62 @@ msgstr "مدير التنزيلات"
 #: ../data/ui/shortcuts_overview.blp:79
 msgctxt "Shortcut window description"
 msgid "Select All Downloads"
-msgstr ""
+msgstr "حدِّد كل التنزيلات"
 
 #: ../data/ui/support.blp:10 ../data/ui/support.blp:16
 msgid "Support Development"
-msgstr "أعِن تطوير البرنامج"
+msgstr "ادعم التطوير"
 
 #: ../data/ui/support.blp:48
 msgid "How can you support?"
-msgstr "طُرق المساعدة؟"
+msgstr "كيف يمكنك الدعم؟"
 
 #: ../data/ui/support.blp:56
 msgid ""
 "Developing and maintaining Komikku is a challenging task that takes up most "
 "of my free time."
-msgstr "يعتبر تطوير كوميكو وصيانته تحديًا يأخذ جل وقت فراغي."
+msgstr "تطوير وصيانة كوميكو مهمَّة صعبة تستهلك معظم وقت فراغي."
 
 #: ../data/ui/support.blp:63
 msgid "Komikku will always be free and open-source and will never contain ads."
-msgstr "سيبقى كوميكو أبدًا حرًا ومفتوح المصدر ولن تُضمّن فيه أي اعلانات."
+msgstr "سيبقى كوميكو حرًا ومفتوح المصدر ولن يحوي على إعلانات أبدًا."
 
 #: ../data/ui/support.blp:70
 msgid ""
 "So if you like it, and you are able, please consider a one-time or recurring "
 "donation to support me, it will be hugely appreciated."
 msgstr ""
+"إن أعجبك التطبيق وكنت قادرًا، فكِّر في التبرُّع لمرة واحدة أو بشكل متكرِّر لدعمي، "
+"وسأكون ممتنًا لذلك كثيرًا."
 
 #: ../data/ui/support.blp:84
 msgid "Weekly, monthly or yearly donation"
-msgstr "تبرع أسبوعي أو شهري أو سنوي"
+msgstr "تبرُّع أسبوعي، أو شهري، أو سنوي"
 
 #: ../data/ui/support.blp:90 ../data/ui/support.blp:106
 #: ../data/ui/support.blp:122
 msgid "Donate and Support"
-msgstr "تبرّع وادعم"
+msgstr "تبرَّع وادعم"
 
 #: ../data/ui/support.blp:100
 msgid "One-time donation"
-msgstr "تبرع لمرة واحدة"
+msgstr "تبرَّع لمرة واحدة"
 
 #: ../data/ui/support.blp:116
 msgid "One-time or monthly donation"
-msgstr "تبرع لمرة واحدة أو شهري"
+msgstr "تبرع شهري أو لمرة واحدة"
 
 #: ../data/ui/webview.blp:10
 msgid "Webview"
-msgstr ""
+msgstr "عرض الوِب"
 
 #: ../komikku/application.py:200
-#, fuzzy
 msgid "Multiple URLs not supported"
-msgstr "الروابط المتعددة غير مدعومة"
+msgstr "المسارات المتعدِّدة غير مدعومة"
 
 #: ../komikku/application.py:216
 msgid "Invalid URL {}, not handled by any server."
-msgstr ""
+msgstr "المسار ‏{‏} غير صالح، ولا يعالجه أي خادوم."
 
 #: ../komikku/application.py:427 ../komikku/card/__init__.py:160
 #: ../komikku/card/__init__.py:161 ../komikku/categories_editor.py:189
@@ -914,11 +924,11 @@ msgstr "ألغِ"
 
 #: ../komikku/application.py:502
 msgid "Servers modules have been updated"
-msgstr ""
+msgstr "حُدِّثت وحدات الخوادم"
 
 #: ../komikku/application.py:509
 msgid "External Servers Modules Update"
-msgstr ""
+msgstr "تحديث وحدات الخوادم الخارجية"
 
 #: ../komikku/application.py:510
 msgid ""
@@ -926,10 +936,12 @@ msgid ""
 "currently making them incompatible with the current version of the "
 "application. Please update it if a more recent version exists."
 msgstr ""
+"تحديث وحدات الخوادم الخارجيَّة معلَّق مؤقتًا، إذ أن التغييرات الحالية تجعلها غير "
+"متوافقة مع النسخة الحالية من التطبيق. حدِّثه إذا وُجدت نسخة أحدث."
 
 #: ../komikku/application.py:513 ../komikku/explorer/common.py:267
 msgid "Close"
-msgstr ""
+msgstr "أغلق"
 
 #: ../komikku/application.py:528
 msgid ""
@@ -939,60 +951,65 @@ msgid ""
 "by buying the official comics when they are\n"
 "available in your region/language."
 msgstr ""
+"قارئ مانجا، ومانهوا، ومانها، ووِبتون، ووِب كوميكس، وقصص مصوَّرة لجنوم\n"
+"\n"
+"👈 لا تنس أبدًا، يمكنك دعم المؤلِّفين\n"
+"بشراء القصص المصوَّرة الرسميَّة عندما تتوفَّر\n"
+"في منطقتك/بلغتك."
 
 #: ../komikku/application.py:537
 msgid "Supporters"
-msgstr ""
+msgstr "الداعمون"
 
 #: ../komikku/application.py:539
 msgid "Join Chat"
-msgstr "انضم للمحادثة"
+msgstr "انضم إلى المحادثة"
 
 #: ../komikku/application.py:655
 msgid "Are you sure you want to quit?"
-msgstr "أمتأكد من الخروج؟"
+msgstr "أمتأكِّد من أنك تريد الخروج؟"
 
 #: ../komikku/application.py:658
 msgid "Some chapters are currently being downloaded."
-msgstr "بعض الفصول تُنزّل."
+msgstr "تُنزَّل بعض الفصول حاليًا."
 
 #: ../komikku/application.py:660
 msgid "Some mangas are currently being updated."
-msgstr "بعض المنغا تُحدّث."
+msgstr "تُحدَّث بعض المانجا حاليًا."
 
 #: ../komikku/application.py:664
 msgid "Quit?"
-msgstr "خروج؟"
+msgstr "أأخرُج؟"
 
 #: ../komikku/application.py:666
 msgid "Quit"
-msgstr "خروج"
+msgstr "اخرُج"
 
 #: ../komikku/application.py:680
 msgid "Restart"
-msgstr ""
+msgstr "أعِد التشغيل"
 
 #: ../komikku/application.py:680
 msgid "Restart?"
-msgstr ""
+msgstr "أأعيد التشغيل؟"
 
 #: ../komikku/card/__init__.py:112 ../komikku/card/__init__.py:241
 #: ../komikku/explorer/search/__init__.py:75
 #: ../komikku/explorer/search/__init__.py:220
 msgid "Filters"
-msgstr ""
+msgstr "المرشِّحات"
 
 #: ../komikku/card/__init__.py:250
 msgid "Unknown"
-msgstr ""
+msgstr "مجهول"
 
 #: ../komikku/card/__init__.py:350
 msgid "Read progress synchronization with server completed successfully"
-msgstr "نجحت مزامنة تقدم المطالعة مع الخادم"
+msgstr "اكتملت مزامنة تقدُّم القراءة مع الخادوم بنجاح"
 
 #: ../komikku/card/__init__.py:356
 msgid "Failed to get manga URL"
-msgstr "فشل جلب رابط المنغا"
+msgstr "تعذَّر جلب المسار الخاص بالمانجا"
 
 #: ../komikku/card/__init__.py:380
 #, python-brace-format
@@ -1001,18 +1018,21 @@ msgid ""
 "{0} is no longer supported.\n"
 "Please switch to another server."
 msgstr ""
+"تنبيه\n"
+"لم يعد {0} مدعومًا.\n"
+"انتقل إلى خادوم آخر."
 
 #: ../komikku/card/__init__.py:473 ../komikku/card/chapters_list.py:728
 msgid "Clear and Reset"
-msgstr ""
+msgstr "امحُ وصفِّر"
 
 #: ../komikku/card/__init__.py:473 ../komikku/card/chapters_list.py:728
 msgid "Reset"
-msgstr ""
+msgstr "صفِّر"
 
 #: ../komikku/card/__init__.py:580
 msgid "Unknown author"
-msgstr "المؤلف مجهول"
+msgstr "المؤلِّف مجهول"
 
 #: ../komikku/card/__init__.py:586 ../komikku/card/__init__.py:595
 msgid "Unknown status"
@@ -1020,67 +1040,67 @@ msgstr "الحالة مجهولة"
 
 #: ../komikku/card/__init__.py:596 ../komikku/explorer/common.py:221
 msgid "Local"
-msgstr "محلي"
+msgstr "محلِّي"
 
 #: ../komikku/card/__init__.py:634 ../komikku/card/chapters_list.py:656
 msgid "%m/%d/%Y"
-msgstr "%d/%m/%Y"
+msgstr "%Od/%Om/%Y"
 
 #: ../komikku/card/chapters_list.py:338 ../komikku/downloader.py:522
 #: ../komikku/library/__init__.py:798
 #, python-brace-format
 msgid "{0} selected"
 msgid_plural "{0} selected"
-msgstr[0] "لم تختر"
-msgstr[1] "واحد مختار"
-msgstr[2] "اثنان مختاران"
-msgstr[3] "{0} مختارون"
-msgstr[4] "{0} مختارة"
-msgstr[5] "{0} مختارة"
+msgstr[0] "لم يُحدَّد أي عنصر"
+msgstr[1] "حُدِّد عنصر"
+msgstr[2] "حُدِّد عنصران"
+msgstr[3] "حُدِّدَت {0} عناصر"
+msgstr[4] "حُدِّد {0} عنصرًا"
+msgstr[5] "حُدِّد {0} عنصر"
 
 #: ../komikku/card/chapters_list.py:418 ../komikku/card/chapters_list.py:517
 msgid "Failed to update chapters reading status"
-msgstr ""
+msgstr "تعذَّر تحديث حالة قراءة الفصول"
 
 #: ../komikku/card/chapters_list.py:714 ../komikku/library/__init__.py:391
 msgid "Download"
-msgstr "نزّل"
+msgstr "نزِّل"
 
 #: ../komikku/card/chapters_list.py:724 ../komikku/preferences.py:145
 msgid "Clear"
-msgstr "امسح"
+msgstr "امحُ"
 
 #: ../komikku/card/chapters_list.py:738
 msgid "Mark as Read"
-msgstr "اجعله مقروء"
+msgstr "علِّم كمقروء"
 
 #: ../komikku/card/chapters_list.py:742
 msgid "Mark as Unread"
-msgstr "اجعله بغير مقروء"
+msgstr "علِّم كغير مقروء"
 
 #: ../komikku/card/chapters_list.py:746
 msgid "Mark Previous Chapters as Read"
-msgstr "اجعل الفصول السابقة غير مقروءة"
+msgstr "علِّم الفصول السابقة كمقروءة"
 
 #: ../komikku/card/tracking.py:71
 msgid "Failed to get data from tracker"
-msgstr ""
+msgstr "تعذَّر جلب البيانات من المتتبِّع"
 
 #: ../komikku/card/tracking.py:99
 msgid "No tracking services available"
-msgstr ""
+msgstr "لا توجد خدمات تتبُّع متاحة"
 
 #: ../komikku/card/tracking.py:185
 msgid "Track"
-msgstr ""
+msgstr "تتبَّع"
 
 #: ../komikku/card/tracking.py:211
 msgid "Use"
-msgstr ""
+msgstr "استخدم"
 
 #: ../komikku/card/tracking.py:219
 msgid "Cancel Tracking"
-msgstr ""
+msgstr "ألغِ التتبُّع"
 
 #: ../komikku/card/tracking.py:225 ../komikku/servers/comick/__init__.py:76
 #: ../komikku/servers/mangadex/__init__.py:71
@@ -1090,24 +1110,24 @@ msgstr ""
 #: ../komikku/servers/mangaworld/__init__.py:74
 #: ../komikku/servers/raijinscan/__init__.py:33
 msgid "Status"
-msgstr "حالة"
+msgstr "الحالة"
 
 #: ../komikku/card/tracking.py:234
 msgid "Score"
-msgstr ""
+msgstr "النقاط"
 
 #: ../komikku/card/tracking.py:239
 msgid "Chapter"
-msgstr ""
+msgstr "الفصل"
 
 #: ../komikku/card/tracking.py:251 ../komikku/categories_editor.py:78
 #: ../komikku/library/__init__.py:365
 msgid "Delete?"
-msgstr "أتريد حذفه؟"
+msgstr "أأحذف؟"
 
 #: ../komikku/card/tracking.py:252
 msgid "Are you sure you want to cancel tracking?"
-msgstr ""
+msgstr "أمتأكِّد من أنك تريد إلغاء التتبُّع؟"
 
 #: ../komikku/card/tracking.py:253 ../komikku/categories_editor.py:80
 #: ../komikku/categories_editor.py:178 ../komikku/library/__init__.py:367
@@ -1116,20 +1136,20 @@ msgstr "احذف"
 
 #: ../komikku/card/tracking.py:436 ../komikku/explorer/search/__init__.py:378
 msgid "Search {}"
-msgstr ""
+msgstr "ابحث في {}"
 
 #: ../komikku/card/tracking.py:497 ../komikku/explorer/search/search.py:78
 #: ../komikku/explorer/search/search_global.py:168
 msgid "Oops, search failed. Please try again."
-msgstr "عذرًا فشل البحث، حاول مجددًا."
+msgstr "أخفق البحث. حاول مجددًا."
 
 #: ../komikku/card/tracking.py:501 ../komikku/explorer/search/search.py:82
 msgid "No Results Found"
-msgstr "لم يُعثر على نتائج"
+msgstr "لم يُعثر على أي نتائج"
 
 #: ../komikku/card/tracking.py:502 ../komikku/explorer/search/search.py:83
 msgid "Try a different search"
-msgstr ""
+msgstr "جرِّب بحثًا مختلفًا"
 
 #: ../komikku/categories_editor.py:79
 #, python-brace-format
@@ -1137,12 +1157,12 @@ msgid ""
 "Are you sure you want to delete\n"
 "\"{0}\" category?"
 msgstr ""
-"أمتأكد من حذف\n"
-"فئة \"{0}\" ؟"
+"أمتأكِّد من أنك تريد حذف\n"
+"تصنيف «{0}»؟"
 
 #: ../komikku/categories_editor.py:183
 msgid "Edit"
-msgstr "حرّر"
+msgstr "حرِّر"
 
 #: ../komikku/categories_editor.py:196
 msgid "Save"
@@ -1151,12 +1171,12 @@ msgstr "احفظ"
 #: ../komikku/downloader.py:234
 #, python-brace-format
 msgid "Download failure: {0}"
-msgstr ""
+msgstr "تعذَّر التنزيل: {0}"
 
 #: ../komikku/downloader.py:245
 #, python-brace-format
 msgid "{0}/{1} pages downloaded"
-msgstr "نُزلة {0}\\{1} صفحة"
+msgstr "نُزِّلت {0}\\{1} من الصفحات"
 
 #: ../komikku/downloader.py:247
 msgid "error"
@@ -1165,7 +1185,7 @@ msgstr "خطأ"
 #: ../komikku/downloader.py:251 ../komikku/downloader.py:268
 #, python-brace-format
 msgid "[{0}] Chapter {1}"
-msgstr ""
+msgstr "[{0}] الفصل {1}"
 
 #: ../komikku/downloader.py:267
 msgid "Download completed"
@@ -1175,29 +1195,29 @@ msgstr "اكتمل التنزيل"
 #, python-brace-format
 msgid "{0} chapter"
 msgid_plural "{0} chapters"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
-msgstr[4] ""
-msgstr[5] ""
+msgstr[0] "لا فصول"
+msgstr[1] "فصل"
+msgstr[2] "فصلان"
+msgstr[3] "{0} فصول"
+msgstr[4] "{0} فصلًا"
+msgstr[5] "{0} فصل"
 
 #: ../komikku/explorer/common.py:123
 msgid "Last Chapter: {}"
-msgstr ""
+msgstr "آخر فصل: {}"
 
 #: ../komikku/explorer/common.py:125
 msgid "Last Volume: {}"
-msgstr ""
+msgstr "آخر مجلَّد: {}"
 
 #: ../komikku/explorer/common.py:222
 msgid "Comics stored locally as archives in CBZ/CBR formats"
-msgstr ""
+msgstr "قصص مصوَّرة مخزَّنة محليًا كأرشيفات بنسقي CBZ أو CBR"
 
 #: ../komikku/explorer/common.py:239 ../komikku/preferences.py:606
 #: ../komikku/preferences.py:703 ../komikku/servers/mangatube/__init__.py:150
 msgid "18+"
-msgstr "18+"
+msgstr "+18"
 
 #: ../komikku/explorer/common.py:259
 msgid "Help"
@@ -1215,34 +1235,42 @@ msgid ""
 "\n"
 "NOTE: The 'unrar' or 'unar' command-line tool is required for CBR archives."
 msgstr ""
+"يتطلَّب الأمر بنية مجلَّدات معيَّنة لمعالجة القصص المصوَّرة المحليَّة على نحو سليم.\n"
+"\n"
+"يجب أن يكون لكل قصة مصوَّرة مجلَّدها الخاص الذي يجب أن يحتوي على الفصول\\المجلَّ"
+"دات كملفات أرشيف بنسق CBZ أو CBR.\n"
+"\n"
+"سيُستخدَم اسم المجلَّد كاسم للقصة المصوَّرة.\n"
+"\n"
+"ملاحظة: أداة سطر الأوامر 'unrar' أو 'unar' مطلوبة لأرشيفات CBR."
 
 #: ../komikku/explorer/common.py:267
 msgid "Local Folder"
-msgstr ""
+msgstr "مجلَّد محلِّي"
 
 #: ../komikku/explorer/common.py:273
 msgid "Open local folder"
-msgstr "افتح مجلد القصص المحلية"
+msgstr "افتح المجلَّد المحلِّي"
 
 #: ../komikku/explorer/common.py:281
 msgid "Toggle pinned status"
-msgstr ""
+msgstr "بدِّل حالة التثبيت"
 
 #: ../komikku/explorer/search/__init__.py:283
 msgid "Search was cancelled"
-msgstr ""
+msgstr "أُلغي البحث"
 
 #: ../komikku/explorer/search/__init__.py:290
 msgid "Oops, server website URL is unknown."
-msgstr ""
+msgstr "عنوان موقع الوِب للخادوم مجهول."
 
 #: ../komikku/explorer/search/__init__.py:380
 msgid "Search for Reading"
-msgstr ""
+msgstr "ابحث للقراءة"
 
 #: ../komikku/explorer/search/__init__.py:382
 msgid "Empty search is allowed."
-msgstr ""
+msgstr "يُسمح بالبحث الفارغ."
 
 #: ../komikku/explorer/search/__init__.py:384
 msgid ""
@@ -1250,113 +1278,116 @@ msgid ""
 "\n"
 "<b>id:ID from comic URL</b>"
 msgstr ""
+"بدلاً من ذلك، يمكنك البحث عن قصص مصوَّرة معيَّنة باستخدام الصيغة:\n"
+"\n"
+"<b>id:ID</b>"
 
 #: ../komikku/explorer/search/__init__.py:412
 msgid "Global Search"
-msgstr ""
+msgstr "بحث عام"
 
 #: ../komikku/explorer/search/__init__.py:414
 msgid "Search globally by name"
-msgstr ""
+msgstr "ابحث عمومًا بالاسم"
 
 #: ../komikku/explorer/search/__init__.py:416
 msgid "Search for Comics"
-msgstr ""
+msgstr "ابحث عن قصص مصوَّرة"
 
 #: ../komikku/explorer/search/__init__.py:490
 msgid "Oops, failed to retrieve manga's information."
-msgstr ""
+msgstr "تعذَّر استرداد معلومات المانجا."
 
 #: ../komikku/explorer/search/latest_updates.py:66
 msgid "Oops, failed to retrieve latest updates."
-msgstr "فشل جلب آخر التحديثات."
+msgstr "تعذَّر استرداد آخر التحديثات."
 
 #: ../komikku/explorer/search/latest_updates.py:70
 msgid "No Latest Updates Found"
-msgstr "لم يُعثر على تحديثات"
+msgstr "لم يُعثر على تحديثات جديدة"
 
 #: ../komikku/explorer/search/latest_updates.py:78
 #: ../komikku/explorer/search/most_popular.py:78
 #: ../komikku/explorer/search/search.py:92
 #: ../komikku/explorer/search/search_global.py:95
 msgid "A request is already in progress."
-msgstr ""
+msgstr "هناك طلب قيد التنفيذ بالفعل."
 
 #: ../komikku/explorer/search/most_popular.py:66
 msgid "Oops, failed to retrieve most popular."
-msgstr ""
+msgstr "تعذَّر استرداد الأكثر شعبيَّة."
 
 #: ../komikku/explorer/search/most_popular.py:70
 msgid "No Most Popular Found"
-msgstr ""
+msgstr "لم يُعثر على الأكثر شعبيَّة"
 
 #: ../komikku/explorer/search/search_global.py:165
 msgid "Search cancelled"
-msgstr ""
+msgstr "أُلغي البحث"
 
 #: ../komikku/explorer/search/search_global.py:173
 msgid "No results"
-msgstr "لا نتائج"
+msgstr "لا توجد نتائج"
 
 #: ../komikku/explorer/servers.py:108 ../komikku/explorer/servers.py:169
 msgid "Other"
-msgstr ""
+msgstr "أخرى"
 
 #: ../komikku/explorer/servers.py:206
 msgid "Pinned"
-msgstr ""
+msgstr "مثبَّتة"
 
 #: ../komikku/history.py:36
 msgid "Today"
-msgstr ""
+msgstr "اليوم"
 
 #: ../komikku/history.py:38
 msgid "Yesterday"
-msgstr ""
+msgstr "الأمس"
 
 #: ../komikku/history.py:40
 msgid "%A, %B %e"
-msgstr ""
+msgstr "%A، %Oe %OB"
 
 #: ../komikku/history.py:94
 msgid "Resume"
-msgstr ""
+msgstr "استأنف"
 
 #: ../komikku/library/__init__.py:361
 msgid "Are you sure you want to delete this manga?"
-msgstr ""
+msgstr "أمتأكِّد من أنك تريد حذف هذه المانجا؟"
 
 #: ../komikku/library/__init__.py:363
 msgid "Are you sure you want to delete selected mangas?"
-msgstr ""
+msgstr "أمتأكِّد من أنك تريد حذف المانجا المحدَّدة؟"
 
 #: ../komikku/library/__init__.py:387
 msgid "Are you sure you want to download all chapters of selected mangas?"
-msgstr ""
+msgstr "أمتأكِّد من أنك تريد تنزيل كل فصول المانجا المحدَّدة؟"
 
 #: ../komikku/library/__init__.py:389
 msgid "Download?"
-msgstr ""
+msgstr "أأنزل؟"
 
 #: ../komikku/library/__init__.py:613
 msgid "Welcome to Komikku"
-msgstr "مرحبًا في كوميكو"
+msgstr "أهلًا بك في كوميكو"
 
 #: ../komikku/library/__init__.py:621
 msgid "Loading…"
-msgstr "يحمل…"
+msgstr "يحمِّل…"
 
 #: ../komikku/library/__init__.py:747
 msgid "Failed to update reading status"
-msgstr "فشل تحديث حالة القراءة"
+msgstr "تعذَّر تحديث حالة القراءة"
 
 #: ../komikku/library/__init__.py:769
 msgid "Add New Comic"
-msgstr ""
+msgstr "أضِف قصة مصوَّرة جديدة"
 
 #: ../komikku/library/__init__.py:802 ../komikku/library/categories_list.py:145
 msgid "Uncategorized"
-msgstr ""
+msgstr "غير مصنَّف"
 
 #: ../komikku/library/categories_list.py:139
 #: ../komikku/servers/asurascans/__init__.py:41
@@ -1373,26 +1404,26 @@ msgstr "الكل"
 
 #: ../komikku/models/database/downloads.py:19
 msgid "Download pending"
-msgstr ""
+msgstr "التنزيل معلَّق"
 
 #: ../komikku/models/database/downloads.py:20
 msgid "Downloaded"
-msgstr "منزلة"
+msgstr "نُزِّل"
 
 #: ../komikku/models/database/downloads.py:21
 msgid "Downloading"
-msgstr "ينزل"
+msgstr "ينزِّل"
 
 #: ../komikku/models/database/downloads.py:22
 msgid "Download error"
-msgstr "خطأ أثناء التنزيل"
+msgstr "خطأ في التنزيل"
 
 #: ../komikku/models/database/mangas.py:46
 #: ../komikku/servers/mangamana/__init__.py:68
 #: ../komikku/servers/mangaworld/__init__.py:79
 #: ../komikku/servers/weebcentral/__init__.py:53
 msgid "Complete"
-msgstr "مكتملة"
+msgstr "مكتمل"
 
 #: ../komikku/models/database/mangas.py:47
 #: ../komikku/servers/comick/__init__.py:80
@@ -1403,13 +1434,13 @@ msgstr "مكتملة"
 #: ../komikku/servers/raijinscan/__init__.py:37
 #: ../komikku/servers/weebcentral/__init__.py:52
 msgid "Ongoing"
-msgstr "جارية"
+msgstr "مستمر"
 
 #: ../komikku/models/database/mangas.py:48
 #: ../komikku/servers/mangamana/__init__.py:69
 #: ../komikku/servers/mangaworld/__init__.py:80
 msgid "Suspended"
-msgstr "متوقفة"
+msgstr "معلَّق"
 
 #: ../komikku/models/database/mangas.py:49
 #: ../komikku/servers/flamescans/__init__.py:55
@@ -1417,19 +1448,19 @@ msgstr "متوقفة"
 #: ../komikku/servers/mangaworld/__init__.py:81
 #: ../komikku/servers/weebcentral/__init__.py:54
 msgid "Hiatus"
-msgstr ""
+msgstr "متوقِّف"
 
 #: ../komikku/preferences.py:143
 msgid "Clear?"
-msgstr "أتريد المسح؟"
+msgstr "أأمحُ؟"
 
 #: ../komikku/preferences.py:144
 msgid "Are you sure you want to clear chapters cache and database?"
-msgstr "أتريد مسح التخزين المؤقت للفصول وقاعدة البيانات؟"
+msgstr "أمتأكِّد من أنك تريد محو اختزان الفصول وقاعدة البيانات؟"
 
 #: ../komikku/preferences.py:172
 msgid "Disable animations?"
-msgstr "أتريد تعطيل التأثيرات الرسومية؟"
+msgstr "أأعطل التحريكات؟"
 
 #: ../komikku/preferences.py:173
 msgid ""
@@ -1437,10 +1468,13 @@ msgid ""
 "\n"
 "The gesture navigation in the reader will not work properly anymore."
 msgstr ""
+"أمتأكِّد من أنك تريد تعطيل التحريكات؟\n"
+"\n"
+"لن يعمل التنقُّل بالإيماءات في القارئ على نحو سليم بعد الآن."
 
 #: ../komikku/preferences.py:174
 msgid "Disable"
-msgstr "عطل"
+msgstr "عطِّل"
 
 #: ../komikku/preferences.py:634
 msgid "User Account"
@@ -1448,7 +1482,7 @@ msgstr "حساب المستخدم"
 
 #: ../komikku/preferences.py:642
 msgid "Address"
-msgstr "عنوان"
+msgstr "العنوان"
 
 #: ../komikku/preferences.py:648
 msgid "Username"
@@ -1460,19 +1494,23 @@ msgstr "كلمة السر"
 
 #: ../komikku/preferences.py:664
 msgid "System keyring service is disabled. Credential cannot be saved."
-msgstr ""
+msgstr "خدمة سلسلة مفاتيح النظام معطَّلة. لا يمكن حفظ بيانات الاعتماد."
 
 #: ../komikku/preferences.py:669
 msgid ""
 "No keyring backends were found to store credential. Use plaintext storage as "
 "fallback."
 msgstr ""
+"لم يُعثر على أية خلفيات لسلسلة المفاتيح لتخزين بيانات الاعتماد. استخدم "
+"التخزين كنص صريح كحل بديل."
 
 #: ../komikku/preferences.py:674
 msgid ""
 "No keyring backends were found to store credential. Plaintext storage will "
 "be used as fallback."
 msgstr ""
+"لم يُعثر على أية خلفيات لسلسلة المفاتيح لتخزين بيانات الاعتماد. سيُستخدَم "
+"التخزين كنص صريح كحل بديل."
 
 #: ../komikku/preferences.py:682
 msgid "Test"
@@ -1481,54 +1519,54 @@ msgstr "اختبر"
 #: ../komikku/preferences.py:758 ../komikku/preferences.py:773
 #: ../komikku/preferences.py:796
 msgid "Disconnect"
-msgstr ""
+msgstr "اقطع الاتصال"
 
 #: ../komikku/preferences.py:761 ../komikku/preferences.py:788
 msgid "Connect"
-msgstr ""
+msgstr "اتَّصل"
 
 #: ../komikku/preferences.py:776
 msgid "Failed to request client access"
-msgstr ""
+msgstr "تعذَّر طلب وصول العميل"
 
 #: ../komikku/preferences.py:779
 msgid "Webview is currently in used. Please retry later."
-msgstr ""
+msgstr "عارض الوِب قيد الاستخدام حاليًا. أَعِد المحاولة لاحقًا."
 
 #: ../komikku/preferences.py:796
 msgid "Disconnect from {}"
-msgstr ""
+msgstr "اقطع الاتصال عن {}"
 
 #: ../komikku/reader/__init__.py:367
 msgid "Page successfully saved"
-msgstr ""
+msgstr "حُفِظَت الصفحة بنجاح"
 
 #: ../komikku/reader/pager/__init__.py:165
 msgid "Failed to sync read progress with server"
-msgstr ""
+msgstr "تعذَّرت مزامنة تقدُّم القراءة مع الخادوم"
 
 #: ../komikku/reader/pager/__init__.py:458
 #: ../komikku/reader/pager/webtoon.py:95
 msgid "There is no previous chapter."
-msgstr "لا فصل سابق."
+msgstr "لا يوجد فصل سابق."
 
 #: ../komikku/reader/pager/__init__.py:460
 #: ../komikku/reader/pager/webtoon.py:93
 msgid "It was the last chapter."
-msgstr "كان آخر فصل."
+msgstr "كان هذا الفصل الأخير."
 
 #: ../komikku/reader/pager/__init__.py:626
 #: ../komikku/reader/pager/webtoon.py:152
 msgid "This chapter is inaccessible."
-msgstr "لا يمكن الوصول للفصل."
+msgstr "هذا الفصل غير متاح."
 
 #: ../komikku/reader/pager/page.py:275
 msgid "Failed to load image"
-msgstr "فشل تحميل الصورة"
+msgstr "تعذَّر تحميل الصورة"
 
 #: ../komikku/reader/pager/page.py:317
 msgid "Retry"
-msgstr "أعد المحاولة"
+msgstr "أعِد المحاولة"
 
 #: ../komikku/servers/asurascans/__init__.py:36
 #: ../komikku/servers/mangafire/__init__.py:44
@@ -1540,7 +1578,7 @@ msgstr "أعد المحاولة"
 #: ../komikku/servers/raijinscan/__init__.py:44
 #: ../komikku/servers/webtoon/__init__.py:54
 msgid "Type"
-msgstr "نوع"
+msgstr "النوع"
 
 #: ../komikku/servers/asurascans/__init__.py:37
 #: ../komikku/servers/mangapill/__init__.py:34
@@ -1548,7 +1586,7 @@ msgstr "نوع"
 #: ../komikku/servers/phenixscans/__init__.py:36
 #: ../komikku/servers/webtoon/__init__.py:55
 msgid "Filter by Type"
-msgstr ""
+msgstr "رشِّح حسب النوع"
 
 #: ../komikku/servers/asurascans/__init__.py:42
 #: ../komikku/servers/coloredcouncil/__init__.py:72
@@ -1563,7 +1601,7 @@ msgstr ""
 #: ../komikku/servers/raijinscan/__init__.py:48
 #: ../komikku/servers/weebcentral/__init__.py:39
 msgid "Manga"
-msgstr "مانغا"
+msgstr "مانجا"
 
 #: ../komikku/servers/asurascans/__init__.py:43
 #: ../komikku/servers/comick/__init__.py:94
@@ -1577,7 +1615,7 @@ msgstr "مانغا"
 #: ../komikku/servers/raijinscan/__init__.py:49
 #: ../komikku/servers/weebcentral/__init__.py:40
 msgid "Manhwa"
-msgstr "مانهوا كورية"
+msgstr "مانهوا"
 
 #: ../komikku/servers/asurascans/__init__.py:44
 #: ../komikku/servers/comick/__init__.py:95
@@ -1591,15 +1629,15 @@ msgstr "مانهوا كورية"
 #: ../komikku/servers/raijinscan/__init__.py:50
 #: ../komikku/servers/weebcentral/__init__.py:41
 msgid "Manhua"
-msgstr "مانهوا صينية"
+msgstr "مانها"
 
 #: ../komikku/servers/bilibili/__init__.py:38
 msgid "Price"
-msgstr "سعر"
+msgstr "السعر"
 
 #: ../komikku/servers/bilibili/__init__.py:39
 msgid "Filter by price"
-msgstr "رشح بالسعر"
+msgstr "رشِّح حسب السعر"
 
 #: ../komikku/servers/bilibili/__init__.py:44
 msgid "Free"
@@ -1611,41 +1649,41 @@ msgstr "مدفوع"
 
 #: ../komikku/servers/coloredcouncil/__init__.py:65
 msgid "Format"
-msgstr ""
+msgstr "النسق"
 
 #: ../komikku/servers/coloredcouncil/__init__.py:66
 msgid "Filter by format"
-msgstr ""
+msgstr "رشِّح حسب النسق"
 
 #: ../komikku/servers/coloredcouncil/__init__.py:71
 msgid "Manwha"
-msgstr ""
+msgstr "مانهوا"
 
 #: ../komikku/servers/coloredcouncil/__init__.py:78
 msgid "Version"
-msgstr ""
+msgstr "الإصدار"
 
 #: ../komikku/servers/coloredcouncil/__init__.py:79
 msgid "Filter by version"
-msgstr ""
+msgstr "رشِّح حسب الإصدار"
 
 #: ../komikku/servers/coloredcouncil/__init__.py:84
 msgid "Color"
-msgstr ""
+msgstr "ملوَّن"
 
 #: ../komikku/servers/coloredcouncil/__init__.py:85
 msgid "B/W"
-msgstr ""
+msgstr "أبيض وأسود"
 
 #: ../komikku/servers/comick/__init__.py:64
 #: ../komikku/servers/mangadex/__init__.py:58
 msgid "Rating"
-msgstr "تقييم"
+msgstr "التقييم"
 
 #: ../komikku/servers/comick/__init__.py:65
 #: ../komikku/servers/mangadex/__init__.py:59
 msgid "Filter by Content Ratings"
-msgstr ""
+msgstr "رشِّح حسب تقييمات المحتوى"
 
 #: ../komikku/servers/comick/__init__.py:68
 #: ../komikku/servers/mangadex/__init__.py:62
@@ -1655,12 +1693,12 @@ msgstr "آمن"
 #: ../komikku/servers/comick/__init__.py:69
 #: ../komikku/servers/mangadex/__init__.py:63
 msgid "Suggestive"
-msgstr ""
+msgstr "إيحائي"
 
 #: ../komikku/servers/comick/__init__.py:70
 #: ../komikku/servers/mangadex/__init__.py:64
 msgid "Erotica"
-msgstr ""
+msgstr "مُثير"
 
 #: ../komikku/servers/comick/__init__.py:77
 #: ../komikku/servers/flamescans/__init__.py:50
@@ -1670,7 +1708,7 @@ msgstr ""
 #: ../komikku/servers/raijinscan/__init__.py:34
 #: ../komikku/servers/weebcentral/__init__.py:49
 msgid "Filter by Statuses"
-msgstr ""
+msgstr "رشِّح حسب الحالات"
 
 #: ../komikku/servers/comick/__init__.py:81
 #: ../komikku/servers/flamescans/__init__.py:54
@@ -1679,7 +1717,7 @@ msgstr ""
 #: ../komikku/servers/raijinscan/__init__.py:38
 #: ../komikku/trackers/__init__.py:35
 msgid "Completed"
-msgstr ""
+msgstr "مُكتمل"
 
 #: ../komikku/servers/comick/__init__.py:82
 #: ../komikku/servers/flamescans/__init__.py:57
@@ -1687,59 +1725,59 @@ msgstr ""
 #: ../komikku/servers/mangaworld/__init__.py:82
 #: ../komikku/servers/weebcentral/__init__.py:55
 msgid "Canceled"
-msgstr "ملغاة"
+msgstr "مُلغى"
 
 #: ../komikku/servers/comick/__init__.py:83
 #: ../komikku/servers/mangadex/__init__.py:77
 msgid "Paused"
-msgstr ""
+msgstr "مُلبَث"
 
 #: ../komikku/servers/comick/__init__.py:89
 msgid "Origination"
-msgstr ""
+msgstr "بلد المنشأ"
 
 #: ../komikku/servers/comick/__init__.py:90
 msgid "[Latest Updates only] Filter by Origination"
-msgstr ""
+msgstr "[لآخر التحديثات فقط] رشِّح حسب بلد المنشأ"
 
 #: ../komikku/servers/comick/__init__.py:101
 msgid "Countries"
-msgstr ""
+msgstr "البلدان"
 
 #: ../komikku/servers/comick/__init__.py:103
 msgid "[Search and Most Popular only] Filter by Country (origination)"
-msgstr ""
+msgstr "[للبحث والأكثر شيوعًا فقط] رشِّح حسب البلد (المنشأ)"
 
 #: ../komikku/servers/comick/__init__.py:107
 msgid "Japan (Manga)"
-msgstr ""
+msgstr "اليابان (مانجا)"
 
 #: ../komikku/servers/comick/__init__.py:108
 msgid "Korea (Manhwa)"
-msgstr ""
+msgstr "كوريا (مانهوا)"
 
 #: ../komikku/servers/comick/__init__.py:109
 msgid "China (Manhua)"
-msgstr ""
+msgstr "الصين (مانها)"
 
 #: ../komikku/servers/comick/__init__.py:115
 #: ../komikku/servers/mangadex/__init__.py:84
 msgid "Publication Demographic"
-msgstr ""
+msgstr "الفئة السكانيَّة"
 
 #: ../komikku/servers/comick/__init__.py:116
 msgid "Filter by Publication Demographics"
-msgstr ""
+msgstr "رشِّح حسب الفئات السكانيَّة"
 
 #: ../komikku/servers/comick/__init__.py:119
 #: ../komikku/servers/mangadex/__init__.py:88
 msgid "Shounen"
-msgstr ""
+msgstr "شونين"
 
 #: ../komikku/servers/comick/__init__.py:120
 #: ../komikku/servers/mangadex/__init__.py:89
 msgid "Shoujo"
-msgstr ""
+msgstr "شوجو"
 
 #: ../komikku/servers/comick/__init__.py:121
 #: ../komikku/servers/mangadex/__init__.py:91
@@ -1753,22 +1791,22 @@ msgstr "جوسي"
 
 #: ../komikku/servers/comick/__init__.py:123
 msgid "None"
-msgstr ""
+msgstr "بلا"
 
 #: ../komikku/servers/comick/__init__.py:129
 #: ../komikku/servers/mangadex/__init__.py:97
 msgid "Tags"
-msgstr ""
+msgstr "الوسوم"
 
 #: ../komikku/servers/comick/__init__.py:130
 #: ../komikku/servers/mangadex/__init__.py:98
 msgid "Filter by Formats"
-msgstr ""
+msgstr "رشِّح حسب النسق"
 
 #: ../komikku/servers/comick/__init__.py:133
 #: ../komikku/servers/mangadex/__init__.py:101
 msgid "4-Koma"
-msgstr ""
+msgstr "4-كوما"
 
 #: ../komikku/servers/comick/__init__.py:134
 #: ../komikku/servers/mangadex/__init__.py:102
@@ -1778,12 +1816,12 @@ msgstr "اقتباس"
 #: ../komikku/servers/comick/__init__.py:135
 #: ../komikku/servers/mangadex/__init__.py:103
 msgid "Anthology"
-msgstr ""
+msgstr "أنثولوجيا"
 
 #: ../komikku/servers/comick/__init__.py:136
 #: ../komikku/servers/mangadex/__init__.py:104
 msgid "Award Winning"
-msgstr "حاصل على جائزة"
+msgstr "حائز على جوائز"
 
 #: ../komikku/servers/comick/__init__.py:137
 #: ../komikku/servers/mangadex/__init__.py:105
@@ -1795,192 +1833,192 @@ msgstr "دوجينشي"
 #: ../komikku/servers/comick/__init__.py:138
 #: ../komikku/servers/mangadex/__init__.py:106
 msgid "Fan Colored"
-msgstr "تلوين معجبين"
+msgstr "لوَّنه معجبون"
 
 #: ../komikku/servers/comick/__init__.py:139
 #: ../komikku/servers/mangadex/__init__.py:107
 msgid "Full Color"
-msgstr "تلوين كامل"
+msgstr "ملوَّن بالكامل"
 
 #: ../komikku/servers/comick/__init__.py:140
 #: ../komikku/servers/mangadex/__init__.py:108
 msgid "Long Strip"
-msgstr ""
+msgstr "شريط طويل"
 
 #: ../komikku/servers/comick/__init__.py:143
 #: ../komikku/servers/mangadex/__init__.py:109
 msgid "Official Colored"
-msgstr "تلوين رسمي"
+msgstr "ملوَّن رسميًا"
 
 #: ../komikku/servers/comick/__init__.py:146
 #: ../komikku/servers/mangadex/__init__.py:110
 msgid "Oneshot"
-msgstr ""
+msgstr "فصل واحد"
 
 #: ../komikku/servers/comick/__init__.py:147
 msgid "User Created"
-msgstr ""
+msgstr "أنشأه مستخدم"
 
 #: ../komikku/servers/comick/__init__.py:148
 #: ../komikku/servers/mangadex/__init__.py:112
 msgid "Web Comic"
-msgstr ""
+msgstr "وِب‌كوميك"
 
 #: ../komikku/servers/comick/__init__.py:154
 #: ../komikku/servers/mangadex/__init__.py:118
 msgid "Genres"
-msgstr "تصنيفات"
+msgstr "الأنواع"
 
 #: ../komikku/servers/comick/__init__.py:155
 #: ../komikku/servers/mangadex/__init__.py:119
 msgid "Filter by Genres"
-msgstr ""
+msgstr "رشِّح حسب الأنواع"
 
 #: ../komikku/servers/comick/__init__.py:158
 #: ../komikku/servers/mangadex/__init__.py:122
 msgid "Action"
-msgstr ""
+msgstr "إثارة"
 
 #: ../komikku/servers/comick/__init__.py:159
 msgid "Adult"
-msgstr ""
+msgstr "للبالغين"
 
 #: ../komikku/servers/comick/__init__.py:160
 #: ../komikku/servers/mangadex/__init__.py:123
 msgid "Adventure"
-msgstr ""
+msgstr "مغامرات"
 
 #: ../komikku/servers/comick/__init__.py:161
 #: ../komikku/servers/mangadex/__init__.py:125
 msgid "Comedy"
-msgstr ""
+msgstr "كوميديا"
 
 #: ../komikku/servers/comick/__init__.py:162
 #: ../komikku/servers/mangadex/__init__.py:126
 msgid "Crime"
-msgstr ""
+msgstr "جريمة"
 
 #: ../komikku/servers/comick/__init__.py:163
 #: ../komikku/servers/mangadex/__init__.py:127
 msgid "Drama"
-msgstr ""
+msgstr "دراما"
 
 #: ../komikku/servers/comick/__init__.py:164
 msgid "Ecchi"
-msgstr ""
+msgstr "إيتشي"
 
 #: ../komikku/servers/comick/__init__.py:165
 #: ../komikku/servers/mangadex/__init__.py:128
 msgid "Fantasy"
-msgstr ""
+msgstr "خيال"
 
 #: ../komikku/servers/comick/__init__.py:166
 msgid "Gender Bender"
-msgstr ""
+msgstr "تبديل الجنس"
 
 #: ../komikku/servers/comick/__init__.py:167
 #: ../komikku/servers/mangadex/__init__.py:130
 msgid "Historical"
-msgstr ""
+msgstr "تاريخي"
 
 #: ../komikku/servers/comick/__init__.py:168
 #: ../komikku/servers/mangadex/__init__.py:131
 msgid "Horror"
-msgstr ""
+msgstr "رعب"
 
 #: ../komikku/servers/comick/__init__.py:169
 #: ../komikku/servers/mangadex/__init__.py:132
 msgid "Isekai"
-msgstr ""
+msgstr "إيسيكاي"
 
 #: ../komikku/servers/comick/__init__.py:170
 #: ../komikku/servers/mangadex/__init__.py:133
 msgid "Magical Girls"
-msgstr ""
+msgstr "فتيات سحريات"
 
 #: ../komikku/servers/comick/__init__.py:171
 msgid "Mature"
-msgstr ""
+msgstr "ناضج"
 
 #: ../komikku/servers/comick/__init__.py:172
 #: ../komikku/servers/mangadex/__init__.py:134
 msgid "Mecha"
-msgstr ""
+msgstr "ميكا"
 
 #: ../komikku/servers/comick/__init__.py:173
 #: ../komikku/servers/mangadex/__init__.py:135
 msgid "Medical"
-msgstr ""
+msgstr "طبِّي"
 
 #: ../komikku/servers/comick/__init__.py:174
 #: ../komikku/servers/mangadex/__init__.py:136
 msgid "Mystery"
-msgstr ""
+msgstr "غموض"
 
 #: ../komikku/servers/comick/__init__.py:175
 #: ../komikku/servers/mangadex/__init__.py:137
 msgid "Philosophical"
-msgstr ""
+msgstr "فلسفي"
 
 #: ../komikku/servers/comick/__init__.py:176
 msgid "Psychological"
-msgstr ""
+msgstr "نفسي"
 
 #: ../komikku/servers/comick/__init__.py:177
 #: ../komikku/servers/mangadex/__init__.py:138
 msgid "Romance"
-msgstr ""
+msgstr "رومانسي"
 
 #: ../komikku/servers/comick/__init__.py:178
 #: ../komikku/servers/mangadex/__init__.py:139
 msgid "Sci-Fi"
-msgstr ""
+msgstr "خيال علمي"
 
 #: ../komikku/servers/comick/__init__.py:179
 msgid "Shoujo Ai"
-msgstr ""
+msgstr "شوجو آي"
 
 #: ../komikku/servers/comick/__init__.py:180
 #: ../komikku/servers/mangadex/__init__.py:140
 msgid "Slice of Life"
-msgstr ""
+msgstr "شريحة من الحياة"
 
 #: ../komikku/servers/comick/__init__.py:181
 #: ../komikku/servers/mangadex/__init__.py:141
 msgid "Sports"
-msgstr ""
+msgstr "رياضة"
 
 #: ../komikku/servers/comick/__init__.py:182
 #: ../komikku/servers/mangadex/__init__.py:142
 msgid "Superhero"
-msgstr ""
+msgstr "أبطال خارقون"
 
 #: ../komikku/servers/comick/__init__.py:183
 #: ../komikku/servers/mangadex/__init__.py:143
 msgid "Thriller"
-msgstr ""
+msgstr "تشويق"
 
 #: ../komikku/servers/comick/__init__.py:184
 #: ../komikku/servers/mangadex/__init__.py:144
 msgid "Tragedy"
-msgstr ""
+msgstr "مأساة"
 
 #: ../komikku/servers/comick/__init__.py:185
 #: ../komikku/servers/mangadex/__init__.py:145
 msgid "Wuxia"
-msgstr ""
+msgstr "ووشيا"
 
 #: ../komikku/servers/comick/__init__.py:186
 msgid "Yaoi"
-msgstr ""
+msgstr "ياوي"
 
 #: ../komikku/servers/comick/__init__.py:187
 msgid "Yuri"
-msgstr ""
+msgstr "يوري"
 
 #: ../komikku/servers/dynasty/__init__.py:39
 msgid "Categories"
-msgstr "فئات"
+msgstr "التصنيفات"
 
 #: ../komikku/servers/dynasty/__init__.py:40
 #: ../komikku/servers/flamescans/__init__.py:38
@@ -1989,23 +2027,23 @@ msgstr "فئات"
 #: ../komikku/servers/raijinscan/__init__.py:45
 #: ../komikku/servers/weebcentral/__init__.py:36
 msgid "Filter by Types"
-msgstr ""
+msgstr "رشِّح حسب الأنواع"
 
 #: ../komikku/servers/dynasty/__init__.py:43
 msgid "Anthologies"
-msgstr ""
+msgstr "أنثولوجيات"
 
 #: ../komikku/servers/dynasty/__init__.py:44
 msgid "Doujins"
-msgstr ""
+msgstr "دوجينشي"
 
 #: ../komikku/servers/dynasty/__init__.py:45
 msgid "Issues"
-msgstr ""
+msgstr "أعداد"
 
 #: ../komikku/servers/dynasty/__init__.py:46
 msgid "Series"
-msgstr ""
+msgstr "سلاسل"
 
 #: ../komikku/servers/dynasty/__init__.py:47
 msgid "Chapters"
@@ -2013,19 +2051,19 @@ msgstr "فصول"
 
 #: ../komikku/servers/dynasty/__init__.py:53
 msgid "With Tags"
-msgstr "بوسوم"
+msgstr "مع الوسوم"
 
 #: ../komikku/servers/dynasty/__init__.py:54
 msgid "Comma separated list of tags to search for"
-msgstr ""
+msgstr "قائمة وسوم مفصولة بفاصلات للبحث عنها"
 
 #: ../komikku/servers/dynasty/__init__.py:60
 msgid "Without Tags"
-msgstr "بدون وسوم"
+msgstr "بدون الوسوم"
 
 #: ../komikku/servers/dynasty/__init__.py:61
 msgid "Comma separated list of tags to exclude from search"
-msgstr ""
+msgstr "قائمة وسوم مفصولة بفاصلات لاستبعادها من البحث"
 
 #: ../komikku/servers/exceptions.py:10
 msgid "Error: {}"
@@ -2033,15 +2071,15 @@ msgstr "خطأ: {}"
 
 #: ../komikku/servers/exceptions.py:16
 msgid "Local archive is corrupt."
-msgstr ""
+msgstr "الأرشيف المحلي تالف."
 
 #: ../komikku/servers/exceptions.py:21
 msgid "Unable to extract page. Maybe the 'unrar' tool is missing?"
-msgstr "تعذر الاستخراج. هل أداة «unrar» مثبتة؟"
+msgstr "تعذَّر استخراج الصفحة. لعل أداة ’unrar‘ مفقودة؟"
 
 #: ../komikku/servers/exceptions.py:26
 msgid "Failed to complete browser challenge. Please try again."
-msgstr ""
+msgstr "تعذَّر إكمال تحدي المتصفح. أَعِد المحاولة لاحقًا."
 
 #: ../komikku/servers/exceptions.py:31
 msgid "No longer exists."
@@ -2050,45 +2088,45 @@ msgstr "لم يعد موجودًا."
 #: ../komikku/servers/flamescans/__init__.py:37
 #: ../komikku/servers/weebcentral/__init__.py:35
 msgid "Types"
-msgstr ""
+msgstr "الأنواع"
 
 #: ../komikku/servers/flamescans/__init__.py:49
 #: ../komikku/servers/weebcentral/__init__.py:48
 msgid "Statuses"
-msgstr ""
+msgstr "الحالات"
 
 #: ../komikku/servers/flamescans/__init__.py:56
 #: ../komikku/trackers/__init__.py:37
 msgid "Dropped"
-msgstr ""
+msgstr "متروك"
 
 #: ../komikku/servers/mangadex/__init__.py:65
 msgid "Pornographic"
-msgstr ""
+msgstr "إباحي"
 
 #: ../komikku/servers/mangadex/__init__.py:85
 msgid "Filter by publication demographics"
-msgstr ""
+msgstr "رشِّح حسب فئات النشر السكانيَّة"
 
 #: ../komikku/servers/mangadex/__init__.py:111
 msgid "Self-Published"
-msgstr ""
+msgstr "نشر ذاتي"
 
 #: ../komikku/servers/mangadex/__init__.py:124
 msgid "Boys Love"
-msgstr ""
+msgstr "حب الفتيان"
 
 #: ../komikku/servers/mangadex/__init__.py:129
 msgid "Girls Love"
-msgstr ""
+msgstr "حب الفتيات"
 
 #: ../komikku/servers/mangadex/__init__.py:151
 msgid "Tags Inclusion Mode"
-msgstr ""
+msgstr "وضع تضمين الوسوم"
 
 #: ../komikku/servers/mangadex/__init__.py:152
 msgid "Include manga that match <b>all</b> tags (AND) or <b>any</b> tag (OR)"
-msgstr ""
+msgstr "ضمِّن المانجا التي تطابق <b>جميع</b> الوسوم (و) أو <b>أيّ</b> وسم (أو)"
 
 #: ../komikku/servers/mangadex/__init__.py:156
 msgid "AND"
@@ -2096,14 +2134,14 @@ msgstr "و"
 
 #: ../komikku/servers/mangadex/__init__.py:157
 msgid "OR"
-msgstr ""
+msgstr "أو"
 
 #: ../komikku/servers/mangafire/__init__.py:49
 #: ../komikku/servers/mangapill/__init__.py:41
 #: ../komikku/servers/mangatube/__init__.py:136
 #: ../komikku/servers/mangaworld/__init__.py:66
 msgid "One Shot"
-msgstr ""
+msgstr "فصل واحد"
 
 #: ../komikku/servers/mangafire/__init__.py:51
 #: ../komikku/servers/mangapill/__init__.py:40
@@ -2112,16 +2150,16 @@ msgstr "رواية"
 
 #: ../komikku/servers/mangafire/__init__.py:63
 msgid "Releasing"
-msgstr ""
+msgstr "مستمر"
 
 #: ../komikku/servers/mangafire/__init__.py:65
 msgid "Discontinued"
-msgstr ""
+msgstr "متوقِّف"
 
 #: ../komikku/servers/mangapill/__init__.py:45
 #: ../komikku/servers/weebcentral/__init__.py:42
 msgid "OEL"
-msgstr ""
+msgstr "إنجليزية أصليَّة"
 
 #: ../komikku/servers/mangatube/__init__.py:126
 msgid "Type of Serie"
@@ -2129,12 +2167,12 @@ msgstr "نوع السلسلة"
 
 #: ../komikku/servers/mangatube/__init__.py:134
 msgid "Webtoon"
-msgstr "ويبتون"
+msgstr "وِبتون"
 
 #: ../komikku/servers/mangatube/__init__.py:135
 #: ../komikku/servers/multi/manga_stream/__init__.py:80
 msgid "Comic"
-msgstr "قصة مصورة"
+msgstr "كوميك"
 
 #: ../komikku/servers/mangatube/__init__.py:137
 msgid "Light Novel"
@@ -2142,67 +2180,67 @@ msgstr "رواية خفيفة"
 
 #: ../komikku/servers/mangatube/__init__.py:143
 msgid "Age Rating"
-msgstr "تصنيف العمري"
+msgstr "التصنيف العمري"
 
 #: ../komikku/servers/mangatube/__init__.py:144
 msgid "Maturity"
-msgstr "استحقاق"
+msgstr "النضج"
 
 #: ../komikku/servers/mangatube/__init__.py:148
 msgid "Without"
-msgstr "بدون"
+msgstr "بلا"
 
 #: ../komikku/servers/mangatube/__init__.py:149
 msgid "16+"
-msgstr "16+"
+msgstr "+16"
 
 #: ../komikku/servers/multi/madara/__init__.py:425
 #: ../komikku/servers/readmanhwa/__init__.py:44
 msgid "NSFW Content"
-msgstr "محتوى حساس NSFW"
+msgstr "محتوى للبالغين"
 
 #: ../komikku/servers/multi/madara/__init__.py:426
 #: ../komikku/servers/readmanhwa/__init__.py:45
 msgid "Whether to show manga containing NSFW content"
-msgstr "إذا ما أردت إظهار مانغا تحتوي على محتوى حساس NSFW"
+msgstr "فيما لو تظهر المانجا التي تحوي محتوى للبالغين"
 
 #: ../komikku/servers/multi/mangareader/__init__.py:108
 #, python-brace-format
 msgid "Not available in {0} language"
-msgstr ""
+msgstr "غير متوفر باللغة {0}"
 
 #: ../komikku/servers/webtoon/__init__.py:60
 msgid "Originals"
-msgstr ""
+msgstr "أعمال أصلية"
 
 #: ../komikku/servers/webtoon/__init__.py:61
 msgid "Canvas"
-msgstr ""
+msgstr "كانفاس"
 
 #: ../komikku/trackers/__init__.py:34
 msgid "Reading"
-msgstr ""
+msgstr "يُقرأ حاليًا"
 
 #: ../komikku/trackers/__init__.py:36
 msgid "On Hold"
-msgstr ""
+msgstr "مُعلَّق"
 
 #: ../komikku/trackers/__init__.py:38
 msgid "Plan to Read"
-msgstr ""
+msgstr "يُخطَّط لقراءته"
 
 #: ../komikku/trackers/__init__.py:39
 msgid "Rereading"
-msgstr ""
+msgstr "يُعاد قراءته"
 
 #: ../komikku/updater.py:86
 #, python-brace-format
 msgid "{0} seems down. Please try updating later"
-msgstr ""
+msgstr "يبدو {0} معطَّلًا. حاول التحديث لاحقًا"
 
 #: ../komikku/updater.py:118
 msgid "Library update completed with errors"
-msgstr "حُدثت المكتبة لكن طرأت أخطاء أثناءه"
+msgstr "اكتمل تحديث المكتبة مع وجود أخطاء"
 
 #: ../komikku/updater.py:120
 msgid "Library update completed"
@@ -2210,7 +2248,7 @@ msgstr "اكتمل تحديث المكتبة"
 
 #: ../komikku/updater.py:123
 msgid "Update completed with errors"
-msgstr "تم التحديث دون أخطاء"
+msgstr "اكتمل التحديث مع وجود أخطاء"
 
 #: ../komikku/updater.py:125
 msgid "Update completed"
@@ -2220,8 +2258,8 @@ msgstr "اكتمل التحديث"
 #, python-brace-format
 msgid "{0} successful update"
 msgid_plural "{0} successful updates"
-msgstr[0] "لم ينجح التحديث"
-msgstr[1] "نجح تحديث واحد"
+msgstr[0] "أخفقت التحديثات"
+msgstr[1] "نجح تحديث"
 msgstr[2] "نجح تحديثان"
 msgstr[3] "نجحت {0} تحديثات"
 msgstr[4] "نجح {0} تحديثًا"
@@ -2246,16 +2284,16 @@ msgstr "لا فصول جديدة"
 #, python-brace-format
 msgid "{0} update failed"
 msgid_plural "{0} updates failed"
-msgstr[0] "لم تفشل تحديثات"
-msgstr[1] "فشل تحديث واحد"
-msgstr[2] "فشل تحديثان"
-msgstr[3] "فشلت {0} تحديثات"
-msgstr[4] "فشل {0} تحديثًا"
-msgstr[5] "فشل {0} تحديث"
+msgstr[0] "لم تخفق أي تحديثات"
+msgstr[1] "أخفق تحديث"
+msgstr[2] "أخفق تحديثان"
+msgstr[3] "أخفقت {0} تحديثات"
+msgstr[4] "أخفق {0} تحديثًا"
+msgstr[5] "أخفق {0} تحديث"
 
 #: ../komikku/updater.py:173
 msgid "Oops, update has failed. Please try again."
-msgstr "فشل التحديث. حاول مجددًا."
+msgstr "أخفق التحديث. أعِد المحاولة لاحقًا."
 
 #: ../komikku/updater.py:182
 msgid "Library update started"
@@ -2263,19 +2301,19 @@ msgstr "بدأ تحديث المكتبة"
 
 #: ../komikku/utils.py:333
 msgid "You are currently offline"
-msgstr "أنت غير متصل بالشبكة"
+msgstr "أنت غير متَّصل حاليًا"
 
 #: ../komikku/utils.py:360
 msgid "No Internet connection, timeout or server down"
-msgstr "لا اتصال بالشبكة أو مهلة الاتصال انتهت أو الخادم عطِب"
+msgstr "لا يوجد اتصال بالإنترنت، أو انتهت المهلة، أو الخادوم معطَّل"
 
 #: ../komikku/webview.py:428
 msgid "Please wait…"
-msgstr ""
+msgstr "انتظر رجاءً…"
 
 #: ../komikku/webview.py:483
 msgid "Please complete CAPTCHA"
-msgstr ""
+msgstr "أكمِل اختبار كابتشا"
 
 #~ msgid "Details"
 #~ msgstr "تفاصيل"
