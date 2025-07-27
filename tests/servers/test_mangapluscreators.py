@@ -13,19 +13,19 @@ logging.basicConfig(level=logging.DEBUG)
 
 
 @pytest.fixture
-def mangaplus_server():
-    from komikku.servers.mangaplus import Mangaplus
+def mangapluscreators_server():
+    from komikku.servers.mangapluscreators import Mangapluscreators
 
-    return Mangaplus()
+    return Mangapluscreators()
 
 
 @do_server_test
 @test_steps('get_latest_updates', 'get_most_popular', 'search', 'get_manga_data', 'get_chapter_data', 'get_page_image')
-def test_mangaplus(mangaplus_server):
+def test_mangapluscreators(mangapluscreators_server):
     # Get latest updates
     print('Get latest updates')
     try:
-        response = mangaplus_server.get_latest_updates()
+        response = mangapluscreators_server.get_latest_updates()
     except Exception as e:
         response = None
         log_error_traceback(e)
@@ -36,7 +36,7 @@ def test_mangaplus(mangaplus_server):
     # Get most popular
     print('Get most popular')
     try:
-        response = mangaplus_server.get_most_populars()
+        response = mangapluscreators_server.get_most_populars()
     except Exception as e:
         response = None
         log_error_traceback(e)
@@ -47,7 +47,7 @@ def test_mangaplus(mangaplus_server):
     # Search
     print('Search')
     try:
-        response = mangaplus_server.search('naruto')
+        response = mangapluscreators_server.search(response[0]['name'])
         slug = response[0]['slug']
     except Exception as e:
         slug = None
@@ -59,7 +59,7 @@ def test_mangaplus(mangaplus_server):
     # Get manga data
     print('Get manga data')
     try:
-        response = mangaplus_server.get_manga_data(dict(slug=slug))
+        response = mangapluscreators_server.get_manga_data(dict(slug=slug))
         chapter_slug = response['chapters'][0]['slug']
     except Exception as e:
         chapter_slug = None
@@ -71,7 +71,7 @@ def test_mangaplus(mangaplus_server):
     # Get chapter data
     print('Get chapter data')
     try:
-        response = mangaplus_server.get_manga_chapter_data(None, None, chapter_slug, None)
+        response = mangapluscreators_server.get_manga_chapter_data(None, None, chapter_slug, None)
         page = response['pages'][0]
     except Exception as e:
         page = None
@@ -83,7 +83,7 @@ def test_mangaplus(mangaplus_server):
     # Get page image
     print('Get page image')
     try:
-        response = mangaplus_server.get_manga_chapter_page_image(None, None, None, page)
+        response = mangapluscreators_server.get_manga_chapter_page_image(None, None, None, page)
     except Exception as e:
         response = None
         log_error_traceback(e)
