@@ -17,7 +17,7 @@
 # Ragna Scan [ES] (Disabled)
 # Raiki Scan [ES]
 # Rawkuma [JA]
-# Raw Manga [JA]
+# Raw Manga [JA] (Disabled)
 # Rukav Inari [ES] (Disabled)
 # Ryujinmanga [ES]
 # Senpai Ediciones [ES] (Disabled)
