@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: Komikku 1.53.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-07-04 15:36+0200\n"
-"PO-Revision-Date: 2025-05-17 20:35+0000\n"
+"PO-Revision-Date: 2025-07-27 11:07+0000\n"
 "Last-Translator: twlvnn <kraft_werk@tutanota.com>\n"
 "Language-Team: Bulgarian <https://hosted.weblate.org/projects/komikku/main/"
 "bg/>\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.12-dev\n"
+"X-Generator: Weblate 5.13-dev\n"
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:11
 msgid "Discover and read manga & comics"
@@ -421,14 +421,15 @@ msgstr "Фон в страницата с подробности"
 #: ../data/ui/preferences.blp:42
 msgid "Method used to recolor background to match cover"
 msgstr ""
+"Метод, използван за преоцветяване на фона, за да съответства на корицата"
 
 #: ../data/ui/preferences.blp:46
 msgid "Linear gradient"
-msgstr ""
+msgstr "Линейна преливка"
 
 #: ../data/ui/preferences.blp:47
 msgid "Blurred cover"
-msgstr ""
+msgstr "Замъглена корица"
 
 #: ../data/ui/preferences.blp:57
 msgid "Desktop Notifications"
@@ -1746,31 +1747,31 @@ msgstr "На пауза"
 
 #: ../komikku/servers/comick/__init__.py:89
 msgid "Origination"
-msgstr ""
+msgstr "Произход"
 
 #: ../komikku/servers/comick/__init__.py:90
 msgid "[Latest Updates only] Filter by Origination"
-msgstr ""
+msgstr "[Само последните обновления] Филтриране по произход"
 
 #: ../komikku/servers/comick/__init__.py:101
 msgid "Countries"
-msgstr ""
+msgstr "Държави"
 
 #: ../komikku/servers/comick/__init__.py:103
 msgid "[Search and Most Popular only] Filter by Country (origination)"
-msgstr ""
+msgstr "[Само при търсене и най-популярни] Филтриране по държава (произход)"
 
 #: ../komikku/servers/comick/__init__.py:107
 msgid "Japan (Manga)"
-msgstr ""
+msgstr "Япония (Манга)"
 
 #: ../komikku/servers/comick/__init__.py:108
 msgid "Korea (Manhwa)"
-msgstr ""
+msgstr "Корея (Манхва)"
 
 #: ../komikku/servers/comick/__init__.py:109
 msgid "China (Manhua)"
-msgstr ""
+msgstr "Китай (Манхуа)"
 
 #: ../komikku/servers/comick/__init__.py:115
 #: ../komikku/servers/mangadex/__init__.py:84
@@ -1779,7 +1780,7 @@ msgstr "Демографията на публикацията"
 
 #: ../komikku/servers/comick/__init__.py:116
 msgid "Filter by Publication Demographics"
-msgstr ""
+msgstr "Филтриране по демографски данни на публикациите"
 
 #: ../komikku/servers/comick/__init__.py:119
 #: ../komikku/servers/mangadex/__init__.py:88
@@ -1803,7 +1804,7 @@ msgstr "Йосеи"
 
 #: ../komikku/servers/comick/__init__.py:123
 msgid "None"
-msgstr ""
+msgstr "Нищо"
 
 #: ../komikku/servers/comick/__init__.py:129
 #: ../komikku/servers/mangadex/__init__.py:97
@@ -1869,7 +1870,7 @@ msgstr "Самостоятелно"
 
 #: ../komikku/servers/comick/__init__.py:147
 msgid "User Created"
-msgstr ""
+msgstr "Създадено от потребител"
 
 #: ../komikku/servers/comick/__init__.py:148
 #: ../komikku/servers/mangadex/__init__.py:112
@@ -1893,7 +1894,7 @@ msgstr "Екшън"
 
 #: ../komikku/servers/comick/__init__.py:159
 msgid "Adult"
-msgstr ""
+msgstr "За възрастна аудитория"
 
 #: ../komikku/servers/comick/__init__.py:160
 #: ../komikku/servers/mangadex/__init__.py:123
@@ -1917,7 +1918,7 @@ msgstr "Драма"
 
 #: ../komikku/servers/comick/__init__.py:164
 msgid "Ecchi"
-msgstr ""
+msgstr "Ечи"
 
 #: ../komikku/servers/comick/__init__.py:165
 #: ../komikku/servers/mangadex/__init__.py:128
@@ -1926,7 +1927,7 @@ msgstr "Фентъзи"
 
 #: ../komikku/servers/comick/__init__.py:166
 msgid "Gender Bender"
-msgstr ""
+msgstr "Джендър бендър"
 
 #: ../komikku/servers/comick/__init__.py:167
 #: ../komikku/servers/mangadex/__init__.py:130
@@ -1950,7 +1951,7 @@ msgstr "Магически момичета"
 
 #: ../komikku/servers/comick/__init__.py:171
 msgid "Mature"
-msgstr ""
+msgstr "За зряла аудитория"
 
 #: ../komikku/servers/comick/__init__.py:172
 #: ../komikku/servers/mangadex/__init__.py:134
@@ -1974,7 +1975,7 @@ msgstr "Философия"
 
 #: ../komikku/servers/comick/__init__.py:176
 msgid "Psychological"
-msgstr ""
+msgstr "Психологична"
 
 #: ../komikku/servers/comick/__init__.py:177
 #: ../komikku/servers/mangadex/__init__.py:138
@@ -1988,7 +1989,7 @@ msgstr "Научна фантастика"
 
 #: ../komikku/servers/comick/__init__.py:179
 msgid "Shoujo Ai"
-msgstr ""
+msgstr "Шоуджо Ай"
 
 #: ../komikku/servers/comick/__init__.py:180
 #: ../komikku/servers/mangadex/__init__.py:140
@@ -2022,11 +2023,11 @@ msgstr "Бойни изкуства и рицарство"
 
 #: ../komikku/servers/comick/__init__.py:186
 msgid "Yaoi"
-msgstr ""
+msgstr "Яои"
 
 #: ../komikku/servers/comick/__init__.py:187
 msgid "Yuri"
-msgstr ""
+msgstr "Юри"
 
 #: ../komikku/servers/dynasty/__init__.py:39
 msgid "Categories"
@@ -2253,7 +2254,7 @@ msgstr "Повторно четене"
 #: ../komikku/updater.py:86
 #, python-brace-format
 msgid "{0} seems down. Please try updating later"
-msgstr ""
+msgstr "{0} не работи. Моля, опитайте по-късно"
 
 #: ../komikku/updater.py:118
 msgid "Library update completed with errors"
