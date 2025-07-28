@@ -544,9 +544,16 @@ available in your region/language."""))
         # Override release notes
         dialog.set_release_notes("""
             <ul>
-                <li>Fixed app crash due to changes in AVIF image format support</li>
-                <li>[Servers] MangaFire (EN/ES/ES_LA/FR/JA/PT/pt_BR): Update</li>
-                <li>[L10n] Updated Portuguese and Russian translations</li>
+                <li>[Servers] Added MANGA Plus Creators by SHUEISHA (EN/ES)</li>
+                <li>[Servers] Cartel De Manhwas (ES): Update</li>
+                <li>[Servers] Flame Comics (EN): Update</li>
+                <li>[Servers] Lectormanga (ES): Update</li>
+                <li>[Servers] MangaCrab (ES): Update</li>
+                <li>[Servers] MangaLib (RU): Update</li>
+                <li>[Servers] Raw Manga (JA): Disabled</li>
+                <li>[Servers] ToonGod (EN): Update</li>
+                <li>[Servers] Webtoon Hatti (TR): Update</li>
+                <li>[L10n] Updated Arabic and Bulgarian translations</li>
             </ul>
             <p>Happy reading.</p>
         """)
