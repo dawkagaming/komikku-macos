@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: Komikku 1.18.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-07-04 15:36+0200\n"
-"PO-Revision-Date: 2025-07-27 11:07+0000\n"
+"PO-Revision-Date: 2025-07-29 05:51+0000\n"
 "Last-Translator: Ahmed Najmawi <iramosu@protonmail.com>\n"
 "Language-Team: Arabic <https://hosted.weblate.org/projects/komikku/main/ar/>"
 "\n"
@@ -2309,7 +2309,7 @@ msgstr "لا يوجد اتصال بالإنترنت، أو انتهت المهل
 
 #: ../komikku/webview.py:428
 msgid "Please wait…"
-msgstr "انتظر رجاءً…"
+msgstr "ينتظر…"
 
 #: ../komikku/webview.py:483
 msgid "Please complete CAPTCHA"
