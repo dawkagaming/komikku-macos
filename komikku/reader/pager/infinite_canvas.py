@@ -340,12 +340,12 @@ class KInfiniteCanvas(Gtk.Widget, Gtk.Scrollable):
 
         if keyval in (Gdk.KEY_Down, Gdk.KEY_KP_Down, Gdk.KEY_Right, Gdk.KEY_KP_Right, Gdk.KEY_space, Gdk.KEY_k):
             self.emit('keyboard-navigation')
-            self.scroll_by_type(Gtk.ScrollType.STEP_DOWN)
+            self.scroll_by_increment(self.vadjustment.props.step_increment, 80, False)
             return Gdk.EVENT_STOP
 
         elif keyval in (Gdk.KEY_Up, Gdk.KEY_KP_Up, Gdk.KEY_Left, Gdk.KEY_KP_Left, Gdk.KEY_j):
             self.emit('keyboard-navigation')
-            self.scroll_by_type(Gtk.ScrollType.STEP_UP)
+            self.scroll_by_increment(-self.vadjustment.props.step_increment, 80, False)
             return Gdk.EVENT_STOP
 
         elif keyval == Gdk.KEY_Page_Down:
@@ -417,8 +417,8 @@ class KInfiniteCanvas(Gtk.Widget, Gtk.Scrollable):
         page.connect('notify::status', self.on_page_status_changed, page._ic_height)
         page.render()
 
-    def print(self):
-        print('\n===============================')
+    def print(self, action=''):
+        print(f'\n==============={action}================')
         count = 0
         page = self.get_first_child()
         while page:
@@ -441,7 +441,10 @@ class KInfiniteCanvas(Gtk.Widget, Gtk.Scrollable):
         self.remove_controller(self.gesture_click)
         self.pager.remove_controller(self.gesture_drag)
 
-    def scroll_by_increment(self, increment, duration=500):
+    def scroll_by_increment(self, increment, duration=500, easing=True):
+        if self.is_scroll_by_increment or self.is_scroll_adjusting:
+            return
+
         self.is_scroll_decelerating = False
         self.is_scroll_by_increment = True
         self.scroll_direction = Gtk.DirectionType.UP if increment < 0 else Gtk.DirectionType.DOWN
@@ -466,7 +469,8 @@ class KInfiniteCanvas(Gtk.Widget, Gtk.Scrollable):
 
             if now < end_time and self.vadjustment.props.value != end:
                 t = (now - start_time) / (end_time - start_time)
-                t = ease_out_cubic(t)
+                if easing:
+                    t = ease_out_cubic(t)
                 self.vadjustment.props.value = start + t * (end - start)
 
                 return GLib.SOURCE_CONTINUE
@@ -478,10 +482,3 @@ class KInfiniteCanvas(Gtk.Widget, Gtk.Scrollable):
             return GLib.SOURCE_REMOVE
 
         self.add_tick_callback(tick_callback)
-
-    def scroll_by_type(self, type):
-        self.is_scroll_decelerating = False
-        self.scroll_direction = Gtk.DirectionType.UP if type == Gtk.ScrollType.STEP_UP else Gtk.DirectionType.DOWN
-
-        # Assume grandparent is a Gtk.ScrolledWindow
-        self.get_parent().get_parent().emit('scroll-child', type, False)
