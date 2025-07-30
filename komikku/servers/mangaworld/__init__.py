@@ -46,7 +46,7 @@ class Mangaworld(Server):
     lang = 'it'
     is_nsfw = True
 
-    base_url = 'https://www.mangaworld.nz'
+    base_url = 'https://www.mangaworld.cx'
     logo_url = base_url + '/public/assets/seo/favicon-32x32.png'
     search_url = base_url + '/archive'
     manga_url = base_url + '/manga/{0}'
