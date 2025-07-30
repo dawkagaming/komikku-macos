@@ -377,13 +377,19 @@ class Pager(Adw.Bin, BasePager):
             return Gdk.EVENT_PROPAGATE
 
         modifiers = Gtk.accelerator_get_default_mod_mask()
-        if (state & modifiers) != 0:
+        if (state & modifiers) not in (Gdk.ModifierType.NO_MODIFIER_MASK, Gdk.ModifierType.SHIFT_MASK):
             return Gdk.EVENT_PROPAGATE
 
         if keyval == Gdk.KEY_space:
             keyval = Gdk.KEY_Left if self.reader.reading_mode == 'right-to-left' else Gdk.KEY_Right
 
         page = self.current_page
+
+        if keyval in (Gdk.KEY_plus, Gdk.KEY_KP_Add, Gdk.KEY_minus, Gdk.KEY_KP_Subtract, Gdk.KEY_0, Gdk.KEY_KP_0):
+            # Zoom (+/-/reset)
+            self.current_page.picture.set_zoom_by_key(keyval, self.reader.reading_mode)
+            return Gdk.EVENT_STOP
+
         if keyval in (Gdk.KEY_Left, Gdk.KEY_KP_Left, Gdk.KEY_j, Gdk.KEY_Right, Gdk.KEY_KP_Right, Gdk.KEY_k):
             # Hide mouse cursor when using keyboard navigation
             self.hide_cursor()

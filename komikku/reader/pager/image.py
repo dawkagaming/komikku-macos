@@ -107,7 +107,7 @@ class KImage(Gtk.Widget, Gtk.Scrollable):
             self.add_controller(self.controller_motion)
             self.controller_motion.connect('motion', self.on_pointer_motion)
 
-            # Controller to zoom with mouse wheel or Ctrl + 2-fingers touchpad gesture
+            # Controller to zoom with Ctrl + mouse wheel or 2-fingers touchpad gesture
             self.controller_scroll = Gtk.EventControllerScroll.new(Gtk.EventControllerScrollFlags.VERTICAL)
             self.controller_scroll.set_propagation_phase(Gtk.PropagationPhase.CAPTURE)
             self.add_controller(self.controller_scroll)
@@ -668,7 +668,7 @@ class KImage(Gtk.Widget, Gtk.Scrollable):
         self.gesture_zoom.set_state(Gtk.EventSequenceState.CLAIMED)
 
     def on_gesture_zoom_scale_changed(self, _gesture, scale):
-        self.set_zoom(min(self.zoom_gesture_begin * scale, ZOOM_FACTOR_MAX), self.zoom_center)
+        self.set_zoom(self.zoom_gesture_begin * scale, self.zoom_center)
 
         if self.gesture_zoom.get_device().get_source() == Gdk.InputSource.TOUCHSCREEN and self.zoom_center:
             # Move image to follow zoom position on touchscreen
@@ -706,7 +706,8 @@ class KImage(Gtk.Widget, Gtk.Scrollable):
         if zoom is None:
             zoom = self.zoom_scaling
         else:
-            zoom = max(zoom, self.zoom_scaling)
+            zoom = min(max(zoom, self.zoom_scaling), ZOOM_FACTOR_MAX)
+
             if zoom != self.zoom_scaling and self.zoom == self.zoom_scaling:
                 self.emit('zoom-begin')
             elif zoom == self.zoom_scaling and self.zoom != self.zoom_scaling:
@@ -732,3 +733,29 @@ class KImage(Gtk.Widget, Gtk.Scrollable):
 
             value = max((y + vadjustment_value - borders[1]) / zoom_ratio - y, 0)
             self.vadjustment.set_value(value)
+
+    def set_zoom_by_key(self, keyval, reading_mode):
+        # Compute center depending on reading mode
+        if reading_mode == 'left-to-right':
+            # Top left
+            center = (0, 0)
+
+        elif reading_mode == 'vertical':
+            # Center top
+            center = (self.widget_width // 2, 0)
+
+        else:
+            # Top right
+            center = (self.widget_width, 0)
+
+        if keyval in (Gdk.KEY_plus, Gdk.KEY_KP_Add):
+            # Zoom in
+            self.set_zoom(self.zoom * ZOOM_FACTOR_SCROLL_WHEEL, center)
+
+        elif keyval in (Gdk.KEY_minus, Gdk.KEY_KP_Subtract):
+            # Zoom out
+            self.set_zoom(self.zoom / ZOOM_FACTOR_SCROLL_WHEEL, center)
+
+        elif keyval in (Gdk.KEY_0, Gdk.KEY_KP_0):
+            # Reset
+            self.set_zoom()
