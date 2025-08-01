@@ -367,6 +367,14 @@ class Settings(Gio.Settings):
         self.set_boolean('nsfw-only-content', state)
 
     @property
+    def page_filters(self):
+        return json.loads(self.get_string('page-filters'))
+
+    @page_filters.setter
+    def page_filters(self, state):
+        self.set_string('page-filters', json.dumps(state))
+
+    @property
     def page_numbering(self):
         return self.get_boolean('page-numbering')
 

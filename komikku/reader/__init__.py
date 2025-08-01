@@ -68,6 +68,9 @@ class ReaderPage(Adw.NavigationPage):
         # Controls
         self.controls = Controls(self)
 
+        # Settings dialog
+        self.settings_dialog = SettingsDialog(self)
+
         self.window.navigationview.add(self)
 
     @property
@@ -178,6 +181,11 @@ class ReaderPage(Adw.NavigationPage):
         self.save_page_action = Gio.SimpleAction.new('reader.save-page', None)
         self.save_page_action.connect('activate', self.save_page)
         self.window.application.add_action(self.save_page_action)
+
+        # Open settings dialog
+        self.open_settings_dialog_action = Gio.SimpleAction.new('reader.open-settings-dialog', None)
+        self.open_settings_dialog_action.connect('activate', self.open_settings_dialog)
+        self.window.application.add_action(self.open_settings_dialog_action)
 
     def init(self, manga, chapter):
         self.manga = manga
@@ -350,6 +358,9 @@ class ReaderPage(Adw.NavigationPage):
         else:
             do_init_pager()
 
+    def open_settings_dialog(self, _action, _gparam):
+        self.settings_dialog.present(self.window)
+
     def save_page(self, _action, _gparam):
         if self.window.page != self.props.tag:
             return
@@ -474,3 +485,117 @@ class ReaderPage(Adw.NavigationPage):
         if chapter.manga.name in subtitle:
             subtitle = subtitle.replace(chapter.manga.name, '').strip()
         self.title.set_subtitle(subtitle)
+
+
+class SettingsDialog(Adw.PreferencesDialog):
+    def __init__(self, page):
+        super().__init__()
+        self.page = page
+        self.settings = Settings.get_default()
+
+        self.set_title(_('Settings'))
+        self.set_presentation_mode(Adw.DialogPresentationMode.BOTTOM_SHEET)
+
+        self.css_provider = Gtk.CssProvider.new()
+        Gtk.StyleContext.add_provider_for_display(Gdk.Display.get_default(), self.css_provider, Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION)
+
+        page = Adw.PreferencesPage(title=_('Filters'))
+        self.add(page)
+
+        group = Adw.PreferencesGroup(title=_('Filters'), separate_rows=True)
+
+        filters = {
+            'brightness': {
+                'title': _('Brightness'),
+                'subtitle': _('Make pages brighter or darker'),
+                'min': 0,
+                'max': 200,
+                'step': 1,
+                'default': 100,
+            },
+            'contrast': {
+                'title': _('Contrast'),
+                'subtitle': _('Increase or decrease the contrast of pages'),
+                'min': 0,
+                'max': 200,
+                'step': 1,
+                'default': 100,
+            },
+            'grayscale': {
+                'title': _('Grayscale'),
+                'subtitle': _('convert pages to grayscale'),
+                'min': 0,
+                'max': 100,
+                'step': 1,
+                'default': 0,
+            },
+            'sepia': {
+                'title': _('Sepia'),
+                'subtitle': _('Give a more yellow/brown appearance to pages'),
+                'min': 0,
+                'max': 100,
+                'step': 1,
+                'default': 0,
+            },
+            'saturate': {
+                'title': _('Saturation'),
+                'subtitle': _('Super-saturate or desaturate pages'),
+                'min': 0,
+                'max': 400,
+                'step': 1,
+                'default': 100,
+            },
+        }
+
+        for name, data in filters.items():
+            erow = Adw.ExpanderRow()
+            erow.set_title(data['title'])
+            erow.set_subtitle(data['subtitle'])
+            erow.set_enable_expansion(self.settings.page_filters.get(f'{name}-state'))
+            erow.set_show_enable_switch(True)
+            erow.connect('notify::enable-expansion', self.toggle_filter_state, name)
+
+            row = Adw.SpinRow.new_with_range(data['min'], data['max'], data['step'])
+            row.set_title(data['title'])
+            row.set_value(self.settings.page_filters.get(name, data['default']))
+            row.connect('notify::value', self.set_filter_value, name)
+
+            erow.add_row(row)
+            group.add(erow)
+
+        page.add(group)
+
+        self.apply_filters()
+
+    def apply_filters(self):
+        funcs = []
+        for name, value in self.settings.page_filters.items():
+            if name.endswith('-state'):
+                # Ignore state key
+                continue
+            if not self.settings.page_filters.get(f'{name}-state'):
+                # Filter is off
+                continue
+
+            funcs.append(f'{name}({value}%)')
+
+        if funcs:
+            self.css_provider.load_from_string(f'.page-filters {{filter: {" ".join(funcs)};}}')  # noqa
+            self.page.overlay.add_css_class('page-filters')
+        else:
+            self.css_provider.load_from_string('')
+            self.page.overlay.remove_css_class('page-filters')
+
+    def set_filter_value(self, row, _gparam, name):
+        filters = self.settings.page_filters
+        filters[name] = row.get_value()
+        self.settings.page_filters = filters
+
+        self.apply_filters()
+
+    def toggle_filter_state(self, row, _gparam, name):
+        filters = self.settings.page_filters
+        filters[f'{name}-state'] = row.get_enable_expansion()
+        self.settings.page_filters = filters
+
+        self.apply_filters()

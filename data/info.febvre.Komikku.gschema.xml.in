@@ -214,6 +214,11 @@
             <summary>Landscape Pages Zoom</summary>
             <description>Zoom page to fit height when page is landscape (Adapt to Screen scaling only)</description>
         </key>
+        <key type="s" name="page-filters">
+            <default>"{}"</default>
+            <summary>Page Filters</summary>
+            <description>Apply filters to pages</description>
+        </key>
         <key type="b" name="page-numbering">
             <default>true</default>
             <summary>Page Numbering</summary>
