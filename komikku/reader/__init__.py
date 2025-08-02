@@ -523,7 +523,7 @@ class SettingsDialog(Adw.PreferencesDialog):
             },
             'grayscale': {
                 'title': _('Grayscale'),
-                'subtitle': _('convert pages to grayscale'),
+                'subtitle': _('Convert pages to grayscale'),
                 'min': 0,
                 'max': 100,
                 'step': 1,

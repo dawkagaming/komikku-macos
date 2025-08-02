@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Komikku 1.64.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-08-03 00:25+0200\n"
+"POT-Creation-Date: 2025-08-03 01:09+0200\n"
 "PO-Revision-Date: 2025-06-07 23:01+0000\n"
 "Last-Translator: Muhammadhussein Ammari <xmha97@gmail.com>\n"
 "Language-Team: Persian <https://hosted.weblate.org/projects/komikku/main/fa/"
@@ -1505,7 +1505,7 @@ msgid "Grayscale"
 msgstr ""
 
 #: ../komikku/reader/__init__.py:526
-msgid "convert pages to grayscale"
+msgid "Convert pages to grayscale"
 msgstr ""
 
 #: ../komikku/reader/__init__.py:533
