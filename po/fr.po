@@ -9,10 +9,10 @@ msgstr ""
 "Project-Id-Version: unnamed project\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-08-03 01:09+0200\n"
-"PO-Revision-Date: 2025-08-02 22:55+0000\n"
+"PO-Revision-Date: 2025-08-02 23:15+0000\n"
 "Last-Translator: Valéry Febvre <vfebvre@easter-eggs.com>\n"
-"Language-Team: French <https://hosted.weblate.org/projects/komikku/main/fr/"
-">\n"
+"Language-Team: French <https://hosted.weblate.org/projects/komikku/main/fr/>"
+"\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1588,7 +1588,7 @@ msgstr "Niveaux de gris"
 
 #: ../komikku/reader/__init__.py:526
 msgid "Convert pages to grayscale"
-msgstr ""
+msgstr "Convertir les pages en niveaux de gris"
 
 #: ../komikku/reader/__init__.py:533
 msgid "Sepia"
