@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Komikku 1.17.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-07-04 15:36+0200\n"
+"POT-Creation-Date: 2025-08-03 00:25+0200\n"
 "PO-Revision-Date: 2025-06-24 07:31+0000\n"
 "Last-Translator: DXCVII <dxcvii@duck.com>\n"
 "Language-Team: Ukrainian <https://hosted.weblate.org/projects/komikku/main/"
@@ -375,7 +375,7 @@ msgstr "Обрізати рамку"
 msgid "Hide Page Numbering"
 msgstr "Приховати нумерацію сторінок"
 
-#: ../data/ui/menu/reader.xml:129
+#: ../data/ui/menu/reader.xml:136
 msgid "Save Page"
 msgstr "Зберегти сторінку"
 
@@ -920,30 +920,30 @@ msgstr "Однаразові та одномісячні пожертви"
 msgid "Webview"
 msgstr "Вебогляд"
 
-#: ../komikku/application.py:200
+#: ../komikku/application.py:203
 msgid "Multiple URLs not supported"
 msgstr "Кілька URL-адрес не підтримуються"
 
-#: ../komikku/application.py:216
+#: ../komikku/application.py:219
 msgid "Invalid URL {}, not handled by any server."
 msgstr "Невірна URL-адреса {}, не обробляється жодним сервером."
 
-#: ../komikku/application.py:427 ../komikku/card/__init__.py:160
+#: ../komikku/application.py:430 ../komikku/card/__init__.py:160
 #: ../komikku/card/__init__.py:161 ../komikku/categories_editor.py:189
 #: ../komikku/downloader.py:377 ../komikku/downloader.py:378
 #: ../komikku/library/__init__.py:764 ../komikku/library/__init__.py:765
 msgid "Cancel"
 msgstr "Скасувати"
 
-#: ../komikku/application.py:502
+#: ../komikku/application.py:505
 msgid "Servers modules have been updated"
 msgstr "Серверні модулі оновлені"
 
-#: ../komikku/application.py:509
+#: ../komikku/application.py:512
 msgid "External Servers Modules Update"
 msgstr "Оновлення модулів зовнішніх серверів"
 
-#: ../komikku/application.py:510
+#: ../komikku/application.py:513
 msgid ""
 "Updating of external server modules is temporarily suspended, as changes are "
 "currently making them incompatible with the current version of the "
@@ -953,11 +953,11 @@ msgstr ""
 "роблять їх несумісними з поточною версією програми. Будь ласка, оновіть її, "
 "якщо існує більш свіжа версія."
 
-#: ../komikku/application.py:513 ../komikku/explorer/common.py:267
+#: ../komikku/application.py:516 ../komikku/explorer/common.py:267
 msgid "Close"
 msgstr "Закрити"
 
-#: ../komikku/application.py:528
+#: ../komikku/application.py:531
 msgid ""
 "A manga, manhwa, manhua, webtoons, webcomics and comics reader for GNOME\n"
 "\n"
@@ -972,45 +972,46 @@ msgstr ""
 "купуючи офіційні комікси, коли вони будуть\n"
 "доступні у вашому регіоні/мові."
 
-#: ../komikku/application.py:537
+#: ../komikku/application.py:540
 msgid "Supporters"
 msgstr "Патрони"
 
-#: ../komikku/application.py:539
+#: ../komikku/application.py:542
 msgid "Join Chat"
 msgstr "Приєднатися до чату"
 
-#: ../komikku/application.py:655
+#: ../komikku/application.py:654
 msgid "Are you sure you want to quit?"
 msgstr "Ви впевнені, що хочете вийти?"
 
-#: ../komikku/application.py:658
+#: ../komikku/application.py:657
 msgid "Some chapters are currently being downloaded."
 msgstr "Деякі розділи наразі завантажуються."
 
-#: ../komikku/application.py:660
+#: ../komikku/application.py:659
 msgid "Some mangas are currently being updated."
 msgstr "Деякі манґи наразі оновлюються."
 
-#: ../komikku/application.py:664
+#: ../komikku/application.py:663
 msgid "Quit?"
 msgstr "Вийти?"
 
-#: ../komikku/application.py:666
+#: ../komikku/application.py:665
 msgid "Quit"
 msgstr "Вийти"
 
-#: ../komikku/application.py:680
+#: ../komikku/application.py:679
 msgid "Restart"
 msgstr "Перезавантажити"
 
-#: ../komikku/application.py:680
+#: ../komikku/application.py:679
 msgid "Restart?"
 msgstr "Перезавантажити?"
 
 #: ../komikku/card/__init__.py:112 ../komikku/card/__init__.py:241
 #: ../komikku/explorer/search/__init__.py:75
-#: ../komikku/explorer/search/__init__.py:220
+#: ../komikku/explorer/search/__init__.py:220 ../komikku/reader/__init__.py:502
+#: ../komikku/reader/__init__.py:505
 msgid "Filters"
 msgstr "Фільтри"
 
@@ -1116,7 +1117,7 @@ msgstr "Скасувати відстеження"
 
 #: ../komikku/card/tracking.py:225 ../komikku/servers/comick/__init__.py:76
 #: ../komikku/servers/mangadex/__init__.py:71
-#: ../komikku/servers/mangafire/__init__.py:59
+#: ../komikku/servers/mangafire/__init__.py:60
 #: ../komikku/servers/mangamana/__init__.py:62
 #: ../komikku/servers/mangamana/__init__.py:63
 #: ../komikku/servers/mangaworld/__init__.py:74
@@ -1454,7 +1455,7 @@ msgstr "Призупинено"
 
 #: ../komikku/models/database/mangas.py:49
 #: ../komikku/servers/flamescans/__init__.py:55
-#: ../komikku/servers/mangafire/__init__.py:66
+#: ../komikku/servers/mangafire/__init__.py:67
 #: ../komikku/servers/mangaworld/__init__.py:81
 #: ../komikku/servers/weebcentral/__init__.py:54
 msgid "Hiatus"
@@ -1547,25 +1548,69 @@ msgstr "WebView наразі використовується. Будь ласк
 msgid "Disconnect from {}"
 msgstr "Відключитися від {}"
 
-#: ../komikku/reader/__init__.py:367
+#: ../komikku/reader/__init__.py:378
 msgid "Page successfully saved"
 msgstr "Сторінку успішно збережено"
+
+#: ../komikku/reader/__init__.py:496
+msgid "Settings"
+msgstr ""
+
+#: ../komikku/reader/__init__.py:509
+msgid "Brightness"
+msgstr ""
+
+#: ../komikku/reader/__init__.py:510
+msgid "Make pages brighter or darker"
+msgstr ""
+
+#: ../komikku/reader/__init__.py:517
+msgid "Contrast"
+msgstr ""
+
+#: ../komikku/reader/__init__.py:518
+msgid "Increase or decrease the contrast of pages"
+msgstr ""
+
+#: ../komikku/reader/__init__.py:525
+msgid "Grayscale"
+msgstr ""
+
+#: ../komikku/reader/__init__.py:526
+msgid "convert pages to grayscale"
+msgstr ""
+
+#: ../komikku/reader/__init__.py:533
+msgid "Sepia"
+msgstr ""
+
+#: ../komikku/reader/__init__.py:534
+msgid "Give a more yellow/brown appearance to pages"
+msgstr ""
+
+#: ../komikku/reader/__init__.py:541
+msgid "Saturation"
+msgstr ""
+
+#: ../komikku/reader/__init__.py:542
+msgid "Super-saturate or desaturate pages"
+msgstr ""
 
 #: ../komikku/reader/pager/__init__.py:165
 msgid "Failed to sync read progress with server"
 msgstr "Не вдалося синхронізувати прогрес читання з сервером"
 
-#: ../komikku/reader/pager/__init__.py:458
+#: ../komikku/reader/pager/__init__.py:464
 #: ../komikku/reader/pager/webtoon.py:95
 msgid "There is no previous chapter."
 msgstr "Попереднього розділу немає."
 
-#: ../komikku/reader/pager/__init__.py:460
+#: ../komikku/reader/pager/__init__.py:466
 #: ../komikku/reader/pager/webtoon.py:93
 msgid "It was the last chapter."
 msgstr "Це був останній розділ."
 
-#: ../komikku/reader/pager/__init__.py:626
+#: ../komikku/reader/pager/__init__.py:632
 #: ../komikku/reader/pager/webtoon.py:152
 msgid "This chapter is inaccessible."
 msgstr "Цей розділ недоступний."
@@ -1579,7 +1624,7 @@ msgid "Retry"
 msgstr "Повторити"
 
 #: ../komikku/servers/asurascans/__init__.py:36
-#: ../komikku/servers/mangafire/__init__.py:44
+#: ../komikku/servers/mangafire/__init__.py:45
 #: ../komikku/servers/mangapill/__init__.py:33
 #: ../komikku/servers/mangatube/__init__.py:125
 #: ../komikku/servers/mangaworld/__init__.py:59
@@ -1602,7 +1647,7 @@ msgstr "Фільтрувати за типом"
 #: ../komikku/servers/coloredcouncil/__init__.py:72
 #: ../komikku/servers/comick/__init__.py:93
 #: ../komikku/servers/flamescans/__init__.py:41
-#: ../komikku/servers/mangafire/__init__.py:48
+#: ../komikku/servers/mangafire/__init__.py:49
 #: ../komikku/servers/mangapill/__init__.py:39
 #: ../komikku/servers/mangatube/__init__.py:131
 #: ../komikku/servers/mangaworld/__init__.py:63
@@ -1616,7 +1661,7 @@ msgstr "Манґа"
 #: ../komikku/servers/asurascans/__init__.py:43
 #: ../komikku/servers/comick/__init__.py:94
 #: ../komikku/servers/flamescans/__init__.py:42
-#: ../komikku/servers/mangafire/__init__.py:52
+#: ../komikku/servers/mangafire/__init__.py:53
 #: ../komikku/servers/mangapill/__init__.py:43
 #: ../komikku/servers/mangatube/__init__.py:132
 #: ../komikku/servers/mangaworld/__init__.py:65
@@ -1630,7 +1675,7 @@ msgstr "Манхва"
 #: ../komikku/servers/asurascans/__init__.py:44
 #: ../komikku/servers/comick/__init__.py:95
 #: ../komikku/servers/flamescans/__init__.py:43
-#: ../komikku/servers/mangafire/__init__.py:53
+#: ../komikku/servers/mangafire/__init__.py:54
 #: ../komikku/servers/mangapill/__init__.py:44
 #: ../komikku/servers/mangatube/__init__.py:133
 #: ../komikku/servers/mangaworld/__init__.py:64
@@ -1713,7 +1758,7 @@ msgstr "Еротика"
 #: ../komikku/servers/comick/__init__.py:77
 #: ../komikku/servers/flamescans/__init__.py:50
 #: ../komikku/servers/mangadex/__init__.py:72
-#: ../komikku/servers/mangafire/__init__.py:60
+#: ../komikku/servers/mangafire/__init__.py:61
 #: ../komikku/servers/mangaworld/__init__.py:75
 #: ../komikku/servers/raijinscan/__init__.py:34
 #: ../komikku/servers/weebcentral/__init__.py:49
@@ -1723,7 +1768,7 @@ msgstr "Фільтрувати за статусами"
 #: ../komikku/servers/comick/__init__.py:81
 #: ../komikku/servers/flamescans/__init__.py:54
 #: ../komikku/servers/mangadex/__init__.py:76
-#: ../komikku/servers/mangafire/__init__.py:64
+#: ../komikku/servers/mangafire/__init__.py:65
 #: ../komikku/servers/raijinscan/__init__.py:38
 #: ../komikku/trackers/__init__.py:35
 msgid "Completed"
@@ -1835,7 +1880,7 @@ msgstr "Нагорода"
 
 #: ../komikku/servers/comick/__init__.py:137
 #: ../komikku/servers/mangadex/__init__.py:105
-#: ../komikku/servers/mangafire/__init__.py:50
+#: ../komikku/servers/mangafire/__init__.py:51
 #: ../komikku/servers/mangapill/__init__.py:42
 msgid "Doujinshi"
 msgstr "Доджінші"
@@ -2032,7 +2077,7 @@ msgstr "Категорії"
 
 #: ../komikku/servers/dynasty/__init__.py:40
 #: ../komikku/servers/flamescans/__init__.py:38
-#: ../komikku/servers/mangafire/__init__.py:45
+#: ../komikku/servers/mangafire/__init__.py:46
 #: ../komikku/servers/mangaworld/__init__.py:60
 #: ../komikku/servers/raijinscan/__init__.py:45
 #: ../komikku/servers/weebcentral/__init__.py:36
@@ -2149,23 +2194,23 @@ msgstr "та"
 msgid "OR"
 msgstr "або"
 
-#: ../komikku/servers/mangafire/__init__.py:49
+#: ../komikku/servers/mangafire/__init__.py:50
 #: ../komikku/servers/mangapill/__init__.py:41
 #: ../komikku/servers/mangatube/__init__.py:136
 #: ../komikku/servers/mangaworld/__init__.py:66
 msgid "One Shot"
 msgstr "Ваншот"
 
-#: ../komikku/servers/mangafire/__init__.py:51
+#: ../komikku/servers/mangafire/__init__.py:52
 #: ../komikku/servers/mangapill/__init__.py:40
 msgid "Novel"
 msgstr "Роман"
 
-#: ../komikku/servers/mangafire/__init__.py:63
+#: ../komikku/servers/mangafire/__init__.py:64
 msgid "Releasing"
 msgstr "Випускається"
 
-#: ../komikku/servers/mangafire/__init__.py:65
+#: ../komikku/servers/mangafire/__init__.py:66
 msgid "Discontinued"
 msgstr "Припинено"
 
@@ -2303,11 +2348,11 @@ msgstr "На жаль, оновлення не вдалося. Спробуйт�
 msgid "Library update started"
 msgstr "Розпочато оновлення бібліотеки"
 
-#: ../komikku/utils.py:333
+#: ../komikku/utils.py:329
 msgid "You are currently offline"
 msgstr "Ви зараз не в мережі"
 
-#: ../komikku/utils.py:360
+#: ../komikku/utils.py:356
 msgid "No Internet connection, timeout or server down"
 msgstr "Немає з'єднання з Інтернетом, таймаут або не працює сервер"
 
