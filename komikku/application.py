@@ -544,16 +544,11 @@ available in your region/language."""))
         # Override release notes
         dialog.set_release_notes("""
             <ul>
-                <li>[Servers] Added MANGA Plus Creators by SHUEISHA (EN/ES)</li>
-                <li>[Servers] Cartel De Manhwas (ES): Update</li>
-                <li>[Servers] Flame Comics (EN): Update</li>
-                <li>[Servers] Lectormanga (ES): Update</li>
-                <li>[Servers] MangaCrab (ES): Update</li>
-                <li>[Servers] MangaLib (RU): Update</li>
-                <li>[Servers] Raw Manga (JA): Disabled</li>
-                <li>[Servers] ToonGod (EN): Update</li>
-                <li>[Servers] Webtoon Hatti (TR): Update</li>
-                <li>[L10n] Updated Arabic and Bulgarian translations</li>
+                <li>[Reader] Added ability to apply filters to pages (brightness, contrast, grayscale, sepia, saturation)</li>
+                <li>[Reader] RTL/LTR/Vertical pager: Added keyboard zoom</li>
+                <li>[Reader] Webtoon pager: Fixed weird jumps during backward scrolling</li>
+                <li>[Servers] MangaWorld (IT): Update</li>
+                <li>[L10n] Updated Arabic and French translations</li>
             </ul>
             <p>Happy reading.</p>
         """)

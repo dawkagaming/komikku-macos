@@ -99,6 +99,18 @@
     <url type="donation">https://febvre.info/donate.html</url>
 
     <releases>
+        <release version="1.84.0" date="2025-08-03">
+            <description translate="no">
+                <ul>
+                    <li>[Reader] Added ability to apply filters to pages (brightness, contrast, grayscale, sepia, saturation)</li>
+                    <li>[Reader] RTL/LTR/Vertical pager: Added keyboard zoom</li>
+                    <li>[Reader] Webtoon pager: Fixed weird jumps during backward scrolling</li>
+                    <li>[Servers] MangaWorld (IT): Update</li>
+                    <li>[L10n] Updated Arabic and Ftench translations</li>
+                </ul>
+                <p>Happy reading.</p>
+            </description>
+        </release>
         <release version="1.83.0" date="2025-07-28">
             <description translate="no">
                 <ul>
