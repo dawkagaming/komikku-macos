@@ -9,10 +9,10 @@ msgstr ""
 "Project-Id-Version: unnamed project\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-08-03 00:25+0200\n"
-"PO-Revision-Date: 2025-07-04 13:43+0000\n"
+"PO-Revision-Date: 2025-08-02 22:55+0000\n"
 "Last-Translator: Valéry Febvre <vfebvre@easter-eggs.com>\n"
-"Language-Team: French <https://hosted.weblate.org/projects/komikku/main/fr/"
-">\n"
+"Language-Team: French <https://hosted.weblate.org/projects/komikku/main/fr/>"
+"\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1564,47 +1564,47 @@ msgstr "Page sauvegardée avec succès"
 
 #: ../komikku/reader/__init__.py:496
 msgid "Settings"
-msgstr ""
+msgstr "Réglages"
 
 #: ../komikku/reader/__init__.py:509
 msgid "Brightness"
-msgstr ""
+msgstr "Luminosité"
 
 #: ../komikku/reader/__init__.py:510
 msgid "Make pages brighter or darker"
-msgstr ""
+msgstr "Rendre les pages plus claires ou plus sombres"
 
 #: ../komikku/reader/__init__.py:517
 msgid "Contrast"
-msgstr ""
+msgstr "Contraste"
 
 #: ../komikku/reader/__init__.py:518
 msgid "Increase or decrease the contrast of pages"
-msgstr ""
+msgstr "Augmenter ou diminuer le contraste des pages"
 
 #: ../komikku/reader/__init__.py:525
 msgid "Grayscale"
-msgstr ""
+msgstr "Niveaux de gris"
 
 #: ../komikku/reader/__init__.py:526
 msgid "convert pages to grayscale"
-msgstr ""
+msgstr "Convertir les pages en niveaux de gris"
 
 #: ../komikku/reader/__init__.py:533
 msgid "Sepia"
-msgstr ""
+msgstr "Sépia"
 
 #: ../komikku/reader/__init__.py:534
 msgid "Give a more yellow/brown appearance to pages"
-msgstr ""
+msgstr "Donner un aspect plus jaune/brun aux pages"
 
 #: ../komikku/reader/__init__.py:541
 msgid "Saturation"
-msgstr ""
+msgstr "Saturation"
 
 #: ../komikku/reader/__init__.py:542
 msgid "Super-saturate or desaturate pages"
-msgstr ""
+msgstr "Sursaturer ou désaturer les pages"
 
 #: ../komikku/reader/pager/__init__.py:165
 msgid "Failed to sync read progress with server"
