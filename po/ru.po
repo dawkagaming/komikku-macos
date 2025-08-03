@@ -8,10 +8,10 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-08-03 01:09+0200\n"
-"PO-Revision-Date: 2025-07-05 23:01+0000\n"
+"PO-Revision-Date: 2025-08-03 20:02+0000\n"
 "Last-Translator: Сергей <asvmail.as@gmail.com>\n"
-"Language-Team: Russian <https://hosted.weblate.org/projects/komikku/main/ru/"
-">\n"
+"Language-Team: Russian <https://hosted.weblate.org/projects/komikku/main/ru/>"
+"\n"
 "Language: ru\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1561,43 +1561,43 @@ msgstr "Параметры"
 
 #: ../komikku/reader/__init__.py:509
 msgid "Brightness"
-msgstr ""
+msgstr "Яркость"
 
 #: ../komikku/reader/__init__.py:510
 msgid "Make pages brighter or darker"
-msgstr ""
+msgstr "Сделать страницы светлее или темнее"
 
 #: ../komikku/reader/__init__.py:517
 msgid "Contrast"
-msgstr ""
+msgstr "Контраст"
 
 #: ../komikku/reader/__init__.py:518
 msgid "Increase or decrease the contrast of pages"
-msgstr ""
+msgstr "Увеличить или уменьшить контрастность страниц"
 
 #: ../komikku/reader/__init__.py:525
 msgid "Grayscale"
-msgstr ""
+msgstr "Оттенки серого"
 
 #: ../komikku/reader/__init__.py:526
 msgid "Convert pages to grayscale"
-msgstr ""
+msgstr "Преобразовать цвета страниц в серые"
 
 #: ../komikku/reader/__init__.py:533
 msgid "Sepia"
-msgstr ""
+msgstr "Сепия"
 
 #: ../komikku/reader/__init__.py:534
 msgid "Give a more yellow/brown appearance to pages"
-msgstr ""
+msgstr "Придать страницам более жёлтый/коричневый оттенок"
 
 #: ../komikku/reader/__init__.py:541
 msgid "Saturation"
-msgstr ""
+msgstr "Насыщенность"
 
 #: ../komikku/reader/__init__.py:542
 msgid "Super-saturate or desaturate pages"
-msgstr ""
+msgstr "Увеличить или уменьшить насыщенность цветов страниц"
 
 #: ../komikku/reader/pager/__init__.py:165
 msgid "Failed to sync read progress with server"
