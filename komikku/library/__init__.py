@@ -232,6 +232,10 @@ class LibraryPage(Adw.NavigationPage):
 
         self.window.navigationview.add(self)
 
+    def add_accelerators(self):
+        self.window.application.set_accels_for_action('app.library.update', ['<Primary>r'])
+        self.window.application.set_accels_for_action('app.library.toggle-categories', ['F9'])
+
     def add_actions(self):
         add_action = Gio.SimpleAction.new('add', None)
         add_action.connect('activate', self.on_left_button_clicked)
@@ -306,6 +310,15 @@ class LibraryPage(Adw.NavigationPage):
         select_all_action = Gio.SimpleAction.new('library.select-all', None)
         select_all_action.connect('activate', self.select_all)
         self.window.application.add_action(select_all_action)
+
+        # Shortcuts
+        toggle_categories_action = Gio.SimpleAction.new('library.toggle-categories', None)
+        toggle_categories_action.connect(
+            'activate', lambda _action, _param: self.overlaysplitview.set_show_sidebar(
+                not self.overlaysplitview.get_show_sidebar()
+            )
+        )
+        self.window.application.add_action(toggle_categories_action)
 
     def compute_thumbnails_cover_size(self):
         default_width = Thumbnail.default_width

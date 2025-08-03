@@ -302,11 +302,11 @@ class ApplicationWindow(Adw.ApplicationWindow):
         self.application.set_accels_for_action('app.enter-search-mode', ['<Primary>f'])
         self.application.set_accels_for_action('app.fullscreen', ['F11'])
         self.application.set_accels_for_action('app.select-all', ['<Primary>a'])
-        self.application.set_accels_for_action('app.library.update', ['<Primary>r'])
         self.application.set_accels_for_action('app.preferences', ['<Primary>comma'])
         self.application.set_accels_for_action('app.shortcuts', ['<Primary>question'])
         self.application.set_accels_for_action('app.quit', ['<Primary>q', '<Primary>w'])
 
+        self.library.add_accelerators()
         self.reader.add_accelerators()
 
     def add_actions(self):
