@@ -91,7 +91,7 @@ def test_reaperscans(reaperscans_server):
     yield
 
     # Get chapter data
-    print("Get chapter data")
+    print('Get chapter data')
     try:
         response = reaperscans_server.get_manga_chapter_data(slug, None, chapter_slug, None)
         page = response['pages'][0]
@@ -164,7 +164,7 @@ def test_reaperscans_ar(reaperscans_ar_server):
     yield
 
     # Get chapter data
-    print("Get chapter data")
+    print('Get chapter data')
     try:
         response = reaperscans_ar_server.get_manga_chapter_data(slug, None, chapter_slug, None)
         page = response['pages'][0]
@@ -237,7 +237,7 @@ def test_reaperscans_id(reaperscans_id_server):
     yield
 
     # Get chapter data
-    print("Get chapter data")
+    print('Get chapter data')
     try:
         response = reaperscans_id_server.get_manga_chapter_data(slug, None, chapter_slug, None)
         page = response['pages'][0]
@@ -310,7 +310,7 @@ def test_reaperscans_tr(reaperscans_tr_server):
     yield
 
     # Get chapter data
-    print("Get chapter data")
+    print('Get chapter data')
     try:
         response = reaperscans_tr_server.get_manga_chapter_data(slug, None, chapter_slug, None)
         page = response['pages'][0]

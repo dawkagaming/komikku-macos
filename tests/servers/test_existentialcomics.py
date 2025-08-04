@@ -44,7 +44,7 @@ def test_existentialcomics(existentialcomics_server):
     yield
 
     # Get chapter data
-    print("Get chapter data")
+    print('Get chapter data')
     try:
         response = existentialcomics_server.get_manga_chapter_data(None, None, chapter_slug, None)
         page = response['pages'][0]

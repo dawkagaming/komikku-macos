@@ -68,7 +68,7 @@ def test_mangaowl(mangaowl_server):
     yield
 
     # Get chapter data
-    print("Get chapter data")
+    print('Get chapter data')
     try:
         response = mangaowl_server.get_manga_chapter_data(slug, None, chapter_slug, None)
         page = response['pages'][0]

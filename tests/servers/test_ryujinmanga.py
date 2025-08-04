@@ -70,7 +70,7 @@ def test_ryujinmanga(ryujinmanga_server):
     yield
 
     # Get chapter data
-    print("Get chapter data")
+    print('Get chapter data')
     try:
         response = ryujinmanga_server.get_manga_chapter_data(slug, None, chapter_slug, None)
         page = response['pages'][0]

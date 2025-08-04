@@ -48,7 +48,7 @@ def test_manhuaus(manhuaus_server):
     print('Search')
     try:
         # Use first result of get_most_populars
-        name = response[0]['name'].replace("’", " ")
+        name = response[0]['name'].replace("’", ' ')  # noqa
         response = manhuaus_server.search(name, True)
         slug = response[0]['slug']
     except Exception as e:
@@ -71,7 +71,7 @@ def test_manhuaus(manhuaus_server):
     yield
 
     # Get chapter data
-    print("Get chapter data")
+    print('Get chapter data')
     try:
         response = manhuaus_server.get_manga_chapter_data(slug, None, chapter_slug, None)
         page = response['pages'][0]

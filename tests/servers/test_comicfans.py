@@ -59,7 +59,7 @@ def test_comicfans(comicfans_server):
     yield
 
     # Get chapter data
-    print("Get chapter data")
+    print('Get chapter data')
     try:
         response = comicfans_server.get_manga_chapter_data(None, None, chapter_slug, None)
         page = response['pages'][0]

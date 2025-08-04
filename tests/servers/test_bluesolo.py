@@ -70,7 +70,7 @@ def test_bluesolo(bluesolo_server):
     yield
 
     # Get chapter data
-    print("Get chapter data")
+    print('Get chapter data')
     try:
         response = bluesolo_server.get_manga_chapter_data(slug, None, None, chapter_url)
         page = response['pages'][0]

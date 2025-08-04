@@ -67,7 +67,7 @@ def test_mangago(mangago_server):
     yield
 
     # Get chapter data
-    print("Get chapter data")
+    print('Get chapter data')
     try:
         response = mangago_server.get_manga_chapter_data(None, None, None, chapter_url)
         page = response['pages'][0]

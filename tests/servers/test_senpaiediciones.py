@@ -70,7 +70,7 @@ def test_senpaiediciones(senpaiediciones_server):
     yield
 
     # Get chapter data
-    print("Get chapter data")
+    print('Get chapter data')
     try:
         response = senpaiediciones_server.get_manga_chapter_data(slug, None, chapter_slug, None)
         page = response['pages'][0]

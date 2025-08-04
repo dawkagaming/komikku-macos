@@ -55,7 +55,7 @@ def test_dynasty_common():
         yield
 
         # Get chapter data
-        print("Get chapter data")
+        print('Get chapter data')
         try:
             response = dynasty_server.get_manga_chapter_data(slug, None, chapter_slug, None)
             page = response['pages'][0]

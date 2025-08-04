@@ -55,7 +55,7 @@ def test_webtoon(webtoon_server):
     yield
 
     # Get chapter data
-    print("Get chapter data")
+    print('Get chapter data')
     try:
         response = webtoon_server.get_manga_chapter_data(None, None, None, chapter_url)
         page = response['pages'][0]

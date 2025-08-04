@@ -57,7 +57,7 @@ def test_magicaltranslators(magicaltranslators_server):
     yield
 
     # Get chapter data
-    print("Get chapter data")
+    print('Get chapter data')
     try:
         response = magicaltranslators_server.get_manga_chapter_data(slug, None, chapter_slug, None)
         page = response['pages'][0]

@@ -68,7 +68,7 @@ def test_lupiteam(lupiteam_server):
     yield
 
     # Get chapter data
-    print("Get chapter data")
+    print('Get chapter data')
     try:
         response = lupiteam_server.get_manga_chapter_data(slug, None, None, chapter_url)
         page = response['pages'][0]

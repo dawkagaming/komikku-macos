@@ -91,7 +91,7 @@ def test_allhentai(allhentai_server):
     yield
 
     # Get chapter data
-    print("Get chapter data")
+    print('Get chapter data')
     try:
         response = allhentai_server.get_manga_chapter_data(slug, None, chapter_slug, None)
         page = response['pages'][0]
@@ -165,7 +165,7 @@ def test_mintmanga(mintmanga_server):
     yield
 
     # Get chapter data
-    print("Get chapter data")
+    print('Get chapter data')
     try:
         response = mintmanga_server.get_manga_chapter_data(slug, None, chapter_slug, None)
         page = response['pages'][0]
@@ -239,7 +239,7 @@ def test_readmanga(readmanga_server):
     yield
 
     # Get chapter data
-    print("Get chapter data")
+    print('Get chapter data')
     try:
         response = readmanga_server.get_manga_chapter_data(slug, None, chapter_slug, None)
         page = response['pages'][0]
@@ -313,7 +313,7 @@ def test_selfmanga(selfmanga_server):
     yield
 
     # Get chapter data
-    print("Get chapter data")
+    print('Get chapter data')
     try:
         response = selfmanga_server.get_manga_chapter_data(slug, None, chapter_slug, None)
         page = response['pages'][0]

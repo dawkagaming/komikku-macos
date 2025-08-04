@@ -68,7 +68,7 @@ def test_gtotgs(gtotgs_server):
     yield
 
     # Get chapter data
-    print("Get chapter data")
+    print('Get chapter data')
     try:
         response = gtotgs_server.get_manga_chapter_data(slug, None, None, chapter_url)
         page = response['pages'][0]

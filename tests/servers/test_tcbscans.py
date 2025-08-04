@@ -58,7 +58,7 @@ def test_tcbscans(server):
     yield
 
     # Get chapter data
-    print("Get chapter data")
+    print('Get chapter data')
     try:
         response = server.get_manga_chapter_data(None, None, chapter_slug, None)
         page = response['pages'][0]

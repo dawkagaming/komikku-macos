@@ -77,7 +77,7 @@ def test_mangasee(mangasee_server):
     yield
 
     # Get chapter data
-    print("Get chapter data")
+    print('Get chapter data')
     try:
         response = mangasee_server.get_manga_chapter_data(slug, None, chapter_slug, None)
         page = response['pages'][0]
@@ -139,7 +139,7 @@ def test_mangalife(mangalife_server):
     yield
 
     # Get chapter data
-    print("Get chapter data")
+    print('Get chapter data')
     try:
         response = mangalife_server.get_manga_chapter_data(slug, None, chapter_slug, None)
         page = response['pages'][0]

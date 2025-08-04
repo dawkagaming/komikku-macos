@@ -72,7 +72,7 @@ def test_coloredcouncil(server):
     yield
 
     # Get chapter data
-    print("Get chapter data")
+    print('Get chapter data')
     try:
         response = server.get_manga_chapter_data(slug, None, chapter_slug, chapter_url)
         page = response['pages'][0]

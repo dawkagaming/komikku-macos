@@ -59,7 +59,7 @@ def test_perfscan(perfscan_server):
     yield
 
     # Get chapter data
-    print("Get chapter data")
+    print('Get chapter data')
     try:
         response = perfscan_server.get_manga_chapter_data(slug, None, chapter_slug, None)
         page = response['pages'][0]

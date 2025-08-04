@@ -77,7 +77,7 @@ def test_mangalib(mangalib_server):
     yield
 
     # Get chapter data
-    print("Get chapter data")
+    print('Get chapter data')
     try:
         response = mangalib_server.get_manga_chapter_data(slug, None, chapter_slug, None)
         page = response['pages'][0]
@@ -139,7 +139,7 @@ def test_hentailib(hentailib_server):
     yield
 
     # Get chapter data
-    print("Get chapter data")
+    print('Get chapter data')
     try:
         response = hentailib_server.get_manga_chapter_data(slug, None, chapter_slug, None)
         page = response['pages'][0]
