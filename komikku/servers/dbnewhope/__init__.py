@@ -122,6 +122,7 @@ Dans ce récit inédit, découvrez une aventure trépidante où les liens entre 
 
         soup = BeautifulSoup(r.text, 'lxml')
 
+        url = None
         if img_element := soup.select_one('.image-wrapper img'):
             url = img_element.get('data-ezsrc')
             if not url:
