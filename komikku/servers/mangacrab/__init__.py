@@ -22,7 +22,45 @@ class Mangacrab(Madara2):
 
     details_name_selector = 'h1.post-title'
     details_status_selector = '.post-content_item:-soup-contains("Estado") .summary-content'
-    images_src_attr = 'data-src-base64'
+
+    def get_manga_chapter_data(self, manga_slug, manga_name, chapter_slug, chapter_url):
+        """
+        Returns manga chapter data by scraping chapter HTML page content
+
+        Currently, only pages are expected.
+        """
+        r = self.session_get(
+            self.chapter_url.format(manga_slug, chapter_slug),
+            headers={
+                'Referer': self.manga_url.format(manga_slug),
+            }
+        )
+        if r.status_code != 200:
+            return None
+
+        soup = BeautifulSoup(r.text, 'lxml')
+
+        data = dict(
+            pages=[],
+        )
+        index = 1
+        for img_element in soup.select('.reading-content img.wp-manga-chapter-img'):
+            image = None
+            for attr, value in img_element.attrs.items():
+                if attr.startswith('data-img-'):
+                    image = value.strip()
+                    break
+            if image is None:
+                continue
+
+            data['pages'].append(dict(
+                slug=None,
+                image=image,
+                index=index,
+            ))
+            index += 1
+
+        return data
 
     def search(self, term, nsfw, orderby=None):
         params = {
