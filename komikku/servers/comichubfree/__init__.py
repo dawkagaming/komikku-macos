@@ -6,7 +6,7 @@ from bs4 import BeautifulSoup
 import requests
 import time
 
-from komikku.servers import DOWNLOAD_MAX_DELAY
+from komikku.consts import DOWNLOAD_MAX_DELAY
 from komikku.servers import Server
 from komikku.servers import USER_AGENT
 from komikku.servers.utils import convert_date_string

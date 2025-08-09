@@ -26,9 +26,9 @@ from gi.repository.GdkPixbuf import Colorspace
 from gi.repository.GdkPixbuf import Pixbuf
 from gi.repository.GdkPixbuf import PixbufAnimation
 
+from komikku.consts import MISSING_IMG_RESOURCE_PATH
 from komikku.utils import AsyncWorker
 from komikku.utils import get_image_info
-from komikku.utils import MISSING_IMG_RESOURCE_PATH
 
 logger = logging.getLogger('komikku')
 

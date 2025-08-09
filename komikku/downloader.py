@@ -18,12 +18,12 @@ from gi.repository import GObject
 from gi.repository import Gtk
 from gi.repository import Notify
 
+from komikku.consts import DOWNLOAD_MAX_DELAY
 from komikku.models import Chapter
 from komikku.models import create_db_connection
 from komikku.models import Download
 from komikku.models import insert_rows
 from komikku.models import Settings
-from komikku.servers import DOWNLOAD_MAX_DELAY
 from komikku.utils import if_network_available
 from komikku.utils import log_error_traceback
 

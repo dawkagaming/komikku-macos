@@ -11,15 +11,15 @@ from gi.repository import GLib
 from gi.repository import Gtk
 from gi.repository import Pango
 
+from komikku.consts import COVER_WIDTH
+from komikku.consts import MISSING_IMG_RESOURCE_PATH
 from komikku.card.categories_list import CategoriesList
 from komikku.card.chapters_list import ChaptersList
 from komikku.card.tracking import TrackingDialog
 from komikku.models import Settings
-from komikku.utils import COVER_WIDTH
 from komikku.utils import CoverPicture
 from komikku.utils import folder_size
 from komikku.utils import html_escape
-from komikku.utils import MISSING_IMG_RESOURCE_PATH
 
 
 @Gtk.Template.from_resource('/info/febvre/Komikku/ui/card.ui')

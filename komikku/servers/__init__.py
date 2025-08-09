@@ -20,6 +20,8 @@ except Exception:
 from http.cookiejar import CookieJar
 import requests
 
+from komikku.consts import LOGO_SIZE
+from komikku.consts import REQUESTS_TIMEOUT
 from komikku.models.keyring import KeyringHelper
 from komikku.servers.loader import ServerFinder
 from komikku.servers.loader import ServerFinderPriority
@@ -27,12 +29,9 @@ from komikku.servers.utils import get_server_main_id_by_id
 from komikku.utils import BaseServer
 from komikku.utils import get_cache_dir
 from komikku.utils import get_cached_logos_dir
-from komikku.utils import LOGO_SIZE
-from komikku.utils import REQUESTS_TIMEOUT
 from komikku.utils import retry_session
 
-APP_MIN_VERSION = '1.79.0'  # Minimum app version required to use `Up-to-date servers modules`
-DOWNLOAD_MAX_DELAY = 1  # in seconds
+APP_MIN_VERSION = '1.85.0'  # Minimum app version required to use `Up-to-date servers modules`
 
 # https://www.localeplanet.com/icu/
 LANGUAGES = dict(

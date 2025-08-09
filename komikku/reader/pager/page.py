@@ -10,9 +10,9 @@ from gi.repository import GLib
 from gi.repository import GObject
 from gi.repository import Gtk
 
+from komikku.consts import MISSING_IMG_RESOURCE_PATH
 from komikku.reader.pager.image import KImage
 from komikku.utils import log_error_traceback
-from komikku.utils import MISSING_IMG_RESOURCE_PATH
 
 
 class Page(Gtk.Overlay):

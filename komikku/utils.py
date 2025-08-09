@@ -23,10 +23,10 @@ from requests.adapters import TimeoutSauce
 from urllib3.util.retry import Retry
 
 gi.require_version('Gdk', '4.0')
-gi.require_version('Gsk', '4.0')
-gi.require_version('Gtk', '4.0')
 gi.require_version('GdkPixbuf', '2.0')
 gi.require_version('Graphene', '1.0')
+gi.require_version('Gsk', '4.0')
+gi.require_version('Gtk', '4.0')
 
 from gi.repository import Gdk
 from gi.repository import Gio
@@ -37,11 +37,7 @@ from gi.repository import Gsk
 from gi.repository import Gtk
 from gi.repository.GdkPixbuf import PixbufAnimation
 
-COVER_WIDTH = 180
-COVER_HEIGHT = 256
-LOGO_SIZE = 32
-MISSING_IMG_RESOURCE_PATH = '/info/febvre/Komikku/images/missing_file.png'
-REQUESTS_TIMEOUT = 5
+from komikku.consts import REQUESTS_TIMEOUT
 
 logger = logging.getLogger('komikku')
 logging.getLogger('PIL.Image').propagate = False

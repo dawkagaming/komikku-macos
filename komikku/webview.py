@@ -29,10 +29,10 @@ from gi.repository import GObject
 from gi.repository import Gtk
 from gi.repository import WebKit
 
+from komikku.consts import REQUESTS_TIMEOUT
 from komikku.servers.exceptions import ChallengerError
 from komikku.servers.utils import get_session_cookies
 from komikku.utils import get_cache_dir
-from komikku.utils import REQUESTS_TIMEOUT
 
 CF_RELOAD_MAX = 3
 DEBUG = False

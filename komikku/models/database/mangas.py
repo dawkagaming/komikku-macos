@@ -19,6 +19,8 @@ from PIL import Image
 from PIL import ImageFilter
 from PIL import ImageStat
 
+from komikku.consts import COVER_HEIGHT
+from komikku.consts import COVER_WIDTH
 from komikku.models.database import create_db_connection
 from komikku.models.database import insert_row
 from komikku.models.database import update_row
@@ -26,8 +28,6 @@ from komikku.models.database import update_rows
 from komikku.servers.utils import get_server_class_name_by_id
 from komikku.servers.utils import get_server_dir_name_by_id
 from komikku.servers.utils import get_server_module_name_by_id
-from komikku.utils import COVER_HEIGHT
-from komikku.utils import COVER_WIDTH
 from komikku.utils import get_cached_data_dir
 from komikku.utils import get_data_dir
 from komikku.utils import is_number

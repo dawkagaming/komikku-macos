@@ -12,12 +12,12 @@ import threading
 
 from gi.repository import GObject
 
+from komikku.consts import LOGO_SIZE
 from komikku.models import create_db_connection
 from komikku.models import Manga
 from komikku.models import Settings
 from komikku.utils import BaseServer
 from komikku.utils import get_cached_logos_dir
-from komikku.utils import LOGO_SIZE
 from komikku.trackers.utils import get_trackers_list
 
 logger = logging.getLogger(__name__)

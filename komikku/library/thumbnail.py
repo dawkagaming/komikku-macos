@@ -11,11 +11,11 @@ from gi.repository import Gsk
 from gi.repository import Gtk
 from gi.repository import Pango
 
+from komikku.consts import COVER_HEIGHT
+from komikku.consts import COVER_WIDTH
+from komikku.consts import MISSING_IMG_RESOURCE_PATH
 from komikku.models import Settings
-from komikku.utils import COVER_HEIGHT
-from komikku.utils import COVER_WIDTH
 from komikku.utils import CoverLoader
-from komikku.utils import MISSING_IMG_RESOURCE_PATH
 
 
 class Thumbnail(Gtk.FlowBoxChild):

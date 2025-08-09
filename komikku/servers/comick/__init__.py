@@ -21,7 +21,7 @@ except Exception:
     # Server will be disabled
     requests = None
 
-from komikku.servers import REQUESTS_TIMEOUT
+from komikku.consts import REQUESTS_TIMEOUT
 from komikku.servers import Server
 from komikku.servers.exceptions import NotFoundError
 from komikku.servers.utils import convert_date_string

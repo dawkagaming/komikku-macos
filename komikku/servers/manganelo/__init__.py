@@ -15,6 +15,7 @@ from komikku.webview import CompleteChallenge
 
 # NOTE: https://mangakakalot.gg seems to be a clone (same IP)
 # https://www.mangabats.com
+# https://www.natomanga.com
 
 
 class Manganelo(Server):

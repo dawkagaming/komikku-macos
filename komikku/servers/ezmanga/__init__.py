@@ -7,7 +7,7 @@ import time
 
 from bs4 import BeautifulSoup
 
-from komikku.servers import DOWNLOAD_MAX_DELAY
+from komikku.consts import DOWNLOAD_MAX_DELAY
 from komikku.servers.multi.heancms import extract_info_from_script
 from komikku.servers.multi.heancms import HeanCMS
 from komikku.servers.utils import convert_date_string

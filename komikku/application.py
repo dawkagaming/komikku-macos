@@ -11,8 +11,8 @@ import os
 import sys
 import threading
 
-gi.require_version('Gtk', '4.0')
 gi.require_version('Adw', '1')
+gi.require_version('Gtk', '4.0')
 gi.require_version('Notify', '0.7')
 
 from gi.repository import Adw
@@ -23,6 +23,8 @@ from gi.repository import Gtk
 from gi.repository import Notify
 
 from komikku.card import CardPage
+from komikku.consts import CREDITS
+from komikku.consts import RELEASE_NOTES
 from komikku.categories_editor import CategoriesEditorPage
 from komikku.debug_info import DebugInfo
 from komikku.downloader import Downloader
@@ -43,122 +45,6 @@ from komikku.support import SupportPage
 from komikku.trackers import Trackers
 from komikku.updater import Updater
 from komikku.webview import WebviewPage
-
-CREDITS = dict(
-    artists=(
-        'Tobias Bernard (bertob)',
-    ),
-    designers=(
-        'Tobias Bernard (bertob)',
-        'Valéry Febvre (valos)',
-    ),
-    developers=(
-        'Mufeed Ali (fushinari)',
-        'Gerben Droogers (Tijder)',
-        'Valéry Febvre (valos)',
-        'Aurélien Hamy (aunetx)',
-        'Amelia Joison (amnetrine)',
-        'David Keller (BlobCodes)',
-        'Oleg Kiryazov (CakesTwix)',
-        'Lili Kurek',
-        'Liliana Prikler',
-        'Sabri Ünal',
-        'Romain Vaudois',
-        'Arthur Williams (TAAPArthur)',
-        'GrownNed',
-        'ISO-morphism',
-        'jaskaranSM',
-    ),
-    translators=(
-        'abidin toumi (Arabic)',
-        'Rayen Ghanmi (Arabic)',
-        'Mohamed Abdalah Noh (Arabic)',
-        'Ahmed Najmawi (Arabic)',
-        'Rafael Fontenelle (Brazilian Portuguese)',
-        'Infinitive Witch (Brazilian Portuguese)',
-        'Unidealistic Raccoon (Brazilian Portuguese)',
-        'Alex Carvalho (Brazilian Portuguese)',
-        'Juliano de Souza Camargo (Brazilian Portuguese)',
-        'Giovanne Menicheli (Brazilian Portuguese)',
-        'Fúlvio Alves (Brazilian Portuguese)',
-        'Felipe (Brazilian Portuguese)',
-        'twlvnn (Bulgarian)',
-        'Roger VC (Catalan)',
-        'Lukáš Linhart (Czech)',
-        'Jakub Soukup (Czech)',
-        'Dingzhong Chen (Simplified Chinese)',
-        'Eric-Song-Nop (Simplified Chinese)',
-        'Inaha (Simplified Chinese)',
-        'LS-Shandong (Simplified Chinese)',
-        'randint (Traditional Chinese)',
-        'Zhao Se (Traditional Chinese)',
-        'happylittle7 (Traditional Chinese)',
-        'Heimen Stoffels (Dutch)',
-        'Philip Goto (Dutch)',
-        'Koen Benne (Dutch)',
-        'Mikachu (Dutch)',
-        'Danial Behzadi (Persian)',
-        'Muhammad Hussein Ammari (Persian)',
-        'Jiri Grönroos (Finnish)',
-        'Ricky Tigg (Finnish)',
-        'Irénée THIRION (French)',
-        'Valéry Febvre (French)',
-        'Mathieu B. (French)',
-        'rene-coty (French)',
-        'paul verot (French)',
-        'Sandor Odor (German)',
-        'Liliana Prikler (German)',
-        'gregorni (German)',
-        'Liliana Marie Prikler (German)',
-        'Tim (German)',
-        'Sear Gasor (German)',
-        'Vortex Acherontic (German)',
-        'Dlurak (German)',
-        'Scrambled777 (Hindi)',
-        'mondstern (Hungarian)',
-        'Milo Ivir (Croatian)',
-        'Alifiyan Rosyidi (Indonesian)',
-        'Alim Satria (Indonesian)',
-        'Juan Manuel (Indonesian)',
-        'srntskl-111 (Indonesian)',
-        'Mek101 (Italian)',
-        'dedocc (Italian)',
-        'Davide Mora (Italian)',
-        'Andrea Scarano (Italian)',
-        'pasquale ruotolo (Italian)',
-        'Velyvis (Lithuanian)',
-        'Lili Kurek (Polish)',
-        'Aleksander Warzyniak (Polish)',
-        'ssantos (Portuguese)',
-        'Ademario Cunha (Portuguese)',
-        'SpiralPack 527 (Portuguese)',
-        'Lucas Silva Goulart (Portuguese)',
-        'shima (Russian)',
-        'Valentin Chernetsov (Russian)',
-        'FIONover (Russian)',
-        'Анна Алешкина #нетвойне (Russian)',
-        'Сергей (Russian)',
-        'Óscar Fernández Díaz (Spanish)',
-        'gallegonovato (Spanish)',
-        'Jesper (Swedish)',
-        'PaneradFisk (Swedish)',
-        'Willem Dinkelspiel (Swedish)',
-        'தமிழ்நேரம் (Tamil)',
-        'Ege Çelikçi (Turkish)',
-        'Sabri Ünal (Turkish)',
-        'Volkan Yıldırım (Turkish)',
-        'CakesTwix (Ukrainian)',
-        'Kislotniy (Acela) (Ukrainian)',
-        'mondstern (Ukrainian)',
-        'DXCVII (Ukrainian)',
-        'Bezruchenko Simon (Ukrainian)',
-        'niyaki hayyashi (Vietnamese)',
-    ),
-    supporters=(
-        'gondolyr',
-        'José',
-    ),
-)
 
 
 class Application(Adw.Application):
@@ -528,7 +414,7 @@ class ApplicationWindow(Adw.ApplicationWindow):
         dialog = Adw.AboutDialog.new_from_appdata('/info/febvre/Komikku/appdata.xml', self.application.version)
 
         dialog.set_copyright(f'© 2019-{datetime.date.today().year} {self.application.author} et al.')
-        dialog.set_comments(_("""A manga, manhwa, manhua, webtoons, webcomics and comics reader for GNOME
+        dialog.set_comments(_("""A manga, webtoons and comics reader
 
 👉 Never forget, you can support the authors
 by buying the official comics when they are
@@ -542,16 +428,7 @@ available in your region/language."""))
         dialog.add_link(_('Join Chat'), 'https://matrix.to/#/#komikku-gnome:matrix.org')
 
         # Override release notes
-        dialog.set_release_notes("""
-            <ul>
-                <li>[Reader] Added ability to apply filters to pages (brightness, contrast, grayscale, sepia, saturation)</li>
-                <li>[Reader] RTL/LTR/Vertical pager: Added keyboard zoom</li>
-                <li>[Reader] Webtoon pager: Fixed weird jumps during backward scrolling</li>
-                <li>[Servers] MangaWorld (IT): Update</li>
-                <li>[L10n] Updated Arabic and French translations</li>
-            </ul>
-            <p>Happy reading.</p>
-        """)
+        dialog.set_release_notes(RELEASE_NOTES)
 
         debug_info = DebugInfo(self.application)
         dialog.set_debug_info_filename('Komikku-debug-info.txt')
