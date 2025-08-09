@@ -2,17 +2,17 @@
 # SPDX-License-Identifier: GPL-3.0-or-later
 # Author: Valéry Febvre <vfebvre@easter-eggs.com>
 
-from bs4 import BeautifulSoup
-import requests
 import time
+
+from bs4 import BeautifulSoup
 
 from komikku.consts import DOWNLOAD_MAX_DELAY
 from komikku.servers import Server
-from komikku.servers import USER_AGENT
 from komikku.servers.utils import convert_date_string
 from komikku.utils import get_buffer_mime_type
 from komikku.utils import get_response_elapsed
 from komikku.utils import is_number
+from komikku.webview import CompleteChallenge
 
 # Similar to dead server comicextra
 
@@ -21,6 +21,8 @@ class Comichubfree(Server):
     id = 'comichubfree'
     name = 'ComicHubFree'
     lang = 'en'
+
+    has_cf = True
 
     base_url = 'https://comichubfree.com'
     logo_url = base_url + '/favicon.png'
@@ -31,12 +33,9 @@ class Comichubfree(Server):
     chapter_url = base_url + '/{0}/{1}/all'
 
     def __init__(self):
-        if self.session is None:
-            self.session = requests.Session()
-            self.session.headers = {
-                'User-Agent': USER_AGENT,
-            }
+        self.session = None
 
+    @CompleteChallenge()
     def get_manga_data(self, initial_data):
         """
         Returns comic data by scraping manga HTML page content
@@ -132,6 +131,7 @@ class Comichubfree(Server):
 
         return list(reversed(chapters))
 
+    @CompleteChallenge()
     def get_manga_chapter_data(self, manga_slug, manga_name, chapter_slug, chapter_url):
         """
         Returns comic chapter data
@@ -156,6 +156,7 @@ class Comichubfree(Server):
 
         return data
 
+    @CompleteChallenge()
     def get_manga_chapter_page_image(self, manga_slug, manga_name, chapter_slug, page):
         """
         Returns chapter page scan (image) content
@@ -185,6 +186,7 @@ class Comichubfree(Server):
         """
         return self.manga_url.format(slug)
 
+    @CompleteChallenge()
     def get_latest_updates(self):
         """
         Returns daily updates
@@ -217,6 +219,7 @@ class Comichubfree(Server):
 
         return results
 
+    @CompleteChallenge()
     def get_most_populars(self):
         """
         Returns popular comics
@@ -251,6 +254,7 @@ class Comichubfree(Server):
 
         return results
 
+    @CompleteChallenge()
     def search(self, term):
         r = self.session.get(
             self.search_url,
