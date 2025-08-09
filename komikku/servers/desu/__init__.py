@@ -22,7 +22,7 @@ class Desu(Server):
     lang = 'ru'
     is_nsfw = True
 
-    base_url = 'https://desu.store'
+    base_url = 'https://desu.city'
     logo_url = base_url + '/styles/favicons/favicon-32x32.png?v=1'
     api_url = base_url + '/manga/api/'
     api_latest_updates_url = base_url + '/manga/api?limit=50&order=updated'
