@@ -99,6 +99,20 @@
     <url type="donation">https://febvre.info/donate.html</url>
 
     <releases>
+        <release version="1.85.0" date="2025-08-11">
+            <description translate="no">
+                <ul>
+                    <li>[Library] Added `F9` shortcut to open `Categories` pane</li>
+                    <li>[Servers] Added Invincible ComicsVF (FR)</li>
+                    <li>[Servers] ComicHubFree (EN): Update</li>
+                    <li>[Servers] Desu (RU): Update</li>
+                    <li>[Servers] Perf Scan (FR): Update</li>
+                    <li>[Servers] MangaCrab (ES): Update</li>
+                    <li>[L10n] Updated Arabic, French and Russian translations</li>
+                </ul>
+                <p>Happy reading.</p>
+            </description>
+        </release>
         <release version="1.84.0" date="2025-08-03">
             <description translate="no">
                 <ul>

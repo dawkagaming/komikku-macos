@@ -130,11 +130,13 @@ CREDITS = dict(
 
 RELEASE_NOTES = """
 <ul>
-    <li>[Reader] Added ability to apply filters to pages (brightness, contrast, grayscale, sepia, saturation)</li>
-    <li>[Reader] RTL/LTR/Vertical pager: Added keyboard zoom</li>
-    <li>[Reader] Webtoon pager: Fixed weird jumps during backward scrolling</li>
-    <li>[Servers] MangaWorld (IT): Update</li>
-    <li>[L10n] Updated Arabic and French translations</li>
+    <li>[Library] Added `F9` shortcut to open `Categories` pane</li>
+    <li>[Servers] Added Invincible ComicsVF (FR)</li>
+    <li>[Servers] ComicHubFree (EN): Update</li>
+    <li>[Servers] Desu (RU): Update</li>
+    <li>[Servers] Perf Scan (FR): Update</li>
+    <li>[Servers] MangaCrab (ES): Update</li>
+    <li>[L10n] Updated Arabic, French and Russian translations</li>
 </ul>
 <p>Happy reading.</p>
 """
