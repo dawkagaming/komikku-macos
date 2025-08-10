@@ -3,10 +3,11 @@
 # Author: GrownNed <grownned@gmail.com>
 
 from datetime import datetime
+
 import requests
 
+from komikku.consts import USER_AGENT
 from komikku.servers import Server
-from komikku.servers import USER_AGENT
 from komikku.utils import get_buffer_mime_type
 
 SERVER_NAME = 'Desu'

@@ -8,8 +8,8 @@ import logging
 from bs4 import BeautifulSoup
 import requests
 
+from komikku.consts import USER_AGENT
 from komikku.servers import Server
-from komikku.servers import USER_AGENT
 from komikku.utils import get_buffer_mime_type
 from komikku.utils import is_number
 

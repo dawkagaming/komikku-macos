@@ -29,6 +29,7 @@ from PIL import ImageDraw
 from PIL import ImageFont
 import requests
 
+from komikku.consts import USER_AGENT
 from komikku.servers.loader import ServerFinder
 from komikku.utils import get_cached_logos_dir
 
@@ -443,9 +444,6 @@ def search_duckduckgo(site, term, nb_pages=1):
     :return: A list of dictionaries (name, url)
     :rtype: list of dict
     """
-
-    from komikku.servers import USER_AGENT
-
     base_url = 'https://lite.duckduckgo.com'
 
     session = requests.Session()

@@ -22,6 +22,7 @@ import requests
 
 from komikku.consts import LOGO_SIZE
 from komikku.consts import REQUESTS_TIMEOUT
+from komikku.consts import USER_AGENT
 from komikku.models.keyring import KeyringHelper
 from komikku.servers.loader import ServerFinder
 from komikku.servers.loader import ServerFinderPriority
@@ -61,9 +62,6 @@ LANGUAGES = dict(
     zh_Hans='中文 (简体)',
     zh_Hant='中文 (繁體)',
 )
-
-USER_AGENT = 'Mozilla/5.0 (X11; Linux x86_64; rv:129.0) Gecko/20100101 Firefox/129.0'
-USER_AGENT_MOBILE = 'Mozilla/5.0 (Linux; U; Android 4.1.1; en-gb; Build/KLP) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Safari/534.30'
 
 VERSION = 1
 
@@ -262,7 +260,7 @@ class Server(BaseServer, ABC):
         return True
 
     def load_session(self):
-        """ Load ptevious session from disk """
+        """ Load previous session from disk """
 
         file_path = os.path.join(self.sessions_dir, '{0}.pickle'.format(get_server_main_id_by_id(self.id)))
         if not os.path.exists(file_path):

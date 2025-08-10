@@ -3,14 +3,15 @@
 # Author: Liliana Prikler <liliana.prikler@gmail.com>
 # Author: Valéry Febvre <vfebvre@easter-eggs.com>
 
-from bs4 import BeautifulSoup
 from gettext import gettext as _
 import json
 import logging
+
+from bs4 import BeautifulSoup
 import requests
 
+from komikku.consts import USER_AGENT
 from komikku.servers import Server
-from komikku.servers import USER_AGENT
 from komikku.servers.utils import convert_date_string
 from komikku.utils import get_buffer_mime_type
 from komikku.utils import skip_past

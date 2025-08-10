@@ -10,7 +10,7 @@ from urllib.parse import urlparse
 
 import requests
 
-from komikku.servers import USER_AGENT
+from komikku.consts import USER_AGENT
 from komikku.trackers import Tracker
 from komikku.webview import get_tracker_access_token
 

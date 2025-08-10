@@ -13,4 +13,4 @@ class Aurorascan(Peachscan):
 
     has_cf = True
 
-    base_url = 'https://aurorascan.net'
+    base_url = 'https://aurorascan.net'  # Move to https://www.serenitytoons.win

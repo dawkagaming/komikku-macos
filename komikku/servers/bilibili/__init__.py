@@ -8,8 +8,8 @@ import logging
 from operator import itemgetter
 import requests
 
+from komikku.consts import USER_AGENT
 from komikku.servers import Server
-from komikku.servers import USER_AGENT
 from komikku.servers.exceptions import NotFoundError
 from komikku.servers.utils import convert_date_string
 from komikku.utils import get_buffer_mime_type

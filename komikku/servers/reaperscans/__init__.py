@@ -7,8 +7,8 @@ import json
 from bs4 import BeautifulSoup
 import requests
 
+from komikku.consts import USER_AGENT
 from komikku.servers import Server
-from komikku.servers import USER_AGENT
 from komikku.servers.multi.heancms import extract_info_from_script
 from komikku.servers.multi.heancms import HeanCMS
 from komikku.servers.multi.genkan import GenkanInitial

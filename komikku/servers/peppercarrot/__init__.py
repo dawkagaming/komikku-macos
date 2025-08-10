@@ -5,8 +5,8 @@
 from bs4 import BeautifulSoup
 import requests
 
+from komikku.consts import USER_AGENT
 from komikku.servers import Server
-from komikku.servers import USER_AGENT
 from komikku.utils import get_buffer_mime_type
 
 # Conversion ISO_639-1 codes => server codes

@@ -3,14 +3,15 @@
 # Author: Valéry Febvre <vfebvre@easter-eggs.com>
 # Author: Arthur Williams (TAAPArthur)
 
-from PIL import Image
 import urllib.parse
-import piexif
-from bs4 import BeautifulSoup
 import re
 
+from bs4 import BeautifulSoup
+import piexif
+from PIL import Image
+
+from komikku.consts import USER_AGENT
 from komikku.servers import Server
-from komikku.servers import USER_AGENT
 from komikku.servers.utils import convert_date_string
 from komikku.servers.utils import do_login
 from komikku.utils import is_number
