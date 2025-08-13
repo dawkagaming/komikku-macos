@@ -24,7 +24,6 @@ class Jensorensen(Server):
     logo_url = base_url + '/wp-content/uploads/2019/04/jen-head-500px-32x32.png'
     chapters_url = base_url + '/wp-json/wp/v2/posts'
     chapter_url = base_url + '/{0}'
-    image_url = base_url + '{0}'
     cover_url = base_url + '/wp-content/uploads/2022/03/cropped-newbanner3.png'
 
     def __init__(self):
@@ -42,7 +41,7 @@ class Jensorensen(Server):
             scanlators=[],
             genres=['Humor', 'Satire', 'Politic'],
             status='ongoing',
-            synopsis='Jen Sorensen is a cartoonist for Daily Kos, The Nation, In These Times, Politico and other publications throughout the US. She received the 2023 Berryman Award for Editorial Cartooning from the National Press Foundation, and is a recipient of the 2014 Herblock Prize and a 2013 Robert F. Kennedy Journalism Award. She is also a Pulitzer Finalist.',
+            synopsis='Jen Sorensen is a cartoonist for Daily Kos, The Nation, In These Times, Politico and other publications throughout the US. She received the 2023 Berryman Award for Editorial Cartooning from the National Press Foundation, and is a recipient of the 2014 Herblock Prize and a 2013 Robert F. Kennedy Journalism Award. She is also a Pulitzer Finalist. [Weekly newsletter](https://jensorensen.com/subscribe/) | [Patreon](https://www.patreon.com/jensorensen) | [Donate](https://www.paypal.com/donate?token=cHQMr8zUlfZ-edm0t9Rbg7vN0tdt-1vdNVIJ6eNPLN2nS3TRj8NkxZ1kmUOAtUVtDcoamy1kWo_3YN5L)',
             chapters=[],
             server_id=self.id,
             cover=self.cover_url,
