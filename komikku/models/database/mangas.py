@@ -10,7 +10,6 @@ import json
 import logging
 import os
 from pathlib import Path
-import re
 import shutil
 import time
 
@@ -31,6 +30,7 @@ from komikku.servers.utils import get_server_module_name_by_id
 from komikku.utils import get_cached_data_dir
 from komikku.utils import get_data_dir
 from komikku.utils import is_number
+from komikku.utils import markdown_to_markup
 from komikku.utils import remove_number_leading_zero
 from komikku.utils import trunc_filename
 
@@ -81,6 +81,9 @@ class Manga:
         for key in ('nb_chapters', 'nb_volumes', 'last_chapter', 'last_volume'):
             data.pop(key, None)
             continue
+
+        if data.get('synopsis'):
+            data['synopsis'] = markdown_to_markup(data['synopsis'])
 
         # Fill data with internal data
         data.update(dict(
@@ -605,12 +608,7 @@ class Manga:
 
             # Convert synopsis Markdown links (if any) into HTML <a> tags
             if data.get('synopsis'):
-                data['synopsis'] = re.sub(
-                    r'\[([^\[\]]*)\]\((.*?)\)',
-                    r'<a href="\g<2>">\g<1></a>',
-                    data['synopsis'],
-                    flags=re.M
-                )
+                data['synopsis'] = markdown_to_markup(data['synopsis'])
 
             # Clear cache
             self._chapters = None

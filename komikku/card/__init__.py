@@ -638,7 +638,9 @@ class InfoBox:
 
         self.set_disk_usage()
 
-        self.synopsis_label.set_markup(html_escape(manga.synopsis) if manga.synopsis else '-')
+        self.synopsis_label.set_markup('-')
+        if manga.synopsis:
+            self.synopsis_label.set_markup(manga.synopsis)  # can failed with a warning: parsing markup error
 
     def refresh(self):
         self.set_disk_usage()

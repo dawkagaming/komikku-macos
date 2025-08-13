@@ -11,6 +11,7 @@ import html
 from io import BytesIO
 import logging
 import os
+import re
 import subprocess
 import traceback
 
@@ -328,6 +329,16 @@ def log_error_traceback(e):
     logger.info(traceback.format_exc())
 
     return None
+
+
+def markdown_to_markup(s):
+    # Convert links into <a> tags
+    return re.sub(
+        r'\[(.*?)\]\((\S*?)\s*("(.*?)")?\)',  # 1. text, 2. url, 4. title
+        r'<a href="\g<2>">\g<1></a>',
+        s,
+        flags=re.M
+    )
 
 
 def remove_number_leading_zero(str_num):
