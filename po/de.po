@@ -14,7 +14,7 @@ msgstr ""
 "Project-Id-Version: Komikku 0.19.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-08-11 00:52+0200\n"
-"PO-Revision-Date: 2025-08-14 17:01+0000\n"
+"PO-Revision-Date: 2025-08-15 20:02+0000\n"
 "Last-Translator: \"Mirko P.\" <michoo@outlook.de>\n"
 "Language-Team: German <https://hosted.weblate.org/projects/komikku/main/de/>"
 "\n"
@@ -23,7 +23,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.13-dev\n"
+"X-Generator: Weblate 5.13\n"
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:11
 msgid "Discover and read manga & comics"
@@ -160,7 +160,7 @@ msgstr "Übersetzer"
 
 #: ../data/ui/card.blp:267
 msgid "Last Update"
-msgstr "Zuletzt aktualisiert"
+msgstr "Letzte Aktualisierung"
 
 #: ../data/ui/card.blp:298
 msgid "Size on Disk"
@@ -198,9 +198,8 @@ msgid "Add"
 msgstr "Hinzufügen"
 
 #: ../data/ui/download_manager.blp:10 ../data/ui/download_manager.blp:20
-#, fuzzy
 msgid "Download Manager"
-msgstr "Download-Manager"
+msgstr "Download Manager"
 
 #: ../data/ui/download_manager.blp:32
 msgid "Start/Stop Download"
