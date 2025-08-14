@@ -6,13 +6,14 @@
 # mondstern <mondstern@monocles.de>, 2024.
 # DXCVII <dxcvii@duck.com>, 2024, 2025.
 # Bezruchenko Simon <worcposj44@gmail.com>, 2024, 2025.
+# Максим Горпиніч <gorpinicmaksim0@gmail.com>, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: Komikku 1.17.1\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-08-11 00:52+0200\n"
-"PO-Revision-Date: 2025-06-24 07:31+0000\n"
-"Last-Translator: DXCVII <dxcvii@duck.com>\n"
+"PO-Revision-Date: 2025-08-15 20:02+0000\n"
+"Last-Translator: Максим Горпиніч <gorpinicmaksim0@gmail.com>\n"
 "Language-Team: Ukrainian <https://hosted.weblate.org/projects/komikku/main/"
 "uk/>\n"
 "Language: uk\n"
@@ -21,7 +22,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
 "n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
-"X-Generator: Weblate 5.13-dev\n"
+"X-Generator: Weblate 5.13\n"
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:11
 msgid "Discover and read manga & comics"
@@ -382,7 +383,7 @@ msgstr "Зберегти сторінку"
 #: ../data/ui/preferences.blp:9 ../data/ui/preferences_servers_languages.blp:15
 #: ../data/ui/preferences_servers_settings.blp:15
 msgid "Preferences"
-msgstr "Налаштування"
+msgstr "Параметри"
 
 #: ../data/ui/preferences.blp:14
 msgid "General"
@@ -427,14 +428,15 @@ msgstr "Повернутися до Деталей"
 #: ../data/ui/preferences.blp:42
 msgid "Method used to recolor background to match cover"
 msgstr ""
+"Метод, що використовується для зміни кольору фону відповідно до обкладинки"
 
 #: ../data/ui/preferences.blp:46
 msgid "Linear gradient"
-msgstr ""
+msgstr "Лінійний градієнт"
 
 #: ../data/ui/preferences.blp:47
 msgid "Blurred cover"
-msgstr ""
+msgstr "Розмита обкладинка"
 
 #: ../data/ui/preferences.blp:57
 msgid "Desktop Notifications"
@@ -965,6 +967,11 @@ msgid ""
 "by buying the official comics when they are\n"
 "available in your region/language."
 msgstr ""
+"Читач манґи, вебтунів та коміксів\n"
+"\n"
+"👉 Ніколи не забувайте, що ви можете підтримати авторів,\n"
+"купуючи офіційні комікси, коли вони\n"
+"доступні у вашому регіоні/мові."
 
 #: ../komikku/application.py:426
 msgid "Supporters"
@@ -1062,8 +1069,8 @@ msgstr "%d/%m/%Y"
 msgid "{0} selected"
 msgid_plural "{0} selected"
 msgstr[0] "{0} обрано"
-msgstr[1] "{0} обрано"
-msgstr[2] "{0} обрано"
+msgstr[1] "{0} обраний"
+msgstr[2] "{0} обраний"
 
 #: ../komikku/card/chapters_list.py:418 ../komikku/card/chapters_list.py:517
 msgid "Failed to update chapters reading status"
@@ -1429,7 +1436,7 @@ msgstr "Помилка завантаження"
 #: ../komikku/servers/mangaworld/__init__.py:79
 #: ../komikku/servers/weebcentral/__init__.py:53
 msgid "Complete"
-msgstr "Виконано"
+msgstr "Завершено"
 
 #: ../komikku/models/database/mangas.py:47
 #: ../komikku/servers/comick/__init__.py:80
@@ -1549,47 +1556,47 @@ msgstr "Сторінку успішно збережено"
 
 #: ../komikku/reader/__init__.py:496
 msgid "Settings"
-msgstr ""
+msgstr "Налаштування"
 
 #: ../komikku/reader/__init__.py:509
 msgid "Brightness"
-msgstr ""
+msgstr "Яскравість"
 
 #: ../komikku/reader/__init__.py:510
 msgid "Make pages brighter or darker"
-msgstr ""
+msgstr "Зробіть сторінки яскравішими або темнішими"
 
 #: ../komikku/reader/__init__.py:517
 msgid "Contrast"
-msgstr ""
+msgstr "Контраст"
 
 #: ../komikku/reader/__init__.py:518
 msgid "Increase or decrease the contrast of pages"
-msgstr ""
+msgstr "Збільшення або зменшення контрастності сторінок"
 
 #: ../komikku/reader/__init__.py:525
 msgid "Grayscale"
-msgstr ""
+msgstr "Відтінки сірого"
 
 #: ../komikku/reader/__init__.py:526
 msgid "Convert pages to grayscale"
-msgstr ""
+msgstr "Перетворити сторінки на градації сірого"
 
 #: ../komikku/reader/__init__.py:533
 msgid "Sepia"
-msgstr ""
+msgstr "Сепія"
 
 #: ../komikku/reader/__init__.py:534
 msgid "Give a more yellow/brown appearance to pages"
-msgstr ""
+msgstr "Надайте сторінкам більш жовтого/коричневого вигляду"
 
 #: ../komikku/reader/__init__.py:541
 msgid "Saturation"
-msgstr ""
+msgstr "Насиченість"
 
 #: ../komikku/reader/__init__.py:542
 msgid "Super-saturate or desaturate pages"
-msgstr ""
+msgstr "Перенасичення або знебарвлення сторінок"
 
 #: ../komikku/reader/pager/__init__.py:165
 msgid "Failed to sync read progress with server"
@@ -1769,7 +1776,7 @@ msgstr "Фільтрувати за статусами"
 #: ../komikku/servers/raijinscan/__init__.py:38
 #: ../komikku/trackers/__init__.py:35
 msgid "Completed"
-msgstr "Виконано"
+msgstr "Завершені"
 
 #: ../komikku/servers/comick/__init__.py:82
 #: ../komikku/servers/flamescans/__init__.py:57
@@ -1786,31 +1793,31 @@ msgstr "Призупинено"
 
 #: ../komikku/servers/comick/__init__.py:89
 msgid "Origination"
-msgstr ""
+msgstr "Походження"
 
 #: ../komikku/servers/comick/__init__.py:90
 msgid "[Latest Updates only] Filter by Origination"
-msgstr ""
+msgstr "[Тільки останні оновлення] Фільтрувати за походженням"
 
 #: ../komikku/servers/comick/__init__.py:101
 msgid "Countries"
-msgstr ""
+msgstr "Країни"
 
 #: ../komikku/servers/comick/__init__.py:103
 msgid "[Search and Most Popular only] Filter by Country (origination)"
-msgstr ""
+msgstr "[Тільки пошук і найпопулярніші] Фільтрувати за країною (походженням)"
 
 #: ../komikku/servers/comick/__init__.py:107
 msgid "Japan (Manga)"
-msgstr ""
+msgstr "Японія (манґа)"
 
 #: ../komikku/servers/comick/__init__.py:108
 msgid "Korea (Manhwa)"
-msgstr ""
+msgstr "Корейська (манхва)"
 
 #: ../komikku/servers/comick/__init__.py:109
 msgid "China (Manhua)"
-msgstr ""
+msgstr "Китай (Маньхуа)"
 
 #: ../komikku/servers/comick/__init__.py:115
 #: ../komikku/servers/mangadex/__init__.py:84
@@ -1819,7 +1826,7 @@ msgstr "Демографія публікації"
 
 #: ../komikku/servers/comick/__init__.py:116
 msgid "Filter by Publication Demographics"
-msgstr ""
+msgstr "Фільтрувати за демографічними показниками публікації"
 
 #: ../komikku/servers/comick/__init__.py:119
 #: ../komikku/servers/mangadex/__init__.py:88
@@ -1843,7 +1850,7 @@ msgstr "Джосей"
 
 #: ../komikku/servers/comick/__init__.py:123
 msgid "None"
-msgstr ""
+msgstr "Жоден"
 
 #: ../komikku/servers/comick/__init__.py:129
 #: ../komikku/servers/mangadex/__init__.py:97
@@ -1909,7 +1916,7 @@ msgstr "Ваншот"
 
 #: ../komikku/servers/comick/__init__.py:147
 msgid "User Created"
-msgstr ""
+msgstr "Створено користувачем"
 
 #: ../komikku/servers/comick/__init__.py:148
 #: ../komikku/servers/mangadex/__init__.py:112
@@ -1933,7 +1940,7 @@ msgstr "Бойовик"
 
 #: ../komikku/servers/comick/__init__.py:159
 msgid "Adult"
-msgstr ""
+msgstr "Дорослий"
 
 #: ../komikku/servers/comick/__init__.py:160
 #: ../komikku/servers/mangadex/__init__.py:123
@@ -1957,7 +1964,7 @@ msgstr "Драма"
 
 #: ../komikku/servers/comick/__init__.py:164
 msgid "Ecchi"
-msgstr ""
+msgstr "Еччі"
 
 #: ../komikku/servers/comick/__init__.py:165
 #: ../komikku/servers/mangadex/__init__.py:128
@@ -1966,7 +1973,7 @@ msgstr "Фантастика"
 
 #: ../komikku/servers/comick/__init__.py:166
 msgid "Gender Bender"
-msgstr ""
+msgstr "Гендерний вигин"
 
 #: ../komikku/servers/comick/__init__.py:167
 #: ../komikku/servers/mangadex/__init__.py:130
@@ -1990,7 +1997,7 @@ msgstr "Магічні дівчата"
 
 #: ../komikku/servers/comick/__init__.py:171
 msgid "Mature"
-msgstr ""
+msgstr "Зріла"
 
 #: ../komikku/servers/comick/__init__.py:172
 #: ../komikku/servers/mangadex/__init__.py:134
@@ -2014,7 +2021,7 @@ msgstr "Філософський"
 
 #: ../komikku/servers/comick/__init__.py:176
 msgid "Psychological"
-msgstr ""
+msgstr "Психологічний"
 
 #: ../komikku/servers/comick/__init__.py:177
 #: ../komikku/servers/mangadex/__init__.py:138
@@ -2028,7 +2035,7 @@ msgstr "Наукова фантастика"
 
 #: ../komikku/servers/comick/__init__.py:179
 msgid "Shoujo Ai"
-msgstr ""
+msgstr "Шодзьо Ай"
 
 #: ../komikku/servers/comick/__init__.py:180
 #: ../komikku/servers/mangadex/__init__.py:140
@@ -2062,7 +2069,7 @@ msgstr "Уся"
 
 #: ../komikku/servers/comick/__init__.py:186
 msgid "Yaoi"
-msgstr ""
+msgstr "Яой"
 
 #: ../komikku/servers/comick/__init__.py:187
 msgid "Yuri"
@@ -2291,7 +2298,7 @@ msgstr "Перечитування"
 #: ../komikku/updater.py:86
 #, python-brace-format
 msgid "{0} seems down. Please try updating later"
-msgstr ""
+msgstr "Здається, що {0} не працює. Спробуйте оновити пізніше"
 
 #: ../komikku/updater.py:118
 msgid "Library update completed with errors"
