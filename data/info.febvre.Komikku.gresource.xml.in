@@ -19,7 +19,7 @@
         <file compressed="true" preprocess="xml-stripblanks">ui/preferences_servers_languages.ui</file>
         <file compressed="true" preprocess="xml-stripblanks">ui/preferences_servers_settings.ui</file>
         <file compressed="true" preprocess="xml-stripblanks">ui/reader.ui</file>
-        <file compressed="true" preprocess="xml-stripblanks">ui/shortcuts_overview.ui</file>
+        <file compressed="true" preprocess="xml-stripblanks">ui/shortcuts.ui</file>
         <file compressed="true" preprocess="xml-stripblanks">ui/support.ui</file>
         <file compressed="true" preprocess="xml-stripblanks">ui/webview.ui</file>
 

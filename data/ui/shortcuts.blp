@@ -1,0 +1,88 @@
+// SPDX-FileCopyrightText: 2019-2025 Valéry Febvre
+//
+// SPDX-License-Identifier: GPL-3.0-or-later
+
+using Gtk 4.0;
+using Adw 1;
+
+Adw.ShortcutsDialog shortcuts_dialog {
+  Adw.ShortcutsSection {
+    title: C_("Shortcut window description", "Application");
+
+    Adw.ShortcutsItem {
+      title: C_("Shortcut window description", "Open Preferences");
+      action-name: "app.preferences";
+    }
+
+    Adw.ShortcutsItem {
+      title: C_("Shortcut window description", "Toggle Fullscreen Mode");
+      action-name: "app.fullscreen";
+    }
+
+    Adw.ShortcutsItem {
+      title: C_("Shortcut window description", "Open Keyboard Shortcuts");
+      action-name: "app.shortcuts";
+    }
+
+    Adw.ShortcutsItem {
+      title: C_("Shortcut window description", "Quit");
+      action-name: "app.quit";
+    }
+  }
+
+  Adw.ShortcutsSection {
+    title: C_("Shortcut window description", "Library");
+
+    Adw.ShortcutsItem {
+      title: C_("Shortcut window description", "Add Manga");
+      action-name: "app.add";
+    }
+
+    Adw.ShortcutsItem {
+      title: C_("Shortcut window description", "Select All");
+      action-name: "app.select-all";
+    }
+
+    Adw.ShortcutsItem {
+      title: C_("Shortcut window description", "Search");
+      action-name: "app.enter-search-mode";
+    }
+
+    Adw.ShortcutsItem {
+      title: C_("Shortcut window description", "Toggle Categories Pane");
+      action-name: "app.library.toggle-categories";
+    }
+
+    Adw.ShortcutsItem {
+      title: C_("Shortcut window description", "Update");
+      action-name: "app.library.update";
+    }
+  }
+
+  Adw.ShortcutsSection {
+    title: C_("Shortcut window description", "Manga Card");
+
+    Adw.ShortcutsItem {
+      title: C_("Shortcut window description", "Select All Chapters");
+      action-name: "app.select-all";
+    }
+  }
+
+  Adw.ShortcutsSection {
+    title: C_("Shortcut window description", "Reader");
+
+    Adw.ShortcutsItem {
+      title: C_("Shortcut window description", "Save Page");
+      action-name: "app.reader.save-page";
+    }
+  }
+
+  Adw.ShortcutsSection {
+    title: C_("Shortcut window description", "Download Manager");
+
+    Adw.ShortcutsItem {
+      title: C_("Shortcut window description", "Select All Downloads");
+      action-name: "app.select-all";
+    }
+  }
+}

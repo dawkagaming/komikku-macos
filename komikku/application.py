@@ -497,12 +497,10 @@ available in your region/language."""))
 
     def on_shortcuts_menu_clicked(self, _action, _param):
         builder = Gtk.Builder()
-        builder.add_from_resource('/info/febvre/Komikku/ui/shortcuts_overview.ui')
+        builder.add_from_resource('/info/febvre/Komikku/ui/shortcuts.ui')
 
-        shortcuts_overview = builder.get_object('shortcuts_overview')
-        shortcuts_overview.set_modal(True)
-        shortcuts_overview.set_transient_for(self)
-        shortcuts_overview.present()
+        dialog = builder.get_object('shortcuts_dialog')
+        dialog.present(self)
 
     def open_support(self, _action, _param):
         self.support.show()
