@@ -7,7 +7,7 @@ from komikku.servers.multi.manga_stream import MangaStream
 
 class Sushiscannet(MangaStream):
     id = 'sushiscannet'
-    name = 'SushiScanNet'
+    name = 'Sushiscan (.net)'
     lang = 'fr'
 
     has_cf = True
