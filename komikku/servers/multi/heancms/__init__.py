@@ -5,7 +5,6 @@
 # Hean CMS
 
 # Supported servers:
-# EZmanga [EN]
 # Mode Scanlator [pt_BR] (disabled)
 # Reaper Scans [EN] (disabled)
 # Reaper Scans [pt_BR] (disabled)

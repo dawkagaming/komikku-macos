@@ -3,32 +3,121 @@
 # Author: Valéry Febvre <vfebvre@easter-eggs.com>
 
 import json
+import logging
 import time
 
 from bs4 import BeautifulSoup
+import requests
 
 from komikku.consts import DOWNLOAD_MAX_DELAY
-from komikku.servers.multi.heancms import extract_info_from_script
-from komikku.servers.multi.heancms import HeanCMS
+from komikku.consts import USER_AGENT
+from komikku.servers import Server
 from komikku.servers.utils import convert_date_string
 from komikku.utils import get_buffer_mime_type
 from komikku.utils import get_response_elapsed
 
+logger = logging.getLogger('komikku.servers.ezmanga')
 
-class Ezmanga(HeanCMS):
+
+def extract_info_from_script(soup, keyword):
+    info = None
+
+    for script_element in soup.select('script'):
+        script = script_element.string
+        if not script or not script.startswith('self.__next_f.push([1,') or keyword not in script:
+            continue
+
+        line = script.strip().replace('self.__next_f.push([1,', '')
+
+        start = 0
+        for c in line:
+            if c in ('{', '['):
+                break
+            start += 1
+
+        line = line[start:-3]
+
+        try:
+            info = json.loads(f'"{line}"')
+        except Exception as e:
+            logger.debug(f'ERROR: {line}')
+            logger.debug(e)
+        break
+
+    return info
+
+
+class Ezmanga(Server):
     id = 'ezmanga'
     name = 'EZmanga'
     lang = 'en'
 
     base_url = 'https://ezmanga.org'
     logo_url = base_url + '/favicon.ico'
-    api_url = 'https://api.ezmanga.org'
-    api_chapters_url = 'https://vapi.ezmanga.org/api/chapters?postId={0}skip={1}&take={2}&order=desc&search=&userId=undefined'
+    manga_url = base_url + '/series/{0}'
+    chapter_url = base_url + '/series/{0}/{1}'
+    api_url = 'https://vapi.ezmanga.org/api'
+    api_manga_url = api_url + '/post?postSlug={0}'
+    api_chapters_url = api_url + '/chapters?postId={0}&skip={1}&take={2}&order=desc&search=&userId=undefined'
 
-    name_css_path = 'h2'
-    cover_css_path = 'img[width="500"]'
-    authors_css_path = 'div.flex:-soup-contains("Author") > span:last-child'
-    synopsis_css_path = 'p'
+    def __init__(self):
+        if self.session is None:
+            self.session = requests.Session()
+            self.session.headers.update({'User-Agent': USER_AGENT})
+
+    def get_manga_data(self, initial_data):
+        """
+        Returns manga data via API request
+
+        Initial data should contain at least manga's slug (provided by search)
+        """
+        assert 'slug' in initial_data, 'Manga slug is missing in initial data'
+
+        r = self.session_get(self.api_manga_url.format(initial_data['slug']))
+        if r.status_code != 200:
+            return None
+
+        resp_data = r.json()['post']
+
+        data = initial_data.copy()
+        data.update(dict(
+            name=resp_data['postTitle'],
+            authors=[],
+            scanlators=[],
+            genres=[],
+            status='ongoing',
+            synopsis=None,
+            chapters=[],
+            server_id=self.id,
+            cover=resp_data['featuredImage'],
+        ))
+
+        for genre in resp_data['genres']:
+            data['genres'].append(genre['name'])
+
+        if resp_data['seriesStatus'] == 'COMPLETED':
+            data['status'] = 'complete'
+        elif resp_data['seriesStatus'] == 'ONGOING':
+            data['status'] = 'ongoing'
+        elif resp_data['seriesStatus'] == 'DROPPED':
+            data['status'] = 'suspended'
+        elif resp_data['seriesStatus'] == 'HIATUS':
+            data['status'] = 'hiatus'
+
+        if resp_data.get('author'):
+            for author in resp_data['author'].split(','):
+                data['authors'].append(author.strip())
+        if resp_data.get('artist'):
+            for artist in resp_data['artist'].split(','):
+                data['authors'].append(artist.strip())
+
+        if synopsis := resp_data['postContent']:
+            data['synopsis'] = BeautifulSoup(synopsis, 'lxml').text.strip()
+
+        # Chapters
+        data['chapters'] = self.get_manga_chapters_data(resp_data['id'])
+
+        return data
 
     def get_manga_chapter_data(self, manga_slug, manga_name, chapter_slug, chapter_url):
         """
@@ -110,7 +199,7 @@ class Ezmanga(HeanCMS):
                         slug=chapter['slug'],
                         title=chapter['title'] or f'Chapter {chapter["number"]}',
                         num=chapter['number'],
-                        date=convert_date_string(chapter['createdAt'].split('T')[0], self.date_format) if 'createdAt' in chapter else None,
+                        date=convert_date_string(chapter['createdAt'].split('T')[0], '%Y-%m-%d') if 'createdAt' in chapter else None,
                     ))
                 page += 1
                 delay = min(rtime * 2, DOWNLOAD_MAX_DELAY) if rtime else None
@@ -120,3 +209,85 @@ class Ezmanga(HeanCMS):
                 break
 
         return list(reversed(chapters))
+
+    def get_manga_chapter_page_image(self, manga_slug, manga_name, chapter_slug, page):
+        """
+        Returns chapter page scan (image) content
+        """
+        r = self.session_get(
+            page['image'],
+            headers={
+                'Referer': self.chapter_url.format(manga_slug, chapter_slug),
+            }
+        )
+        if r.status_code != 200:
+            return None
+
+        mime_type = get_buffer_mime_type(r.content)
+        if not mime_type.startswith('image'):
+            return None
+
+        return dict(
+            buffer=r.content,
+            mime_type=mime_type,
+            name=page['image'].split('/')[-1],
+        )
+
+    def get_manga_url(self, slug, url):
+        """
+        Returns manga absolute URL
+        """
+        return self.manga_url.format(slug)
+
+    def get_latest_updates(self):
+        """
+        Returns latest updates
+        """
+        return self.get_manga_list(orderby='latest')
+
+    def get_manga_list(self, term=None, orderby=None):
+        params = dict(
+            page=1,
+            perPage=21,
+        )
+        if term:
+            params['searchTerm'] = term
+        else:
+            if orderby == 'latest':
+                params['orderBy'] = 'updatedAt'
+            elif orderby == 'popular':
+                params['orderBy'] = 'totalViews'
+
+        r = self.session_get(
+            self.api_url + '/query',
+            params=params,
+            headers={
+                'Accept': 'application/json, text/plain, */*',
+                'Origin': self.base_url,
+                'Referer': f'{self.base_url}/',
+            }
+        )
+        if r.status_code != 200:
+            return None
+
+        results = []
+        for item in r.json()['posts']:
+            cover = item['featuredImage']
+
+            results.append(dict(
+                slug=item['slug'],
+                name=item['postTitle'],
+                cover=cover,
+                last_chapter=item['chapters'][0]['number'] if item.get('chapters') else None,
+            ))
+
+        return results
+
+    def get_most_populars(self):
+        """
+        Returns most popular mangas
+        """
+        return self.get_manga_list(orderby='popular')
+
+    def search(self, term):
+        return self.get_manga_list(term=term)
