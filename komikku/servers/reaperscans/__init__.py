@@ -21,6 +21,7 @@ class Reaperscans(HeanCMS):
     id = 'reaperscans'
     name = 'Reaper Scans'
     lang = 'en'
+    status = 'disabled'
 
     base_url = 'https://reaperscans.com'
     logo_url = base_url + '/wetried_only.png'
