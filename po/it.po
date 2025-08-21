@@ -6,26 +6,26 @@
 # Davide Mora <Il_Demiurgo@users.noreply.hosted.weblate.org>, 2024.
 # Andrea Scarano <ascarano263@gmail.com>, 2025.
 # pasquale ruotolo <pachiruo@gmail.com>, 2025.
+# Riccardo Luise <vvvienna@proton.me>, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: Komikku 0.25.1\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-08-11 00:52+0200\n"
-"PO-Revision-Date: 2025-06-24 07:31+0000\n"
-"Last-Translator: pasquale ruotolo <pachiruo@gmail.com>\n"
-"Language-Team: Italian <https://hosted.weblate.org/projects/komikku/main/it/"
-">\n"
+"PO-Revision-Date: 2025-08-22 13:01+0000\n"
+"Last-Translator: Riccardo Luise <vvvienna@proton.me>\n"
+"Language-Team: Italian <https://hosted.weblate.org/projects/komikku/main/it/>"
+"\n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.13-dev\n"
+"X-Generator: Weblate 5.13\n"
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:11
-#, fuzzy
 msgid "Discover and read manga & comics"
-msgstr "Scopri e leggi manga e fumetti."
+msgstr "Scopri e leggi manga e fumetti"
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:13
 msgid ""
@@ -68,9 +68,8 @@ msgid "Categories to organize your library"
 msgstr "Categorie per organizzare la libreria"
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:22
-#, fuzzy
 msgid "Automatic tracking of series with MyAnimeList and AniList"
-msgstr "Tracciamento automatico delle serie con MyAnimeList e AniList."
+msgstr "Tracciamento automatico delle serie con MyAnimeList e AniList"
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:23
 msgid "Automatic update of series"
@@ -94,7 +93,7 @@ msgstr "Pagina della Libreria"
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:51
 msgid "The Library page with the category sidebar open"
-msgstr "La pagina della  libreria con la barra laterale delle categorie aperta"
+msgstr "La pagina della libreria con la barra laterale delle categorie aperta"
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:55
 msgid "The Preferences page (Library settings)"
@@ -126,7 +125,7 @@ msgstr ""
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:83
 msgid "The Reading history page in mobile format"
-msgstr ""
+msgstr "La pagina dello storico letture in formato mobile"
 
 #: ../data/info.febvre.Komikku.desktop.in:2
 msgid "@prettyname@"
@@ -187,7 +186,7 @@ msgstr ""
 #: ../data/ui/explorer_search.blp:43 ../data/ui/history.blp:22
 #: ../data/ui/library.blp:40
 msgid "Search"
-msgstr ""
+msgstr "Ricerca"
 
 #: ../data/ui/card_tracking_search.blp:75
 msgid "Search for Tracking"
@@ -219,11 +218,11 @@ msgstr "Apri nel browser"
 
 #: ../data/ui/explorer_search.blp:147
 msgid "Most Popular"
-msgstr ""
+msgstr "I più popolari"
 
 #: ../data/ui/explorer_search.blp:214
 msgid "Latest Updates"
-msgstr ""
+msgstr "Ultimi aggiornamenti"
 
 #: ../data/ui/explorer_servers.blp:10
 msgid "Servers"
@@ -235,7 +234,7 @@ msgstr "Cerca i fumetti su tutti i server"
 
 #: ../data/ui/explorer_servers.blp:23
 msgid "Search Servers"
-msgstr ""
+msgstr "Cerca Servers"
 
 #: ../data/ui/explorer_servers.blp:37
 msgid "Search for servers by name or language"
@@ -271,7 +270,7 @@ msgstr "Aggiorna"
 
 #: ../data/ui/library.blp:200
 msgid "Discover Comics"
-msgstr ""
+msgstr "Scopri Fumetti"
 
 #: ../data/ui/library.blp:271
 msgid "OK"
@@ -336,7 +335,7 @@ msgstr "Aggiorna la libreria"
 
 #: ../data/ui/menu/main.xml:16
 msgid "Sort"
-msgstr ""
+msgstr "Ordina"
 
 #: ../data/ui/menu/main.xml:21
 msgid "Alphabetical"
@@ -2319,7 +2318,7 @@ msgstr ""
 
 #: ../komikku/webview.py:483
 msgid "Please complete CAPTCHA"
-msgstr ""
+msgstr "Completare il CAPTCHA"
 
 #~ msgid "Details"
 #~ msgstr "Dettagli"
