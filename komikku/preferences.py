@@ -483,12 +483,11 @@ class PreferencesServersLanguagesSubPage(Adw.NavigationPage):
         self.settings = Settings.get_default()
 
     def clear(self):
-        listbox = self.group.get_first_child().get_last_child().get_first_child()
-        switchrow = listbox.get_first_child()
-        while switchrow:
-            next_switchrow = switchrow.get_next_sibling()
-            self.group.remove(switchrow)
-            switchrow = next_switchrow
+        row = self.group.get_row(0)
+        while row:
+            next_row = row.get_next_sibling()
+            self.group.remove(row)
+            row = next_row
 
     def on_language_activated(self, switchrow, _gparam, code):
         if switchrow.get_active():
@@ -531,12 +530,11 @@ class PreferencesServersSettingsSubPage(Adw.NavigationPage):
         self.keyring_helper = KeyringHelper()
 
     def clear(self):
-        listbox = self.group.get_first_child().get_last_child().get_first_child()
-        child = listbox.get_first_child()
-        while child:
-            next_child = child.get_next_sibling()
-            self.group.remove(child)
-            child = next_child
+        row = self.group.get_row(0)
+        while row:
+            next_row = row.get_next_sibling()
+            self.group.remove(row)
+            row = next_row
 
     def on_server_activated(self, row, _gparam, server_main_id):
         if isinstance(row, Adw.ExpanderRow):
