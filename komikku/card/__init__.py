@@ -605,11 +605,7 @@ class InfoBox:
             self.resume_button.remove_css_class('suggested-action')
 
         if manga.genres:
-            label = self.genres_wrapbox.get_first_child()
-            while label:
-                next_label = label.get_next_sibling()
-                self.genres_wrapbox.remove(label)
-                label = next_label
+            self.genres_wrapbox.remove_all()
 
             for genre in sorted(manga.genres):
                 label = Gtk.Label()
