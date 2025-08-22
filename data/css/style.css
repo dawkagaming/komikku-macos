@@ -140,10 +140,6 @@ listview :last-child {
     border-radius: 999px;
 }
 
-.synopsis-label {
-    line-height: 1.25;
-}
-
 /*
  * Reader
  */
