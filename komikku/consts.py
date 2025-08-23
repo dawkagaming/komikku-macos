@@ -130,13 +130,12 @@ CREDITS = dict(
 
 RELEASE_NOTES = """
 <ul>
-    <li>[Library] Added `F9` shortcut to open `Categories` pane</li>
-    <li>[Servers] Added Invincible ComicsVF (FR)</li>
-    <li>[Servers] ComicHubFree (EN): Update</li>
-    <li>[Servers] Desu (RU): Update</li>
-    <li>[Servers] Perf Scan (FR): Update</li>
-    <li>[Servers] MangaCrab (ES): Update</li>
-    <li>[L10n] Updated Arabic, French and Russian translations</li>
+    <li>[Servers] Added Annyo (FR)</li>
+    <li>[Servers] Added Jen Sorensen Weekly Cartoon (EN)</li>
+    <li>[Servers] Added SushiScan.net (FR)</li>
+    <li>[Servers] EZManga (EN): Update</li>
+    <li>[Servers] Reaper Scans (EN): Disabled</li>
+    <li>[L10n] Updated German, Italian, Russian and Ukrainian translations</li>
 </ul>
 <p>Happy reading.</p>
 """

@@ -99,6 +99,19 @@
     <url type="donation">https://febvre.info/donate.html</url>
 
     <releases>
+        <release version="1.86.0" date="2025-08-23">
+            <description translate="no">
+                <ul>
+                    <li>[Servers] Added Annyo (FR)</li>
+                    <li>[Servers] Added Jen Sorensen Weekly Cartoon (EN)</li>
+                    <li>[Servers] Added SushiScan.net (FR)</li>
+                    <li>[Servers] EZManga (EN): Update</li>
+                    <li>[Servers] Reaper Scans (EN): Disabled</li>
+                    <li>[L10n] Updated German, Italian, Russian and Ukrainian translations</li>
+                </ul>
+                <p>Happy reading.</p>
+            </description>
+        </release>
         <release version="1.85.0" date="2025-08-11">
             <description translate="no">
                 <ul>
