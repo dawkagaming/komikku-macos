@@ -22,6 +22,7 @@ class Fosscomics(Server):
     true_search = False
 
     base_url = 'https://fosscomics.com'
+    donate_url = 'https://github.com/sponsors/joone'
     logo_url = base_url + '/images/favicon.png'
     manga_url = base_url + '/all_posts/'
     chapter_url = base_url + '/{0}'

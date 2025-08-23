@@ -640,7 +640,11 @@ class InfoBox:
 
         self.synopsis_label.set_markup('-')
         if manga.synopsis:
-            self.synopsis_label.set_markup(manga.synopsis)  # can failed with a warning: parsing markup error
+            synopsis = manga.synopsis
+            if manga.server.donate_url:
+                synopsis = f'{synopsis}\n\n<a href="{manga.server.donate_url}">{_("Donate")}</a>'
+
+            self.synopsis_label.set_markup(synopsis)  # can failed with a warning: parsing markup error
 
     def refresh(self):
         self.set_disk_usage()

@@ -74,6 +74,7 @@ class Server(BaseServer, ABC):
     lang: str
 
     base_url = None
+    donate_url = None
     logo_url = None
 
     bypass_cf_url = None

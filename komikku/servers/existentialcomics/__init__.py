@@ -20,6 +20,7 @@ class Existentialcomics(Server):
     true_search = False
 
     base_url = 'https://existentialcomics.com'
+    donate_url = base_url
     logo_url = 'https://static.existentialcomics.com/favicon.ico'
     manga_url = base_url + '/archive/byDate'
     chapter_url = base_url + '/comic/{0}'

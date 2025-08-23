@@ -27,6 +27,7 @@ class Dbnewhope(Server):
     true_search = False
 
     base_url = 'https://dbnewhope.com'
+    donate_url = base_url + '/#patreon'
     logo_url = base_url + '/assets/favicon.ico'
     manga_url = base_url + '/{0}/chapitres.php'
     page_url = base_url + '/{0}/{1}/01.php?page={2}'

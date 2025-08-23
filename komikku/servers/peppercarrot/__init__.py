@@ -41,6 +41,7 @@ class Peppercarrot(Server):
     true_search = False
 
     base_url = 'https://www.peppercarrot.com'
+    donate_url = base_url + '/en/support/index.html'
     logo_url = base_url + '/core/img/favicon.png'
     manga_url = base_url + '/{0}/webcomics/index.html'
     langs_url = base_url + '/0_sources/langs.json'
@@ -55,6 +56,8 @@ class Peppercarrot(Server):
         if self.session is None:
             self.session = requests.Session()
             self.session.headers.update({'User-Agent': USER_AGENT})
+
+        self.donate_url = f'{self.base_url}/{LANGUAGES_CODES[self.lang]}/support/index.html'
 
     def get_manga_data(self, initial_data):
         """
