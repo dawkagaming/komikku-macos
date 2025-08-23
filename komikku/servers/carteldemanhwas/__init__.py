@@ -14,7 +14,7 @@ class Carteldemanhwas(MangaStream):
     has_cf = True
 
     chapters_order = 'asc'
-    series_name = 'proyectos'
+    series_name = 'serie'
 
     base_url = 'https://carteldemanhwas.net'
 
