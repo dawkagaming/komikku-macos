@@ -9,13 +9,14 @@
 # Giovanne Menicheli <giovanne.lopes.menicheli@gmail.com>, 2024.
 # Fúlvio Alves <fga.fulvio@gmail.com>, 2024.
 # Felipe <felipe.bueno.ramos@gmail.com>, 2025.
+# Matheus Santana <estudosfodasdomatheus@gmail.com>, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: Komikku\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-08-11 00:52+0200\n"
-"PO-Revision-Date: 2025-05-21 06:02+0000\n"
-"Last-Translator: Felipe <felipe.bueno.ramos@gmail.com>\n"
+"PO-Revision-Date: 2025-08-25 07:02+0000\n"
+"Last-Translator: Matheus Santana <estudosfodasdomatheus@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) <https://hosted.weblate.org/projects/"
 "komikku/main/pt_BR/>\n"
 "Language: pt_BR\n"
@@ -23,7 +24,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 5.12-dev\n"
+"X-Generator: Weblate 5.13\n"
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:11
 msgid "Discover and read manga & comics"
@@ -427,15 +428,15 @@ msgstr "Fundo na Página de Detalhes"
 
 #: ../data/ui/preferences.blp:42
 msgid "Method used to recolor background to match cover"
-msgstr ""
+msgstr "Método utilizado para ajustar a cor do fundo de acordo com a capa"
 
 #: ../data/ui/preferences.blp:46
 msgid "Linear gradient"
-msgstr ""
+msgstr "Degradê linear"
 
 #: ../data/ui/preferences.blp:47
 msgid "Blurred cover"
-msgstr ""
+msgstr "Capa com desfoque"
 
 #: ../data/ui/preferences.blp:57
 msgid "Desktop Notifications"
@@ -965,6 +966,11 @@ msgid ""
 "by buying the official comics when they are\n"
 "available in your region/language."
 msgstr ""
+"Um leitor de mangás, webtoons e quadrinhos\n"
+"\n"
+"👉 Nunca se esqueça: você pode apoiar os autores\n"
+"comprando as edições oficiais quando\n"
+"estiverem disponíveis em sua região/idioma."
 
 #: ../komikku/application.py:426
 msgid "Supporters"
@@ -1121,11 +1127,11 @@ msgstr "Estado"
 
 #: ../komikku/card/tracking.py:234
 msgid "Score"
-msgstr ""
+msgstr "pontuação"
 
 #: ../komikku/card/tracking.py:239
 msgid "Chapter"
-msgstr ""
+msgstr "Capítulo"
 
 #: ../komikku/card/tracking.py:251 ../komikku/categories_editor.py:78
 #: ../komikku/library/__init__.py:378
@@ -1134,7 +1140,7 @@ msgstr "Excluir?"
 
 #: ../komikku/card/tracking.py:252
 msgid "Are you sure you want to cancel tracking?"
-msgstr ""
+msgstr "Você tem certeza que deseja cancelar o monitoramento?"
 
 #: ../komikku/card/tracking.py:253 ../komikku/categories_editor.py:80
 #: ../komikku/categories_editor.py:178 ../komikku/library/__init__.py:380
@@ -1263,7 +1269,7 @@ msgstr "Alternar o status de fixado"
 
 #: ../komikku/explorer/search/__init__.py:283
 msgid "Search was cancelled"
-msgstr ""
+msgstr "Pesquisa foi cancelada"
 
 #: ../komikku/explorer/search/__init__.py:290
 msgid "Oops, server website URL is unknown."
@@ -1328,7 +1334,7 @@ msgstr "Não foi encontrado o Mais Popular"
 
 #: ../komikku/explorer/search/search_global.py:165
 msgid "Search cancelled"
-msgstr ""
+msgstr "Pesquisa cancelada"
 
 #: ../komikku/explorer/search/search_global.py:173
 msgid "No results"
@@ -1529,15 +1535,15 @@ msgstr "Teste"
 #: ../komikku/preferences.py:758 ../komikku/preferences.py:773
 #: ../komikku/preferences.py:796
 msgid "Disconnect"
-msgstr ""
+msgstr "Desconectado"
 
 #: ../komikku/preferences.py:761 ../komikku/preferences.py:788
 msgid "Connect"
-msgstr ""
+msgstr "Conectado"
 
 #: ../komikku/preferences.py:776
 msgid "Failed to request client access"
-msgstr ""
+msgstr "Não foi possível solicitar acesso do cliente"
 
 #: ../komikku/preferences.py:779
 msgid "Webview is currently in used. Please retry later."
