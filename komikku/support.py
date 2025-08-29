@@ -5,6 +5,8 @@
 import logging
 
 from gi.repository import Adw
+from gi.repository import Gdk
+from gi.repository import GLib
 from gi.repository import Gtk
 
 logger = logging.getLogger('komikku.support')
@@ -18,11 +20,14 @@ class SupportPage(Adw.NavigationPage):
     liberapay_button = Gtk.Template.Child('liberapay_button')
     paypal_button = Gtk.Template.Child('paypal_button')
     kofi_button = Gtk.Template.Child('kofi_button')
+    bitcoin_label = Gtk.Template.Child('bitcoin_label')
+    bitcoin_button = Gtk.Template.Child('bitcoin_button')
 
     payment_methods = {
         'liberapay': 'https://liberapay.com/valos/donate',
         'paypal': 'https://www.paypal.com/donate?business=GSRGEQ78V97PU&no_recurring=0&item_name=You+can+help+me+to+keep+developing+apps+through+donations.&currency_code=EUR',
         'ko-fi': 'https://ko-fi.com/X8X06EM3L',
+        'bitcoin': 'bc1qzq2ve4c44hu7kzgjth3gmq0tnyl33eltlvudcw',
     }
 
     def __init__(self, window):
@@ -36,10 +41,17 @@ class SupportPage(Adw.NavigationPage):
         self.liberapay_button.connect('clicked', self.on_button_clicked, 'liberapay')
         self.paypal_button.connect('clicked', self.on_button_clicked, 'paypal')
         self.kofi_button.connect('clicked', self.on_button_clicked, 'ko-fi')
+        self.bitcoin_label.set_text(self.payment_methods['bitcoin'])
+        self.bitcoin_button.connect('clicked', self.on_button_clicked, 'bitcoin')
 
     def on_button_clicked(self, button, method):
-        if uri := self.payment_methods.get(method):
-            Gtk.UriLauncher.new(uri=uri).launch()
+        if method == 'bitcoin':
+            clipboard = Gdk.Display.get_clipboard(Gdk.Display.get_default())
+            content = Gdk.ContentProvider.new_for_bytes('text/plain', GLib.Bytes.new(bytes(self.payment_methods[method], 'utf-8')))
+            clipboard.set_content(content)
+        else:
+            if uri := self.payment_methods.get(method):
+                Gtk.UriLauncher.new(uri=uri).launch()
 
     def show(self):
         self.window.navigationview.push(self)

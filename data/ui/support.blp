@@ -126,6 +126,28 @@ template $SupportPage : Adw.NavigationPage {
                 ]
               }
             }
+
+            Adw.ActionRow {
+              title: "₿itcoin";
+              subtitle: _("One-time donation");
+
+              [suffix]
+              Label bitcoin_label {
+                tooltip-text: _("Donate and Support");
+                selectable: true;
+                ellipsize: middle;
+                valign: center;
+              }
+              [suffix]
+              Button bitcoin_button {
+                icon-name: "edit-copy-symbolic";
+                tooltip-text: _("Copy to Clipboard");
+                valign: center;
+                styles [
+                  'flat'
+                ]
+              }
+            }
           }
         }
       }

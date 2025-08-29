@@ -74,9 +74,10 @@ All communications in project spaces are expected to follow it.
 
 |Plateforms|||
 |:---:|:--:|---|
-|Ko-fi|[![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/X8X06EM3L)|One-time or monthly donation|
 |Liberapay|[![lp Donate](https://liberapay.com/assets/widgets/donate.svg)](https://liberapay.com/valos/donate)|Weekly/monthly/yearly donation|
 |PayPal|[![PayPal](https://www.paypalobjects.com/en_US/i/btn/btn_donate_LG.gif)](https://www.paypal.com/donate?business=GSRGEQ78V97PU&no_recurring=0&item_name=You+can+help+me+to+keep+developing+apps+through+donations.&currency_code=EUR)|One-time donation|
+|Ko-fi|[![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/X8X06EM3L)|One-time or monthly donation|
+|₿itcoin|bc1qzq2ve4c44hu7kzgjth3gmq0tnyl33eltlvudcw|One-time donation|
 
 Can't sponsor right now? No problem — you can still help a lot by:
 - ⭐ Starring this repository
