@@ -1,13 +1,13 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the Komikku package.
-# Milo Ivir <mail@milotype.de>, 2024.
+# Milo Ivir <mail@milotype.de>, 2024, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: Komikku 1.47.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-08-11 00:52+0200\n"
-"PO-Revision-Date: 2024-11-15 13:00+0000\n"
+"PO-Revision-Date: 2025-09-02 18:02+0000\n"
 "Last-Translator: Milo Ivir <mail@milotype.de>\n"
 "Language-Team: Croatian <https://hosted.weblate.org/projects/komikku/main/hr/"
 ">\n"
@@ -17,11 +17,11 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
 "n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
-"X-Generator: Weblate 5.9-dev\n"
+"X-Generator: Weblate 5.13.1-dev\n"
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:11
 msgid "Discover and read manga & comics"
-msgstr ""
+msgstr "Otkrij i čitaj mange i stripove"
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:13
 msgid ""
@@ -64,7 +64,7 @@ msgstr "Kategorije za organiziranje biblioteke"
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:22
 msgid "Automatic tracking of series with MyAnimeList and AniList"
-msgstr ""
+msgstr "Automatsko praćenje serijala s MyAnimeList i AniList"
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:23
 msgid "Automatic update of series"
@@ -187,7 +187,7 @@ msgstr "Pretraga"
 
 #: ../data/ui/card_tracking_search.blp:75
 msgid "Search for Tracking"
-msgstr ""
+msgstr "Traži praćenje"
 
 #: ../data/ui/categories_editor.blp:36
 msgid "Add"
@@ -421,15 +421,15 @@ msgstr "Pozadina na stranici s detaljima"
 
 #: ../data/ui/preferences.blp:42
 msgid "Method used to recolor background to match cover"
-msgstr ""
+msgstr "Metoda za mijenjanje boje pozadine kako bi odgovarala omotu"
 
 #: ../data/ui/preferences.blp:46
 msgid "Linear gradient"
-msgstr ""
+msgstr "Linearni gradijent"
 
 #: ../data/ui/preferences.blp:47
 msgid "Blurred cover"
-msgstr ""
+msgstr "Zamućen omot"
 
 #: ../data/ui/preferences.blp:57
 msgid "Desktop Notifications"
@@ -701,10 +701,12 @@ msgstr "Napredno"
 #: ../data/ui/preferences.blp:319
 msgid "A setting has changed that requires a restart to take effect"
 msgstr ""
+"Jedna postavka je promijenjena koja zahtijeva ponovno pokretanje da bi "
+"stupila na snagu"
 
 #: ../data/ui/preferences.blp:320
 msgid "Got it!"
-msgstr ""
+msgstr "Razumijem!"
 
 #: ../data/ui/preferences.blp:325
 msgid "Data"
@@ -830,7 +832,7 @@ msgstr "Traži"
 #: ../data/ui/shortcuts_overview.blp:52
 msgctxt "Shortcut window description"
 msgid "Update"
-msgstr ""
+msgstr "Aktualiziraj"
 
 #: ../data/ui/shortcuts_overview.blp:58
 msgctxt "Shortcut window description"
@@ -958,6 +960,11 @@ msgid ""
 "by buying the official comics when they are\n"
 "available in your region/language."
 msgstr ""
+"Čitač za mange, webtoona i stripova\n"
+"\n"
+"👉 Ne zaboravi da možeš podržati autore\n"
+"kupnjom službenih stripova kada su dostupni\n"
+"u tvojoj regiji ili na tvom jeziku."
 
 #: ../komikku/application.py:426
 msgid "Supporters"
@@ -989,11 +996,11 @@ msgstr "Zatvori aplikaciju"
 
 #: ../komikku/application.py:556
 msgid "Restart"
-msgstr ""
+msgstr "Ponovno pokretanje"
 
 #: ../komikku/application.py:556
 msgid "Restart?"
-msgstr ""
+msgstr "Ponovo pokrenuti?"
 
 #: ../komikku/card/__init__.py:112 ../komikku/card/__init__.py:241
 #: ../komikku/explorer/search/__init__.py:75
@@ -1004,7 +1011,7 @@ msgstr "Filtri"
 
 #: ../komikku/card/__init__.py:250
 msgid "Unknown"
-msgstr ""
+msgstr "Nepoznato"
 
 #: ../komikku/card/__init__.py:350
 msgid "Read progress synchronization with server completed successfully"
@@ -1084,7 +1091,7 @@ msgstr "Označi prethodna poglavlja kao pročitana"
 
 #: ../komikku/card/tracking.py:71
 msgid "Failed to get data from tracker"
-msgstr ""
+msgstr "Neuspjelo dohvaćanje podataka od sustava praćenja"
 
 #: ../komikku/card/tracking.py:99
 msgid "No tracking services available"
@@ -1255,7 +1262,7 @@ msgstr "Uključi/Isključi prikvačeno stanje"
 
 #: ../komikku/explorer/search/__init__.py:283
 msgid "Search was cancelled"
-msgstr ""
+msgstr "Pretraga je prekinuta"
 
 #: ../komikku/explorer/search/__init__.py:290
 msgid "Oops, server website URL is unknown."
@@ -1320,7 +1327,7 @@ msgstr "Nije pronađen nijedan najpopularniji"
 
 #: ../komikku/explorer/search/search_global.py:165
 msgid "Search cancelled"
-msgstr ""
+msgstr "Pretraga je prekinuta"
 
 #: ../komikku/explorer/search/search_global.py:173
 msgid "No results"
@@ -1540,51 +1547,51 @@ msgstr "Odspoji od {}"
 
 #: ../komikku/reader/__init__.py:378
 msgid "Page successfully saved"
-msgstr ""
+msgstr "Stranica je uspješno spremljena"
 
 #: ../komikku/reader/__init__.py:496
 msgid "Settings"
-msgstr ""
+msgstr "Postavke"
 
 #: ../komikku/reader/__init__.py:509
 msgid "Brightness"
-msgstr ""
+msgstr "Svjetlina"
 
 #: ../komikku/reader/__init__.py:510
 msgid "Make pages brighter or darker"
-msgstr ""
+msgstr "Posvijetli ili potamni stranice"
 
 #: ../komikku/reader/__init__.py:517
 msgid "Contrast"
-msgstr ""
+msgstr "Kontrast"
 
 #: ../komikku/reader/__init__.py:518
 msgid "Increase or decrease the contrast of pages"
-msgstr ""
+msgstr "Povećaj ili smanji kontrast stranica"
 
 #: ../komikku/reader/__init__.py:525
 msgid "Grayscale"
-msgstr ""
+msgstr "Sive nijanse"
 
 #: ../komikku/reader/__init__.py:526
 msgid "Convert pages to grayscale"
-msgstr ""
+msgstr "Pretvori stranice u sive nijense"
 
 #: ../komikku/reader/__init__.py:533
 msgid "Sepia"
-msgstr ""
+msgstr "Sepia"
 
 #: ../komikku/reader/__init__.py:534
 msgid "Give a more yellow/brown appearance to pages"
-msgstr ""
+msgstr "Daj stranicama žućkastiji/smeđi izgled"
 
 #: ../komikku/reader/__init__.py:541
 msgid "Saturation"
-msgstr ""
+msgstr "Zasićenost"
 
 #: ../komikku/reader/__init__.py:542
 msgid "Super-saturate or desaturate pages"
-msgstr ""
+msgstr "Povećaj ili smanji zasićenost stranica"
 
 #: ../komikku/reader/pager/__init__.py:165
 msgid "Failed to sync read progress with server"
@@ -1633,7 +1640,7 @@ msgstr "Vrsta"
 #: ../komikku/servers/phenixscans/__init__.py:36
 #: ../komikku/servers/webtoon/__init__.py:55
 msgid "Filter by Type"
-msgstr ""
+msgstr "Filtriraj po vrsti"
 
 #: ../komikku/servers/asurascans/__init__.py:42
 #: ../komikku/servers/coloredcouncil/__init__.py:72
@@ -1725,12 +1732,12 @@ msgstr "Crno/Bijelo"
 #: ../komikku/servers/comick/__init__.py:64
 #: ../komikku/servers/mangadex/__init__.py:58
 msgid "Rating"
-msgstr "Ocjene"
+msgstr "Klasifikacija"
 
 #: ../komikku/servers/comick/__init__.py:65
 #: ../komikku/servers/mangadex/__init__.py:59
 msgid "Filter by Content Ratings"
-msgstr ""
+msgstr "Filtriraj po klasifikaciji"
 
 #: ../komikku/servers/comick/__init__.py:68
 #: ../komikku/servers/mangadex/__init__.py:62
@@ -1755,7 +1762,7 @@ msgstr "Erotika"
 #: ../komikku/servers/raijinscan/__init__.py:34
 #: ../komikku/servers/weebcentral/__init__.py:49
 msgid "Filter by Statuses"
-msgstr ""
+msgstr "Filtriraj po statusu"
 
 #: ../komikku/servers/comick/__init__.py:81
 #: ../komikku/servers/flamescans/__init__.py:54
@@ -1781,31 +1788,31 @@ msgstr "Pauzirano"
 
 #: ../komikku/servers/comick/__init__.py:89
 msgid "Origination"
-msgstr ""
+msgstr "Podrijetlo"
 
 #: ../komikku/servers/comick/__init__.py:90
 msgid "[Latest Updates only] Filter by Origination"
-msgstr ""
+msgstr "[Samo najnovija aktualiziranja] Filtriraj po podrijetlu"
 
 #: ../komikku/servers/comick/__init__.py:101
 msgid "Countries"
-msgstr ""
+msgstr "Zemlje"
 
 #: ../komikku/servers/comick/__init__.py:103
 msgid "[Search and Most Popular only] Filter by Country (origination)"
-msgstr ""
+msgstr "[Pretraga i samo najpopularnije] Filtriraj po zemlji (podrijetlu)"
 
 #: ../komikku/servers/comick/__init__.py:107
 msgid "Japan (Manga)"
-msgstr ""
+msgstr "Japan (Manga)"
 
 #: ../komikku/servers/comick/__init__.py:108
 msgid "Korea (Manhwa)"
-msgstr ""
+msgstr "Koreja (Manhwa)"
 
 #: ../komikku/servers/comick/__init__.py:109
 msgid "China (Manhua)"
-msgstr ""
+msgstr "Kina (Manhua)"
 
 #: ../komikku/servers/comick/__init__.py:115
 #: ../komikku/servers/mangadex/__init__.py:84
@@ -1814,7 +1821,7 @@ msgstr "Demografska publikacija"
 
 #: ../komikku/servers/comick/__init__.py:116
 msgid "Filter by Publication Demographics"
-msgstr ""
+msgstr "Filtriraj po demografiji publikacije"
 
 #: ../komikku/servers/comick/__init__.py:119
 #: ../komikku/servers/mangadex/__init__.py:88
@@ -1838,7 +1845,7 @@ msgstr "Josei"
 
 #: ../komikku/servers/comick/__init__.py:123
 msgid "None"
-msgstr ""
+msgstr "Bez"
 
 #: ../komikku/servers/comick/__init__.py:129
 #: ../komikku/servers/mangadex/__init__.py:97
@@ -1848,7 +1855,7 @@ msgstr "Oznake"
 #: ../komikku/servers/comick/__init__.py:130
 #: ../komikku/servers/mangadex/__init__.py:98
 msgid "Filter by Formats"
-msgstr ""
+msgstr "Filtriraj po formatima"
 
 #: ../komikku/servers/comick/__init__.py:133
 #: ../komikku/servers/mangadex/__init__.py:101
@@ -1904,7 +1911,7 @@ msgstr "Jedno izdanje bez nastavka"
 
 #: ../komikku/servers/comick/__init__.py:147
 msgid "User Created"
-msgstr ""
+msgstr "Stvoreno od korisnika"
 
 #: ../komikku/servers/comick/__init__.py:148
 #: ../komikku/servers/mangadex/__init__.py:112
@@ -1919,149 +1926,149 @@ msgstr "Žanrovi"
 #: ../komikku/servers/comick/__init__.py:155
 #: ../komikku/servers/mangadex/__init__.py:119
 msgid "Filter by Genres"
-msgstr ""
+msgstr "Filtriraj po žanrovima"
 
 #: ../komikku/servers/comick/__init__.py:158
 #: ../komikku/servers/mangadex/__init__.py:122
 msgid "Action"
-msgstr ""
+msgstr "Akcija"
 
 #: ../komikku/servers/comick/__init__.py:159
 msgid "Adult"
-msgstr ""
+msgstr "Za odrasle"
 
 #: ../komikku/servers/comick/__init__.py:160
 #: ../komikku/servers/mangadex/__init__.py:123
 msgid "Adventure"
-msgstr ""
+msgstr "Avantura"
 
 #: ../komikku/servers/comick/__init__.py:161
 #: ../komikku/servers/mangadex/__init__.py:125
 msgid "Comedy"
-msgstr ""
+msgstr "Komedija"
 
 #: ../komikku/servers/comick/__init__.py:162
 #: ../komikku/servers/mangadex/__init__.py:126
 msgid "Crime"
-msgstr ""
+msgstr "Krimić"
 
 #: ../komikku/servers/comick/__init__.py:163
 #: ../komikku/servers/mangadex/__init__.py:127
 msgid "Drama"
-msgstr ""
+msgstr "Drama"
 
 #: ../komikku/servers/comick/__init__.py:164
 msgid "Ecchi"
-msgstr ""
+msgstr "Ecchi"
 
 #: ../komikku/servers/comick/__init__.py:165
 #: ../komikku/servers/mangadex/__init__.py:128
 msgid "Fantasy"
-msgstr ""
+msgstr "Fantastika"
 
 #: ../komikku/servers/comick/__init__.py:166
 msgid "Gender Bender"
-msgstr ""
+msgstr "Promjena spola"
 
 #: ../komikku/servers/comick/__init__.py:167
 #: ../komikku/servers/mangadex/__init__.py:130
 msgid "Historical"
-msgstr ""
+msgstr "Povijesni"
 
 #: ../komikku/servers/comick/__init__.py:168
 #: ../komikku/servers/mangadex/__init__.py:131
 msgid "Horror"
-msgstr ""
+msgstr "Horor"
 
 #: ../komikku/servers/comick/__init__.py:169
 #: ../komikku/servers/mangadex/__init__.py:132
 msgid "Isekai"
-msgstr ""
+msgstr "Isekai"
 
 #: ../komikku/servers/comick/__init__.py:170
 #: ../komikku/servers/mangadex/__init__.py:133
 msgid "Magical Girls"
-msgstr ""
+msgstr "Magical Girls"
 
 #: ../komikku/servers/comick/__init__.py:171
 msgid "Mature"
-msgstr ""
+msgstr "Za punoljetne"
 
 #: ../komikku/servers/comick/__init__.py:172
 #: ../komikku/servers/mangadex/__init__.py:134
 msgid "Mecha"
-msgstr ""
+msgstr "Mecha"
 
 #: ../komikku/servers/comick/__init__.py:173
 #: ../komikku/servers/mangadex/__init__.py:135
 msgid "Medical"
-msgstr ""
+msgstr "Medicina"
 
 #: ../komikku/servers/comick/__init__.py:174
 #: ../komikku/servers/mangadex/__init__.py:136
 msgid "Mystery"
-msgstr ""
+msgstr "Misterija"
 
 #: ../komikku/servers/comick/__init__.py:175
 #: ../komikku/servers/mangadex/__init__.py:137
 msgid "Philosophical"
-msgstr ""
+msgstr "Filizofija"
 
 #: ../komikku/servers/comick/__init__.py:176
 msgid "Psychological"
-msgstr ""
+msgstr "Psihologija"
 
 #: ../komikku/servers/comick/__init__.py:177
 #: ../komikku/servers/mangadex/__init__.py:138
 msgid "Romance"
-msgstr ""
+msgstr "Romansa"
 
 #: ../komikku/servers/comick/__init__.py:178
 #: ../komikku/servers/mangadex/__init__.py:139
 msgid "Sci-Fi"
-msgstr ""
+msgstr "Znanstvena fantastika"
 
 #: ../komikku/servers/comick/__init__.py:179
 msgid "Shoujo Ai"
-msgstr ""
+msgstr "Shoujo Ai"
 
 #: ../komikku/servers/comick/__init__.py:180
 #: ../komikku/servers/mangadex/__init__.py:140
 msgid "Slice of Life"
-msgstr ""
+msgstr "Svakodnevica"
 
 #: ../komikku/servers/comick/__init__.py:181
 #: ../komikku/servers/mangadex/__init__.py:141
 msgid "Sports"
-msgstr ""
+msgstr "Sport"
 
 #: ../komikku/servers/comick/__init__.py:182
 #: ../komikku/servers/mangadex/__init__.py:142
 msgid "Superhero"
-msgstr ""
+msgstr "Superjunaci"
 
 #: ../komikku/servers/comick/__init__.py:183
 #: ../komikku/servers/mangadex/__init__.py:143
 msgid "Thriller"
-msgstr ""
+msgstr "Triler"
 
 #: ../komikku/servers/comick/__init__.py:184
 #: ../komikku/servers/mangadex/__init__.py:144
 msgid "Tragedy"
-msgstr ""
+msgstr "Tragedija"
 
 #: ../komikku/servers/comick/__init__.py:185
 #: ../komikku/servers/mangadex/__init__.py:145
 msgid "Wuxia"
-msgstr ""
+msgstr "Wuxia"
 
 #: ../komikku/servers/comick/__init__.py:186
 msgid "Yaoi"
-msgstr ""
+msgstr "Yaoi"
 
 #: ../komikku/servers/comick/__init__.py:187
 msgid "Yuri"
-msgstr ""
+msgstr "Yuri"
 
 #: ../komikku/servers/dynasty/__init__.py:40
 msgid "Categories"
@@ -2074,15 +2081,15 @@ msgstr "Kategorije"
 #: ../komikku/servers/raijinscan/__init__.py:45
 #: ../komikku/servers/weebcentral/__init__.py:36
 msgid "Filter by Types"
-msgstr ""
+msgstr "Filtriraj po vrstama"
 
 #: ../komikku/servers/dynasty/__init__.py:44
 msgid "Anthologies"
-msgstr ""
+msgstr "Antologije"
 
 #: ../komikku/servers/dynasty/__init__.py:45
 msgid "Doujins"
-msgstr "Doujins"
+msgstr "Doujinshi"
 
 #: ../komikku/servers/dynasty/__init__.py:46
 msgid "Issues"
@@ -2102,7 +2109,7 @@ msgstr "S oznakama"
 
 #: ../komikku/servers/dynasty/__init__.py:55
 msgid "Comma separated list of tags to search for"
-msgstr ""
+msgstr "Popis zarezima odvojenih oznaka za pretraživanje"
 
 #: ../komikku/servers/dynasty/__init__.py:61
 msgid "Without Tags"
@@ -2110,7 +2117,7 @@ msgstr "Bez oznaka"
 
 #: ../komikku/servers/dynasty/__init__.py:62
 msgid "Comma separated list of tags to exclude from search"
-msgstr ""
+msgstr "Popis zarezima odvojenih oznaka koje se isključuju iz pretraživanja"
 
 #: ../komikku/servers/exceptions.py:10
 msgid "Error: {}"
@@ -2126,7 +2133,7 @@ msgstr "Nije moguće izdvojiti stranicu. Možda nedostaje alat „unrar“?"
 
 #: ../komikku/servers/exceptions.py:26
 msgid "Failed to complete browser challenge. Please try again."
-msgstr ""
+msgstr "Neuspjelo dovršavanje provjere preglednika. Pokušaj ponovo."
 
 #: ../komikku/servers/exceptions.py:31
 msgid "No longer exists."
@@ -2135,12 +2142,12 @@ msgstr "Više ne postoji."
 #: ../komikku/servers/flamescans/__init__.py:37
 #: ../komikku/servers/weebcentral/__init__.py:35
 msgid "Types"
-msgstr ""
+msgstr "Vrste"
 
 #: ../komikku/servers/flamescans/__init__.py:49
 #: ../komikku/servers/weebcentral/__init__.py:48
 msgid "Statuses"
-msgstr ""
+msgstr "Statusi"
 
 #: ../komikku/servers/flamescans/__init__.py:56
 #: ../komikku/trackers/__init__.py:37
@@ -2161,11 +2168,11 @@ msgstr "Samoobjavljeno"
 
 #: ../komikku/servers/mangadex/__init__.py:124
 msgid "Boys Love"
-msgstr ""
+msgstr "Boys Love"
 
 #: ../komikku/servers/mangadex/__init__.py:129
 msgid "Girls Love"
-msgstr ""
+msgstr "Girls Love"
 
 #: ../komikku/servers/mangadex/__init__.py:151
 msgid "Tags Inclusion Mode"
@@ -2229,7 +2236,7 @@ msgstr "Lagani roman"
 
 #: ../komikku/servers/mangatube/__init__.py:143
 msgid "Age Rating"
-msgstr "Dobna ocjena"
+msgstr "Dobna klasifikacija"
 
 #: ../komikku/servers/mangatube/__init__.py:144
 msgid "Maturity"
@@ -2285,7 +2292,7 @@ msgstr "Ponovno čitanje"
 #: ../komikku/updater.py:86
 #, python-brace-format
 msgid "{0} seems down. Please try updating later"
-msgstr ""
+msgstr "Čini se da {0} nije dostupan. Pokušaj aktualizirati kasnije"
 
 #: ../komikku/updater.py:118
 msgid "Library update completed with errors"
@@ -2349,7 +2356,7 @@ msgstr "Nema internetske veze, prekoračenja vremena ili isključen server"
 
 #: ../komikku/webview.py:428
 msgid "Please wait…"
-msgstr ""
+msgstr "Pričekaj …"
 
 #: ../komikku/webview.py:483
 msgid "Please complete CAPTCHA"
