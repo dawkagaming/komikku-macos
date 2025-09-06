@@ -24,19 +24,19 @@ from requests.adapters import TimeoutSauce
 from urllib3.util.retry import Retry
 
 gi.require_version('Gdk', '4.0')
-gi.require_version('GdkPixbuf', '2.0')
+gi.require_version('Gly', '2')
+gi.require_version('GlyGtk4', '2')
 gi.require_version('Graphene', '1.0')
-gi.require_version('Gsk', '4.0')
 gi.require_version('Gtk', '4.0')
 
 from gi.repository import Gdk
 from gi.repository import Gio
 from gi.repository import GLib
+from gi.repository import Gly
+from gi.repository import GlyGtk4
 from gi.repository import GObject
 from gi.repository import Graphene
-from gi.repository import Gsk
 from gi.repository import Gtk
-from gi.repository.GdkPixbuf import PixbufAnimation
 
 from komikku.consts import REQUESTS_TIMEOUT
 
@@ -241,7 +241,7 @@ def get_image_info(path_or_bytes):
         else:
             content_type, _result_uncertain = Gio.content_type_guess(None, path_or_bytes)
 
-        if content_type.startswith('image'):
+        if content_type in ('image/svg+xml',):
             info = {
                 'width': -1,
                 'height': -1,
@@ -383,156 +383,6 @@ def skip_past(haystack, needle):
 def trunc_filename(filename):
     """Reduce filename length to 255 (common FS limit) if it's too long"""
     return filename.encode('utf-8')[:255].decode().strip()
-
-
-# https://discourse.gnome.org/t/how-do-you-run-a-blocking-method-asynchronously-with-gio-task-in-a-python-gtk-app/10651/4
-class AsyncWorker(GObject.Object):
-    """Represents an asynchronous worker.
-
-    An async worker's job is to run a blocking operation in the
-    background using a Gio.Task to avoid blocking the app's main thread
-    and freezing the user interface.
-
-    The terminology used here is closely related to the Gio.Task API.
-
-    There are two ways to specify the operation that should be run in
-    the background:
-
-    1. By passing the blocking operation (a function or method) to the
-       constructor.
-    2. By defining the work() method in a subclass.
-
-    Constructor parameters:
-
-    OPERATION (callable)
-      The function or method that needs to be run asynchronously. This
-      is only necessary when using a direct instance of AsyncWorker, not
-      when using an instance of a subclass of AsyncWorker, in which case
-      an AsyncWorker.work() method must be defined by the subclass
-      instead.
-
-    OPERATION_INPUTS (tuple)
-      Input data for OPERATION, if any.
-
-    OPERATION_CALLBACK (callable)
-      A function or method to call when the OPERATION is complete.
-
-      See AppWindow.on_lunch_finished for an example of such callback.
-
-    OPERATION_CALLBACK_INPUTS (tuple)
-      Optional. Additional input data for OPERATION_CALLBACK.
-
-    CANCELLABLE (Gio.Cancellable)
-      Optional. It defaults to None, meaning that the blocking
-      operation is not cancellable.
-    """
-
-    def __init__(
-            self,
-            operation=None,
-            operation_inputs=(),
-            operation_callback=None,
-            operation_callback_inputs=(),
-            cancellable=None
-    ):
-        super().__init__()
-        self.operation = operation
-        self.operation_inputs = operation_inputs
-        self.operation_callback = operation_callback
-        self.operation_callback_inputs = operation_callback_inputs
-        self.cancellable = cancellable
-
-        # Holds the actual data referenced from the Gio.Task created
-        # in the AsyncWorker.start method.
-        self.pool = {}
-
-    def start(self):
-        """Schedule the blocking operation to be run asynchronously.
-
-        The blocking operation is either self.operation or self.work,
-        depending on how the AsyncWorker was instantiated.
-
-        This method corresponds to the function referred to as
-        "blocking_function_async" in GNOME Developer documentation.
-
-        """
-        task = Gio.Task.new(
-            self,
-            self.cancellable,
-            self.operation_callback,
-            self.operation_callback_inputs
-        )
-
-        if self.cancellable is None:
-            task.set_return_on_cancel(False)  # The task is not cancellable.
-
-        data_id = id(self.operation_inputs)
-        self.pool[data_id] = self.operation_inputs
-        task.set_task_data(
-            data_id,
-            # FIXME: Data destroyer function always gets None as argument.
-            #
-            # This function is supposed to take as an argument the
-            # same value passed as data_id to task.set_task_data, but
-            # when the destroyer function is called, it seems it always
-            # gets None as an argument instead. That's why the "key"
-            # parameter is not being used in the body of the anonymous
-            # function.
-            lambda key: self.pool.pop(data_id)
-        )
-
-        task.run_in_thread(self._thread_callback)
-
-    def _thread_callback(self, task, worker, task_data, cancellable):
-        """Run the blocking operation in a worker thread."""
-        # FIXME: task_data is always None for Gio.Task.run_in_thread callback.
-        #
-        # The value passed to this callback as task_data always seems to
-        # be None, so we get the data for the blocking operation as
-        # follows instead.
-        data_id = task.get_task_data()
-        data = self.pool.get(data_id)
-
-        # Run the blocking operation.
-        if self.operation is None:  # Assume AsyncWorker was extended.
-            outcome = self.work(*data)
-        else:  # Assume AsyncWorker was instantiated directly.
-            outcome = self.operation(*data)
-
-        task.return_value(outcome)
-
-    def return_value(self, result):
-        """Return the value of the operation that was run
-        asynchronously.
-
-        This method corresponds to the function referred to as
-        "blocking_function_finish" in GNOME Developer documentation.
-
-        This method is called from the view where the asynchronous
-        operation is started to update the user interface according
-        to the resulting value.
-
-        RESULT (Gio.AsyncResult)
-          The asynchronous result of the blocking operation that is
-          run asynchronously.
-
-        RETURN VALUE (object)
-          Any of the return values of the blocking operation. If
-          RESULT turns out to be invalid, return an error dictionary
-          in the form
-
-          {'AsyncWorkerError': 'Gio.Task.is_valid returned False.'}
-
-        """
-        value = None
-
-        if Gio.Task.is_valid(result, self):
-            value = result.propagate_value().value
-        else:
-            error = 'Gio.Task.is_valid returned False.'
-            value = {'AsyncWorkerError': error}
-
-        return value
 
 
 class BaseServer:
@@ -697,19 +547,25 @@ requests.adapters.TimeoutSauce = CustomTimeout
 class CoverLoader(GObject.GObject):
     __gtype_name__ = 'CoverLoader'
 
-    def __init__(self, path, texture, pixbuf, width=None, height=None):
+    def __init__(self, path, image, texture, width=None, height=None, static_animation=False):
         super().__init__()
 
         self.path = path
-        self.texture = texture
-        self.pixbuf = pixbuf
-
-        if texture:
-            self.orig_width = self.texture.get_width()
-            self.orig_height = self.texture.get_height()
+        if image:
+            self.image = image
+            frame = self.image.next_frame()
+            self.texture = GlyGtk4.frame_get_texture(frame)
+            delay = frame.get_delay()
+            self.animation = delay > 0 and not static_animation
+            self.animation_delay = delay // 1000 if self.animation else None
         else:
-            self.orig_width = self.pixbuf.get_width()
-            self.orig_height = self.pixbuf.get_height()
+            self.image = None
+            self.texture = texture
+            self.animation = False
+            self.animation_delay = None
+
+        self.orig_width = self.texture.get_width()
+        self.orig_height = self.texture.get_height()
 
         # Compute size
         if width is None and height is None:
@@ -731,43 +587,28 @@ class CoverLoader(GObject.GObject):
 
     @classmethod
     def new_from_data(cls, data, width=None, height=None, static_animation=False):
-        info = get_image_info(data)
-        if not info:
-            return None
-
         try:
-            if info['is_animated'] and not static_animation:
-                stream = Gio.MemoryInputStream.new_from_data(data, None)
-                pixbuf = PixbufAnimation.new_from_stream(stream)
-                stream.close()
-                texture = None
-            else:
-                pixbuf = None
-                texture = Gdk.Texture.new_from_bytes(GLib.Bytes.new(data))
+            stream = Gio.MemoryInputStream.new_from_data(data, None)
+            loader = Gly.Loader.new_for_stream(stream)
+            image = loader.load()
+            stream.close()
         except Exception:
             # Invalid image, corrupted image, unsupported image format,...
             return None
 
-        return cls(None, texture, pixbuf, width, height)
+        return cls(None, image, None, width, height, static_animation)
 
     @classmethod
     def new_from_file(cls, path, width=None, height=None, static_animation=False):
-        info = get_image_info(path)
-        if not info:
-            return None
-
         try:
-            if info['is_animated'] and not static_animation:
-                pixbuf = PixbufAnimation.new_from_file(path)
-                texture = None
-            else:
-                pixbuf = None
-                texture = Gdk.Texture.new_from_filename(path)
+            file = Gio.File.new_for_path(path)
+            loader = Gly.Loader.new(file)
+            image = loader.load()
         except Exception:
             # Invalid image, corrupted image, unsupported image format,...
             return None
 
-        return cls(path, texture, pixbuf, width, height)
+        return cls(path, image, None, width, height, static_animation)
 
     @classmethod
     def new_from_resource(cls, path, width=None, height=None):
@@ -777,40 +618,30 @@ class CoverLoader(GObject.GObject):
             # Invalid image, corrupted image, unsupported image format,...
             return None
 
-        return cls(None, texture, None, width, height)
+        return cls(None, None, texture, width, height, True)
 
     def dispose(self):
+        self.image = None
         self.texture = None
-        self.pixbuf = None
 
 
 class CoverPaintable(CoverLoader, Gdk.Paintable):
     __gtype_name__ = 'CoverPaintable'
 
-    corners_radius = 8
-
-    def __init__(self, path, texture, pixbuf, width=None, height=None):
-        CoverLoader.__init__(self, path, texture, pixbuf, width, height)
+    def __init__(self, path, image, texture, width=None, height=None, static_animation=False):
+        CoverLoader.__init__(self, path, image, texture, width, height, static_animation)
 
         self.rect = Graphene.Rect().alloc()
-        self.rounded_rect = Gsk.RoundedRect()
-        self.rounded_rect_size = Graphene.Size().alloc()
-        self.rounded_rect_size.init(self.corners_radius, self.corners_radius)
-
-        if isinstance(self.pixbuf, PixbufAnimation):
-            self._animation_iter = self.pixbuf.get_iter(None)
-            self.__animation_timeout_id = None
-        else:
-            self._animation_iter = None
+        self.__animation_timeout_id = None
 
     def _start_animation(self):
-        if self._animation_iter is None or self.__animation_timeout_id:
+        if not self.animation or self.__animation_timeout_id:
             return
 
-        self.__animation_timeout_id = GLib.timeout_add(self._animation_iter.get_delay_time(), self.on_delay)
+        self.__animation_timeout_id = GLib.timeout_add(self.animation_delay, self.on_delay)
 
     def _stop_animation(self):
-        if self._animation_iter is None or self.__animation_timeout_id is None:
+        if not self.animation or self.__animation_timeout_id is None:
             return
 
         GLib.source_remove(self.__animation_timeout_id)
@@ -818,7 +649,6 @@ class CoverPaintable(CoverLoader, Gdk.Paintable):
 
     def dispose(self):
         CoverLoader.dispose(self)
-        self._animation_iter = None
 
     def do_get_intrinsic_height(self):
         return self.height
@@ -829,24 +659,13 @@ class CoverPaintable(CoverLoader, Gdk.Paintable):
     def do_snapshot(self, snapshot, width, height):
         self.rect.init(0, 0, width, height)
 
-        if self._animation_iter:
-            # Get next frame (animated GIF)
-            pixbuf = self._animation_iter.get_pixbuf()
-            self.texture = Gdk.Texture.new_for_pixbuf(pixbuf)
-
-        # Append cover (rounded)
-        self.rounded_rect.init(self.rect, self.rounded_rect_size, self.rounded_rect_size, self.rounded_rect_size, self.rounded_rect_size)
-        snapshot.push_rounded_clip(self.rounded_rect)
         snapshot.append_texture(self.texture, self.rect)
-        snapshot.pop()  # remove the clip
 
     def on_delay(self):
-        if self._animation_iter.get_delay_time() == -1:
-            return GLib.SOURCE_REMOVE
+        frame = self.image.next_frame()
+        self.texture = GlyGtk4.frame_get_texture(frame)
 
-        # Check if it's time to show the next frame
-        if self._animation_iter.advance(None):
-            self.invalidate_contents()
+        self.invalidate_contents()
 
         return GLib.SOURCE_CONTINUE
 
@@ -885,7 +704,7 @@ class CoverPicture(Gtk.Picture):
 
     @cached_property
     def is_animated(self):
-        return self.get_paintable()._animation_iter is not None
+        return self.get_paintable().animation
 
     def on_map(self, _self):
         self.get_paintable()._start_animation()

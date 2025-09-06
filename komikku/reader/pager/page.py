@@ -263,9 +263,7 @@ class Page(Gtk.Overlay):
         self.picture.set_allow_zooming(allow)
 
     def set_image(self, retry):
-        def on_loaded(worker, result, picture):
-            success = worker.return_value(result)
-
+        def on_loaded(picture, success=True):
             if not success:
                 self.show_retry_button()
 

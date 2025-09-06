@@ -178,6 +178,7 @@ class ExplorerSearchResultRow(Adw.ActionRow):
             picture = CoverPicture.new_from_resource(MISSING_IMG_RESOURCE_PATH, THUMB_WIDTH, THUMB_HEIGHT)
         else:
             self.cover_data = data
+        picture.add_css_class('cover-dropshadow')
 
         self.cover_button.set_child(picture)
 
