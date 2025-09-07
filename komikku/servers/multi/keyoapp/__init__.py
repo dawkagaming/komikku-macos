@@ -6,7 +6,6 @@
 # Anteiku Scans [FR]
 # ED Scanlation [FR]
 # Kewn Scans [EN]
-# Starbound Scans [FR]
 
 import logging
 

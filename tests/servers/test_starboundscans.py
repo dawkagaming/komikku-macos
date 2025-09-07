@@ -25,7 +25,7 @@ def test_starboundscans(starboundscans_server):
     # Get latest updates
     print('Get latest updates')
     try:
-        response = starboundscans_server.get_latest_updates()
+        response = starboundscans_server.get_latest_updates(False)
     except Exception as e:
         response = None
         log_error_traceback(e)
@@ -36,7 +36,7 @@ def test_starboundscans(starboundscans_server):
     # Get most popular
     print('Get most popular')
     try:
-        response = starboundscans_server.get_most_populars()
+        response = starboundscans_server.get_most_populars(False)
     except Exception as e:
         response = None
         log_error_traceback(e)
@@ -47,7 +47,7 @@ def test_starboundscans(starboundscans_server):
     # Search
     print('Search')
     try:
-        response = starboundscans_server.search(response[0]['name'])
+        response = starboundscans_server.search(response[0]['name'], False)
         slug = response[0]['slug']
     except Exception as e:
         slug = None

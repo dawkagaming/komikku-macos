@@ -9,7 +9,7 @@
 # FR Scan [FR] (Disabled)
 # Jpmangas [FR] (Disabled)
 # Mangadoor [ES] (Disabled)
-# Manga Scan [FR]
+# Manga Scan [FR] (Disabled)
 # Mangasin [ES]
 # Read Comics Online [EN]
 # Scan FR [FR] (Disabled)

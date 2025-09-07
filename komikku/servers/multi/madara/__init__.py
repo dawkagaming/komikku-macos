@@ -27,6 +27,7 @@
 # Phoenix Fansub [ES] (disabled)
 # Poseidon Scans [FR] (disabled)
 # Reaperscans [AR/FR/ID/TR] (disabled)
+# Starbound Scans [FR]
 # Submanga [ES] (disabled)
 # ToonGod [EN]
 # Toonily [EN]
@@ -241,7 +242,7 @@ class Madara(Server):
                 continue
 
             a_element = element.a
-            date_element = element.find(class_='chapter-release-date').extract()
+            date_element = element.find(class_=['chapter-release-date', 'chapter-date']).extract()
             if view_element := element.find(class_='view'):
                 view_element.extract()
 
@@ -288,7 +289,7 @@ class Madara(Server):
         data = dict(
             pages=[],
         )
-        for index, img_element in enumerate(soup.select_one('.read-container, .reading-content').select('img.wp-manga-chapter-img')):
+        for index, img_element in enumerate(soup.select_one('.read-container, .reading-content, .image-list').select('img.wp-manga-chapter-img')):
             if img_element.parent.name == 'noscript':
                 # In case server uses a second <img> encapsulated in a <noscript> element
                 continue
