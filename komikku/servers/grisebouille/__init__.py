@@ -23,7 +23,7 @@ class Grisebouille(Server):
     long_strip_genres = ['Long Strip', ]
 
     base_url = 'https://grisebouille.net'
-    donate_url = 'https://ptilouk.net/#soutien'
+    donate_url = 'https://soutenir.ptilouk.net/'
     logo_url = base_url + '/content/img/favicon-32x32.png'
     search_url = base_url + '/categories.html'
     manga_url = base_url + '/category/{0}/'
