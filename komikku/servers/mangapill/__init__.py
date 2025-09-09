@@ -85,7 +85,7 @@ class Mangapill(Server):
             cover=None,
         ))
 
-        info_element = soup.select_one('div.container:nth-child(2) > .flex-col')
+        info_element = soup.select_one('div.container:nth-child(3) > .flex-col')
 
         data['name'] = info_element.find('h1').text.strip()
         data['cover'] = info_element.find('img', class_='object-cover').get('data-src')
@@ -222,10 +222,10 @@ class Mangapill(Server):
         soup = BeautifulSoup(r.text, 'lxml')
 
         results = []
-        for element in soup.select('.container:nth-child(4) .grid > div'):
-            a_element = element.select_one('a.mb-2')
+        for element in soup.select('.container:nth-child(5) > .grid > div'):
+            a_element = element.select_one('a.relative.block')
             results.append(dict(
-                name=a_element.select_one('div:first-child').text.strip(),
+                name=element.select_one('.justify-end > a.mb-2 > div').text.strip(),
                 url='/'.join(a_element.get('href').split('/')[-2:]),
                 slug=a_element.get('href').split('/')[-1],  # not used
                 cover=element.a.figure.img.get('data-src'),
@@ -253,7 +253,7 @@ class Mangapill(Server):
         soup = BeautifulSoup(r.text, 'lxml')
 
         results = []
-        for element in soup.select('div.container:nth-child(2) .grid:nth-child(3) > div'):
+        for element in soup.select('div.container:nth-child(3) > .grid > div'):
             a_element = element.select_one('a.mb-2')
             results.append(dict(
                 name=a_element.select_one('div:first-child').text.strip(),
