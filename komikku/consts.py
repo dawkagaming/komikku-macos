@@ -50,6 +50,7 @@ CREDITS = dict(
         'Giovanne Menicheli (Brazilian Portuguese)',
         'Fúlvio Alves (Brazilian Portuguese)',
         'Felipe (Brazilian Portuguese)',
+        'Matheus Santana (Brazilian Portuguese)',
         'twlvnn (Bulgarian)',
         'Roger VC (Catalan)',
         'Lukáš Linhart (Czech)',
@@ -82,6 +83,7 @@ CREDITS = dict(
         'Sear Gasor (German)',
         'Vortex Acherontic (German)',
         'Dlurak (German)',
+        'Mirko P. (German)',
         'Scrambled777 (Hindi)',
         'mondstern (Hungarian)',
         'Milo Ivir (Croatian)',
@@ -94,6 +96,7 @@ CREDITS = dict(
         'Davide Mora (Italian)',
         'Andrea Scarano (Italian)',
         'pasquale ruotolo (Italian)',
+        'Riccardo Luise (Italian)',
         'Velyvis (Lithuanian)',
         'Lili Kurek (Polish)',
         'Aleksander Warzyniak (Polish)',
@@ -120,6 +123,7 @@ CREDITS = dict(
         'mondstern (Ukrainian)',
         'DXCVII (Ukrainian)',
         'Bezruchenko Simon (Ukrainian)',
+        'Максим Горпиніч (Ukrainian)',
         'niyaki hayyashi (Vietnamese)',
     ),
     supporters=(
@@ -130,12 +134,12 @@ CREDITS = dict(
 
 RELEASE_NOTES = """
 <ul>
-    <li>[Servers] Added Annyo (FR)</li>
-    <li>[Servers] Added Jen Sorensen Weekly Cartoon (EN)</li>
-    <li>[Servers] Added SushiScan.net (FR)</li>
-    <li>[Servers] EZManga (EN): Update</li>
-    <li>[Servers] Reaper Scans (EN): Disabled</li>
-    <li>[L10n] Updated German, Italian, Russian and Ukrainian translations</li>
+    <li>[Servers] Cartel De Manhwas (ES): Update</li>
+    <li>[Servers] Flame Comics (EN): Update</li>
+    <li>[Servers] Mangapill: Update</li>
+    <li>[Servers] SCtoon (pt_BR): Disabled</li>
+    <li>[Servers] Starbound Scans (FR): Update</li>
+    <li>[L10n] Updated Arabic, Croatian, Finnish and  Portuguese (Brazil) translations</li>
 </ul>
 <p>Happy reading.</p>
 """

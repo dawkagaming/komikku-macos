@@ -14,6 +14,7 @@ LANGUAGES = {
     'bg': 'Bulgarian',
     'ca': 'Catalan',
     'cs': 'Czech',
+    'eo': 'Esperanto',
     'zh_CN': 'Simplified Chinese',
     'zh_Hant': 'Traditional Chinese',
     'nl': 'Dutch',

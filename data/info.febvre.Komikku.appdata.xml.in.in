@@ -99,6 +99,19 @@
     <url type="donation">https://febvre.info/donate.html</url>
 
     <releases>
+        <release version="1.87.0" date="2025-09-11">
+            <description translate="no">
+                <ul>
+                    <li>[Servers] Cartel De Manhwas (ES): Update</li>
+                    <li>[Servers] Flame Comics (EN): Update</li>
+                    <li>[Servers] Mangapill: Update</li>
+                    <li>[Servers] SCtoon (pt_BR): Disabled</li>
+                    <li>[Servers] Starbound Scans (FR): Update</li>
+                    <li>[L10n] Updated Arabic, Croatian, Finnish and  Portuguese (Brazil) translations</li>
+                </ul>
+                <p>Happy reading.</p>
+            </description>
+        </release>
         <release version="1.86.0" date="2025-08-23">
             <description translate="no">
                 <ul>
