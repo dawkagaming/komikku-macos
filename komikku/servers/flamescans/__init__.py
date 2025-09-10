@@ -132,7 +132,7 @@ class Flamescans(Server):
                 data['genres'].append(serie_data['status'])
 
             if serie_data.get('description'):
-                data['synopsis'] = serie_data['description']
+                data['synopsis'] = BeautifulSoup(serie_data['description'], 'lxml').text
 
             # Chapters
             chapters_data = json.loads(script)['props']['pageProps']['chapters']
