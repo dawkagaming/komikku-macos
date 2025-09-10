@@ -2,15 +2,20 @@
 # SPDX-License-Identifier: GPL-3.0-or-later
 # Author: Valéry Febvre <vfebvre@easter-eggs.com>
 
-from komikku.servers.multi.peachscan import Peachscan
+from komikku.servers.multi.madara import Madara2
 
-# 2025/01 fusion of Sinensis and Cerise => SCtoon
+# 2025/01 fusion of Sinensis and Cerise => SCtoon (Peachscan)
+# 2025/09 SCtoon => Lovers Toon (Madara)
 
 
-class Sinensistoon(Peachscan):
+class Sinensistoon(Madara2):
     id = 'sinensistoon'
-    name = 'SCtoon'
+    name = 'Lovers Toon (SCtoon)'
     lang = 'pt_BR'
-    has_cf = True
+    status = 'disabled'  # chapters are only accessible by visiting another site (with ads)
 
-    base_url = 'https://sctoon.net'
+    date_format = None
+
+    base_url = 'https://loverstoon.com'
+    logo_url = base_url + '/wp-content/uploads/2025/09/cropped-faviliocon-32x32.png'
+    chapters_url = base_url + '/manga/{0}/ajax/chapters/'
