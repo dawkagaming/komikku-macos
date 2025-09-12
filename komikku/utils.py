@@ -332,6 +332,9 @@ def log_error_traceback(e):
 
 
 def markdown_to_markup(s):
+    # Escape HTML
+    s = html_escape(s)
+
     # Convert links into <a> tags
     return re.sub(
         r'\[(.*?)\]\((\S*?)\s*("(.*?)")?\)',  # 1. text, 2. url, 4. title
