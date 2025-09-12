@@ -2,15 +2,15 @@
 
 ## Newcomers
 
-The application is built using Python, GTK4, Libadwaita and other GNOME technologies around it. It's designed to run on either desktop or mobile.
+The application is built using Python, GTK4, Libadwaita, Glycin and other GNOME technologies around it. It's designed to run on either desktop or mobile.
 
 Here are a few links to help you get started with Python, the GTK Python bindings and GNOME Builder:
 
 - [Learn Python](https://www.learnpython.org/)
-- [Python API Reference](https://amolenaar.pages.gitlab.gnome.org/pygobject-docs/)
+- [GNOME Python API documentation](https://api.pygobject.gnome.org/)
+- [PyGObject Guide](https://pygobject.gnome.org/)
 - [C API Reference](https://docs.gtk.org/)
 - [Tutorials](https://developer.gnome.org/documentation/tutorials.html)
-- [PyGObject Guide](https://rafaelmardojai.pages.gitlab.gnome.org/pygobject-guide/)
 - [GNOME Builder](https://wiki.gnome.org/Apps/Builder)
 
 Don't hesitate to join [our Matrix room](https://matrix.to/#/#komikku-gnome:matrix.org) to come talk to us and ask us any questions you might have.
@@ -48,9 +48,10 @@ If you decide to build on your host system, outside of Flatpak, here are some ge
 Komikku can be built in a Python virtual environment. However, some tools and dependencies need to be installed at the system level with some of them having minimal versions:
 
 * `meson` >= 0.59.0
-* `python` >= 3.8
-* `gtk` >= 4.8.1
-* `libadwaita` >= 1.7.0
+* `python` >= 3.12
+* `gtk` >= 4.18.6
+* `libadwaita` >= 1.8.0
+* `libglycin` >= 2.0.0
 
 1. So, let's start with the system dependencies:
 
