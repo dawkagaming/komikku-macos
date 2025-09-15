@@ -5,13 +5,14 @@
 # Ademario Cunha <d.k.foz90@gmail.com>, 2024.
 # SpiralPack 527 <spiralpack527@gmail.com>, 2024.
 # Lucas Silva Goulart <kanekilucas08@gmail.com>, 2025.
+# Manuela Silva <mmsrs@sky.com>, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: Komikku 1.17.1\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-08-11 00:52+0200\n"
 "PO-Revision-Date: 2025-09-16 15:02+0000\n"
-"Last-Translator: Lucas Silva Goulart <kanekilucas08@gmail.com>\n"
+"Last-Translator: Manuela Silva <mmsrs@sky.com>\n"
 "Language-Team: Portuguese <https://hosted.weblate.org/projects/komikku/main/"
 "pt/>\n"
 "Language: pt\n"
@@ -23,27 +24,27 @@ msgstr ""
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:11
 msgid "Discover and read manga & comics"
-msgstr "Descobrir e ler mangas e quadrinhos"
+msgstr "Descobrir e ler manga e banda desenhada"
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:13
 msgid ""
 "With its simple, elegant and adaptive interface, this reader lets you "
 "search, sort and read your series with ease."
 msgstr ""
-"Com sua interface simples, elegante e adaptável, este leitor permite "
-"pesquisar, classificar e ler suas séries com facilidade."
+"Com a sua interface simples, elegante e adaptável, este leitor deixa-o "
+"pesquisar, ordenar e ler as suas séries com facilidade."
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:15
 msgid "Why you will love Komikku?"
-msgstr "Por que você vai adorar o Komikku?"
+msgstr "Por que irá adorar Komikku?"
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:17
 msgid "Online and offline reading from dozens of servers"
-msgstr "Leitura online e offline de dezenas de servidores"
+msgstr "Leitura on-line e off-line a partir de dezenas de servidores"
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:18
 msgid "Support for locally stored series (in CBZ or CBR formats)"
-msgstr "Suporte para séries armazenadas localmente (nos formatos CBZ ou CBR)"
+msgstr "Suporte para séries guardadas localmente (nos formatos CBZ ou CBR)"
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:19
 msgid "RTL, LTR, Vertical and Webtoon reading modes"
@@ -55,10 +56,10 @@ msgid ""
 "navigation layout via mouse click or tapping (touchpad/touch screen), mouse "
 "wheel, 2-fingers swipe gesture (touchpad), swipe gesture (touch screen)"
 msgstr ""
-"Oferece suporte a vários tipos de navegação: teclas de seta do teclado, "
-"layout de navegação direita e esquerda por meio de clique do rato ou toque "
-"(touchpad/ecrã sensível ao toque), roda do rato, gesto de deslizar com 2 "
-"dedos (touchpad), gesto de deslizar (ecrã sensível ao toque)"
+"Suporta vários tipos de navegação: teclas de seta do teclado, layout de "
+"navegação direita e esquerda por meio de clique do rato ou toque (painel tá"
+"til/ecrã tátil), roda do rato, gesto de deslizar com 2 dedos (painel tátil), "
+"gesto de deslizar (ecrã sensível ao toque)"
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:21
 msgid "Categories to organize your library"
@@ -66,7 +67,7 @@ msgstr "Categorias para organizar a sua biblioteca"
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:22
 msgid "Automatic tracking of series with MyAnimeList and AniList"
-msgstr ""
+msgstr "Acompanhamento automático das séries com MyAnimeList e AniList"
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:23
 msgid "Automatic update of series"
@@ -74,7 +75,7 @@ msgstr "Atualização automática de séries"
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:24
 msgid "Automatic download of new chapters"
-msgstr "Descarga automática de novos capítulos"
+msgstr "Transferência automática de novos capítulos"
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:25
 msgid "Reading history"
@@ -94,11 +95,11 @@ msgstr "A página da Biblioteca com a barra lateral de categoria aberta"
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:55
 msgid "The Preferences page (Library settings)"
-msgstr "A página de Preferências (Configurações da Biblioteca)"
+msgstr "A página de Preferências (Definições da Biblioteca)"
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:59
 msgid "The Explorer page in mobile format (Servers list)"
-msgstr "A página do Explorador em formato móvel (lista de Servidores)"
+msgstr "A página do Explorador no formato móvel (lista de Servidores)"
 
 #: ../data/info.febvre.Komikku.appdata.xml.in.in:63
 msgid "The Details page"
@@ -135,8 +136,8 @@ msgstr "@description@"
 #: ../data/info.febvre.Komikku.desktop.in:13
 msgid "manga;reader;viewer;comic;manhwa;manhua;bd;webtoon;webcomic;scan;offline;GTK;GNOME;"
 msgstr ""
-"manga;leitor;vizualizador;quadrinho,manhwa;manhua,bd,webtoon,webcomic,scanear;sem-"
-"internet;GTK;GNOME"
+"manga;leitor;visualizador;banda "
+"desenhada,manhwa;manhua,bd,webtoon,webcomic,digitalizar;oof-line;GTK;GNOME;"
 
 #: ../data/ui/card.blp:47 ../data/ui/card.blp:411
 #: ../data/ui/card_chapters_list_row.blp:48 ../data/ui/download_manager.blp:26
@@ -366,7 +367,7 @@ msgstr "Ampliar páginas em paisagem"
 
 #: ../data/ui/menu/reader.xml:118
 msgid "Crop Borders"
-msgstr "Cortar bordas"
+msgstr "Cortar Margens"
 
 #: ../data/ui/menu/reader.xml:122
 msgid "Hide Page Numbering"
@@ -667,7 +668,7 @@ msgstr "Estilo do sistema"
 
 #: ../data/ui/preferences.blp:297
 msgid "Borders Crop"
-msgstr "Cortar bordas"
+msgstr "Corte de Margens"
 
 #: ../data/ui/preferences.blp:298
 msgid ""
@@ -751,7 +752,7 @@ msgstr "Armazenamento de credenciais"
 
 #: ../data/ui/preferences.blp:351
 msgid "Allow Plaintext Storage as Fallback"
-msgstr "Permitir armazenamento de texto simples como fallback"
+msgstr "Permitir Armazenamento de Texto Simples como Fallback"
 
 #: ../data/ui/preferences.blp:352
 msgid "Used when no keyring backends are found"
