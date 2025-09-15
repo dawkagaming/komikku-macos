@@ -10,7 +10,6 @@ from gi.repository import GLib
 from gi.repository import GObject
 from gi.repository import Gtk
 
-from komikku.consts import MISSING_IMG_RESOURCE_PATH
 from komikku.reader.pager.image import KImage
 from komikku.utils import log_error_traceback
 
@@ -293,7 +292,7 @@ class Page(Gtk.Overlay):
 
         if self.path is None and self.data is None:
             picture = KImage()
-            picture.load_resource(MISSING_IMG_RESOURCE_PATH, on_loaded)
+            picture.load_missing(on_loaded)
         else:
             picture = KImage(
                 scaling=self.reader.scaling, scaling_filter=self.reader.scaling_filter, crop=self.reader.borders_crop, landscape_zoom=self.reader.landscape_zoom, zoomable=self.zoomable
