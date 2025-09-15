@@ -12,7 +12,6 @@
 # Manga Koleji [TR]
 # Neko Scans [ES]
 # Noromax [ID]
-# Night scans [EN]
 # PhenixScans [FR]
 # Ragna Scan [ES] (Disabled)
 # Raiki Scan [ES]
