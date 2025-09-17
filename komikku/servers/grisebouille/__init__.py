@@ -25,15 +25,15 @@ class Grisebouille(Server):
     base_url = 'https://grisebouille.net'
     donate_url = 'https://soutenir.ptilouk.net/'
     logo_url = base_url + '/content/img/favicon-32x32.png'
-    search_url = base_url + '/categories.html'
-    manga_url = base_url + '/category/{0}/'
+    search_url = base_url + '/series/'
+    manga_url = base_url + '/serie/{0}/'
     chapter_url = base_url + '/{0}/'
-    cover_url = base_url + '/content/img/{0}.png'
+    cover_url = base_url + '/content/img/logo-{0}.png'
 
     def __init__(self):
         if self.session is None:
             self.session = requests.Session()
-            self.session.headers.update({'user-agent': USER_AGENT})
+            self.session.headers.update({'User-Agent': USER_AGENT})
 
     def get_manga_data(self, initial_data):
         """
@@ -64,19 +64,21 @@ class Grisebouille(Server):
         data['name'] = soup.select_one('title').text.split('|')[0].strip().encode('iso-8859-1').decode()
         data['cover'] = self.cover_url.format(data['slug'])
 
-        data['synopsis'] = soup.select_one('#article > p:nth-child(3)').text.strip().encode('iso-8859-1').decode()
+        data['synopsis'] = soup.select_one('.main.block p').text.strip().encode('iso-8859-1').decode()
 
         # Chapters
-        for a_element in reversed(soup.select('#article ul > li > a')):
-            title_element = a_element.strong.extract()
-            title = title_element.text.strip().encode('iso-8859-1').decode()
-            if data['slug'] == 'superflu' and not title.startswith('s0'):
+        for a_element in reversed(soup.select('.episodes a')):
+            slug = a_element.get('href').split('/')[-1]
+            if data['slug'] == 'superflu' and not slug.startswith('s0'):
                 continue
 
-            date = a_element.text.split(' ')[0]
+            title = a_element.select_one('.episode-name').text.strip().encode('iso-8859-1').decode()
+            num = a_element.select_one('.episode-nb').text.strip()[1:-1]
+            date = a_element.select_one('.episode-date').text.strip()
+
             data['chapters'].append(dict(
-                slug=a_element.get('href').split('/')[-2],
-                title=title,
+                slug=slug,
+                title=f'#{num} {title}',
                 date=convert_date_string(date, '%Y-%m-%d'),
             ))
 
@@ -97,8 +99,8 @@ class Grisebouille(Server):
         data = dict(
             pages=[],
         )
-        for index, p_element in enumerate(soup.select('#article p')):
-            if img_element := p_element.img:
+        for index, element in enumerate(soup.select('.main.block > p, .main.block :has(> img)')):
+            if img_element := element.img:
                 url = img_element.get('src')
                 if not url.startswith(self.base_url):
                     continue
@@ -108,10 +110,15 @@ class Grisebouille(Server):
                     image=url.encode('iso-8859-1').decode(),
                 ))
             else:
+                text = element.text.strip()
+                try:
+                    text = text.encode('iso-8859-1').decode()
+                except Exception:
+                    pass
                 data['pages'].append(dict(
                     slug=None,
                     image=None,
-                    text=p_element.text.encode('iso-8859-1').decode().strip(),
+                    text=text,
                     index=index + 1,
                 ))
 
@@ -160,15 +167,15 @@ class Grisebouille(Server):
         soup = BeautifulSoup(r.text, 'lxml')
 
         data = []
-        for item in soup.find_all('div', class_='item-1-3 l-item-1-2 s-item-1-1'):
-            slug = item.a.get('href').split('/')[-2]
-            if slug not in ('comic-trip', 'depeches-melba', 'superflu', 'tu-sais-quoi'):
+        for a_element in soup.select('.series-link'):
+            slug = a_element.get('href').split('/')[-1]
+            if slug not in ('comic-trip', 'depeches-melba', 'la-chaine-meteore', 'la-fourche', 'superflu', 'tu-sais-quoi'):
                 continue
 
             data.append(dict(
                 slug=slug,
-                name=item.a.img.get('title').encode('iso-8859-1').decode(),
-                cover=item.a.img.get('src'),
+                name=a_element.img.get('alt').encode('iso-8859-1').decode(),
+                cover=a_element.img.get('src'),
             ))
 
         return data
