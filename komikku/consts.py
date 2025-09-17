@@ -104,6 +104,7 @@ CREDITS = dict(
         'Ademario Cunha (Portuguese)',
         'SpiralPack 527 (Portuguese)',
         'Lucas Silva Goulart (Portuguese)',
+        'Manuela Silva (Portuguese)',
         'shima (Russian)',
         'Valentin Chernetsov (Russian)',
         'FIONover (Russian)',
@@ -134,12 +135,15 @@ CREDITS = dict(
 
 RELEASE_NOTES = """
 <ul>
-    <li>[Servers] Cartel De Manhwas (ES): Update</li>
-    <li>[Servers] Flame Comics (EN): Update</li>
-    <li>[Servers] Mangapill: Update</li>
-    <li>[Servers] SCtoon (pt_BR): Disabled</li>
-    <li>[Servers] Starbound Scans (FR): Update</li>
-    <li>[L10n] Updated Arabic, Croatian, Finnish and  Portuguese (Brazil) translations</li>
+    <li>[UX] Refined visuals taking advantage of the new capabilities of GNOME 49</li>
+    <li>[UI] Switching to Glycin (image loading framework)</li>
+    <li>[Reader] Webtoon pager: Fixed small gap between pages</li>
+    <li>[Servers] EZmanga (EN): Update</li>
+    <li>[Servers] Grise Bouille (FR): Update</li>
+    <li>[Servers] MangaCrab (ES): Update</li>
+    <li>[Servers] Neko Scans (ES): Disabled</li>
+    <li>[Servers] Qi Scans (Night scans): Update</li>
+    <li>[L10n] Updated French, Portuguese, Portuguese (Brazil) and Ukrainian translations</li>
 </ul>
 <p>Happy reading.</p>
 """
