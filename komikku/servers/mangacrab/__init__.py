@@ -16,9 +16,8 @@ class Mangacrab(Madara2):
     date_format = '%d/%m/%Y'
     series_name = 'series'
 
-    base_url = 'https://mangacrab.topmanhuas.org'
+    base_url = 'https://mangacrab.org'
     logo_url = base_url + '/wp-content/uploads/2017/10/cropped-logo100-Personalizado-32x32.png'
-    chapters_url = base_url + '/series/{0}/ajax/chapters/'
 
     details_name_selector = 'h1.post-title'
     details_status_selector = '.post-content_item:-soup-contains("Estado") .summary-content'
@@ -47,7 +46,7 @@ class Mangacrab(Madara2):
         for img_element in soup.select('.reading-content img.wp-manga-chapter-img'):
             image = None
             for attr, value in img_element.attrs.items():
-                if attr.startswith('data-img-'):
+                if attr.startswith('data2-img-'):
                     image = value.strip()
                     break
             if image is None:
