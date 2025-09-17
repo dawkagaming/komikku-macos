@@ -9,6 +9,7 @@ class Nekoscans(MangaStream):
     id = 'nekoscans'
     name = 'Neko Scans'
     lang = 'es'
+    status = 'disabled'
 
     is_nsfw = True
 
