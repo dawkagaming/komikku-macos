@@ -411,7 +411,7 @@ class ApplicationWindow(Adw.ApplicationWindow):
         thread.start()
 
     def on_about_menu_clicked(self, _action, _param):
-        dialog = Adw.AboutDialog.new_from_appdata('/info/febvre/Komikku/appdata.xml', self.application.version)
+        dialog = Adw.AboutDialog.new_from_appdata('/info/febvre/Komikku/metainfo.xml', self.application.version)
 
         dialog.set_copyright(f'© 2019-{datetime.date.today().year} {self.application.author} et al.')
         dialog.set_comments(_("""A manga, webtoons and comics reader

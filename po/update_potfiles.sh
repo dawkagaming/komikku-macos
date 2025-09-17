@@ -11,9 +11,9 @@ find ../komikku -iname "*.py" | xargs xgettext --package-name=Komikku --package-
 find ../data/ui -iname "*.blp" | xargs xgettext --package-name=Komikku --package-version=$version --from-code=UTF-8 --output=komikku-blueprint.pot -L Python --keyword=C_:1c,2
 find ../data/ui -iname "*.xml" -or -iname "*.ui.in" | xargs xgettext --package-name=Komikku --package-version=$version --from-code=UTF-8 --output=komikku-glade.pot -L Glade
 find ../data/ -iname "*.desktop.in" | xargs xgettext --package-name=Komikku --package-version=$version --from-code=UTF-8 --output=komikku-desktop.pot -L Desktop
-find ../data/ -iname "*.appdata.xml.in.in" | xargs xgettext --no-wrap --package-name=Komikku --package-version=$version --from-code=UTF-8 --output=komikku-appdata.pot
+find ../data/ -iname "*.metainfo.xml.in.in" | xargs xgettext --no-wrap --package-name=Komikku --package-version=$version --from-code=UTF-8 --output=komikku-metainfo.pot
 
-msgcat --sort-by-file --use-first --output-file=komikku.pot komikku-python.pot komikku-blueprint.pot komikku-glade.pot komikku-desktop.pot komikku-appdata.pot
+msgcat --sort-by-file --use-first --output-file=komikku.pot komikku-python.pot komikku-blueprint.pot komikku-glade.pot komikku-desktop.pot komikku-metainfo.pot
 
 sed 's/#: //g;s/:[0-9]*//g;s/\.\.\///g' <(fgrep "#: " komikku.pot) | sed s/\ /\\n/ | sort | uniq > POTFILES.in
 

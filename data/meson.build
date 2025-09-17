@@ -79,9 +79,9 @@ subdir('ui')
 subdir('icons')
 
 #
-# appdata/metainfo XML file
+# metainfo XML file
 #
-message('Merge translations of appdata XML file')
+message('Merge translations of metainfo XML file')
 conf = configuration_data()
 conf.set('app_id', app_id)
 conf.set('projectname', meson.project_name())
@@ -91,13 +91,13 @@ conf.set('authoremail', authoremail)
 conf.set('license', meson.project_license())
 conf.set('website', website)
 conf.set('gitrepo', gitrepo)
-appdata_file = i18n.merge_file(
+metainfo_file = i18n.merge_file(
   input: configure_file(
-    input: '@0@.appdata.xml.in.in'.format(base_id),
-    output: '@0@.appdata.xml.in'.format(base_id),
+    input: '@0@.metainfo.xml.in.in'.format(base_id),
+    output: '@0@.metainfo.xml.in'.format(base_id),
     configuration: conf
   ),
-  output: '@0@.appdata.xml'.format(app_id),
+  output: '@0@.metainfo.xml'.format(app_id),
   po_dir: '../po',
   install: true,
   install_dir: join_paths(datadir, 'metainfo')
@@ -106,9 +106,9 @@ appdata_file = i18n.merge_file(
 appstreamcli = find_program('appstreamcli', required: false)
 if appstreamcli.found()
     test (
-        'Validate appdata/metainfo file',
+        'Validate metainfo file',
         appstreamcli,
-        args: ['validate', '--no-net', '--explain', appdata_file],
+        args: ['validate', '--no-net', '--explain', metainfo_file],
         workdir: meson.current_build_dir()
     )
 endif
