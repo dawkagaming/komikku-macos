@@ -55,14 +55,14 @@ Komikku can be built in a Python virtual environment. However, some tools and de
 
 1. So, let's start with the system dependencies:
 
-    Here, we take the Debian distribution (bookworm) as example.
+    Here, we take the Debian distribution (trixie) as example.
     Sorry not to be more precise here, you will have to find the names of the corresponding packages according to the distribution you use.
 
     ```sh
     # Install system dependencies
     apt install make meson gettext appstream desktop-file-utils
     apt install python3 python3-dev python3-venv
-    apt install libadwaita-1-dev libcairo2-dev libnotify-dev libmagic1 libwebkitgtk-6.0-4
+    apt install libadwaita-1-dev libglycin-2-dev libcairo2-dev libmagic1 libwebkitgtk-6.0-4
     ```
 
 2. Clone the repository:
