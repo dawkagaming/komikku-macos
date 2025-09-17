@@ -1,5 +1,5 @@
-data/info.febvre.Komikku.appdata.xml.in.in
 data/info.febvre.Komikku.desktop.in
+data/info.febvre.Komikku.metainfo.xml.in.in
 data/ui/card.blp
 data/ui/card_chapters_list_row.blp
 data/ui/card_tracking.blp
@@ -22,7 +22,7 @@ data/ui/preferences.blp
 data/ui/preferences_servers_languages.blp
 data/ui/preferences_servers_settings.blp
 data/ui/reader.blp
-data/ui/shortcuts_overview.blp
+data/ui/shortcuts.blp
 data/ui/support.blp
 data/ui/webview.blp
 komikku/application.py
