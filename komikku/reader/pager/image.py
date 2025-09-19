@@ -274,8 +274,8 @@ class KImage(Gtk.Widget, Gtk.Scrollable):
             max_width = self.widget_width
             max_height = self.widget_height
 
-            adapt_to_width_height = round(max_width * self.image_height / self.image_width)
-            adapt_to_height_width = round(max_height * self.image_width / self.image_height)
+            adapt_to_width_height = max_width * self.image_height / self.image_width
+            adapt_to_height_width = max_height * self.image_width / self.image_height
 
             if scaling == 'width' or (scaling == 'screen' and adapt_to_width_height <= max_height):
                 # Adapt image to width

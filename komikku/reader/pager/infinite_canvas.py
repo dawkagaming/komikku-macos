@@ -254,7 +254,7 @@ class KInfiniteCanvas(Gtk.Widget, Gtk.Scrollable):
             return
 
         size = 0
-        scroll_offset = self.vadjustment.props.value + self.scroll_adjusting_delta
+        scroll_offset = round(self.vadjustment.props.value) + self.scroll_adjusting_delta
 
         while page:
             page._ic_position = size - scroll_offset
