@@ -42,7 +42,8 @@ class Comick(Server):
     lang_code = 'en'
 
     is_nsfw = True
-    status = 'enabled' if requests is not None else 'disabled'
+    # status = 'enabled' if requests is not None else 'disabled'
+    status = 'disabled'  # Shut down 09/2025
 
     base_url = 'https://comick.io'
     logo_url = base_url + '/favicon.ico'
