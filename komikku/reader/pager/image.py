@@ -5,7 +5,6 @@
 from io import BytesIO
 import logging
 import math
-import time
 
 import gi
 from PIL import Image
@@ -21,14 +20,13 @@ gi.require_version('Graphene', '1.0')
 from gi.repository import Gdk
 from gi.repository import Gio
 from gi.repository import GLib
-from gi.repository import Gly
-from gi.repository import GlyGtk4
 from gi.repository import GObject
 from gi.repository import Graphene
 from gi.repository import Gsk
 from gi.repository import Gtk
 from gi.repository.GdkPixbuf import Colorspace
 from gi.repository.GdkPixbuf import Pixbuf
+from gi.repository.GdkPixbuf import PixbufAnimation
 
 from komikku.consts import MISSING_IMG_RESOURCE_PATH
 from komikku.utils import get_image_info
@@ -84,15 +82,12 @@ class KImage(Gtk.Widget, Gtk.Scrollable):
         self.data = None
         self.path = None
 
-        self.image = None  # Glycin image
-
         self.textures = None
         self.textures_crop = None
         self.crop_bbox = None
 
-        self.animation = False  # is animated?
-        self.animation_delay = None  # delay between frames
-        self.animation_time = None
+        self.animation = None  # PixbufAnimation
+        self.animation_iter = None
         self.animation_tick_callback_id = None
 
         self.hadjustment_value_changed_handler_id = None
@@ -181,6 +176,9 @@ class KImage(Gtk.Widget, Gtk.Scrollable):
     @property
     def image_height(self):
         """ Image original height """
+        if self.animation:
+            return self.animation.get_height()
+
         if self.crop and self.crop_bbox:
             return self.crop_bbox[3] - self.crop_bbox[1]
 
@@ -189,6 +187,9 @@ class KImage(Gtk.Widget, Gtk.Scrollable):
     @property
     def image_width(self):
         """ Image original width """
+        if self.animation:
+            return self.animation.get_width()
+
         if self.crop and self.crop_bbox:
             return self.crop_bbox[2] - self.crop_bbox[0]
 
@@ -337,12 +338,15 @@ class KImage(Gtk.Widget, Gtk.Scrollable):
         return self.__zoomable
 
     def __animation_tick_callback(self, image, clock):
+        if self.animation is not None and self.animation_iter is None:
+            return GLib.SOURCE_REMOVE
+
         # Do not animate if not visible (obscured)
         if self.obscured or not self.get_mapped():
             return GLib.SOURCE_CONTINUE
 
         # Check if it's time to show the next frame
-        if self.animation_time is None or (time.time() - self.animation_time) * 1000 >= self.animation_delay:
+        if self.animation_iter.advance(None):
             self.queue_draw()
 
         return GLib.SOURCE_CONTINUE
@@ -448,9 +452,9 @@ class KImage(Gtk.Widget, Gtk.Scrollable):
             self.remove_tick_callback(self.animation_tick_callback_id)
 
         self.data = None
-        self.image = None
         self.textures = None
         self.textures_crop = None
+        self.animation = None
 
     def do_measure(self, orientation, for_size):
         if orientation == Gtk.Orientation.HORIZONTAL:
@@ -469,13 +473,13 @@ class KImage(Gtk.Widget, Gtk.Scrollable):
             self.configure_adjustments()
 
     def do_snapshot(self, snapshot):
-        if self.crop and self.textures_crop is None and self.textures:
+        if self.animation_iter:
+            # Get next frame (animated GIF)
+            self.textures = [Gdk.Texture.new_for_pixbuf(self.animation_iter.get_pixbuf())]
+
+        elif self.crop and self.textures_crop is None and self.textures:
             # Crop white borders
             self.textures_crop = self.crop_borders()
-        elif self.animation:
-            # Get next frame (animated image)
-            self.animation_time = time.time()
-            self.textures = [GlyGtk4.frame_get_texture(self.image.next_frame())]
 
         self.configure_adjustments()
 
@@ -526,26 +530,16 @@ class KImage(Gtk.Widget, Gtk.Scrollable):
             return
 
         try:
-            if info['height'] >= TEXTURES_CHUNK_MAX_HEIGHT:
-                if path:
-                    with open(path, 'rb') as fp:
-                        stream = Gio.MemoryInputStream.new_from_data(fp.read(), None)
-                elif data:
-                    stream = Gio.MemoryInputStream.new_from_data(data, None)
-
-                Pixbuf.new_from_stream_async(stream, None, self.load_pixbuf_ready, callback)
-
-            elif path:
-                file = Gio.File.new_for_path(path)
-                loader = Gly.Loader.new(file)
-
-                loader.load_async(None, self.load_ready, callback)
-
+            if path:
+                with open(path, 'rb') as fp:
+                    stream = Gio.MemoryInputStream.new_from_data(fp.read(), None)
             elif data:
                 stream = Gio.MemoryInputStream.new_from_data(data, None)
-                loader = Gly.Loader.new_for_stream(stream)
 
-                loader.load_async(None, self.load_ready, callback, stream)
+            if not info['is_animated']:
+                Pixbuf.new_from_stream_async(stream, None, self.load_ready, callback, info)
+            else:
+                PixbufAnimation.new_from_stream_async(stream, None, self.load_ready, callback, info)
 
         except Exception as exc:
             logger.error('Failed to create textures: corrupted image or unsupported image format', exc_info=exc)
@@ -576,38 +570,24 @@ class KImage(Gtk.Widget, Gtk.Scrollable):
         if callback:
             callback(self, success=False)
 
-    def load_pixbuf_ready(self, stream, result, callback):
+    def load_ready(self, stream, result, callback, info):
         stream.close()
 
-        # Chunk a long vertical pixbuf into several textures
         try:
-            pixbuf = Pixbuf.new_from_stream_finish(result)
-            self.textures = []
-            for cpixbuf in chunk_pixbuf(pixbuf, TEXTURES_CHUNK_MAX_HEIGHT):
-                self.textures.append(Gdk.Texture.new_for_pixbuf(cpixbuf))
+            if not info['is_animated']:
+                pixbuf = Pixbuf.new_from_stream_finish(result)
 
-        except Exception as exc:
-            logger.error('Failed to create textures: corrupted image or unsupported image format', exc_info=exc)
-            self.load_missing(callback=callback)
-            return
+                self.textures = []
+                if info['height'] < TEXTURES_CHUNK_MAX_HEIGHT:
+                    self.textures.append(Gdk.Texture.new_for_pixbuf(pixbuf))
+                else:
+                    # Chunk a long vertical pixbuf into several textures
+                    for cpixbuf in chunk_pixbuf(pixbuf, TEXTURES_CHUNK_MAX_HEIGHT):
+                        self.textures.append(Gdk.Texture.new_for_pixbuf(cpixbuf))
 
-        callback(self)
-
-    def load_ready(self, loader, result, callback, stream=None):
-        if stream is not None:
-            stream.close()
-
-        try:
-            self.image = loader.load_finish(result)
-
-            frame = self.image.next_frame()
-            delay = frame.get_delay()
-            self.textures = [GlyGtk4.frame_get_texture(frame)]
-            self.animation = delay > 0
-            self.animation_delay = delay // 1000 if self.animation else None
-
-            if self.animation:
-                self.animation_time = None
+            else:
+                self.animation = PixbufAnimation.new_from_stream_finish(result)
+                self.animation_iter = self.animation.get_iter(None)
                 self.animation_tick_callback_id = self.add_tick_callback(self.__animation_tick_callback)
 
         except Exception as exc:

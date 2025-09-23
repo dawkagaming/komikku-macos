@@ -157,7 +157,7 @@ class ThumbnailCover(GObject.GObject, Gdk.Paintable):
             if paintable is None:
                 paintable = CoverLoader.new_from_resource(MISSING_IMG_RESOURCE_PATH, COVER_WIDTH, None)
 
-        self.cover_texture = paintable.texture
+        self.cover_texture = Gdk.Texture.new_for_pixbuf(paintable.pixbuf) if paintable.pixbuf else paintable.texture
 
     def __get_badges_values(self):
         badges = Settings.get_default().library_badges

@@ -24,19 +24,17 @@ from requests.adapters import TimeoutSauce
 from urllib3.util.retry import Retry
 
 gi.require_version('Gdk', '4.0')
-gi.require_version('Gly', '2')
-gi.require_version('GlyGtk4', '2')
 gi.require_version('Graphene', '1.0')
 gi.require_version('Gtk', '4.0')
 
 from gi.repository import Gdk
 from gi.repository import Gio
 from gi.repository import GLib
-from gi.repository import Gly
-from gi.repository import GlyGtk4
 from gi.repository import GObject
 from gi.repository import Graphene
 from gi.repository import Gtk
+from gi.repository.GdkPixbuf import Pixbuf
+from gi.repository.GdkPixbuf import PixbufAnimation
 
 from komikku.consts import REQUESTS_TIMEOUT
 
@@ -550,25 +548,19 @@ requests.adapters.TimeoutSauce = CustomTimeout
 class CoverLoader(GObject.GObject):
     __gtype_name__ = 'CoverLoader'
 
-    def __init__(self, path, image, texture, width=None, height=None, static_animation=False):
+    def __init__(self, path, pixbuf, texture, width=None, height=None, static_animation=False):
         super().__init__()
 
         self.path = path
-        if image:
-            self.image = image
-            frame = self.image.next_frame()
-            self.texture = GlyGtk4.frame_get_texture(frame)
-            delay = frame.get_delay()
-            self.animation = delay > 0 and not static_animation
-            self.animation_delay = delay // 1000 if self.animation else None
-        else:
-            self.image = None
-            self.texture = texture
-            self.animation = False
-            self.animation_delay = None
+        self.pixbuf = pixbuf
+        self.texture = texture
 
-        self.orig_width = self.texture.get_width()
-        self.orig_height = self.texture.get_height()
+        if self.pixbuf:
+            self.orig_width = self.pixbuf.get_width()
+            self.orig_height = self.pixbuf.get_height()
+        else:
+            self.orig_width = self.texture.get_width()
+            self.orig_height = self.texture.get_height()
 
         # Compute size
         if width is None and height is None:
@@ -590,28 +582,40 @@ class CoverLoader(GObject.GObject):
 
     @classmethod
     def new_from_data(cls, data, width=None, height=None, static_animation=False):
+        info = get_image_info(data)
+        if not info:
+            return None
+
         try:
             stream = Gio.MemoryInputStream.new_from_data(data, None)
-            loader = Gly.Loader.new_for_stream(stream)
-            image = loader.load()
+            if info['is_animated'] and not static_animation:
+                pixbuf = PixbufAnimation.new_from_stream(stream)
+            else:
+                pixbuf = Pixbuf.new_from_stream(stream)
+
             stream.close()
         except Exception:
             # Invalid image, corrupted image, unsupported image format,...
             return None
 
-        return cls(None, image, None, width, height, static_animation)
+        return cls(None, pixbuf, None, width, height, static_animation)
 
     @classmethod
     def new_from_file(cls, path, width=None, height=None, static_animation=False):
+        info = get_image_info(path)
+        if not info:
+            return None
+
         try:
-            file = Gio.File.new_for_path(path)
-            loader = Gly.Loader.new(file)
-            image = loader.load()
+            if info['is_animated'] and not static_animation:
+                pixbuf = PixbufAnimation.new_from_file(path)
+            else:
+                pixbuf = Pixbuf.new_from_file(path)
         except Exception:
             # Invalid image, corrupted image, unsupported image format,...
             return None
 
-        return cls(path, image, None, width, height, static_animation)
+        return cls(path, pixbuf, None, width, height, static_animation)
 
     @classmethod
     def new_from_resource(cls, path, width=None, height=None):
@@ -624,7 +628,7 @@ class CoverLoader(GObject.GObject):
         return cls(None, None, texture, width, height, True)
 
     def dispose(self):
-        self.image = None
+        self.pixbuf = None
         self.texture = None
 
 
@@ -635,22 +639,29 @@ class CoverPaintable(CoverLoader, Gdk.Paintable):
         CoverLoader.__init__(self, path, image, texture, width, height, static_animation)
 
         self.rect = Graphene.Rect().alloc()
-        self.__animation_timeout_id = None
+
+        if isinstance(self.pixbuf, PixbufAnimation):
+            self.animation_iter = self.pixbuf.get_iter(None)
+            self.animation_timeout_id = None
+        else:
+            self.animation_iter = None
+            self.animation_timeout_id = None
 
     def _start_animation(self):
-        if not self.animation or self.__animation_timeout_id:
+        if not self.animation_iter or self.animation_timeout_id:
             return
 
-        self.__animation_timeout_id = GLib.timeout_add(self.animation_delay, self.on_delay)
+        self.animation_timeout_id = GLib.timeout_add(self.animation_iter.get_delay_time(), self.on_delay)
 
     def _stop_animation(self):
-        if not self.animation or self.__animation_timeout_id is None:
+        if not self.animation_iter or self.animation_timeout_id is None:
             return
 
-        GLib.source_remove(self.__animation_timeout_id)
-        self.__animation_timeout_id = None
+        GLib.source_remove(self.animation_timeout_id)
+        self.animation_timeout_id = None
 
     def dispose(self):
+        self.animation_iter = None
         CoverLoader.dispose(self)
 
     def do_get_intrinsic_height(self):
@@ -662,13 +673,21 @@ class CoverPaintable(CoverLoader, Gdk.Paintable):
     def do_snapshot(self, snapshot, width, height):
         self.rect.init(0, 0, width, height)
 
+        if self.pixbuf:
+            if self.animation_iter:
+                self.texture = Gdk.Texture.new_for_pixbuf(self.animation_iter.get_pixbuf())
+            else:
+                self.texture = Gdk.Texture.new_for_pixbuf(self.pixbuf)
+
         snapshot.append_texture(self.texture, self.rect)
 
     def on_delay(self):
-        frame = self.image.next_frame()
-        self.texture = GlyGtk4.frame_get_texture(frame)
+        if self.animation_iter.get_delay_time() == -1:
+            return GLib.SOURCE_REMOVE
 
-        self.invalidate_contents()
+        # Check if it's time to show the next frame
+        if self.animation_iter.advance(None):
+            self.invalidate_contents()
 
         return GLib.SOURCE_CONTINUE
 
@@ -707,7 +726,7 @@ class CoverPicture(Gtk.Picture):
 
     @cached_property
     def is_animated(self):
-        return self.get_paintable().animation
+        return self.get_paintable().animation_iter is not None
 
     def on_map(self, _self):
         self.get_paintable()._start_animation()

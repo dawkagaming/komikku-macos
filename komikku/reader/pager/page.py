@@ -74,8 +74,16 @@ class Page(Gtk.Overlay):
 
     @obscured.setter
     def obscured(self, value):
-        if self.picture:
+        def set_obscured():
+            if not self.picture:
+                return GLib.SOURCE_CONTINUE
+
             self.picture.obscured = value
+
+            return GLib.SOURCE_REMOVE
+
+        # Wait image is loaded (async)
+        GLib.idle_add(set_obscured)
 
         self._obscured = value
 
