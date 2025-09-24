@@ -51,7 +51,6 @@ Komikku can be built in a Python virtual environment. However, some tools and de
 * `python` >= 3.12
 * `gtk` >= 4.18.6
 * `libadwaita` >= 1.8.0
-* `libglycin` >= 2.0.0
 
 1. So, let's start with the system dependencies:
 
@@ -62,7 +61,7 @@ Komikku can be built in a Python virtual environment. However, some tools and de
     # Install system dependencies
     apt install make meson gettext appstream desktop-file-utils
     apt install python3 python3-dev python3-venv
-    apt install libadwaita-1-dev libglycin-2-dev libcairo2-dev libmagic1 libwebkitgtk-6.0-4
+    apt install libadwaita-1-dev libcairo2-dev libmagic1 libwebkitgtk-6.0-4
     ```
 
 2. Clone the repository:
