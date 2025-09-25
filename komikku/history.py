@@ -176,6 +176,10 @@ class HistoryPage(Adw.NavigationPage):
         if self.searchbar.get_search_mode():
             self.searchbar.set_search_mode(False)
 
+        # Don't clear on navigation push
+        if self.window.previous_page != self.props.tag:
+            self.clear()
+
     def on_searchentry_activated(self, _entry):
         if not self.searchbar.get_search_mode():
             return
@@ -185,8 +189,6 @@ class HistoryPage(Adw.NavigationPage):
             self.window.reader.init(row.chapter.manga, row.chapter)
 
     def populate(self):
-        self.clear()
-
         db_conn = create_db_connection()
         start = (datetime.date.today() - datetime.timedelta(days=DAYS_LIMIT)).strftime('%Y-%m-%d')
         query = """
