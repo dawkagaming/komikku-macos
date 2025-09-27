@@ -4,7 +4,7 @@
 # Rafael Fontenelle <rafaelff@gnome.org>, 2022-2023.
 # Infinitive Witch <infinitivewitch@disroot.org>, 2023.
 # Unidealistic Raccoon <me@ursuslotor.xyz>, 2023, 2024.
-# Alex Carvalho <gameplayalex160@gmail.com>, 2024.
+# Alex Carvalho <gameplayalex160@gmail.com>, 2024, 2025.
 # Juliano de Souza Camargo <julianosc@protonmail.com>, 2024.
 # Giovanne Menicheli <giovanne.lopes.menicheli@gmail.com>, 2024.
 # Fúlvio Alves <fga.fulvio@gmail.com>, 2024.
@@ -17,8 +17,8 @@ msgstr ""
 "Project-Id-Version: Komikku\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-09-17 11:15+0200\n"
-"PO-Revision-Date: 2025-09-15 13:22+0000\n"
-"Last-Translator: Valéry Febvre <vfebvre@easter-eggs.com>\n"
+"PO-Revision-Date: 2025-09-28 18:01+0000\n"
+"Last-Translator: Alex Carvalho <gameplayalex160@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) <https://hosted.weblate.org/projects/"
 "komikku/main/pt_BR/>\n"
 "Language: pt_BR\n"
@@ -818,7 +818,7 @@ msgstr "Abrir Atalhos do Teclado"
 #: ../data/ui/shortcuts.blp:28
 msgctxt "Shortcut window description"
 msgid "Quit"
-msgstr ""
+msgstr "Sair"
 
 #: ../data/ui/shortcuts.blp:34
 msgctxt "Shortcut window description"
@@ -843,7 +843,7 @@ msgstr "Pesquisa"
 #: ../data/ui/shortcuts.blp:52
 msgctxt "Shortcut window description"
 msgid "Toggle Categories Pane"
-msgstr ""
+msgstr "Alternar painel de categorias"
 
 #: ../data/ui/shortcuts.blp:57
 msgctxt "Shortcut window description"
@@ -927,7 +927,7 @@ msgstr "Doação única ou recorrente"
 
 #: ../data/ui/support.blp:144
 msgid "Copy to Clipboard"
-msgstr ""
+msgstr "Copiar para Área de Transferência"
 
 #: ../data/ui/webview.blp:10
 msgid "Webview"
