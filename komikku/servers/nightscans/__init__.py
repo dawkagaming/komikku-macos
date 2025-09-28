@@ -17,3 +17,4 @@ class Nightscans(HeanCMS):
 
     base_url = 'https://qiscans.org'
     api_url = 'https://api.qiscans.org/api'
+    bypass_cf_url = base_url + '/series'
