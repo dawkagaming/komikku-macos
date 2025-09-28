@@ -17,3 +17,4 @@ class Ezmanga(HeanCMS):
 
     base_url = 'https://ezmanga.org'
     api_url = 'https://vapi.ezmanga.org/api'
+    bypass_cf_url = base_url + '/series'

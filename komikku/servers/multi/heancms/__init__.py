@@ -2,7 +2,7 @@
 # SPDX-License-Identifier: GPL-3.0-or-later
 # Author: Valéry Febvre <vfebvre@easter-eggs.com>
 
-# Hean CMS
+# Hean CMS / Iken
 
 # Supported servers:
 # EZmanga [EN]
