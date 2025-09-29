@@ -454,6 +454,7 @@ class KImage(Gtk.Widget, Gtk.Scrollable):
         self.data = None
         self.textures = None
         self.textures_crop = None
+        self.animation_iter = None
         self.animation = None
 
     def do_measure(self, orientation, for_size):

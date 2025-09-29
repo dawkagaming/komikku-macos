@@ -362,7 +362,7 @@ class TrackerRow(Adw.ExpanderRow):
         if self.tracker.logo_url:
             if self.tracker.logo_path:
                 self.logo = Gtk.Image()
-                self.logo.set_size_request(LOGO_SIZE, LOGO_SIZE)
+                self.logo.set_pixel_size(LOGO_SIZE)
                 self.logo.props.margin_top = 9
                 self.logo.props.margin_bottom = 9
                 self.logo.set_from_file(self.tracker.logo_path)

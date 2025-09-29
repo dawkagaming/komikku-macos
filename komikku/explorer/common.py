@@ -316,7 +316,7 @@ NOTE: The 'unrar' or 'unar' command-line tool is required for CBR archives.""")
         if self.server_data['logo_url']:
             if self.server_data['logo_path']:
                 self.logo = Gtk.Image()
-                self.logo.set_size_request(LOGO_SIZE, LOGO_SIZE)
+                self.logo.set_pixel_size(LOGO_SIZE)
                 self.logo.set_from_file(self.server_data['logo_path'])
             elif use_fallback:
                 # Fallback to an Adw.Avatar if logo fetching failed
