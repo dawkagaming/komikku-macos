@@ -10,6 +10,7 @@ class Carteldemanhwas(MangaStream):
     name = 'Cartel De Manhwas'
     lang = 'es'
     is_nsfw = True
+    status = 'disabled'
 
     has_cf = True
 
