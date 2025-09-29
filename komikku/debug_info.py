@@ -7,11 +7,13 @@ import os
 import platform
 
 gi.require_version('Adw', '1')
+gi.require_version('GdkPixbuf', '2.0')
 gi.require_version('Gtk', '4.0')
 gi.require_version('Soup', '3.0')
 gi.require_version('WebKit', '6.0')
 
 from gi.repository import Adw
+from gi.repository import GdkPixbuf
 from gi.repository import GLib
 from gi.repository import Gtk
 from gi.repository import Soup
@@ -107,6 +109,7 @@ class DebugInfo:
         info += '\n'
 
         info += 'Compiled against:\n'
+        info += f'- GdkPixbuf: {GdkPixbuf.PIXBUF_VERSION}\n'
         info += f'- GLib: {GLib.MAJOR_VERSION}.{GLib.MINOR_VERSION}.{GLib.MICRO_VERSION}\n'
         info += f'- GTK: {Gtk.MAJOR_VERSION}.{Gtk.MINOR_VERSION}.{Gtk.MICRO_VERSION}\n'
         info += f'- Adwaita: {Adw.VERSION_S}\n'
