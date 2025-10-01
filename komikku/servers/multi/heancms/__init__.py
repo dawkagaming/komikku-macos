@@ -6,8 +6,9 @@
 
 # Supported servers:
 # EZmanga [EN]
+# Hijala Scans [EN]
 # Mode Scanlator [pt_BR] (disabled)
-# Night scans [EN]
+# Qi Scans [EN]
 # Reaper Scans [EN] (disabled)
 # Reaper Scans [pt_BR] (disabled)
 
@@ -213,12 +214,11 @@ class HeanCMS(Server):
             chapters_page, more, rtime = get_page(serie_id, page)
             if chapters_page:
                 for chapter in chapters_page:
-                    if chapter['price'] > 0:
-                        continue
+                    prefix = '🔒 ' if not chapter.get('isAccessible', True) else ''
 
                     chapters.append(dict(
                         slug=chapter['slug'],
-                        title=chapter['title'] or f'Chapter {chapter["number"]}',
+                        title=f'{prefix}Chapter {chapter["number"]}',
                         num=chapter['number'],
                         date=convert_date_string(chapter['createdAt'].split('T')[0], '%Y-%m-%d') if 'createdAt' in chapter else None,
                     ))
