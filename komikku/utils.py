@@ -115,11 +115,14 @@ def convert_and_resize_image(buffer, width, height, keep_aspect_ratio=True, domi
     return new_buffer.getvalue()
 
 
-def folder_size(path):
+def folder_size(path, exclude=None):
     if not os.path.exists(path):
         return 0
 
-    res = subprocess.run(['du', '-sh', path], stdout=subprocess.PIPE, check=False)
+    cmd = ['du', '-sh', path]
+    if exclude is not None:
+        cmd += [f'--exclude={exclude}']
+    res = subprocess.run(cmd, stdout=subprocess.PIPE, check=False)
     size = res.stdout.split()[0].decode()
 
     return f'{size[:-1]} {size[-1]}iB'
@@ -163,20 +166,20 @@ def get_cache_dir():
 
 @cache
 def get_cached_data_dir():
-    cached_data_dir_path = os.path.join(get_cache_dir(), 'tmp')
-    if not os.path.exists(cached_data_dir_path):
-        os.mkdir(cached_data_dir_path)
+    dir_path = os.path.join(get_cache_dir(), 'tmp')
+    if not os.path.exists(dir_path):
+        os.mkdir(dir_path)
 
-    return cached_data_dir_path
+    return dir_path
 
 
 @cache
 def get_cached_logos_dir():
-    cached_logos_dir_path = os.path.join(get_cache_dir(), 'logos')
-    if not os.path.exists(cached_logos_dir_path):
-        os.mkdir(cached_logos_dir_path)
+    dir_path = os.path.join(get_cache_dir(), 'logos')
+    if not os.path.exists(dir_path):
+        os.mkdir(dir_path)
 
-    return cached_logos_dir_path
+    return dir_path
 
 
 @cache
@@ -278,6 +281,11 @@ def get_response_elapsed(r):
 
     # curl_cffi HTTP client
     return elapsed
+
+
+@cache
+def get_webview_data_dir():
+    return os.path.join(get_cache_dir(), 'webview')
 
 
 def html_escape(s):

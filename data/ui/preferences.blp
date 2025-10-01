@@ -327,11 +327,40 @@ template $PreferencesDialog : Adw.PreferencesDialog {
 
       Adw.ActionRow clear_cached_data_actionrow {
         title: _("Clear Chapters Cache and Database");
-        activatable: true;
+        activatable: false;
+
+        [suffix]
+        Button clear_cached_data_button {
+          icon-name: "user-trash-symbolic";
+          tooltip-text: _("Clear");
+          valign: center;
+          styles [
+            'flat'
+          ]
+        }
       }
 
       Adw.SwitchRow clear_cached_data_on_app_close_switch {
         title: _("Clear Chapters Cache and Database on Exit");
+      }
+    }
+
+    Adw.PreferencesGroup {
+      title: _("WebView");
+
+      Adw.ActionRow clear_webview_data_actionrow {
+        title: _("Clear Data");
+        activatable: false;
+
+        [suffix]
+        Button clear_webview_data_button {
+          icon-name: "user-trash-symbolic";
+          tooltip-text: _("Clear");
+          valign: center;
+          styles [
+            'flat'
+          ]
+        }
       }
     }
 

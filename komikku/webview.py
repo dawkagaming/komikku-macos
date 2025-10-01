@@ -32,7 +32,7 @@ from gi.repository import WebKit
 from komikku.consts import REQUESTS_TIMEOUT
 from komikku.servers.exceptions import ChallengerError
 from komikku.servers.utils import get_session_cookies
-from komikku.utils import get_cache_dir
+from komikku.utils import get_webview_data_dir
 
 CF_RELOAD_MAX = 3
 DEBUG = False
@@ -125,14 +125,14 @@ class WebviewPage(Adw.NavigationPage):
 
         # Network session
         self.network_session = WebKit.NetworkSession.new(
-            os.path.join(get_cache_dir(), 'webview', 'data'),
-            os.path.join(get_cache_dir(), 'webview', 'cache')
+            os.path.join(get_webview_data_dir(), 'data'),
+            os.path.join(get_webview_data_dir(), 'cache')
         )
         self.network_session.get_website_data_manager().set_favicons_enabled(True)
         self.network_session.set_itp_enabled(False)
         self.network_session.get_cookie_manager().set_accept_policy(WebKit.CookieAcceptPolicy.ALWAYS)
         self.network_session.get_cookie_manager().set_persistent_storage(
-            os.path.join(get_cache_dir(), 'webview', 'cookies.sqlite'),
+            os.path.join(get_webview_data_dir(), 'cookies.sqlite'),
             WebKit.CookiePersistentStorage.SQLITE
         )
 
@@ -165,6 +165,9 @@ class WebviewPage(Adw.NavigationPage):
             self.challenger.cancel()
             self.exit()
             self.close_page()
+
+    def clear_data(self):
+        self.network_session.get_website_data_manager().clear(WebKit.WebsiteDataTypes.ALL, 0, None, None)
 
     def close_page(self, blank=True):
         self.disconnect_all_signals()

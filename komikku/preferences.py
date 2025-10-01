@@ -17,6 +17,7 @@ from komikku.servers.utils import get_server_main_id_by_id
 from komikku.servers.utils import get_servers_list
 from komikku.utils import folder_size
 from komikku.utils import get_cached_data_dir
+from komikku.utils import get_webview_data_dir
 from komikku.utils import html_escape
 
 
@@ -57,7 +58,10 @@ class PreferencesDialog(Adw.PreferencesDialog):
 
     advanced_banner = Gtk.Template.Child('advanced_banner')
     clear_cached_data_actionrow = Gtk.Template.Child('clear_cached_data_actionrow')
+    clear_cached_data_button = Gtk.Template.Child('clear_cached_data_button')
     clear_cached_data_on_app_close_switch = Gtk.Template.Child('clear_cached_data_on_app_close_switch')
+    clear_webview_data_actionrow = Gtk.Template.Child('clear_webview_data_actionrow')
+    clear_webview_data_button = Gtk.Template.Child('clear_webview_data_button')
     external_servers_modules_switch = Gtk.Template.Child('external_servers_modules_switch')
     credentials_storage_plaintext_fallback_switch = Gtk.Template.Child('credentials_storage_plaintext_fallback_switch')
     disable_animations_switch = Gtk.Template.Child('disable_animations_switch')
@@ -124,7 +128,7 @@ class PreferencesDialog(Adw.PreferencesDialog):
     def on_clamp_size_changed(self, adjustment):
         self.settings.clamp_size = int(adjustment.get_value())
 
-    def on_clear_cached_data_activated(self, _actionrow):
+    def on_clear_cached_data_clicked(self, _button):
         # Clear cached data of manga not in library
         # If a manga is being read, it must be excluded
 
@@ -149,6 +153,21 @@ class PreferencesDialog(Adw.PreferencesDialog):
 
     def on_clear_cached_data_on_app_close_changed(self, switch_button, _gparam):
         self.settings.clear_cached_data_on_app_close = switch_button.get_active()
+
+    def on_clear_webview_data_clicked(self, _button):
+        # Clear WebView data
+
+        def confirm_callback():
+            self.window.webview.clear_data()
+            self.update_webview_data_size()
+
+        self.window.confirm(
+            _('Clear?'),
+            _('Are you sure you want to clear WebView data (cache, storage, cookies)?'),
+            _('Clear'),
+            confirm_callback,
+            confirm_appearance=Adw.ResponseAppearance.DESTRUCTIVE
+        )
 
     def on_credentials_storage_plaintext_fallback_changed(self, switch_button, _gparam):
         self.settings.credentials_storage_plaintext_fallback = switch_button.get_active()
@@ -431,11 +450,14 @@ class PreferencesDialog(Adw.PreferencesDialog):
         #
 
         # Clear chapters cache and database
-        self.clear_cached_data_actionrow.connect('activated', self.on_clear_cached_data_activated)
+        self.clear_cached_data_button.connect('clicked', self.on_clear_cached_data_clicked)
 
         # Clear chapters cache and database on app close
         self.clear_cached_data_on_app_close_switch.set_active(self.settings.clear_cached_data_on_app_close)
         self.clear_cached_data_on_app_close_switch.connect('notify::active', self.on_clear_cached_data_on_app_close_changed)
+
+        # Clear webview data
+        self.clear_webview_data_button.connect('clicked', self.on_clear_webview_data_clicked)
 
         # External servers modules
         self.external_servers_modules_switch.set_active(self.settings.external_servers_modules)
@@ -461,12 +483,17 @@ class PreferencesDialog(Adw.PreferencesDialog):
         self.clamp_size_adjustment.set_upper(self.window.monitor.props.geometry.width)
 
         self.update_cached_data_size()
+        self.update_webview_data_size()
 
         self.set_search_enabled(True)
         self.present(self.window)
 
     def update_cached_data_size(self):
         self.clear_cached_data_actionrow.set_subtitle(folder_size(get_cached_data_dir()) or '-')
+
+    def update_webview_data_size(self):
+        size = folder_size(get_webview_data_dir(), exclude='cookies.sqlite')
+        self.clear_webview_data_actionrow.set_subtitle(size)
 
 
 @Gtk.Template.from_resource('/info/febvre/Komikku/ui/preferences_servers_languages.ui')
