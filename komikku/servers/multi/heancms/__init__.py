@@ -12,6 +12,7 @@
 # Qi Scans [EN]
 # Reaper Scans [EN] (disabled)
 # Reaper Scans [pt_BR] (disabled)
+# Rezo Scans [EN]
 
 
 import json
