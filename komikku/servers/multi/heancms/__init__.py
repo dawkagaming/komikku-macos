@@ -5,6 +5,7 @@
 # Hean CMS / Iken
 
 # Supported servers:
+# Aurora Scans [EN]
 # EZmanga [EN]
 # Hijala Scans [EN]
 # Mode Scanlator [pt_BR] (disabled)

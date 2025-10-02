@@ -14,14 +14,14 @@ from komikku.utils import get_buffer_mime_type
 logger = logging.getLogger(__name__)
 
 
-class Hijalascans(HeanCMS):
-    id = 'hijalascans'
-    name = 'Hijala Scans'
+class Aurorascans(HeanCMS):
+    id = 'aurorascans'
+    name = 'Aurora Scans'
     lang = 'en'
 
-    base_url = 'https://en-hijala.com'
-    logo_url = 'https://storage.en-hijala.com/upload/2025/06/24/final-523b7e2e4fb3a659.webp'
-    api_url = 'https://api.en-hijala.com/api'
+    base_url = 'https://aurorascans.com'
+    logo_url = 'https://storage.aurorascans.com/public/upload/2025/01/26/JUST-TO-TRY-f17fe0b13caeba2c-16b03dbd7548f1a3.webp'
+    api_url = 'https://api.aurorascans.com/api'
 
     def get_manga_chapter_data(self, manga_slug, manga_name, chapter_slug, chapter_url):
         """
