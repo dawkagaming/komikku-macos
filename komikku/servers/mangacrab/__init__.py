@@ -2,6 +2,8 @@
 # SPDX-License-Identifier: GPL-3.0-or-later
 # Author: Valéry Febvre <vfebvre@easter-eggs.com>
 
+from urllib.parse import unquote
+
 from bs4 import BeautifulSoup
 
 from komikku.servers.multi.madara import Madara2
@@ -18,6 +20,7 @@ class Mangacrab(Madara2):
 
     base_url = 'https://mangacrab.org'
     logo_url = base_url + '/wp-content/uploads/2017/10/cropped-logo100-Personalizado-32x32.png'
+    chapter_url = base_url + '/' + series_name + '/{0}/{1}/'
 
     details_name_selector = 'h1.post-title'
     details_status_selector = '.post-content_item:-soup-contains("Estado") .summary-content'
@@ -46,15 +49,15 @@ class Mangacrab(Madara2):
         for img_element in soup.select('.reading-content img.wp-manga-chapter-img'):
             image = None
             for attr, value in img_element.attrs.items():
-                if attr.startswith('data2-img-'):
-                    image = value.strip()
+                if isinstance(value, str) and 'validate' in value:
+                    image = unquote(value.split('?file=')[1]).split('&sig=')[0]
                     break
             if image is None:
                 continue
 
             data['pages'].append(dict(
                 slug=None,
-                image=image,
+                image=f'{self.base_url}/{image}',
                 index=index,
             ))
             index += 1
