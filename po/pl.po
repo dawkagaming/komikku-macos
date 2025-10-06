@@ -4,22 +4,23 @@
 # Lili Kurek <github@gramywpsl.pl>, 2021-2023.
 # Lili Kurek <lilikurek@proton.me>, 2023.
 # Aleksander Warzyniak <alek@camperpark.pl>, 2024.
+# Kurai <logical.nihil@gmail.com>, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: Komikku 1.23.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-09-17 11:15+0200\n"
-"PO-Revision-Date: 2024-12-28 03:53+0000\n"
-"Last-Translator: Aleksander Warzyniak <alek@camperpark.pl>\n"
-"Language-Team: Polish <https://hosted.weblate.org/projects/komikku/main/pl/"
-">\n"
+"PO-Revision-Date: 2025-10-07 09:52+0000\n"
+"Last-Translator: Kurai <logical.nihil@gmail.com>\n"
+"Language-Team: Polish <https://hosted.weblate.org/projects/komikku/main/pl/>"
+"\n"
 "Language: pl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
-"|| n%100>=20) ? 1 : 2);\n"
-"X-Generator: Weblate 5.10-dev\n"
+"Plural-Forms: nplurals=3; plural="
+"(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"X-Generator: Weblate 5.14-dev\n"
 "X-Poedit-Basepath: .\n"
 
 #: ../data/info.febvre.Komikku.desktop.in:2
@@ -36,7 +37,7 @@ msgstr ""
 
 #: ../data/info.febvre.Komikku.metainfo.xml.in.in:11
 msgid "Discover and read manga & comics"
-msgstr ""
+msgstr "Znajdź i czytaj mangę i komiks"
 
 #: ../data/info.febvre.Komikku.metainfo.xml.in.in:13
 msgid ""
