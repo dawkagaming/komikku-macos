@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: Komikku 1.47.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-09-17 11:15+0200\n"
-"PO-Revision-Date: 2025-10-07 09:52+0000\n"
+"PO-Revision-Date: 2025-10-08 17:07+0000\n"
 "Last-Translator: Milo Ivir <mail@milotype.de>\n"
 "Language-Team: Croatian <https://hosted.weblate.org/projects/komikku/main/hr/"
 ">\n"
@@ -418,7 +418,7 @@ msgstr "Pozadina na stranici s detaljima"
 
 #: ../data/ui/preferences.blp:42
 msgid "Method used to recolor background to match cover"
-msgstr "Metoda za mijenjanje boje pozadine kako bi odgovarala omotu"
+msgstr "Metoda za mijenjanje boje pozadine kako bi odgovarala naslovnici"
 
 #: ../data/ui/preferences.blp:46
 msgid "Linear gradient"
@@ -426,7 +426,7 @@ msgstr "Linearni gradijent"
 
 #: ../data/ui/preferences.blp:47
 msgid "Blurred cover"
-msgstr "Zamućen omot"
+msgstr "Zamućena naslovnica"
 
 #: ../data/ui/preferences.blp:57
 msgid "Desktop Notifications"
