@@ -24,6 +24,7 @@
 # SushiScan [FR]
 # Tres Daos [ES]
 # VF Scan [FR]
+# Vortex Scans For Free [EN] (Disabled)
 
 from gettext import gettext as _
 import json

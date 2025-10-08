@@ -9,6 +9,7 @@ class Vortexscansfree(MangaStream):
     id = 'vortexscansfree'
     name = 'Vortex Scans For Free'
     lang = 'en'
+    status = 'disabled'
 
     base_url = 'https://vortexscansfree.com'
     logo_url = base_url + '/wp-content/uploads/2024/12/cropped-Logo-d426c8cb30892710-32x32.webp'
