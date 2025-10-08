@@ -115,7 +115,7 @@ class Rawkuma(Server):
         soup = BeautifulSoup(r.text, 'lxml')
 
         chapters = []
-        for element in soup.select('.rounded-md'):
+        for element in soup.select('[data-chapter-number]'):
             a_element = element.a
 
             num = element.get('data-chapter-number')
@@ -220,11 +220,16 @@ class Rawkuma(Server):
 
             slug = a_element.get('href').split('/')[-2]
             name = a_element.img.get('alt')
+            if span_element := element.select_one('div:-soup-contains("Chapter") > span'):
+                last_chapter = span_element.text.strip()
+            else:
+                last_chapter = None
 
             results.append(dict(
                 slug=slug,
                 name=name,
                 cover=a_element.img.get('src'),
+                last_chapter=last_chapter,
             ))
 
         return results
