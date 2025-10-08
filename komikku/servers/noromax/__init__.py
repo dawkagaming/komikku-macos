@@ -14,7 +14,7 @@ class Noromax(MangaStream):
     series_name = 'manga'
 
     base_url = 'https://noromax01.my.id'
-    logo_url = 'https://i0.wp.com/noromax.my.id/wp-content/uploads/2023/04/cropped-Untitled-1-192x192.png'
+    logo_url = 'https://i0.wp.com/noromax01.my.id/wp-content/uploads/2025/02/cropped-Untitled-1-300x300.png'
 
     authors_selector = '.infox .fmed:-soup-contains("Artist") span, .infox .fmed:-soup-contains("Author") span'
     genres_selector = '.infox .mgen a'
