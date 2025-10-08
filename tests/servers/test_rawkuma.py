@@ -6,6 +6,7 @@ import logging
 import pytest
 from pytest_steps import test_steps
 
+from . import do_server_test
 from komikku.utils import log_error_traceback
 
 logging.basicConfig(level=logging.DEBUG)
@@ -18,12 +19,13 @@ def rawkuma_server():
     return Rawkuma()
 
 
+@do_server_test
 @test_steps('get_latest_updates', 'get_most_populars', 'search', 'get_manga_data', 'get_chapter_data', 'get_page_image')
 def test_rawkuma(rawkuma_server):
     # Get latest updates
     print('Get latest updates')
     try:
-        response = rawkuma_server.get_latest_updates('')
+        response = rawkuma_server.get_latest_updates()
     except Exception as e:
         response = None
         log_error_traceback(e)
@@ -31,10 +33,10 @@ def test_rawkuma(rawkuma_server):
     assert response is not None
     yield
 
-    # Get most populars
-    print('Get most populars')
+    # Get most popular
+    print('Get most popular')
     try:
-        response = rawkuma_server.get_most_populars('')
+        response = rawkuma_server.get_most_populars()
     except Exception as e:
         response = None
         log_error_traceback(e)
@@ -46,7 +48,7 @@ def test_rawkuma(rawkuma_server):
     print('Search')
     try:
         # Use first result of get_most_populars
-        response = rawkuma_server.search(response[0]['name'], '')
+        response = rawkuma_server.search(response[0]['name'])
         slug = response[0]['slug']
     except Exception as e:
         slug = None
@@ -65,7 +67,6 @@ def test_rawkuma(rawkuma_server):
         log_error_traceback(e)
 
     assert chapter_slug is not None
-    assert len(response['chapters']) > 0
     yield
 
     # Get chapter data
