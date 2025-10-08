@@ -22,7 +22,7 @@ class Perfscan(Server):
     lang = 'fr'
 
     base_url = 'https://perf-scan.xyz'
-    logo_url = base_url + '/Logo_Perf_NoText.png'
+    logo_url = base_url + '/logo-static/Logo_Perf_NoText.png'
     api_url = 'https://api.perf-scan.xyz'
     manga_url = base_url + '/fr/series/{0}'
     api_manga_url = api_url + '/series/{0}'
