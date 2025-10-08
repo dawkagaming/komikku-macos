@@ -6,25 +6,26 @@ from gettext import gettext as _
 import base64
 
 from bs4 import BeautifulSoup
-import requests
 
-from komikku.consts import USER_AGENT
 from komikku.servers import Server
 from komikku.servers.utils import convert_date_string
 from komikku.utils import get_buffer_mime_type
 from komikku.utils import is_number
+from komikku.webview import CompleteChallenge
 
 
 class Raijinscan(Server):
     id = 'raijinscan'
     name = 'Raijin Scan'
     lang = 'fr'
+    has_cf = True
 
-    base_url = 'https://raijinscan.fr'
+    base_url = 'https://raijinscan.co'
     logo_url = base_url + '/wp-content/uploads/2025/05/cropped-logopp-32x32.png'
     search_url = base_url + '/'
     manga_url = base_url + '/manga/{0}/'
     chapter_url = base_url + '/manga/{0}/{1}/'
+    bypass_cf_url = base_url + '/manga/nano-machine-1/'
 
     filters = [
         {
@@ -54,10 +55,9 @@ class Raijinscan(Server):
     long_strip_genres = ['Manhwa', 'Webtoon']
 
     def __init__(self):
-        if self.session is None:
-            self.session = requests.Session()
-            self.session.headers.update({'User-Agent': USER_AGENT})
+        self.session = None
 
+    @CompleteChallenge()
     def get_manga_data(self, initial_data):
         """
         Returns manga data by scraping manga HTML page content
@@ -130,6 +130,7 @@ class Raijinscan(Server):
 
         return data
 
+    @CompleteChallenge()
     def get_manga_chapter_data(self, manga_slug, manga_name, chapter_slug, chapter_url):
         """
         Returns manga chapter data by scraping chapter HTML page content
@@ -153,6 +154,7 @@ class Raijinscan(Server):
 
         return data
 
+    @CompleteChallenge()
     def get_manga_chapter_page_image(self, manga_slug, manga_name, chapter_slug, page):
         """
         Returns chapter page scan (image) content
@@ -176,6 +178,7 @@ class Raijinscan(Server):
             name=page['image'].split('/')[-1],
         )
 
+    @CompleteChallenge()
     def get_latest_updates(self, statuses=None, types=None):
         """
         Returns recent mangas
@@ -188,12 +191,14 @@ class Raijinscan(Server):
         """
         return self.manga_url.format(slug)
 
+    @CompleteChallenge()
     def get_most_populars(self, statuses=None, types=None):
         """
         Returns most viewed mangas
         """
         return self.search(None, statuses=statuses, types=types, orderby='most_viewed')
 
+    @CompleteChallenge()
     def search(self, term, statuses=None, types=None, orderby=None):
         params = {
             'post_type': 'wp-manga',
