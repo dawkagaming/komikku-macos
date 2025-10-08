@@ -14,5 +14,5 @@ class Mangareadercc(Paprika):
     is_nsfw = True
 
     base_url = 'https://mangareader.in'
-    logo_url = base_url + '/frontend/imgs/favicon16.png'
+    logo_url = base_url + '/frontend/imgs/favico.png'
     bypass_cf_url = base_url + '/manga/selena'
