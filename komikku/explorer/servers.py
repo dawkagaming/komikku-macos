@@ -7,6 +7,7 @@ import os
 
 from gi.repository import Adw
 from gi.repository import Gio
+from gi.repository import GLib
 from gi.repository import GObject
 from gi.repository import Gtk
 
@@ -139,6 +140,22 @@ class ExplorerServersPage(Adw.NavigationPage):
     def on_shown(self, _page):
         if self.searchbar.get_search_mode():
             self.searchentry.grab_focus()
+
+        def do_show_banner():
+            if self.window.last_navigation_action != 'push':
+                return
+
+            if not Settings.get_default().servers_languages:
+                self.window.show_banner(
+                    'It appears that you have not yet defined any server languages in Preferences.', at_bottom=True
+                )
+
+        if not Gtk.Settings.get_default().get_property('gtk-enable-animations'):
+            # When animations are disabled, popped/pushed events are sent after `shown` event (bug?)
+            # Use idle_add to be sure that last `popped` or `pushed` event has been received
+            GLib.idle_add(do_show_banner)
+        else:
+            do_show_banner()
 
     def open_local_folder(self, _button):
         path = os.path.join(get_data_dir(), 'local')

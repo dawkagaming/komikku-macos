@@ -14,47 +14,45 @@ template $ApplicationWindow: Adw.ApplicationWindow {
     child: Adw.NavigationView navigationview {};
 
     [overlay]
-    Overlay {
+    Revealer pool_to_update_revealer {
       can-target: false;
+      halign: center;
       valign: start;
 
-      child: Revealer pool_to_update_revealer {
-        can-target: false;
-        halign: center;
+      child: Adw.Spinner pool_to_update_spinner {
+        height-request: 48;
+        width-request: 48;
 
-        child: Adw.Spinner pool_to_update_spinner {
-          height-request: 48;
-          width-request: 48;
-
-          styles [
-            "pool-to-update-spinner",
-          ]
-        };
+        styles [
+          "pool-to-update-spinner",
+        ]
       };
     }
 
     [overlay]
-    Overlay {
+    Revealer notification_revealer {
       can-target: false;
+      halign: center;
       valign: start;
 
-      child: Revealer notification_revealer {
-        can-target: false;
-        halign: center;
+      child: Box {
+        Label notification_label {
+          label: "app notification message";
+          justify: center;
+          wrap: true;
 
-        child: Box {
-          Label notification_label {
-            label: "app notification message";
-            justify: center;
-            wrap: true;
-
-            styles [
-              "app-notification",
-              "heading",
-            ]
-          }
-        };
+          styles [
+            "app-notification",
+            "heading",
+          ]
+        }
       };
+    }
+
+    [overlay]
+    Adw.Banner banner {
+      button-label: _("Got it!");
+      valign: start;
     }
   };
 }

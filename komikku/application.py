@@ -129,14 +129,15 @@ class ApplicationWindow(Adw.ApplicationWindow):
     overlay = Gtk.Template.Child('overlay')
     navigationview = Gtk.Template.Child('navigationview')
     breakpoint = Gtk.Template.Child('breakpoint')
-
-    notification_active = False
-    notification_queue = deque()
-    notification_timer = None
+    banner = Gtk.Template.Child('banner')
     notification_label = Gtk.Template.Child('notification_label')
     notification_revealer = Gtk.Template.Child('notification_revealer')
     pool_to_update_revealer = Gtk.Template.Child('pool_to_update_revealer')
     pool_to_update_spinner = Gtk.Template.Child('pool_to_update_spinner')
+
+    notification_active = False
+    notification_queue = deque()
+    notification_timer = None
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
@@ -277,6 +278,8 @@ class ApplicationWindow(Adw.ApplicationWindow):
         self.gesture_click.set_button(0)
         self.gesture_click.set_propagation_phase(Gtk.PropagationPhase.CAPTURE)
         self.add_controller(self.gesture_click)
+
+        self.banner.connect('button-clicked', self.on_banner_button_clicked)
 
         # Init pages
         self.library = LibraryPage(self)
@@ -436,13 +439,19 @@ available in your region/language."""))
 
         dialog.present(self)
 
+    def on_banner_button_clicked(self, _banner):
+        self.banner.props.revealed = False
+
     def on_navigation_popped(self, _nav, _page):
         self.last_navigation_action = 'pop'
 
         self.activity_indicator.set_visible(False)
+        self.banner.props.revealed = False
 
     def on_navigation_pushed(self, _nav):
         self.last_navigation_action = 'push'
+
+        self.banner.props.revealed = False
 
     def on_network_status_changed(self, monitor, _connected):
         connectivity = monitor.get_connectivity()
@@ -570,6 +579,15 @@ available in your region/language."""))
             self.card.chapters_list.select_all()
         elif self.page == 'download_manager':
             self.download_manager.select_all()
+
+    def show_banner(self, title, at_bottom=False):
+        self.banner.props.title = title
+        if not at_bottom:
+            self.banner.props.valign = Gtk.Align.START
+            self.banner.props.margin_top = self.library.get_child().get_top_bar_height()
+        else:
+            self.banner.props.valign = Gtk.Align.END
+        self.banner.props.revealed = True
 
     def show_notification(self):
         if len(self.notification_queue) == 0:
