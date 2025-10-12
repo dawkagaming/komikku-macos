@@ -12,6 +12,8 @@ from komikku.servers import Server
 from komikku.servers.utils import convert_date_string
 from komikku.utils import get_buffer_mime_type
 from komikku.utils import is_number
+from komikku.webview import get_page_html
+from komikku.webview import get_page_resources
 
 LANGUAGES_CODES = dict(
     en='en',
@@ -35,8 +37,6 @@ class Mangafire(Server):
     manga_url = base_url + '/manga/{0}'                          # slug
     chapter_url = base_url + '/read/{0}/{1}/chapter-{2}'         # manga_slug, lang, slug
     api_chapters_url = base_url + '/ajax/manga/{0}/chapter/{1}'  # code in manga slug, lang: used to get chapters list (slug, title, date)
-    api_chapters_url2 = base_url + '/ajax/read/{0}/chapter/{1}'  # code in manga slug, lang: used to get chapters list (id)
-    api_chapter_url = base_url + '/ajax/read/chapter/{0}'        # id
 
     filters = [
         {
@@ -68,6 +68,8 @@ class Mangafire(Server):
             ],
         },
     ]
+
+    vrf = {}
 
     def __init__(self):
         if self.session is None:
@@ -158,32 +160,18 @@ class Mangafire(Server):
         return data
 
     def get_manga_chapter_data(self, manga_slug, manga_name, chapter_slug, chapter_url):
-        # Retrieve chapter ID
-        chapter_url = self.api_chapters_url2.format(manga_slug.split('.')[1], LANGUAGES_CODES[self.lang])
-        r = self.session_get(
-            chapter_url,
-            headers={
-                'Referer': self.manga_url.format(manga_slug),
-                'x-requested-with': 'XMLHttpRequest',
-            }
+        # Get API chapter endpoint URL with webview
+        resources = get_page_resources(
+            self.chapter_url.format(manga_slug, LANGUAGES_CODES[self.lang], chapter_slug),
+            paths=['/ajax/read/chapter', 'ajax/read/volume']
         )
-        if r.status_code != 200:
+        if not resources:
             return None
 
-        soup = BeautifulSoup(r.json()['result']['html'], 'lxml')
+        api_chapter_url = resources[0]['uri']
 
-        chapter_id = None
-        for element in soup.select('li a'):
-            if element.get('data-number') == chapter_slug:
-                chapter_id = element.get('data-id')
-                break
-
-        if chapter_id is None:
-            return None
-
-        # Get chapter images
         r = self.session_get(
-            self.api_chapter_url.format(chapter_id),
+            api_chapter_url,
             headers={
                 'Referer': self.chapter_url.format(manga_slug, LANGUAGES_CODES[self.lang], chapter_slug),
                 'X-Requested-With': 'XMLHttpRequest',
@@ -253,6 +241,63 @@ class Mangafire(Server):
             'language[]': LANGUAGES_CODES[self.lang],
             'sort': sort,
         }
+
+        if keyword:
+            if keyword not in self.vrf:
+                # Get `vrf` param with webview
+                wait_js_code = """
+                    let intervalID = setInterval(() => {
+                        if (document.readyState === 'loading') {
+                            return;
+                        }
+
+                        const searchInput = document.querySelector('#filters .search input');
+                        if (!searchInput.value) {
+                            searchInput.value = '%s';
+                            searchInput.focus();
+
+                            let spaceEvent = new KeyboardEvent('keydown', {
+                                key: ' ',
+                                keyCode: 32,
+                                code: 'Space',
+                                which: 32,
+                                bubbles: true,
+                                cancelable: true
+                            });
+
+                            // Dispatch event on input
+                            searchInput.dispatchEvent(spaceEvent);
+
+                            spaceEvent = new KeyboardEvent('keyup', {
+                                key: ' ',
+                                keyCode: 32,
+                                code: 'Space',
+                                which: 32,
+                                bubbles: true,
+                                cancelable: true
+                            });
+
+                            // Dispatch event on input
+                            searchInput.dispatchEvent(spaceEvent);
+
+                            return;
+                        }
+
+                        const vrfInput = document.querySelector('#filters input[name="vrf"]');
+                        if (vrfInput.value) {
+                            document.title = 'ready';
+                            clearInterval(intervalID);
+                        }
+                    }, 100);
+                """ % keyword
+
+                html = get_page_html(self.search_url, wait_js_code=wait_js_code)
+
+                soup = BeautifulSoup(html, 'lxml')
+
+                self.vrf[keyword] = soup.select_one('#filters input[name="vrf"]').get('value')
+
+            params['vrf'] = self.vrf[keyword]
 
         r = self.session_get(
             self.search_url,
