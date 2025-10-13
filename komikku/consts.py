@@ -6,6 +6,7 @@ COVER_WIDTH = 180
 COVER_HEIGHT = 256
 LOGO_SIZE = 32
 MISSING_IMG_RESOURCE_PATH = '/info/febvre/Komikku/images/missing_file.png'
+PIXBUF_ANIMATION = False
 
 DOWNLOAD_MAX_DELAY = 1  # in seconds
 REQUESTS_TIMEOUT = 5

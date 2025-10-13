@@ -36,6 +36,7 @@ from gi.repository import Gtk
 from gi.repository.GdkPixbuf import Pixbuf
 from gi.repository.GdkPixbuf import PixbufAnimation
 
+from komikku.consts import PIXBUF_ANIMATION
 from komikku.consts import REQUESTS_TIMEOUT
 
 logger = logging.getLogger('komikku')
@@ -596,7 +597,7 @@ class CoverLoader(GObject.GObject):
 
         try:
             stream = Gio.MemoryInputStream.new_from_data(data, None)
-            if info['is_animated'] and not static_animation:
+            if info['is_animated'] and not static_animation and PIXBUF_ANIMATION:
                 pixbuf = PixbufAnimation.new_from_stream(stream)
             else:
                 pixbuf = Pixbuf.new_from_stream(stream)
@@ -615,7 +616,7 @@ class CoverLoader(GObject.GObject):
             return None
 
         try:
-            if info['is_animated'] and not static_animation:
+            if info['is_animated'] and not static_animation and PIXBUF_ANIMATION:
                 pixbuf = PixbufAnimation.new_from_file(path)
             else:
                 pixbuf = Pixbuf.new_from_file(path)
