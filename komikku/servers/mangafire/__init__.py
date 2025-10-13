@@ -163,7 +163,7 @@ class Mangafire(Server):
         # Get API chapter endpoint URL with webview
         resources = get_page_resources(
             self.chapter_url.format(manga_slug, LANGUAGES_CODES[self.lang], chapter_slug),
-            paths=['/ajax/read/chapter', 'ajax/read/volume']
+            paths=['/ajax/read/chapter', '/ajax/read/volume']
         )
         if not resources:
             return None

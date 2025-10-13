@@ -611,15 +611,12 @@ def get_page_html(url, user_agent=None, wait_js_code=None, with_cookies=False):
     webview = Gio.Application.get_default().window.webview
 
     def load_page():
-        webview.connect_webview_signal('load-changed', on_load_changed)
-        webview.connect_webview_signal('load-failed', on_load_failed)
-        webview.connect_webview_signal('notify::title', on_title_changed)
-
         if not webview.load_page(uri=url, user_agent=user_agent, auto_load_images=False):
             return True
 
-        if DEBUG:
-            webview.show()
+        webview.connect_webview_signal('load-changed', on_load_changed)
+        webview.connect_webview_signal('load-failed', on_load_failed)
+        webview.connect_webview_signal('notify::title', on_title_changed)
 
     def on_get_cookies_finished(cookie_manager, result, _user_data):
         nonlocal cookies
@@ -640,7 +637,6 @@ def get_page_html(url, user_agent=None, wait_js_code=None, with_cookies=False):
 
         cookies = rcookies
 
-        webview.exit()
         webview.close_page()
 
     def on_get_html_finish(_webkit_webview, result, _user_data=None):
@@ -656,11 +652,9 @@ def get_page_html(url, user_agent=None, wait_js_code=None, with_cookies=False):
                 logger.debug('Page loaded, getting cookies...')
                 webview.network_session.get_cookie_manager().get_cookies(url, None, on_get_cookies_finished, None)
             else:
-                webview.exit()
                 webview.close_page()
         else:
             error = f'Failed to get page html: {url}'
-            webview.exit()
             webview.close_page()
 
     def on_load_changed(_webkit_webview, event):
@@ -677,7 +671,6 @@ def get_page_html(url, user_agent=None, wait_js_code=None, with_cookies=False):
         nonlocal error
 
         error = f'Failed to load page: {url}'
-        webview.exit()
         webview.close_page()
 
     def on_title_changed(_webkit_webview, _title):
@@ -689,7 +682,6 @@ def get_page_html(url, user_agent=None, wait_js_code=None, with_cookies=False):
 
         elif webview.webkit_webview.props.title == 'abort':
             error = f'Failed to get page html: {url}'
-            webview.exit()
             webview.close_page()
 
     GLib.timeout_add(100, load_page)
@@ -704,27 +696,38 @@ def get_page_html(url, user_agent=None, wait_js_code=None, with_cookies=False):
     return html if not with_cookies else (html, cookies)
 
 
-def get_page_resources(url, paths, user_agent=None):
+def get_page_resources(url, paths, timeout=20, user_agent=None):
     """
     Returns all resources loaded by a page
-    Resource URI path must match one of provided paths
+
+    :param url: Page URL
+    :param paths: List of paths to which resource URIs must match
+    :param timeout: Timeout in seconds (optional)
+    :param user_agent: User agent (optional)
     """
 
+    data = None
     error = None
     resources = {}
+    ts_start = None
     webview = Gio.Application.get_default().window.webview
 
     def load_page():
-        webview.connect_webview_signal('resource-load-started', on_resource_load_started)
-        webview.connect_webview_signal('load-changed', on_load_changed)
-        webview.connect_webview_signal('load-failed', on_load_failed)
+        nonlocal ts_start
 
         if not webview.load_page(uri=url, user_agent=user_agent, auto_load_images=False):
             return True
 
+        ts_start = time.time()
+
+        webview.connect_webview_signal('resource-load-started', on_resource_load_started)
+        webview.connect_webview_signal('load-changed', on_load_changed)
+        webview.connect_webview_signal('load-failed', on_load_failed)
+
     def on_load_changed(_webkit_webview, event):
+        nonlocal data
         if event == WebKit.LoadEvent.FINISHED:
-            return resources
+            data = resources
 
     def on_resource_load_started(_webkit_webview, resource, request):
         nonlocal resources
@@ -752,19 +755,22 @@ def get_page_resources(url, paths, user_agent=None):
         nonlocal error
 
         error = f'Failed to load page: {url}'
-        webview.exit()
-        webview.close_page()
 
     GLib.timeout_add(100, load_page)
 
-    while not resources and error is None:
+    while (not ts_start or time.time() - ts_start < timeout) and data is None and error is None:
         time.sleep(1)
+
+    if time.time() - ts_start > timeout:
+        error = f'Failed to load page (timeout): {url}'
+
+    webview.close_page()
 
     if error:
         logger.warning(error)
         raise requests.exceptions.RequestException()
 
-    return list(resources.values())
+    return list(data.values())
 
 
 def get_tracker_access_token(url, app_redirect_url, user_agent=None):
@@ -783,12 +789,12 @@ def get_tracker_access_token(url, app_redirect_url, user_agent=None):
     webview = Gio.Application.get_default().window.webview
 
     def load_page():
+        if not webview.load_page(uri=url, user_agent=user_agent):
+            return False
+
         webview.connect_signal('cancelled', on_cancelled)
         webview.connect_webview_signal('load-changed', on_load_changed)
         webview.connect_webview_signal('load-failed', on_load_failed)
-
-        if not webview.load_page(uri=url, user_agent=user_agent):
-            return False
 
         # We assume that this function is always called from preferences
         # Preferences dialog must be closed before opening webview page
