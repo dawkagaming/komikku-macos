@@ -136,15 +136,21 @@ CREDITS = dict(
 
 RELEASE_NOTES = """
 <ul>
-    <li>[UX] Refined visuals taking advantage of the new capabilities of GNOME 49</li>
-    <li>[UI] Switching to Glycin (image loading framework)</li>
-    <li>[Reader] Webtoon pager: Fixed small gap between pages</li>
+    <li>[Preferences] Advanced: Add ability to clear WebView data</li>
+    <li>[Servers] Added Anime-Sama (FR)</li>
+    <li>[Servers] Added Aurora Scans (EN)</li>
+    <li>[Servers] Added Hijala Scans (EN)</li>
+    <li>[Servers] Added Rezo Scans (EN)</li>
+    <li>[Servers] Cartel De Manhwas (ES): Disabled</li>
+    <li>[Servers] ComicK: Disabled</li>
     <li>[Servers] EZmanga (EN): Update</li>
-    <li>[Servers] Grise Bouille (FR): Update</li>
     <li>[Servers] MangaCrab (ES): Update</li>
-    <li>[Servers] Neko Scans (ES): Disabled</li>
-    <li>[Servers] Qi Scans (Night scans): Update</li>
-    <li>[L10n] Updated French, Portuguese, Portuguese (Brazil) and Ukrainian translations</li>
+    <li>[Servers] MangaFire (EN/ES/ES_LA/FR/JA/PT/pt_BR): Update</li>
+    <li>[Servers] Qi Scans (EN): Update</li>
+    <li>[Servers] Raijin Scan (FR): Update</li>
+    <li>[Servers] Rawkuma (JA): Update</li>
+    <li>[Servers] Vortex Scans For Free (EN): Disabled</li>
+    <li>[L10n] Updated Croatian, Persian, Polish, Portuguese, Portuguese (Brazil) and Russian translations</li>
 </ul>
 <p>Happy reading.</p>
 """
