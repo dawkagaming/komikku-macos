@@ -55,6 +55,24 @@ def check_cmdline_tool(cmd):
         return p.returncode == 0, out.decode('utf-8').strip()
 
 
+def concat_images_vertically(*args: Image):
+    """
+    Concat vertically a list of PIL images (same width)
+    """
+    h = 0
+    for img in args:
+        h += img.height
+
+    dst = Image.new('RGB', (args[0].width, h))
+
+    position = 0
+    for img in args:
+        dst.paste(img, (0, position))
+        position += img.height
+
+    return dst
+
+
 def convert_and_resize_image(buffer, width, height, keep_aspect_ratio=True, dominant_color=True, format='JPEG'):
     """Convert and resize an image (except animated GIF)
 

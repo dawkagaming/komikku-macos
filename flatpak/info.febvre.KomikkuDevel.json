@@ -35,6 +35,7 @@
         "python3-rarfile.json",
         "python3-emoji.json",
         "python3-piexif.json",
+        "python3-pypdf.json",
         {
             "name": "gnustep-make",
             "buildsystem": "simple",

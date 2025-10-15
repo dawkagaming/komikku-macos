@@ -3,6 +3,7 @@
 # Author: Valéry Febvre <vfebvre@easter-eggs.com>
 
 import datetime
+from io import BytesIO
 import logging
 import os
 import rarfile
@@ -10,11 +11,15 @@ import tarfile
 import xml.etree.ElementTree as ET
 import zipfile
 
+from pypdf import PdfReader
+
 from komikku.servers import Server
 from komikku.servers.exceptions import ArchiveError
 from komikku.servers.exceptions import ArchiveUnrarMissingError
 from komikku.servers.exceptions import ServerException
+from komikku.utils import concat_images_vertically
 from komikku.utils import get_buffer_mime_type
+from komikku.utils import get_file_mime_type
 from komikku.utils import get_data_dir
 
 IMG_EXTENSIONS = ['bmp', 'gif', 'jpg', 'jpeg', 'png', 'tiff', 'webp']
@@ -28,6 +33,8 @@ def is_archive(path):
     if rarfile.is_rarfile(path):
         return True
     if tarfile.is_tarfile(path):
+        return True
+    if get_file_mime_type(path) == 'application/pdf':
         return True
 
     return False
@@ -44,6 +51,10 @@ class Archive:
 
             elif tarfile.is_tarfile(path):
                 self.obj = CBT(path)
+
+            elif get_file_mime_type(path) == 'application/pdf':
+                self.obj = PDF(path)
+
         except Exception as e:
             logger.exception(f'Bad/corrupt archive: {path}')
             raise ArchiveError from e
@@ -185,6 +196,55 @@ class CBZ:
         except Exception as e:
             logger.info(f'{self.path}: {e}')
             raise ServerException(e) from e
+
+
+class PDF:
+    """PDF format"""
+
+    def __init__(self, path):
+        self.path = path
+        self.archive = PdfReader(self.path)
+
+    def get_namelist(self):
+        names = []
+        for page_index, page in enumerate(self.archive.pages):
+            if page.images:
+                # Page image can be split vertically into several images
+                images_keys = sorted(page.images.keys())
+                name = page.images[images_keys[0]].name
+                names.append(f'{page_index}:{",".join(images_keys)}:{name}')  # noqa: E231
+
+        return names
+
+    def get_name_buffer(self, name):
+        try:
+            page_index, images_keys, _name = name.split(':')
+            page_index = int(page_index)
+            images_keys = images_keys.split(',')
+
+        except ValueError as e:
+            logger.info(f'{self.path}: {e}')
+            return None
+
+        except Exception as e:
+            logger.info(f'{self.path}: {e}')
+            raise ServerException(e) from e
+
+        page = self.archive.get_page(page_index)
+
+        if len(images_keys) == 1:
+            buffer = page.images[images_keys[0]].data
+        else:
+            image = concat_images_vertically(*[page.images[key].image for key in images_keys])
+
+            io_buffer = BytesIO()
+            image.save(io_buffer, 'JPEG')
+            image.close()
+
+            buffer = io_buffer.getvalue()
+            io_buffer.close()
+
+        return buffer
 
 
 class Local(Server):

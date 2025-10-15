@@ -20,7 +20,7 @@
 
 * Online reading from dozens of servers
 * Offline reading of downloaded series
-* Support for locally stored series (in [CBZ or CBR](https://en.wikipedia.org/wiki/Comic_book_archive) formats)
+* Support for locally stored series (in [CBZ/CBR/CBT](https://en.wikipedia.org/wiki/Comic_book_archive) or PDF formats)
 * RTL, LTR, Vertical and Webtoon reading modes
 * Several types of navigation:
   * Keyboard arrow keys

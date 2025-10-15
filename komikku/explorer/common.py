@@ -220,7 +220,7 @@ class ExplorerServerRow(Gtk.ListBoxRow):
             subtitle = LANGUAGES[data['lang']]
         else:
             title = _('Local')
-            subtitle = _('Comics stored locally as archives in CBZ/CBR formats')
+            subtitle = _('Comics stored locally as archives in CBZ/CBR/CBT or PDF formats')
 
         label = Gtk.Label(xalign=0, hexpand=True)
         label.set_ellipsize(Pango.EllipsizeMode.END)
