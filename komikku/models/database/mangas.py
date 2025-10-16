@@ -13,7 +13,7 @@ from pathlib import Path
 import shutil
 import time
 
-from modern_colorthief import get_palette
+from colorthief import ColorThief
 from PIL import Image
 from PIL import ImageFilter
 from PIL import ImageStat
@@ -139,7 +139,7 @@ class Manga:
                 if '@define-color' not in data:
                     return data
 
-        palette = get_palette(cover_path, color_count=2)
+        palette = ColorThief(cover_path).get_palette(color_count=2, quality=1)[:2]
         if len(palette) != 2:
             # Single color image?
             return None
