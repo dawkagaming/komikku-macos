@@ -586,7 +586,7 @@ class InfoBox:
                     _(manga.STATUSES[manga.status]) if manga.status else _('Unknown status'),
                     manga.server.get_manga_url(manga.slug, manga.url),
                     html_escape(manga.server.name),
-                    manga.server.lang.upper()
+                    manga.server.lang.upper() if manga.server.lang else '??'
                 )
             )
         else:

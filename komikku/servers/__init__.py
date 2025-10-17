@@ -340,6 +340,32 @@ class Server(BaseServer, ABC):
         return NotImplemented
 
 
+class ServerDummy(Server):
+    """
+    Used as fallback in case the server for a comic in the library has been deleted
+    """
+
+    def __init__(self, id):
+        self.id = id
+        self.name = id
+        self.lang = None
+
+    def get_manga_data(self, initial_data):
+        return None
+
+    def get_manga_chapter_data(self, manga_slug, manga_name, chapter_slug, chapter_url):
+        return None
+
+    def get_manga_chapter_page_image(self, manga_slug, manga_name, chapter_slug, page):
+        return None
+
+    def get_manga_url(self, slug, url):
+        return None
+
+    def search(self, term=None):
+        return None
+
+
 def init_servers_modules(use_external_servers_modules, reload_modules=False):
     # Add a first Finder with HIGH priority
     server_finder = ServerFinder(priority=ServerFinderPriority.HIGH)

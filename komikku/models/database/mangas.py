@@ -24,6 +24,7 @@ from komikku.models.database import create_db_connection
 from komikku.models.database import insert_row
 from komikku.models.database import update_row
 from komikku.models.database import update_rows
+from komikku.servers import ServerDummy
 from komikku.servers.utils import get_server_class_name_by_id
 from komikku.servers.utils import get_server_dir_name_by_id
 from komikku.servers.utils import get_server_module_name_by_id
@@ -324,8 +325,11 @@ class Manga:
     @property
     def server(self):
         if self._server is None:
-            module = importlib.import_module('.' + self.module_name, package='komikku.servers')
-            self._server = getattr(module, self.class_name)()
+            try:
+                module = importlib.import_module('.' + self.module_name, package='komikku.servers')
+                self._server = getattr(module, self.class_name)()
+            except Exception:
+                self._server = ServerDummy(self.server_id)
 
         return self._server
 
