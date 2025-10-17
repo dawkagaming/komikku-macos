@@ -342,7 +342,7 @@ class Server(BaseServer, ABC):
 
 class ServerDummy(Server):
     """
-    Used as fallback in case the server for a comic in the library has been deleted
+    Used as fallback in case the server for a comic in the library has been removed
     """
 
     def __init__(self, id):

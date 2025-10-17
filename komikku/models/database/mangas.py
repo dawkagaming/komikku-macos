@@ -329,6 +329,7 @@ class Manga:
                 module = importlib.import_module('.' + self.module_name, package='komikku.servers')
                 self._server = getattr(module, self.class_name)()
             except Exception:
+                logger.info('Failed to import server: %s', self.class_name)
                 self._server = ServerDummy(self.server_id)
 
         return self._server
