@@ -247,11 +247,11 @@ class TrackerRow(Adw.ExpanderRow):
             manga.update({'tracking': manga.tracking})
             self.init()
 
-        self.window.confirm(
+        self.window.open_dialog(
             _('Delete?'),
-            _('Are you sure you want to cancel tracking?'),
-            _('Delete'),
-            confirm_callback,
+            body=_('Are you sure you want to cancel tracking?'),
+            confirm_label=_('Delete'),
+            confirm_callback=confirm_callback,
             confirm_appearance=Adw.ResponseAppearance.DESTRUCTIVE
         )
 

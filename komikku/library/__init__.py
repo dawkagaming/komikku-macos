@@ -374,11 +374,11 @@ class LibraryPage(Adw.NavigationPage):
             message = _('Are you sure you want to delete this manga?')
         else:
             message = _('Are you sure you want to delete selected mangas?')
-        self.window.confirm(
+        self.window.open_dialog(
             _('Delete?'),
-            message,
-            _('Delete'),
-            confirm_callback,
+            body=message,
+            confirm_label=_('Delete'),
+            confirm_callback=confirm_callback,
             confirm_appearance=Adw.ResponseAppearance.DESTRUCTIVE
         )
 
@@ -398,11 +398,11 @@ class LibraryPage(Adw.NavigationPage):
             self.window.downloader.start()
 
         message = _('Are you sure you want to download all chapters of selected mangas?')
-        self.window.confirm(
+        self.window.open_dialog(
             _('Download?'),
-            message,
-            _('Download'),
-            confirm_callback,
+            body=message,
+            confirm_label=_('Download'),
+            confirm_callback=confirm_callback,
             confirm_appearance=Adw.ResponseAppearance.SUGGESTED
         )
 

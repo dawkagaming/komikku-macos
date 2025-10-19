@@ -305,16 +305,16 @@ class ApplicationWindow(Adw.ApplicationWindow):
 
         GLib.idle_add(self.library.populate)
 
-    def confirm(self, title, message, confirm_label, confirm_callback, confirm_appearance=None, cancel_label=None, cancel_callback=None):
+    def open_dialog(self, heading, body=None, child=None, confirm_label=None, confirm_callback=None, confirm_appearance=None, cancel_label=None, cancel_callback=None):
         def on_response(dialog, response_id):
             if response_id == 'yes':
                 confirm_callback()
             elif response_id == 'cancel' and cancel_callback is not None:
                 cancel_callback()
 
-        dialog = Adw.AlertDialog.new(title)
+        dialog = Adw.AlertDialog.new(heading, body)
         dialog.set_body_use_markup(True)
-        dialog.set_body(message)
+        dialog.set_extra_child(child)
 
         dialog.add_response('cancel', cancel_label or _('Cancel'))
         if confirm_label is not None:
@@ -397,11 +397,9 @@ class ApplicationWindow(Adw.ApplicationWindow):
                 if status == 'unchanged':
                     self.application.logger.info('No servers modules updates')
                 elif status == 'forbidden':
-                    self.confirm(
+                    self.open_dialog(
                         _('External Servers Modules Update'),
-                        _('Updating of external server modules is temporarily suspended, as changes are currently making them incompatible with the current version of the application. Please update it if a more recent version exists.'),
-                        None,
-                        None,
+                        body=_('Updating of external server modules is temporarily suspended, as changes are currently making them incompatible with the current version of the application. Please update it if a more recent version exists.'),
                         cancel_label=_('Close'),
                     )
                     self.application.logger.info('Failed to updates servers modules: incompatible app version')
@@ -543,11 +541,11 @@ available in your region/language."""))
                 message.append(_('Some mangas are currently being updated.'))
 
             if not force:
-                self.confirm(
+                self.open_dialog(
                     _('Quit?'),
-                    '\n'.join(message),
-                    _('Quit'),
-                    confirm_callback
+                    body='\n'.join(message),
+                    confirm_label=_('Quit'),
+                    confirm_callback=confirm_callback
                 )
             else:
                 confirm_callback()
@@ -560,7 +558,12 @@ available in your region/language."""))
         def confirm_callback():
             os.execv(sys.argv[0], sys.argv)
 
-        self.confirm(_('Restart?'), message, _('Restart'), confirm_callback)
+        self.open_dialog(
+            _('Restart?'),
+            body=message,
+            confirm_label=_('Restart'),
+            confirm_callback=confirm_callback
+        )
 
     def save_window_size(self):
         if self.is_fullscreen():

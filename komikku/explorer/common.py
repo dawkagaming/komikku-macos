@@ -265,7 +265,14 @@ Each comic must have its own folder which must contain the chapters/volumes as a
 The folder's name will be used as name for the comic.
 
 NOTE: The 'unrar' or 'unar' command-line tool is required for CBR archives.""")
-            button.connect('clicked', lambda x: self.page.window.confirm(_('Local Folder'), message, None, None, cancel_label=_('Close')))
+            button.connect(
+                'clicked',
+                lambda x: self.page.window.open_dialog(
+                    _('Local Folder'),
+                    body=message,
+                    cancel_label=_('Close')
+                )
+            )
             self.box.append(button)
 
             # Button to open local folder

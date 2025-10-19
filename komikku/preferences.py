@@ -143,11 +143,11 @@ class PreferencesDialog(Adw.PreferencesDialog):
             if self.window.previous_page == 'history':
                 self.window.history.populate()
 
-        self.window.confirm(
+        self.window.open_dialog(
             _('Clear?'),
-            _('Are you sure you want to clear chapters cache and database?'),
-            _('Clear'),
-            confirm_callback,
+            body=_('Are you sure you want to clear chapters cache and database?'),
+            confirm_label=_('Clear'),
+            confirm_callback=confirm_callback,
             confirm_appearance=Adw.ResponseAppearance.DESTRUCTIVE
         )
 
@@ -161,11 +161,11 @@ class PreferencesDialog(Adw.PreferencesDialog):
             self.window.webview.clear_data()
             self.update_webview_data_size()
 
-        self.window.confirm(
+        self.window.open_dialog(
             _('Clear?'),
-            _('Are you sure you want to clear WebView data (cache, storage, cookies)?'),
-            _('Clear'),
-            confirm_callback,
+            body=_('Are you sure you want to clear WebView data (cache, storage, cookies)?'),
+            confirm_label=_('Clear'),
+            confirm_callback=confirm_callback,
             confirm_appearance=Adw.ResponseAppearance.DESTRUCTIVE
         )
 
@@ -187,11 +187,12 @@ class PreferencesDialog(Adw.PreferencesDialog):
             Gtk.Settings.get_default().set_property('gtk-enable-animations', False)
 
         if switch_button.get_active():
-            self.window.confirm(
+            self.window.open_dialog(
                 _('Disable animations?'),
-                _('Are you sure you want to disable animations?\n\nThe gesture navigation in the reader will not work properly anymore.'),
-                _('Disable'),
-                on_confirm,
+                body=_('Are you sure you want to disable animations?\n\nThe gesture navigation in the reader will not work properly anymore.'),
+                confirm_label=_('Disable'),
+                confirm_callback=on_confirm,
+                confirm_appearance=Adw.ResponseAppearance.DESTRUCTIVE,
                 cancel_callback=on_cancel
             )
         elif self.settings.disable_animations:
@@ -817,7 +818,9 @@ class TrackerRow(Adw.ActionRow):
             thread.daemon = True
             thread.start()
         else:
-            self.window.confirm(
-                _('Disconnect from {}').format(self.tracker.name), '', _('Disconnect'), disconnect,
+            self.window.open_dialog(
+                _('Disconnect from {}').format(self.tracker.name),
+                confirm_label=_('Disconnect'),
+                confirm_callback=disconnect,
                 confirm_appearance=Adw.ResponseAppearance.DESTRUCTIVE
             )

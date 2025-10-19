@@ -24,9 +24,14 @@ logger = logging.getLogger(__name__)
 
 
 class Tracker(BaseServer, ABC):
+    id: str
+    name: str
+    base_url: str
+
     authorize_url: str = None
     app_redirect_url: str = 'https://komikku.info/'
     manga_url: str = None
+    logo_url: str = None
 
     headers_images = {}
 

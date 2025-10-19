@@ -74,11 +74,11 @@ class CategoriesEditorPage(Adw.NavigationPage):
 
             self.window.library.categories_list.populate()
 
-        self.window.confirm(
+        self.window.open_dialog(
             _('Delete?'),
-            _('Are you sure you want to delete\n"{0}" category?').format(row.category.label),
-            _('Delete'),
-            confirm_callback,
+            body=_('Are you sure you want to delete\n"{0}" category?').format(row.category.label),
+            confirm_label=_('Delete'),
+            confirm_callback=confirm_callback,
             confirm_appearance=Adw.ResponseAppearance.DESTRUCTIVE
         )
 
