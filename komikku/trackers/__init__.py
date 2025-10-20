@@ -18,6 +18,7 @@ from komikku.models import Manga
 from komikku.models import Settings
 from komikku.utils import BaseServer
 from komikku.utils import get_cached_logos_dir
+from komikku.utils import log_error_traceback
 from komikku.trackers.utils import get_trackers_list
 
 logger = logging.getLogger(__name__)
@@ -166,8 +167,9 @@ class Trackers(GObject.GObject):
                             'chapters_progress': data['chapters_progress'],
                             'status': data['status'],
                         })
-                    except Exception:
+                    except Exception as e:
                         res = False
+                        log_error_traceback(e)
                         logging.warning(f'Failed to sync tracker {id}: ID={data["id"]} name={data["name"]}')
 
                     if res:

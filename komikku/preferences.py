@@ -9,6 +9,7 @@ from gi.repository import Adw
 from gi.repository import GLib
 from gi.repository import Gtk
 
+from komikku.consts import LOGO_SIZE
 from komikku.models import Settings
 from komikku.models.database import clear_cached_data
 from komikku.models.keyring import KeyringHelper
@@ -772,9 +773,13 @@ class TrackerRow(Adw.ActionRow):
 
         super().__init__(title=self.tracker.name, activatable=False)
 
-        logo = Gtk.Picture.new_for_filename(self.tracker.logo_path)
-        logo.props.margin_top = 9
-        logo.props.margin_bottom = 9
+        if self.tracker.logo_path:
+            logo = Gtk.Image()
+            logo.set_pixel_size(LOGO_SIZE)
+            logo.set_from_file(self.tracker.logo_path)
+        else:
+            logo = Adw.Avatar.new(LOGO_SIZE, self.tracker.name, True)
+
         self.add_prefix(logo)
 
         self.btn = Gtk.Button(valign=Gtk.Align.CENTER)
@@ -789,7 +794,35 @@ class TrackerRow(Adw.ActionRow):
         self.add_suffix(self.btn)
 
     def on_btn_clicked(self, _btn):
-        def connect():
+        username_entry = None
+        password_entry = None
+
+        def open_dialog():
+            nonlocal username_entry
+            nonlocal password_entry
+
+            group = Adw.PreferencesGroup()
+
+            username_entry = Adw.EntryRow(title=_('Username'))
+            username_entry.add_prefix(Gtk.Image.new_from_icon_name('avatar-default-symbolic'))
+            group.add(username_entry)
+
+            password_entry = Adw.PasswordEntryRow(title=_('Password'))
+            password_entry.add_prefix(Gtk.Image.new_from_icon_name('dialog-password-symbolic'))
+            group.add(password_entry)
+
+            self.window.open_dialog(
+                self.tracker.name,
+                child=group,
+                confirm_label=_('Connect'),
+                confirm_callback=connect_dialog
+            )
+
+        def connect_dialog():
+            success, error = self.tracker.get_access_token(username_entry.get_text(), password_entry.get_text())
+            GLib.idle_add(connect_finish, success, error)
+
+        def connect_webview():
             success, error = self.tracker.get_access_token()
             GLib.idle_add(connect_finish, success, error)
 
@@ -814,7 +847,12 @@ class TrackerRow(Adw.ActionRow):
             self.btn.set_label(_('Connect'))
 
         if not self.active:
-            thread = threading.Thread(target=connect)
+            if self.tracker.authorize_url:
+                target = connect_webview
+            else:
+                target = open_dialog
+
+            thread = threading.Thread(target=target)
             thread.daemon = True
             thread.start()
         else:

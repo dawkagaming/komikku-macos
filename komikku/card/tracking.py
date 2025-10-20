@@ -21,6 +21,7 @@ from komikku.consts import MISSING_IMG_RESOURCE_PATH
 from komikku.utils import convert_and_resize_image
 from komikku.utils import CoverPicture
 from komikku.utils import html_escape
+from komikku.utils import log_error_traceback
 
 THUMB_WIDTH = 96
 THUMB_HEIGHT = 136
@@ -149,7 +150,8 @@ class TracherResultRow(Gtk.ListBoxRow):
         if data.get('start_date'):
             details.append(data['start_date'])
 
-        details.append(data['status'])
+        if data.get('status'):
+            details.append(data['status'])
 
         if data.get('score'):
             details.append(f'{data["score"]}/10')
@@ -279,7 +281,8 @@ class TrackerRow(Adw.ExpanderRow):
             try:
                 id = self.window.card.manga.tracking[self.tracker.id]['id']
                 data = self.tracker.get_manga_data(id)
-            except Exception:
+            except Exception as e:
+                log_error_traceback(e)
                 data = None
 
             if data is None:
@@ -296,7 +299,12 @@ class TrackerRow(Adw.ExpanderRow):
             self.set_expanded(True)
             self.set_arrow_visible(True)
             self.btn.set_visible(False)
-            self.action_row.set_title(f'<a href="{self.tracker.get_manga_url(data['id'])}">{html_escape(data["name"])}</a>')
+
+            if data.get('url'):
+                tracker_manga_url = data['url']
+            else:
+                tracker_manga_url = self.tracker.get_manga_url(data['id'])
+            self.action_row.set_title(f'<a href="{tracker_manga_url}">{html_escape(data["name"])}</a>')
 
             with self.chapters_progress_row.handler_block(self.num_chapter_changed_handler_id):
                 adj = Gtk.Adjustment(
@@ -478,7 +486,8 @@ class TrackingSearchSubPage(Adw.NavigationPage):
         def run(term):
             try:
                 results = self.tracker.search(term)
-            except Exception:
+            except Exception as e:
+                log_error_traceback(e)
                 results = None
 
             GLib.idle_add(complete, results)

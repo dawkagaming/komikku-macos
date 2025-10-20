@@ -52,6 +52,7 @@ class Myanimelist(Tracker):
         'plan_to_read': 'plan_to_read',
         'rereading': 'rereading',  # Do not exists
     }
+
     USER_SCORE_FORMAT = {
         'min': 0,
         'max': 10,

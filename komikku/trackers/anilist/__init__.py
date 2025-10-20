@@ -46,6 +46,7 @@ class Anilist(Tracker):
         'PLANNING': 'plan_to_read',
         'REPEATING': 'rereading',
     }
+
     USER_SCORES_FORMATS = {
         'POINT_100': {
             'min': 0,

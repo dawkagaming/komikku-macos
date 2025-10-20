@@ -15,7 +15,7 @@ template $PreferencesDialog : Adw.PreferencesDialog {
     icon-name: "emblem-system-symbolic";
 
     Adw.PreferencesGroup {
-      title: 'Appearance';
+      title: _("Appearance");
       Adw.ComboRow color_scheme_row {
         title: _("Theme");
         model: StringList {
@@ -60,7 +60,7 @@ template $PreferencesDialog : Adw.PreferencesDialog {
     }
 
     Adw.PreferencesGroup tracking_group {
-      title: 'Tracking';
+      title: _("Tracking");
 
       Adw.SwitchRow tracking_switch {
         title: _("Synchronize reading progress");
