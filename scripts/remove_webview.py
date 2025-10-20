@@ -26,6 +26,7 @@ files_to_delete = [
 ]
 files_to_clean = [
     'komikku/application.py',
+    'komikku/debug_info.py',
     'data/info.febvre.Komikku.gresource.xml.in',
     'data/meson.build',
 ]
@@ -107,7 +108,7 @@ def main():
 
     for path_ in files_to_clean:
         print('Clean file', path_)
-        remove_lines_by_keywords(path_, ['webview'])
+        remove_lines_by_keywords(path_, ['webview', 'WebKit'])
 
     for path_ in multi_servers_to_clean:
         print('Clean file', path_)
