@@ -9,10 +9,10 @@ msgstr ""
 "Project-Id-Version: unnamed project\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-10-21 22:45+0200\n"
-"PO-Revision-Date: 2025-09-17 21:42+0000\n"
+"PO-Revision-Date: 2025-10-21 21:32+0000\n"
 "Last-Translator: Valéry Febvre <vfebvre@easter-eggs.com>\n"
-"Language-Team: French <https://hosted.weblate.org/projects/komikku/main/fr/"
-">\n"
+"Language-Team: French <https://hosted.weblate.org/projects/komikku/main/fr/>"
+"\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -55,6 +55,7 @@ msgstr "Lecture en ligne ou hors ligne depuis des dizaines de serveurs"
 #: ../data/info.febvre.Komikku.metainfo.xml.in.in:18
 msgid "Support for locally stored series (in CBZ/CBR/CBT or PDF formats)"
 msgstr ""
+"Support pour les séries stockées localement (en formats CBZ/CBR/CBT ou PDF)"
 
 #: ../data/info.febvre.Komikku.metainfo.xml.in.in:19
 msgid "RTL, LTR, Vertical and Webtoon reading modes"
@@ -385,7 +386,7 @@ msgstr "Général"
 
 #: ../data/ui/preferences.blp:18
 msgid "Appearance"
-msgstr ""
+msgstr "Apparence"
 
 #: ../data/ui/preferences.blp:20
 msgid "Theme"
@@ -730,11 +731,11 @@ msgstr "Effacer le cache des chapitres et la base de données à la fermeture"
 
 #: ../data/ui/preferences.blp:349
 msgid "WebView"
-msgstr ""
+msgstr "WebView"
 
 #: ../data/ui/preferences.blp:352
 msgid "Clear Data"
-msgstr ""
+msgstr "Effacer les données"
 
 #: ../data/ui/preferences.blp:368
 msgid "Servers Modules"
@@ -1248,7 +1249,7 @@ msgstr "Dernier volume : {}"
 
 #: ../komikku/explorer/common.py:223
 msgid "Comics stored locally as archives in CBZ/CBR/CBT or PDF formats"
-msgstr ""
+msgstr "BDs stockées localement aux formats CBZ/CBR/CBT ou PDF"
 
 #: ../komikku/explorer/common.py:240 ../komikku/preferences.py:633
 #: ../komikku/preferences.py:730 ../komikku/servers/mangatube/__init__.py:150
@@ -1504,6 +1505,8 @@ msgstr ""
 #: ../komikku/preferences.py:167
 msgid "Are you sure you want to clear WebView data (cache, storage, cookies)?"
 msgstr ""
+"Êtes-vous sûr de vouloir effacer les données de la WebView "
+"(cache, stockage, cookies) ?"
 
 #: ../komikku/preferences.py:192
 msgid "Disable animations?"
