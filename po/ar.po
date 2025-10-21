@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Komikku 1.18.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-09-17 11:15+0200\n"
+"POT-Creation-Date: 2025-10-21 22:45+0200\n"
 "PO-Revision-Date: 2025-08-30 17:01+0000\n"
 "Last-Translator: Ahmed Najmawi <iramosu@protonmail.com>\n"
 "Language-Team: Arabic <https://hosted.weblate.org/projects/komikku/main/ar/"
@@ -59,8 +59,8 @@ msgid "Online and offline reading from dozens of servers"
 msgstr "القراءة عبر الإنترنت أو دونه من عشرات الخوادم"
 
 #: ../data/info.febvre.Komikku.metainfo.xml.in.in:18
-msgid "Support for locally stored series (in CBZ or CBR formats)"
-msgstr "دعم سلاسلك المخزَّنة محليًّا (بنسق CBZ أو CBR)"
+msgid "Support for locally stored series (in CBZ/CBR/CBT or PDF formats)"
+msgstr ""
 
 #: ../data/info.febvre.Komikku.metainfo.xml.in.in:19
 msgid "RTL, LTR, Vertical and Webtoon reading modes"
@@ -140,7 +140,11 @@ msgstr "صفحة محرِّر التصنيفات بنسق المحمول"
 msgid "The Reading history page in mobile format"
 msgstr "صفحة تأريخ القراءة بنسق المحمول"
 
-#: ../data/ui/card.blp:47 ../data/ui/card.blp:411
+#: ../data/ui/application_window.blp:54 ../data/ui/preferences.blp:320
+msgid "Got it!"
+msgstr "فهمت!"
+
+#: ../data/ui/card.blp:47 ../data/ui/card.blp:412
 #: ../data/ui/card_chapters_list_row.blp:48 ../data/ui/download_manager.blp:26
 #: ../data/ui/library.blp:146 ../data/ui/reader.blp:37
 msgid "Menu"
@@ -150,27 +154,27 @@ msgstr "قائمة"
 msgid "Info"
 msgstr "معلومات"
 
-#: ../data/ui/card.blp:148
+#: ../data/ui/card.blp:149
 msgid "Add to Library"
 msgstr "أضِف إلى المكتبة"
 
-#: ../data/ui/card.blp:208
+#: ../data/ui/card.blp:209
 msgid "Scanlators"
 msgstr "فِرق المسح والترجمة"
 
-#: ../data/ui/card.blp:267
+#: ../data/ui/card.blp:268
 msgid "Last Update"
 msgstr "آخر تحديث"
 
-#: ../data/ui/card.blp:298
+#: ../data/ui/card.blp:299
 msgid "Size on Disk"
 msgstr "الحجم على القرص"
 
-#: ../data/ui/card.blp:323
+#: ../data/ui/card.blp:324
 msgid "Synopsis"
 msgstr "نبذة"
 
-#: ../data/ui/card.blp:448 ../data/ui/categories_editor.blp:67
+#: ../data/ui/card.blp:449 ../data/ui/categories_editor.blp:67
 #: ../data/ui/library.blp:249
 msgid "No Categories"
 msgstr "لا توجد تصنيفات"
@@ -179,7 +183,7 @@ msgstr "لا توجد تصنيفات"
 msgid "New"
 msgstr "جديد"
 
-#: ../data/ui/card_tracking.blp:9
+#: ../data/ui/card_tracking.blp:9 ../data/ui/preferences.blp:63
 msgid "Tracking"
 msgstr "التتبُّع"
 
@@ -382,6 +386,10 @@ msgstr "التفضيلات"
 #: ../data/ui/preferences.blp:14
 msgid "General"
 msgstr "عام"
+
+#: ../data/ui/preferences.blp:18
+msgid "Appearance"
+msgstr ""
 
 #: ../data/ui/preferences.blp:20
 msgid "Theme"
@@ -698,10 +706,6 @@ msgstr "متقدم"
 msgid "A setting has changed that requires a restart to take effect"
 msgstr "لقد تغيَّر أحد الإعدادات ويتطلَّب إعادة التشغيل لتطبيقه"
 
-#: ../data/ui/preferences.blp:320
-msgid "Got it!"
-msgstr "فهمت!"
-
 #: ../data/ui/preferences.blp:325
 msgid "Data"
 msgstr "البيانات"
@@ -714,19 +718,27 @@ msgstr "البيانات غير المحفوظة في المكتبة"
 msgid "Clear Chapters Cache and Database"
 msgstr "امحُ اختزان الفصول وقاعدة البيانات"
 
-#: ../data/ui/preferences.blp:334
+#: ../data/ui/preferences.blp:344
 msgid "Clear Chapters Cache and Database on Exit"
 msgstr "امحُ اختزان الفصول وقاعدة البيانات عند الخروج"
 
-#: ../data/ui/preferences.blp:339
+#: ../data/ui/preferences.blp:349
+msgid "WebView"
+msgstr ""
+
+#: ../data/ui/preferences.blp:352
+msgid "Clear Data"
+msgstr ""
+
+#: ../data/ui/preferences.blp:368
 msgid "Servers Modules"
 msgstr "وحدات الخوادم"
 
-#: ../data/ui/preferences.blp:342
+#: ../data/ui/preferences.blp:371
 msgid "Use Up-to-date Servers Modules"
 msgstr "استخدم أحدث وحدات الخوادم"
 
-#: ../data/ui/preferences.blp:343
+#: ../data/ui/preferences.blp:372
 msgid ""
 "An alternative version of the servers modules, installed from the source "
 "code repository and updated at each startup, is used instead of the one "
@@ -735,27 +747,27 @@ msgstr ""
 "تُستخدَم نسخة بديلة من وحدات الخوادم، منصَّبة من مستودع المصدر البرمجي ومحدَّثة "
 "عند كل بدء، بدلًا من تلك المضمَّنة مع التطبيق."
 
-#: ../data/ui/preferences.blp:348
+#: ../data/ui/preferences.blp:377
 msgid "Credentials Storage"
 msgstr "تخزين البيانات"
 
-#: ../data/ui/preferences.blp:351
+#: ../data/ui/preferences.blp:380
 msgid "Allow Plaintext Storage as Fallback"
 msgstr "اسمح بالتخزين كنص صريح كحل بديل"
 
-#: ../data/ui/preferences.blp:352
+#: ../data/ui/preferences.blp:381
 msgid "Used when no keyring backends are found"
 msgstr "يُستخدَم عند عدم العثور على أي خلفية لسلسلة المفاتيح"
 
-#: ../data/ui/preferences.blp:357
+#: ../data/ui/preferences.blp:386
 msgid "Tweaks"
 msgstr "التطويعات"
 
-#: ../data/ui/preferences.blp:360
+#: ../data/ui/preferences.blp:389
 msgid "Disable Animations"
 msgstr "عطِّل التحريكات"
 
-#: ../data/ui/preferences.blp:361
+#: ../data/ui/preferences.blp:390
 msgid ""
 "Useful with E Ink e-readers to avoid very choppy and unpleasant animations "
 "(due to the low refresh rate of the screen)"
@@ -763,7 +775,7 @@ msgstr ""
 "مفيد مع قارئات الحبر الإلكتروني لتجنب التحريكات المتقطِّعة والمزعجة جدًا (بسبب "
 "معدَّل التحديث المنخفض للشاشة)"
 
-#: ../data/ui/preferences.blp:365
+#: ../data/ui/preferences.blp:394
 msgid ""
 "This tweak is only intended for users who do not use the GNOME desktop "
 "environment and therefore cannot disable animations globally via GNOME "
@@ -925,22 +937,22 @@ msgstr "المسارات المتعدِّدة غير مدعومة"
 msgid "Invalid URL {}, not handled by any server."
 msgstr "المسار ‏{‏} غير صالح، ولا يعالجه أي خادوم."
 
-#: ../komikku/application.py:316 ../komikku/card/__init__.py:160
+#: ../komikku/application.py:319 ../komikku/card/__init__.py:160
 #: ../komikku/card/__init__.py:161 ../komikku/categories_editor.py:189
 #: ../komikku/downloader.py:377 ../komikku/downloader.py:378
 #: ../komikku/library/__init__.py:777 ../komikku/library/__init__.py:778
 msgid "Cancel"
 msgstr "ألغِ"
 
-#: ../komikku/application.py:391
+#: ../komikku/application.py:394
 msgid "Servers modules have been updated"
 msgstr "حُدِّثت وحدات الخوادم"
 
-#: ../komikku/application.py:398
+#: ../komikku/application.py:401
 msgid "External Servers Modules Update"
 msgstr "تحديث وحدات الخوادم الخارجية"
 
-#: ../komikku/application.py:399
+#: ../komikku/application.py:402
 msgid ""
 "Updating of external server modules is temporarily suspended, as changes are "
 "currently making them incompatible with the current version of the "
@@ -949,11 +961,11 @@ msgstr ""
 "تحديث وحدات الخوادم الخارجيَّة معلَّق مؤقتًا، إذ أن التغييرات الحالية تجعلها غير "
 "متوافقة مع النسخة الحالية من التطبيق. حدِّثه إذا وُجدت نسخة أحدث."
 
-#: ../komikku/application.py:402 ../komikku/explorer/common.py:268
+#: ../komikku/application.py:403 ../komikku/explorer/common.py:273
 msgid "Close"
 msgstr "أغلق"
 
-#: ../komikku/application.py:417
+#: ../komikku/application.py:418
 msgid ""
 "A manga, webtoons and comics reader\n"
 "\n"
@@ -967,41 +979,41 @@ msgstr ""
 "القصص المصورة رسميًا حيثما\n"
 "توفرت في منطقتك أو بلغتك."
 
-#: ../komikku/application.py:426
+#: ../komikku/application.py:427
 msgid "Supporters"
 msgstr "الداعمون"
 
-#: ../komikku/application.py:428
+#: ../komikku/application.py:429
 msgid "Join Chat"
 msgstr "انضم إلى المحادثة"
 
-#: ../komikku/application.py:529
+#: ../komikku/application.py:536
 msgid "Are you sure you want to quit?"
 msgstr "أمتأكِّد من أنك تريد الخروج؟"
 
-#: ../komikku/application.py:532
+#: ../komikku/application.py:539
 msgid "Some chapters are currently being downloaded."
 msgstr "تُنزَّل بعض الفصول حاليًا."
 
-#: ../komikku/application.py:534
+#: ../komikku/application.py:541
 msgid "Some mangas are currently being updated."
 msgstr "تُحدَّث بعض المانجا حاليًا."
 
-#: ../komikku/application.py:538
+#: ../komikku/application.py:545
 msgid "Quit?"
 msgstr "أأخرُج؟"
 
-#: ../komikku/application.py:540
+#: ../komikku/application.py:547
 msgid "Quit"
 msgstr "اخرُج"
 
-#: ../komikku/application.py:554
-msgid "Restart"
-msgstr "أعِد التشغيل"
-
-#: ../komikku/application.py:554
+#: ../komikku/application.py:562
 msgid "Restart?"
 msgstr "أأعيد التشغيل؟"
+
+#: ../komikku/application.py:564
+msgid "Restart"
+msgstr "أعِد التشغيل"
 
 #: ../komikku/card/__init__.py:112 ../komikku/card/__init__.py:241
 #: ../komikku/explorer/search/__init__.py:75
@@ -1081,7 +1093,8 @@ msgstr "تعذَّر تحديث حالة قراءة الفصول"
 msgid "Download"
 msgstr "نزِّل"
 
-#: ../komikku/card/chapters_list.py:724 ../komikku/preferences.py:145
+#: ../komikku/card/chapters_list.py:724 ../komikku/preferences.py:150
+#: ../komikku/preferences.py:168
 msgid "Clear"
 msgstr "امحُ"
 
@@ -1097,72 +1110,72 @@ msgstr "علِّم كغير مقروء"
 msgid "Mark Previous Chapters as Read"
 msgstr "علِّم الفصول السابقة كمقروءة"
 
-#: ../komikku/card/tracking.py:71
+#: ../komikku/card/tracking.py:72
 msgid "Failed to get data from tracker"
 msgstr "تعذَّر جلب البيانات من المتتبِّع"
 
-#: ../komikku/card/tracking.py:99
+#: ../komikku/card/tracking.py:100
 msgid "No tracking services available"
 msgstr "لا توجد خدمات تتبُّع متاحة"
 
-#: ../komikku/card/tracking.py:185
+#: ../komikku/card/tracking.py:187
 msgid "Track"
 msgstr "تتبَّع"
 
-#: ../komikku/card/tracking.py:211
+#: ../komikku/card/tracking.py:213
 msgid "Use"
 msgstr "استخدم"
 
-#: ../komikku/card/tracking.py:219
+#: ../komikku/card/tracking.py:221
 msgid "Cancel Tracking"
 msgstr "ألغِ التتبُّع"
 
-#: ../komikku/card/tracking.py:225 ../komikku/servers/comick/__init__.py:76
+#: ../komikku/card/tracking.py:227 ../komikku/servers/comick/__init__.py:77
 #: ../komikku/servers/mangadex/__init__.py:71
 #: ../komikku/servers/mangafire/__init__.py:60
 #: ../komikku/servers/mangamana/__init__.py:62
 #: ../komikku/servers/mangamana/__init__.py:63
 #: ../komikku/servers/mangaworld/__init__.py:74
-#: ../komikku/servers/raijinscan/__init__.py:33
+#: ../komikku/servers/raijinscan/__init__.py:34
 msgid "Status"
 msgstr "الحالة"
 
-#: ../komikku/card/tracking.py:234
+#: ../komikku/card/tracking.py:236
 msgid "Score"
 msgstr "النقاط"
 
-#: ../komikku/card/tracking.py:239
+#: ../komikku/card/tracking.py:241
 msgid "Chapter"
 msgstr "الفصل"
 
-#: ../komikku/card/tracking.py:251 ../komikku/categories_editor.py:78
+#: ../komikku/card/tracking.py:253 ../komikku/categories_editor.py:78
 #: ../komikku/library/__init__.py:378
 msgid "Delete?"
 msgstr "أأحذف؟"
 
-#: ../komikku/card/tracking.py:252
+#: ../komikku/card/tracking.py:254
 msgid "Are you sure you want to cancel tracking?"
 msgstr "أمتأكِّد من أنك تريد إلغاء التتبُّع؟"
 
-#: ../komikku/card/tracking.py:253 ../komikku/categories_editor.py:80
+#: ../komikku/card/tracking.py:255 ../komikku/categories_editor.py:80
 #: ../komikku/categories_editor.py:178 ../komikku/library/__init__.py:380
 msgid "Delete"
 msgstr "احذف"
 
-#: ../komikku/card/tracking.py:436 ../komikku/explorer/search/__init__.py:378
+#: ../komikku/card/tracking.py:444 ../komikku/explorer/search/__init__.py:378
 msgid "Search {}"
 msgstr "ابحث في {}"
 
-#: ../komikku/card/tracking.py:497 ../komikku/explorer/search/search.py:78
+#: ../komikku/card/tracking.py:506 ../komikku/explorer/search/search.py:78
 #: ../komikku/explorer/search/search_global.py:168
 msgid "Oops, search failed. Please try again."
 msgstr "أخفق البحث. حاول مجددًا."
 
-#: ../komikku/card/tracking.py:501 ../komikku/explorer/search/search.py:82
+#: ../komikku/card/tracking.py:510 ../komikku/explorer/search/search.py:82
 msgid "No Results Found"
 msgstr "لم يُعثر على أي نتائج"
 
-#: ../komikku/card/tracking.py:502 ../komikku/explorer/search/search.py:83
+#: ../komikku/card/tracking.py:511 ../komikku/explorer/search/search.py:83
 msgid "Try a different search"
 msgstr "جرِّب بحثًا مختلفًا"
 
@@ -1226,11 +1239,11 @@ msgid "Last Volume: {}"
 msgstr "آخر مجلَّد: {}"
 
 #: ../komikku/explorer/common.py:223
-msgid "Comics stored locally as archives in CBZ/CBR formats"
-msgstr "قصص مصوَّرة مخزَّنة محليًا كأرشيفات بنسقي CBZ أو CBR"
+msgid "Comics stored locally as archives in CBZ/CBR/CBT or PDF formats"
+msgstr ""
 
-#: ../komikku/explorer/common.py:240 ../komikku/preferences.py:604
-#: ../komikku/preferences.py:701 ../komikku/servers/mangatube/__init__.py:150
+#: ../komikku/explorer/common.py:240 ../komikku/preferences.py:633
+#: ../komikku/preferences.py:730 ../komikku/servers/mangatube/__init__.py:150
 msgid "18+"
 msgstr "+18"
 
@@ -1259,15 +1272,15 @@ msgstr ""
 "\n"
 "ملاحظة: أداة سطر الأوامر 'unrar' أو 'unar' مطلوبة لأرشيفات CBR."
 
-#: ../komikku/explorer/common.py:268
+#: ../komikku/explorer/common.py:271
 msgid "Local Folder"
 msgstr "مجلَّد محلِّي"
 
-#: ../komikku/explorer/common.py:274
+#: ../komikku/explorer/common.py:281
 msgid "Open local folder"
 msgstr "افتح المجلَّد المحلِّي"
 
-#: ../komikku/explorer/common.py:282
+#: ../komikku/explorer/common.py:289
 msgid "Toggle pinned status"
 msgstr "بدِّل حالة التثبيت"
 
@@ -1344,11 +1357,11 @@ msgstr "أُلغي البحث"
 msgid "No results"
 msgstr "لا توجد نتائج"
 
-#: ../komikku/explorer/servers.py:108 ../komikku/explorer/servers.py:169
+#: ../komikku/explorer/servers.py:109 ../komikku/explorer/servers.py:186
 msgid "Other"
 msgstr "أخرى"
 
-#: ../komikku/explorer/servers.py:206
+#: ../komikku/explorer/servers.py:223
 msgid "Pinned"
 msgstr "مثبَّتة"
 
@@ -1434,31 +1447,31 @@ msgstr "ينزِّل"
 msgid "Download error"
 msgstr "خطأ في التنزيل"
 
-#: ../komikku/models/database/mangas.py:46
+#: ../komikku/models/database/mangas.py:47
 #: ../komikku/servers/mangamana/__init__.py:68
 #: ../komikku/servers/mangaworld/__init__.py:79
 #: ../komikku/servers/weebcentral/__init__.py:53
 msgid "Complete"
 msgstr "مكتمل"
 
-#: ../komikku/models/database/mangas.py:47
-#: ../komikku/servers/comick/__init__.py:80
+#: ../komikku/models/database/mangas.py:48
+#: ../komikku/servers/comick/__init__.py:81
 #: ../komikku/servers/flamescans/__init__.py:52
 #: ../komikku/servers/mangadex/__init__.py:75
 #: ../komikku/servers/mangamana/__init__.py:67
 #: ../komikku/servers/mangaworld/__init__.py:78
-#: ../komikku/servers/raijinscan/__init__.py:37
+#: ../komikku/servers/raijinscan/__init__.py:38
 #: ../komikku/servers/weebcentral/__init__.py:52
 msgid "Ongoing"
 msgstr "مستمر"
 
-#: ../komikku/models/database/mangas.py:48
+#: ../komikku/models/database/mangas.py:49
 #: ../komikku/servers/mangamana/__init__.py:69
 #: ../komikku/servers/mangaworld/__init__.py:80
 msgid "Suspended"
 msgstr "معلَّق"
 
-#: ../komikku/models/database/mangas.py:49
+#: ../komikku/models/database/mangas.py:50
 #: ../komikku/servers/flamescans/__init__.py:54
 #: ../komikku/servers/mangafire/__init__.py:67
 #: ../komikku/servers/mangaworld/__init__.py:81
@@ -1466,19 +1479,23 @@ msgstr "معلَّق"
 msgid "Hiatus"
 msgstr "متوقِّف"
 
-#: ../komikku/preferences.py:143
+#: ../komikku/preferences.py:148 ../komikku/preferences.py:166
 msgid "Clear?"
 msgstr "أأمحُ؟"
 
-#: ../komikku/preferences.py:144
+#: ../komikku/preferences.py:149
 msgid "Are you sure you want to clear chapters cache and database?"
 msgstr "أمتأكِّد من أنك تريد محو اختزان الفصول وقاعدة البيانات؟"
 
-#: ../komikku/preferences.py:172
+#: ../komikku/preferences.py:167
+msgid "Are you sure you want to clear WebView data (cache, storage, cookies)?"
+msgstr ""
+
+#: ../komikku/preferences.py:192
 msgid "Disable animations?"
 msgstr "أأعطل التحريكات؟"
 
-#: ../komikku/preferences.py:173
+#: ../komikku/preferences.py:193
 msgid ""
 "Are you sure you want to disable animations?\n"
 "\n"
@@ -1488,31 +1505,31 @@ msgstr ""
 "\n"
 "لن يعمل التنقُّل بالإيماءات في القارئ على نحو سليم بعد الآن."
 
-#: ../komikku/preferences.py:174
+#: ../komikku/preferences.py:194
 msgid "Disable"
 msgstr "عطِّل"
 
-#: ../komikku/preferences.py:632
+#: ../komikku/preferences.py:661
 msgid "User Account"
 msgstr "حساب المستخدم"
 
-#: ../komikku/preferences.py:640
+#: ../komikku/preferences.py:669
 msgid "Address"
 msgstr "العنوان"
 
-#: ../komikku/preferences.py:646
+#: ../komikku/preferences.py:675 ../komikku/preferences.py:806
 msgid "Username"
 msgstr "اسم المستخدم"
 
-#: ../komikku/preferences.py:650
+#: ../komikku/preferences.py:679 ../komikku/preferences.py:810
 msgid "Password"
 msgstr "كلمة السر"
 
-#: ../komikku/preferences.py:662
+#: ../komikku/preferences.py:691
 msgid "System keyring service is disabled. Credential cannot be saved."
 msgstr "خدمة سلسلة مفاتيح النظام معطَّلة. لا يمكن حفظ بيانات الاعتماد."
 
-#: ../komikku/preferences.py:667
+#: ../komikku/preferences.py:696
 msgid ""
 "No keyring backends were found to store credential. Use plaintext storage as "
 "fallback."
@@ -1520,7 +1537,7 @@ msgstr ""
 "لم يُعثر على أية خلفيات لسلسلة المفاتيح لتخزين بيانات الاعتماد. استخدم "
 "التخزين كنص صريح كحل بديل."
 
-#: ../komikku/preferences.py:672
+#: ../komikku/preferences.py:701
 msgid ""
 "No keyring backends were found to store credential. Plaintext storage will "
 "be used as fallback."
@@ -1528,28 +1545,29 @@ msgstr ""
 "لم يُعثر على أية خلفيات لسلسلة المفاتيح لتخزين بيانات الاعتماد. سيُستخدَم "
 "التخزين كنص صريح كحل بديل."
 
-#: ../komikku/preferences.py:680
+#: ../komikku/preferences.py:709
 msgid "Test"
 msgstr "اختبر"
 
-#: ../komikku/preferences.py:756 ../komikku/preferences.py:771
-#: ../komikku/preferences.py:794
+#: ../komikku/preferences.py:789 ../komikku/preferences.py:832
+#: ../komikku/preferences.py:861
 msgid "Disconnect"
 msgstr "اقطع الاتصال"
 
-#: ../komikku/preferences.py:759 ../komikku/preferences.py:786
+#: ../komikku/preferences.py:792 ../komikku/preferences.py:817
+#: ../komikku/preferences.py:847
 msgid "Connect"
 msgstr "اتَّصل"
 
-#: ../komikku/preferences.py:774
+#: ../komikku/preferences.py:835
 msgid "Failed to request client access"
 msgstr "تعذَّر طلب وصول العميل"
 
-#: ../komikku/preferences.py:777
+#: ../komikku/preferences.py:838
 msgid "Webview is currently in used. Please retry later."
 msgstr "عارض الوِب قيد الاستخدام حاليًا. أَعِد المحاولة لاحقًا."
 
-#: ../komikku/preferences.py:794
+#: ../komikku/preferences.py:860
 msgid "Disconnect from {}"
 msgstr "اقطع الاتصال عن {}"
 
@@ -1620,11 +1638,11 @@ msgstr "كان هذا الفصل الأخير."
 msgid "This chapter is inaccessible."
 msgstr "هذا الفصل غير متاح."
 
-#: ../komikku/reader/pager/page.py:272
+#: ../komikku/reader/pager/page.py:280
 msgid "Failed to load image"
 msgstr "تعذَّر تحميل الصورة"
 
-#: ../komikku/reader/pager/page.py:314
+#: ../komikku/reader/pager/page.py:322
 msgid "Retry"
 msgstr "أعِد المحاولة"
 
@@ -1636,7 +1654,7 @@ msgstr "أعِد المحاولة"
 #: ../komikku/servers/mangaworld/__init__.py:59
 #: ../komikku/servers/multi/manga_stream/__init__.py:71
 #: ../komikku/servers/phenixscans/__init__.py:35
-#: ../komikku/servers/raijinscan/__init__.py:44
+#: ../komikku/servers/raijinscan/__init__.py:45
 #: ../komikku/servers/webtoon/__init__.py:54
 msgid "Type"
 msgstr "النوع"
@@ -1646,13 +1664,14 @@ msgstr "النوع"
 #: ../komikku/servers/mangapill/__init__.py:35
 #: ../komikku/servers/multi/manga_stream/__init__.py:72
 #: ../komikku/servers/phenixscans/__init__.py:36
+#: ../komikku/servers/rawkuma/__init__.py:38
 #: ../komikku/servers/webtoon/__init__.py:55
 msgid "Filter by Type"
 msgstr "رشِّح حسب النوع"
 
 #: ../komikku/servers/asurascans/__init__.py:42
 #: ../komikku/servers/coloredcouncil/__init__.py:72
-#: ../komikku/servers/comick/__init__.py:93
+#: ../komikku/servers/comick/__init__.py:94
 #: ../komikku/servers/flamescans/__init__.py:40
 #: ../komikku/servers/mangafire/__init__.py:49
 #: ../komikku/servers/mangapill/__init__.py:40
@@ -1660,13 +1679,14 @@ msgstr "رشِّح حسب النوع"
 #: ../komikku/servers/mangaworld/__init__.py:63
 #: ../komikku/servers/multi/manga_stream/__init__.py:77
 #: ../komikku/servers/phenixscans/__init__.py:41
-#: ../komikku/servers/raijinscan/__init__.py:48
+#: ../komikku/servers/raijinscan/__init__.py:49
+#: ../komikku/servers/rawkuma/__init__.py:41
 #: ../komikku/servers/weebcentral/__init__.py:39
 msgid "Manga"
 msgstr "مانجا"
 
 #: ../komikku/servers/asurascans/__init__.py:43
-#: ../komikku/servers/comick/__init__.py:94
+#: ../komikku/servers/comick/__init__.py:95
 #: ../komikku/servers/flamescans/__init__.py:41
 #: ../komikku/servers/mangafire/__init__.py:53
 #: ../komikku/servers/mangapill/__init__.py:44
@@ -1674,13 +1694,14 @@ msgstr "مانجا"
 #: ../komikku/servers/mangaworld/__init__.py:65
 #: ../komikku/servers/multi/manga_stream/__init__.py:78
 #: ../komikku/servers/phenixscans/__init__.py:42
-#: ../komikku/servers/raijinscan/__init__.py:49
+#: ../komikku/servers/raijinscan/__init__.py:50
+#: ../komikku/servers/rawkuma/__init__.py:42
 #: ../komikku/servers/weebcentral/__init__.py:40
 msgid "Manhwa"
 msgstr "مانهوا"
 
 #: ../komikku/servers/asurascans/__init__.py:44
-#: ../komikku/servers/comick/__init__.py:95
+#: ../komikku/servers/comick/__init__.py:96
 #: ../komikku/servers/flamescans/__init__.py:42
 #: ../komikku/servers/mangafire/__init__.py:54
 #: ../komikku/servers/mangapill/__init__.py:45
@@ -1688,7 +1709,8 @@ msgstr "مانهوا"
 #: ../komikku/servers/mangaworld/__init__.py:64
 #: ../komikku/servers/multi/manga_stream/__init__.py:79
 #: ../komikku/servers/phenixscans/__init__.py:43
-#: ../komikku/servers/raijinscan/__init__.py:50
+#: ../komikku/servers/raijinscan/__init__.py:51
+#: ../komikku/servers/rawkuma/__init__.py:43
 #: ../komikku/servers/weebcentral/__init__.py:41
 msgid "Manhua"
 msgstr "مانها"
@@ -1737,51 +1759,51 @@ msgstr "ملوَّن"
 msgid "B/W"
 msgstr "أبيض وأسود"
 
-#: ../komikku/servers/comick/__init__.py:64
+#: ../komikku/servers/comick/__init__.py:65
 #: ../komikku/servers/mangadex/__init__.py:58
 msgid "Rating"
 msgstr "التقييم"
 
-#: ../komikku/servers/comick/__init__.py:65
+#: ../komikku/servers/comick/__init__.py:66
 #: ../komikku/servers/mangadex/__init__.py:59
 msgid "Filter by Content Ratings"
 msgstr "رشِّح حسب تقييمات المحتوى"
 
-#: ../komikku/servers/comick/__init__.py:68
+#: ../komikku/servers/comick/__init__.py:69
 #: ../komikku/servers/mangadex/__init__.py:62
 msgid "Safe"
 msgstr "آمن"
 
-#: ../komikku/servers/comick/__init__.py:69
+#: ../komikku/servers/comick/__init__.py:70
 #: ../komikku/servers/mangadex/__init__.py:63
 msgid "Suggestive"
 msgstr "إيحائي"
 
-#: ../komikku/servers/comick/__init__.py:70
+#: ../komikku/servers/comick/__init__.py:71
 #: ../komikku/servers/mangadex/__init__.py:64
 msgid "Erotica"
 msgstr "مُثير"
 
-#: ../komikku/servers/comick/__init__.py:77
+#: ../komikku/servers/comick/__init__.py:78
 #: ../komikku/servers/flamescans/__init__.py:49
 #: ../komikku/servers/mangadex/__init__.py:72
 #: ../komikku/servers/mangafire/__init__.py:61
 #: ../komikku/servers/mangaworld/__init__.py:75
-#: ../komikku/servers/raijinscan/__init__.py:34
+#: ../komikku/servers/raijinscan/__init__.py:35
 #: ../komikku/servers/weebcentral/__init__.py:49
 msgid "Filter by Statuses"
 msgstr "رشِّح حسب الحالات"
 
-#: ../komikku/servers/comick/__init__.py:81
+#: ../komikku/servers/comick/__init__.py:82
 #: ../komikku/servers/flamescans/__init__.py:53
 #: ../komikku/servers/mangadex/__init__.py:76
 #: ../komikku/servers/mangafire/__init__.py:65
-#: ../komikku/servers/raijinscan/__init__.py:38
-#: ../komikku/trackers/__init__.py:35
+#: ../komikku/servers/raijinscan/__init__.py:39
+#: ../komikku/trackers/__init__.py:41
 msgid "Completed"
 msgstr "مُكتمل"
 
-#: ../komikku/servers/comick/__init__.py:82
+#: ../komikku/servers/comick/__init__.py:83
 #: ../komikku/servers/flamescans/__init__.py:56
 #: ../komikku/servers/mangadex/__init__.py:78
 #: ../komikku/servers/mangaworld/__init__.py:82
@@ -1789,292 +1811,292 @@ msgstr "مُكتمل"
 msgid "Canceled"
 msgstr "مُلغى"
 
-#: ../komikku/servers/comick/__init__.py:83
+#: ../komikku/servers/comick/__init__.py:84
 #: ../komikku/servers/mangadex/__init__.py:77
 msgid "Paused"
 msgstr "مُلبَث"
 
-#: ../komikku/servers/comick/__init__.py:89
+#: ../komikku/servers/comick/__init__.py:90
 msgid "Origination"
 msgstr "بلد المنشأ"
 
-#: ../komikku/servers/comick/__init__.py:90
+#: ../komikku/servers/comick/__init__.py:91
 msgid "[Latest Updates only] Filter by Origination"
 msgstr "[لآخر التحديثات فقط] رشِّح حسب بلد المنشأ"
 
-#: ../komikku/servers/comick/__init__.py:101
+#: ../komikku/servers/comick/__init__.py:102
 msgid "Countries"
 msgstr "البلدان"
 
-#: ../komikku/servers/comick/__init__.py:103
+#: ../komikku/servers/comick/__init__.py:104
 msgid "[Search and Most Popular only] Filter by Country (origination)"
 msgstr "[للبحث والأكثر شيوعًا فقط] رشِّح حسب البلد (المنشأ)"
 
-#: ../komikku/servers/comick/__init__.py:107
+#: ../komikku/servers/comick/__init__.py:108
 msgid "Japan (Manga)"
 msgstr "اليابان (مانجا)"
 
-#: ../komikku/servers/comick/__init__.py:108
+#: ../komikku/servers/comick/__init__.py:109
 msgid "Korea (Manhwa)"
 msgstr "كوريا (مانهوا)"
 
-#: ../komikku/servers/comick/__init__.py:109
+#: ../komikku/servers/comick/__init__.py:110
 msgid "China (Manhua)"
 msgstr "الصين (مانها)"
 
-#: ../komikku/servers/comick/__init__.py:115
+#: ../komikku/servers/comick/__init__.py:116
 #: ../komikku/servers/mangadex/__init__.py:84
 msgid "Publication Demographic"
 msgstr "الفئة السكانيَّة"
 
-#: ../komikku/servers/comick/__init__.py:116
+#: ../komikku/servers/comick/__init__.py:117
 msgid "Filter by Publication Demographics"
 msgstr "رشِّح حسب الفئات السكانيَّة"
 
-#: ../komikku/servers/comick/__init__.py:119
+#: ../komikku/servers/comick/__init__.py:120
 #: ../komikku/servers/mangadex/__init__.py:88
 msgid "Shounen"
 msgstr "شونين"
 
-#: ../komikku/servers/comick/__init__.py:120
+#: ../komikku/servers/comick/__init__.py:121
 #: ../komikku/servers/mangadex/__init__.py:89
 msgid "Shoujo"
 msgstr "شوجو"
 
-#: ../komikku/servers/comick/__init__.py:121
+#: ../komikku/servers/comick/__init__.py:122
 #: ../komikku/servers/mangadex/__init__.py:91
 msgid "Seinen"
 msgstr "سينين"
 
-#: ../komikku/servers/comick/__init__.py:122
+#: ../komikku/servers/comick/__init__.py:123
 #: ../komikku/servers/mangadex/__init__.py:90
 msgid "Josei"
 msgstr "جوسي"
 
-#: ../komikku/servers/comick/__init__.py:123
+#: ../komikku/servers/comick/__init__.py:124
 msgid "None"
 msgstr "بلا"
 
-#: ../komikku/servers/comick/__init__.py:129
+#: ../komikku/servers/comick/__init__.py:130
 #: ../komikku/servers/mangadex/__init__.py:97
 msgid "Tags"
 msgstr "الوسوم"
 
-#: ../komikku/servers/comick/__init__.py:130
+#: ../komikku/servers/comick/__init__.py:131
 #: ../komikku/servers/mangadex/__init__.py:98
 msgid "Filter by Formats"
 msgstr "رشِّح حسب النسق"
 
-#: ../komikku/servers/comick/__init__.py:133
+#: ../komikku/servers/comick/__init__.py:134
 #: ../komikku/servers/mangadex/__init__.py:101
 msgid "4-Koma"
 msgstr "4-كوما"
 
-#: ../komikku/servers/comick/__init__.py:134
+#: ../komikku/servers/comick/__init__.py:135
 #: ../komikku/servers/mangadex/__init__.py:102
 msgid "Adaptation"
 msgstr "اقتباس"
 
-#: ../komikku/servers/comick/__init__.py:135
+#: ../komikku/servers/comick/__init__.py:136
 #: ../komikku/servers/mangadex/__init__.py:103
 msgid "Anthology"
 msgstr "أنثولوجيا"
 
-#: ../komikku/servers/comick/__init__.py:136
+#: ../komikku/servers/comick/__init__.py:137
 #: ../komikku/servers/mangadex/__init__.py:104
 msgid "Award Winning"
 msgstr "حائز على جوائز"
 
-#: ../komikku/servers/comick/__init__.py:137
+#: ../komikku/servers/comick/__init__.py:138
 #: ../komikku/servers/mangadex/__init__.py:105
 #: ../komikku/servers/mangafire/__init__.py:51
 #: ../komikku/servers/mangapill/__init__.py:43
 msgid "Doujinshi"
 msgstr "دوجينشي"
 
-#: ../komikku/servers/comick/__init__.py:138
+#: ../komikku/servers/comick/__init__.py:139
 #: ../komikku/servers/mangadex/__init__.py:106
 msgid "Fan Colored"
 msgstr "لوَّنه معجبون"
 
-#: ../komikku/servers/comick/__init__.py:139
+#: ../komikku/servers/comick/__init__.py:140
 #: ../komikku/servers/mangadex/__init__.py:107
 msgid "Full Color"
 msgstr "ملوَّن بالكامل"
 
-#: ../komikku/servers/comick/__init__.py:140
+#: ../komikku/servers/comick/__init__.py:141
 #: ../komikku/servers/mangadex/__init__.py:108
 msgid "Long Strip"
 msgstr "شريط طويل"
 
-#: ../komikku/servers/comick/__init__.py:143
+#: ../komikku/servers/comick/__init__.py:144
 #: ../komikku/servers/mangadex/__init__.py:109
 msgid "Official Colored"
 msgstr "ملوَّن رسميًا"
 
-#: ../komikku/servers/comick/__init__.py:146
+#: ../komikku/servers/comick/__init__.py:147
 #: ../komikku/servers/mangadex/__init__.py:110
 msgid "Oneshot"
 msgstr "فصل واحد"
 
-#: ../komikku/servers/comick/__init__.py:147
+#: ../komikku/servers/comick/__init__.py:148
 msgid "User Created"
 msgstr "أنشأه مستخدم"
 
-#: ../komikku/servers/comick/__init__.py:148
+#: ../komikku/servers/comick/__init__.py:149
 #: ../komikku/servers/mangadex/__init__.py:112
 msgid "Web Comic"
 msgstr "وِب‌كوميك"
 
-#: ../komikku/servers/comick/__init__.py:154
+#: ../komikku/servers/comick/__init__.py:155
 #: ../komikku/servers/mangadex/__init__.py:118
 msgid "Genres"
 msgstr "الأنواع"
 
-#: ../komikku/servers/comick/__init__.py:155
+#: ../komikku/servers/comick/__init__.py:156
 #: ../komikku/servers/mangadex/__init__.py:119
 msgid "Filter by Genres"
 msgstr "رشِّح حسب الأنواع"
 
-#: ../komikku/servers/comick/__init__.py:158
+#: ../komikku/servers/comick/__init__.py:159
 #: ../komikku/servers/mangadex/__init__.py:122
 msgid "Action"
 msgstr "إثارة"
 
-#: ../komikku/servers/comick/__init__.py:159
+#: ../komikku/servers/comick/__init__.py:160
 msgid "Adult"
 msgstr "للبالغين"
 
-#: ../komikku/servers/comick/__init__.py:160
+#: ../komikku/servers/comick/__init__.py:161
 #: ../komikku/servers/mangadex/__init__.py:123
 msgid "Adventure"
 msgstr "مغامرات"
 
-#: ../komikku/servers/comick/__init__.py:161
+#: ../komikku/servers/comick/__init__.py:162
 #: ../komikku/servers/mangadex/__init__.py:125
 msgid "Comedy"
 msgstr "كوميديا"
 
-#: ../komikku/servers/comick/__init__.py:162
+#: ../komikku/servers/comick/__init__.py:163
 #: ../komikku/servers/mangadex/__init__.py:126
 msgid "Crime"
 msgstr "جريمة"
 
-#: ../komikku/servers/comick/__init__.py:163
+#: ../komikku/servers/comick/__init__.py:164
 #: ../komikku/servers/mangadex/__init__.py:127
 msgid "Drama"
 msgstr "دراما"
 
-#: ../komikku/servers/comick/__init__.py:164
+#: ../komikku/servers/comick/__init__.py:165
 msgid "Ecchi"
 msgstr "إيتشي"
 
-#: ../komikku/servers/comick/__init__.py:165
+#: ../komikku/servers/comick/__init__.py:166
 #: ../komikku/servers/mangadex/__init__.py:128
 msgid "Fantasy"
 msgstr "خيال"
 
-#: ../komikku/servers/comick/__init__.py:166
+#: ../komikku/servers/comick/__init__.py:167
 msgid "Gender Bender"
 msgstr "تبديل الجنس"
 
-#: ../komikku/servers/comick/__init__.py:167
+#: ../komikku/servers/comick/__init__.py:168
 #: ../komikku/servers/mangadex/__init__.py:130
 msgid "Historical"
 msgstr "تاريخي"
 
-#: ../komikku/servers/comick/__init__.py:168
+#: ../komikku/servers/comick/__init__.py:169
 #: ../komikku/servers/mangadex/__init__.py:131
 msgid "Horror"
 msgstr "رعب"
 
-#: ../komikku/servers/comick/__init__.py:169
+#: ../komikku/servers/comick/__init__.py:170
 #: ../komikku/servers/mangadex/__init__.py:132
 msgid "Isekai"
 msgstr "إيسيكاي"
 
-#: ../komikku/servers/comick/__init__.py:170
+#: ../komikku/servers/comick/__init__.py:171
 #: ../komikku/servers/mangadex/__init__.py:133
 msgid "Magical Girls"
 msgstr "فتيات سحريات"
 
-#: ../komikku/servers/comick/__init__.py:171
+#: ../komikku/servers/comick/__init__.py:172
 msgid "Mature"
 msgstr "ناضج"
 
-#: ../komikku/servers/comick/__init__.py:172
+#: ../komikku/servers/comick/__init__.py:173
 #: ../komikku/servers/mangadex/__init__.py:134
 msgid "Mecha"
 msgstr "ميكا"
 
-#: ../komikku/servers/comick/__init__.py:173
+#: ../komikku/servers/comick/__init__.py:174
 #: ../komikku/servers/mangadex/__init__.py:135
 msgid "Medical"
 msgstr "طبِّي"
 
-#: ../komikku/servers/comick/__init__.py:174
+#: ../komikku/servers/comick/__init__.py:175
 #: ../komikku/servers/mangadex/__init__.py:136
 msgid "Mystery"
 msgstr "غموض"
 
-#: ../komikku/servers/comick/__init__.py:175
+#: ../komikku/servers/comick/__init__.py:176
 #: ../komikku/servers/mangadex/__init__.py:137
 msgid "Philosophical"
 msgstr "فلسفي"
 
-#: ../komikku/servers/comick/__init__.py:176
+#: ../komikku/servers/comick/__init__.py:177
 msgid "Psychological"
 msgstr "نفسي"
 
-#: ../komikku/servers/comick/__init__.py:177
+#: ../komikku/servers/comick/__init__.py:178
 #: ../komikku/servers/mangadex/__init__.py:138
 msgid "Romance"
 msgstr "رومانسي"
 
-#: ../komikku/servers/comick/__init__.py:178
+#: ../komikku/servers/comick/__init__.py:179
 #: ../komikku/servers/mangadex/__init__.py:139
 msgid "Sci-Fi"
 msgstr "خيال علمي"
 
-#: ../komikku/servers/comick/__init__.py:179
+#: ../komikku/servers/comick/__init__.py:180
 msgid "Shoujo Ai"
 msgstr "شوجو آي"
 
-#: ../komikku/servers/comick/__init__.py:180
+#: ../komikku/servers/comick/__init__.py:181
 #: ../komikku/servers/mangadex/__init__.py:140
 msgid "Slice of Life"
 msgstr "شريحة من الحياة"
 
-#: ../komikku/servers/comick/__init__.py:181
+#: ../komikku/servers/comick/__init__.py:182
 #: ../komikku/servers/mangadex/__init__.py:141
 msgid "Sports"
 msgstr "رياضة"
 
-#: ../komikku/servers/comick/__init__.py:182
+#: ../komikku/servers/comick/__init__.py:183
 #: ../komikku/servers/mangadex/__init__.py:142
 msgid "Superhero"
 msgstr "أبطال خارقون"
 
-#: ../komikku/servers/comick/__init__.py:183
+#: ../komikku/servers/comick/__init__.py:184
 #: ../komikku/servers/mangadex/__init__.py:143
 msgid "Thriller"
 msgstr "تشويق"
 
-#: ../komikku/servers/comick/__init__.py:184
+#: ../komikku/servers/comick/__init__.py:185
 #: ../komikku/servers/mangadex/__init__.py:144
 msgid "Tragedy"
 msgstr "مأساة"
 
-#: ../komikku/servers/comick/__init__.py:185
+#: ../komikku/servers/comick/__init__.py:186
 #: ../komikku/servers/mangadex/__init__.py:145
 msgid "Wuxia"
 msgstr "ووشيا"
 
-#: ../komikku/servers/comick/__init__.py:186
+#: ../komikku/servers/comick/__init__.py:187
 msgid "Yaoi"
 msgstr "ياوي"
 
-#: ../komikku/servers/comick/__init__.py:187
+#: ../komikku/servers/comick/__init__.py:188
 msgid "Yuri"
 msgstr "يوري"
 
@@ -2086,7 +2108,7 @@ msgstr "التصنيفات"
 #: ../komikku/servers/flamescans/__init__.py:37
 #: ../komikku/servers/mangafire/__init__.py:46
 #: ../komikku/servers/mangaworld/__init__.py:60
-#: ../komikku/servers/raijinscan/__init__.py:45
+#: ../komikku/servers/raijinscan/__init__.py:46
 #: ../komikku/servers/weebcentral/__init__.py:36
 msgid "Filter by Types"
 msgstr "رشِّح حسب الأنواع"
@@ -2148,6 +2170,7 @@ msgid "No longer exists."
 msgstr "لم يعد موجودًا."
 
 #: ../komikku/servers/flamescans/__init__.py:36
+#: ../komikku/servers/rawkuma/__init__.py:37
 #: ../komikku/servers/weebcentral/__init__.py:35
 msgid "Types"
 msgstr "الأنواع"
@@ -2158,7 +2181,7 @@ msgid "Statuses"
 msgstr "الحالات"
 
 #: ../komikku/servers/flamescans/__init__.py:55
-#: ../komikku/trackers/__init__.py:37
+#: ../komikku/trackers/__init__.py:43
 msgid "Dropped"
 msgstr "متروك"
 
@@ -2207,6 +2230,7 @@ msgstr "فصل واحد"
 
 #: ../komikku/servers/mangafire/__init__.py:52
 #: ../komikku/servers/mangapill/__init__.py:41
+#: ../komikku/servers/rawkuma/__init__.py:44
 msgid "Novel"
 msgstr "رواية"
 
@@ -2279,19 +2303,19 @@ msgstr "أعمال أصلية"
 msgid "Canvas"
 msgstr "كانفاس"
 
-#: ../komikku/trackers/__init__.py:34
+#: ../komikku/trackers/__init__.py:40
 msgid "Reading"
 msgstr "يُقرأ حاليًا"
 
-#: ../komikku/trackers/__init__.py:36
+#: ../komikku/trackers/__init__.py:42
 msgid "On Hold"
 msgstr "مُعلَّق"
 
-#: ../komikku/trackers/__init__.py:38
+#: ../komikku/trackers/__init__.py:44
 msgid "Plan to Read"
 msgstr "يُخطَّط لقراءته"
 
-#: ../komikku/trackers/__init__.py:39
+#: ../komikku/trackers/__init__.py:45
 msgid "Rereading"
 msgstr "يُعاد قراءته"
 
@@ -2361,21 +2385,27 @@ msgstr "أخفق التحديث. أعِد المحاولة لاحقًا."
 msgid "Library update started"
 msgstr "بدأ تحديث المكتبة"
 
-#: ../komikku/utils.py:326
+#: ../komikku/utils.py:351
 msgid "You are currently offline"
 msgstr "أنت غير متَّصل حاليًا"
 
-#: ../komikku/utils.py:353
+#: ../komikku/utils.py:378
 msgid "No Internet connection, timeout or server down"
 msgstr "لا يوجد اتصال بالإنترنت، أو انتهت المهلة، أو الخادوم معطَّل"
 
-#: ../komikku/webview.py:428
+#: ../komikku/webview.py:431
 msgid "Please wait…"
 msgstr "ينتظر…"
 
-#: ../komikku/webview.py:483
+#: ../komikku/webview.py:486
 msgid "Please complete CAPTCHA"
 msgstr "أكمِل اختبار كابتشا"
+
+#~ msgid "Support for locally stored series (in CBZ or CBR formats)"
+#~ msgstr "دعم سلاسلك المخزَّنة محليًّا (بنسق CBZ أو CBR)"
+
+#~ msgid "Comics stored locally as archives in CBZ/CBR formats"
+#~ msgstr "قصص مصوَّرة مخزَّنة محليًا كأرشيفات بنسقي CBZ أو CBR"
 
 #~ msgid ""
 #~ "A manga, manhwa, manhua, webtoons, webcomics and comics reader for GNOME\n"

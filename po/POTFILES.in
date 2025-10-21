@@ -1,5 +1,6 @@
 data/info.febvre.Komikku.desktop.in
 data/info.febvre.Komikku.metainfo.xml.in.in
+data/ui/application_window.blp
 data/ui/card.blp
 data/ui/card_chapters_list_row.blp
 data/ui/card_tracking.blp
@@ -67,6 +68,7 @@ komikku/servers/multi/mangareader/__init__.py
 komikku/servers/multi/manga_stream/__init__.py
 komikku/servers/phenixscans/__init__.py
 komikku/servers/raijinscan/__init__.py
+komikku/servers/rawkuma/__init__.py
 komikku/servers/readmanhwa/__init__.py
 komikku/servers/webtoon/__init__.py
 komikku/servers/weebcentral/__init__.py
