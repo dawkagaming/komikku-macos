@@ -9,6 +9,7 @@ class Starboundscans(Madara2):
     id = 'starboundscans'
     name = 'Starbound Scans'
     lang = 'fr'
+    status = 'disabled'
 
     base_url = 'https://starboundscans.com'
     logo_url = base_url + '/wp-content/uploads/2025/07/cropped-g_logo-1-32x32.png'
