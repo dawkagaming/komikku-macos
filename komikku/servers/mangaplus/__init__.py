@@ -65,7 +65,8 @@ class Mangaplus(Server):
     api_url = 'https://jumpg-webapi.tokyo-cdn.com/api'
     api_params_url = api_url + '/featured'
     api_search_url = api_url + '/title_list/allV2?format=json'
-    api_latest_updates_url = api_url + '/web/web_homeV4?lang={0}&format=json'
+    # api_latest_updates_url = api_url + '/web/web_homeV4?lang={0}&format=json'
+    api_latest_updates_url = api_url + '/home_v4?lang={0}&clang={0}&format=json'
     api_most_populars_url = api_url + '/title_list/rankingV2?lang={0}&type=hottest&clang={0}&format=json'
     api_manga_url = api_url + '/title_detailV3?title_id={0}&format=json'
     api_chapter_url = api_url + '/manga_viewer?chapter_id={0}&split=yes&img_quality=high&format=json'
@@ -228,7 +229,7 @@ class Mangaplus(Server):
             return None
 
         results = []
-        for group in resp_data['success']['webHomeViewV4']['groups']:
+        for group in resp_data['success']['homeViewV3']['groups']:
             for title_group in group['titleGroups']:
                 for title in title_group['titles']:
                     info = title['title']
