@@ -18,6 +18,7 @@ class Aurorascans(HeanCMS):
     id = 'aurorascans'
     name = 'Aurora Scans'
     lang = 'en'
+    status = 'disabled'  # Merged with Night Scans => Qi Scans
 
     base_url = 'https://aurorascans.com'
     logo_url = 'https://storage.aurorascans.com/public/upload/2025/01/26/JUST-TO-TRY-f17fe0b13caeba2c-16b03dbd7548f1a3.webp'
