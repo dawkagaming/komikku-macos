@@ -4,7 +4,7 @@
 
 beautifulsoup4
 brotli >= 1.1.0
-modern_colorthief
+colorthief
 dateparser >= 1.1.6
 emoji
 keyring >= 21.6.0
@@ -13,6 +13,7 @@ natsort
 piexif
 pillow >= 11.3.0
 PyGObject
+pypdf
 python_magic
 rarfile
 requests >= 2.32.2
