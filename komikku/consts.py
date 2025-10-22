@@ -135,21 +135,15 @@ CREDITS = dict(
 
 RELEASE_NOTES = """
 <ul>
-    <li>[Preferences] Advanced: Add ability to clear WebView data</li>
-    <li>[Servers] Added Anime-Sama (FR)</li>
-    <li>[Servers] Added Aurora Scans (EN)</li>
-    <li>[Servers] Added Hijala Scans (EN)</li>
-    <li>[Servers] Added Rezo Scans (EN)</li>
-    <li>[Servers] Cartel De Manhwas (ES): Disabled</li>
-    <li>[Servers] ComicK: Disabled</li>
-    <li>[Servers] EZmanga (EN): Update</li>
-    <li>[Servers] MangaCrab (ES): Update</li>
-    <li>[Servers] MangaFire (EN/ES/ES_LA/FR/JA/PT/pt_BR): Update</li>
-    <li>[Servers] Qi Scans (EN): Update</li>
-    <li>[Servers] Raijin Scan (FR): Update</li>
-    <li>[Servers] Rawkuma (JA): Update</li>
-    <li>[Servers] Vortex Scans For Free (EN): Disabled</li>
-    <li>[L10n] Updated Croatian, Persian, Polish, Portuguese, Portuguese (Brazil) and Russian translations</li>
+    <li>[Trackers] Added MangaUpdates</li>
+    <li>[Servers] Aurora Scans (EN): Disabled</li>
+    <li>[Servers] Local: Added PDF format support</li>
+    <li>[Servers] Manga Demon (EN): Update</li>
+    <li>[servers] Manga Koleji [TR]: Disabled</li>
+    <li>[Servers] MANGA Plus (multi): Update</li>
+    <li>[Servers] Nazarick Scan (pt_BR): Disabled</li>
+    <li>[Servers] Starbound Scans (FR): Disabled</li>
+    <li>[L10n] Updated French and Ukrainian translations</li>
 </ul>
 <p>Happy reading.</p>
 """

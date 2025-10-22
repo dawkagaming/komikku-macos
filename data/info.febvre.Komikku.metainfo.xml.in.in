@@ -99,6 +99,22 @@
     <url type="donation">https://febvre.info/donate.html</url>
 
     <releases>
+        <release version="1.90.0" date="2025-10-23">
+            <description translate="no">
+                <ul>
+                    <li>[Trackers] Added MangaUpdates</li>
+                    <li>[Servers] Aurora Scans (EN): Disabled</li>
+                    <li>[Servers] Local: Added PDF format support</li>
+                    <li>[Servers] Manga Demon (EN): Update</li>
+                    <li>[servers] Manga Koleji [TR]: Disabled</li>
+                    <li>[Servers] MANGA Plus (multi): Update</li>
+                    <li>[Servers] Nazarick Scan (pt_BR): Disabled</li>
+                    <li>[Servers] Starbound Scans (FR): Disabled</li>
+                    <li>[L10n] Updated French and Ukrainian translations</li>
+                </ul>
+                <p>Happy reading.</p>
+            </description>
+        </release>
         <release version="1.89.0" date="2025-10-13">
             <description translate="no">
                 <ul>
