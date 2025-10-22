@@ -794,12 +794,10 @@ class TrackerRow(Adw.ActionRow):
         self.add_suffix(self.btn)
 
     def on_btn_clicked(self, _btn):
-        username_entry = None
-        password_entry = None
+        group = None
 
         def open_dialog():
-            nonlocal username_entry
-            nonlocal password_entry
+            nonlocal group
 
             group = Adw.PreferencesGroup()
 
@@ -819,6 +817,8 @@ class TrackerRow(Adw.ActionRow):
             )
 
         def connect_dialog():
+            username_entry = group.get_row(0)
+            password_entry = group.get_row(1)
             success, error = self.tracker.get_access_token(username_entry.get_text(), password_entry.get_text())
             GLib.idle_add(connect_finish, success, error)
 
@@ -848,13 +848,12 @@ class TrackerRow(Adw.ActionRow):
 
         if not self.active:
             if self.tracker.authorize_url:
-                target = connect_webview
+                thread = threading.Thread(target=connect_webview)
+                thread.daemon = True
+                thread.start()
             else:
-                target = open_dialog
+                open_dialog()
 
-            thread = threading.Thread(target=target)
-            thread.daemon = True
-            thread.start()
         else:
             self.window.open_dialog(
                 _('Disconnect from {}').format(self.tracker.name),

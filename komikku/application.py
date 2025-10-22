@@ -305,29 +305,6 @@ class ApplicationWindow(Adw.ApplicationWindow):
 
         GLib.idle_add(self.library.populate)
 
-    def open_dialog(self, heading, body=None, child=None, confirm_label=None, confirm_callback=None, confirm_appearance=None, cancel_label=None, cancel_callback=None):
-        def on_response(dialog, response_id):
-            if response_id == 'yes':
-                confirm_callback()
-            elif response_id == 'cancel' and cancel_callback is not None:
-                cancel_callback()
-
-        dialog = Adw.AlertDialog.new(heading, body)
-        dialog.set_body_use_markup(True)
-        dialog.set_extra_child(child)
-
-        dialog.add_response('cancel', cancel_label or _('Cancel'))
-        if confirm_label is not None:
-            dialog.add_response('yes', confirm_label)
-
-        dialog.set_close_response('cancel')
-        dialog.set_default_response('cancel')
-        if confirm_appearance is not None:
-            dialog.set_response_appearance('yes', confirm_appearance)
-
-        dialog.connect('response', on_response)
-        dialog.present(self)
-
     def enter_search_mode(self, _action, _param):
         if self.page == 'library':
             searchbar = self.library.searchbar
@@ -507,6 +484,32 @@ available in your region/language."""))
         builder.add_from_resource('/info/febvre/Komikku/ui/shortcuts.ui')
 
         dialog = builder.get_object('shortcuts_dialog')
+        dialog.present(self)
+
+    def open_dialog(self, heading, body=None, child=None, confirm_label=None, confirm_callback=None, confirm_appearance=None, cancel_label=None, cancel_callback=None):
+        def on_response(dialog, response_id):
+            if response_id == 'yes':
+                confirm_callback()
+            elif response_id == 'cancel' and cancel_callback is not None:
+                cancel_callback()
+
+        dialog = Adw.AlertDialog.new(heading)
+        if body:
+            dialog.set_body_use_markup(True)
+            dialog.set_body(body)
+        if child:
+            dialog.set_extra_child(child)
+
+        dialog.add_response('cancel', cancel_label or _('Cancel'))
+        if confirm_label is not None:
+            dialog.add_response('yes', confirm_label)
+
+        dialog.set_close_response('cancel')
+        dialog.set_default_response('cancel')
+        if confirm_appearance is not None:
+            dialog.set_response_appearance('yes', confirm_appearance)
+
+        dialog.connect('response', on_response)
         dialog.present(self)
 
     def open_support(self, _action, _param):
