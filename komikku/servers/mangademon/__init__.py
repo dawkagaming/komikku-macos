@@ -194,7 +194,7 @@ class Mangademon(Server):
             soup = BeautifulSoup(r.text, 'lxml')
 
             page_results = []
-            for element in soup.select('.updates-element'):
+            for element in soup.select('.updates-element:not(:has(.toffee-badge))'):
                 a_element = element.select_one('.thumb > a')
                 slug = a_element.get('href').split('/')[-1]
                 if slug in slugs:
