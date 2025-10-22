@@ -45,8 +45,9 @@ endif
 #
 # Dependencies
 #
-dependency('glib-2.0')
 dependency('gobject-introspection-1.0')
+dependency('glib-2.0')
+dependency('gdk-pixbuf-2.0', version: '>=2.44.3')
 dependency('gtk4', version: '>=4.18')
 dependency('libadwaita-1', version: '>=1.8')
 

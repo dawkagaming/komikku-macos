@@ -29,7 +29,6 @@ from gi.repository.GdkPixbuf import Pixbuf
 from gi.repository.GdkPixbuf import PixbufAnimation
 
 from komikku.consts import MISSING_IMG_RESOURCE_PATH
-from komikku.consts import PIXBUF_ANIMATION
 from komikku.utils import get_image_info
 
 logger = logging.getLogger('komikku')
@@ -538,7 +537,7 @@ class KImage(Gtk.Widget, Gtk.Scrollable):
             elif data:
                 stream = Gio.MemoryInputStream.new_from_data(data, None)
 
-            if not info['is_animated'] or not PIXBUF_ANIMATION:
+            if not info['is_animated']:
                 Pixbuf.new_from_stream_async(stream, None, self.load_ready, callback, info)
             else:
                 PixbufAnimation.new_from_stream_async(stream, None, self.load_ready, callback, info)
@@ -576,7 +575,7 @@ class KImage(Gtk.Widget, Gtk.Scrollable):
         stream.close()
 
         try:
-            if not info['is_animated'] or not PIXBUF_ANIMATION:
+            if not info['is_animated']:
                 pixbuf = Pixbuf.new_from_stream_finish(result)
 
                 self.textures = []
