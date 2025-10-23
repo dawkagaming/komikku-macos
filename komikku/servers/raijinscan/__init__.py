@@ -20,7 +20,7 @@ class Raijinscan(Server):
     lang = 'fr'
     has_cf = True
 
-    base_url = 'https://raijinscan.co'
+    base_url = 'https://raijin-scans.fr'
     logo_url = base_url + '/wp-content/uploads/2025/05/cropped-logopp-32x32.png'
     search_url = base_url + '/'
     manga_url = base_url + '/manga/{0}/'
