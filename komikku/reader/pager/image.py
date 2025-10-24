@@ -11,8 +11,6 @@ from PIL import Image
 from PIL import ImageChops
 
 gi.require_version('Gdk', '4.0')
-gi.require_version('Gly', '2')
-gi.require_version('GlyGtk4', '2')
 gi.require_version('Gtk', '4.0')
 gi.require_version('GdkPixbuf', '2.0')
 gi.require_version('Graphene', '1.0')
