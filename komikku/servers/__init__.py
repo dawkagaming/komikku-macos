@@ -140,8 +140,9 @@ class Server(BaseServer, ABC):
         if username and password:
             # Username and password are provided only when user defines the credentials in the settings
             self.clear_session()
-        elif credential := KeyringHelper().get(get_server_main_id_by_id(self.id)):
-            if self.base_url is None:
+        else:
+            credential = self.get_credential()
+            if self.base_url is None and credential:
                 self.base_url = credential.address
 
         if self.session is None:
@@ -159,6 +160,9 @@ class Server(BaseServer, ABC):
                     self.logged_in = self.login(username, password)
         else:
             self.logged_in = True
+
+    def get_credential(self):
+        return KeyringHelper().get(get_server_main_id_by_id(self.id))
 
     @abstractmethod
     def get_manga_data(self, initial_data):
@@ -253,6 +257,13 @@ class Server(BaseServer, ABC):
         if self.id == 'local':
             return True
 
+        if self.base_url is None:
+            # base_url is customizable in settings and stored in keyring
+            if credential := self.get_credential():
+                self.base_url = credential.address
+            else:
+                return False
+
         try:
             requests.get(self.base_url, headers={'User-Agent': USER_AGENT})
         except Exception:
@@ -304,7 +315,7 @@ class Server(BaseServer, ABC):
         )
 
     def save_session(self):
-        """ Save session to disk """
+        """ Save session to disk (cache) """
 
         file_path = os.path.join(self.sessions_dir, '{0}.pickle'.format(get_server_main_id_by_id(self.id)))
         with open(file_path, 'wb') as f:
