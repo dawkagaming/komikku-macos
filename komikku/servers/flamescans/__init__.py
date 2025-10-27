@@ -150,7 +150,7 @@ class Flamescans(Server):
                     slug=chapter['token'],
                     title=title,
                     num=num if is_number(num) else None,
-                    date=datetime.date.fromtimestamp(chapter['unix_timestamp']),
+                    date=datetime.date.fromtimestamp(chapter['release_date']),
                 ))
 
         if not found:
