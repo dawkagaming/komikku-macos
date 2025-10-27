@@ -145,10 +145,14 @@ class Kavita(Server):
             genres=[],
             status=None,
             synopsis=None,
+            last_read=None,
             chapters=[],
             server_id=self.id,
             cover=self.api_cover_url.format(series_id),
         ))
+
+        if latest_read_date := resp_data['latestReadDate']:
+            data['last_read'] = datetime.datetime.strptime(latest_read_date[:-1], '%Y-%m-%dT%H:%M:%S.%f')
 
         r = self.session_get(
             self.api_manga_metadata_url,
@@ -176,6 +180,7 @@ class Kavita(Server):
 
         data['synopsis'] = resp_data['summary']
 
+        # Chapters
         r = self.session_get(
             self.api_chapters_url,
             params={
@@ -194,12 +199,22 @@ class Kavita(Server):
                     if chapter['titleName']:
                         title = f'{title} {chapter["titleName"]}'
 
+                    if modified_date := chapter.get('lastModifiedUtc'):
+                        date = modified_date
+                    else:
+                        date = chapter['createdUtc']
+
+                    if last_reading_progress := chapter.get('lastReadingProgress'):
+                        last_read = datetime.datetime.strptime(last_reading_progress[:-1], '%Y-%m-%dT%H:%M:%S.%f')
+                    else:
+                        last_read = None
+
                     chapter_data = dict(
                         slug=f'{volume["id"]}:{chapter["id"]}',  # noqa: E231
                         title=title,
                         num=chapter['number'] if is_number(chapter['number']) else None,
-                        date=convert_date_string(chapter['lastModifiedUtc'].split('T')[0], format='%Y-%m-%d'),
-                        last_read=datetime.datetime.strptime(chapter['lastReadingProgress'][:-1], '%Y-%m-%dT%H:%M:%S.%f'),
+                        date=convert_date_string(date.split('T')[0], format='%Y-%m-%d'),
+                        last_read=last_read,
                         last_page_read_index=chapter['pagesRead'] - 1,
                     )
                 data['chapters'].append(chapter_data)
@@ -207,12 +222,22 @@ class Kavita(Server):
         elif resp_data['chapters']:
             # Not sure if this case is useful
             for chapter in resp_data['chapters']:
+                if modified_date := chapter.get('lastModifiedUtc'):
+                    date = modified_date
+                else:
+                    date = chapter['createdUtc']
+
+                if last_read := chapter.get('lastReadingProgress'):
+                    last_read = datetime.datetime.strptime(last_reading_progress[:-1], '%Y-%m-%dT%H:%M:%S.%f')
+                else:
+                    last_read = None
+
                 chapter_data = dict(
                     slug=f':{chapter["id"]}',  # noqa: E231
                     title=chapter['title'],
                     num=chapter['number'] if is_number(chapter['number']) else None,
-                    date=convert_date_string(chapter['lastModifiedUtc'].split('T')[0], format='%Y-%m-%d'),
-                    last_read=datetime.datetime.strptime(chapter['lastReadingProgressUtc'][:-1], '%Y-%m-%dT%H:%M:%S.%f'),
+                    date=convert_date_string(date.split('T')[0], format='%Y-%m-%d'),
+                    last_read=last_read,
                     last_page_read_index=chapter['pagesRead'] - 1,
                 )
 
@@ -287,9 +312,6 @@ class Kavita(Server):
         library_id, series_id = slug.split(':')
 
         return self.manga_url.format(library_id, series_id)
-
-    def get_most_populars(self):
-        return self.search('')
 
     def login(self, username, password):
         try:
