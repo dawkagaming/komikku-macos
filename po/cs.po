@@ -3,20 +3,21 @@
 # This file is distributed under the same license as the Komikku package.
 # Lukáš Linhart <l.linhos@gmail.com>, 2025.
 # Jakub Soukup <jakub@soukup.xyz>, 2025.
+# Petr Horník <petrhornik2007@outlook.cz>, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: Komikku 1.64.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-10-21 22:45+0200\n"
-"PO-Revision-Date: 2025-03-28 10:17+0000\n"
-"Last-Translator: Jakub Soukup <jakub@soukup.xyz>\n"
+"PO-Revision-Date: 2025-10-31 00:02+0000\n"
+"Last-Translator: Petr Horník <petrhornik2007@outlook.cz>\n"
 "Language-Team: Czech <https://hosted.weblate.org/projects/komikku/main/cs/>\n"
 "Language: cs\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=((n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2);\n"
-"X-Generator: Weblate 5.11-dev\n"
+"X-Generator: Weblate 5.14.1-dev\n"
 
 #: ../data/info.febvre.Komikku.desktop.in:2
 msgid "@prettyname@"
@@ -52,7 +53,7 @@ msgstr "Online a offline čtení z desítek serverů"
 
 #: ../data/info.febvre.Komikku.metainfo.xml.in.in:18
 msgid "Support for locally stored series (in CBZ/CBR/CBT or PDF formats)"
-msgstr ""
+msgstr "Podpora pro lokálně ukládané série (ve CBZ/CBR/CBT nebo PDF formátech)"
 
 #: ../data/info.febvre.Komikku.metainfo.xml.in.in:19
 msgid "RTL, LTR, Vertical and Webtoon reading modes"
@@ -383,7 +384,7 @@ msgstr "Obecné"
 
 #: ../data/ui/preferences.blp:18
 msgid "Appearance"
-msgstr ""
+msgstr "Vzhled"
 
 #: ../data/ui/preferences.blp:20
 msgid "Theme"
@@ -423,15 +424,16 @@ msgstr "Pozadí na stránce podrobností"
 
 #: ../data/ui/preferences.blp:42
 msgid "Method used to recolor background to match cover"
-msgstr ""
+msgstr "Metoda použitá pro nahrávaní pozadí pro shodu obalu"
 
 #: ../data/ui/preferences.blp:46
 msgid "Linear gradient"
-msgstr ""
+msgstr "Lineární gradient"
 
 #: ../data/ui/preferences.blp:47
+#, fuzzy
 msgid "Blurred cover"
-msgstr ""
+msgstr "Rozmazaný obal"
 
 #: ../data/ui/preferences.blp:57
 msgid "Desktop Notifications"
@@ -598,7 +600,7 @@ msgstr "škálování"
 
 #: ../data/ui/preferences.blp:257
 msgid "Type of scaling to adapt image"
-msgstr ""
+msgstr "Typ škálování pro adaptaci obrázku"
 
 #: ../data/ui/preferences.blp:260
 msgid "Adapt to Screen"
@@ -701,7 +703,7 @@ msgstr "Pokročilé"
 
 #: ../data/ui/preferences.blp:319
 msgid "A setting has changed that requires a restart to take effect"
-msgstr ""
+msgstr "Změna nastavení vyžaduje restart pro projevení změn"
 
 #: ../data/ui/preferences.blp:325
 msgid "Data"
@@ -721,11 +723,11 @@ msgstr "Vymazat mezipaměť kapitol a databázi při zavření"
 
 #: ../data/ui/preferences.blp:349
 msgid "WebView"
-msgstr ""
+msgstr "WebView"
 
 #: ../data/ui/preferences.blp:352
 msgid "Clear Data"
-msgstr ""
+msgstr "Smazat data"
 
 #: ../data/ui/preferences.blp:368
 msgid "Servers Modules"
@@ -733,7 +735,7 @@ msgstr "Moduly Serveru"
 
 #: ../data/ui/preferences.blp:371
 msgid "Use Up-to-date Servers Modules"
-msgstr ""
+msgstr "Použít aktuální serverové moduly"
 
 #: ../data/ui/preferences.blp:372
 msgid ""
@@ -741,26 +743,29 @@ msgid ""
 "code repository and updated at each startup, is used instead of the one "
 "delivered with the application."
 msgstr ""
+"Alternativní verze serverových modulů, nainstalovaná ze zdrojového kódu "
+"aktualizující se při každém spuštění, je použita místo té co je součástí "
+"aplikace."
 
 #: ../data/ui/preferences.blp:377
 msgid "Credentials Storage"
-msgstr ""
+msgstr "Úložiště údajů"
 
 #: ../data/ui/preferences.blp:380
 msgid "Allow Plaintext Storage as Fallback"
-msgstr ""
+msgstr "Povolit úložiště prostého textu jako záložní řešení"
 
 #: ../data/ui/preferences.blp:381
 msgid "Used when no keyring backends are found"
-msgstr ""
+msgstr "Použito pokud nejsou nalezeny klíčenky backendu"
 
 #: ../data/ui/preferences.blp:386
 msgid "Tweaks"
-msgstr ""
+msgstr "Úpravy"
 
 #: ../data/ui/preferences.blp:389
 msgid "Disable Animations"
-msgstr ""
+msgstr "Vypnout animace"
 
 #: ../data/ui/preferences.blp:390
 msgid ""
