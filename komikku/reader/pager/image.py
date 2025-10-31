@@ -92,7 +92,6 @@ class KImage(Gtk.Widget, Gtk.Scrollable):
         self.vadjustment_value_changed_handler_id = None
 
         self.gesture_click_timeout_id = None
-        self.obscured = True
         self.pointer_position = None  # current pointer position
         self.zoom_center = None  # zoom position in image
         self.zoom_gesture_begin = None
@@ -222,6 +221,14 @@ class KImage(Gtk.Widget, Gtk.Scrollable):
     @property
     def max_vadjustment_value(self):
         return max(self.image_displayed_height - self.widget_height, 0)
+
+    @property
+    def obscured(self):
+        parent = self.get_parent()
+        if isinstance(parent, Gtk.ScrolledWindow):
+            return parent.get_parent().obscured
+
+        return parent.obscured
 
     @property
     def ratio(self):

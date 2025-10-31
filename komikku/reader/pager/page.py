@@ -34,10 +34,10 @@ class Page(Gtk.Overlay):
         self.picture = None
         self.retry_button = None
 
-        self._obscured = True
         self._status = None    # rendering, allocable, rendered, offlimit, disposed
         self.error = None      # connection error, server error, corrupt file error
         self.loadable = False  # loadable from disk or downloadable from server (chapter pages are known)
+        self.obscured = True
 
         if self.reader.reading_mode != 'webtoon':
             self.zoomable = True
@@ -67,25 +67,6 @@ class Page(Gtk.Overlay):
             return adj.props.upper > adj.props.page_size
 
         return False
-
-    @GObject.Property(type=bool, default=True)
-    def obscured(self):
-        return self._obscured
-
-    @obscured.setter
-    def obscured(self, value):
-        def set_obscured():
-            if not self.picture:
-                return GLib.SOURCE_CONTINUE
-
-            self.picture.obscured = value
-
-            return GLib.SOURCE_REMOVE
-
-        # Wait image is loaded (async)
-        GLib.idle_add(set_obscured)
-
-        self._obscured = value
 
     @property
     def scrollable(self):
