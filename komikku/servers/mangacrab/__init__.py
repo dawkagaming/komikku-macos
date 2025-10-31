@@ -66,10 +66,11 @@ class Mangacrab(Madara2):
 
     def search(self, term, nsfw, orderby=None):
         params = {
-            's': term or '',
             'post_type': 'wp-manga',
             'type': 'manga',
         }
+        if term:
+            params['s'] = term
 
         if orderby == 'populars':
             params['m_orderby'] = 'views'
