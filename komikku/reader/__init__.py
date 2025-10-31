@@ -233,12 +233,21 @@ class ReaderPage(Adw.NavigationPage):
         if value == self.background_color:
             return
 
-        self.manga.update(dict(background_color=value))
+        self.manga.update(dict(
+            background_color=value if value != Settings.get_default().background_color else None,
+        ))
         self.set_action_background_color()
 
     def on_borders_crop_changed(self, _action, variant):
-        self.manga.update(dict(borders_crop=variant.get_boolean()))
+        value = variant.get_boolean()
+        if value == self.borders_crop:
+            return
+
+        self.manga.update(dict(
+            borders_crop=value if value != Settings.get_default().borders_crop else None,
+        ))
         self.set_action_borders_crop()
+
         self.pager.crop_pages_borders()
 
     def on_fullscreen_state_changed(self, _window, gparam):
@@ -291,15 +300,26 @@ class ReaderPage(Adw.NavigationPage):
 
     def on_landscape_zoom_changed(self, _action, variant):
         value = variant.get_boolean()
-        self.manga.update(dict(landscape_zoom=value))
+        if value == self.landscape_zoom:
+            return
+
+        self.manga.update(dict(
+            landscape_zoom=value if value != Settings.get_default().landscape_zoom else None,
+        ))
         self.set_action_landscape_zoom()
 
         self.pager.rescale_pages()
 
     def on_page_numbering_changed(self, _action, variant):
         value = not variant.get_boolean()
-        self.manga.update(dict(page_numbering=value))
+        if value == self.page_numbering:
+            return
+
+        self.manga.update(dict(
+            page_numbering=value if value != Settings.get_default().page_numbering else None,
+        ))
         self.set_action_page_numbering()
+
         if value and self.page_numbering_defined and not self.controls.is_visible:
             self.page_numbering_label.set_visible(True)
         else:
@@ -312,7 +332,9 @@ class ReaderPage(Adw.NavigationPage):
 
         prior_reading_mode = self.reading_mode
 
-        self.manga.update(dict(reading_mode=value))
+        self.manga.update(dict(
+            reading_mode=value if value != Settings.get_default().reading_mode else None,
+        ))
         self.set_action_reading_mode()
 
         if value == 'webtoon' or prior_reading_mode == 'webtoon':
@@ -327,7 +349,9 @@ class ReaderPage(Adw.NavigationPage):
         if value == self.scaling:
             return
 
-        self.manga.update(dict(scaling=value))
+        self.manga.update(dict(
+            scaling=value if value != Settings.get_default().scaling else None,
+        ))
         self.set_action_scaling()
 
         self.pager.rescale_pages()
@@ -337,7 +361,9 @@ class ReaderPage(Adw.NavigationPage):
         if value == self.scaling:
             return
 
-        self.manga.update(dict(scaling_filter=value))
+        self.manga.update(dict(
+            scaling_filter=value if value != Settings.get_default().scaling_filter else None,
+        ))
         self.set_action_scaling_filter()
 
         self.pager.rescale_pages()
