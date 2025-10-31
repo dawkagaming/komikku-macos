@@ -392,7 +392,7 @@ class ReaderPage(Adw.NavigationPage):
             return
 
         page = self.pager.current_page
-        if not page.picture or page.error:
+        if not page.image or page.error:
             return
 
         def do_save(dest_path):

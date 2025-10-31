@@ -309,8 +309,8 @@ class Pager(Adw.Bin, BasePager):
 
     def crop_pages_borders(self):
         for page in self.pages:
-            if page.picture and page.error is None:
-                page.picture.crop = self.reader.borders_crop
+            if page.image and page.error is None:
+                page.image.crop = self.reader.borders_crop
 
     def dispose(self):
         self.window.controller_key.disconnect(self.key_pressed_handler_id)
@@ -387,7 +387,7 @@ class Pager(Adw.Bin, BasePager):
 
         if keyval in (Gdk.KEY_plus, Gdk.KEY_KP_Add, Gdk.KEY_minus, Gdk.KEY_KP_Subtract, Gdk.KEY_0, Gdk.KEY_KP_0):
             # Zoom (+/-/reset)
-            self.current_page.picture.set_zoom_by_key(keyval, self.reader.reading_mode)
+            self.current_page.image.set_zoom_by_key(keyval, self.reader.reading_mode)
             return Gdk.EVENT_STOP
 
         if keyval in (Gdk.KEY_Left, Gdk.KEY_KP_Left, Gdk.KEY_j, Gdk.KEY_Right, Gdk.KEY_KP_Right, Gdk.KEY_k):

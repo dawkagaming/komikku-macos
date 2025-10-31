@@ -259,8 +259,8 @@ class KInfiniteCanvas(Gtk.Widget, Gtk.Scrollable):
         while page:
             page._ic_position = size - scroll_offset
 
-            if page.picture and not page.error:
-                _, page_height, _, _ = page.picture.do_measure(Gtk.Orientation.VERTICAL, width)
+            if page.image and not page.error:
+                _, page_height, _, _ = page.image.do_measure(Gtk.Orientation.VERTICAL, width)
             else:
                 page_height = height
 
@@ -376,7 +376,7 @@ class KInfiniteCanvas(Gtk.Widget, Gtk.Scrollable):
             # As soon as page height is known
             # Adjust scroll value if page has been prepended and still above scroll position
             if page._ic_position < 0:
-                _, page_height, _, _ = page.picture.do_measure(Gtk.Orientation.VERTICAL, self.get_width())
+                _, page_height, _, _ = page.image.do_measure(Gtk.Orientation.VERTICAL, self.get_width())
                 self.scroll_adjusting_delta = page_height - init_height
                 self.queue_allocate()
         else:

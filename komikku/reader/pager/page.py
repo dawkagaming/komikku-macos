@@ -31,7 +31,7 @@ class Page(Gtk.Overlay):
         self.data = None
         self.index = self.init_index = index
         self.path = None
-        self.picture = None
+        self.image = None
         self.retry_button = None
 
         self._status = None    # rendering, allocable, rendered, offlimit, disposed
@@ -91,9 +91,9 @@ class Page(Gtk.Overlay):
     def dispose(self):
         self.status = 'disposed'
 
-        if self.picture:
-            self.picture.dispose()
-            self.picture = None
+        if self.image:
+            self.image.dispose()
+            self.image = None
 
         if self.get_parent().__class__.__name__ == 'KInfiniteCanvas':
             # Webtoon pager: unparent from KInfiniteCanvas
@@ -110,18 +110,18 @@ class Page(Gtk.Overlay):
 
         self.render(retry=True)
 
-    def on_clicked(self, _picture, x, y):
+    def on_clicked(self, _image, x, y):
         self.reader.pager.on_single_click(x, y)
 
-    def on_rendered(self, _picture, update, retry):
+    def on_rendered(self, _image, update, retry):
         self.status = 'rendered'
         self.emit('rendered', update, retry)
 
-    def on_zoom_begin(self, _picture):
+    def on_zoom_begin(self, _image):
         self.reader.pager.interactive = False
         self.reader.toggle_controls(False)
 
-    def on_zoom_end(self, _picture):
+    def on_zoom_end(self, _image):
         self.reader.pager.interactive = True
 
     def render(self, retry=False):
@@ -233,25 +233,25 @@ class Page(Gtk.Overlay):
             run()
 
     def rescale(self):
-        if self.picture is None:
+        if self.image is None:
             return
 
-        self.picture.scaling = self.reader.scaling
-        self.picture.scaling_filter = self.reader.scaling_filter
-        self.picture.landscape_zoom = self.reader.landscape_zoom
+        self.image.scaling = self.reader.scaling
+        self.image.scaling_filter = self.reader.scaling_filter
+        self.image.landscape_zoom = self.reader.landscape_zoom
 
     def set_allow_zooming(self, allow):
-        if self.picture is None:
+        if self.image is None:
             return
 
         if self.reader.reading_mode == 'webtoon':
-            self.picture.set_allow_zooming(False)
+            self.image.set_allow_zooming(False)
             return
 
-        self.picture.set_allow_zooming(allow)
+        self.image.set_allow_zooming(allow)
 
     def set_image(self, retry):
-        def on_loaded(picture, success=True):
+        def on_loaded(image, success=True):
             if not success:
                 self.show_retry_button()
 
@@ -262,31 +262,31 @@ class Page(Gtk.Overlay):
                 if self.path or self.data:
                     self.error = 'corrupt_file'
 
-            picture.connect('clicked', self.on_clicked)
-            picture.connect('rendered', self.on_rendered, retry)
-            picture.connect('zoom-begin', self.on_zoom_begin)
-            picture.connect('zoom-end', self.on_zoom_end)
+            image.connect('clicked', self.on_clicked)
+            image.connect('rendered', self.on_rendered, retry)
+            image.connect('zoom-begin', self.on_zoom_begin)
+            image.connect('zoom-end', self.on_zoom_end)
 
-            if self.picture:
-                self.picture.dispose()
+            if self.image:
+                self.image.dispose()
 
-            self.picture = picture
+            self.image = image
             self.status = 'allocable'
             if self.zoomable:
-                self.scrolledwindow.set_child(self.picture)
+                self.scrolledwindow.set_child(self.image)
             else:
-                self.set_child(self.picture)
+                self.set_child(self.image)
 
             self.stop_activity_indicator()
 
         if self.path is None and self.data is None:
-            picture = KImage()
-            picture.load_missing(on_loaded)
+            image = KImage()
+            image.load_missing(on_loaded)
         else:
-            picture = KImage(
+            image = KImage(
                 scaling=self.reader.scaling, scaling_filter=self.reader.scaling_filter, crop=self.reader.borders_crop, landscape_zoom=self.reader.landscape_zoom, zoomable=self.zoomable
             )
-            picture.load(path=self.path, data=self.data['buffer'] if self.data else None, callback=on_loaded)
+            image.load(path=self.path, data=self.data['buffer'] if self.data else None, callback=on_loaded)
 
     def show_retry_button(self):
         if self.retry_button is None:
