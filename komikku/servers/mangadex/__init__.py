@@ -82,7 +82,7 @@ class Mangadex(Server):
             'key': 'publication_demographics',
             'type': 'select',
             'name': _('Publication Demographic'),
-            'description': _('Filter by publication demographics'),
+            'description': _('Filter by Publication Demographics'),
             'value_type': 'multiple',
             'options': [
                 {'key': 'shounen', 'name': _('Shounen'), 'default': False},
