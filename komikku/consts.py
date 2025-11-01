@@ -135,15 +135,15 @@ CREDITS = dict(
 
 RELEASE_NOTES = """
 <ul>
-    <li>[Trackers] Added MangaUpdates</li>
-    <li>[Servers] Aurora Scans (EN): Disabled</li>
-    <li>[Servers] Local: Added PDF format support</li>
-    <li>[Servers] Manga Demon (EN): Update</li>
-    <li>[servers] Manga Koleji [TR]: Disabled</li>
-    <li>[Servers] MANGA Plus (multi): Update</li>
-    <li>[Servers] Nazarick Scan (pt_BR): Disabled</li>
-    <li>[Servers] Starbound Scans (FR): Disabled</li>
-    <li>[L10n] Updated French and Ukrainian translations</li>
+    <li>[Library] Selection mode: Fixed read/unread actions</li>
+    <li>[Reader] Webtoon pager: Fixed high CPU usage</li>
+    <li>[Servers] Added Kavita</li>
+    <li>[Servers] Added MangaBall (23 languages)</li>
+    <li>[Servers] Anime-Sama (FR): Update</li>
+    <li>[Servers] Flame Comics (EN): Update</li>
+    <li>[Servers] MangaCrab (ES): Update</li>
+    <li>[Servers] Raijin Scan (FR): Update</li>
+    <li>[L10n] Updated Croatian, Czech and Russian translations</li>
 </ul>
 <p>Happy reading.</p>
 """

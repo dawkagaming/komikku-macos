@@ -99,6 +99,22 @@
     <url type="donation">https://febvre.info/donate.html</url>
 
     <releases>
+        <release version="1.91.0" date="2025-11-02">
+            <description translate="no">
+                <ul>
+                    <li>[Library] Selection mode: Fixed read/unread actions</li>
+                    <li>[Reader] Webtoon pager: Fixed high CPU usage</li>
+                    <li>[Servers] Added Kavita</li>
+                    <li>[Servers] Added MangaBall (23 languages)</li>
+                    <li>[Servers] Anime-Sama (FR): Update</li>
+                    <li>[Servers] Flame Comics (EN): Update</li>
+                    <li>[Servers] MangaCrab (ES): Update</li>
+                    <li>[Servers] Raijin Scan (FR): Update</li>
+                    <li>[L10n] Updated Croatian, Czech and Russian translations</li>
+                </ul>
+                <p>Happy reading.</p>
+            </description>
+        </release>
         <release version="1.90.0" date="2025-10-23">
             <description translate="no">
                 <ul>
