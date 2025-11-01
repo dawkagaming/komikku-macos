@@ -670,9 +670,8 @@ class LibraryPage(Adw.NavigationPage):
         thread.start()
 
     def refresh_on_manga_state_changed(self, manga):
-        # Update thumbnail if badges are displayed
-        if Settings.get_default().library_badges:
-            self.update_thumbnail(manga)
+        # Update thumbnail
+        self.update_thumbnail(manga)
 
         # Update filtering if filters are selected
         if self.selected_filters:

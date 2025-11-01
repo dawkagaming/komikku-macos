@@ -110,10 +110,11 @@ class Thumbnail(Gtk.FlowBoxChild):
 
         cover.resize(width, height)
 
-    def update(self, manga):
-        self.manga = manga
+    def update(self, manga=None):
+        if manga:
+            self.manga = manga
+            self.__draw_name()
 
-        self.__draw_name()
         self.picture.get_paintable().update(manga)
 
 
@@ -228,12 +229,13 @@ class ThumbnailCover(GObject.GObject, Gdk.Paintable):
 
         self.invalidate_size()
 
-    def update(self, manga):
-        self.manga = manga
+    def update(self, manga=None):
+        if manga:
+            self.manga = manga
+
+            self.cover_texture = None
+            self.__create_cover_texture()
 
         self.__get_badges_values()
-
-        self.cover_texture = None
-        self.__create_cover_texture()
 
         self.invalidate_contents()
