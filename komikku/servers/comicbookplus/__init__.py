@@ -101,7 +101,7 @@ class Comicbookplus(Server):
             if chapters_element:
                 re_date = r'[a-zA-Z]{3} \d{1,2}, \d{4}'
 
-                for tr_element in chapters_element.find_all('tr', class_='overrow'):
+                for tr_element in chapters_element.select('tr.overrow[itemtype="https://schema.org/Book"]'):
                     date = None
                     for td in tr_element.select('td'):
                         if re.match(re_date, td.text):
