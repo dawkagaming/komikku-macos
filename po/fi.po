@@ -8,16 +8,16 @@ msgstr ""
 "Project-Id-Version: Komikku 1.12.1\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-10-21 22:45+0200\n"
-"PO-Revision-Date: 2025-08-25 07:02+0000\n"
-"Last-Translator: Jiri Grönroos <jiri.gronroos@iki.fi>\n"
-"Language-Team: Finnish <https://hosted.weblate.org/projects/komikku/main/fi/"
-">\n"
+"PO-Revision-Date: 2025-11-05 13:51+0000\n"
+"Last-Translator: Ricky Tigg <ricky.tigg@gmail.com>\n"
+"Language-Team: Finnish <https://hosted.weblate.org/projects/komikku/main/fi/>"
+"\n"
 "Language: fi\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.13\n"
+"X-Generator: Weblate 5.14.1-dev\n"
 
 #: ../data/info.febvre.Komikku.desktop.in:2
 msgid "@prettyname@"
@@ -25,7 +25,7 @@ msgstr "@prettyname@"
 
 #: ../data/info.febvre.Komikku.desktop.in:3
 msgid "@description@"
-msgstr ""
+msgstr "@kuvaus@"
 
 #: ../data/info.febvre.Komikku.desktop.in:13
 msgid "manga;reader;viewer;comic;manhwa;manhua;bd;webtoon;webcomic;scan;offline;GTK;GNOME;"
@@ -40,6 +40,8 @@ msgid ""
 "With its simple, elegant and adaptive interface, this reader lets you "
 "search, sort and read your series with ease."
 msgstr ""
+"Yksinkertaisen, tyylikkään ja mukautuvan käyttöliittymän ansiosta tämä "
+"lukija antaa sinun hakea, lajitella ja lukea sarjojasi helposti."
 
 #: ../data/info.febvre.Komikku.metainfo.xml.in.in:15
 msgid "Why you will love Komikku?"
@@ -52,6 +54,7 @@ msgstr "Lukemista kymmeniltä eri palvelimilta internetyhteyden kera tai ilman"
 #: ../data/info.febvre.Komikku.metainfo.xml.in.in:18
 msgid "Support for locally stored series (in CBZ/CBR/CBT or PDF formats)"
 msgstr ""
+"Tuki paikallisesti tallennetuille sarjoille (CBZ/CBR/CBT- ja PDF-muodoissa)"
 
 #: ../data/info.febvre.Komikku.metainfo.xml.in.in:19
 msgid "RTL, LTR, Vertical and Webtoon reading modes"
@@ -80,7 +83,7 @@ msgstr "Automaattinen seuranta MyAnimeListin ja AniListin avulla"
 
 #: ../data/info.febvre.Komikku.metainfo.xml.in.in:23
 msgid "Automatic update of series"
-msgstr ""
+msgstr "Sarjojen automaattinen päivitys"
 
 #: ../data/info.febvre.Komikku.metainfo.xml.in.in:24
 msgid "Automatic download of new chapters"
@@ -189,7 +192,7 @@ msgstr "Etsi"
 
 #: ../data/ui/card_tracking_search.blp:75
 msgid "Search for Tracking"
-msgstr ""
+msgstr "Seurantahaku"
 
 #: ../data/ui/categories_editor.blp:36
 msgid "Add"
@@ -383,7 +386,7 @@ msgstr "Yleinen"
 
 #: ../data/ui/preferences.blp:18
 msgid "Appearance"
-msgstr ""
+msgstr "Ulkoasu"
 
 #: ../data/ui/preferences.blp:20
 msgid "Theme"
@@ -628,7 +631,7 @@ msgstr "Lineaarinen"
 
 #: ../data/ui/preferences.blp:274
 msgid "Trilinear"
-msgstr ""
+msgstr "Kolmilineaarinen"
 
 #: ../data/ui/preferences.blp:280
 msgid "Landscape Pages Zoom"
@@ -699,7 +702,7 @@ msgstr "Edistynyt"
 
 #: ../data/ui/preferences.blp:319
 msgid "A setting has changed that requires a restart to take effect"
-msgstr ""
+msgstr "Asetus on muuttunut ja sen voimaantulo vaatii uudelleenkäynnistyksen"
 
 #: ../data/ui/preferences.blp:325
 msgid "Data"
@@ -723,7 +726,7 @@ msgstr ""
 
 #: ../data/ui/preferences.blp:352
 msgid "Clear Data"
-msgstr ""
+msgstr "Tyhjennä tiedot"
 
 #: ../data/ui/preferences.blp:368
 msgid "Servers Modules"
@@ -739,6 +742,9 @@ msgid ""
 "code repository and updated at each startup, is used instead of the one "
 "delivered with the application."
 msgstr ""
+"Sovelluksen mukana toimitetun version sijaan käytetään palvelinmoduulien "
+"vaihtoehtoista versiota, joka on asennettu lähdekoodivarastosta ja "
+"päivitetty jokaisen käynnistyksen yhteydessä."
 
 #: ../data/ui/preferences.blp:377
 msgid "Credentials Storage"
@@ -775,6 +781,10 @@ msgid ""
 "environment and therefore cannot disable animations globally via GNOME "
 "Settings (Accessibility ⇨ Seeing ⇨ Animation Effects)."
 msgstr ""
+"Tämä säätö on tarkoitettu vain käyttäjille, jotka eivät käytä GNOME-"
+"työpöytäympäristöä eivätkä siksi voi poistaa animaatioita käytöstä "
+"globaalisti GNOME-asetusten kautta "
+"(Esteettömyys ⇨ Näkeminen ⇨ Animaatiotehosteet)."
 
 #: ../data/ui/reader.blp:23
 msgid "Back"
@@ -807,7 +817,7 @@ msgstr "Avaa pikanäppäimet"
 #: ../data/ui/shortcuts.blp:28
 msgctxt "Shortcut window description"
 msgid "Quit"
-msgstr ""
+msgstr "Poistu"
 
 #: ../data/ui/shortcuts.blp:34
 msgctxt "Shortcut window description"
@@ -832,7 +842,7 @@ msgstr "Etsi"
 #: ../data/ui/shortcuts.blp:52
 msgctxt "Shortcut window description"
 msgid "Toggle Categories Pane"
-msgstr ""
+msgstr "Näytä/piilota kategoriat -ruutu"
 
 #: ../data/ui/shortcuts.blp:57
 msgctxt "Shortcut window description"
@@ -918,7 +928,7 @@ msgstr "Kerta- tai kuukausilahjoitus"
 
 #: ../data/ui/support.blp:144
 msgid "Copy to Clipboard"
-msgstr ""
+msgstr "Kopioi leikepöydälle"
 
 #: ../data/ui/webview.blp:10
 msgid "Webview"
@@ -945,7 +955,7 @@ msgstr "Palvelinmoduulit on päivitetty"
 
 #: ../komikku/application.py:401
 msgid "External Servers Modules Update"
-msgstr ""
+msgstr "Ulkoisten palvelimien moduulien päivitys"
 
 #: ../komikku/application.py:402
 msgid ""
@@ -953,6 +963,9 @@ msgid ""
 "currently making them incompatible with the current version of the "
 "application. Please update it if a more recent version exists."
 msgstr ""
+"Ulkoisten palvelinmoduulien päivittäminen on tilapäisesti keskeytetty, koska "
+"muutokset tekevät niistä yhteensopimattomia sovelluksen nykyisen version "
+"kanssa. Päivitäthän se, jos uudempi versio on saatavilla."
 
 #: ../komikku/application.py:403 ../komikku/explorer/common.py:273
 msgid "Close"
@@ -966,6 +979,11 @@ msgid ""
 "by buying the official comics when they are\n"
 "available in your region/language."
 msgstr ""
+"Manga-, webtoon- ja sarjakuvien lukuohjelma\n"
+"\n"
+"👉 Älä unohda, että voit tukea kirjoittajia\n"
+"ostamalla virallisia sarjakuvia, kun ne ovat\n"
+"saatavilla alueellasi/kielelläsi."
 
 #: ../komikku/application.py:427
 msgid "Supporters"
@@ -1097,7 +1115,7 @@ msgstr "Merkitse edelliset luvut luetuiksi"
 
 #: ../komikku/card/tracking.py:72
 msgid "Failed to get data from tracker"
-msgstr ""
+msgstr "Tietojen hakeminen jäljitimestä epäonnistui"
 
 #: ../komikku/card/tracking.py:100
 msgid "No tracking services available"
@@ -1127,11 +1145,11 @@ msgstr "Tila"
 
 #: ../komikku/card/tracking.py:236
 msgid "Score"
-msgstr ""
+msgstr "Pisteet"
 
 #: ../komikku/card/tracking.py:241
 msgid "Chapter"
-msgstr ""
+msgstr "Luku"
 
 #: ../komikku/card/tracking.py:253 ../komikku/categories_editor.py:78
 #: ../komikku/library/__init__.py:378
@@ -1217,11 +1235,13 @@ msgstr "Viimeinen kappale: {}"
 
 #: ../komikku/explorer/common.py:125
 msgid "Last Volume: {}"
-msgstr ""
+msgstr "Viimeisin kokoelma: {}"
 
 #: ../komikku/explorer/common.py:223
 msgid "Comics stored locally as archives in CBZ/CBR/CBT or PDF formats"
 msgstr ""
+"Sarjakuvat tallennettuna paikallisesti arkistoina CBZ/CBR/CBT- ja PDF-"
+"muodoissa"
 
 #: ../komikku/explorer/common.py:240 ../komikku/preferences.py:633
 #: ../komikku/preferences.py:730 ../komikku/servers/mangatube/__init__.py:150
@@ -1473,6 +1493,8 @@ msgstr "Haluatko varmasti tyhjentää lukujen välimuistin ja tietokannan?"
 #: ../komikku/preferences.py:167
 msgid "Are you sure you want to clear WebView data (cache, storage, cookies)?"
 msgstr ""
+"Oletko varma, että haluat tyhjentää WebView-tiedot, eli välimuistin, "
+"tallennustilan ja evästeet?"
 
 #: ../komikku/preferences.py:192
 msgid "Disable animations?"
@@ -1546,11 +1568,11 @@ msgstr "Yhdistä"
 
 #: ../komikku/preferences.py:835
 msgid "Failed to request client access"
-msgstr ""
+msgstr "Asiakkaan pääsyn pyytäminen epäonnistui"
 
 #: ../komikku/preferences.py:838
 msgid "Webview is currently in used. Please retry later."
-msgstr ""
+msgstr "WebView on tällä hetkellä käytössä. Yritäthän myöhemmin uudelleen."
 
 #: ../komikku/preferences.py:860
 msgid "Disconnect from {}"
@@ -1602,7 +1624,7 @@ msgstr "Kylläisyys"
 
 #: ../komikku/reader/__init__.py:542
 msgid "Super-saturate or desaturate pages"
-msgstr ""
+msgstr "Ylikyllästyneet sivut tai sivut, joiden ylikyllästyneisyys poistettiin"
 
 #: ../komikku/reader/pager/__init__.py:165
 msgid "Failed to sync read progress with server"
@@ -1718,7 +1740,7 @@ msgstr "Maksullinen"
 
 #: ../komikku/servers/coloredcouncil/__init__.py:65
 msgid "Format"
-msgstr ""
+msgstr "Muoto"
 
 #: ../komikku/servers/coloredcouncil/__init__.py:66
 msgid "Filter by format"
@@ -1803,11 +1825,11 @@ msgstr "Keskeytetty"
 
 #: ../komikku/servers/comick/__init__.py:90
 msgid "Origination"
-msgstr ""
+msgstr "Alkuperä"
 
 #: ../komikku/servers/comick/__init__.py:91
 msgid "[Latest Updates only] Filter by Origination"
-msgstr ""
+msgstr "[Vain uusimmat päivitykset] Suodata alkuperän mukaan"
 
 #: ../komikku/servers/comick/__init__.py:102
 msgid "Countries"
@@ -1815,11 +1837,11 @@ msgstr "Maat"
 
 #: ../komikku/servers/comick/__init__.py:104
 msgid "[Search and Most Popular only] Filter by Country (origination)"
-msgstr ""
+msgstr "[Vain haku ja suosituimmat] Suodata maan (alkuperä) mukaan"
 
 #: ../komikku/servers/comick/__init__.py:108
 msgid "Japan (Manga)"
-msgstr ""
+msgstr "Japani (Manga)"
 
 #: ../komikku/servers/comick/__init__.py:109
 msgid "Korea (Manhwa)"
@@ -1827,16 +1849,16 @@ msgstr ""
 
 #: ../komikku/servers/comick/__init__.py:110
 msgid "China (Manhua)"
-msgstr ""
+msgstr "Kiina (Manhua)"
 
 #: ../komikku/servers/comick/__init__.py:116
 #: ../komikku/servers/mangadex/__init__.py:84
 msgid "Publication Demographic"
-msgstr ""
+msgstr "Julkaisun demografia"
 
 #: ../komikku/servers/comick/__init__.py:117
 msgid "Filter by Publication Demographics"
-msgstr ""
+msgstr "Suodata julkaisun demografisten tietojen mukaan"
 
 #: ../komikku/servers/comick/__init__.py:120
 #: ../komikku/servers/mangadex/__init__.py:88
@@ -1880,7 +1902,7 @@ msgstr ""
 #: ../komikku/servers/comick/__init__.py:135
 #: ../komikku/servers/mangadex/__init__.py:102
 msgid "Adaptation"
-msgstr ""
+msgstr "Sovitus"
 
 #: ../komikku/servers/comick/__init__.py:136
 #: ../komikku/servers/mangadex/__init__.py:103
@@ -1890,7 +1912,7 @@ msgstr "Antologia"
 #: ../komikku/servers/comick/__init__.py:137
 #: ../komikku/servers/mangadex/__init__.py:104
 msgid "Award Winning"
-msgstr ""
+msgstr "Palkittu"
 
 #: ../komikku/servers/comick/__init__.py:138
 #: ../komikku/servers/mangadex/__init__.py:105
@@ -1902,27 +1924,27 @@ msgstr "Doujinshi"
 #: ../komikku/servers/comick/__init__.py:139
 #: ../komikku/servers/mangadex/__init__.py:106
 msgid "Fan Colored"
-msgstr ""
+msgstr "Viuhkavärinen"
 
 #: ../komikku/servers/comick/__init__.py:140
 #: ../komikku/servers/mangadex/__init__.py:107
 msgid "Full Color"
-msgstr ""
+msgstr "Täysvärinen"
 
 #: ../komikku/servers/comick/__init__.py:141
 #: ../komikku/servers/mangadex/__init__.py:108
 msgid "Long Strip"
-msgstr ""
+msgstr "Pitkä kaistale"
 
 #: ../komikku/servers/comick/__init__.py:144
 #: ../komikku/servers/mangadex/__init__.py:109
 msgid "Official Colored"
-msgstr ""
+msgstr "Virallinen värillinen"
 
 #: ../komikku/servers/comick/__init__.py:147
 #: ../komikku/servers/mangadex/__init__.py:110
 msgid "Oneshot"
-msgstr ""
+msgstr "Yksilaukauksinen"
 
 #: ../komikku/servers/comick/__init__.py:148
 msgid "User Created"
@@ -1983,7 +2005,7 @@ msgstr "Fantasia"
 
 #: ../komikku/servers/comick/__init__.py:167
 msgid "Gender Bender"
-msgstr ""
+msgstr "Sukupuolen taivuttaja"
 
 #: ../komikku/servers/comick/__init__.py:168
 #: ../komikku/servers/mangadex/__init__.py:130
@@ -2124,7 +2146,7 @@ msgstr "Tunnisteiden kanssa"
 
 #: ../komikku/servers/dynasty/__init__.py:55
 msgid "Comma separated list of tags to search for"
-msgstr ""
+msgstr "Pilkuilla erotettu luettelo haettavista tunnisteista"
 
 #: ../komikku/servers/dynasty/__init__.py:61
 msgid "Without Tags"
@@ -2132,7 +2154,7 @@ msgstr "Ilman tunnisteita"
 
 #: ../komikku/servers/dynasty/__init__.py:62
 msgid "Comma separated list of tags to exclude from search"
-msgstr ""
+msgstr "Pilkuilla erotettu luettelo hausta pois jätettävistä tunnisteista"
 
 #: ../komikku/servers/exceptions.py:10
 msgid "Error: {}"
@@ -2168,7 +2190,7 @@ msgstr "Tilat"
 #: ../komikku/servers/flamescans/__init__.py:55
 #: ../komikku/trackers/__init__.py:43
 msgid "Dropped"
-msgstr ""
+msgstr "Pudotettu"
 
 #: ../komikku/servers/mangadex/__init__.py:65
 msgid "Pornographic"
@@ -2176,11 +2198,11 @@ msgstr "Pornografinen"
 
 #: ../komikku/servers/mangadex/__init__.py:85
 msgid "Filter by publication demographics"
-msgstr ""
+msgstr "Suodata julkaisun demografisten tietojen mukaan"
 
 #: ../komikku/servers/mangadex/__init__.py:111
 msgid "Self-Published"
-msgstr ""
+msgstr "Itse julkaistu"
 
 #: ../komikku/servers/mangadex/__init__.py:124
 msgid "Boys Love"
@@ -2202,11 +2224,11 @@ msgstr ""
 
 #: ../komikku/servers/mangadex/__init__.py:156
 msgid "AND"
-msgstr ""
+msgstr "JA"
 
 #: ../komikku/servers/mangadex/__init__.py:157
 msgid "OR"
-msgstr ""
+msgstr "TAI"
 
 #: ../komikku/servers/mangafire/__init__.py:50
 #: ../komikku/servers/mangapill/__init__.py:42
@@ -2223,11 +2245,11 @@ msgstr "Uutuus"
 
 #: ../komikku/servers/mangafire/__init__.py:64
 msgid "Releasing"
-msgstr ""
+msgstr "Julkaistetaan"
 
 #: ../komikku/servers/mangafire/__init__.py:66
 msgid "Discontinued"
-msgstr ""
+msgstr "Lopetettu"
 
 #: ../komikku/servers/mangapill/__init__.py:46
 #: ../komikku/servers/weebcentral/__init__.py:42
@@ -2284,7 +2306,7 @@ msgstr "Ei saatavilla kielellä {0}"
 
 #: ../komikku/servers/webtoon/__init__.py:60
 msgid "Originals"
-msgstr ""
+msgstr "Alkuperäiset"
 
 #: ../komikku/servers/webtoon/__init__.py:61
 msgid "Canvas"
@@ -2292,19 +2314,19 @@ msgstr ""
 
 #: ../komikku/trackers/__init__.py:40
 msgid "Reading"
-msgstr ""
+msgstr "Lukeminen"
 
 #: ../komikku/trackers/__init__.py:42
 msgid "On Hold"
-msgstr ""
+msgstr "Odotustilassa"
 
 #: ../komikku/trackers/__init__.py:44
 msgid "Plan to Read"
-msgstr ""
+msgstr "Suunnittele lukemista"
 
 #: ../komikku/trackers/__init__.py:45
 msgid "Rereading"
-msgstr ""
+msgstr "Uudelleenlukeminen"
 
 #: ../komikku/updater.py:86
 #, python-brace-format
