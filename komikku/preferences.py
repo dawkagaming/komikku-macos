@@ -784,12 +784,22 @@ class TrackerRow(Adw.ActionRow):
 
         self.btn = Gtk.Button(valign=Gtk.Align.CENTER)
 
-        if self.tracker.get_active():
+        granted, access_token_valid = self.tracker.is_granted()
+        if granted and access_token_valid:
             self.active = True
             self.btn.set_label(_('Disconnect'))
+            self.btn.set_css_classes(['destructive-action'])
         else:
             self.active = False
-            self.btn.set_label(_('Connect'))
+
+            if granted and not access_token_valid:
+                self.set_subtitle(_('Connection is expired'))
+                self.btn.set_label(_('Reconnect'))
+                self.btn.set_css_classes(['suggested-action'])
+            else:
+                self.btn.set_label(_('Connect'))
+                self.btn.set_css_classes([])
+
         self.btn.connect('clicked', self.on_btn_clicked)
         self.add_suffix(self.btn)
 
@@ -819,17 +829,18 @@ class TrackerRow(Adw.ActionRow):
         def connect_dialog():
             username_entry = group.get_row(0)
             password_entry = group.get_row(1)
-            success, error = self.tracker.get_access_token(username_entry.get_text(), password_entry.get_text())
+            success, error = self.tracker.request_access_token(username_entry.get_text(), password_entry.get_text())
             GLib.idle_add(connect_finish, success, error)
 
         def connect_webview():
-            success, error = self.tracker.get_access_token()
+            success, error = self.tracker.request_access_token()
             GLib.idle_add(connect_finish, success, error)
 
         def connect_finish(success, error):
             if success:
                 self.active = True
                 self.btn.set_label(_('Disconnect'))
+                self.btn.set_css_classes(['destructive-action'])
 
             elif error == 'load_failed':
                 self.window.preferences.add_toast(Adw.Toast.new(_('Failed to request client access')))
@@ -841,10 +852,11 @@ class TrackerRow(Adw.ActionRow):
                 self.window.preferences.add_toast(Adw.Toast.new(error))
 
         def disconnect():
-            self.tracker.set_active(False)
+            self.tracker.data = None
 
             self.active = False
             self.btn.set_label(_('Connect'))
+            self.btn.set_css_classes([])
 
         if not self.active:
             if self.tracker.authorize_url:

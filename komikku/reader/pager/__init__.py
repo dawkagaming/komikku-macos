@@ -173,8 +173,8 @@ class BasePager:
             return
 
         for _id, tracker in self.window.trackers.trackers.items():
-            tracker_data = tracker.get_data()
-            if not tracker_data or not tracker_data['active']:
+            granted, _access_token_valid = tracker.is_granted()
+            if not granted:
                 continue
 
             if not chapter.manga.tracking or tracker.id not in chapter.manga.tracking or not chapter.number:

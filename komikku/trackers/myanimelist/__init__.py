@@ -11,6 +11,7 @@ from urllib.parse import urlparse
 import requests
 
 from komikku.consts import USER_AGENT
+from komikku.trackers import authenticated
 from komikku.trackers import Tracker
 from komikku.webview import get_tracker_access_token
 
@@ -64,62 +65,18 @@ class Myanimelist(Tracker):
         self.session = requests.Session()
         self.session.headers.update({'User-Agent': USER_AGENT})
 
-    def get_access_token(self):
-        code_verifier = base64.urlsafe_b64encode(os.urandom(40)).decode('utf-8')
-        code_verifier = re.sub('[^a-zA-Z0-9]+', '', code_verifier)
-        state = 'komikku'
-
-        authorize_url = self.authorize_url.format(self.client_id, state, code_verifier)
-
-        redirect_url, error = get_tracker_access_token(authorize_url, self.app_redirect_url)
-
-        if error:
-            return False, error
-
-        qs = parse_qs(urlparse(redirect_url).query)
-        if qs['state'][0] != state:
-            return False, 'failed'
-
-        code = qs['code'][0]
-
-        r = self.session.post(
-            self.access_token_url,
-            data={
-                'client_id': self.client_id,
-                'grant_type': 'authorization_code',
-                'code': code,
-                'code_verifier': code_verifier,
-            },
-            headers={
-                'Content-Type': 'application/x-www-form-urlencoded',
-            }
-        )
-
-        if r.status_code != 200:
-            return False, 'failed'
-
-        data = r.json()
-        self.save_data({
-            'active': True,
-            'access_token': data['access_token'],
-            'refresh_token': data['refresh_token'],
-        })
-
-        return True, None
-
     def get_manga_url(self, id):
         return self.manga_url.format(id)
 
-    def get_tracker_manga_data(self, id):
-        tracker_data = self.get_data()
-
+    @authenticated
+    def get_tracker_manga_data(self, id, access_token=None):
         r = self.session.get(
             self.api_manga_url.format(id),
             params={
                 'fields': 'id,num_chapters,title',
             },
             headers={
-                'Authorization': f'Bearer {tracker_data["access_token"]}',
+                'Authorization': f'Bearer {access_token}',
             }
         )
         if r.status_code == 401:
@@ -141,9 +98,8 @@ class Myanimelist(Tracker):
     def get_user_score_format(self, format):
         return self.USER_SCORE_FORMAT
 
-    def get_user_manga_data(self, id):
-        tracker_data = self.get_data()
-
+    @authenticated
+    def get_user_manga_data(self, id, access_token=None):
         r = self.session_get(
             self.api_user_mangalist_url,
             params={
@@ -151,7 +107,7 @@ class Myanimelist(Tracker):
                 'fields': 'id,my_list_status,num_chapters,title',
             },
             headers={
-                'Authorization': f'Bearer {tracker_data["access_token"]}',
+                'Authorization': f'Bearer {access_token}',
             }
         )
         if r.status_code == 401:
@@ -186,14 +142,12 @@ class Myanimelist(Tracker):
         return data
 
     def refresh_access_token(self):
-        tracker_data = self.get_data()
-
         r = self.session.post(
             self.access_token_url,
             auth=(self.client_id, ''),
             data={
                 'grant_type': 'refresh_token',
-                'refresh_token': tracker_data['refresh_token'],
+                'refresh_token': self.data['refresh_token'],
             },
             headers={
                 'Content-Type': 'application/x-www-form-urlencoded',
@@ -201,21 +155,61 @@ class Myanimelist(Tracker):
         )
 
         if r.status_code != 200:
-            return False
+            return None
 
         data = r.json()
 
-        self.save_data({
-            'active': True,
+        self.data = {
             'access_token': data['access_token'],
             'refresh_token': data['refresh_token'],
-        })
+        }
 
-        return True
+        return data['access_token']
 
-    def search(self, term):
-        tracker_data = self.get_data()
+    def request_access_token(self):
+        code_verifier = base64.urlsafe_b64encode(os.urandom(40)).decode('utf-8')
+        code_verifier = re.sub('[^a-zA-Z0-9]+', '', code_verifier)
+        state = 'komikku'
 
+        authorize_url = self.authorize_url.format(self.client_id, state, code_verifier)
+
+        redirect_url, error = get_tracker_access_token(authorize_url, self.app_redirect_url)
+
+        if error:
+            return False, error
+
+        qs = parse_qs(urlparse(redirect_url).query)
+        if qs['state'][0] != state:
+            return False, 'failed'
+
+        code = qs['code'][0]
+
+        r = self.session.post(
+            self.access_token_url,
+            data={
+                'client_id': self.client_id,
+                'grant_type': 'authorization_code',
+                'code': code,
+                'code_verifier': code_verifier,
+            },
+            headers={
+                'Content-Type': 'application/x-www-form-urlencoded',
+            }
+        )
+
+        if r.status_code != 200:
+            return False, 'failed'
+
+        data = r.json()
+        self.data = {
+            'access_token': data['access_token'],
+            'refresh_token': data['refresh_token'],
+        }
+
+        return True, None
+
+    @authenticated
+    def search(self, term, access_token=None):
         r = self.session.get(
             self.api_search_url,
             params={
@@ -224,7 +218,7 @@ class Myanimelist(Tracker):
                 'fields': 'id,title,main_picture,status,synopsis,genres,authors{first_name,last_name},mean,start_date',
             },
             headers={
-                'Authorization': f'Bearer {tracker_data["access_token"]}',
+                'Authorization': f'Bearer {access_token}',
             }
         )
         if r.status_code == 401:
@@ -257,8 +251,8 @@ class Myanimelist(Tracker):
 
         return results
 
-    def update_user_manga_data(self, id, data):
-        tracker_data = self.get_data()
+    @authenticated
+    def update_user_manga_data(self, id, data, access_token=None):
         update_data = data.copy()
 
         # chapters_progress => num_chapters_read
@@ -276,7 +270,7 @@ class Myanimelist(Tracker):
             self.api_manga_update_url.format(id),
             data=update_data,
             headers={
-                'Authorization': f'Bearer {tracker_data["access_token"]}',
+                'Authorization': f'Bearer {access_token}',
             }
         )
         if r.status_code == 401:

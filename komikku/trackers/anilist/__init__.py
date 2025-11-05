@@ -9,6 +9,7 @@ from urllib.parse import urlparse
 import requests
 
 from komikku.consts import USER_AGENT
+from komikku.trackers import authenticated
 from komikku.trackers import Tracker
 from komikku.webview import get_tracker_access_token
 
@@ -84,26 +85,8 @@ class Anilist(Tracker):
         self.session = requests.Session()
         self.session.headers.update({'User-Agent': USER_AGENT})
 
-    def get_access_token(self):
-        redirect_url, error = get_tracker_access_token(self.authorize_url, self.app_redirect_url)
-
-        if redirect_url:
-            # Access token is in fragment, convert fragment into query string
-            qs = parse_qs(urlparse(redirect_url.replace('#', '?')).query)
-
-            self.save_data({
-                'active': True,
-                'access_token': qs['access_token'][0],
-                'refresh_token': None,
-            })
-
-            return True, None
-
-        return False, error
-
-    def get_user(self):
-        tracker_data = self.get_data()
-
+    @authenticated
+    def get_user(self, access_token=None):
         query = """
             query {
                 Viewer {
@@ -120,7 +103,7 @@ class Anilist(Tracker):
                 'query': query,
             },
             headers={
-                'Authorization': f'Bearer {tracker_data["access_token"]}',
+                'Authorization': f'Bearer {access_token}',
                 'Content-Type': 'application/json',
                 'Accept': 'application/json',
             }
@@ -142,9 +125,8 @@ class Anilist(Tracker):
     def get_manga_url(self, id):
         return self.manga_url.format(id)
 
-    def get_tracker_manga_data(self, id):
-        tracker_data = self.get_data()
-
+    @authenticated
+    def get_tracker_manga_data(self, id, access_token=None):
         query = """
             query ($id: Int) {
                 Media (id: $id) {
@@ -171,7 +153,7 @@ class Anilist(Tracker):
                 },
             },
             headers={
-                'Authorization': f'Bearer {tracker_data["access_token"]}',
+                'Authorization': f'Bearer {access_token}',
                 'Content-Type': 'application/json',
                 'Accept': 'application/json',
             }
@@ -195,8 +177,8 @@ class Anilist(Tracker):
     def get_user_score_format(self, format):
         return self.USER_SCORES_FORMATS[format]
 
-    def get_user_manga_data(self, id):
-        tracker_data = self.get_data()
+    @authenticated
+    def get_user_manga_data(self, id, access_token=None):
         user = self.get_user()
 
         query = """
@@ -226,7 +208,7 @@ class Anilist(Tracker):
                 },
             },
             headers={
-                'Authorization': f'Bearer {tracker_data["access_token"]}',
+                'Authorization': f'Bearer {access_token}',
                 'Content-Type': 'application/json',
                 'Accept': 'application/json',
             }
@@ -249,6 +231,27 @@ class Anilist(Tracker):
             'score_format': user['score_format'],
             'status': self.STATUSES_MAPPING[data['status']],
         }
+
+    def refresh_access_token(self):
+        # Access token can't be refreshed
+        # Tracker server don't store the access token
+        return None
+
+    def request_access_token(self):
+        redirect_url, error = get_tracker_access_token(self.authorize_url, self.app_redirect_url)
+
+        if redirect_url:
+            # Access token is in fragment, convert fragment into query string
+            qs = parse_qs(urlparse(redirect_url.replace('#', '?')).query)
+
+            self.data = {
+                'access_token': qs['access_token'][0],
+                'refresh_token': None,
+            }
+
+            return True, None
+
+        return False, error
 
     def search(self, term):
         query = """
@@ -313,9 +316,11 @@ class Anilist(Tracker):
 
         return results
 
-    def update_user_manga_data(self, id, data):
-        tracker_data = self.get_data()
+    @authenticated
+    def update_user_manga_data(self, id, data, access_token=None):
         user = self.get_user()
+        if user is None:
+            return False
 
         # Convert score: RAW to user format
         score = int(data['score'] / self.get_user_score_format(user['score_format'])['raw_factor'])
@@ -323,9 +328,11 @@ class Anilist(Tracker):
         # Convert status: internal to tracker naming
         status = self.convert_internal_status(data['status'])
 
+        progress = int(data['chapters_progress'])
+
         query = f"""
             mutation {{
-                SaveMediaListEntry(mediaId: {id}, score: {score}, status: {status}, progress: {data['chapters_progress']}) {{
+                SaveMediaListEntry(mediaId: {id}, score: {score}, status: {status}, progress: {progress}) {{
                     id
                     mediaId
                     score
@@ -340,7 +347,7 @@ class Anilist(Tracker):
                 'query': query,
             },
             headers={
-                'Authorization': f'Bearer {tracker_data["access_token"]}',
+                'Authorization': f'Bearer {access_token}',
                 'Content-Type': 'application/json',
                 'Accept': 'application/json',
             }

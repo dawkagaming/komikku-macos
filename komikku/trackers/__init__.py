@@ -4,11 +4,15 @@
 
 from abc import ABC
 from abc import abstractmethod
+from functools import wraps
 from gettext import gettext as _
 import json
 import logging
 import os
 import threading
+import time
+
+import jwt
 
 from gi.repository import GObject
 
@@ -22,6 +26,29 @@ from komikku.utils import log_error_traceback
 from komikku.trackers.utils import get_trackers_list
 
 logger = logging.getLogger(__name__)
+
+
+def authenticated(func):
+    @wraps(func)
+    def wrapper(*args, **kwargs):
+        tracker = args[0]
+        granted, access_token_valid = tracker.is_granted()
+
+        if not granted:
+            return None
+
+        if access_token_valid:
+            return func(*args, **kwargs, access_token=tracker.data['access_token'])
+
+        # Access token is expired, try to refresh it
+        if new_access_token := tracker.refresh_access_token():
+            logger.info('%s tracker access token has been successfully refreshed', tracker.name)
+            return func(*args, **kwargs, access_token=new_access_token)
+
+        # Tracker don't support refresh or refresh has failed
+        return None
+
+    return wrapper
 
 
 class Tracker(BaseServer, ABC):
@@ -47,6 +74,20 @@ class Tracker(BaseServer, ABC):
     STATUSES_MAPPING: dict = None
 
     @property
+    def data(self):
+        """Tracker data saved in settings"""
+        return Settings.get_default().trackers.get(self.id)
+
+    @data.setter
+    def data(self, data):
+        """Save tracker data (access token, refresh token,...) in settings"""
+        trackers = Settings.get_default().trackers
+
+        trackers[self.id] = data
+
+        Settings.get_default().trackers = trackers
+
+    @property
     def logo_path(self):
         path = os.path.join(get_cached_logos_dir(), 'trackers', f'{self.id}.png')
         if not os.path.exists(path):
@@ -59,18 +100,6 @@ class Tracker(BaseServer, ABC):
         for tracker_status, internal_status in self.STATUSES_MAPPING.items():
             if internal_status == status:
                 return tracker_status
-
-    @abstractmethod
-    def get_access_token(self):
-        """Retrieves the Access Token"""
-
-    def get_active(self):
-        data = self.get_data()
-        return data['active'] if data else False
-
-    def get_data(self):
-        """ Get tracker data saved in dconf-settings """
-        return Settings.get_default().trackers.get(self.id)
 
     def get_manga_data(self, id):
         data = self.get_user_manga_data(id)
@@ -108,13 +137,38 @@ class Tracker(BaseServer, ABC):
     def get_user_score_format(self, format):
         """Returns user score format (min, max, step, raw factor)"""
 
-    def save_data(self, data):
-        """ Save tracker data (access tokens, status) in dconf-settings """
-        trackers = Settings.get_default().trackers
+    def is_granted(self):
+        """
+        :return: is granted, is access token valid (not expired)
+        :rtype: (bool, bool)
+        """
+        data = self.data
+        if data is None:
+            return False, False
 
-        trackers[self.id] = data
+        if not data.get('access_token'):
+            return False, False
 
-        Settings.get_default().trackers = trackers
+        payload = jwt.decode(data['access_token'], options={'verify_signature': False})
+        expiration_time = payload.get('exp')
+        if expiration_time is None:
+            # No expiration time, token is assumed to be valid
+            return True, False
+
+        return True, time.time() <= expiration_time - 86400
+
+    @abstractmethod
+    def refresh_access_token(self):
+        """
+        Refreshes the access token
+
+        :return: The new access token
+        :rtype: string
+        """
+
+    @abstractmethod
+    def request_access_token(self):
+        """Requests an access token"""
 
     def save_logo(self):
         return self.save_image(
@@ -125,13 +179,6 @@ class Tracker(BaseServer, ABC):
     @abstractmethod
     def search(self, term):
         """Search a manga"""
-
-    def set_active(self, active):
-        trackers = Settings.get_default().trackers
-
-        trackers[self.id]['active'] = active
-
-        Settings.get_default().trackers = trackers
 
     @abstractmethod
     def update_user_manga_data(self, id, data):
@@ -157,6 +204,10 @@ class Trackers(GObject.GObject):
             db_conn = create_db_connection()
 
             for id, tracker in self.trackers.items():
+                granted, access_token_valid = tracker.is_granted()
+                if not granted or not access_token_valid:
+                    continue
+
                 query = f"SELECT id, tracking -> '{id}' AS data FROM mangas WHERE tracking -> '$.{id}._synced' = 'false'"
 
                 for row in db_conn.execute(query).fetchall():

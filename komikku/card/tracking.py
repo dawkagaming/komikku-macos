@@ -298,6 +298,8 @@ class TrackerRow(Adw.ExpanderRow):
             self.set_enable_expansion(True)
             self.set_expanded(True)
             self.set_arrow_visible(True)
+            self.set_activatable(True)
+            self.set_subtitle('')
             self.btn.set_visible(False)
 
             if data.get('url'):
@@ -329,33 +331,36 @@ class TrackerRow(Adw.ExpanderRow):
             with self.status_row.handler_block(self.status_changed_handler_id):
                 self.status_row.set_selected(self.tracker.get_status_index(data['status']))
 
-        def reset():
-            self.set_expanded(False)
-            self.set_enable_expansion(False)
-            self.set_arrow_visible(False)
-            self.btn.set_visible(True)
-            self.action_row.set_title('')
-
-        # Is the tracker connected and active?
-        tracker_data = self.tracker.get_data()
-        active = tracker_data and tracker_data['active']
-        self.set_visible(active)
+        # Is the tracker granted?
+        granted, access_token_valid = self.tracker.is_granted()
+        self.set_visible(granted)
 
         if data is None:
-            if self.window.card.manga.tracking and self.window.card.manga.tracking.get(self.tracker.id):
+            tracked = self.window.card.manga.tracking and self.window.card.manga.tracking.get(self.tracker.id)
+
+            if access_token_valid and tracked:
                 thread = threading.Thread(target=run)
                 thread.daemon = True
                 thread.start()
             else:
                 self.set_expanded(False)
                 self.set_enable_expansion(False)
-                self.set_arrow_visible(False)
-                self.btn.set_visible(True)
                 self.action_row.set_title('')
+
+                if access_token_valid:
+                    self.set_arrow_visible(False)
+                    self.btn.set_visible(True)
+                    self.set_activatable(True)
+                    self.set_subtitle('')
+                else:
+                    self.set_arrow_visible(True)
+                    self.btn.set_visible(False)
+                    self.set_activatable(False)
+                    self.set_subtitle(_('Connection is expired'))
         else:
             complete(data)
 
-        return active
+        return granted and access_token_valid
 
     def on_btn_clicked(self, _btn):
         self.window.card.tracking_dialog.show_search(self.tracker)

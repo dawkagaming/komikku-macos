@@ -5,6 +5,7 @@
 import requests
 
 from komikku.consts import USER_AGENT
+from komikku.trackers import authenticated
 from komikku.trackers import Tracker
 
 # https://api.mangaupdates.com/
@@ -53,29 +54,6 @@ class Mangaupdates(Tracker):
         self.session = requests.Session()
         self.session.headers.update({'User-Agent': USER_AGENT})
 
-    def get_access_token(self, username, password):
-        r = self.session_put(
-            self.api_login_url,
-            data={
-                'username': username,
-                'password': password,
-            }
-        )
-        if r.status_code != 200:
-            return False, 'failed'
-
-        data = r.json()
-        if data['status'] != 'success':
-            return False, 'failed'
-
-        self.save_data({
-            'active': True,
-            'access_token': data['context']['session_token'],
-            'refresh_token': None,
-        })
-
-        return True, None
-
     def get_manga_url(self, id):
         return None
 
@@ -98,14 +76,13 @@ class Mangaupdates(Tracker):
     def get_user_score_format(self, format):
         return self.USER_SCORE_FORMAT
 
-    def get_user_manga_data(self, id):
-        tracker_data = self.get_data()
-
+    @authenticated
+    def get_user_manga_data(self, id, access_token=None):
         # Get user serie info: status, chapters progress
         r = self.session_get(
             self.api_manga_list_url.format(id),
             headers={
-                'Authorization': f'Bearer {tracker_data["access_token"]}',
+                'Authorization': f'Bearer {access_token}',
             }
         )
         if r.status_code != 200:
@@ -136,15 +113,39 @@ class Mangaupdates(Tracker):
         r = self.session_get(
             self.api_manga_rating_url.format(id),
             headers={
-                'Authorization': f'Bearer {tracker_data["access_token"]}',
+                'Authorization': f'Bearer {access_token}',
+            }
+        )
+        data['score'] = r.json()['rating'] if r.status_code == 200 else 0
+
+        return data
+
+    def refresh_access_token(self):
+        # Access token can't be refreshed
+        # Tracker server don't store the access token
+        return None
+
+    def request_access_token(self, username, password):
+        r = self.session_put(
+            self.api_login_url,
+            data={
+                'username': username,
+                'password': password,
             }
         )
         if r.status_code != 200:
-            return None
+            return False, 'failed'
 
-        data['score'] = r.json()['rating']
+        data = r.json()
+        if data['status'] != 'success':
+            return False, 'failed'
 
-        return data
+        self.data = {
+            'access_token': data['context']['session_token'],
+            'refresh_token': None,
+        }
+
+        return True, None
 
     def search(self, term):
         r = self.session.post(
@@ -170,14 +171,13 @@ class Mangaupdates(Tracker):
 
         return results
 
-    def update_user_manga_data(self, id, data):
-        tracker_data = self.get_data()
-
+    @authenticated
+    def update_user_manga_data(self, id, data, access_token=None):
         # Check if serie is already in a list
         r = self.session_get(
             self.api_manga_list_url.format(id),
             headers={
-                'Authorization': f'Bearer {tracker_data["access_token"]}',
+                'Authorization': f'Bearer {access_token}',
             }
         )
 
@@ -195,7 +195,7 @@ class Mangaupdates(Tracker):
                     }
                 }],
                 headers={
-                    'Authorization': f'Bearer {tracker_data["access_token"]}',
+                    'Authorization': f'Bearer {access_token}',
                 }
             )
 
@@ -219,7 +219,7 @@ class Mangaupdates(Tracker):
                     }
                 ],
                 headers={
-                    'Authorization': f'Bearer {tracker_data["access_token"]}',
+                    'Authorization': f'Bearer {access_token}',
                 }
             )
 
@@ -236,7 +236,7 @@ class Mangaupdates(Tracker):
                 'rating': data['score'],
             },
             headers={
-                'Authorization': f'Bearer {tracker_data["access_token"]}',
+                'Authorization': f'Bearer {access_token}',
             }
         )
 
