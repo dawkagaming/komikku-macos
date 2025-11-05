@@ -28,8 +28,8 @@
     </description>
 
     <branding>
-        <color type="primary" scheme_preference="light">#51e6f6</color> <!-- Complementary color of accent color #f66151 -->
-        <color type="primary" scheme_preference="dark">#0aa9bb</color>  <!-- Light color with 40% of darkening -->
+        <color type="primary" scheme_preference="light">#a6cea5</color>->
+        <color type="primary" scheme_preference="dark">#62586b</color>
     </branding>
 
     <requires>
