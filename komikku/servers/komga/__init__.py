@@ -6,7 +6,6 @@
 # Homepage: https://komga.org
 
 from datetime import datetime
-import functools
 import logging
 
 from requests.auth import HTTPBasicAuth
@@ -17,24 +16,7 @@ from komikku.servers.utils import do_login
 from komikku.utils import get_buffer_mime_type
 from komikku.utils import is_number
 
-logger = logging.getLogger('komikku.servers.komga')
-
-
-def is_ready(func):
-    @functools.wraps(func)
-    def wrapper(*args, **kwargs):
-        server = args[0]
-        if server.base_url is not None and server.logged_in:
-            return func(*args, **kwargs)
-
-        if server.base_url is None:
-            logger.warning('Server base_url is not defined. Please check server address in Settings')
-        else:
-            logger.warning('Server is not logged in. Please check credential in Settings')
-
-        return None
-
-    return wrapper
+logger = logging.getLogger(__name__)
 
 
 class Komga(Server):
@@ -96,7 +78,6 @@ class Komga(Server):
         return self.base_url + '/series/{0}'
 
     @do_login
-    @is_ready
     def get_manga_data(self, initial_data):
         """
         Returns manga data using API
@@ -174,7 +155,6 @@ class Komga(Server):
         return data
 
     @do_login
-    @is_ready
     def get_manga_chapter_data(self, manga_slug, manga_name, chapter_slug, chapter_url):
         """
         Returns manga chapter data
@@ -197,7 +177,6 @@ class Komga(Server):
         return data
 
     @do_login
-    @is_ready
     def get_manga_chapter_page_image(self, manga_slug, manga_name, chapter_slug, page):
         """
         Returns chapter page scan (image) content
@@ -216,7 +195,7 @@ class Komga(Server):
             name=page['image'],
         )
 
-    @is_ready
+    @do_login
     def get_manga_url(self, slug, url):
         """
         Returns manga absolute URL
@@ -246,7 +225,6 @@ class Komga(Server):
         return True
 
     @do_login
-    @is_ready
     def search(self, term):
         r = self.session_get(self.api_search_url, params=dict(search=term))
         if r.status_code != 200:
@@ -263,7 +241,6 @@ class Komga(Server):
         return results
 
     @do_login
-    @is_ready
     def update_chapter_read_progress(self, data, manga_slug, manga_name, chapter_slug, chapter_url):
         r = self.session_patch(self.api_chapter_read_progress.format(chapter_slug), json=data)
 

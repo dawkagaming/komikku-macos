@@ -174,7 +174,11 @@ def do_login(func):
         if not server.logged_in:
             server.do_login()
 
-        return func(*args, **kwargs)
+        if server.logged_in:
+            return func(*args, **kwargs)
+
+        logger.warning('Server %s is not logged in. Please check credential in Settings', server.name)
+        return None
 
     return wrapper
 

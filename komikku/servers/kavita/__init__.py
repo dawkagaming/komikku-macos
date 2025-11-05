@@ -6,7 +6,6 @@
 
 import datetime
 from functools import cached_property
-from functools import wraps
 import logging
 
 from komikku.servers import Server
@@ -15,7 +14,7 @@ from komikku.servers.utils import do_login
 from komikku.utils import get_buffer_mime_type
 from komikku.utils import is_number
 
-logger = logging.getLogger('komikku.servers.komga')
+logger = logging.getLogger(__name__)
 
 STATUSES = (
     'ongoing',
@@ -24,23 +23,6 @@ STATUSES = (
     'suspended',
     'complete',
 )
-
-
-def is_ready(func):
-    @wraps(func)
-    def wrapper(*args, **kwargs):
-        server = args[0]
-        if server.base_url is not None and server.logged_in:
-            return func(*args, **kwargs)
-
-        if server.base_url is None:
-            logger.warning('Server base_url is not defined. Please check server address in Settings')
-        else:
-            logger.warning('Server is not logged in. Please check credential in Settings')
-
-        return None
-
-    return wrapper
 
 
 class Kavita(Server):
@@ -115,7 +97,6 @@ class Kavita(Server):
         return self.base_url + '/library/{0}/series/{1}'
 
     @do_login
-    @is_ready
     def get_manga_data(self, initial_data):
         """
         Returns serie data using API
@@ -246,7 +227,6 @@ class Kavita(Server):
         return data
 
     @do_login
-    @is_ready
     def get_manga_chapter_data(self, manga_slug, manga_name, chapter_slug, chapter_url):
         """
         Returns serie chapter data
@@ -276,7 +256,6 @@ class Kavita(Server):
         return data
 
     @do_login
-    @is_ready
     def get_manga_chapter_page_image(self, manga_slug, manga_name, chapter_slug, page):
         """
         Returns chapter page scan (image) content
@@ -304,7 +283,7 @@ class Kavita(Server):
             name='{0:04d}.{1}'.format(int(page['slug']), mime_type.split('/')[-1]),
         )
 
-    @is_ready
+    @do_login
     def get_manga_url(self, slug, url):
         """
         Returns serie absolute URL
@@ -339,7 +318,6 @@ class Kavita(Server):
         return True
 
     @do_login
-    @is_ready
     def search(self, term):
         r = self.session_get(
             self.api_search_url,
@@ -370,7 +348,6 @@ class Kavita(Server):
         return results
 
     @do_login
-    @is_ready
     def update_chapter_read_progress(self, data, manga_slug, manga_name, chapter_slug, chapter_url):
         library_id, series_id = manga_slug.split(':')
         volume_id, chapter_id = chapter_slug.split(':')

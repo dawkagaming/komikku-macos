@@ -140,10 +140,14 @@ class Server(BaseServer, ABC):
         if username and password:
             # Username and password are provided only when user defines the credentials in the settings
             self.clear_session()
-        else:
-            credential = self.get_credential()
-            if self.base_url is None and credential:
-                self.base_url = credential.address
+
+        credential = self.get_credential()
+        if self.base_url is None and credential:
+            self.base_url = credential.address
+
+        if self.base_url is None:
+            logger.warning('Server %s base_url is not defined. Please check server address in Settings', self.name)
+            return
 
         if self.session is None:
             if self.load_session():
@@ -154,7 +158,7 @@ class Server(BaseServer, ABC):
                     self.session.headers = self.headers
 
                 if username is None and password is None:
-                    if credential:
+                    if credential.username and credential.password:
                         self.logged_in = self.login(credential.username, credential.password)
                 else:
                     self.logged_in = self.login(username, password)
