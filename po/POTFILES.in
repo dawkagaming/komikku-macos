@@ -57,6 +57,7 @@ komikku/servers/dynasty/__init__.py
 komikku/servers/exceptions.py
 komikku/servers/flamescans/__init__.py
 komikku/servers/invinciblecomicsvf/__init__.py
+komikku/servers/mangaball/__init__.py
 komikku/servers/mangadex/__init__.py
 komikku/servers/mangafire/__init__.py
 komikku/servers/mangamana/__init__.py
