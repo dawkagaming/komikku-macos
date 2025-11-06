@@ -36,7 +36,6 @@ class SupportPage(Adw.NavigationPage):
         self.window = window
 
         self.window.breakpoint.add_setter(self.title_box, 'orientation', Gtk.Orientation.VERTICAL)
-        self.window.navigationview.add(self)
 
         self.liberapay_button.connect('clicked', self.on_button_clicked, 'liberapay')
         self.paypal_button.connect('clicked', self.on_button_clicked, 'paypal')

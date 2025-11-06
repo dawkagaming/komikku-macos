@@ -89,7 +89,7 @@ flowbox flowboxchild:selected {
 }
 
 /*
- * Manga card
+ * Card
  */
 /* Dangerous override of Adw.ViewSwitcher badge color (global) */
 /* Badge displays the number of unread chapter (per convention in blue) */
@@ -189,4 +189,18 @@ carousel slider {
  */
 .download-manager-download-listboxrow {
     padding: 6px 6px 12px 6px;
+}
+
+/*
+ * Preferences
+ */
+.support-group {
+    padding: 12px;
+    --accent-color: oklab(from var(--purple-2) var(--standalone-color-oklab));
+    background-color: #8bc6ec;
+    background: linear-gradient(
+        90deg,
+        alpha(var(--purple-2), 0.3) 0%,
+        alpha(var(--green-2), 0.3) 100%
+    );
 }

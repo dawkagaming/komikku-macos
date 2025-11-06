@@ -26,6 +26,10 @@ from komikku.utils import html_escape
 class PreferencesDialog(Adw.PreferencesDialog):
     __gtype_name__ = 'PreferencesDialog'
 
+    support_group = Gtk.Template.Child('support_group')
+    support_button = Gtk.Template.Child('support_button')
+    support_close_button = Gtk.Template.Child('support_close_button')
+
     color_scheme_row = Gtk.Template.Child('color_scheme_row')
     night_light_switch = Gtk.Template.Child('night_light_switch')
     system_accent_colors_switch = Gtk.Template.Child('system_accent_colors_switch')
@@ -73,6 +77,9 @@ class PreferencesDialog(Adw.PreferencesDialog):
         self.window = window
         self.settings = Settings.get_default()
         self.external_servers_modules_in_use = self.settings.external_servers_modules
+
+        self.support_button.connect('clicked', lambda _btn: self.push_subpage(self.window.support))
+        self.support_close_button.connect('clicked', lambda _btn: self.support_group.set_visible(False))
 
         self.connect('closed', self.on_closed)
         self.advanced_banner.connect('button-clicked', lambda banner: banner.set_revealed(False))
