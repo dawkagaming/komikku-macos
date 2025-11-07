@@ -197,7 +197,6 @@ carousel slider {
 .support-group {
     padding: 12px;
     --accent-color: oklab(from var(--purple-2) var(--standalone-color-oklab));
-    background-color: #8bc6ec;
     background: linear-gradient(
         90deg,
         alpha(var(--purple-2), 0.3) 0%,
