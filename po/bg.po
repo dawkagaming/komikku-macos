@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Komikku 1.53.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-11-08 01:51+0100\n"
+"POT-Creation-Date: 2025-11-08 01:57+0100\n"
 "PO-Revision-Date: 2025-07-27 11:07+0000\n"
 "Last-Translator: twlvnn <kraft_werk@tutanota.com>\n"
 "Language-Team: Bulgarian <https://hosted.weblate.org/projects/komikku/main/"
@@ -139,7 +139,7 @@ msgstr "Страницата на историята с прочетеното �
 msgid "Got it!"
 msgstr "Добре"
 
-#: ../data/ui/card.blp:47 ../data/ui/card.blp:411
+#: ../data/ui/card.blp:47 ../data/ui/card.blp:412
 #: ../data/ui/card_chapters_list_row.blp:48 ../data/ui/download_manager.blp:26
 #: ../data/ui/library.blp:146 ../data/ui/reader.blp:37
 msgid "Menu"
@@ -149,27 +149,27 @@ msgstr "Меню"
 msgid "Info"
 msgstr "Информация"
 
-#: ../data/ui/card.blp:148
+#: ../data/ui/card.blp:149
 msgid "Add to Library"
 msgstr "Добавяне в библиотеката"
 
-#: ../data/ui/card.blp:208
+#: ../data/ui/card.blp:209
 msgid "Scanlators"
 msgstr "Сканлатори"
 
-#: ../data/ui/card.blp:267
+#: ../data/ui/card.blp:268
 msgid "Last Update"
 msgstr "Последно обновяване"
 
-#: ../data/ui/card.blp:298
+#: ../data/ui/card.blp:299
 msgid "Size on Disk"
 msgstr "Пространство на диска"
 
-#: ../data/ui/card.blp:323
+#: ../data/ui/card.blp:324
 msgid "Synopsis"
 msgstr "Обобщение"
 
-#: ../data/ui/card.blp:448 ../data/ui/categories_editor.blp:67
+#: ../data/ui/card.blp:449 ../data/ui/categories_editor.blp:67
 #: ../data/ui/library.blp:249
 msgid "No Categories"
 msgstr "Няма категории"
@@ -389,8 +389,9 @@ msgstr ""
 #: ../data/ui/preferences.blp:30
 msgid ""
 "Komikku is a free and open-source, and always will be. If you like it, "
-"backing me through donating would be great. It will not only help maintain "
-"it but also support me as an independent developer."
+"backing me through donating would be great. This will not only help me "
+"maintain it, but also continue my work as a free software developer in "
+"general."
 msgstr ""
 
 #: ../data/ui/preferences.blp:58
@@ -1145,7 +1146,7 @@ msgid "Cancel Tracking"
 msgstr "Отказване на следенето"
 
 #: ../komikku/card/tracking.py:227 ../komikku/servers/comick/__init__.py:77
-#: ../komikku/servers/mangaball/__init__.py:83
+#: ../komikku/servers/mangaball/__init__.py:88
 #: ../komikku/servers/mangadex/__init__.py:71
 #: ../komikku/servers/mangafire/__init__.py:60
 #: ../komikku/servers/mangamana/__init__.py:62
@@ -1475,7 +1476,7 @@ msgstr "Завършено"
 #: ../komikku/models/database/mangas.py:47
 #: ../komikku/servers/comick/__init__.py:81
 #: ../komikku/servers/flamescans/__init__.py:52
-#: ../komikku/servers/mangaball/__init__.py:89
+#: ../komikku/servers/mangaball/__init__.py:94
 #: ../komikku/servers/mangadex/__init__.py:75
 #: ../komikku/servers/mangamana/__init__.py:67
 #: ../komikku/servers/mangaworld/__init__.py:78
@@ -1492,7 +1493,7 @@ msgstr "Спряно"
 
 #: ../komikku/models/database/mangas.py:49
 #: ../komikku/servers/flamescans/__init__.py:54
-#: ../komikku/servers/mangaball/__init__.py:91
+#: ../komikku/servers/mangaball/__init__.py:96
 #: ../komikku/servers/mangafire/__init__.py:67
 #: ../komikku/servers/mangaworld/__init__.py:81
 #: ../komikku/servers/weebcentral/__init__.py:54
@@ -1825,7 +1826,7 @@ msgstr "Филтриране по състояния"
 
 #: ../komikku/servers/comick/__init__.py:82
 #: ../komikku/servers/flamescans/__init__.py:53
-#: ../komikku/servers/mangaball/__init__.py:90
+#: ../komikku/servers/mangaball/__init__.py:95
 #: ../komikku/servers/mangadex/__init__.py:76
 #: ../komikku/servers/mangafire/__init__.py:65
 #: ../komikku/servers/raijinscan/__init__.py:39
@@ -1835,7 +1836,7 @@ msgstr "Завършено"
 
 #: ../komikku/servers/comick/__init__.py:83
 #: ../komikku/servers/flamescans/__init__.py:56
-#: ../komikku/servers/mangaball/__init__.py:92
+#: ../komikku/servers/mangaball/__init__.py:97
 #: ../komikku/servers/mangadex/__init__.py:78
 #: ../komikku/servers/mangaworld/__init__.py:82
 #: ../komikku/servers/weebcentral/__init__.py:55
@@ -1886,25 +1887,25 @@ msgid "Filter by Publication Demographics"
 msgstr "Филтриране по демографски данни на публикациите"
 
 #: ../komikku/servers/comick/__init__.py:120
-#: ../komikku/servers/mangaball/__init__.py:72
+#: ../komikku/servers/mangaball/__init__.py:77
 #: ../komikku/servers/mangadex/__init__.py:88
 msgid "Shounen"
 msgstr "Шоунен"
 
 #: ../komikku/servers/comick/__init__.py:121
-#: ../komikku/servers/mangaball/__init__.py:73
+#: ../komikku/servers/mangaball/__init__.py:78
 #: ../komikku/servers/mangadex/__init__.py:89
 msgid "Shoujo"
 msgstr "Шоуджо"
 
 #: ../komikku/servers/comick/__init__.py:122
-#: ../komikku/servers/mangaball/__init__.py:74
+#: ../komikku/servers/mangaball/__init__.py:79
 #: ../komikku/servers/mangadex/__init__.py:91
 msgid "Seinen"
 msgstr "Сейнен"
 
 #: ../komikku/servers/comick/__init__.py:123
-#: ../komikku/servers/mangaball/__init__.py:75
+#: ../komikku/servers/mangaball/__init__.py:80
 #: ../komikku/servers/mangadex/__init__.py:90
 msgid "Josei"
 msgstr "Йосеи"
@@ -2129,12 +2130,12 @@ msgid "Wuxia"
 msgstr "Бойни изкуства и рицарство"
 
 #: ../komikku/servers/comick/__init__.py:187
-#: ../komikku/servers/mangaball/__init__.py:77
+#: ../komikku/servers/mangaball/__init__.py:82
 msgid "Yaoi"
 msgstr "Яои"
 
 #: ../komikku/servers/comick/__init__.py:188
-#: ../komikku/servers/mangaball/__init__.py:76
+#: ../komikku/servers/mangaball/__init__.py:81
 msgid "Yuri"
 msgstr "Юри"
 
@@ -2226,20 +2227,20 @@ msgstr "Състояния"
 msgid "Dropped"
 msgstr "Изоставено"
 
-#: ../komikku/servers/mangaball/__init__.py:66
+#: ../komikku/servers/mangaball/__init__.py:71
 msgid "Demographic"
 msgstr ""
 
-#: ../komikku/servers/mangaball/__init__.py:67
+#: ../komikku/servers/mangaball/__init__.py:72
 msgid "Filter by Publication Demographic"
 msgstr ""
 
-#: ../komikku/servers/mangaball/__init__.py:71
-#: ../komikku/servers/mangaball/__init__.py:88
+#: ../komikku/servers/mangaball/__init__.py:76
+#: ../komikku/servers/mangaball/__init__.py:93
 msgid "Any"
 msgstr ""
 
-#: ../komikku/servers/mangaball/__init__.py:84
+#: ../komikku/servers/mangaball/__init__.py:89
 msgid "Filter by Status"
 msgstr ""
 
@@ -2429,11 +2430,11 @@ msgstr "Опа, обновлението е неуспешно. Опитайте
 msgid "Library update started"
 msgstr "Обновяването на библиотеката започна"
 
-#: ../komikku/utils.py:322
+#: ../komikku/utils.py:350
 msgid "You are currently offline"
 msgstr "В момента нямате връзка с мрежата"
 
-#: ../komikku/utils.py:349
+#: ../komikku/utils.py:377
 msgid "No Internet connection, timeout or server down"
 msgstr "Няма връзка с мрежата, времето изтече или сървъра не работи"
 

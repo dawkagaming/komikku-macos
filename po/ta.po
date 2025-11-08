@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Komikku 1.64.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-11-08 01:51+0100\n"
+"POT-Creation-Date: 2025-11-08 01:57+0100\n"
 "PO-Revision-Date: 2025-07-13 22:17+0000\n"
 "Last-Translator: Valéry Febvre <vfebvre@easter-eggs.com>\n"
 "Language-Team: Tamil <https://hosted.weblate.org/projects/komikku/main/ta/>\n"
@@ -138,7 +138,7 @@ msgstr "மொபைல் வடிவத்தில் வாசிப்ப�
 msgid "Got it!"
 msgstr "கிடைத்தது!"
 
-#: ../data/ui/card.blp:47 ../data/ui/card.blp:411
+#: ../data/ui/card.blp:47 ../data/ui/card.blp:412
 #: ../data/ui/card_chapters_list_row.blp:48 ../data/ui/download_manager.blp:26
 #: ../data/ui/library.blp:146 ../data/ui/reader.blp:37
 msgid "Menu"
@@ -148,27 +148,27 @@ msgstr "பட்டியல்"
 msgid "Info"
 msgstr "தகவல்"
 
-#: ../data/ui/card.blp:148
+#: ../data/ui/card.blp:149
 msgid "Add to Library"
 msgstr "நூலகத்தில் சேர்க்கவும்"
 
-#: ../data/ui/card.blp:208
+#: ../data/ui/card.blp:209
 msgid "Scanlators"
 msgstr "ச்கேன்லேட்டர்கள்"
 
-#: ../data/ui/card.blp:267
+#: ../data/ui/card.blp:268
 msgid "Last Update"
 msgstr "கடைசி புதுப்பிப்பு"
 
-#: ../data/ui/card.blp:298
+#: ../data/ui/card.blp:299
 msgid "Size on Disk"
 msgstr "வட்டில் அளவு"
 
-#: ../data/ui/card.blp:323
+#: ../data/ui/card.blp:324
 msgid "Synopsis"
 msgstr "சுருக்கம்"
 
-#: ../data/ui/card.blp:448 ../data/ui/categories_editor.blp:67
+#: ../data/ui/card.blp:449 ../data/ui/categories_editor.blp:67
 #: ../data/ui/library.blp:249
 msgid "No Categories"
 msgstr "வகைகள் இல்லை"
@@ -388,8 +388,9 @@ msgstr ""
 #: ../data/ui/preferences.blp:30
 msgid ""
 "Komikku is a free and open-source, and always will be. If you like it, "
-"backing me through donating would be great. It will not only help maintain "
-"it but also support me as an independent developer."
+"backing me through donating would be great. This will not only help me "
+"maintain it, but also continue my work as a free software developer in "
+"general."
 msgstr ""
 
 #: ../data/ui/preferences.blp:58
@@ -1137,7 +1138,7 @@ msgid "Cancel Tracking"
 msgstr "கண்காணிப்பை ரத்துசெய்"
 
 #: ../komikku/card/tracking.py:227 ../komikku/servers/comick/__init__.py:77
-#: ../komikku/servers/mangaball/__init__.py:83
+#: ../komikku/servers/mangaball/__init__.py:88
 #: ../komikku/servers/mangadex/__init__.py:71
 #: ../komikku/servers/mangafire/__init__.py:60
 #: ../komikku/servers/mangamana/__init__.py:62
@@ -1465,7 +1466,7 @@ msgstr "முழுமையானது"
 #: ../komikku/models/database/mangas.py:47
 #: ../komikku/servers/comick/__init__.py:81
 #: ../komikku/servers/flamescans/__init__.py:52
-#: ../komikku/servers/mangaball/__init__.py:89
+#: ../komikku/servers/mangaball/__init__.py:94
 #: ../komikku/servers/mangadex/__init__.py:75
 #: ../komikku/servers/mangamana/__init__.py:67
 #: ../komikku/servers/mangaworld/__init__.py:78
@@ -1482,7 +1483,7 @@ msgstr "இடைநீக்கம்"
 
 #: ../komikku/models/database/mangas.py:49
 #: ../komikku/servers/flamescans/__init__.py:54
-#: ../komikku/servers/mangaball/__init__.py:91
+#: ../komikku/servers/mangaball/__init__.py:96
 #: ../komikku/servers/mangafire/__init__.py:67
 #: ../komikku/servers/mangaworld/__init__.py:81
 #: ../komikku/servers/weebcentral/__init__.py:54
@@ -1810,7 +1811,7 @@ msgstr "நிலைகள் மூலம் வடிகட்டவும்"
 
 #: ../komikku/servers/comick/__init__.py:82
 #: ../komikku/servers/flamescans/__init__.py:53
-#: ../komikku/servers/mangaball/__init__.py:90
+#: ../komikku/servers/mangaball/__init__.py:95
 #: ../komikku/servers/mangadex/__init__.py:76
 #: ../komikku/servers/mangafire/__init__.py:65
 #: ../komikku/servers/raijinscan/__init__.py:39
@@ -1820,7 +1821,7 @@ msgstr "முடிந்தது"
 
 #: ../komikku/servers/comick/__init__.py:83
 #: ../komikku/servers/flamescans/__init__.py:56
-#: ../komikku/servers/mangaball/__init__.py:92
+#: ../komikku/servers/mangaball/__init__.py:97
 #: ../komikku/servers/mangadex/__init__.py:78
 #: ../komikku/servers/mangaworld/__init__.py:82
 #: ../komikku/servers/weebcentral/__init__.py:55
@@ -1871,25 +1872,25 @@ msgid "Filter by Publication Demographics"
 msgstr "வெளியீட்டு புள்ளிவிவரங்கள் மூலம் வடிகட்டவும்"
 
 #: ../komikku/servers/comick/__init__.py:120
-#: ../komikku/servers/mangaball/__init__.py:72
+#: ../komikku/servers/mangaball/__init__.py:77
 #: ../komikku/servers/mangadex/__init__.py:88
 msgid "Shounen"
 msgstr "சவுன்"
 
 #: ../komikku/servers/comick/__init__.py:121
-#: ../komikku/servers/mangaball/__init__.py:73
+#: ../komikku/servers/mangaball/__init__.py:78
 #: ../komikku/servers/mangadex/__init__.py:89
 msgid "Shoujo"
 msgstr "சோசோ"
 
 #: ../komikku/servers/comick/__init__.py:122
-#: ../komikku/servers/mangaball/__init__.py:74
+#: ../komikku/servers/mangaball/__init__.py:79
 #: ../komikku/servers/mangadex/__init__.py:91
 msgid "Seinen"
 msgstr "அவரது"
 
 #: ../komikku/servers/comick/__init__.py:123
-#: ../komikku/servers/mangaball/__init__.py:75
+#: ../komikku/servers/mangaball/__init__.py:80
 #: ../komikku/servers/mangadex/__init__.py:90
 msgid "Josei"
 msgstr "சோசி"
@@ -2114,12 +2115,12 @@ msgid "Wuxia"
 msgstr "w U- ஏவன்"
 
 #: ../komikku/servers/comick/__init__.py:187
-#: ../komikku/servers/mangaball/__init__.py:77
+#: ../komikku/servers/mangaball/__init__.py:82
 msgid "Yaoi"
 msgstr "யாயோய்"
 
 #: ../komikku/servers/comick/__init__.py:188
-#: ../komikku/servers/mangaball/__init__.py:76
+#: ../komikku/servers/mangaball/__init__.py:81
 msgid "Yuri"
 msgstr "யூரி"
 
@@ -2208,20 +2209,20 @@ msgstr "நிலைகள்"
 msgid "Dropped"
 msgstr "கைவிடப்பட்டது"
 
-#: ../komikku/servers/mangaball/__init__.py:66
+#: ../komikku/servers/mangaball/__init__.py:71
 msgid "Demographic"
 msgstr ""
 
-#: ../komikku/servers/mangaball/__init__.py:67
+#: ../komikku/servers/mangaball/__init__.py:72
 msgid "Filter by Publication Demographic"
 msgstr ""
 
-#: ../komikku/servers/mangaball/__init__.py:71
-#: ../komikku/servers/mangaball/__init__.py:88
+#: ../komikku/servers/mangaball/__init__.py:76
+#: ../komikku/servers/mangaball/__init__.py:93
 msgid "Any"
 msgstr ""
 
-#: ../komikku/servers/mangaball/__init__.py:84
+#: ../komikku/servers/mangaball/__init__.py:89
 msgid "Filter by Status"
 msgstr ""
 
@@ -2411,11 +2412,11 @@ msgstr "அச்சச்சோ, புதுப்பிப்பு தோல
 msgid "Library update started"
 msgstr "நூலக புதுப்பிப்பு தொடங்கியது"
 
-#: ../komikku/utils.py:322
+#: ../komikku/utils.py:350
 msgid "You are currently offline"
 msgstr "நீங்கள் தற்போது ஆஃப்லைனில் இருக்கிறீர்கள்"
 
-#: ../komikku/utils.py:349
+#: ../komikku/utils.py:377
 msgid "No Internet connection, timeout or server down"
 msgstr "இணைய இணைப்பு, நேரம் முடிந்தது அல்லது சேவையகம் கீழே இல்லை"
 
