@@ -9,10 +9,10 @@ msgstr ""
 "Project-Id-Version: unnamed project\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-11-08 01:57+0100\n"
-"PO-Revision-Date: 2025-11-05 22:42+0000\n"
+"PO-Revision-Date: 2025-11-08 01:13+0000\n"
 "Last-Translator: Valéry Febvre <vfebvre@easter-eggs.com>\n"
-"Language-Team: French <https://hosted.weblate.org/projects/komikku/main/fr/"
-">\n"
+"Language-Team: French <https://hosted.weblate.org/projects/komikku/main/fr/>"
+"\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -34,14 +34,14 @@ msgstr "manga;lecteur;visionneuse;comic;manhwa;manhua;bd;webtoon;webcomic;scan;o
 
 #: ../data/info.febvre.Komikku.metainfo.xml.in.in:11
 msgid "Discover and read manga & comics"
-msgstr "Découvrir et lire des mangas et des BD"
+msgstr "Découvrez et lisez des mangas et comics"
 
 #: ../data/info.febvre.Komikku.metainfo.xml.in.in:13
 msgid ""
 "With its simple, elegant and adaptive interface, this reader lets you "
 "search, sort and read your series with ease."
 msgstr ""
-"Avec son interface simple, élégante et adaptative, ce lecteur vous permet de "
+"Avec son interface simple, élégante et adaptative, Komikku vous permet de "
 "rechercher, trier et lire vos séries en toute simplicité."
 
 #: ../data/info.febvre.Komikku.metainfo.xml.in.in:15
@@ -386,7 +386,7 @@ msgstr "Général"
 
 #: ../data/ui/preferences.blp:24
 msgid "Support Komikku"
-msgstr ""
+msgstr "Supporter Komikku"
 
 #: ../data/ui/preferences.blp:30
 msgid ""
@@ -395,6 +395,10 @@ msgid ""
 "maintain it, but also continue my work as a free software developer in "
 "general."
 msgstr ""
+"Komikku est libre et open source, et le restera toujours. Si vous "
+"l'appréciez, vous pouvez me soutenir en faisant un don. Cela m'aidera non "
+"seulement à le maintenir, mais aussi à poursuivre mon travail en tant que "
+"développeur de logiciels libres en général."
 
 #: ../data/ui/preferences.blp:58
 msgid "Appearance"
