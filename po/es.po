@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Komikku 0.30.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-11-05 23:24+0100\n"
+"POT-Creation-Date: 2025-11-08 01:51+0100\n"
 "PO-Revision-Date: 2025-05-09 15:03+0000\n"
 "Last-Translator: Óscar Fernández Díaz "
 "<42654671+oscfdezdz@users.noreply.github.com>\n"
@@ -140,11 +140,11 @@ msgstr "La página del editor de las categorías en formato móvil"
 msgid "The Reading history page in mobile format"
 msgstr "La página historial de lectura en formato móvil"
 
-#: ../data/ui/application_window.blp:54 ../data/ui/preferences.blp:320
+#: ../data/ui/application_window.blp:54 ../data/ui/preferences.blp:360
 msgid "Got it!"
 msgstr "¡Entendido!"
 
-#: ../data/ui/card.blp:47 ../data/ui/card.blp:412
+#: ../data/ui/card.blp:47 ../data/ui/card.blp:411
 #: ../data/ui/card_chapters_list_row.blp:48 ../data/ui/download_manager.blp:26
 #: ../data/ui/library.blp:146 ../data/ui/reader.blp:37
 msgid "Menu"
@@ -154,27 +154,27 @@ msgstr "Menú"
 msgid "Info"
 msgstr "Información"
 
-#: ../data/ui/card.blp:149
+#: ../data/ui/card.blp:148
 msgid "Add to Library"
 msgstr "Añadir a la biblioteca"
 
-#: ../data/ui/card.blp:209
+#: ../data/ui/card.blp:208
 msgid "Scanlators"
 msgstr "Scanlators"
 
-#: ../data/ui/card.blp:268
+#: ../data/ui/card.blp:267
 msgid "Last Update"
 msgstr "Última actualización"
 
-#: ../data/ui/card.blp:299
+#: ../data/ui/card.blp:298
 msgid "Size on Disk"
 msgstr "Tamaño en disco"
 
-#: ../data/ui/card.blp:324
+#: ../data/ui/card.blp:323
 msgid "Synopsis"
 msgstr "Sinopsis"
 
-#: ../data/ui/card.blp:449 ../data/ui/categories_editor.blp:67
+#: ../data/ui/card.blp:448 ../data/ui/categories_editor.blp:67
 #: ../data/ui/library.blp:249
 msgid "No Categories"
 msgstr "Sin categorías"
@@ -183,7 +183,7 @@ msgstr "Sin categorías"
 msgid "New"
 msgstr "Nuevo"
 
-#: ../data/ui/card_tracking.blp:9 ../data/ui/preferences.blp:63
+#: ../data/ui/card_tracking.blp:9 ../data/ui/preferences.blp:103
 msgid "Tracking"
 msgstr "Seguimiento"
 
@@ -253,7 +253,7 @@ msgstr "Historial"
 msgid "No History"
 msgstr "Sin historial"
 
-#: ../data/ui/library.blp:10 ../data/ui/preferences.blp:73
+#: ../data/ui/library.blp:10 ../data/ui/preferences.blp:113
 msgid "Library"
 msgstr "Biblioteca"
 
@@ -269,7 +269,7 @@ msgstr "Menú principal"
 msgid "Search by name, server or genre"
 msgstr "Buscar por nombre, servidor o género"
 
-#: ../data/ui/library.blp:125 ../data/ui/preferences.blp:160
+#: ../data/ui/library.blp:125 ../data/ui/preferences.blp:200
 msgid "Update"
 msgstr "Actualizar"
 
@@ -387,177 +387,188 @@ msgstr "Preferencias"
 msgid "General"
 msgstr "General"
 
-#: ../data/ui/preferences.blp:18
+#: ../data/ui/preferences.blp:24
+msgid "Support Komikku"
+msgstr ""
+
+#: ../data/ui/preferences.blp:30
+msgid ""
+"Komikku is a free and open-source, and always will be. If you like it, "
+"backing me through donating would be great. It will not only help maintain "
+"it but also support me as an independent developer."
+msgstr ""
+
+#: ../data/ui/preferences.blp:58
 msgid "Appearance"
 msgstr ""
 
-#: ../data/ui/preferences.blp:20
+#: ../data/ui/preferences.blp:60
 msgid "Theme"
 msgstr "Tema"
 
-#: ../data/ui/preferences.blp:23
+#: ../data/ui/preferences.blp:63
 msgid "Light"
 msgstr "Claro"
 
-#: ../data/ui/preferences.blp:24
+#: ../data/ui/preferences.blp:64
 msgid "Dark"
 msgstr "Oscuro"
 
-#: ../data/ui/preferences.blp:25
+#: ../data/ui/preferences.blp:65
 msgid "Follow System"
 msgstr "Seguir sistema"
 
-#: ../data/ui/preferences.blp:31
+#: ../data/ui/preferences.blp:71
 msgid "Night Light"
 msgstr "Luz nocturna"
 
-#: ../data/ui/preferences.blp:32
+#: ../data/ui/preferences.blp:72
 msgid "Automatically enable dark theme at night"
 msgstr "Activar automáticamente el tema oscuro por la noche"
 
-#: ../data/ui/preferences.blp:36
+#: ../data/ui/preferences.blp:76
 msgid "Accent Color"
 msgstr "Color del acento"
 
-#: ../data/ui/preferences.blp:37
+#: ../data/ui/preferences.blp:77
 msgid "Use system accent colors"
 msgstr "Utilizar colores de resalte del sistema"
 
-#: ../data/ui/preferences.blp:41
+#: ../data/ui/preferences.blp:81
 msgid "Backdrop in Details Page"
 msgstr "Fondo en la página de los detalles"
 
-#: ../data/ui/preferences.blp:42
+#: ../data/ui/preferences.blp:82
 msgid "Method used to recolor background to match cover"
 msgstr ""
 
-#: ../data/ui/preferences.blp:46
+#: ../data/ui/preferences.blp:86
 msgid "Linear gradient"
 msgstr ""
 
-#: ../data/ui/preferences.blp:47
+#: ../data/ui/preferences.blp:87
 msgid "Blurred cover"
 msgstr ""
 
-#: ../data/ui/preferences.blp:57
+#: ../data/ui/preferences.blp:97
 msgid "Desktop Notifications"
 msgstr "Notificaciones de escritorio"
 
-#: ../data/ui/preferences.blp:58
+#: ../data/ui/preferences.blp:98
 msgid "Use desktop notifications for downloads and library updates"
 msgstr ""
 "Uso de las notificaciones de escritorio para las descargas y las "
 "actualizaciones de la biblioteca"
 
-#: ../data/ui/preferences.blp:66
+#: ../data/ui/preferences.blp:106
 msgid "Synchronize reading progress"
 msgstr "Sincronizar el progreso de la lectura"
 
-#: ../data/ui/preferences.blp:77
+#: ../data/ui/preferences.blp:117
 msgid "Display"
 msgstr "Visualizar"
 
-#: ../data/ui/preferences.blp:80
+#: ../data/ui/preferences.blp:120
 msgid "Display Mode"
 msgstr "Modo de visualización"
 
-#: ../data/ui/preferences.blp:83
+#: ../data/ui/preferences.blp:123
 msgid "Grid"
 msgstr "Cuadrícula"
 
-#: ../data/ui/preferences.blp:84
+#: ../data/ui/preferences.blp:124
 msgid "Compact Grid"
 msgstr "Cuadrícula compacta"
 
-#: ../data/ui/preferences.blp:90
+#: ../data/ui/preferences.blp:130
 msgid "Servers Logo"
 msgstr "Logos de los servidores"
 
-#: ../data/ui/preferences.blp:91
+#: ../data/ui/preferences.blp:131
 msgid "Display servers logo"
 msgstr "Mostrar el logo de los servidores"
 
-#: ../data/ui/preferences.blp:95
+#: ../data/ui/preferences.blp:135
 msgid "Badges"
 msgstr "Insignias"
 
-#: ../data/ui/preferences.blp:98
+#: ../data/ui/preferences.blp:138
 msgid "Number of Unread Chapters"
 msgstr "Número de capítulos no leídos"
 
-#: ../data/ui/preferences.blp:118
+#: ../data/ui/preferences.blp:158
 msgid "Number of Downloaded Chapters"
 msgstr "Número de capítulos descargados"
 
-#: ../data/ui/preferences.blp:138
+#: ../data/ui/preferences.blp:178
 msgid "Number of Recent and Unread Chapters"
 msgstr "Número de capítulos recientes y no leídos"
 
-#: ../data/ui/preferences.blp:163
+#: ../data/ui/preferences.blp:203
 msgid "Update at Startup"
 msgstr "Actualización al inicio"
 
-#: ../data/ui/preferences.blp:164
+#: ../data/ui/preferences.blp:204
 msgid "Automatically update library at startup"
 msgstr "Actualizar automáticamente la biblioteca al inicio"
 
-#: ../data/ui/preferences.blp:168
+#: ../data/ui/preferences.blp:208
 msgid "Auto Download of New Chapters"
 msgstr "Descarga automática de los capítulos nuevos"
 
-#: ../data/ui/preferences.blp:169
+#: ../data/ui/preferences.blp:209
 msgid "Automatically download new chapters"
 msgstr "Descargar automáticamente los nuevos capítulos"
 
-#: ../data/ui/preferences.blp:174
+#: ../data/ui/preferences.blp:214
 msgid "Explorer"
 msgstr "Explorador"
 
-#: ../data/ui/preferences.blp:177
+#: ../data/ui/preferences.blp:217
 #: ../data/ui/preferences_servers_languages.blp:10
 #: ../data/ui/preferences_servers_languages.blp:16
 msgid "Servers Languages"
 msgstr "Idiomas de los servidores"
 
-#: ../data/ui/preferences.blp:178
+#: ../data/ui/preferences.blp:218
 msgid "Restrict servers to selected languages"
 msgstr "Restringir los servidores a los idiomas seleccionados"
 
-#: ../data/ui/preferences.blp:186
+#: ../data/ui/preferences.blp:226
 #: ../data/ui/preferences_servers_settings.blp:10
 #: ../data/ui/preferences_servers_settings.blp:16
 msgid "Servers Settings"
 msgstr "Configuración de los servidores"
 
-#: ../data/ui/preferences.blp:187
+#: ../data/ui/preferences.blp:227
 msgid "Enable/disable and configure servers"
 msgstr "Activar/desactivar y configurar servidores"
 
-#: ../data/ui/preferences.blp:195
+#: ../data/ui/preferences.blp:235
 msgid "Long Strip Detection"
 msgstr "Detección de franjas largas"
 
-#: ../data/ui/preferences.blp:196
+#: ../data/ui/preferences.blp:236
 msgid "Automatically detect long vertical strip when possible"
 msgstr "Detecta automáticamente la franja vertical larga cuando es posible"
 
-#: ../data/ui/preferences.blp:202
+#: ../data/ui/preferences.blp:242
 msgid "NSFW Content (18+)"
 msgstr "Contenido NSFW (18+)"
 
-#: ../data/ui/preferences.blp:203
+#: ../data/ui/preferences.blp:243
 msgid "Whether to enable servers with NSFW content"
 msgstr "Activar o no servidores con contenido NSFW"
 
-#: ../data/ui/preferences.blp:207
+#: ../data/ui/preferences.blp:247
 msgid "NSFW Only Content (18+)"
 msgstr "Contenido sólo NSFW (18+)"
 
-#: ../data/ui/preferences.blp:208
+#: ../data/ui/preferences.blp:248
 msgid "Whether to enable servers with NSFW only content"
 msgstr "Si se habilitan los servidores con sólo contenido inapropiado"
 
-#: ../data/ui/preferences.blp:212
+#: ../data/ui/preferences.blp:252
 msgid ""
 "These settings do not prevent potentially incorrectly flagged servers from "
 "surfacing NSFW content."
@@ -565,117 +576,117 @@ msgstr ""
 "Esta configuración no impide que el contenido NSFW se muestre en servidores "
 "potencialmente mal etiquetados."
 
-#: ../data/ui/preferences.blp:227 ../data/ui/reader.blp:10
+#: ../data/ui/preferences.blp:267 ../data/ui/reader.blp:10
 msgid "Reader"
 msgstr "Lector"
 
-#: ../data/ui/preferences.blp:232
+#: ../data/ui/preferences.blp:272
 msgid "Reading Mode"
 msgstr "Modo lectura"
 
-#: ../data/ui/preferences.blp:235
+#: ../data/ui/preferences.blp:275
 msgid "⬅ Right to Left"
 msgstr "⬅ De derecha a izquierda"
 
-#: ../data/ui/preferences.blp:236
+#: ../data/ui/preferences.blp:276
 msgid "➡ Left to Right"
 msgstr "➡ De izquierda a derecha"
 
-#: ../data/ui/preferences.blp:237
+#: ../data/ui/preferences.blp:277
 msgid "⬇ Vertical"
 msgstr "⬇ Vertical"
 
-#: ../data/ui/preferences.blp:238
+#: ../data/ui/preferences.blp:278
 msgid "⬇ Webtoon"
 msgstr "⬇ Webtoon"
 
-#: ../data/ui/preferences.blp:244
+#: ../data/ui/preferences.blp:284
 msgid "Maximum Width"
 msgstr "Anchura máxima"
 
-#: ../data/ui/preferences.blp:245
+#: ../data/ui/preferences.blp:285
 msgid ""
 "Constrain reader's width to a given maximum size (Webtoon reading mode only)"
 msgstr ""
 "Limitar la anchura del lector a un tamaño máximo determinado (sólo en el "
 "modo de lectura Webtoon)"
 
-#: ../data/ui/preferences.blp:256
+#: ../data/ui/preferences.blp:296
 msgid "Scaling"
 msgstr "Escala"
 
-#: ../data/ui/preferences.blp:257
+#: ../data/ui/preferences.blp:297
 msgid "Type of scaling to adapt image"
 msgstr "Tipo de escalado para adaptar la imagen"
 
-#: ../data/ui/preferences.blp:260
+#: ../data/ui/preferences.blp:300
 msgid "Adapt to Screen"
 msgstr "Adaptar a la pantalla"
 
-#: ../data/ui/preferences.blp:261
+#: ../data/ui/preferences.blp:301
 msgid "Adapt to Width"
 msgstr "Adaptar a la anchura"
 
-#: ../data/ui/preferences.blp:262
+#: ../data/ui/preferences.blp:302
 msgid "Adapt to Height"
 msgstr "Adaptar a la altura"
 
-#: ../data/ui/preferences.blp:263
+#: ../data/ui/preferences.blp:303
 msgid "Original Size"
 msgstr "Tamaño original"
 
-#: ../data/ui/preferences.blp:269
+#: ../data/ui/preferences.blp:309
 msgid "Scaling Filter"
 msgstr "Filtro de escalado"
 
-#: ../data/ui/preferences.blp:270
+#: ../data/ui/preferences.blp:310
 msgid "Interpolation method used when scaling images"
 msgstr "Método de interpolación utilizado al escalar imágenes"
 
-#: ../data/ui/preferences.blp:273
+#: ../data/ui/preferences.blp:313
 msgid "Linear"
 msgstr "Lineal"
 
-#: ../data/ui/preferences.blp:274
+#: ../data/ui/preferences.blp:314
 msgid "Trilinear"
 msgstr "Trilineal"
 
-#: ../data/ui/preferences.blp:280
+#: ../data/ui/preferences.blp:320
 msgid "Landscape Pages Zoom"
 msgstr "Zoom de las páginas apaisadas"
 
-#: ../data/ui/preferences.blp:281
+#: ../data/ui/preferences.blp:321
 msgid ""
 "Zoom page to fit height when page is landscape (Adapt to Screen scaling only)"
 msgstr ""
 "Ampliar la página para ajustarla a la altura cuando la página está apaisada "
 "(sólo adaptar a escala de pantalla)"
 
-#: ../data/ui/preferences.blp:285
+#: ../data/ui/preferences.blp:325
 msgid "Background Color"
 msgstr "Color del fondo"
 
-#: ../data/ui/preferences.blp:288
+#: ../data/ui/preferences.blp:328
 msgid "White"
 msgstr "Blanco"
 
-#: ../data/ui/preferences.blp:289
+#: ../data/ui/preferences.blp:329
 msgid "Gray"
 msgstr "Gris"
 
-#: ../data/ui/preferences.blp:290
+#: ../data/ui/preferences.blp:330
 msgid "Black"
 msgstr "Negro"
 
-#: ../data/ui/preferences.blp:291
+#: ../data/ui/preferences.blp:331
 msgid "System Style"
 msgstr "Estilo del sistema"
 
-#: ../data/ui/preferences.blp:297
+#: ../data/ui/preferences.blp:337
 msgid "Borders Crop"
 msgstr "Bordes del ajuste"
 
-#: ../data/ui/preferences.blp:298
+#: ../data/ui/preferences.blp:338
 msgid ""
 "Crop white borders of images\n"
 "\n"
@@ -687,66 +698,66 @@ msgstr ""
 "NOTA: Requiere un mayor uso de la CPU y puede provocar ralentizaciones en el "
 "renderizado y las animaciones, especialmente en dispositivos móviles."
 
-#: ../data/ui/preferences.blp:302
+#: ../data/ui/preferences.blp:342
 msgid "Page Numbering"
 msgstr "Numeración de páginas"
 
-#: ../data/ui/preferences.blp:303
+#: ../data/ui/preferences.blp:343
 msgid "Hide the page numbering at the bottom of the screen while reading"
 msgstr ""
 "Ocultar la numeración de las páginas en la parte inferior de la pantalla "
 "mientras se lee"
 
-#: ../data/ui/preferences.blp:307
+#: ../data/ui/preferences.blp:347
 msgid "Fullscreen"
 msgstr "Pantalla completa"
 
-#: ../data/ui/preferences.blp:308
+#: ../data/ui/preferences.blp:348
 msgid "Automatically enter fullscreen mode"
 msgstr "Entrar automáticamente en el modo de pantalla completa"
 
-#: ../data/ui/preferences.blp:315
+#: ../data/ui/preferences.blp:355
 msgid "Advanced"
 msgstr "Avanzado"
 
-#: ../data/ui/preferences.blp:319
+#: ../data/ui/preferences.blp:359
 msgid "A setting has changed that requires a restart to take effect"
 msgstr ""
 "Se ha modificado un ajuste que requiere un reinicio para que surta efecto"
 
-#: ../data/ui/preferences.blp:325
+#: ../data/ui/preferences.blp:365
 msgid "Data"
 msgstr "Datos"
 
-#: ../data/ui/preferences.blp:326
+#: ../data/ui/preferences.blp:366
 msgid "Data not saved in the library"
 msgstr "Datos no guardados en la biblioteca"
 
-#: ../data/ui/preferences.blp:329
+#: ../data/ui/preferences.blp:369
 msgid "Clear Chapters Cache and Database"
 msgstr "Borrar la caché y la base de datos de los capítulos"
 
-#: ../data/ui/preferences.blp:344
+#: ../data/ui/preferences.blp:384
 msgid "Clear Chapters Cache and Database on Exit"
 msgstr "Borrar la caché y la base de datos de los capítulos al salir"
 
-#: ../data/ui/preferences.blp:349
+#: ../data/ui/preferences.blp:389
 msgid "WebView"
 msgstr ""
 
-#: ../data/ui/preferences.blp:352
+#: ../data/ui/preferences.blp:392
 msgid "Clear Data"
 msgstr ""
 
-#: ../data/ui/preferences.blp:368
+#: ../data/ui/preferences.blp:408
 msgid "Servers Modules"
 msgstr "Servidores Módulos"
 
-#: ../data/ui/preferences.blp:371
+#: ../data/ui/preferences.blp:411
 msgid "Use Up-to-date Servers Modules"
 msgstr "Utilizar módulos de servidores actualizados"
 
-#: ../data/ui/preferences.blp:372
+#: ../data/ui/preferences.blp:412
 msgid ""
 "An alternative version of the servers modules, installed from the source "
 "code repository and updated at each startup, is used instead of the one "
@@ -756,27 +767,27 @@ msgstr ""
 "desde el repositorio de código fuente y actualizada en cada inicio, en lugar "
 "de la que se entrega con la aplicación."
 
-#: ../data/ui/preferences.blp:377
+#: ../data/ui/preferences.blp:417
 msgid "Credentials Storage"
 msgstr "Almacenamiento de credenciales"
 
-#: ../data/ui/preferences.blp:380
+#: ../data/ui/preferences.blp:420
 msgid "Allow Plaintext Storage as Fallback"
 msgstr "Permitir el almacenamiento de texto plano como respaldo"
 
-#: ../data/ui/preferences.blp:381
+#: ../data/ui/preferences.blp:421
 msgid "Used when no keyring backends are found"
 msgstr "Se usa cuando no se encuentran soportes de claves"
 
-#: ../data/ui/preferences.blp:386
+#: ../data/ui/preferences.blp:426
 msgid "Tweaks"
 msgstr "Ajustes"
 
-#: ../data/ui/preferences.blp:389
+#: ../data/ui/preferences.blp:429
 msgid "Disable Animations"
 msgstr "Desactivar animaciones"
 
-#: ../data/ui/preferences.blp:390
+#: ../data/ui/preferences.blp:430
 msgid ""
 "Useful with E Ink e-readers to avoid very choppy and unpleasant animations "
 "(due to the low refresh rate of the screen)"
@@ -785,7 +796,7 @@ msgstr ""
 "entrecortadas y desagradables (debido a la baja frecuencia de actualización "
 "de la pantalla)"
 
-#: ../data/ui/preferences.blp:394
+#: ../data/ui/preferences.blp:434
 msgid ""
 "This tweak is only intended for users who do not use the GNOME desktop "
 "environment and therefore cannot disable animations globally via GNOME "
@@ -1102,8 +1113,8 @@ msgstr "Fallo en la actualización del estado de lectura de los capítulos"
 msgid "Download"
 msgstr "Descargar"
 
-#: ../komikku/card/chapters_list.py:724 ../komikku/preferences.py:150
-#: ../komikku/preferences.py:168
+#: ../komikku/card/chapters_list.py:724 ../komikku/preferences.py:157
+#: ../komikku/preferences.py:175
 msgid "Clear"
 msgstr "Limpiar"
 
@@ -1140,7 +1151,7 @@ msgid "Cancel Tracking"
 msgstr "Cancelar seguimiento"
 
 #: ../komikku/card/tracking.py:227 ../komikku/servers/comick/__init__.py:77
-#: ../komikku/servers/mangaball/__init__.py:88
+#: ../komikku/servers/mangaball/__init__.py:83
 #: ../komikku/servers/mangadex/__init__.py:71
 #: ../komikku/servers/mangafire/__init__.py:60
 #: ../komikku/servers/mangamana/__init__.py:62
@@ -1172,7 +1183,7 @@ msgstr "¿Está seguro de que desea cancelar el seguimiento?"
 msgid "Delete"
 msgstr "Eliminar"
 
-#: ../komikku/card/tracking.py:359 ../komikku/preferences.py:796
+#: ../komikku/card/tracking.py:359 ../komikku/preferences.py:803
 msgid "Connection is expired"
 msgstr ""
 
@@ -1252,8 +1263,8 @@ msgstr "Último volumen: {}"
 msgid "Comics stored locally as archives in CBZ/CBR/CBT or PDF formats"
 msgstr ""
 
-#: ../komikku/explorer/common.py:240 ../komikku/preferences.py:633
-#: ../komikku/preferences.py:730 ../komikku/servers/mangatube/__init__.py:150
+#: ../komikku/explorer/common.py:240 ../komikku/preferences.py:640
+#: ../komikku/preferences.py:737 ../komikku/servers/mangatube/__init__.py:150
 msgid "18+"
 msgstr "18+"
 
@@ -1471,7 +1482,7 @@ msgstr "Completo"
 #: ../komikku/models/database/mangas.py:47
 #: ../komikku/servers/comick/__init__.py:81
 #: ../komikku/servers/flamescans/__init__.py:52
-#: ../komikku/servers/mangaball/__init__.py:94
+#: ../komikku/servers/mangaball/__init__.py:89
 #: ../komikku/servers/mangadex/__init__.py:75
 #: ../komikku/servers/mangamana/__init__.py:67
 #: ../komikku/servers/mangaworld/__init__.py:78
@@ -1488,32 +1499,32 @@ msgstr "Suspendido"
 
 #: ../komikku/models/database/mangas.py:49
 #: ../komikku/servers/flamescans/__init__.py:54
-#: ../komikku/servers/mangaball/__init__.py:96
+#: ../komikku/servers/mangaball/__init__.py:91
 #: ../komikku/servers/mangafire/__init__.py:67
 #: ../komikku/servers/mangaworld/__init__.py:81
 #: ../komikku/servers/weebcentral/__init__.py:54
 msgid "Hiatus"
 msgstr "Hiato"
 
-#: ../komikku/preferences.py:148 ../komikku/preferences.py:166
+#: ../komikku/preferences.py:155 ../komikku/preferences.py:173
 msgid "Clear?"
 msgstr "¿Limpiar?"
 
-#: ../komikku/preferences.py:149
+#: ../komikku/preferences.py:156
 msgid "Are you sure you want to clear chapters cache and database?"
 msgstr ""
 "¿Está seguro de que quiere borrar la caché y la base de datos de los "
 "capítulos?"
 
-#: ../komikku/preferences.py:167
+#: ../komikku/preferences.py:174
 msgid "Are you sure you want to clear WebView data (cache, storage, cookies)?"
 msgstr ""
 
-#: ../komikku/preferences.py:192
+#: ../komikku/preferences.py:199
 msgid "Disable animations?"
 msgstr "¿Desactivar animaciones?"
 
-#: ../komikku/preferences.py:193
+#: ../komikku/preferences.py:200
 msgid ""
 "Are you sure you want to disable animations?\n"
 "\n"
@@ -1523,33 +1534,33 @@ msgstr ""
 "\n"
 "La navegación por gestos en el lector dejará de funcionar correctamente."
 
-#: ../komikku/preferences.py:194
+#: ../komikku/preferences.py:201
 msgid "Disable"
 msgstr "Desactivar"
 
-#: ../komikku/preferences.py:661
+#: ../komikku/preferences.py:668
 msgid "User Account"
 msgstr "Cuenta del usuario"
 
-#: ../komikku/preferences.py:669
+#: ../komikku/preferences.py:676
 msgid "Address"
 msgstr "Dirección"
 
-#: ../komikku/preferences.py:675 ../komikku/preferences.py:814
+#: ../komikku/preferences.py:682 ../komikku/preferences.py:821
 msgid "Username"
 msgstr "Nombre de usuario"
 
-#: ../komikku/preferences.py:679 ../komikku/preferences.py:818
+#: ../komikku/preferences.py:686 ../komikku/preferences.py:825
 msgid "Password"
 msgstr "Contraseña"
 
-#: ../komikku/preferences.py:691
+#: ../komikku/preferences.py:698
 msgid "System keyring service is disabled. Credential cannot be saved."
 msgstr ""
 "El servicio de claves del sistema está desactivado. No se puede guardar la "
 "credencial."
 
-#: ../komikku/preferences.py:696
+#: ../komikku/preferences.py:703
 msgid ""
 "No keyring backends were found to store credential. Use plaintext storage as "
 "fallback."
@@ -1557,7 +1568,7 @@ msgstr ""
 "No se han encontrado soportes de claves para almacenar las credenciales. Use "
 "el almacenamiento de texto plano como alternativa."
 
-#: ../komikku/preferences.py:701
+#: ../komikku/preferences.py:708
 msgid ""
 "No keyring backends were found to store credential. Plaintext storage will "
 "be used as fallback."
@@ -1565,33 +1576,33 @@ msgstr ""
 "No se han encontrado soportes de claves para almacenar las credenciales. Se "
 "usará el almacenamiento de texto plano como alternativa."
 
-#: ../komikku/preferences.py:709
+#: ../komikku/preferences.py:716
 msgid "Test"
 msgstr "Prueba"
 
-#: ../komikku/preferences.py:790 ../komikku/preferences.py:842
-#: ../komikku/preferences.py:872
+#: ../komikku/preferences.py:797 ../komikku/preferences.py:849
+#: ../komikku/preferences.py:879
 msgid "Disconnect"
 msgstr "Desconectar"
 
-#: ../komikku/preferences.py:797
+#: ../komikku/preferences.py:804
 msgid "Reconnect"
 msgstr ""
 
-#: ../komikku/preferences.py:800 ../komikku/preferences.py:825
-#: ../komikku/preferences.py:858
+#: ../komikku/preferences.py:807 ../komikku/preferences.py:832
+#: ../komikku/preferences.py:865
 msgid "Connect"
 msgstr "Conectar"
 
-#: ../komikku/preferences.py:846
+#: ../komikku/preferences.py:853
 msgid "Failed to request client access"
 msgstr "La solicitud de acceso del cliente falló"
 
-#: ../komikku/preferences.py:849
+#: ../komikku/preferences.py:856
 msgid "Webview is currently in used. Please retry later."
 msgstr "Webview está en uso. Por favor, vuelva a intentarlo más tarde."
 
-#: ../komikku/preferences.py:871
+#: ../komikku/preferences.py:878
 msgid "Disconnect from {}"
 msgstr "Desconectar de {}"
 
@@ -1820,7 +1831,7 @@ msgstr "Filtrar por estados"
 
 #: ../komikku/servers/comick/__init__.py:82
 #: ../komikku/servers/flamescans/__init__.py:53
-#: ../komikku/servers/mangaball/__init__.py:95
+#: ../komikku/servers/mangaball/__init__.py:90
 #: ../komikku/servers/mangadex/__init__.py:76
 #: ../komikku/servers/mangafire/__init__.py:65
 #: ../komikku/servers/raijinscan/__init__.py:39
@@ -1830,7 +1841,7 @@ msgstr "Completado"
 
 #: ../komikku/servers/comick/__init__.py:83
 #: ../komikku/servers/flamescans/__init__.py:56
-#: ../komikku/servers/mangaball/__init__.py:97
+#: ../komikku/servers/mangaball/__init__.py:92
 #: ../komikku/servers/mangadex/__init__.py:78
 #: ../komikku/servers/mangaworld/__init__.py:82
 #: ../komikku/servers/weebcentral/__init__.py:55
@@ -1881,25 +1892,25 @@ msgid "Filter by Publication Demographics"
 msgstr ""
 
 #: ../komikku/servers/comick/__init__.py:120
-#: ../komikku/servers/mangaball/__init__.py:77
+#: ../komikku/servers/mangaball/__init__.py:72
 #: ../komikku/servers/mangadex/__init__.py:88
 msgid "Shounen"
 msgstr "Shounen"
 
 #: ../komikku/servers/comick/__init__.py:121
-#: ../komikku/servers/mangaball/__init__.py:78
+#: ../komikku/servers/mangaball/__init__.py:73
 #: ../komikku/servers/mangadex/__init__.py:89
 msgid "Shoujo"
 msgstr "Shoujo"
 
 #: ../komikku/servers/comick/__init__.py:122
-#: ../komikku/servers/mangaball/__init__.py:79
+#: ../komikku/servers/mangaball/__init__.py:74
 #: ../komikku/servers/mangadex/__init__.py:91
 msgid "Seinen"
 msgstr "Seinen"
 
 #: ../komikku/servers/comick/__init__.py:123
-#: ../komikku/servers/mangaball/__init__.py:80
+#: ../komikku/servers/mangaball/__init__.py:75
 #: ../komikku/servers/mangadex/__init__.py:90
 msgid "Josei"
 msgstr "Josei"
@@ -2124,12 +2135,12 @@ msgid "Wuxia"
 msgstr "Wuxia"
 
 #: ../komikku/servers/comick/__init__.py:187
-#: ../komikku/servers/mangaball/__init__.py:82
+#: ../komikku/servers/mangaball/__init__.py:77
 msgid "Yaoi"
 msgstr ""
 
 #: ../komikku/servers/comick/__init__.py:188
-#: ../komikku/servers/mangaball/__init__.py:81
+#: ../komikku/servers/mangaball/__init__.py:76
 msgid "Yuri"
 msgstr ""
 
@@ -2219,20 +2230,20 @@ msgstr "Estados"
 msgid "Dropped"
 msgstr "Abandonado"
 
-#: ../komikku/servers/mangaball/__init__.py:71
+#: ../komikku/servers/mangaball/__init__.py:66
 msgid "Demographic"
 msgstr ""
 
-#: ../komikku/servers/mangaball/__init__.py:72
+#: ../komikku/servers/mangaball/__init__.py:67
 msgid "Filter by Publication Demographic"
 msgstr ""
 
-#: ../komikku/servers/mangaball/__init__.py:76
-#: ../komikku/servers/mangaball/__init__.py:93
+#: ../komikku/servers/mangaball/__init__.py:71
+#: ../komikku/servers/mangaball/__init__.py:88
 msgid "Any"
 msgstr ""
 
-#: ../komikku/servers/mangaball/__init__.py:89
+#: ../komikku/servers/mangaball/__init__.py:84
 msgid "Filter by Status"
 msgstr ""
 
@@ -2422,11 +2433,11 @@ msgstr "Ups, la actualización ha fallado. Por favor, inténtelo de nuevo."
 msgid "Library update started"
 msgstr "Iniciada la actualización de la biblioteca"
 
-#: ../komikku/utils.py:350
+#: ../komikku/utils.py:322
 msgid "You are currently offline"
 msgstr "Actualmente está desconectado"
 
-#: ../komikku/utils.py:377
+#: ../komikku/utils.py:349
 msgid "No Internet connection, timeout or server down"
 msgstr ""
 "Sin conexión a Internet, se ha agotado el tiempo de espera o se ha caído el "

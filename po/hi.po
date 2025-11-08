@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Komikku 1.41.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-11-05 23:24+0100\n"
+"POT-Creation-Date: 2025-11-08 01:51+0100\n"
 "PO-Revision-Date: 2024-08-16 15:54+0000\n"
 "Last-Translator: Scrambled777 <weblate.scrambled777@simplelogin.com>\n"
 "Language-Team: Hindi <https://hosted.weblate.org/projects/komikku/main/hi/>\n"
@@ -131,11 +131,11 @@ msgstr "मोबाइल प्रारूप में श्रेणी �
 msgid "The Reading history page in mobile format"
 msgstr "मोबाइल प्रारूप में पठन इतिहास पृष्ठ"
 
-#: ../data/ui/application_window.blp:54 ../data/ui/preferences.blp:320
+#: ../data/ui/application_window.blp:54 ../data/ui/preferences.blp:360
 msgid "Got it!"
 msgstr ""
 
-#: ../data/ui/card.blp:47 ../data/ui/card.blp:412
+#: ../data/ui/card.blp:47 ../data/ui/card.blp:411
 #: ../data/ui/card_chapters_list_row.blp:48 ../data/ui/download_manager.blp:26
 #: ../data/ui/library.blp:146 ../data/ui/reader.blp:37
 msgid "Menu"
@@ -145,27 +145,27 @@ msgstr "मेनू"
 msgid "Info"
 msgstr "जानकारी"
 
-#: ../data/ui/card.blp:149
+#: ../data/ui/card.blp:148
 msgid "Add to Library"
 msgstr "लाइब्रेरी में जोड़ें"
 
-#: ../data/ui/card.blp:209
+#: ../data/ui/card.blp:208
 msgid "Scanlators"
 msgstr "स्कैनलेटर"
 
-#: ../data/ui/card.blp:268
+#: ../data/ui/card.blp:267
 msgid "Last Update"
 msgstr "अंतिम अद्यतन"
 
-#: ../data/ui/card.blp:299
+#: ../data/ui/card.blp:298
 msgid "Size on Disk"
 msgstr "डिस्क पर आकार"
 
-#: ../data/ui/card.blp:324
+#: ../data/ui/card.blp:323
 msgid "Synopsis"
 msgstr "सार"
 
-#: ../data/ui/card.blp:449 ../data/ui/categories_editor.blp:67
+#: ../data/ui/card.blp:448 ../data/ui/categories_editor.blp:67
 #: ../data/ui/library.blp:249
 msgid "No Categories"
 msgstr "कोई श्रेणियां नहीं"
@@ -174,7 +174,7 @@ msgstr "कोई श्रेणियां नहीं"
 msgid "New"
 msgstr "नया"
 
-#: ../data/ui/card_tracking.blp:9 ../data/ui/preferences.blp:63
+#: ../data/ui/card_tracking.blp:9 ../data/ui/preferences.blp:103
 msgid "Tracking"
 msgstr ""
 
@@ -244,7 +244,7 @@ msgstr "इतिहास"
 msgid "No History"
 msgstr "कोई इतिहास नहीं"
 
-#: ../data/ui/library.blp:10 ../data/ui/preferences.blp:73
+#: ../data/ui/library.blp:10 ../data/ui/preferences.blp:113
 msgid "Library"
 msgstr "लाइब्रेरी"
 
@@ -260,7 +260,7 @@ msgstr "मुख्य मेनू"
 msgid "Search by name, server or genre"
 msgstr "नाम, सर्वर या शैली के आधार पर खोजें"
 
-#: ../data/ui/library.blp:125 ../data/ui/preferences.blp:160
+#: ../data/ui/library.blp:125 ../data/ui/preferences.blp:200
 msgid "Update"
 msgstr "अद्यतन"
 
@@ -378,175 +378,186 @@ msgstr "प्राथमिकताएं"
 msgid "General"
 msgstr "सामान्य"
 
-#: ../data/ui/preferences.blp:18
+#: ../data/ui/preferences.blp:24
+msgid "Support Komikku"
+msgstr ""
+
+#: ../data/ui/preferences.blp:30
+msgid ""
+"Komikku is a free and open-source, and always will be. If you like it, "
+"backing me through donating would be great. It will not only help maintain "
+"it but also support me as an independent developer."
+msgstr ""
+
+#: ../data/ui/preferences.blp:58
 msgid "Appearance"
 msgstr ""
 
-#: ../data/ui/preferences.blp:20
+#: ../data/ui/preferences.blp:60
 msgid "Theme"
 msgstr "थीम"
 
-#: ../data/ui/preferences.blp:23
+#: ../data/ui/preferences.blp:63
 msgid "Light"
 msgstr "हल्की"
 
-#: ../data/ui/preferences.blp:24
+#: ../data/ui/preferences.blp:64
 msgid "Dark"
 msgstr "गहरी"
 
-#: ../data/ui/preferences.blp:25
+#: ../data/ui/preferences.blp:65
 msgid "Follow System"
 msgstr "सिस्टम का पालन करें"
 
-#: ../data/ui/preferences.blp:31
+#: ../data/ui/preferences.blp:71
 msgid "Night Light"
 msgstr "रात्रि प्रकाश"
 
-#: ../data/ui/preferences.blp:32
+#: ../data/ui/preferences.blp:72
 msgid "Automatically enable dark theme at night"
 msgstr "रात में स्वचालित रूप से गहरी थीम सक्षम करें"
 
-#: ../data/ui/preferences.blp:36
+#: ../data/ui/preferences.blp:76
 msgid "Accent Color"
 msgstr ""
 
-#: ../data/ui/preferences.blp:37
+#: ../data/ui/preferences.blp:77
 msgid "Use system accent colors"
 msgstr ""
 
-#: ../data/ui/preferences.blp:41
+#: ../data/ui/preferences.blp:81
 msgid "Backdrop in Details Page"
 msgstr "विवरण पृष्ठ में पृष्ठभूमि"
 
-#: ../data/ui/preferences.blp:42
+#: ../data/ui/preferences.blp:82
 msgid "Method used to recolor background to match cover"
 msgstr ""
 
-#: ../data/ui/preferences.blp:46
+#: ../data/ui/preferences.blp:86
 msgid "Linear gradient"
 msgstr ""
 
-#: ../data/ui/preferences.blp:47
+#: ../data/ui/preferences.blp:87
 msgid "Blurred cover"
 msgstr ""
 
-#: ../data/ui/preferences.blp:57
+#: ../data/ui/preferences.blp:97
 msgid "Desktop Notifications"
 msgstr "डेस्कटॉप अधिसूचनाएं"
 
-#: ../data/ui/preferences.blp:58
+#: ../data/ui/preferences.blp:98
 msgid "Use desktop notifications for downloads and library updates"
 msgstr "डाउनलोड और लाइब्रेरी अपडेट के लिए डेस्कटॉप अधिसूचनाएं का उपयोग करें"
 
-#: ../data/ui/preferences.blp:66
+#: ../data/ui/preferences.blp:106
 msgid "Synchronize reading progress"
 msgstr ""
 
-#: ../data/ui/preferences.blp:77
+#: ../data/ui/preferences.blp:117
 msgid "Display"
 msgstr "प्रदर्शन"
 
-#: ../data/ui/preferences.blp:80
+#: ../data/ui/preferences.blp:120
 msgid "Display Mode"
 msgstr "प्रदर्शन मोड"
 
-#: ../data/ui/preferences.blp:83
+#: ../data/ui/preferences.blp:123
 msgid "Grid"
 msgstr "ग्रिड"
 
-#: ../data/ui/preferences.blp:84
+#: ../data/ui/preferences.blp:124
 msgid "Compact Grid"
 msgstr "सघन ग्रिड"
 
-#: ../data/ui/preferences.blp:90
+#: ../data/ui/preferences.blp:130
 msgid "Servers Logo"
 msgstr "सर्वर लोगो"
 
-#: ../data/ui/preferences.blp:91
+#: ../data/ui/preferences.blp:131
 msgid "Display servers logo"
 msgstr "सर्वर लोगो प्रदर्शित करें"
 
-#: ../data/ui/preferences.blp:95
+#: ../data/ui/preferences.blp:135
 msgid "Badges"
 msgstr "बिल्ला"
 
-#: ../data/ui/preferences.blp:98
+#: ../data/ui/preferences.blp:138
 msgid "Number of Unread Chapters"
 msgstr "अपठित अध्यायों की संख्या"
 
-#: ../data/ui/preferences.blp:118
+#: ../data/ui/preferences.blp:158
 msgid "Number of Downloaded Chapters"
 msgstr "डाउनलोड किए गए अध्यायों की संख्या"
 
-#: ../data/ui/preferences.blp:138
+#: ../data/ui/preferences.blp:178
 msgid "Number of Recent and Unread Chapters"
 msgstr "हालिया और अपठित अध्यायों की संख्या"
 
-#: ../data/ui/preferences.blp:163
+#: ../data/ui/preferences.blp:203
 msgid "Update at Startup"
 msgstr "शुरुवात पर अद्यतन करें"
 
-#: ../data/ui/preferences.blp:164
+#: ../data/ui/preferences.blp:204
 msgid "Automatically update library at startup"
 msgstr "शुरुवात पर स्वचालित रूप से लाइब्रेरी अद्यतन करें"
 
-#: ../data/ui/preferences.blp:168
+#: ../data/ui/preferences.blp:208
 msgid "Auto Download of New Chapters"
 msgstr "नये अध्यायों का स्वतः डाउनलोड"
 
-#: ../data/ui/preferences.blp:169
+#: ../data/ui/preferences.blp:209
 msgid "Automatically download new chapters"
 msgstr "स्वचालित रूप से नए अध्याय डाउनलोड करें"
 
-#: ../data/ui/preferences.blp:174
+#: ../data/ui/preferences.blp:214
 msgid "Explorer"
 msgstr "अन्वेषक"
 
-#: ../data/ui/preferences.blp:177
+#: ../data/ui/preferences.blp:217
 #: ../data/ui/preferences_servers_languages.blp:10
 #: ../data/ui/preferences_servers_languages.blp:16
 msgid "Servers Languages"
 msgstr "सर्वर भाषाएं"
 
-#: ../data/ui/preferences.blp:178
+#: ../data/ui/preferences.blp:218
 msgid "Restrict servers to selected languages"
 msgstr "सर्वर को चयनित भाषाओं तक सीमित रखें"
 
-#: ../data/ui/preferences.blp:186
+#: ../data/ui/preferences.blp:226
 #: ../data/ui/preferences_servers_settings.blp:10
 #: ../data/ui/preferences_servers_settings.blp:16
 msgid "Servers Settings"
 msgstr "सर्वर सेटिंग्स"
 
-#: ../data/ui/preferences.blp:187
+#: ../data/ui/preferences.blp:227
 msgid "Enable/disable and configure servers"
 msgstr "सर्वर को सक्षम/अक्षम और विन्यस्त करें"
 
-#: ../data/ui/preferences.blp:195
+#: ../data/ui/preferences.blp:235
 msgid "Long Strip Detection"
 msgstr "लंबी पट्टी का पता लगाना"
 
-#: ../data/ui/preferences.blp:196
+#: ../data/ui/preferences.blp:236
 msgid "Automatically detect long vertical strip when possible"
 msgstr "जब संभव हो तो स्वचालित रूप से लंबी ऊर्ध्वाधर पट्टी का पता लगाएं"
 
-#: ../data/ui/preferences.blp:202
+#: ../data/ui/preferences.blp:242
 msgid "NSFW Content (18+)"
 msgstr "NSFW सामग्री (18+)"
 
-#: ../data/ui/preferences.blp:203
+#: ../data/ui/preferences.blp:243
 msgid "Whether to enable servers with NSFW content"
 msgstr "क्या NSFW सामग्री वाले सर्वर को सक्षम करना है"
 
-#: ../data/ui/preferences.blp:207
+#: ../data/ui/preferences.blp:247
 msgid "NSFW Only Content (18+)"
 msgstr "केवल NSFW सामग्री (18+)"
 
-#: ../data/ui/preferences.blp:208
+#: ../data/ui/preferences.blp:248
 msgid "Whether to enable servers with NSFW only content"
 msgstr "क्या केवल NSFW सामग्री वाले सर्वर को सक्षम करना है"
 
-#: ../data/ui/preferences.blp:212
+#: ../data/ui/preferences.blp:252
 msgid ""
 "These settings do not prevent potentially incorrectly flagged servers from "
 "surfacing NSFW content."
@@ -554,116 +565,116 @@ msgstr ""
 "ये सेटिंग्स संभावित रूप से गलत तरीके से फ़्लैग किए गए सर्वर को NSFW सामग्री को सामने आने से "
 "नहीं रोकती हैं।"
 
-#: ../data/ui/preferences.blp:227 ../data/ui/reader.blp:10
+#: ../data/ui/preferences.blp:267 ../data/ui/reader.blp:10
 msgid "Reader"
 msgstr "पाठक"
 
-#: ../data/ui/preferences.blp:232
+#: ../data/ui/preferences.blp:272
 msgid "Reading Mode"
 msgstr "पठन मोड"
 
-#: ../data/ui/preferences.blp:235
+#: ../data/ui/preferences.blp:275
 msgid "⬅ Right to Left"
 msgstr "⬅ दाएं से बाएं"
 
-#: ../data/ui/preferences.blp:236
+#: ../data/ui/preferences.blp:276
 msgid "➡ Left to Right"
 msgstr "➡ बाएं से दाएं"
 
-#: ../data/ui/preferences.blp:237
+#: ../data/ui/preferences.blp:277
 msgid "⬇ Vertical"
 msgstr "⬇ लंबवत"
 
-#: ../data/ui/preferences.blp:238
+#: ../data/ui/preferences.blp:278
 msgid "⬇ Webtoon"
 msgstr "⬇ वेबटून"
 
-#: ../data/ui/preferences.blp:244
+#: ../data/ui/preferences.blp:284
 msgid "Maximum Width"
 msgstr "अधिकतम चौड़ाई"
 
-#: ../data/ui/preferences.blp:245
+#: ../data/ui/preferences.blp:285
 msgid ""
 "Constrain reader's width to a given maximum size (Webtoon reading mode only)"
 msgstr ""
 "पाठक की चौड़ाई को किसी दिए गए अधिकतम आकार तक सीमित करें (केवल वेबटून पाठक मोड)"
 
-#: ../data/ui/preferences.blp:256
+#: ../data/ui/preferences.blp:296
 msgid "Scaling"
 msgstr "स्केलिंग"
 
-#: ../data/ui/preferences.blp:257
+#: ../data/ui/preferences.blp:297
 msgid "Type of scaling to adapt image"
 msgstr "छवि को अनुकूलित करने के लिए स्केलिंग का प्रकार"
 
-#: ../data/ui/preferences.blp:260
+#: ../data/ui/preferences.blp:300
 msgid "Adapt to Screen"
 msgstr "स्क्रीन के अनुकूल"
 
-#: ../data/ui/preferences.blp:261
+#: ../data/ui/preferences.blp:301
 msgid "Adapt to Width"
 msgstr "चौड़ाई के अनुकूल"
 
-#: ../data/ui/preferences.blp:262
+#: ../data/ui/preferences.blp:302
 msgid "Adapt to Height"
 msgstr "ऊंचाई के अनुकूल"
 
-#: ../data/ui/preferences.blp:263
+#: ../data/ui/preferences.blp:303
 msgid "Original Size"
 msgstr "मूल आकार"
 
-#: ../data/ui/preferences.blp:269
+#: ../data/ui/preferences.blp:309
 msgid "Scaling Filter"
 msgstr "स्केलिंग फिल्टर"
 
-#: ../data/ui/preferences.blp:270
+#: ../data/ui/preferences.blp:310
 msgid "Interpolation method used when scaling images"
 msgstr "छवियों को स्केल करते समय उपयोग की जाने वाली इंटरपोलेशन विधि"
 
-#: ../data/ui/preferences.blp:273
+#: ../data/ui/preferences.blp:313
 msgid "Linear"
 msgstr "रेखीय"
 
-#: ../data/ui/preferences.blp:274
+#: ../data/ui/preferences.blp:314
 msgid "Trilinear"
 msgstr "त्रिरेखीय"
 
-#: ../data/ui/preferences.blp:280
+#: ../data/ui/preferences.blp:320
 msgid "Landscape Pages Zoom"
 msgstr "लैंडस्केप पृष्ठ ज़ूम करें"
 
-#: ../data/ui/preferences.blp:281
+#: ../data/ui/preferences.blp:321
 msgid ""
 "Zoom page to fit height when page is landscape (Adapt to Screen scaling only)"
 msgstr ""
 "जब पृष्ठ लैंडस्केप हो तो ऊंचाई में फिट होने के लिए पेज को ज़ूम करें (केवल स्क्रीन स्केलिंग के लिए "
 "अनुकूलित)"
 
-#: ../data/ui/preferences.blp:285
+#: ../data/ui/preferences.blp:325
 msgid "Background Color"
 msgstr "पृष्ठभूमि का रंग"
 
-#: ../data/ui/preferences.blp:288
+#: ../data/ui/preferences.blp:328
 msgid "White"
 msgstr "सफ़ेद"
 
-#: ../data/ui/preferences.blp:289
+#: ../data/ui/preferences.blp:329
 msgid "Gray"
 msgstr "स्लेटी"
 
-#: ../data/ui/preferences.blp:290
+#: ../data/ui/preferences.blp:330
 msgid "Black"
 msgstr "काला"
 
-#: ../data/ui/preferences.blp:291
+#: ../data/ui/preferences.blp:331
 msgid "System Style"
 msgstr "सिस्टम शैली"
 
-#: ../data/ui/preferences.blp:297
+#: ../data/ui/preferences.blp:337
 msgid "Borders Crop"
 msgstr "सीमाएं काटें"
 
-#: ../data/ui/preferences.blp:298
+#: ../data/ui/preferences.blp:338
 msgid ""
 "Crop white borders of images\n"
 "\n"
@@ -675,63 +686,63 @@ msgstr ""
 "ध्यान दें: अधिक CPU उपयोग की आवश्यकता होती है और विशेष रूप से मोबाइल उपकरणों पर "
 "प्रतिपादन और सजीवता धीमी हो सकती है।"
 
-#: ../data/ui/preferences.blp:302
+#: ../data/ui/preferences.blp:342
 msgid "Page Numbering"
 msgstr "पृष्ठ क्रमांकन"
 
-#: ../data/ui/preferences.blp:303
+#: ../data/ui/preferences.blp:343
 msgid "Hide the page numbering at the bottom of the screen while reading"
 msgstr "पढ़ते समय स्क्रीन के नीचे पृष्ठ क्रमांक छिपाएँ"
 
-#: ../data/ui/preferences.blp:307
+#: ../data/ui/preferences.blp:347
 msgid "Fullscreen"
 msgstr "फ़ुलस्क्रीन"
 
-#: ../data/ui/preferences.blp:308
+#: ../data/ui/preferences.blp:348
 msgid "Automatically enter fullscreen mode"
 msgstr "स्वचालित रूप से फ़ुलस्क्रीन मोड में जाएं"
 
-#: ../data/ui/preferences.blp:315
+#: ../data/ui/preferences.blp:355
 msgid "Advanced"
 msgstr "उन्नत"
 
-#: ../data/ui/preferences.blp:319
+#: ../data/ui/preferences.blp:359
 msgid "A setting has changed that requires a restart to take effect"
 msgstr ""
 
-#: ../data/ui/preferences.blp:325
+#: ../data/ui/preferences.blp:365
 msgid "Data"
 msgstr "डेटा"
 
-#: ../data/ui/preferences.blp:326
+#: ../data/ui/preferences.blp:366
 msgid "Data not saved in the library"
 msgstr "लाइब्रेरी में डेटा सहेजा नहीं गया"
 
-#: ../data/ui/preferences.blp:329
+#: ../data/ui/preferences.blp:369
 msgid "Clear Chapters Cache and Database"
 msgstr "अध्याय कैश और डेटाबेस साफ़ करें"
 
-#: ../data/ui/preferences.blp:344
+#: ../data/ui/preferences.blp:384
 msgid "Clear Chapters Cache and Database on Exit"
 msgstr "बाहर निकलने पर अध्याय कैश और डेटाबेस साफ़ करें"
 
-#: ../data/ui/preferences.blp:349
+#: ../data/ui/preferences.blp:389
 msgid "WebView"
 msgstr ""
 
-#: ../data/ui/preferences.blp:352
+#: ../data/ui/preferences.blp:392
 msgid "Clear Data"
 msgstr ""
 
-#: ../data/ui/preferences.blp:368
+#: ../data/ui/preferences.blp:408
 msgid "Servers Modules"
 msgstr "सर्वर मॉड्यूल"
 
-#: ../data/ui/preferences.blp:371
+#: ../data/ui/preferences.blp:411
 msgid "Use Up-to-date Servers Modules"
 msgstr "नवीनतम सर्वर मॉड्यूल का उपयोग करें"
 
-#: ../data/ui/preferences.blp:372
+#: ../data/ui/preferences.blp:412
 msgid ""
 "An alternative version of the servers modules, installed from the source "
 "code repository and updated at each startup, is used instead of the one "
@@ -741,27 +752,27 @@ msgstr ""
 "किया जाता है, जिसे स्रोत कोड रिपोजिटरी से स्थापित किया जाता है और प्रत्येक स्टार्टअप पर "
 "अद्यतित किया जाता है।"
 
-#: ../data/ui/preferences.blp:377
+#: ../data/ui/preferences.blp:417
 msgid "Credentials Storage"
 msgstr "प्रामाणिकताएं भंडारण"
 
-#: ../data/ui/preferences.blp:380
+#: ../data/ui/preferences.blp:420
 msgid "Allow Plaintext Storage as Fallback"
 msgstr "फॉलबैक के रूप में प्लेनटेक्स्ट स्टोरेज की अनुमति दें"
 
-#: ../data/ui/preferences.blp:381
+#: ../data/ui/preferences.blp:421
 msgid "Used when no keyring backends are found"
 msgstr "जब कोई कीरिंग बैकेंड नहीं मिलता तब उपयोग किया जाता है"
 
-#: ../data/ui/preferences.blp:386
+#: ../data/ui/preferences.blp:426
 msgid "Tweaks"
 msgstr "बदलाव"
 
-#: ../data/ui/preferences.blp:389
+#: ../data/ui/preferences.blp:429
 msgid "Disable Animations"
 msgstr "सजीवता अक्षम करें"
 
-#: ../data/ui/preferences.blp:390
+#: ../data/ui/preferences.blp:430
 msgid ""
 "Useful with E Ink e-readers to avoid very choppy and unpleasant animations "
 "(due to the low refresh rate of the screen)"
@@ -769,7 +780,7 @@ msgstr ""
 "बहुत अस्थिर और अप्रिय सजीवता (स्क्रीन की कम ताज़ा दर के कारण) से बचने के लिए ई इंक ई-"
 "रीडर्स के साथ उपयोगी"
 
-#: ../data/ui/preferences.blp:394
+#: ../data/ui/preferences.blp:434
 msgid ""
 "This tweak is only intended for users who do not use the GNOME desktop "
 "environment and therefore cannot disable animations globally via GNOME "
@@ -1078,8 +1089,8 @@ msgstr "अध्याय पठन स्थिति अद्यतन क�
 msgid "Download"
 msgstr "डाउनलोड"
 
-#: ../komikku/card/chapters_list.py:724 ../komikku/preferences.py:150
-#: ../komikku/preferences.py:168
+#: ../komikku/card/chapters_list.py:724 ../komikku/preferences.py:157
+#: ../komikku/preferences.py:175
 msgid "Clear"
 msgstr "साफ करें"
 
@@ -1116,7 +1127,7 @@ msgid "Cancel Tracking"
 msgstr ""
 
 #: ../komikku/card/tracking.py:227 ../komikku/servers/comick/__init__.py:77
-#: ../komikku/servers/mangaball/__init__.py:88
+#: ../komikku/servers/mangaball/__init__.py:83
 #: ../komikku/servers/mangadex/__init__.py:71
 #: ../komikku/servers/mangafire/__init__.py:60
 #: ../komikku/servers/mangamana/__init__.py:62
@@ -1148,7 +1159,7 @@ msgstr ""
 msgid "Delete"
 msgstr "मिटाएं"
 
-#: ../komikku/card/tracking.py:359 ../komikku/preferences.py:796
+#: ../komikku/card/tracking.py:359 ../komikku/preferences.py:803
 msgid "Connection is expired"
 msgstr ""
 
@@ -1228,8 +1239,8 @@ msgstr "अंतिम वॉल्यूम: {}"
 msgid "Comics stored locally as archives in CBZ/CBR/CBT or PDF formats"
 msgstr ""
 
-#: ../komikku/explorer/common.py:240 ../komikku/preferences.py:633
-#: ../komikku/preferences.py:730 ../komikku/servers/mangatube/__init__.py:150
+#: ../komikku/explorer/common.py:240 ../komikku/preferences.py:640
+#: ../komikku/preferences.py:737 ../komikku/servers/mangatube/__init__.py:150
 msgid "18+"
 msgstr "18+"
 
@@ -1444,7 +1455,7 @@ msgstr "पूर्ण"
 #: ../komikku/models/database/mangas.py:47
 #: ../komikku/servers/comick/__init__.py:81
 #: ../komikku/servers/flamescans/__init__.py:52
-#: ../komikku/servers/mangaball/__init__.py:94
+#: ../komikku/servers/mangaball/__init__.py:89
 #: ../komikku/servers/mangadex/__init__.py:75
 #: ../komikku/servers/mangamana/__init__.py:67
 #: ../komikku/servers/mangaworld/__init__.py:78
@@ -1461,30 +1472,30 @@ msgstr "निलंबित"
 
 #: ../komikku/models/database/mangas.py:49
 #: ../komikku/servers/flamescans/__init__.py:54
-#: ../komikku/servers/mangaball/__init__.py:96
+#: ../komikku/servers/mangaball/__init__.py:91
 #: ../komikku/servers/mangafire/__init__.py:67
 #: ../komikku/servers/mangaworld/__init__.py:81
 #: ../komikku/servers/weebcentral/__init__.py:54
 msgid "Hiatus"
 msgstr "अंतराल"
 
-#: ../komikku/preferences.py:148 ../komikku/preferences.py:166
+#: ../komikku/preferences.py:155 ../komikku/preferences.py:173
 msgid "Clear?"
 msgstr "साफ़?"
 
-#: ../komikku/preferences.py:149
+#: ../komikku/preferences.py:156
 msgid "Are you sure you want to clear chapters cache and database?"
 msgstr "क्या आप वाकई अध्याय कैश और डेटाबेस साफ़ करना चाहते हैं?"
 
-#: ../komikku/preferences.py:167
+#: ../komikku/preferences.py:174
 msgid "Are you sure you want to clear WebView data (cache, storage, cookies)?"
 msgstr ""
 
-#: ../komikku/preferences.py:192
+#: ../komikku/preferences.py:199
 msgid "Disable animations?"
 msgstr "सजीवता अक्षम करें?"
 
-#: ../komikku/preferences.py:193
+#: ../komikku/preferences.py:200
 msgid ""
 "Are you sure you want to disable animations?\n"
 "\n"
@@ -1494,31 +1505,31 @@ msgstr ""
 "\n"
 "पाठक में जेस्चर नेविगेशन अब ठीक से काम नहीं करेगा।"
 
-#: ../komikku/preferences.py:194
+#: ../komikku/preferences.py:201
 msgid "Disable"
 msgstr "अक्षम"
 
-#: ../komikku/preferences.py:661
+#: ../komikku/preferences.py:668
 msgid "User Account"
 msgstr "उपयोक्ता खाता"
 
-#: ../komikku/preferences.py:669
+#: ../komikku/preferences.py:676
 msgid "Address"
 msgstr "पता"
 
-#: ../komikku/preferences.py:675 ../komikku/preferences.py:814
+#: ../komikku/preferences.py:682 ../komikku/preferences.py:821
 msgid "Username"
 msgstr "उपयोक्तानाम"
 
-#: ../komikku/preferences.py:679 ../komikku/preferences.py:818
+#: ../komikku/preferences.py:686 ../komikku/preferences.py:825
 msgid "Password"
 msgstr "पासवर्ड"
 
-#: ../komikku/preferences.py:691
+#: ../komikku/preferences.py:698
 msgid "System keyring service is disabled. Credential cannot be saved."
 msgstr "सिस्टम कीरिंग सेवा अक्षम है। प्रमाण पत्र सहेजा नहीं जा सकता।"
 
-#: ../komikku/preferences.py:696
+#: ../komikku/preferences.py:703
 msgid ""
 "No keyring backends were found to store credential. Use plaintext storage as "
 "fallback."
@@ -1526,7 +1537,7 @@ msgstr ""
 "प्रमाण पत्र संग्रहीत करने के लिए कोई कीरिंग बैकेंड नहीं मिला। फ़ॉलबैक के रूप में सादापाठ "
 "स्टोरेज का उपयोग करें।"
 
-#: ../komikku/preferences.py:701
+#: ../komikku/preferences.py:708
 msgid ""
 "No keyring backends were found to store credential. Plaintext storage will "
 "be used as fallback."
@@ -1534,33 +1545,33 @@ msgstr ""
 "प्रमाण पत्र संग्रहीत करने के लिए कोई कीरिंग बैकएंड नहीं मिला। सादापाठ स्टोरेज का उपयोग "
 "फ़ॉलबैक के रूप में किया जाएगा।"
 
-#: ../komikku/preferences.py:709
+#: ../komikku/preferences.py:716
 msgid "Test"
 msgstr "परीक्षण"
 
-#: ../komikku/preferences.py:790 ../komikku/preferences.py:842
-#: ../komikku/preferences.py:872
+#: ../komikku/preferences.py:797 ../komikku/preferences.py:849
+#: ../komikku/preferences.py:879
 msgid "Disconnect"
 msgstr ""
 
-#: ../komikku/preferences.py:797
+#: ../komikku/preferences.py:804
 msgid "Reconnect"
 msgstr ""
 
-#: ../komikku/preferences.py:800 ../komikku/preferences.py:825
-#: ../komikku/preferences.py:858
+#: ../komikku/preferences.py:807 ../komikku/preferences.py:832
+#: ../komikku/preferences.py:865
 msgid "Connect"
 msgstr ""
 
-#: ../komikku/preferences.py:846
+#: ../komikku/preferences.py:853
 msgid "Failed to request client access"
 msgstr ""
 
-#: ../komikku/preferences.py:849
+#: ../komikku/preferences.py:856
 msgid "Webview is currently in used. Please retry later."
 msgstr ""
 
-#: ../komikku/preferences.py:871
+#: ../komikku/preferences.py:878
 msgid "Disconnect from {}"
 msgstr ""
 
@@ -1789,7 +1800,7 @@ msgstr ""
 
 #: ../komikku/servers/comick/__init__.py:82
 #: ../komikku/servers/flamescans/__init__.py:53
-#: ../komikku/servers/mangaball/__init__.py:95
+#: ../komikku/servers/mangaball/__init__.py:90
 #: ../komikku/servers/mangadex/__init__.py:76
 #: ../komikku/servers/mangafire/__init__.py:65
 #: ../komikku/servers/raijinscan/__init__.py:39
@@ -1799,7 +1810,7 @@ msgstr "पूर्ण"
 
 #: ../komikku/servers/comick/__init__.py:83
 #: ../komikku/servers/flamescans/__init__.py:56
-#: ../komikku/servers/mangaball/__init__.py:97
+#: ../komikku/servers/mangaball/__init__.py:92
 #: ../komikku/servers/mangadex/__init__.py:78
 #: ../komikku/servers/mangaworld/__init__.py:82
 #: ../komikku/servers/weebcentral/__init__.py:55
@@ -1850,25 +1861,25 @@ msgid "Filter by Publication Demographics"
 msgstr ""
 
 #: ../komikku/servers/comick/__init__.py:120
-#: ../komikku/servers/mangaball/__init__.py:77
+#: ../komikku/servers/mangaball/__init__.py:72
 #: ../komikku/servers/mangadex/__init__.py:88
 msgid "Shounen"
 msgstr "शौनेन"
 
 #: ../komikku/servers/comick/__init__.py:121
-#: ../komikku/servers/mangaball/__init__.py:78
+#: ../komikku/servers/mangaball/__init__.py:73
 #: ../komikku/servers/mangadex/__init__.py:89
 msgid "Shoujo"
 msgstr "शौजो"
 
 #: ../komikku/servers/comick/__init__.py:122
-#: ../komikku/servers/mangaball/__init__.py:79
+#: ../komikku/servers/mangaball/__init__.py:74
 #: ../komikku/servers/mangadex/__init__.py:91
 msgid "Seinen"
 msgstr "सिनेन"
 
 #: ../komikku/servers/comick/__init__.py:123
-#: ../komikku/servers/mangaball/__init__.py:80
+#: ../komikku/servers/mangaball/__init__.py:75
 #: ../komikku/servers/mangadex/__init__.py:90
 msgid "Josei"
 msgstr "जोसी"
@@ -2093,12 +2104,12 @@ msgid "Wuxia"
 msgstr ""
 
 #: ../komikku/servers/comick/__init__.py:187
-#: ../komikku/servers/mangaball/__init__.py:82
+#: ../komikku/servers/mangaball/__init__.py:77
 msgid "Yaoi"
 msgstr ""
 
 #: ../komikku/servers/comick/__init__.py:188
-#: ../komikku/servers/mangaball/__init__.py:81
+#: ../komikku/servers/mangaball/__init__.py:76
 msgid "Yuri"
 msgstr ""
 
@@ -2187,20 +2198,20 @@ msgstr ""
 msgid "Dropped"
 msgstr ""
 
-#: ../komikku/servers/mangaball/__init__.py:71
+#: ../komikku/servers/mangaball/__init__.py:66
 msgid "Demographic"
 msgstr ""
 
-#: ../komikku/servers/mangaball/__init__.py:72
+#: ../komikku/servers/mangaball/__init__.py:67
 msgid "Filter by Publication Demographic"
 msgstr ""
 
-#: ../komikku/servers/mangaball/__init__.py:76
-#: ../komikku/servers/mangaball/__init__.py:93
+#: ../komikku/servers/mangaball/__init__.py:71
+#: ../komikku/servers/mangaball/__init__.py:88
 msgid "Any"
 msgstr ""
 
-#: ../komikku/servers/mangaball/__init__.py:89
+#: ../komikku/servers/mangaball/__init__.py:84
 msgid "Filter by Status"
 msgstr ""
 
@@ -2389,11 +2400,11 @@ msgstr "उफ़, अद्यतन विफल हो गया है। �
 msgid "Library update started"
 msgstr "लाइब्रेरी अद्यतन प्रारंभ हुआ"
 
-#: ../komikku/utils.py:350
+#: ../komikku/utils.py:322
 msgid "You are currently offline"
 msgstr "आप अभी ऑफ़लाइन हैं"
 
-#: ../komikku/utils.py:377
+#: ../komikku/utils.py:349
 msgid "No Internet connection, timeout or server down"
 msgstr "कोई इंटरनेट कनेक्शन नहीं, समय समाप्त या सर्वर डाउन"
 
