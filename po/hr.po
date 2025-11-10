@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: Komikku 1.47.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-11-08 01:57+0100\n"
-"PO-Revision-Date: 2025-10-25 17:02+0000\n"
+"PO-Revision-Date: 2025-11-11 20:51+0000\n"
 "Last-Translator: Milo Ivir <mail@milotype.de>\n"
 "Language-Team: Croatian <https://hosted.weblate.org/projects/komikku/main/hr/"
 ">\n"
@@ -15,9 +15,10 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
-"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
-"X-Generator: Weblate 5.14.1-dev\n"
+"Plural-Forms: nplurals=3; plural="
+"(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? "
+"1 : 2);\n"
+"X-Generator: Weblate 5.15-dev\n"
 
 #: ../data/info.febvre.Komikku.desktop.in:2
 msgid "@prettyname@"
@@ -385,7 +386,7 @@ msgstr "Opće"
 
 #: ../data/ui/preferences.blp:24
 msgid "Support Komikku"
-msgstr ""
+msgstr "Podrži Komikku"
 
 #: ../data/ui/preferences.blp:30
 msgid ""
@@ -394,6 +395,10 @@ msgid ""
 "maintain it, but also continue my work as a free software developer in "
 "general."
 msgstr ""
+"Komikku je besplatna aplikacija otvorenog koda i uvijek će tako biti. Ako ti "
+"se sviđa, podrška donacijama bi bila izvrsna. To će mi ne samo pomoći da je "
+"održavam, već i da nastavim svoj rad kao programer slobodnog softvera "
+"općenito."
 
 #: ../data/ui/preferences.blp:58
 msgid "Appearance"
@@ -1053,7 +1058,7 @@ msgstr "Sinkronizacija napretka čitanja sa serverom je uspješno dovršena"
 
 #: ../komikku/card/__init__.py:356
 msgid "Failed to get manga URL"
-msgstr "Dohvaćanje URL-a mange nije uspjelo"
+msgstr "Neuspjelo dohvaćanje URL-a mange"
 
 #: ../komikku/card/__init__.py:380
 #, python-brace-format
@@ -1105,7 +1110,7 @@ msgstr[2] "{0} odabranih"
 
 #: ../komikku/card/chapters_list.py:418 ../komikku/card/chapters_list.py:517
 msgid "Failed to update chapters reading status"
-msgstr "Aktualiziranje stanja čitanja poglavlja nije uspjelo"
+msgstr "Neuspjelo aktualiziranje stanja čitanja poglavlja"
 
 #: ../komikku/card/chapters_list.py:714 ../komikku/library/__init__.py:404
 msgid "Download"
@@ -1183,7 +1188,7 @@ msgstr "Izbriži"
 
 #: ../komikku/card/tracking.py:359 ../komikku/preferences.py:803
 msgid "Connection is expired"
-msgstr ""
+msgstr "Veza je istekla"
 
 #: ../komikku/card/tracking.py:449 ../komikku/explorer/search/__init__.py:378
 msgid "Search {}"
@@ -1350,7 +1355,7 @@ msgstr "Ups, dohvaćanje informacija mange nije uspjelo."
 
 #: ../komikku/explorer/search/latest_updates.py:66
 msgid "Oops, failed to retrieve latest updates."
-msgstr "Ups, dohvaćanje zadnjih aktualiziranja nije uspjelo."
+msgstr "Ups, dohvaćanje najnovijih aktualiziranja nije uspjelo."
 
 #: ../komikku/explorer/search/latest_updates.py:70
 msgid "No Latest Updates Found"
@@ -1429,7 +1434,7 @@ msgstr "Učitava se …"
 
 #: ../komikku/library/__init__.py:759
 msgid "Failed to update reading status"
-msgstr "Aktulaiziranje stanja čitanja nije uspjelo"
+msgstr "Neuspjelo aktualiziranje stanja čitanja"
 
 #: ../komikku/library/__init__.py:781
 msgid "Add New Comic"
@@ -1584,7 +1589,7 @@ msgstr "Odspoji"
 
 #: ../komikku/preferences.py:804
 msgid "Reconnect"
-msgstr ""
+msgstr "Poveži se ponovo"
 
 #: ../komikku/preferences.py:807 ../komikku/preferences.py:832
 #: ../komikku/preferences.py:865
@@ -1593,7 +1598,7 @@ msgstr "Spoji"
 
 #: ../komikku/preferences.py:853
 msgid "Failed to request client access"
-msgstr "Traženje pristupa klijenta nije uspjelo"
+msgstr "Neuspjelo traženje pristupa klijenta"
 
 #: ../komikku/preferences.py:856
 msgid "Webview is currently in used. Please retry later."
@@ -1653,7 +1658,7 @@ msgstr "Povećaj ili smanji zasićenost stranica"
 
 #: ../komikku/reader/pager/__init__.py:165
 msgid "Failed to sync read progress with server"
-msgstr "Sinkronizacija napretka čitanja sa serverom nije uspjela"
+msgstr "Neuspjela sinkronizacija napretka čitanja sa serverom"
 
 #: ../komikku/reader/pager/__init__.py:464
 #: ../komikku/reader/pager/webtoon.py:95
@@ -1672,7 +1677,7 @@ msgstr "Ovo je poglavlje nedostupno."
 
 #: ../komikku/reader/pager/page.py:261
 msgid "Failed to load image"
-msgstr "Učitavanje slike nije uspjelo"
+msgstr "Neuspjelo učitavanje slike"
 
 #: ../komikku/reader/pager/page.py:303
 msgid "Retry"
@@ -1824,7 +1829,7 @@ msgstr "Erotika"
 #: ../komikku/servers/raijinscan/__init__.py:35
 #: ../komikku/servers/weebcentral/__init__.py:49
 msgid "Filter by Statuses"
-msgstr "Filtriraj po statusu"
+msgstr "Filtriraj po stanjima"
 
 #: ../komikku/servers/comick/__init__.py:82
 #: ../komikku/servers/flamescans/__init__.py:53
@@ -2219,7 +2224,7 @@ msgstr "Vrste"
 #: ../komikku/servers/flamescans/__init__.py:48
 #: ../komikku/servers/weebcentral/__init__.py:48
 msgid "Statuses"
-msgstr "Statusi"
+msgstr "Stanja"
 
 #: ../komikku/servers/flamescans/__init__.py:55
 #: ../komikku/trackers/__init__.py:70
@@ -2228,20 +2233,20 @@ msgstr "Ispušteno"
 
 #: ../komikku/servers/mangaball/__init__.py:71
 msgid "Demographic"
-msgstr ""
+msgstr "Demografski"
 
 #: ../komikku/servers/mangaball/__init__.py:72
 msgid "Filter by Publication Demographic"
-msgstr ""
+msgstr "Filtriraj po demografskim podacima publikacije"
 
 #: ../komikku/servers/mangaball/__init__.py:76
 #: ../komikku/servers/mangaball/__init__.py:93
 msgid "Any"
-msgstr ""
+msgstr "Bilo koji"
 
 #: ../komikku/servers/mangaball/__init__.py:89
 msgid "Filter by Status"
-msgstr ""
+msgstr "Filtriraj po stanju"
 
 #: ../komikku/servers/mangadex/__init__.py:65
 msgid "Pornographic"
