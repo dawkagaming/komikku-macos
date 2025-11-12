@@ -583,7 +583,7 @@ available in your region/language."""))
             self.library.select_all()
         elif self.page == 'card':
             self.card.chapters_list.select_all()
-        elif self.page == 'download_manager':
+        elif self.page == 'download-manager':
             self.download_manager.select_all()
 
     def show_banner(self, title, at_bottom=False):
