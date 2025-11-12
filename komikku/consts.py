@@ -135,15 +135,12 @@ CREDITS = dict(
 
 RELEASE_NOTES = """
 <ul>
-    <li>[Library] Selection mode: Fixed read/unread actions</li>
-    <li>[Reader] Webtoon pager: Fixed high CPU usage</li>
-    <li>[Servers] Added Kavita</li>
-    <li>[Servers] Added MangaBall (23 languages)</li>
-    <li>[Servers] Anime-Sama (FR): Update</li>
-    <li>[Servers] Flame Comics (EN): Update</li>
-    <li>[Servers] MangaCrab (ES): Update</li>
-    <li>[Servers] Raijin Scan (FR): Update</li>
-    <li>[L10n] Updated Croatian, Czech and Russian translations</li>
+    <li>[Downloader] Improved notifications</li>
+    <li>[Preferences] Added Support (donation) banner on top of General page</li>
+    <li>[Trackers] Improved handling of access tokens lifetime</li>
+    <li>[Servers] Comic Book Plus (EN): Update</li>
+    <li>[Servers] Punk Records (Little Garden): Update</li>
+    <li>[L10n] Updated Croatian, Finnish, French, Russian and Ukrainian translations</li>
 </ul>
 <p>Happy reading.</p>
 """
