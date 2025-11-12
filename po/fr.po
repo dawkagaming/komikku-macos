@@ -9,10 +9,10 @@ msgstr ""
 "Project-Id-Version: unnamed project\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-11-12 22:42+0100\n"
-"PO-Revision-Date: 2025-11-08 01:13+0000\n"
+"PO-Revision-Date: 2025-11-13 21:51+0000\n"
 "Last-Translator: Valéry Febvre <vfebvre@easter-eggs.com>\n"
-"Language-Team: French <https://hosted.weblate.org/projects/komikku/main/fr/"
-">\n"
+"Language-Team: French <https://hosted.weblate.org/projects/komikku/main/fr/>"
+"\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1233,7 +1233,7 @@ msgstr "Enregistrer"
 #: ../komikku/downloader.py:274
 #, python-brace-format
 msgid "[{0}] Chapters download ended"
-msgstr ""
+msgstr "[{0}] Téléchargement des chapitres terminé"
 
 #: ../komikku/explorer/common.py:121
 #, python-brace-format
@@ -1462,7 +1462,7 @@ msgstr "Téléchargement en cours"
 
 #: ../komikku/models/database/downloads.py:22
 msgid "Download canceled"
-msgstr ""
+msgstr "Téléchargement annulé"
 
 #: ../komikku/models/database/downloads.py:23
 msgid "Download error"
