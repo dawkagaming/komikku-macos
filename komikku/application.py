@@ -13,14 +13,12 @@ import threading
 
 gi.require_version('Adw', '1')
 gi.require_version('Gtk', '4.0')
-gi.require_version('Notify', '0.7')
 
 from gi.repository import Adw
 from gi.repository import Gdk
 from gi.repository import Gio
 from gi.repository import GLib
 from gi.repository import Gtk
-from gi.repository import Notify
 
 from komikku.card import CardPage
 from komikku.consts import CREDITS
@@ -115,7 +113,6 @@ class Application(Adw.Application):
 
         init_db()
         init_servers_modules(Settings.get_default().external_servers_modules)
-        Notify.init('Komikku')
 
 
 @Gtk.Template.from_resource('/info/febvre/Komikku/ui/application_window.ui')

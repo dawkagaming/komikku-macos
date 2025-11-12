@@ -19,6 +19,7 @@ class Download:
         pending=_('Download pending'),
         downloaded=_('Downloaded'),
         downloading=_('Downloading'),
+        canceled=_('Download canceled'),
         error=_('Download error'),
     )
 

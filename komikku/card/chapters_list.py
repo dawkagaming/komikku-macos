@@ -615,7 +615,7 @@ class ChaptersListRow(Gtk.Box):
         if not update:
             item.connect('changed', self.populate, True)
             self.download_stop_button_clicked_handler_id = self.download_stop_button.connect(
-                'clicked', lambda _button, chapter: self.card.window.downloader.remove(chapter), self.chapter
+                'clicked', lambda _button, chapter: self.card.window.downloader.cancel([chapter]), self.chapter
             )
 
         self.title_label.set_label(self.chapter.title)

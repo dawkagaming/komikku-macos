@@ -526,7 +526,7 @@ class Manga:
                 if row['slug'] not in chapters_slugs:
                     gone_chapter = Chapter.get(row['id'], manga=self, db_conn=db_conn)
                     if not gone_chapter.downloaded or self.is_local:
-                        # Chapter is not dowmloaded or server is 'local'
+                        # Chapter is not downloaded or server is 'local'
                         # Delete chapter
                         gone_chapter.delete(db_conn)
                         chapters_changes['nb_deleted'] += 1
