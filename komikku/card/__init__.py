@@ -312,6 +312,8 @@ class CardPage(Adw.NavigationPage):
     def on_key_pressed(self, _controller, keyval, _keycode, state):
         if self.window.page != self.props.tag:
             return Gdk.EVENT_PROPAGATE
+        if self.stack.get_visible_child_name() != 'chapters':
+            return Gdk.EVENT_PROPAGATE
 
         modifiers = state & Gtk.accelerator_get_default_mod_mask()
         if self.selection_mode:

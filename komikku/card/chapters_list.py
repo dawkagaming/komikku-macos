@@ -361,6 +361,9 @@ class ChaptersList:
             self.update_chapter_item(chapter=chapter)
 
     def select_all(self, *args):
+        if self.card.stack.get_visible_child_name() != 'chapters':
+            return
+
         if not self.card.selection_mode:
             self.card.enter_selection_mode()
 
