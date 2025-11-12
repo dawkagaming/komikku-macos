@@ -8,11 +8,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: unnamed project\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-11-08 01:57+0100\n"
+"POT-Creation-Date: 2025-11-12 22:42+0100\n"
 "PO-Revision-Date: 2025-11-08 01:13+0000\n"
 "Last-Translator: Valéry Febvre <vfebvre@easter-eggs.com>\n"
-"Language-Team: French <https://hosted.weblate.org/projects/komikku/main/fr/>"
-"\n"
+"Language-Team: French <https://hosted.weblate.org/projects/komikku/main/fr/"
+">\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -28,7 +28,7 @@ msgstr "@prettyname@"
 msgid "@description@"
 msgstr "@description@"
 
-#: ../data/info.febvre.Komikku.desktop.in:13
+#: ../data/info.febvre.Komikku.desktop.in:15
 msgid "manga;reader;viewer;comic;manhwa;manhua;bd;webtoon;webcomic;scan;offline;GTK;GNOME;"
 msgstr "manga;lecteur;visionneuse;comic;manhwa;manhua;bd;webtoon;webcomic;scan;offline;GTK;GNOME;"
 
@@ -958,23 +958,23 @@ msgstr "Copier dans le presse-papiers"
 msgid "Webview"
 msgstr "Vue Web"
 
-#: ../komikku/application.py:89
+#: ../komikku/application.py:87
 msgid "Multiple URLs not supported"
 msgstr "Les URL multiples ne sont pas pris en charge"
 
-#: ../komikku/application.py:105
+#: ../komikku/application.py:103
 msgid "Invalid URL {}, not handled by any server."
 msgstr "URL invalide {}, gérée par aucun serveur."
 
-#: ../komikku/application.py:371
+#: ../komikku/application.py:368
 msgid "Servers modules have been updated"
 msgstr "Les modules des serveurs ont été mis à jour"
 
-#: ../komikku/application.py:378
+#: ../komikku/application.py:375
 msgid "External Servers Modules Update"
 msgstr "Mise à jour des modules externes des serveurs"
 
-#: ../komikku/application.py:379
+#: ../komikku/application.py:376
 msgid ""
 "Updating of external server modules is temporarily suspended, as changes are "
 "currently making them incompatible with the current version of the "
@@ -985,11 +985,11 @@ msgstr ""
 "actuelle de l'application. Veuillez le mettre à jour si une version plus "
 "récente existe."
 
-#: ../komikku/application.py:380 ../komikku/explorer/common.py:273
+#: ../komikku/application.py:377 ../komikku/explorer/common.py:273
 msgid "Close"
 msgstr "Fermer"
 
-#: ../komikku/application.py:395
+#: ../komikku/application.py:392
 msgid ""
 "A manga, webtoons and comics reader\n"
 "\n"
@@ -1003,46 +1003,46 @@ msgstr ""
 "en achetant les BD officielles lorsqu'elles sont\n"
 "disponibles dans votre région / langue."
 
-#: ../komikku/application.py:404
+#: ../komikku/application.py:401
 msgid "Supporters"
 msgstr "Supporteurs"
 
-#: ../komikku/application.py:406
+#: ../komikku/application.py:403
 msgid "Join Chat"
 msgstr "Rejoindre le salon de discussion"
 
-#: ../komikku/application.py:503 ../komikku/card/__init__.py:160
+#: ../komikku/application.py:500 ../komikku/card/__init__.py:160
 #: ../komikku/card/__init__.py:161 ../komikku/categories_editor.py:189
-#: ../komikku/downloader.py:377 ../komikku/downloader.py:378
+#: ../komikku/downloader.py:388 ../komikku/downloader.py:389
 #: ../komikku/library/__init__.py:776 ../komikku/library/__init__.py:777
 msgid "Cancel"
 msgstr "Annuler"
 
-#: ../komikku/application.py:539
+#: ../komikku/application.py:536
 msgid "Are you sure you want to quit?"
 msgstr "Êtes-vous sûr de vouloir quitter ?"
 
-#: ../komikku/application.py:542
+#: ../komikku/application.py:539
 msgid "Some chapters are currently being downloaded."
 msgstr "Certains chapitres sont en cours de téléchargement."
 
-#: ../komikku/application.py:544
+#: ../komikku/application.py:541
 msgid "Some mangas are currently being updated."
 msgstr "Certains mangas sont en cours de mise à jour."
 
-#: ../komikku/application.py:548
+#: ../komikku/application.py:545
 msgid "Quit?"
 msgstr "Quitter ?"
 
-#: ../komikku/application.py:550
+#: ../komikku/application.py:547
 msgid "Quit"
 msgstr "Quitter"
 
-#: ../komikku/application.py:565
+#: ../komikku/application.py:562
 msgid "Restart?"
 msgstr "Redémarrer ?"
 
-#: ../komikku/application.py:567
+#: ../komikku/application.py:564
 msgid "Restart"
 msgstr "Redémarrer"
 
@@ -1057,17 +1057,17 @@ msgstr "Filtres"
 msgid "Unknown"
 msgstr "Inconnu"
 
-#: ../komikku/card/__init__.py:350
+#: ../komikku/card/__init__.py:352
 msgid "Read progress synchronization with server completed successfully"
 msgstr ""
 "Synchronisation de la progression de la lecture avec le serveur terminée "
 "avec succès"
 
-#: ../komikku/card/__init__.py:356
+#: ../komikku/card/__init__.py:358
 msgid "Failed to get manga URL"
 msgstr "Impossible de récupérer l'URL du manga"
 
-#: ../komikku/card/__init__.py:380
+#: ../komikku/card/__init__.py:382
 #, python-brace-format
 msgid ""
 "NOTICE\n"
@@ -1078,35 +1078,35 @@ msgstr ""
 "{0} n'est plus pris en charge.\n"
 "Veuillez basculer vers un autre serveur."
 
-#: ../komikku/card/__init__.py:473 ../komikku/card/chapters_list.py:728
+#: ../komikku/card/__init__.py:475 ../komikku/card/chapters_list.py:731
 msgid "Clear and Reset"
 msgstr "Effacer et réinitialiser"
 
-#: ../komikku/card/__init__.py:473 ../komikku/card/chapters_list.py:728
+#: ../komikku/card/__init__.py:475 ../komikku/card/chapters_list.py:731
 msgid "Reset"
 msgstr "Réinitialiser"
 
-#: ../komikku/card/__init__.py:580
+#: ../komikku/card/__init__.py:582
 msgid "Unknown author"
 msgstr "Auteur inconnu"
 
-#: ../komikku/card/__init__.py:586 ../komikku/card/__init__.py:595
+#: ../komikku/card/__init__.py:588 ../komikku/card/__init__.py:597
 msgid "Unknown status"
 msgstr "Statut inconnu"
 
-#: ../komikku/card/__init__.py:596 ../komikku/explorer/common.py:222
+#: ../komikku/card/__init__.py:598 ../komikku/explorer/common.py:222
 msgid "Local"
 msgstr "Local"
 
-#: ../komikku/card/__init__.py:630 ../komikku/card/chapters_list.py:656
+#: ../komikku/card/__init__.py:632 ../komikku/card/chapters_list.py:659
 msgid "%m/%d/%Y"
 msgstr "%d/%m/%Y"
 
-#: ../komikku/card/__init__.py:641
+#: ../komikku/card/__init__.py:643
 msgid "Donate"
 msgstr "Faire un don"
 
-#: ../komikku/card/chapters_list.py:338 ../komikku/downloader.py:522
+#: ../komikku/card/chapters_list.py:338 ../komikku/downloader.py:533
 #: ../komikku/library/__init__.py:810
 #, python-brace-format
 msgid "{0} selected"
@@ -1114,28 +1114,28 @@ msgid_plural "{0} selected"
 msgstr[0] "{0} sélectionné"
 msgstr[1] "{0} sélectionnés"
 
-#: ../komikku/card/chapters_list.py:418 ../komikku/card/chapters_list.py:517
+#: ../komikku/card/chapters_list.py:421 ../komikku/card/chapters_list.py:520
 msgid "Failed to update chapters reading status"
 msgstr "Échec de la mise à jour de l'état de lecture des chapitres"
 
-#: ../komikku/card/chapters_list.py:714 ../komikku/library/__init__.py:404
+#: ../komikku/card/chapters_list.py:717 ../komikku/library/__init__.py:404
 msgid "Download"
 msgstr "Télécharger"
 
-#: ../komikku/card/chapters_list.py:724 ../komikku/preferences.py:157
+#: ../komikku/card/chapters_list.py:727 ../komikku/preferences.py:157
 #: ../komikku/preferences.py:175
 msgid "Clear"
 msgstr "Effacer"
 
-#: ../komikku/card/chapters_list.py:738
+#: ../komikku/card/chapters_list.py:741
 msgid "Mark as Read"
 msgstr "Marquer comme lu"
 
-#: ../komikku/card/chapters_list.py:742
+#: ../komikku/card/chapters_list.py:745
 msgid "Mark as Unread"
 msgstr "Marquer comme non lu"
 
-#: ../komikku/card/chapters_list.py:746
+#: ../komikku/card/chapters_list.py:749
 msgid "Mark Previous Chapters as Read"
 msgstr "Marquer les chapitres précédents comme lus"
 
@@ -1230,28 +1230,10 @@ msgstr "Éditer"
 msgid "Save"
 msgstr "Enregistrer"
 
-#: ../komikku/downloader.py:234
+#: ../komikku/downloader.py:274
 #, python-brace-format
-msgid "Download failure: {0}"
-msgstr "Échec du téléchargement : {0}"
-
-#: ../komikku/downloader.py:245
-#, python-brace-format
-msgid "{0}/{1} pages downloaded"
-msgstr "{0}/{1} pages téléchargées"
-
-#: ../komikku/downloader.py:247
-msgid "error"
-msgstr "erreur"
-
-#: ../komikku/downloader.py:251 ../komikku/downloader.py:268
-#, python-brace-format
-msgid "[{0}] Chapter {1}"
-msgstr "[{0}] Chapitre {1}"
-
-#: ../komikku/downloader.py:267
-msgid "Download completed"
-msgstr "Téléchargement terminé"
+msgid "[{0}] Chapters download ended"
+msgstr ""
 
 #: ../komikku/explorer/common.py:121
 #, python-brace-format
@@ -1479,6 +1461,10 @@ msgid "Downloading"
 msgstr "Téléchargement en cours"
 
 #: ../komikku/models/database/downloads.py:22
+msgid "Download canceled"
+msgstr ""
+
+#: ../komikku/models/database/downloads.py:23
 msgid "Download error"
 msgstr "Erreur de téléchargement"
 
@@ -2463,6 +2449,24 @@ msgstr "Veuillez patienter…"
 #: ../komikku/webview.py:486
 msgid "Please complete CAPTCHA"
 msgstr "Veuillez compléter le CAPTCHA"
+
+#, python-brace-format
+#~ msgid "Download failure: {0}"
+#~ msgstr "Échec du téléchargement : {0}"
+
+#, python-brace-format
+#~ msgid "{0}/{1} pages downloaded"
+#~ msgstr "{0}/{1} pages téléchargées"
+
+#~ msgid "error"
+#~ msgstr "erreur"
+
+#, python-brace-format
+#~ msgid "[{0}] Chapter {1}"
+#~ msgstr "[{0}] Chapitre {1}"
+
+#~ msgid "Download completed"
+#~ msgstr "Téléchargement terminé"
 
 #~ msgid "Filter by publication demographics"
 #~ msgstr "Filtrer par publications démographiques"

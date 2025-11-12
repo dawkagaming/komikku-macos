@@ -7,18 +7,17 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-11-08 01:57+0100\n"
+"POT-Creation-Date: 2025-11-12 22:42+0100\n"
 "PO-Revision-Date: 2025-11-09 07:51+0000\n"
 "Last-Translator: Сергей <asvmail.as@gmail.com>\n"
-"Language-Team: Russian <https://hosted.weblate.org/projects/komikku/main/ru/>"
-"\n"
+"Language-Team: Russian <https://hosted.weblate.org/projects/komikku/main/ru/"
+">\n"
 "Language: ru\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural="
-"(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? "
-"1 : 2);\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 "X-Generator: Weblate 5.15-dev\n"
 
 #: ../data/info.febvre.Komikku.desktop.in:2
@@ -29,7 +28,7 @@ msgstr "@prettyname@"
 msgid "@description@"
 msgstr "@description@"
 
-#: ../data/info.febvre.Komikku.desktop.in:13
+#: ../data/info.febvre.Komikku.desktop.in:15
 msgid "manga;reader;viewer;comic;manhwa;manhua;bd;webtoon;webcomic;scan;offline;GTK;GNOME;"
 msgstr "manga;reader;viewer;comic;manhwa;manhua;bd;webtoon;webcomic;scan;offline;GTK;GNOME;манга;читалка;комикс;"
 
@@ -956,23 +955,23 @@ msgstr "Копировать в буфер обмена"
 msgid "Webview"
 msgstr "Webview"
 
-#: ../komikku/application.py:89
+#: ../komikku/application.py:87
 msgid "Multiple URLs not supported"
 msgstr "Множественные URL не поддерживаются"
 
-#: ../komikku/application.py:105
+#: ../komikku/application.py:103
 msgid "Invalid URL {}, not handled by any server."
 msgstr "Недопустимый URL {}, который не обрабатывается ни одним сервером."
 
-#: ../komikku/application.py:371
+#: ../komikku/application.py:368
 msgid "Servers modules have been updated"
 msgstr "Серверные модули были обновлены"
 
-#: ../komikku/application.py:378
+#: ../komikku/application.py:375
 msgid "External Servers Modules Update"
 msgstr "Обновление модулей внешних серверов"
 
-#: ../komikku/application.py:379
+#: ../komikku/application.py:376
 msgid ""
 "Updating of external server modules is temporarily suspended, as changes are "
 "currently making them incompatible with the current version of the "
@@ -982,11 +981,11 @@ msgstr ""
 "изменения делают их несовместимыми с текущей версией приложения. Пожалуйста, "
 "обновите приложение, если существует более свежая версия."
 
-#: ../komikku/application.py:380 ../komikku/explorer/common.py:273
+#: ../komikku/application.py:377 ../komikku/explorer/common.py:273
 msgid "Close"
 msgstr "Закрыть"
 
-#: ../komikku/application.py:395
+#: ../komikku/application.py:392
 msgid ""
 "A manga, webtoons and comics reader\n"
 "\n"
@@ -1000,46 +999,46 @@ msgstr ""
 "авторов, купив официальные выпуски, если они\n"
 "доступны в вашем регионе/на вашем языке."
 
-#: ../komikku/application.py:404
+#: ../komikku/application.py:401
 msgid "Supporters"
 msgstr "Помощники"
 
-#: ../komikku/application.py:406
+#: ../komikku/application.py:403
 msgid "Join Chat"
 msgstr "Присоединиться к чату"
 
-#: ../komikku/application.py:503 ../komikku/card/__init__.py:160
+#: ../komikku/application.py:500 ../komikku/card/__init__.py:160
 #: ../komikku/card/__init__.py:161 ../komikku/categories_editor.py:189
-#: ../komikku/downloader.py:377 ../komikku/downloader.py:378
+#: ../komikku/downloader.py:388 ../komikku/downloader.py:389
 #: ../komikku/library/__init__.py:776 ../komikku/library/__init__.py:777
 msgid "Cancel"
 msgstr "Отменить"
 
-#: ../komikku/application.py:539
+#: ../komikku/application.py:536
 msgid "Are you sure you want to quit?"
 msgstr "Вы уверены что хотите выйти?"
 
-#: ../komikku/application.py:542
+#: ../komikku/application.py:539
 msgid "Some chapters are currently being downloaded."
 msgstr "Некоторые главы загружаются прямо сейчас."
 
-#: ../komikku/application.py:544
+#: ../komikku/application.py:541
 msgid "Some mangas are currently being updated."
 msgstr "Некоторые манги обновляются прямо сейчас."
 
-#: ../komikku/application.py:548
+#: ../komikku/application.py:545
 msgid "Quit?"
 msgstr "Выйти?"
 
-#: ../komikku/application.py:550
+#: ../komikku/application.py:547
 msgid "Quit"
 msgstr "Выход"
 
-#: ../komikku/application.py:565
+#: ../komikku/application.py:562
 msgid "Restart?"
 msgstr "Перезагрузить?"
 
-#: ../komikku/application.py:567
+#: ../komikku/application.py:564
 msgid "Restart"
 msgstr "Перезагрузить"
 
@@ -1054,15 +1053,15 @@ msgstr "Фильтры"
 msgid "Unknown"
 msgstr "Неизвестно"
 
-#: ../komikku/card/__init__.py:350
+#: ../komikku/card/__init__.py:352
 msgid "Read progress synchronization with server completed successfully"
 msgstr "Синхронизация прогресса чтения с сервером завершена успешно"
 
-#: ../komikku/card/__init__.py:356
+#: ../komikku/card/__init__.py:358
 msgid "Failed to get manga URL"
 msgstr "Не удалось получить URL манги"
 
-#: ../komikku/card/__init__.py:380
+#: ../komikku/card/__init__.py:382
 #, python-brace-format
 msgid ""
 "NOTICE\n"
@@ -1073,35 +1072,35 @@ msgstr ""
 "{0} больше не поддерживается.\n"
 "Пожалуйста, переключитесь на другой сервер."
 
-#: ../komikku/card/__init__.py:473 ../komikku/card/chapters_list.py:728
+#: ../komikku/card/__init__.py:475 ../komikku/card/chapters_list.py:731
 msgid "Clear and Reset"
 msgstr "Очистить и сбросить"
 
-#: ../komikku/card/__init__.py:473 ../komikku/card/chapters_list.py:728
+#: ../komikku/card/__init__.py:475 ../komikku/card/chapters_list.py:731
 msgid "Reset"
 msgstr "Сбросить"
 
-#: ../komikku/card/__init__.py:580
+#: ../komikku/card/__init__.py:582
 msgid "Unknown author"
 msgstr "Неизвестный автор"
 
-#: ../komikku/card/__init__.py:586 ../komikku/card/__init__.py:595
+#: ../komikku/card/__init__.py:588 ../komikku/card/__init__.py:597
 msgid "Unknown status"
 msgstr "Неизвестный статус"
 
-#: ../komikku/card/__init__.py:596 ../komikku/explorer/common.py:222
+#: ../komikku/card/__init__.py:598 ../komikku/explorer/common.py:222
 msgid "Local"
 msgstr "Расположенные локально"
 
-#: ../komikku/card/__init__.py:630 ../komikku/card/chapters_list.py:656
+#: ../komikku/card/__init__.py:632 ../komikku/card/chapters_list.py:659
 msgid "%m/%d/%Y"
 msgstr "%d/%m/%Y"
 
-#: ../komikku/card/__init__.py:641
+#: ../komikku/card/__init__.py:643
 msgid "Donate"
 msgstr "Пожертвовать"
 
-#: ../komikku/card/chapters_list.py:338 ../komikku/downloader.py:522
+#: ../komikku/card/chapters_list.py:338 ../komikku/downloader.py:533
 #: ../komikku/library/__init__.py:810
 #, python-brace-format
 msgid "{0} selected"
@@ -1110,28 +1109,28 @@ msgstr[0] "выбрана {0}"
 msgstr[1] "выбрано {0}"
 msgstr[2] "выбрано {0}"
 
-#: ../komikku/card/chapters_list.py:418 ../komikku/card/chapters_list.py:517
+#: ../komikku/card/chapters_list.py:421 ../komikku/card/chapters_list.py:520
 msgid "Failed to update chapters reading status"
 msgstr "Не удалось обновить статус чтения глав"
 
-#: ../komikku/card/chapters_list.py:714 ../komikku/library/__init__.py:404
+#: ../komikku/card/chapters_list.py:717 ../komikku/library/__init__.py:404
 msgid "Download"
 msgstr "Загрузить"
 
-#: ../komikku/card/chapters_list.py:724 ../komikku/preferences.py:157
+#: ../komikku/card/chapters_list.py:727 ../komikku/preferences.py:157
 #: ../komikku/preferences.py:175
 msgid "Clear"
 msgstr "Очистить"
 
-#: ../komikku/card/chapters_list.py:738
+#: ../komikku/card/chapters_list.py:741
 msgid "Mark as Read"
 msgstr "Отметить как прочитанное"
 
-#: ../komikku/card/chapters_list.py:742
+#: ../komikku/card/chapters_list.py:745
 msgid "Mark as Unread"
 msgstr "Отметить как непрочитанное"
 
-#: ../komikku/card/chapters_list.py:746
+#: ../komikku/card/chapters_list.py:749
 msgid "Mark Previous Chapters as Read"
 msgstr "Отметить предыдущие главы как прочитанные"
 
@@ -1226,28 +1225,10 @@ msgstr "Редактировать"
 msgid "Save"
 msgstr "Сохранить"
 
-#: ../komikku/downloader.py:234
+#: ../komikku/downloader.py:274
 #, python-brace-format
-msgid "Download failure: {0}"
-msgstr "Ошибка загрузки: {0}"
-
-#: ../komikku/downloader.py:245
-#, python-brace-format
-msgid "{0}/{1} pages downloaded"
-msgstr "{0}/{1} страниц загружено"
-
-#: ../komikku/downloader.py:247
-msgid "error"
-msgstr "ошибка"
-
-#: ../komikku/downloader.py:251 ../komikku/downloader.py:268
-#, python-brace-format
-msgid "[{0}] Chapter {1}"
-msgstr "[{0}] Глава {1}"
-
-#: ../komikku/downloader.py:267
-msgid "Download completed"
-msgstr "Загрузка завершена"
+msgid "[{0}] Chapters download ended"
+msgstr ""
 
 #: ../komikku/explorer/common.py:121
 #, python-brace-format
@@ -1473,6 +1454,10 @@ msgid "Downloading"
 msgstr "Загружается"
 
 #: ../komikku/models/database/downloads.py:22
+msgid "Download canceled"
+msgstr ""
+
+#: ../komikku/models/database/downloads.py:23
 msgid "Download error"
 msgstr "Ошибка загрузки"
 
@@ -2457,6 +2442,24 @@ msgstr "Пожалуйста, подождите…"
 #: ../komikku/webview.py:486
 msgid "Please complete CAPTCHA"
 msgstr "Пожалуйста, заполните CAPTCHA"
+
+#, python-brace-format
+#~ msgid "Download failure: {0}"
+#~ msgstr "Ошибка загрузки: {0}"
+
+#, python-brace-format
+#~ msgid "{0}/{1} pages downloaded"
+#~ msgstr "{0}/{1} страниц загружено"
+
+#~ msgid "error"
+#~ msgstr "ошибка"
+
+#, python-brace-format
+#~ msgid "[{0}] Chapter {1}"
+#~ msgstr "[{0}] Глава {1}"
+
+#~ msgid "Download completed"
+#~ msgstr "Загрузка завершена"
 
 #~ msgid "Filter by publication demographics"
 #~ msgstr "Фильтровать публикации по возрастно-половым критериям"
