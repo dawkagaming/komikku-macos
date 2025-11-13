@@ -12,16 +12,17 @@
 # Manga Koleji [TR]
 # Neko Scans [ES]
 # Noromax [ID]
-# PhenixScans [FR]
 # Ragna Scan [ES] (Disabled)
 # Raiki Scan [ES]
 # Raw Manga [JA] (Disabled)
+# Rimu Scans [FR]
 # Rukav Inari [ES] (Disabled)
 # Ryujinmanga [ES]
 # Senpai Ediciones [ES] (Disabled)
 # ShadowMangas [ES]
 # SkyMangas [ES]
 # SushiScan [FR]
+# Sushiscan (.net) [FR]
 # Tres Daos [ES]
 # VF Scan [FR]
 # Vortex Scans For Free [EN] (Disabled)
