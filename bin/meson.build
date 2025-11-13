@@ -36,16 +36,16 @@ run_target('run',
 
 # Install tests script and add `tests` target
 if profile == 'development'
-    configure_file(
-      input: meson.project_name() + '-tests.in',
-      output: meson.project_name() + '-tests',
-      configuration: conf,
-      install: true,
-      install_dir: get_option('bindir')
-    )
+  configure_file(
+    input: meson.project_name() + '-tests.in',
+    output: meson.project_name() + '-tests',
+    configuration: conf,
+    install: true,
+    install_dir: get_option('bindir')
+  )
 
-    tests_script_path = join_paths(meson.project_build_root(), 'bin', meson.project_name() + '-tests')
-    run_target('tests',
-      command: [tests_script_path]
-    )
+  tests_script_path = join_paths(meson.project_build_root(), 'bin', meson.project_name() + '-tests')
+  run_target('tests',
+    command: [tests_script_path]
+  )
 endif

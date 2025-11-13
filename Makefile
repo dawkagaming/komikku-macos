@@ -18,7 +18,6 @@ help:
 	@python3 -c "$$PRINT_HELP_PYSCRIPT" < $(MAKEFILE_LIST)
 
 setup:  ## Setup build folder.
-	mkdir -p $(BUILD)
 	meson setup . $(BUILD)
 
 local:  ## Configure a local build.
