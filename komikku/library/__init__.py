@@ -631,6 +631,8 @@ class LibraryPage(Adw.NavigationPage):
             return
 
         self.start_page_progressbar.set_visible(True)
+        self.start_page_progressbar.set_fraction(0)
+
         self.start_page_title_label.set_markup('<span weight="bold">' + _('Loading…') + '</span>')
         self.start_page_discover_button.set_visible(False)
 
