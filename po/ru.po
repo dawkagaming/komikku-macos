@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-11-12 22:42+0100\n"
-"PO-Revision-Date: 2025-11-13 21:51+0000\n"
+"PO-Revision-Date: 2025-11-16 10:51+0000\n"
 "Last-Translator: Сергей <asvmail.as@gmail.com>\n"
 "Language-Team: Russian <https://hosted.weblate.org/projects/komikku/main/ru/>"
 "\n"
@@ -1229,7 +1229,7 @@ msgstr "Сохранить"
 #: ../komikku/downloader.py:274
 #, python-brace-format
 msgid "[{0}] Chapters download ended"
-msgstr ""
+msgstr "[{0}] Загрузка глав завершена"
 
 #: ../komikku/explorer/common.py:121
 #, python-brace-format
