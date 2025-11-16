@@ -16,6 +16,7 @@
         <file compressed="true" preprocess="xml-stripblanks">ui/history.ui</file>
         <file compressed="true" preprocess="xml-stripblanks">ui/library.ui</file>
         <file compressed="true" preprocess="xml-stripblanks">ui/preferences.ui</file>
+        <file compressed="true" preprocess="xml-stripblanks">ui/preferences_server_params.ui</file>
         <file compressed="true" preprocess="xml-stripblanks">ui/preferences_servers_languages.ui</file>
         <file compressed="true" preprocess="xml-stripblanks">ui/preferences_servers_settings.ui</file>
         <file compressed="true" preprocess="xml-stripblanks">ui/reader.ui</file>

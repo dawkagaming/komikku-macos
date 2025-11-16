@@ -31,6 +31,7 @@ template $PreferencesDialog : Adw.PreferencesDialog {
             halign: start;
             xalign: 0;
             yalign: 0;
+            margin-top: 12;
             wrap: true;
             styles ["caption"]
           }
@@ -211,10 +212,10 @@ template $PreferencesDialog : Adw.PreferencesDialog {
     }
 
     Adw.PreferencesGroup {
-      title: _("Explorer");
+      title: _("Servers");
 
       Adw.ActionRow servers_languages_actionrow {
-        title: _("Servers Languages");
+        title: _("Languages");
         subtitle: _("Restrict servers to selected languages");
 
         Image {
@@ -223,7 +224,7 @@ template $PreferencesDialog : Adw.PreferencesDialog {
       }
 
       Adw.ActionRow servers_settings_actionrow {
-        title: _("Servers Settings");
+        title: _("Settings");
         subtitle: _("Enable/disable and configure servers");
 
         Image {

@@ -24,6 +24,8 @@ from komikku.consts import LOGO_SIZE
 from komikku.consts import REQUESTS_TIMEOUT
 from komikku.consts import USER_AGENT
 from komikku.models.keyring import KeyringHelper
+from komikku.models.settings import Settings
+from komikku.servers.exceptions import ServerException
 from komikku.servers.loader import ServerFinder
 from komikku.servers.loader import ServerFinderPriority
 from komikku.servers.utils import get_server_main_id_by_id
@@ -77,7 +79,8 @@ class Server(BaseServer, ABC):
     donate_url = None
     logo_url = None
 
-    bypass_cf_url = None
+    bypass_cf_url = None  # To be used when challenge is not present at base_url
+    filters = None  # List of search filters (genre, rating, status…)
     has_captcha = False
     has_cf = False
     has_login = False
@@ -86,6 +89,7 @@ class Server(BaseServer, ABC):
     logged_in = False
     long_strip_genres = []
     manga_title_css_selector = None  # Used to extract manga title in a manga URL
+    params = None  # List of parameters (images quality for ex.)
     sync = False
     true_search = True  # If False, hide search in Explorer search page (XKCD, DBM, pepper&carotte…)
 
@@ -241,6 +245,37 @@ class Server(BaseServer, ABC):
     @abstractmethod
     def get_manga_url(self, slug, url):
         """This method must return absolute URL of the manga"""
+
+    def get_param(self, key):
+        """Returns param value if defined in server settings else returns param default value"""
+
+        # Check param exists
+        if self.params is None:
+            logger.error('[%s] Unknown server param key `%s`', self.id, key)
+            raise ServerException('Unknown server param key {0}'.format(key))
+
+        param = None
+        for param_ in self.params:
+            if param_['key'] == key:
+                param = param_
+                break
+
+        if param is None:
+            logger.error('[%s] Unknown server param key `%s`', self.id, key)
+            raise ServerException('Unknown server param key {0}'.format(key))
+
+        # Search for param in server settings
+        if settings := Settings.get_default():
+            main_id = get_server_main_id_by_id(self.id)
+            if server_settings := settings.servers_settings.get(main_id):
+                if 'params' in server_settings and key in server_settings['params']:
+                    return server_settings['params'][key]
+
+        # Return default value
+        if param['type'] == 'select' and param['value_type'] == 'multiple':
+            return [option['key'] for option in param['options'] if option['default']]
+        else:
+            return param['default']
 
     def is_long_strip(self, data):
         """

@@ -194,7 +194,7 @@ def get_allowed_servers_list(settings):
 
         server_settings = servers_settings.get(get_server_main_id_by_id(server_data['id']))
         if server_settings is not None:
-            if (not server_settings['enabled']
+            if (not server_settings.get('enabled', True)
                     or (len(servers_languages) > 1 and server_settings['langs'].get(server_data['lang']) is False)):
                 # Server is disabled or several languages are selected and server language is disabled
                 continue
@@ -271,12 +271,14 @@ def get_servers_list(include_disabled=False, order_by=('lang', 'name')):
                     id=obj.id,
                     name=obj.name,
                     lang=obj.lang,
+                    base_url=obj.base_url,
                     has_login=obj.has_login,
                     is_nsfw=obj.is_nsfw,
                     is_nsfw_only=obj.is_nsfw_only,
                     logo_path=logo_path if os.path.exists(logo_path) else None,
                     logo_url=obj.logo_url,
                     module=module,
+                    params=obj.params,
                     class_name=get_server_class_name_by_id(obj.id),
                 ))
 

@@ -23,8 +23,13 @@ class Settings(Gio.Settings):
     @staticmethod
     def new():
         """Create a new Settings object"""
-        g_settings = Gio.Settings.new(Gio.Application.get_default().application_id)
+        app = Gio.Application.get_default()
+        if app is None:
+            return None
+
+        g_settings = Gio.Settings.new(app.application_id)
         g_settings.__class__ = Settings
+
         return g_settings
 
     @staticmethod

@@ -352,7 +352,7 @@ NOTE: The 'unrar' or 'unar' command-line tool is required for CBR archives.""")
 def get_server_default_search_filters(server):
     filters = {}
 
-    if getattr(server, 'filters', None) is None:
+    if not server.filters:
         return filters
 
     for filter_ in server.filters:
