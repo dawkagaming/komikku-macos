@@ -99,6 +99,17 @@
     <url type="donation">https://febvre.info/donate.html</url>
 
     <releases>
+        <release version="1.93.0" date="2025-11-19">
+            <description translate="no">
+                <ul>
+                    <li>[Servers] Added Comix (EN)</li>
+                    <li>[Servers] Added Rimu Scans (FR)</li>
+                    <li>[Servers] MangaDex: Added `Data Saver Mode` parameter</li>
+                    <li>[L10n] Updated French, German, Russian and Ukrainian translations</li>
+                </ul>
+                <p>Happy reading.</p>
+            </description>
+        </release>
         <release version="1.92.0" date="2025-11-13">
             <description translate="no">
                 <ul>
