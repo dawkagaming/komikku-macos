@@ -48,7 +48,7 @@ class Mangadex(Server):
     api_server_url = api_base_url + '/at-home/server/{0}'
 
     manga_url = base_url + '/title/{0}'
-    page_image_url = '{0}/data/{1}/{2}'
+    page_image_url = '{0}/{1}/{2}/{3}'
     cover_url = 'https://uploads.mangadex.org/covers/{0}/{1}.256.jpg'
 
     filters = [
@@ -74,7 +74,7 @@ class Mangadex(Server):
             'options': [
                 {'key': 'ongoing', 'name': _('Ongoing'), 'default': False},
                 {'key': 'completed', 'name': _('Completed'), 'default': False},
-                {'key': 'hiatus', 'name': _('Paused'), 'default': False},
+                {'key': 'hiatus', 'name': _('Hiatus'), 'default': False},
                 {'key': 'cancelled', 'name': _('Canceled'), 'default': False},
             ]
         },
@@ -156,6 +156,16 @@ class Mangadex(Server):
                 {'key': 'AND', 'name': _('AND')},
                 {'key': 'OR', 'name': _('OR')},
             ],
+        },
+    ]
+
+    params = [
+        {
+            'key': 'data_saver',
+            'type': 'checkbox',
+            'name': _('Use Data Saver'),
+            'description': _('Fetch lower quality images to save bandwidth'),
+            'default': False,
         },
     ]
 
@@ -331,13 +341,16 @@ class Mangadex(Server):
 
         server_url = chapter_json['baseUrl']
         chapter_hash = chapter_json['chapter']['hash']
-        slug = None
-        if 'data' in chapter_json['chapter']:
-            slug = chapter_json['chapter']['data'][page['index']]
-        else:
-            slug = chapter_json['chapter']['dataSaver'][page['index']]
 
-        r = self.session_get(self.page_image_url.format(server_url, chapter_hash, slug))
+        data_saver = self.get_param('data_saver')
+        if data_saver:
+            slug = chapter_json['chapter']['dataSaver'][page['index']]
+            url = self.page_image_url.format(server_url, 'data-saver', chapter_hash, slug)
+        else:
+            slug = chapter_json['chapter']['data'][page['index']]
+            url = self.page_image_url.format(server_url, 'data', chapter_hash, slug)
+
+        r = self.session_get(url)
         if r.status_code != 200:
             self.__get_chapter_json.cache_clear()
             return None
