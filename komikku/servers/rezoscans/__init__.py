@@ -2,13 +2,12 @@
 # SPDX-License-Identifier: GPL-3.0-or-later
 # Author: Valéry Febvre <vfebvre@easter-eggs.com>
 
-import json
 import logging
 
 from bs4 import BeautifulSoup
 
-from komikku.servers.multi.heancms import extract_info_from_script
 from komikku.servers.multi.heancms import HeanCMS
+from komikku.servers.utils import parse_nextjs_hydration
 from komikku.utils import get_buffer_mime_type
 
 logger = logging.getLogger(__name__)
@@ -44,8 +43,7 @@ class Rezoscans(HeanCMS):
 
         soup = BeautifulSoup(r.text, 'lxml')
 
-        if info := extract_info_from_script(soup, 'images'):
-            info = json.loads(info)
+        if info := parse_nextjs_hydration(soup, 'images'):
             images = info[3]['children'][1][3]['children'][3]['children'][1][3]['children'][3]['children'][3]['chapter']['images']
 
             data = dict(

@@ -8,6 +8,7 @@
 # Asura Scans For Free [EN]
 # Cartel De Manhwas [ES]
 # Iris Scanlator [pt_BR] (Disabled)
+# KomikLovers [ID]
 # Lelmanga [FR]
 # Manga Koleji [TR]
 # Neko Scans [ES]
@@ -23,6 +24,7 @@
 # SkyMangas [ES]
 # SushiScan [FR]
 # Sushiscan (.net) [FR]
+# Terco Scans [EN]
 # Tres Daos [ES]
 # VF Scan [FR]
 # Vortex Scans For Free [EN] (Disabled)

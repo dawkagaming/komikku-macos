@@ -9,11 +9,11 @@ import requests
 
 from komikku.consts import USER_AGENT
 from komikku.servers import Server
-from komikku.servers.multi.heancms import extract_info_from_script
 from komikku.servers.multi.heancms import HeanCMS
 from komikku.servers.multi.genkan import GenkanInitial
 from komikku.servers.multi.madara import Madara
 from komikku.servers.utils import convert_date_string
+from komikku.servers.utils import parse_nextjs_hydration
 from komikku.utils import get_buffer_mime_type
 
 
@@ -55,9 +55,7 @@ class Reaperscans(HeanCMS):
 
         soup = BeautifulSoup(r.text, 'lxml')
 
-        if info := extract_info_from_script(soup, 'API_Response'):
-            info = json.loads(info)
-
+        if info := parse_nextjs_hydration(soup, 'API_Response'):
             data = dict(
                 pages=[],
             )

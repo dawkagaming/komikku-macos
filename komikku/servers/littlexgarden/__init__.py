@@ -3,7 +3,6 @@
 # Author: Pierre-Emmanuel Devin <pierreemmanuel.devin@posteo.net>
 # Author: Valéry Febvre <vfebvre@easter-eggs.com>
 
-import json
 import logging
 import time
 
@@ -13,39 +12,12 @@ import requests
 from komikku.consts import DOWNLOAD_MAX_DELAY
 from komikku.servers import Server
 from komikku.servers import USER_AGENT
+from komikku.servers.utils import parse_nextjs_hydration
 from komikku.utils import get_buffer_mime_type
 from komikku.utils import get_response_elapsed
 from komikku.utils import is_number
 
 logger = logging.getLogger(__name__)
-
-
-def extract_info_from_script(soup, keyword):
-    info = None
-
-    for script_element in soup.select('script'):
-        script = script_element.string
-        if not script or not script.startswith('self.__next_f.push([1,') or keyword not in script:
-            continue
-
-        line = script.strip().replace('self.__next_f.push([1,', '')
-
-        start = 0
-        for c in line:
-            if c in ('{', '['):
-                break
-            start += 1
-
-        line = line[start:-3]
-
-        try:
-            info = json.loads(json.loads(f'"{line}"'))
-        except Exception as e:
-            logger.debug(f'ERROR: {line}')
-            logger.debug(e)
-        break
-
-    return info
 
 
 class Littlexgarden(Server):
@@ -247,7 +219,7 @@ class Littlexgarden(Server):
 
         soup = BeautifulSoup(r.text, 'lxml')
 
-        info = extract_info_from_script(soup, 'slug')
+        info = parse_nextjs_hydration(soup, 'slug')
         if info is None:
             return None
 

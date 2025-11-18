@@ -15,7 +15,6 @@
 # Rezo Scans [EN]
 
 
-import json
 import logging
 import time
 
@@ -26,39 +25,12 @@ from komikku.consts import DOWNLOAD_MAX_DELAY
 from komikku.consts import USER_AGENT
 from komikku.servers import Server
 from komikku.servers.utils import convert_date_string
+from komikku.servers.utils import parse_nextjs_hydration
 from komikku.utils import get_buffer_mime_type
 from komikku.utils import get_response_elapsed
 from komikku.webview import CompleteChallenge
 
 logger = logging.getLogger('komikku.servers.multi.heancms')
-
-
-def extract_info_from_script(soup, keyword):
-    info = None
-
-    for script_element in soup.select('script'):
-        script = script_element.string
-        if not script or not script.startswith('self.__next_f.push([1,') or keyword not in script:
-            continue
-
-        line = script.strip().replace('self.__next_f.push([1,', '')
-
-        start = 0
-        for c in line:
-            if c in ('{', '['):
-                break
-            start += 1
-
-        line = line[start:-3]
-
-        try:
-            info = json.loads(f'"{line}"')
-        except Exception as e:
-            logger.debug(f'ERROR: {line}')
-            logger.debug(e)
-        break
-
-    return info
 
 
 class HeanCMS(Server):
@@ -164,8 +136,7 @@ class HeanCMS(Server):
 
         soup = BeautifulSoup(r.text, 'lxml')
 
-        if info := extract_info_from_script(soup, 'API_Response'):
-            info = json.loads(info)
+        if info := parse_nextjs_hydration(soup, 'API_Response'):
             images = info[1][3]['API_Response']['chapter']['images']
 
             data = dict(

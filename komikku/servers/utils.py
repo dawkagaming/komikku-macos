@@ -9,6 +9,7 @@ import importlib
 import inspect
 from io import BytesIO
 import itertools
+import json
 import logging
 import math
 from operator import itemgetter
@@ -401,6 +402,40 @@ def get_soup_element_inner_text(tag, text=None, recursive=True):
             get_soup_element_inner_text(el, text)
 
     return ' '.join(text).strip()
+
+
+def parse_nextjs_hydration(soup, keyword):
+    """
+    Goes through all scripts in `soup`
+
+    If a Next.js hydration containing `keyword` is found, it's deserialized and returned
+    """
+
+    info = None
+
+    for script_element in soup.select('script'):
+        script = script_element.string
+        if not script or not script.startswith('self.__next_f.push([1,') or keyword not in script:
+            continue
+
+        line = script.strip().replace('self.__next_f.push([1,', '')
+
+        start = 0
+        for c in line:
+            if c in ('{', '['):
+                break
+            start += 1
+
+        line = line[start:-3]
+
+        try:
+            info = json.loads(json.loads(f'"{line}"'))
+        except Exception as e:
+            logger.debug(f'ERROR: {line}')
+            logger.debug(e)
+        break
+
+    return info
 
 
 def sojson4_decode(s):
