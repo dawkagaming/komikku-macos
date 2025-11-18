@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Komikku 1.64.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-11-12 22:42+0100\n"
+"POT-Creation-Date: 2025-11-18 23:14+0100\n"
 "PO-Revision-Date: 2025-07-13 22:17+0000\n"
 "Last-Translator: Valéry Febvre <vfebvre@easter-eggs.com>\n"
 "Language-Team: Tamil <https://hosted.weblate.org/projects/komikku/main/ta/>\n"
@@ -134,7 +134,7 @@ msgstr "மொபைல் வடிவத்தில் வகை எடிட
 msgid "The Reading history page in mobile format"
 msgstr "மொபைல் வடிவத்தில் வாசிப்பு வரலாறு பக்கம்"
 
-#: ../data/ui/application_window.blp:54 ../data/ui/preferences.blp:360
+#: ../data/ui/application_window.blp:54 ../data/ui/preferences.blp:361
 msgid "Got it!"
 msgstr "கிடைத்தது!"
 
@@ -177,7 +177,7 @@ msgstr "வகைகள் இல்லை"
 msgid "New"
 msgstr "புதிய"
 
-#: ../data/ui/card_tracking.blp:9 ../data/ui/preferences.blp:103
+#: ../data/ui/card_tracking.blp:9 ../data/ui/preferences.blp:104
 msgid "Tracking"
 msgstr "கண்காணிப்பு"
 
@@ -223,7 +223,7 @@ msgstr "மிகவும் பிரபலமான"
 msgid "Latest Updates"
 msgstr "அண்மைக் கால புதுப்பிப்புகள்"
 
-#: ../data/ui/explorer_servers.blp:10
+#: ../data/ui/explorer_servers.blp:10 ../data/ui/preferences.blp:215
 msgid "Servers"
 msgstr "சேவையகங்கள்"
 
@@ -247,7 +247,7 @@ msgstr "வரலாறு"
 msgid "No History"
 msgstr "வரலாறு இல்லை"
 
-#: ../data/ui/library.blp:10 ../data/ui/preferences.blp:113
+#: ../data/ui/library.blp:10 ../data/ui/preferences.blp:114
 msgid "Library"
 msgstr "நூலகம்"
 
@@ -263,7 +263,7 @@ msgstr "பட்டியல் விளையாடுங்கள்"
 msgid "Search by name, server or genre"
 msgstr "பெயர், சேவையகம் அல்லது வகையால் தேடுங்கள்"
 
-#: ../data/ui/library.blp:125 ../data/ui/preferences.blp:200
+#: ../data/ui/library.blp:125 ../data/ui/preferences.blp:201
 msgid "Update"
 msgstr "புதுப்பிப்பு"
 
@@ -372,8 +372,8 @@ msgstr "பக்க எண்ணை மறைக்கவும்"
 msgid "Save Page"
 msgstr "பக்கத்தை சேமிக்கவும்"
 
-#: ../data/ui/preferences.blp:9 ../data/ui/preferences_servers_languages.blp:15
-#: ../data/ui/preferences_servers_settings.blp:15
+#: ../data/ui/preferences.blp:9 ../data/ui/preferences_servers_languages.blp:16
+#: ../data/ui/preferences_servers_settings.blp:16
 msgid "Preferences"
 msgstr "விருப்பத்தேர்வுகள்"
 
@@ -393,176 +393,164 @@ msgid ""
 "general."
 msgstr ""
 
-#: ../data/ui/preferences.blp:58
+#: ../data/ui/preferences.blp:59
 msgid "Appearance"
 msgstr ""
 
-#: ../data/ui/preferences.blp:60
+#: ../data/ui/preferences.blp:61
 msgid "Theme"
 msgstr "கருப்பொருள்"
 
-#: ../data/ui/preferences.blp:63
+#: ../data/ui/preferences.blp:64
 msgid "Light"
 msgstr "ஒளி"
 
-#: ../data/ui/preferences.blp:64
+#: ../data/ui/preferences.blp:65
 msgid "Dark"
 msgstr "இருண்ட"
 
-#: ../data/ui/preferences.blp:65
+#: ../data/ui/preferences.blp:66
 msgid "Follow System"
 msgstr "அமைப்பைப் பின்தொடரவும்"
 
-#: ../data/ui/preferences.blp:71
+#: ../data/ui/preferences.blp:72
 msgid "Night Light"
 msgstr "இரவு ஒளி"
 
-#: ../data/ui/preferences.blp:72
+#: ../data/ui/preferences.blp:73
 msgid "Automatically enable dark theme at night"
 msgstr "இரவில் தானாகவே இருண்ட கருப்பொருளை இயக்கவும்"
 
-#: ../data/ui/preferences.blp:76
+#: ../data/ui/preferences.blp:77
 msgid "Accent Color"
 msgstr "உச்சரிப்பு நிறம்"
 
-#: ../data/ui/preferences.blp:77
+#: ../data/ui/preferences.blp:78
 msgid "Use system accent colors"
 msgstr "கணினி உச்சரிப்பு வண்ணங்களைப் பயன்படுத்துங்கள்"
 
-#: ../data/ui/preferences.blp:81
+#: ../data/ui/preferences.blp:82
 msgid "Backdrop in Details Page"
 msgstr "விவரங்கள் பக்கத்தில் பின்னணி"
 
-#: ../data/ui/preferences.blp:82
+#: ../data/ui/preferences.blp:83
 msgid "Method used to recolor background to match cover"
 msgstr "அட்டையை பொருத்த பின்னணியை நினைவுகூர பயன்படுத்தப்படுகிறது"
 
-#: ../data/ui/preferences.blp:86
+#: ../data/ui/preferences.blp:87
 msgid "Linear gradient"
 msgstr "நேரியல் சாய்வு"
 
-#: ../data/ui/preferences.blp:87
+#: ../data/ui/preferences.blp:88
 msgid "Blurred cover"
 msgstr "மங்கலான கவர்"
 
-#: ../data/ui/preferences.blp:97
+#: ../data/ui/preferences.blp:98
 msgid "Desktop Notifications"
 msgstr "டெச்க்டாப் அறிவிப்புகள்"
 
-#: ../data/ui/preferences.blp:98
+#: ../data/ui/preferences.blp:99
 msgid "Use desktop notifications for downloads and library updates"
 msgstr ""
 "பதிவிறக்கங்கள் மற்றும் நூலக புதுப்பிப்புகளுக்கு டெச்க்டாப் அறிவிப்புகளைப் பயன்படுத்தவும்"
 
-#: ../data/ui/preferences.blp:106
+#: ../data/ui/preferences.blp:107
 msgid "Synchronize reading progress"
 msgstr "வாசிப்பு முன்னேற்றத்தை ஒத்திசைக்கவும்"
 
-#: ../data/ui/preferences.blp:117
+#: ../data/ui/preferences.blp:118
 msgid "Display"
 msgstr "காட்சி"
 
-#: ../data/ui/preferences.blp:120
+#: ../data/ui/preferences.blp:121
 msgid "Display Mode"
 msgstr "காட்சி முறை"
 
-#: ../data/ui/preferences.blp:123
+#: ../data/ui/preferences.blp:124
 msgid "Grid"
 msgstr "வலைவாய்"
 
-#: ../data/ui/preferences.blp:124
+#: ../data/ui/preferences.blp:125
 msgid "Compact Grid"
 msgstr "கச்சிதமான கட்டம்"
 
-#: ../data/ui/preferences.blp:130
+#: ../data/ui/preferences.blp:131
 msgid "Servers Logo"
 msgstr "சேவையகங்கள் லோகோ"
 
-#: ../data/ui/preferences.blp:131
+#: ../data/ui/preferences.blp:132
 msgid "Display servers logo"
 msgstr "சேவையகங்கள் லோகோவைக் காண்பி"
 
-#: ../data/ui/preferences.blp:135
+#: ../data/ui/preferences.blp:136
 msgid "Badges"
 msgstr "பேட்ச்கள்"
 
-#: ../data/ui/preferences.blp:138
+#: ../data/ui/preferences.blp:139
 msgid "Number of Unread Chapters"
 msgstr "படிக்காத அத்தியாயங்களின் எண்ணிக்கை"
 
-#: ../data/ui/preferences.blp:158
+#: ../data/ui/preferences.blp:159
 msgid "Number of Downloaded Chapters"
 msgstr "பதிவிறக்கம் செய்யப்பட்ட அத்தியாயங்களின் எண்ணிக்கை"
 
-#: ../data/ui/preferences.blp:178
+#: ../data/ui/preferences.blp:179
 msgid "Number of Recent and Unread Chapters"
 msgstr "அண்மைக் கால மற்றும் படிக்காத அத்தியாயங்களின் எண்ணிக்கை"
 
-#: ../data/ui/preferences.blp:203
+#: ../data/ui/preferences.blp:204
 msgid "Update at Startup"
 msgstr "தொடக்கத்தில் புதுப்பிக்கவும்"
 
-#: ../data/ui/preferences.blp:204
+#: ../data/ui/preferences.blp:205
 msgid "Automatically update library at startup"
 msgstr "தொடக்கத்தில் நூலகத்தை தானாக புதுப்பிக்கவும்"
 
-#: ../data/ui/preferences.blp:208
+#: ../data/ui/preferences.blp:209
 msgid "Auto Download of New Chapters"
 msgstr "புதிய அத்தியாயங்களின் தானாக பதிவிறக்கம்"
 
-#: ../data/ui/preferences.blp:209
+#: ../data/ui/preferences.blp:210
 msgid "Automatically download new chapters"
 msgstr "புதிய அத்தியாயங்களை தானாக பதிவிறக்கவும்"
 
-#: ../data/ui/preferences.blp:214
-msgid "Explorer"
-msgstr "எக்ச்ப்ளோரர்"
-
-#: ../data/ui/preferences.blp:217
-#: ../data/ui/preferences_servers_languages.blp:10
-#: ../data/ui/preferences_servers_languages.blp:16
-msgid "Servers Languages"
-msgstr "சேவையகங்கள் மொழிகள்"
-
 #: ../data/ui/preferences.blp:218
+msgid "Languages"
+msgstr ""
+
+#: ../data/ui/preferences.blp:219
 msgid "Restrict servers to selected languages"
 msgstr "தேர்ந்தெடுக்கப்பட்ட மொழிகளுக்கு சேவையகங்களை கட்டுப்படுத்தவும்"
 
-#: ../data/ui/preferences.blp:226
-#: ../data/ui/preferences_servers_settings.blp:10
-#: ../data/ui/preferences_servers_settings.blp:16
-msgid "Servers Settings"
-msgstr "சேவையக அமைப்புகள்"
-
-#: ../data/ui/preferences.blp:227
+#: ../data/ui/preferences.blp:228
 msgid "Enable/disable and configure servers"
 msgstr "சேவையகங்களை இயக்கவும்/முடக்கவும் கட்டமைக்கவும்"
 
-#: ../data/ui/preferences.blp:235
+#: ../data/ui/preferences.blp:236
 msgid "Long Strip Detection"
 msgstr "நீண்ட துண்டு கண்டறிதல்"
 
-#: ../data/ui/preferences.blp:236
+#: ../data/ui/preferences.blp:237
 msgid "Automatically detect long vertical strip when possible"
 msgstr "முடிந்தவரை நீண்ட செங்குத்து துண்டு தானாகவே கண்டறியவும்"
 
-#: ../data/ui/preferences.blp:242
+#: ../data/ui/preferences.blp:243
 msgid "NSFW Content (18+)"
 msgstr "NSFW உள்ளடக்கம் (18+)"
 
-#: ../data/ui/preferences.blp:243
+#: ../data/ui/preferences.blp:244
 msgid "Whether to enable servers with NSFW content"
 msgstr "NSFW உள்ளடக்கத்துடன் சேவையகங்களை இயக்க வேண்டுமா"
 
-#: ../data/ui/preferences.blp:247
+#: ../data/ui/preferences.blp:248
 msgid "NSFW Only Content (18+)"
 msgstr "NSFW மட்டும் உள்ளடக்கம் (18+)"
 
-#: ../data/ui/preferences.blp:248
+#: ../data/ui/preferences.blp:249
 msgid "Whether to enable servers with NSFW only content"
 msgstr "NSFW மட்டுமே உள்ளடக்கத்துடன் சேவையகங்களை இயக்க வேண்டுமா"
 
-#: ../data/ui/preferences.blp:252
+#: ../data/ui/preferences.blp:253
 msgid ""
 "These settings do not prevent potentially incorrectly flagged servers from "
 "surfacing NSFW content."
@@ -570,117 +558,117 @@ msgstr ""
 "இந்த அமைப்புகள் தவறாக கொடியிடப்பட்ட சேவையகங்கள் என்.எச்.எஃப்.டபிள்யூ உள்ளடக்கம் "
 "வெளிவருவதைத் தடுக்காது."
 
-#: ../data/ui/preferences.blp:267 ../data/ui/reader.blp:10
+#: ../data/ui/preferences.blp:268 ../data/ui/reader.blp:10
 msgid "Reader"
 msgstr "வாசகர்"
 
-#: ../data/ui/preferences.blp:272
+#: ../data/ui/preferences.blp:273
 msgid "Reading Mode"
 msgstr "படித்தல் பயன்முறை"
 
-#: ../data/ui/preferences.blp:275
+#: ../data/ui/preferences.blp:276
 msgid "⬅ Right to Left"
 msgstr "⬅ வலதுபுறம் இடமிருந்து"
 
-#: ../data/ui/preferences.blp:276
+#: ../data/ui/preferences.blp:277
 msgid "➡ Left to Right"
 msgstr "➡ இடமிருந்து வலமாக"
 
-#: ../data/ui/preferences.blp:277
+#: ../data/ui/preferences.blp:278
 msgid "⬇ Vertical"
 msgstr "⬇ செங்குத்து"
 
-#: ../data/ui/preferences.blp:278
+#: ../data/ui/preferences.blp:279
 msgid "⬇ Webtoon"
 msgstr "⬇ வெப்டூன்"
 
-#: ../data/ui/preferences.blp:284
+#: ../data/ui/preferences.blp:285
 msgid "Maximum Width"
 msgstr "அதிகபட்ச அகலம்"
 
-#: ../data/ui/preferences.blp:285
+#: ../data/ui/preferences.blp:286
 msgid ""
 "Constrain reader's width to a given maximum size (Webtoon reading mode only)"
 msgstr ""
 "கொடுக்கப்பட்ட அதிகபட்ச அளவிற்கு வாசகரின் அகலத்தை கட்டுப்படுத்தவும் (வெப்டூன் வாசிப்பு முறை "
 "மட்டும்)"
 
-#: ../data/ui/preferences.blp:296
+#: ../data/ui/preferences.blp:297
 msgid "Scaling"
 msgstr "அளவிடுதல்"
 
-#: ../data/ui/preferences.blp:297
+#: ../data/ui/preferences.blp:298
 msgid "Type of scaling to adapt image"
 msgstr "படத்தை மாற்றியமைக்க அளவிடுதல் வகை"
 
-#: ../data/ui/preferences.blp:300
+#: ../data/ui/preferences.blp:301
 msgid "Adapt to Screen"
 msgstr "திரைக்கு ஏற்றவாறு"
 
-#: ../data/ui/preferences.blp:301
+#: ../data/ui/preferences.blp:302
 msgid "Adapt to Width"
 msgstr "அகலத்திற்கு ஏற்ப"
 
-#: ../data/ui/preferences.blp:302
+#: ../data/ui/preferences.blp:303
 msgid "Adapt to Height"
 msgstr "உயரத்திற்கு ஏற்ப"
 
-#: ../data/ui/preferences.blp:303
+#: ../data/ui/preferences.blp:304
 msgid "Original Size"
 msgstr "அசல் அளவு"
 
-#: ../data/ui/preferences.blp:309
+#: ../data/ui/preferences.blp:310
 msgid "Scaling Filter"
 msgstr "அளவிடுதல் வடிகட்டி"
 
-#: ../data/ui/preferences.blp:310
+#: ../data/ui/preferences.blp:311
 msgid "Interpolation method used when scaling images"
 msgstr "படங்களை அளவிடும்போது பயன்படுத்தப்படும் இடைக்கணிப்பு முறை"
 
-#: ../data/ui/preferences.blp:313
+#: ../data/ui/preferences.blp:314
 msgid "Linear"
 msgstr "நேரியல்"
 
-#: ../data/ui/preferences.blp:314
+#: ../data/ui/preferences.blp:315
 msgid "Trilinear"
 msgstr "முக்கோடு"
 
-#: ../data/ui/preferences.blp:320
+#: ../data/ui/preferences.blp:321
 msgid "Landscape Pages Zoom"
 msgstr "இயற்கை பக்கங்கள் பெரிதாக்கு"
 
-#: ../data/ui/preferences.blp:321
+#: ../data/ui/preferences.blp:322
 msgid ""
 "Zoom page to fit height when page is landscape (Adapt to Screen scaling only)"
 msgstr ""
 "பக்கம் நிலப்பரப்பாக இருக்கும்போது உயரத்திற்கு பொருந்தக்கூடிய பெரிதாக்க பக்கம் (திரை "
 "அளவிடுதலுக்கு மட்டும் மாற்றியமைக்கவும்)"
 
-#: ../data/ui/preferences.blp:325
+#: ../data/ui/preferences.blp:326
 msgid "Background Color"
 msgstr "பின்னணி நிறம்"
 
-#: ../data/ui/preferences.blp:328
+#: ../data/ui/preferences.blp:329
 msgid "White"
 msgstr "வெள்ளை"
 
-#: ../data/ui/preferences.blp:329
+#: ../data/ui/preferences.blp:330
 msgid "Gray"
 msgstr "சாம்பல்"
 
-#: ../data/ui/preferences.blp:330
+#: ../data/ui/preferences.blp:331
 msgid "Black"
 msgstr "கருப்பு"
 
-#: ../data/ui/preferences.blp:331
+#: ../data/ui/preferences.blp:332
 msgid "System Style"
 msgstr "கணினி நடை"
 
-#: ../data/ui/preferences.blp:337
+#: ../data/ui/preferences.blp:338
 msgid "Borders Crop"
 msgstr "எல்லைகள் பயிர்"
 
-#: ../data/ui/preferences.blp:338
+#: ../data/ui/preferences.blp:339
 msgid ""
 "Crop white borders of images\n"
 "\n"
@@ -692,63 +680,63 @@ msgstr ""
 " குறிப்பு: அதிக சிபியு பயன்பாடு தேவைப்படுகிறது மற்றும் வழங்குதல் மற்றும் அனிமேசன் "
 "மந்தநிலைகளை ஏற்படுத்தும், குறிப்பாக மொபைல் சாதனங்களில்."
 
-#: ../data/ui/preferences.blp:342
+#: ../data/ui/preferences.blp:343
 msgid "Page Numbering"
 msgstr "பக்க எண்"
 
-#: ../data/ui/preferences.blp:343
+#: ../data/ui/preferences.blp:344
 msgid "Hide the page numbering at the bottom of the screen while reading"
 msgstr "படிக்கும் போது திரையின் அடிப்பகுதியில் பக்க எண்ணை மறைக்கவும்"
 
-#: ../data/ui/preferences.blp:347
+#: ../data/ui/preferences.blp:348
 msgid "Fullscreen"
 msgstr "முழு திரை"
 
-#: ../data/ui/preferences.blp:348
+#: ../data/ui/preferences.blp:349
 msgid "Automatically enter fullscreen mode"
 msgstr "தானாகவே முழுத்திரை பயன்முறையை உள்ளிடவும்"
 
-#: ../data/ui/preferences.blp:355
+#: ../data/ui/preferences.blp:356
 msgid "Advanced"
 msgstr "மேம்பட்ட"
 
-#: ../data/ui/preferences.blp:359
+#: ../data/ui/preferences.blp:360
 msgid "A setting has changed that requires a restart to take effect"
 msgstr "நடைமுறைக்கு வர மறுதொடக்கம் தேவைப்படும் ஒரு அமைப்பு மாறிவிட்டது"
 
-#: ../data/ui/preferences.blp:365
+#: ../data/ui/preferences.blp:366
 msgid "Data"
 msgstr "தகவல்கள்"
 
-#: ../data/ui/preferences.blp:366
+#: ../data/ui/preferences.blp:367
 msgid "Data not saved in the library"
 msgstr "தரவு நூலகத்தில் சேமிக்கப்படவில்லை"
 
-#: ../data/ui/preferences.blp:369
+#: ../data/ui/preferences.blp:370
 msgid "Clear Chapters Cache and Database"
 msgstr "தற்காலிக கேச் மற்றும் தரவுத்தளத்தை அழிக்கவும்"
 
-#: ../data/ui/preferences.blp:384
+#: ../data/ui/preferences.blp:385
 msgid "Clear Chapters Cache and Database on Exit"
 msgstr "வெளியேறும்போது கேச் மற்றும் தரவுத்தளத்தை அழிக்கவும்"
 
-#: ../data/ui/preferences.blp:389
+#: ../data/ui/preferences.blp:390
 msgid "WebView"
 msgstr ""
 
-#: ../data/ui/preferences.blp:392
+#: ../data/ui/preferences.blp:393
 msgid "Clear Data"
 msgstr ""
 
-#: ../data/ui/preferences.blp:408
+#: ../data/ui/preferences.blp:409
 msgid "Servers Modules"
 msgstr "சேவையக தொகுதிகள்"
 
-#: ../data/ui/preferences.blp:411
+#: ../data/ui/preferences.blp:412
 msgid "Use Up-to-date Servers Modules"
 msgstr "புதுப்பித்த சேவையக தொகுதிகள் பயன்படுத்தவும்"
 
-#: ../data/ui/preferences.blp:412
+#: ../data/ui/preferences.blp:413
 msgid ""
 "An alternative version of the servers modules, installed from the source "
 "code repository and updated at each startup, is used instead of the one "
@@ -758,27 +746,27 @@ msgstr ""
 "சேவையக தொகுதிகளின் மாற்று பதிப்பு, பயன்பாட்டுடன் வழங்கப்பட்டதற்கு பதிலாக "
 "பயன்படுத்தப்படுகிறது."
 
-#: ../data/ui/preferences.blp:417
+#: ../data/ui/preferences.blp:418
 msgid "Credentials Storage"
 msgstr "நற்சான்றிதழ்கள் சேமிப்பு"
 
-#: ../data/ui/preferences.blp:420
+#: ../data/ui/preferences.blp:421
 msgid "Allow Plaintext Storage as Fallback"
 msgstr "எளிய உரை சேமிப்பிடத்தை குறைவடையும்"
 
-#: ../data/ui/preferences.blp:421
+#: ../data/ui/preferences.blp:422
 msgid "Used when no keyring backends are found"
 msgstr "கீரிங் பின்தளத்தில் எதுவும் காணப்படாதபோது பயன்படுத்தப்படுகிறது"
 
-#: ../data/ui/preferences.blp:426
+#: ../data/ui/preferences.blp:427
 msgid "Tweaks"
 msgstr "மாற்றங்கள்"
 
-#: ../data/ui/preferences.blp:429
+#: ../data/ui/preferences.blp:430
 msgid "Disable Animations"
 msgstr "அனிமேசன்களை முடக்கு"
 
-#: ../data/ui/preferences.blp:430
+#: ../data/ui/preferences.blp:431
 msgid ""
 "Useful with E Ink e-readers to avoid very choppy and unpleasant animations "
 "(due to the low refresh rate of the screen)"
@@ -786,7 +774,7 @@ msgstr ""
 "மிகவும் மென்மையான மற்றும் விரும்பத்தகாத அனிமேசன்களைத் தவிர்க்க மின் மை மின்-வாசகர்களுடன் "
 "பயனுள்ளதாக இருக்கும் (திரையின் குறைந்த புதுப்பிப்பு வீதம் காரணமாக)"
 
-#: ../data/ui/preferences.blp:434
+#: ../data/ui/preferences.blp:435
 msgid ""
 "This tweak is only intended for users who do not use the GNOME desktop "
 "environment and therefore cannot disable animations globally via GNOME "
@@ -795,6 +783,18 @@ msgstr ""
 "இந்த மாற்றங்கள் க்னோம் டெச்க்டாப் சூழலைப் பயன்படுத்தாத பயனர்களுக்காக மட்டுமே "
 "வடிவமைக்கப்பட்டுள்ளன, எனவே சினோம் அமைப்புகள் வழியாக உலகளவில் அனிமேசன்களை முடக்க "
 "முடியாது (அணுகல் ⇨ பார்ப்பது ⇨ அனிமேசன் விளைவுகள்)."
+
+#: ../data/ui/preferences_server_params.blp:10
+#: ../data/ui/preferences_server_params.blp:16
+#: ../data/ui/preferences_servers_settings.blp:10
+#: ../data/ui/preferences_servers_settings.blp:17
+msgid "Servers Settings"
+msgstr "சேவையக அமைப்புகள்"
+
+#: ../data/ui/preferences_servers_languages.blp:10
+#: ../data/ui/preferences_servers_languages.blp:17
+msgid "Servers Languages"
+msgstr "சேவையகங்கள் மொழிகள்"
 
 #: ../data/ui/reader.blp:23
 msgid "Back"
@@ -994,7 +994,7 @@ msgstr "அரட்டையில் சேரவும்"
 #: ../komikku/application.py:500 ../komikku/card/__init__.py:160
 #: ../komikku/card/__init__.py:161 ../komikku/categories_editor.py:189
 #: ../komikku/downloader.py:388 ../komikku/downloader.py:389
-#: ../komikku/library/__init__.py:776 ../komikku/library/__init__.py:777
+#: ../komikku/library/__init__.py:778 ../komikku/library/__init__.py:779
 msgid "Cancel"
 msgstr "ரத்துசெய்"
 
@@ -1085,7 +1085,7 @@ msgid "Donate"
 msgstr "நன்கொடை"
 
 #: ../komikku/card/chapters_list.py:338 ../komikku/downloader.py:533
-#: ../komikku/library/__init__.py:810
+#: ../komikku/library/__init__.py:812
 #, python-brace-format
 msgid "{0} selected"
 msgid_plural "{0} selected"
@@ -1100,8 +1100,8 @@ msgstr "வாசிப்பு நிலை அத்தியாயங்க�
 msgid "Download"
 msgstr "பதிவிறக்கம்"
 
-#: ../komikku/card/chapters_list.py:727 ../komikku/preferences.py:157
-#: ../komikku/preferences.py:175
+#: ../komikku/card/chapters_list.py:727 ../komikku/preferences/__init__.py:153
+#: ../komikku/preferences/__init__.py:171
 msgid "Clear"
 msgstr "தெளிவான"
 
@@ -1138,6 +1138,7 @@ msgid "Cancel Tracking"
 msgstr "கண்காணிப்பை ரத்துசெய்"
 
 #: ../komikku/card/tracking.py:227 ../komikku/servers/comick/__init__.py:77
+#: ../komikku/servers/comix/__init__.py:42
 #: ../komikku/servers/mangaball/__init__.py:88
 #: ../komikku/servers/mangadex/__init__.py:71
 #: ../komikku/servers/mangafire/__init__.py:60
@@ -1170,7 +1171,7 @@ msgstr "கண்காணிப்பை ரத்து செய்ய வி
 msgid "Delete"
 msgstr "நீக்கு"
 
-#: ../komikku/card/tracking.py:359 ../komikku/preferences.py:803
+#: ../komikku/card/tracking.py:359 ../komikku/preferences/trackers.py:42
 msgid "Connection is expired"
 msgstr ""
 
@@ -1232,8 +1233,9 @@ msgstr "கடைசி தொகுதி: {}"
 msgid "Comics stored locally as archives in CBZ/CBR/CBT or PDF formats"
 msgstr ""
 
-#: ../komikku/explorer/common.py:240 ../komikku/preferences.py:640
-#: ../komikku/preferences.py:737 ../komikku/servers/mangatube/__init__.py:150
+#: ../komikku/explorer/common.py:240 ../komikku/preferences/servers.py:359
+#: ../komikku/preferences/servers.py:396
+#: ../komikku/servers/mangatube/__init__.py:150
 msgid "18+"
 msgstr "18+"
 
@@ -1348,6 +1350,7 @@ msgid "No results"
 msgstr "முடிவுகள் இல்லை"
 
 #: ../komikku/explorer/servers.py:109 ../komikku/explorer/servers.py:186
+#: ../komikku/servers/comix/__init__.py:62
 msgid "Other"
 msgstr "மற்றொன்று"
 
@@ -1392,31 +1395,31 @@ msgstr "பதிவிறக்கம்?"
 msgid "Welcome to Komikku"
 msgstr "வா எல் அரிசி மற்றும் காமிக்ச்"
 
-#: ../komikku/library/__init__.py:634
+#: ../komikku/library/__init__.py:636
 msgid "Loading…"
 msgstr "ஏற்றுகிறது…"
 
-#: ../komikku/library/__init__.py:759
+#: ../komikku/library/__init__.py:761
 msgid "Failed to update reading status"
 msgstr "வாசிப்பு நிலையைப் புதுப்பிக்கத் தவறிவிட்டது"
 
-#: ../komikku/library/__init__.py:781
+#: ../komikku/library/__init__.py:783
 msgid "Add New Comic"
 msgstr "புதிய காமிக் சேர்க்கவும்"
 
-#: ../komikku/library/__init__.py:814 ../komikku/library/categories_list.py:145
+#: ../komikku/library/__init__.py:816 ../komikku/library/categories_list.py:145
 msgid "Uncategorized"
 msgstr "வகைப்படுத்தப்படாதது"
 
 #: ../komikku/library/categories_list.py:139
 #: ../komikku/servers/asurascans/__init__.py:41
 #: ../komikku/servers/bilibili/__init__.py:43
-#: ../komikku/servers/coloredcouncil/__init__.py:70
-#: ../komikku/servers/coloredcouncil/__init__.py:83
+#: ../komikku/servers/coloredcouncil/__init__.py:42
+#: ../komikku/servers/coloredcouncil/__init__.py:55
 #: ../komikku/servers/invinciblecomicsvf/__init__.py:41
 #: ../komikku/servers/mangapill/__init__.py:39
 #: ../komikku/servers/mangatube/__init__.py:130
-#: ../komikku/servers/multi/manga_stream/__init__.py:76
+#: ../komikku/servers/multi/manga_stream/__init__.py:79
 #: ../komikku/servers/phenixscans/__init__.py:40
 #: ../komikku/servers/webtoon/__init__.py:59
 msgid "All"
@@ -1451,6 +1454,7 @@ msgstr "முழுமையானது"
 
 #: ../komikku/models/database/mangas.py:47
 #: ../komikku/servers/comick/__init__.py:81
+#: ../komikku/servers/comix/__init__.py:46
 #: ../komikku/servers/flamescans/__init__.py:52
 #: ../komikku/servers/mangaball/__init__.py:94
 #: ../komikku/servers/mangadex/__init__.py:75
@@ -1468,31 +1472,34 @@ msgid "Suspended"
 msgstr "இடைநீக்கம்"
 
 #: ../komikku/models/database/mangas.py:49
+#: ../komikku/servers/comix/__init__.py:48
 #: ../komikku/servers/flamescans/__init__.py:54
 #: ../komikku/servers/mangaball/__init__.py:96
+#: ../komikku/servers/mangadex/__init__.py:77
 #: ../komikku/servers/mangafire/__init__.py:67
 #: ../komikku/servers/mangaworld/__init__.py:81
 #: ../komikku/servers/weebcentral/__init__.py:54
 msgid "Hiatus"
 msgstr "இடைவெளி"
 
-#: ../komikku/preferences.py:155 ../komikku/preferences.py:173
+#: ../komikku/preferences/__init__.py:151
+#: ../komikku/preferences/__init__.py:169
 msgid "Clear?"
 msgstr "அழிக்கப்படுகிறதா?"
 
-#: ../komikku/preferences.py:156
+#: ../komikku/preferences/__init__.py:152
 msgid "Are you sure you want to clear chapters cache and database?"
 msgstr "கேச் மற்றும் தரவுத்தளத்தை அத்தியாயங்களை அழிக்க விரும்புகிறீர்களா?"
 
-#: ../komikku/preferences.py:174
+#: ../komikku/preferences/__init__.py:170
 msgid "Are you sure you want to clear WebView data (cache, storage, cookies)?"
 msgstr ""
 
-#: ../komikku/preferences.py:199
+#: ../komikku/preferences/__init__.py:195
 msgid "Disable animations?"
 msgstr "அனிமேசன்களை முடக்கவா?"
 
-#: ../komikku/preferences.py:200
+#: ../komikku/preferences/__init__.py:196
 msgid ""
 "Are you sure you want to disable animations?\n"
 "\n"
@@ -1502,31 +1509,31 @@ msgstr ""
 "\n"
 " வாசகரில் சைகை வழிசெலுத்தல் இனி சரியாக வேலை செய்யாது."
 
-#: ../komikku/preferences.py:201
+#: ../komikku/preferences/__init__.py:197
 msgid "Disable"
 msgstr "முடக்கு"
 
-#: ../komikku/preferences.py:668
+#: ../komikku/preferences/servers.py:44
 msgid "User Account"
 msgstr "பயனர் கணக்கு"
 
-#: ../komikku/preferences.py:676
+#: ../komikku/preferences/servers.py:49
 msgid "Address"
 msgstr "முகவரி"
 
-#: ../komikku/preferences.py:682 ../komikku/preferences.py:821
+#: ../komikku/preferences/servers.py:55 ../komikku/preferences/trackers.py:60
 msgid "Username"
 msgstr "பயனர்பெயர்"
 
-#: ../komikku/preferences.py:686 ../komikku/preferences.py:825
+#: ../komikku/preferences/servers.py:59 ../komikku/preferences/trackers.py:64
 msgid "Password"
 msgstr "கடவுச்சொல்"
 
-#: ../komikku/preferences.py:698
+#: ../komikku/preferences/servers.py:72
 msgid "System keyring service is disabled. Credential cannot be saved."
 msgstr "கணினி கீரிங் பணி முடக்கப்பட்டுள்ளது. நற்சான்றிதழ் சேமிக்க முடியாது."
 
-#: ../komikku/preferences.py:703
+#: ../komikku/preferences/servers.py:77
 msgid ""
 "No keyring backends were found to store credential. Use plaintext storage as "
 "fallback."
@@ -1534,7 +1541,7 @@ msgstr ""
 "நற்சான்றிதழைச் சேமிக்க கீரிங் பின்தளத்தில் எதுவும் கண்டறியப்படவில்லை. தவறான உரை "
 "சேமிப்பிடத்தை குறைவடையும்."
 
-#: ../komikku/preferences.py:708
+#: ../komikku/preferences/servers.py:82
 msgid ""
 "No keyring backends were found to store credential. Plaintext storage will "
 "be used as fallback."
@@ -1542,33 +1549,33 @@ msgstr ""
 "நற்சான்றிதழைச் சேமிக்க கீரிங் பின்தளத்தில் எதுவும் கண்டறியப்படவில்லை. எளிய உரை சேமிப்பு "
 "குறைவடையும்."
 
-#: ../komikku/preferences.py:716
+#: ../komikku/preferences/servers.py:90
 msgid "Test"
 msgstr "தேர்வு"
 
-#: ../komikku/preferences.py:797 ../komikku/preferences.py:849
-#: ../komikku/preferences.py:879
+#: ../komikku/preferences/trackers.py:36 ../komikku/preferences/trackers.py:88
+#: ../komikku/preferences/trackers.py:118
 msgid "Disconnect"
 msgstr "துண்டிக்கவும்"
 
-#: ../komikku/preferences.py:804
+#: ../komikku/preferences/trackers.py:43
 msgid "Reconnect"
 msgstr ""
 
-#: ../komikku/preferences.py:807 ../komikku/preferences.py:832
-#: ../komikku/preferences.py:865
+#: ../komikku/preferences/trackers.py:46 ../komikku/preferences/trackers.py:71
+#: ../komikku/preferences/trackers.py:104
 msgid "Connect"
 msgstr "இணை"
 
-#: ../komikku/preferences.py:853
+#: ../komikku/preferences/trackers.py:92
 msgid "Failed to request client access"
 msgstr "கிளையன்ட் அணுகலைக் கோரத் தவறிவிட்டது"
 
-#: ../komikku/preferences.py:856
+#: ../komikku/preferences/trackers.py:95
 msgid "Webview is currently in used. Please retry later."
 msgstr "வெப்வியூ தற்போது பயன்படுத்தப்படுகிறது. தயவுசெய்து மீண்டும் முயற்சிக்கவும்."
 
-#: ../komikku/preferences.py:878
+#: ../komikku/preferences/trackers.py:117
 msgid "Disconnect from {}"
 msgstr "{} இலிருந்து துண்டிக்கவும்"
 
@@ -1648,12 +1655,13 @@ msgid "Retry"
 msgstr "மீண்டும் முயற்சிக்கவும்"
 
 #: ../komikku/servers/asurascans/__init__.py:36
+#: ../komikku/servers/comix/__init__.py:55
 #: ../komikku/servers/invinciblecomicsvf/__init__.py:36
 #: ../komikku/servers/mangafire/__init__.py:45
 #: ../komikku/servers/mangapill/__init__.py:34
 #: ../komikku/servers/mangatube/__init__.py:125
 #: ../komikku/servers/mangaworld/__init__.py:59
-#: ../komikku/servers/multi/manga_stream/__init__.py:71
+#: ../komikku/servers/multi/manga_stream/__init__.py:74
 #: ../komikku/servers/phenixscans/__init__.py:35
 #: ../komikku/servers/raijinscan/__init__.py:45
 #: ../komikku/servers/webtoon/__init__.py:54
@@ -1663,7 +1671,7 @@ msgstr "வகை"
 #: ../komikku/servers/asurascans/__init__.py:37
 #: ../komikku/servers/invinciblecomicsvf/__init__.py:37
 #: ../komikku/servers/mangapill/__init__.py:35
-#: ../komikku/servers/multi/manga_stream/__init__.py:72
+#: ../komikku/servers/multi/manga_stream/__init__.py:75
 #: ../komikku/servers/phenixscans/__init__.py:36
 #: ../komikku/servers/rawkuma/__init__.py:38
 #: ../komikku/servers/webtoon/__init__.py:55
@@ -1671,14 +1679,15 @@ msgid "Filter by Type"
 msgstr "வகை மூலம் வடிகட்டவும்"
 
 #: ../komikku/servers/asurascans/__init__.py:42
-#: ../komikku/servers/coloredcouncil/__init__.py:72
+#: ../komikku/servers/coloredcouncil/__init__.py:44
 #: ../komikku/servers/comick/__init__.py:94
+#: ../komikku/servers/comix/__init__.py:59
 #: ../komikku/servers/flamescans/__init__.py:40
 #: ../komikku/servers/mangafire/__init__.py:49
 #: ../komikku/servers/mangapill/__init__.py:40
 #: ../komikku/servers/mangatube/__init__.py:131
 #: ../komikku/servers/mangaworld/__init__.py:63
-#: ../komikku/servers/multi/manga_stream/__init__.py:77
+#: ../komikku/servers/multi/manga_stream/__init__.py:80
 #: ../komikku/servers/phenixscans/__init__.py:41
 #: ../komikku/servers/raijinscan/__init__.py:49
 #: ../komikku/servers/rawkuma/__init__.py:41
@@ -1688,12 +1697,13 @@ msgstr "மங்கா"
 
 #: ../komikku/servers/asurascans/__init__.py:43
 #: ../komikku/servers/comick/__init__.py:95
+#: ../komikku/servers/comix/__init__.py:60
 #: ../komikku/servers/flamescans/__init__.py:41
 #: ../komikku/servers/mangafire/__init__.py:53
 #: ../komikku/servers/mangapill/__init__.py:44
 #: ../komikku/servers/mangatube/__init__.py:132
 #: ../komikku/servers/mangaworld/__init__.py:65
-#: ../komikku/servers/multi/manga_stream/__init__.py:78
+#: ../komikku/servers/multi/manga_stream/__init__.py:81
 #: ../komikku/servers/phenixscans/__init__.py:42
 #: ../komikku/servers/raijinscan/__init__.py:50
 #: ../komikku/servers/rawkuma/__init__.py:42
@@ -1703,12 +1713,13 @@ msgstr "மன்அ்வா"
 
 #: ../komikku/servers/asurascans/__init__.py:44
 #: ../komikku/servers/comick/__init__.py:96
+#: ../komikku/servers/comix/__init__.py:61
 #: ../komikku/servers/flamescans/__init__.py:42
 #: ../komikku/servers/mangafire/__init__.py:54
 #: ../komikku/servers/mangapill/__init__.py:45
 #: ../komikku/servers/mangatube/__init__.py:133
 #: ../komikku/servers/mangaworld/__init__.py:64
-#: ../komikku/servers/multi/manga_stream/__init__.py:79
+#: ../komikku/servers/multi/manga_stream/__init__.py:82
 #: ../komikku/servers/phenixscans/__init__.py:43
 #: ../komikku/servers/raijinscan/__init__.py:51
 #: ../komikku/servers/rawkuma/__init__.py:43
@@ -1732,31 +1743,31 @@ msgstr "இலவசம்"
 msgid "Paid"
 msgstr "பணம்"
 
-#: ../komikku/servers/coloredcouncil/__init__.py:65
+#: ../komikku/servers/coloredcouncil/__init__.py:37
 msgid "Format"
 msgstr "வடிவம்"
 
-#: ../komikku/servers/coloredcouncil/__init__.py:66
+#: ../komikku/servers/coloredcouncil/__init__.py:38
 msgid "Filter by format"
 msgstr "வடிவத்தால் வடிகட்டவும்"
 
-#: ../komikku/servers/coloredcouncil/__init__.py:71
+#: ../komikku/servers/coloredcouncil/__init__.py:43
 msgid "Manwha"
 msgstr "தேய்க்கும்"
 
-#: ../komikku/servers/coloredcouncil/__init__.py:78
+#: ../komikku/servers/coloredcouncil/__init__.py:50
 msgid "Version"
 msgstr "பதிப்பு"
 
-#: ../komikku/servers/coloredcouncil/__init__.py:79
+#: ../komikku/servers/coloredcouncil/__init__.py:51
 msgid "Filter by version"
 msgstr "பதிப்பு மூலம் வடிகட்டவும்"
 
-#: ../komikku/servers/coloredcouncil/__init__.py:84
+#: ../komikku/servers/coloredcouncil/__init__.py:56
 msgid "Color"
 msgstr "நிறம்"
 
-#: ../komikku/servers/coloredcouncil/__init__.py:85
+#: ../komikku/servers/coloredcouncil/__init__.py:57
 msgid "B/W"
 msgstr "B/w"
 
@@ -1786,6 +1797,7 @@ msgid "Erotica"
 msgstr "காமம்"
 
 #: ../komikku/servers/comick/__init__.py:78
+#: ../komikku/servers/comix/__init__.py:43
 #: ../komikku/servers/flamescans/__init__.py:49
 #: ../komikku/servers/mangadex/__init__.py:72
 #: ../komikku/servers/mangafire/__init__.py:61
@@ -1796,6 +1808,7 @@ msgid "Filter by Statuses"
 msgstr "நிலைகள் மூலம் வடிகட்டவும்"
 
 #: ../komikku/servers/comick/__init__.py:82
+#: ../komikku/servers/comix/__init__.py:47
 #: ../komikku/servers/flamescans/__init__.py:53
 #: ../komikku/servers/mangaball/__init__.py:95
 #: ../komikku/servers/mangadex/__init__.py:76
@@ -1806,6 +1819,7 @@ msgid "Completed"
 msgstr "முடிந்தது"
 
 #: ../komikku/servers/comick/__init__.py:83
+#: ../komikku/servers/comix/__init__.py:49
 #: ../komikku/servers/flamescans/__init__.py:56
 #: ../komikku/servers/mangaball/__init__.py:97
 #: ../komikku/servers/mangadex/__init__.py:78
@@ -1815,7 +1829,6 @@ msgid "Canceled"
 msgstr "ரத்து செய்யப்பட்டது"
 
 #: ../komikku/servers/comick/__init__.py:84
-#: ../komikku/servers/mangadex/__init__.py:77
 msgid "Paused"
 msgstr "இடைநிறுத்தப்பட்டது"
 
@@ -1848,34 +1861,40 @@ msgid "China (Manhua)"
 msgstr "சீனா (மன்உவா)"
 
 #: ../komikku/servers/comick/__init__.py:116
+#: ../komikku/servers/comix/__init__.py:68
 #: ../komikku/servers/mangadex/__init__.py:84
 msgid "Publication Demographic"
 msgstr "வெளியீட்டு புள்ளிவிவரங்கள்"
 
 #: ../komikku/servers/comick/__init__.py:117
+#: ../komikku/servers/comix/__init__.py:69
 #: ../komikku/servers/mangadex/__init__.py:85
 msgid "Filter by Publication Demographics"
 msgstr "வெளியீட்டு புள்ளிவிவரங்கள் மூலம் வடிகட்டவும்"
 
 #: ../komikku/servers/comick/__init__.py:120
+#: ../komikku/servers/comix/__init__.py:75
 #: ../komikku/servers/mangaball/__init__.py:77
 #: ../komikku/servers/mangadex/__init__.py:88
 msgid "Shounen"
 msgstr "சவுன்"
 
 #: ../komikku/servers/comick/__init__.py:121
+#: ../komikku/servers/comix/__init__.py:74
 #: ../komikku/servers/mangaball/__init__.py:78
 #: ../komikku/servers/mangadex/__init__.py:89
 msgid "Shoujo"
 msgstr "சோசோ"
 
 #: ../komikku/servers/comick/__init__.py:122
+#: ../komikku/servers/comix/__init__.py:73
 #: ../komikku/servers/mangaball/__init__.py:79
 #: ../komikku/servers/mangadex/__init__.py:91
 msgid "Seinen"
 msgstr "அவரது"
 
 #: ../komikku/servers/comick/__init__.py:123
+#: ../komikku/servers/comix/__init__.py:72
 #: ../komikku/servers/mangaball/__init__.py:80
 #: ../komikku/servers/mangadex/__init__.py:90
 msgid "Josei"
@@ -2110,10 +2129,7 @@ msgstr "யாயோய்"
 msgid "Yuri"
 msgstr "யூரி"
 
-#: ../komikku/servers/dynasty/__init__.py:40
-msgid "Categories"
-msgstr "வகைகள்"
-
+#: ../komikku/servers/comix/__init__.py:56
 #: ../komikku/servers/dynasty/__init__.py:41
 #: ../komikku/servers/flamescans/__init__.py:37
 #: ../komikku/servers/mangafire/__init__.py:46
@@ -2122,6 +2138,18 @@ msgstr "வகைகள்"
 #: ../komikku/servers/weebcentral/__init__.py:36
 msgid "Filter by Types"
 msgstr "வகைகளால் வடிகட்டவும்"
+
+#: ../komikku/servers/comix/__init__.py:86
+msgid "Hide NSFW Content"
+msgstr ""
+
+#: ../komikku/servers/comix/__init__.py:87
+msgid "Hide NSFW content from popular, latest, and search lists"
+msgstr ""
+
+#: ../komikku/servers/dynasty/__init__.py:40
+msgid "Categories"
+msgstr "வகைகள்"
 
 #: ../komikku/servers/dynasty/__init__.py:44
 msgid "Anthologies"
@@ -2246,6 +2274,14 @@ msgstr "மற்றும்"
 msgid "OR"
 msgstr "அல்லது"
 
+#: ../komikku/servers/mangadex/__init__.py:166
+msgid "Data Saver Mode"
+msgstr ""
+
+#: ../komikku/servers/mangadex/__init__.py:167
+msgid "Fetch lower quality images to save bandwidth"
+msgstr ""
+
 #: ../komikku/servers/mangafire/__init__.py:50
 #: ../komikku/servers/mangapill/__init__.py:42
 #: ../komikku/servers/mangatube/__init__.py:136
@@ -2281,7 +2317,7 @@ msgid "Webtoon"
 msgstr "வெப்டூன்"
 
 #: ../komikku/servers/mangatube/__init__.py:135
-#: ../komikku/servers/multi/manga_stream/__init__.py:80
+#: ../komikku/servers/multi/manga_stream/__init__.py:83
 msgid "Comic"
 msgstr "காமிக்"
 
@@ -2413,6 +2449,9 @@ msgstr "தயவுசெய்து காத்திருங்கள்�
 #: ../komikku/webview.py:486
 msgid "Please complete CAPTCHA"
 msgstr "தயவுசெய்து கேப்ட்சாவை முடிக்கவும்"
+
+#~ msgid "Explorer"
+#~ msgstr "எக்ச்ப்ளோரர்"
 
 #, python-brace-format
 #~ msgid "Download failure: {0}"

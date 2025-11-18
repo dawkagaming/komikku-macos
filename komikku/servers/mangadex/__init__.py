@@ -163,7 +163,7 @@ class Mangadex(Server):
         {
             'key': 'data_saver',
             'type': 'checkbox',
-            'name': _('Use Data Saver'),
+            'name': _('Data Saver Mode'),
             'description': _('Fetch lower quality images to save bandwidth'),
             'default': False,
         },

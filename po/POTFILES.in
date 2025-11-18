@@ -20,6 +20,7 @@ data/ui/menu/library_selection_mode.xml
 data/ui/menu/main.xml
 data/ui/menu/reader.xml
 data/ui/preferences.blp
+data/ui/preferences_server_params.blp
 data/ui/preferences_servers_languages.blp
 data/ui/preferences_servers_settings.blp
 data/ui/reader.blp
@@ -44,7 +45,9 @@ komikku/library/categories_list.py
 komikku/library/__init__.py
 komikku/models/database/downloads.py
 komikku/models/database/mangas.py
-komikku/preferences.py
+komikku/preferences/__init__.py
+komikku/preferences/servers.py
+komikku/preferences/trackers.py
 komikku/reader/__init__.py
 komikku/reader/pager/__init__.py
 komikku/reader/pager/page.py
@@ -53,6 +56,7 @@ komikku/servers/asurascans/__init__.py
 komikku/servers/bilibili/__init__.py
 komikku/servers/coloredcouncil/__init__.py
 komikku/servers/comick/__init__.py
+komikku/servers/comix/__init__.py
 komikku/servers/dynasty/__init__.py
 komikku/servers/exceptions.py
 komikku/servers/flamescans/__init__.py
