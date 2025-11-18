@@ -73,7 +73,7 @@ def concat_images_vertically(*args: Image):
 
 
 def convert_and_resize_image(buffer, width, height, keep_aspect_ratio=True, dominant_color=True, format='JPEG'):
-    """Convert and resize an image (except animated GIF)
+    """Convert and resize an image (except animated images)
 
     :param keep_aspect_ratio: Force to keep aspect ratio of the image
     :type keep_aspect_ratio: bool
@@ -107,7 +107,7 @@ def convert_and_resize_image(buffer, width, height, keep_aspect_ratio=True, domi
         logger.error('Failed to open image (Pillow)', exc_info=exc)
         return None
 
-    if img.format == 'GIF' and img.is_animated:
+    if img.format in ('GIF', 'WEBP') and img.is_animated:
         return buffer
 
     old_width, old_height = img.size
