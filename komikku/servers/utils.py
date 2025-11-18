@@ -376,7 +376,7 @@ def get_session_cookies(s):
     return s.cookies.jar if hasattr(s.cookies, 'jar') else s.cookies
 
 
-def get_soup_element_inner_text(tag, text=None, recursive=True):
+def get_soup_element_inner_text(tag, text=None, sep=' ', recursive=True):
     """
     Returns inner text of a tag
 
@@ -401,7 +401,7 @@ def get_soup_element_inner_text(tag, text=None, recursive=True):
         elif recursive:
             get_soup_element_inner_text(el, text)
 
-    return ' '.join(text).strip()
+    return sep.join(text).strip()
 
 
 def parse_nextjs_hydration(soup, keyword):

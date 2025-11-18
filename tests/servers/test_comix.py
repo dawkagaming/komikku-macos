@@ -4,7 +4,7 @@
 
 import logging
 import pytest
-from pytest_steps import test_steps, optional_step
+from pytest_steps import test_steps
 
 from . import do_server_test
 from komikku.utils import log_error_traceback
@@ -13,19 +13,19 @@ logging.basicConfig(level=logging.DEBUG)
 
 
 @pytest.fixture
-def mangaball_server():
-    from komikku.servers.mangaball import Mangaball
+def comix_server():
+    from komikku.servers.comix import Comix
 
-    return Mangaball()
+    return Comix()
 
 
 @do_server_test
 @test_steps('get_latest_updates', 'get_most_popular', 'search', 'get_manga_data', 'get_chapter_data', 'get_page_image')
-def test_mangaball(mangaball_server):
+def test_comix(comix_server):
     # Get latest updates
     print('Get latest updates')
     try:
-        response = mangaball_server.get_latest_updates()
+        response = comix_server.get_latest_updates()
     except Exception as e:
         response = None
         log_error_traceback(e)
@@ -35,20 +35,19 @@ def test_mangaball(mangaball_server):
 
     # Get most popular
     print('Get most popular')
-    with optional_step('get_most_popular') as step:
-        try:
-            response = mangaball_server.get_most_populars()
-        except Exception as e:
-            response = None
-            log_error_traceback(e)
+    try:
+        response = comix_server.get_most_populars()
+    except Exception as e:
+        response = None
+        log_error_traceback(e)
 
-        assert response is not None
-    yield step
+    assert response is not None
+    yield
 
     # Search
     print('Search')
     try:
-        response = mangaball_server.search(response[0]['name'])
+        response = comix_server.search(response[0]['name'])
         slug = response[0]['slug']
     except Exception as e:
         slug = None
@@ -60,7 +59,7 @@ def test_mangaball(mangaball_server):
     # Get manga data
     print('Get manga data')
     try:
-        response = mangaball_server.get_manga_data(dict(slug=slug))
+        response = comix_server.get_manga_data(dict(slug=slug))
         chapter_slug = response['chapters'][0]['slug']
     except Exception as e:
         chapter_slug = None
@@ -72,7 +71,7 @@ def test_mangaball(mangaball_server):
     # Get chapter data
     print('Get chapter data')
     try:
-        response = mangaball_server.get_manga_chapter_data(None, None, chapter_slug, None)
+        response = comix_server.get_manga_chapter_data(slug, None, chapter_slug, None)
         page = response['pages'][0]
     except Exception as e:
         page = None
@@ -84,7 +83,7 @@ def test_mangaball(mangaball_server):
     # Get page image
     print('Get page image')
     try:
-        response = mangaball_server.get_manga_chapter_page_image(None, None, chapter_slug, page)
+        response = comix_server.get_manga_chapter_page_image(slug, None, chapter_slug, page)
     except Exception as e:
         response = None
         log_error_traceback(e)
