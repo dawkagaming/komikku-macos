@@ -307,15 +307,15 @@ class Comix(Server):
                 }
             )
             if r.status_code != 200:
-                return None
+                return [], False, None
 
             resp_data = r.json()
             if resp_data['status'] != 200:
-                return None
+                return [], False, None
 
             more = page < resp_data['result']['pagination']['last_page'] and page < SEARCH_RESULTS_PAGES
 
-            return r.json()['result']['items'], more, get_response_elapsed(r)
+            return resp_data['result']['items'], more, get_response_elapsed(r)
 
         results = []
         delay = None
