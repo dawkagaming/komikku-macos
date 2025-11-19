@@ -103,6 +103,9 @@ class PreferencesServerParamsSupPage(Adw.NavigationPage):
             password_entry.set_text(credential.password)
 
     def add_params_fields(self):
+        if not self.data['params']:
+            return
+
         servers_settings = deepcopy(self.settings.servers_settings)
         defaults = get_server_default_params(self.data)
 
@@ -378,7 +381,7 @@ class PreferencesServersSettingsSubPage(Adw.NavigationPage):
 
                         vbox.append(hbox)
 
-                if server_data['params']:
+                if server_data['params'] or server_data['has_login']:
                     params_btn = Gtk.Button(icon_name='settings-symbolic', valign=Gtk.Align.CENTER)
                     params_btn.add_css_class('circular')
                     params_btn.props.margin_end = 33
@@ -397,7 +400,7 @@ class PreferencesServersSettingsSubPage(Adw.NavigationPage):
                 if subtitle:
                     row.set_subtitle(' · '.join(subtitle))
 
-                if server_data['params']:
+                if server_data['params'] or server_data['has_login']:
                     params_btn = Gtk.Button(icon_name='settings-symbolic', valign=Gtk.Align.CENTER)
                     params_btn.add_css_class('circular')
                     params_btn.props.margin_end = 6
