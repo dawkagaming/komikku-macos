@@ -462,7 +462,8 @@ available in your region/language."""))
         def on_maximized():
             # Gtk.Window::maximized (idem with Gdk.Toplevel:state) event is unreliable because it's emitted too earlier
             # We detect that maximization is effective by comparing monitor size and window size
-            monitor_width = self.monitor.props.geometry.width / self.get_scale_factor()
+            scale_factor = self.get_native().get_surface().get_scale()
+            monitor_width = self.monitor.props.geometry.width / scale_factor
             if self.get_width() < monitor_width and self.is_maximized():
                 return True
 

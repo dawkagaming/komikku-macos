@@ -509,7 +509,7 @@ class KImage(Gtk.Widget, Gtk.Scrollable):
             )
 
         # Append textures
-        scale_factor = self.get_scale_factor()
+        scale_factor = self.get_native().get_surface().get_scale()
         if scale_factor != 1:
             snapshot.scale(1 / scale_factor, 1 / scale_factor)
 
