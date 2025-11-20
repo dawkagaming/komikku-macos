@@ -6,6 +6,7 @@
 # Homepage: https://komga.org
 
 from datetime import datetime
+from gettext import gettext as _
 import logging
 
 from requests.auth import HTTPBasicAuth
@@ -22,7 +23,8 @@ logger = logging.getLogger(__name__)
 class Komga(Server):
     id = 'komga'
     name = 'Komga'
-    lang = 'en'
+    description = _('Self‑hosted digital library')
+    lang = ''
     has_login = True
     sync = True
 

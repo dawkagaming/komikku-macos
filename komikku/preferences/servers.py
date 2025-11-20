@@ -327,6 +327,7 @@ class PreferencesServersSettingsSubPage(Adw.NavigationPage):
                 servers_data[main_id] = dict(
                     main_id=main_id,
                     name=server_data['name'],
+                    description=server_data['description'],
                     module=server_data['module'],
                     base_url=server_data['base_url'],
                     has_login=server_data['has_login'],
@@ -339,8 +340,8 @@ class PreferencesServersSettingsSubPage(Adw.NavigationPage):
 
             if server_data['lang']:
                 servers_data[main_id]['langs'].append(server_data['lang'])
-            if not languages or server_data['lang'] in languages:
-                servers_data[main_id]['langs_enabled'].append(server_data['lang'])
+                if not languages or server_data['lang'] in languages:
+                    servers_data[main_id]['langs_enabled'].append(server_data['lang'])
 
         for server_main_id, server_data in servers_data.items():
             if server_data['langs'] and not server_data['langs_enabled']:
@@ -397,7 +398,9 @@ class PreferencesServersSettingsSubPage(Adw.NavigationPage):
                     # Display it only if it has login or parameters
                     if not server_data['params'] and not server_data['has_login']:
                         continue
-                    lang = lang_enabled = None
+
+                    lang = None
+                    lang_enabled = True
                 else:
                     lang = server_data['langs_enabled'][0]
                     lang_enabled = server_settings is None or server_settings.get('langs', {}).get(lang, True)
@@ -405,7 +408,12 @@ class PreferencesServersSettingsSubPage(Adw.NavigationPage):
                 row = Adw.ActionRow()
                 row.set_sensitive(server_allowed)
                 row.set_title(html_escape(server_data['name']))
-                subtitle = [LANGUAGES[lang]] if lang else []
+                if lang:
+                    subtitle = [LANGUAGES[lang]]
+                elif server_data['description']:
+                    subtitle = [server_data['description']]
+                else:
+                    subtitle = []
                 if server_data['is_nsfw'] or server_data['is_nsfw_only']:
                     subtitle.append(_('18+'))
                 if subtitle:
@@ -418,16 +426,15 @@ class PreferencesServersSettingsSubPage(Adw.NavigationPage):
                     params_btn.connect('clicked', self.push_server_params_subpage, server_data)
                     row.add_suffix(params_btn)
 
-                if lang:
-                    switch = Gtk.Switch(valign=Gtk.Align.CENTER)
-                    switch.set_active(server_enabled and server_allowed and lang_enabled)
-                    row.add_suffix(switch)
-                    row.set_activatable_widget(switch)
+                switch = Gtk.Switch(valign=Gtk.Align.CENTER)
+                switch.set_active(server_enabled and server_allowed and lang_enabled)
+                row.add_suffix(switch)
+                row.set_activatable_widget(switch)
 
-                    if len(server_data['langs']) > 1:
-                        switch.connect('notify::active', self.on_server_language_activated, server_main_id, lang)
-                    else:
-                        switch.connect('notify::active', self.on_server_activated, server_main_id)
+                if len(server_data['langs']) > 1:
+                    switch.connect('notify::active', self.on_server_language_activated, server_main_id, lang)
+                else:
+                    switch.connect('notify::active', self.on_server_activated, server_main_id)
 
                 self.group.add(row)
 

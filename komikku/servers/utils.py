@@ -199,7 +199,7 @@ def get_allowed_servers_list(settings):
                 # Server is disabled
                 continue
             if len(servers_languages) > 0:
-                if server_data['lang'] not in servers_languages:
+                if server_data['lang'] and server_data['lang'] not in servers_languages:
                     # Server language is not in list of enabled server languages
                     continue
                 if not server_settings.get('langs', {}).get(server_data['lang'], True):
@@ -277,6 +277,7 @@ def get_servers_list(include_disabled=False, order_by=('lang', 'name')):
                 servers.append(dict(
                     id=obj.id,
                     name=obj.name,
+                    description=obj.description,
                     lang=obj.lang,
                     base_url=obj.base_url,
                     has_login=obj.has_login,

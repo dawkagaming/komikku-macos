@@ -6,6 +6,7 @@
 
 import datetime
 from functools import cached_property
+from gettext import gettext as _
 import logging
 
 from komikku.servers import Server
@@ -28,7 +29,8 @@ STATUSES = (
 class Kavita(Server):
     id = 'kavita'
     name = 'Kavita'
-    lang = 'en'
+    description = _('Self‑hosted digital library')
+    lang = ''
     has_login = True
     sync = True
 

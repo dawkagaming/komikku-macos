@@ -215,34 +215,37 @@ class ExplorerServerRow(Gtk.ListBoxRow):
         # Server title & language
         vbox = Gtk.Box(orientation=Gtk.Orientation.VERTICAL, spacing=0)
 
-        if data['id'] != 'local':
-            title = data['name']
+        title = data['name']
+        if data['lang']:
             subtitle = LANGUAGES[data['lang']]
+        elif data['description']:
+            subtitle = data['description']
         else:
-            title = _('Local')
-            subtitle = _('Comics stored locally as archives in CBZ/CBR/CBT or PDF formats')
+            subtitle = None
 
-        label = Gtk.Label(xalign=0, hexpand=True)
+        label = Gtk.Label(xalign=0, hexpand=True, vexpand=True)
         label.set_ellipsize(Pango.EllipsizeMode.END)
         label.set_text(title)
         vbox.append(label)
 
-        subtitle_box = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=6)
+        if subtitle:
+            subtitle_box = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=6)
 
-        label = Gtk.Label(xalign=0)
-        label.set_wrap(True)
-        label.set_text(subtitle)
-        label.add_css_class('subtitle')
-        subtitle_box.append(label)
-
-        if data['is_nsfw'] or data['is_nsfw_only']:
             label = Gtk.Label(xalign=0)
-            label.set_markup('<b>' + _('18+') + '</b>')
+            label.set_wrap(True)
+            label.set_text(subtitle)
             label.add_css_class('subtitle')
-            label.add_css_class('warning')
             subtitle_box.append(label)
 
-        vbox.append(subtitle_box)
+            if data['is_nsfw'] or data['is_nsfw_only']:
+                label = Gtk.Label(xalign=0)
+                label.set_markup('<b>' + _('18+') + '</b>')
+                label.add_css_class('subtitle')
+                label.add_css_class('warning')
+                subtitle_box.append(label)
+
+            vbox.append(subtitle_box)
+
         self.box.append(vbox)
 
         if page.props.tag == 'explorer.search':

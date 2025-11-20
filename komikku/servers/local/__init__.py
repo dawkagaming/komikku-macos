@@ -3,6 +3,7 @@
 # Author: Valéry Febvre <vfebvre@easter-eggs.com>
 
 import datetime
+from gettext import gettext as _
 from io import BytesIO
 import logging
 import os
@@ -250,6 +251,7 @@ class PDF:
 class Local(Server):
     id = 'local'
     name = 'Local'
+    description = _('Comics stored locally as archives in CBZ/CBR/CBT or PDF formats')
     lang = ''
 
     def get_image(self, data, etag=None):

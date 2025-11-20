@@ -416,6 +416,7 @@ class BaseServer:
     id: str
     name: str
 
+    description = None
     headers = None
     headers_images = None
     http_client = 'requests'  # HTTP client
