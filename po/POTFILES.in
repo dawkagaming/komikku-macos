@@ -61,6 +61,9 @@ komikku/servers/dynasty/__init__.py
 komikku/servers/exceptions.py
 komikku/servers/flamescans/__init__.py
 komikku/servers/invinciblecomicsvf/__init__.py
+komikku/servers/kavita/__init__.py
+komikku/servers/komga/__init__.py
+komikku/servers/local/__init__.py
 komikku/servers/mangaball/__init__.py
 komikku/servers/mangadex/__init__.py
 komikku/servers/mangafire/__init__.py
@@ -77,6 +80,7 @@ komikku/servers/rawkuma/__init__.py
 komikku/servers/readmanhwa/__init__.py
 komikku/servers/webtoon/__init__.py
 komikku/servers/weebcentral/__init__.py
+komikku/servers/zenko/__init__.py
 komikku/trackers/__init__.py
 komikku/updater.py
 komikku/utils.py

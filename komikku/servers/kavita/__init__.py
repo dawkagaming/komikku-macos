@@ -29,7 +29,7 @@ STATUSES = (
 class Kavita(Server):
     id = 'kavita'
     name = 'Kavita'
-    description = _('Self‑hosted digital library')
+    description = _('Self-hosted digital library')
     lang = ''
     has_login = True
     sync = True

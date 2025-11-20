@@ -23,7 +23,7 @@ logger = logging.getLogger(__name__)
 class Komga(Server):
     id = 'komga'
     name = 'Komga'
-    description = _('Self‑hosted digital library')
+    description = _('Self-hosted digital library')
     lang = ''
     has_login = True
     sync = True
