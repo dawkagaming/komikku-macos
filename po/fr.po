@@ -9,10 +9,10 @@ msgstr ""
 "Project-Id-Version: unnamed project\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-11-21 00:03+0100\n"
-"PO-Revision-Date: 2025-11-18 22:53+0000\n"
+"PO-Revision-Date: 2025-11-20 23:15+0000\n"
 "Last-Translator: Valéry Febvre <vfebvre@easter-eggs.com>\n"
-"Language-Team: French <https://hosted.weblate.org/projects/komikku/main/fr/"
-">\n"
+"Language-Team: French <https://hosted.weblate.org/projects/komikku/main/fr/>"
+"\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -2269,7 +2269,7 @@ msgstr "Abandonné"
 #: ../komikku/servers/kavita/__init__.py:32
 #: ../komikku/servers/komga/__init__.py:26
 msgid "Self-hosted digital library"
-msgstr ""
+msgstr "Bibliothèque numérique auto-hébergée"
 
 #: ../komikku/servers/local/__init__.py:254
 msgid "Comics stored locally as archives in CBZ/CBR/CBT or PDF formats"
@@ -2421,19 +2421,19 @@ msgstr "Canvas"
 
 #: ../komikku/servers/zenko/__init__.py:45
 msgid "Age Restriction"
-msgstr ""
+msgstr "Restriction d'âge"
 
 #: ../komikku/servers/zenko/__init__.py:46
 msgid "Filter by Age Restrictions"
-msgstr ""
+msgstr "Filtrer par restrictions d'âge"
 
 #: ../komikku/servers/zenko/__init__.py:73
 msgid "Manga UA"
-msgstr ""
+msgstr "Manga UA"
 
 #: ../komikku/servers/zenko/__init__.py:77
 msgid "Western Comic"
-msgstr ""
+msgstr "Bande dessinée"
 
 #: ../komikku/trackers/__init__.py:67
 msgid "Reading"
