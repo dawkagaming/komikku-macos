@@ -334,13 +334,16 @@ class PreferencesServersSettingsSubPage(Adw.NavigationPage):
                     is_nsfw_only=server_data['is_nsfw_only'],
                     params=server_data['params'],
                     langs=[],
+                    langs_enabled=[],
                 )
 
-            if not languages or server_data['lang'] in languages:
+            if server_data['lang']:
                 servers_data[main_id]['langs'].append(server_data['lang'])
+            if not languages or server_data['lang'] in languages:
+                servers_data[main_id]['langs_enabled'].append(server_data['lang'])
 
         for server_main_id, server_data in servers_data.items():
-            if not server_data['langs']:
+            if server_data['langs'] and not server_data['langs_enabled']:
                 continue
 
             server_settings = settings.get(server_main_id)
@@ -349,7 +352,7 @@ class PreferencesServersSettingsSubPage(Adw.NavigationPage):
             server_allowed &= not server_data['is_nsfw_only'] or (server_data['is_nsfw_only'] and self.settings.nsfw_only_content)
             server_enabled = server_settings is None or server_settings.get('enabled', True)
 
-            if len(server_data['langs']) > 1:
+            if len(server_data['langs_enabled']) > 1:
                 vbox = Gtk.Box(
                     orientation=Gtk.Orientation.VERTICAL,
                     margin_start=12, margin_top=6, margin_end=12, margin_bottom=6,
@@ -365,21 +368,20 @@ class PreferencesServersSettingsSubPage(Adw.NavigationPage):
                 row.connect('notify::enable-expansion', self.on_server_activated, server_main_id)
                 row.add_row(vbox)
 
-                if len(server_data['langs']) > 1:
-                    for lang in server_data['langs']:
-                        lang_enabled = server_settings is None or server_settings['langs'].get(lang, True)
+                for lang in server_data['langs_enabled']:
+                    lang_enabled = server_settings is None or server_settings.get('langs', {}).get(lang, True)
 
-                        hbox = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, margin_top=6, margin_bottom=6, spacing=12)
+                    hbox = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, margin_top=6, margin_bottom=6, spacing=12)
 
-                        label = Gtk.Label(label=LANGUAGES[lang], xalign=0, hexpand=True)
-                        hbox.append(label)
+                    label = Gtk.Label(label=LANGUAGES[lang], xalign=0, hexpand=True)
+                    hbox.append(label)
 
-                        switch = Gtk.Switch.new()
-                        switch.set_active(lang_enabled)
-                        switch.connect('notify::active', self.on_server_language_activated, server_main_id, lang)
-                        hbox.append(switch)
+                    switch = Gtk.Switch.new()
+                    switch.set_active(lang_enabled)
+                    switch.connect('notify::active', self.on_server_language_activated, server_main_id, lang)
+                    hbox.append(switch)
 
-                        vbox.append(hbox)
+                    vbox.append(hbox)
 
                 if server_data['params'] or server_data['has_login']:
                     params_btn = Gtk.Button(icon_name='settings-symbolic', valign=Gtk.Align.CENTER)
@@ -390,11 +392,20 @@ class PreferencesServersSettingsSubPage(Adw.NavigationPage):
 
                 self.group.add(row)
             else:
+                if not server_data['langs_enabled']:
+                    # Server has no languages (Local for ex.)
+                    # Display it only if it has login or parameters
+                    if not server_data['params'] and not server_data['has_login']:
+                        continue
+                    lang = lang_enabled = None
+                else:
+                    lang = server_data['langs_enabled'][0]
+                    lang_enabled = server_settings is None or server_settings.get('langs', {}).get(lang, True)
+
                 row = Adw.ActionRow()
+                row.set_sensitive(server_allowed)
                 row.set_title(html_escape(server_data['name']))
-                subtitle = []
-                if len(server_data['langs']) == 1 and server_data['langs'][0]:
-                    subtitle.append(LANGUAGES[server_data['langs'][0]])
+                subtitle = [LANGUAGES[lang]] if lang else []
                 if server_data['is_nsfw'] or server_data['is_nsfw_only']:
                     subtitle.append(_('18+'))
                 if subtitle:
@@ -407,13 +418,16 @@ class PreferencesServersSettingsSubPage(Adw.NavigationPage):
                     params_btn.connect('clicked', self.push_server_params_subpage, server_data)
                     row.add_suffix(params_btn)
 
-                switch = Gtk.Switch(valign=Gtk.Align.CENTER)
-                switch.set_active(server_enabled and server_allowed)
-                row.add_suffix(switch)
-                row.set_activatable_widget(switch)
+                if lang:
+                    switch = Gtk.Switch(valign=Gtk.Align.CENTER)
+                    switch.set_active(server_enabled and server_allowed and lang_enabled)
+                    row.add_suffix(switch)
+                    row.set_activatable_widget(switch)
 
-                row.set_sensitive(server_allowed)
-                row.connect('notify::active', self.on_server_activated, server_main_id)
+                    if len(server_data['langs']) > 1:
+                        switch.connect('notify::active', self.on_server_language_activated, server_main_id, lang)
+                    else:
+                        switch.connect('notify::active', self.on_server_activated, server_main_id)
 
                 self.group.add(row)
 
