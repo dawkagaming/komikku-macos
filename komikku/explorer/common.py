@@ -83,8 +83,9 @@ class ExplorerSearchStackPage:
                 else:
                     try:
                         data, _etag, rtime = server.get_image(row.manga_data['cover'])
-                        # Covers in landscape format are converted to portrait format
-                        data = convert_and_resize_image(data, COVER_WIDTH, COVER_HEIGHT)
+                        if data:
+                            # Covers in landscape format are converted to portrait format
+                            data = convert_and_resize_image(data, COVER_WIDTH, COVER_HEIGHT)
                     except Exception:
                         pass
                     else:
