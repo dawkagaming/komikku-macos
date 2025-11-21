@@ -99,6 +99,16 @@
     <url type="donation">https://febvre.info/donate.html</url>
 
     <releases>
+        <release version="1.94.0" date="2025-11-21">
+            <description translate="no">
+                <ul>
+                    <li>[Servers] Added Zenko (UK)</li>
+                    <li>[Explorer] Servers: Kavita and Komga join Local in `Other` section</li>
+                    <li>[L10n] Updated French, Russian and Ukrainian translations</li>
+                </ul>
+                <p>Happy reading.</p>
+            </description>
+        </release>
         <release version="1.93.0" date="2025-11-19">
             <description translate="no">
                 <ul>

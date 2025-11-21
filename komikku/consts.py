@@ -135,10 +135,9 @@ CREDITS = dict(
 
 RELEASE_NOTES = """
 <ul>
-    <li>[Servers] Added Comix (EN)</li>
-    <li>[Servers] Added Rimu Scans (FR)</li>
-    <li>[Servers] MangaDex: Added `Data Saver Mode` parameter</li>
-    <li>[L10n] Updated French, German, Russian and Ukrainian translations</li>
+    <li>[Servers] Added Zenko (UK)</li>
+    <li>[Explorer] Servers: Kavita and Komga join Local in `Other` section</li>
+    <li>[L10n] Updated French, Russian and Ukrainian translations</li>
 </ul>
 <p>Happy reading.</p>
 """
