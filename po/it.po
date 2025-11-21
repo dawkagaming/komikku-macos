@@ -7,21 +7,22 @@
 # Andrea Scarano <ascarano263@gmail.com>, 2025.
 # pasquale ruotolo <pachiruo@gmail.com>, 2025.
 # Riccardo Luise <vvvienna@proton.me>, 2025.
+# cas9 <cas9@users.noreply.hosted.weblate.org>, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: Komikku 0.25.1\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-11-21 00:03+0100\n"
-"PO-Revision-Date: 2025-08-22 13:01+0000\n"
-"Last-Translator: Riccardo Luise <vvvienna@proton.me>\n"
-"Language-Team: Italian <https://hosted.weblate.org/projects/komikku/main/it/"
-">\n"
+"PO-Revision-Date: 2025-11-22 05:51+0000\n"
+"Last-Translator: cas9 <cas9@users.noreply.hosted.weblate.org>\n"
+"Language-Team: Italian <https://hosted.weblate.org/projects/komikku/main/it/>"
+"\n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.13\n"
+"X-Generator: Weblate 5.15-dev\n"
 
 #: ../data/info.febvre.Komikku.desktop.in:2
 msgid "@prettyname@"
@@ -331,7 +332,7 @@ msgstr "Recenti"
 
 #: ../data/ui/menu/library_selection_mode.xml:12
 msgid "Edit Categories"
-msgstr ""
+msgstr "Modifica Categorie"
 
 #: ../data/ui/menu/main.xml:12
 msgid "Update Library"
@@ -388,7 +389,7 @@ msgstr "Generale"
 
 #: ../data/ui/preferences.blp:24
 msgid "Support Komikku"
-msgstr ""
+msgstr "Sostieni Komikku"
 
 #: ../data/ui/preferences.blp:30
 msgid ""
@@ -400,7 +401,7 @@ msgstr ""
 
 #: ../data/ui/preferences.blp:59
 msgid "Appearance"
-msgstr ""
+msgstr "Aspetto"
 
 #: ../data/ui/preferences.blp:61
 msgid "Theme"
@@ -416,7 +417,7 @@ msgstr "Scuro"
 
 #: ../data/ui/preferences.blp:66
 msgid "Follow System"
-msgstr ""
+msgstr "Segui Sistema"
 
 #: ../data/ui/preferences.blp:72
 msgid "Night Light"
@@ -474,19 +475,19 @@ msgstr ""
 
 #: ../data/ui/preferences.blp:124
 msgid "Grid"
-msgstr ""
+msgstr "Griglia"
 
 #: ../data/ui/preferences.blp:125
 msgid "Compact Grid"
-msgstr ""
+msgstr "Griglia compatta"
 
 #: ../data/ui/preferences.blp:131
 msgid "Servers Logo"
-msgstr ""
+msgstr "Logo dei server"
 
 #: ../data/ui/preferences.blp:132
 msgid "Display servers logo"
-msgstr ""
+msgstr "Mostra logo dei server"
 
 #: ../data/ui/preferences.blp:136
 msgid "Badges"
@@ -979,7 +980,7 @@ msgstr "Unisciti alla chat"
 #: ../komikku/downloader.py:388 ../komikku/downloader.py:389
 #: ../komikku/library/__init__.py:778 ../komikku/library/__init__.py:779
 msgid "Cancel"
-msgstr "Cancella"
+msgstr "Annulla"
 
 #: ../komikku/application.py:537
 msgid "Are you sure you want to quit?"
@@ -2283,7 +2284,7 @@ msgstr ""
 #: ../komikku/servers/mangapill/__init__.py:41
 #: ../komikku/servers/rawkuma/__init__.py:44
 msgid "Novel"
-msgstr ""
+msgstr "Romanzo"
 
 #: ../komikku/servers/mangafire/__init__.py:64
 msgid "Releasing"
@@ -2300,7 +2301,7 @@ msgstr ""
 
 #: ../komikku/servers/mangatube/__init__.py:126
 msgid "Type of Serie"
-msgstr ""
+msgstr "Tipo di serie"
 
 #: ../komikku/servers/mangatube/__init__.py:134
 msgid "Webtoon"
@@ -2310,7 +2311,7 @@ msgstr ""
 #: ../komikku/servers/multi/manga_stream/__init__.py:83
 #: ../komikku/servers/zenko/__init__.py:78
 msgid "Comic"
-msgstr ""
+msgstr "Fumetto"
 
 #: ../komikku/servers/mangatube/__init__.py:137
 #: ../komikku/servers/zenko/__init__.py:79
@@ -2327,7 +2328,7 @@ msgstr ""
 
 #: ../komikku/servers/mangatube/__init__.py:148
 msgid "Without"
-msgstr ""
+msgstr "Senza"
 
 #: ../komikku/servers/mangatube/__init__.py:149
 msgid "16+"
@@ -2420,12 +2421,12 @@ msgstr[1] ""
 #, python-brace-format
 msgid "{0} new chapter"
 msgid_plural "{0} new chapters"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "{0} nuovo capitolo"
+msgstr[1] "{0} nuovi capitoli"
 
 #: ../komikku/updater.py:132 ../komikku/updater.py:154
 msgid "No new chapters"
-msgstr ""
+msgstr "Nessun nuovo capitolo"
 
 #: ../komikku/updater.py:135
 #, python-brace-format
@@ -2444,7 +2445,7 @@ msgstr "Aggiornamento della libreria avviato"
 
 #: ../komikku/utils.py:350
 msgid "You are currently offline"
-msgstr ""
+msgstr "Sei attualmente offline"
 
 #: ../komikku/utils.py:377
 msgid "No Internet connection, timeout or server down"
