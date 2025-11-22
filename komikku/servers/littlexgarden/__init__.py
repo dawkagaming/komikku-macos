@@ -5,6 +5,7 @@
 
 import logging
 import time
+from urllib.parse import unquote
 
 from bs4 import BeautifulSoup
 import requests
@@ -134,9 +135,9 @@ class Littlexgarden(Server):
         data = {
             'pages': [],
         }
-        for index, element in enumerate(soup.select('link[as="image"]'), start=1):
+        for index, element in enumerate(soup.select('img[data-nimg="1"]'), start=1):
             data['pages'].append(dict(
-                slug=element.get('href').split('/')[-1].replace('.webp', ''),
+                slug=unquote(element.get('src')).split('/')[-1].split('.webp')[0],
                 image=None,
                 index=index,
             ))
