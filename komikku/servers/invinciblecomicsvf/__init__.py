@@ -199,7 +199,7 @@ class Invinciblecomicsvf(Server):
         soup = BeautifulSoup(r.text, 'lxml')
 
         results = []
-        for element in soup.select('.nouveaux-ajouts .comic-card'):
+        for element in soup.select('.comic-card.horizontal'):
             a_element = element.a
 
             results.append(dict(
