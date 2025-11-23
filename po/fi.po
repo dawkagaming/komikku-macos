@@ -8,16 +8,16 @@ msgstr ""
 "Project-Id-Version: Komikku 1.12.1\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-11-21 00:03+0100\n"
-"PO-Revision-Date: 2025-11-05 13:51+0000\n"
-"Last-Translator: Ricky Tigg <ricky.tigg@gmail.com>\n"
-"Language-Team: Finnish <https://hosted.weblate.org/projects/komikku/main/fi/"
-">\n"
+"PO-Revision-Date: 2025-11-24 09:51+0000\n"
+"Last-Translator: Jiri Grönroos <jiri.gronroos@iki.fi>\n"
+"Language-Team: Finnish <https://hosted.weblate.org/projects/komikku/main/fi/>"
+"\n"
 "Language: fi\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.14.1-dev\n"
+"X-Generator: Weblate 5.15-dev\n"
 
 #: ../data/info.febvre.Komikku.desktop.in:2
 msgid "@prettyname@"
@@ -386,7 +386,7 @@ msgstr "Yleinen"
 
 #: ../data/ui/preferences.blp:24
 msgid "Support Komikku"
-msgstr ""
+msgstr "Tue Komikkua"
 
 #: ../data/ui/preferences.blp:30
 msgid ""
@@ -395,6 +395,10 @@ msgid ""
 "maintain it, but also continue my work as a free software developer in "
 "general."
 msgstr ""
+"Komikku on ja tulee aina olemaan vapaa, ilmainen ja avointa lähdekoodia. Jos "
+"pidät sovelluksesta, lahjoitus olisi suureksi avuksi. Lahjoitus auttaa "
+"Komikkun ylläpitämisen lisäksi myös muiden vapaiden ohjelmistojen "
+"kehittämisessä."
 
 #: ../data/ui/preferences.blp:59
 msgid "Appearance"
@@ -518,7 +522,7 @@ msgstr "Lataa uudet luvut automaattisesti"
 
 #: ../data/ui/preferences.blp:218
 msgid "Languages"
-msgstr ""
+msgstr "Kielet"
 
 #: ../data/ui/preferences.blp:219
 msgid "Restrict servers to selected languages"
@@ -1182,7 +1186,7 @@ msgstr "Poista"
 
 #: ../komikku/card/tracking.py:359 ../komikku/preferences/trackers.py:42
 msgid "Connection is expired"
-msgstr ""
+msgstr "Yhteys on vanhentunut"
 
 #: ../komikku/card/tracking.py:449 ../komikku/explorer/search/__init__.py:378
 msgid "Search {}"
@@ -1446,7 +1450,7 @@ msgstr "Ladataan"
 
 #: ../komikku/models/database/downloads.py:22
 msgid "Download canceled"
-msgstr ""
+msgstr "Lataus peruttu"
 
 #: ../komikku/models/database/downloads.py:23
 msgid "Download error"
@@ -1573,7 +1577,7 @@ msgstr "Katkaise yhteys"
 
 #: ../komikku/preferences/trackers.py:43
 msgid "Reconnect"
-msgstr ""
+msgstr "Yhdistä uudelleen"
 
 #: ../komikku/preferences/trackers.py:46 ../komikku/preferences/trackers.py:71
 #: ../komikku/preferences/trackers.py:104
@@ -2160,11 +2164,11 @@ msgstr "Suodata tyyppien perusteella"
 
 #: ../komikku/servers/comix/__init__.py:86
 msgid "Hide NSFW Content"
-msgstr ""
+msgstr "Piilota NSFW-sisältö"
 
 #: ../komikku/servers/comix/__init__.py:87
 msgid "Hide NSFW content from popular, latest, and search lists"
-msgstr ""
+msgstr "Piilota NSFW-sisältö suosittujen, viimeisimpien ja hakujen listauksista"
 
 #: ../komikku/servers/dynasty/__init__.py:40
 msgid "Categories"
@@ -2280,11 +2284,11 @@ msgstr "Itse julkaistu"
 
 #: ../komikku/servers/mangadex/__init__.py:124
 msgid "Boys Love"
-msgstr ""
+msgstr "Poikien suosiossa"
 
 #: ../komikku/servers/mangadex/__init__.py:129
 msgid "Girls Love"
-msgstr ""
+msgstr "Tyttöjen suosiossa"
 
 #: ../komikku/servers/mangadex/__init__.py:151
 msgid "Tags Inclusion Mode"
