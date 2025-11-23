@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: Komikku 1.44.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-11-21 00:03+0100\n"
-"PO-Revision-Date: 2025-11-23 08:53+0000\n"
+"PO-Revision-Date: 2025-11-24 09:51+0000\n"
 "Last-Translator: Loc Huynh <huynhloc.contact@gmail.com>\n"
 "Language-Team: Vietnamese <https://hosted.weblate.org/projects/komikku/main/"
 "vi/>\n"
@@ -21,21 +21,21 @@ msgstr ""
 
 #: ../data/info.febvre.Komikku.desktop.in:2
 msgid "@prettyname@"
-msgstr "@cái_tên_đẹp@"
+msgstr "@prettyname@"
 
 #: ../data/info.febvre.Komikku.desktop.in:3
 msgid "@description@"
-msgstr "@Mô_tả@"
+msgstr "@description@"
 
 #: ../data/info.febvre.Komikku.desktop.in:15
 msgid "manga;reader;viewer;comic;manhwa;manhua;bd;webtoon;webcomic;scan;offline;GTK;GNOME;"
 msgstr ""
-"truyện tranh;người đọc;người xem;truyện "
-"tranh;manhwa;manhua;bd;webtoon;webcomic;scan;ngoại tuyến;GTK;Gnome;"
+"manga;reader;viewer;comic;manhwa;manhua;bd;webtoon;webcomic;scan;offline;GTK;GNOME;"
+""
 
 #: ../data/info.febvre.Komikku.metainfo.xml.in.in:11
 msgid "Discover and read manga & comics"
-msgstr "Khám phá và đọc manga & truyện tranh"
+msgstr "Khám phá và đọc manga & comic"
 
 #: ../data/info.febvre.Komikku.metainfo.xml.in.in:13
 msgid ""
@@ -585,7 +585,7 @@ msgstr "⬇ Dọc"
 
 #: ../data/ui/preferences.blp:279
 msgid "⬇ Webtoon"
-msgstr "⬇ cuộn theo chiều dọc."
+msgstr "⬇ Webtoon"
 
 #: ../data/ui/preferences.blp:285
 msgid "Maximum Width"
@@ -867,7 +867,7 @@ msgstr "Cập Nhật"
 #: ../data/ui/shortcuts.blp:63
 msgctxt "Shortcut window description"
 msgid "Manga Card"
-msgstr "Thẻ Truyện Tranh"
+msgstr "Thẻ Manga"
 
 #: ../data/ui/shortcuts.blp:66
 msgctxt "Shortcut window description"
@@ -985,7 +985,7 @@ msgid ""
 "by buying the official comics when they are\n"
 "available in your region/language."
 msgstr ""
-"Một bộ đọc manga, webtoons và truyện tranh\n"
+"Một bộ đọc manga, webtoons và comic\n"
 "\n"
 "👉 Đừng bao giờ quên, các bạn có thể ủng hộ tác giả\n"
 "bằng cách mua truyện tranh chính thức khi chúng\n"
@@ -1051,7 +1051,7 @@ msgstr "Đồng bộ hóa tiến trình đọc với máy chủ đã hoàn tất
 
 #: ../komikku/card/__init__.py:358
 msgid "Failed to get manga URL"
-msgstr "Không lấy được URL truyện tranh"
+msgstr "Không lấy được URL manga"
 
 #: ../komikku/card/__init__.py:382
 #, python-brace-format
@@ -1987,7 +1987,7 @@ msgstr "Người Dùng Đã Tạo"
 #: ../komikku/servers/comick/__init__.py:149
 #: ../komikku/servers/mangadex/__init__.py:112
 msgid "Web Comic"
-msgstr ""
+msgstr "Web Comic"
 
 #: ../komikku/servers/comick/__init__.py:155
 #: ../komikku/servers/mangadex/__init__.py:118
@@ -2025,12 +2025,10 @@ msgstr "Tội phạm"
 
 #: ../komikku/servers/comick/__init__.py:164
 #: ../komikku/servers/mangadex/__init__.py:127
-#, fuzzy
 msgid "Drama"
 msgstr "Drama"
 
 #: ../komikku/servers/comick/__init__.py:165
-#, fuzzy
 msgid "Ecchi"
 msgstr "Ecchi"
 
@@ -2055,7 +2053,6 @@ msgstr "Kinh dị"
 
 #: ../komikku/servers/comick/__init__.py:170
 #: ../komikku/servers/mangadex/__init__.py:132
-#, fuzzy
 msgid "Isekai"
 msgstr "Isekai"
 
@@ -2103,7 +2100,6 @@ msgid "Sci-Fi"
 msgstr "Khoa học - Viễn tưởng"
 
 #: ../komikku/servers/comick/__init__.py:180
-#, fuzzy
 msgid "Shoujo Ai"
 msgstr "Shoujo Ai"
 
@@ -2139,13 +2135,11 @@ msgstr "Võ hiệp"
 
 #: ../komikku/servers/comick/__init__.py:187
 #: ../komikku/servers/mangaball/__init__.py:82
-#, fuzzy
 msgid "Yaoi"
 msgstr "Yaoi"
 
 #: ../komikku/servers/comick/__init__.py:188
 #: ../komikku/servers/mangaball/__init__.py:81
-#, fuzzy
 msgid "Yuri"
 msgstr "Yuri"
 
@@ -2177,7 +2171,6 @@ msgid "Anthologies"
 msgstr "Tuyển Tập"
 
 #: ../komikku/servers/dynasty/__init__.py:45
-#, fuzzy
 msgid "Doujins"
 msgstr "Doujins"
 
@@ -2186,7 +2179,6 @@ msgid "Issues"
 msgstr "Vấn đề"
 
 #: ../komikku/servers/dynasty/__init__.py:47
-#, fuzzy
 msgid "Series"
 msgstr "Series"
 
@@ -2283,12 +2275,10 @@ msgid "Self-Published"
 msgstr "Tự xuất bản"
 
 #: ../komikku/servers/mangadex/__init__.py:124
-#, fuzzy
 msgid "Boys Love"
 msgstr "Boys Love"
 
 #: ../komikku/servers/mangadex/__init__.py:129
-#, fuzzy
 msgid "Girls Love"
 msgstr "Girls Love"
 
@@ -2322,7 +2312,6 @@ msgstr "Tìm nạp hình ảnh chất lượng thấp hơn để tiết kiệm b
 #: ../komikku/servers/mangapill/__init__.py:42
 #: ../komikku/servers/mangatube/__init__.py:136
 #: ../komikku/servers/mangaworld/__init__.py:66
-#, fuzzy
 msgid "One Shot"
 msgstr "One Shot"
 
@@ -2342,7 +2331,6 @@ msgstr "Đã ngừng sản xuất"
 
 #: ../komikku/servers/mangapill/__init__.py:46
 #: ../komikku/servers/weebcentral/__init__.py:42
-#, fuzzy
 msgid "OEL"
 msgstr "OEL"
 
@@ -2351,20 +2339,17 @@ msgid "Type of Serie"
 msgstr "Định dạng truyện"
 
 #: ../komikku/servers/mangatube/__init__.py:134
-#, fuzzy
 msgid "Webtoon"
 msgstr "Webtoon"
 
 #: ../komikku/servers/mangatube/__init__.py:135
 #: ../komikku/servers/multi/manga_stream/__init__.py:83
 #: ../komikku/servers/zenko/__init__.py:78
-#, fuzzy
 msgid "Comic"
 msgstr "Comic"
 
 #: ../komikku/servers/mangatube/__init__.py:137
 #: ../komikku/servers/zenko/__init__.py:79
-#, fuzzy
 msgid "Light Novel"
 msgstr "Light Novel"
 
@@ -2381,7 +2366,6 @@ msgid "Without"
 msgstr "Không có"
 
 #: ../komikku/servers/mangatube/__init__.py:149
-#, fuzzy
 msgid "16+"
 msgstr "16+"
 
@@ -2406,7 +2390,7 @@ msgstr "Nguyên bản"
 
 #: ../komikku/servers/webtoon/__init__.py:61
 msgid "Canvas"
-msgstr ""
+msgstr "Canvas"
 
 #: ../komikku/servers/zenko/__init__.py:45
 msgid "Age Restriction"
@@ -2417,7 +2401,6 @@ msgid "Filter by Age Restrictions"
 msgstr "Lọc theo Giới Hạn Độ Tuổi"
 
 #: ../komikku/servers/zenko/__init__.py:73
-#, fuzzy
 msgid "Manga UA"
 msgstr "Manga UA"
 
