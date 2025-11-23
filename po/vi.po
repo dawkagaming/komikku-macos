@@ -1953,7 +1953,7 @@ msgstr "Từng Đoạt Giải Thưởng"
 #: ../komikku/servers/mangafire/__init__.py:51
 #: ../komikku/servers/mangapill/__init__.py:43
 msgid "Doujinshi"
-msgstr ""
+msgstr "Doujinshi"
 
 #: ../komikku/servers/comick/__init__.py:139
 #: ../komikku/servers/mangadex/__init__.py:106
@@ -1977,7 +1977,6 @@ msgstr "Bản Màu Chính Thức"
 
 #: ../komikku/servers/comick/__init__.py:147
 #: ../komikku/servers/mangadex/__init__.py:110
-#, fuzzy
 msgid "Oneshot"
 msgstr "Oneshot"
 
