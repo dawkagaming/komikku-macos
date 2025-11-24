@@ -162,8 +162,13 @@ class PreferencesDialog(Adw.PreferencesDialog):
         # Clear WebView data
 
         def confirm_callback():
-            self.window.webview.clear_data()
-            self.update_webview_data_size()
+            self.window.webview.clear_data(on_clear_data_finished)
+
+        def on_clear_data_finished(success):
+            if success:
+                self.update_webview_data_size()
+            else:
+                self.add_toast(Adw.Toast.new(_('Failed to clear WebView data')))
 
         self.window.open_dialog(
             _('Clear?'),
@@ -498,4 +503,4 @@ class PreferencesDialog(Adw.PreferencesDialog):
 
     def update_webview_data_size(self):
         size = folder_size(get_webview_data_dir(), exclude='cookies.sqlite')
-        self.clear_webview_data_actionrow.set_subtitle(size)
+        self.clear_webview_data_actionrow.set_subtitle(size or '-')

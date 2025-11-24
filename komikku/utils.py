@@ -135,7 +135,7 @@ def convert_and_resize_image(buffer, width, height, keep_aspect_ratio=True, domi
 
 def folder_size(path, exclude=None):
     if not os.path.exists(path):
-        return '0'
+        return None
 
     cmd = ['du', '-sh', path]
     if exclude is not None:

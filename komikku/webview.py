@@ -166,8 +166,11 @@ class WebviewPage(Adw.NavigationPage):
             self.exit()
             self.close_page()
 
-    def clear_data(self):
-        self.network_session.get_website_data_manager().clear(WebKit.WebsiteDataTypes.ALL, 0, None, None)
+    def clear_data(self, on_finish_callback):
+        def on_finish(data_manager, result):
+            on_finish_callback(data_manager.clear_finish(result))
+
+        self.network_session.get_website_data_manager().clear(WebKit.WebsiteDataTypes.ALL, 0, None, on_finish)
 
     def close_page(self, blank=True):
         self.disconnect_all_signals()
