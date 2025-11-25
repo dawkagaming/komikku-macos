@@ -25,7 +25,7 @@
 # SushiScan [FR]
 # Sushiscan (.net) [FR]
 # Terco Scans [EN]
-# Tres Daos [ES]
+# Tres Daos [ES] (Disabled)
 # VF Scan [FR]
 # Vortex Scans For Free [EN] (Disabled)
 

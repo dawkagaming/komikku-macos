@@ -10,6 +10,7 @@ class Tresdaos(MangaStream):
     name = 'Tres Daos'
     lang = 'es'
     has_cf = True
+    status = 'disabled'
 
     date_format = None
 
