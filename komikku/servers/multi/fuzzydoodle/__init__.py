@@ -5,7 +5,7 @@
 # Supported servers:
 # Lelscan-VF [FR]
 # FleksyScans [EN] (disabled)
-# Scylla Scans [EN]
+# Scylla Scans [EN] (disabled)
 
 from urllib.parse import parse_qs
 from urllib.parse import urlparse

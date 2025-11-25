@@ -10,6 +10,7 @@ class Scyllacomics(FuzzyDoodle):
     name = 'Scylla Comics'
     lang = 'en'
     is_nsfw = True
+    status = 'disabled'
 
     base_url = 'https://scyllacomics.xyz'
     logo_url = base_url + '/storage/site/favicon.png'
