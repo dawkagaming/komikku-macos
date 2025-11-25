@@ -20,14 +20,14 @@
 # Leomanga [ES]
 # Leviatanscans [EN] (disabled)
 # Manga-Scantrad [FR]
-# Mangas Origines [FR] (disabled)
+# Mangas Origines [FR]
 # MangaWeebs [EN] (disabled)
 # Manhuaus [EN]
 # Manhwa Hentai [EN] (disabled)
 # Phoenix Fansub [ES] (disabled)
 # Poseidon Scans [FR] (disabled)
 # Reaperscans [AR/FR/ID/TR] (disabled)
-# Starbound Scans [FR]
+# Starbound Scans [FR] (disabled)
 # Submanga [ES] (disabled)
 # ToonGod [EN]
 # Toonily [EN]
@@ -76,6 +76,7 @@ class Madara(Server):
     details_synopsis_selector = '.summary__content'
 
     chapters_list_selector = '#manga-chapters-holder'
+    chapters_date_selector = '.chapter-release-date'
     chapters_selector = '.wp-manga-chapter'
     chapters_slug_range = (-2, -1)
     chapters_order = 'desc'
@@ -242,7 +243,7 @@ class Madara(Server):
                 continue
 
             a_element = element.a
-            date_element = element.find(class_=['chapter-release-date', 'chapter-date']).extract()
+            date_element = element.select_one(self.chapters_date_selector).extract()
             if view_element := element.find(class_='view'):
                 view_element.extract()
 

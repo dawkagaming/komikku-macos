@@ -33,8 +33,8 @@ def test_mangasorigines(mangasorigines_server):
     assert response is not None
     yield
 
-    # Get most populars
-    print('Get most populars')
+    # Get most popular
+    print('Get most popular')
     try:
         response = mangasorigines_server.get_most_populars()
     except Exception as e:

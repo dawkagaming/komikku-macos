@@ -2,19 +2,19 @@
 # SPDX-License-Identifier: GPL-3.0-or-later
 # Author: Valéry Febvre <vfebvre@easter-eggs.com>
 
-from komikku.servers.multi.madara import Madara
+from komikku.servers.multi.madara import Madara2
 
 
-class Mangasorigines(Madara):
+class Mangasorigines(Madara2):
     id = 'mangasorigines'
     name = 'Mangas Origines'
     lang = 'fr'
     is_nsfw = True
-    status = 'disabled'  # 2024/07 new site https://crunchyscan.fr/
 
-    base_url = 'https://mangas-origines.xyz'
-    chapters_url = base_url + '/manga/{0}/ajax/chapters/'
-    chapter_url = base_url + '/manga/{0}/{1}/'
-    bypass_cf_url = base_url + '/manga/sakamoto-days/'
+    series_name = 'oeuvre'
 
-    details_synopsis_selector = '.manga-excerpt'
+    base_url = 'https://mangas-origines.fr'
+    logo_url = base_url + '/wp-content/uploads/2023/07/cropped-favmo3-32x32.png'
+    chapters_url = base_url + '/' + series_name + '/{0}/ajax/chapters/?t=1'
+
+    chapters_date_selector = '.timediff'
