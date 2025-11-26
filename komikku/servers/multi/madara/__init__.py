@@ -11,7 +11,7 @@
 # Aloalivn [EN] (disabled)
 # Apoll Comics [ES]
 # ArazNovel [TR] (disabled)
-# Argos Scan / Argos Comics [PT]
+# Argos Scan / Argos Comics [PT] (disabled)
 # Asura Scans [TR]
 # Atikrost [TR] (disabled)
 # Best Manga [RU] (disabled)

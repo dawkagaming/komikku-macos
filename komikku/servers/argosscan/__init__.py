@@ -9,6 +9,7 @@ class Argosscan(Madara2):
     id = 'argosscan'
     name = 'Argos Comics'
     lang = 'pt'
+    status = 'disabled'  # 2025/11 Switch to a custom website built with Next.js
 
     base_url = 'https://argoscomic.com'
     logo_url = base_url + '/wp-content/uploads/2024/06/cropped-argos-1-32x32.webp'
