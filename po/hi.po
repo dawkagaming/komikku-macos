@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Komikku 1.41.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-11-21 00:03+0100\n"
+"POT-Creation-Date: 2025-11-27 16:26+0100\n"
 "PO-Revision-Date: 2024-08-16 15:54+0000\n"
 "Last-Translator: Scrambled777 <weblate.scrambled777@simplelogin.com>\n"
 "Language-Team: Hindi <https://hosted.weblate.org/projects/komikku/main/hi/>\n"
@@ -91,43 +91,91 @@ msgstr "पठन इतिहास"
 msgid "Light and dark themes"
 msgstr "हल्की और गहरी थीम"
 
-#: ../data/info.febvre.Komikku.metainfo.xml.in.in:47
+#: ../data/info.febvre.Komikku.metainfo.xml.in.in:31
+msgid "reader"
+msgstr ""
+
+#: ../data/info.febvre.Komikku.metainfo.xml.in.in:32
+msgid "viewer"
+msgstr ""
+
+#: ../data/info.febvre.Komikku.metainfo.xml.in.in:33
+msgid "scanlation"
+msgstr ""
+
+#: ../data/info.febvre.Komikku.metainfo.xml.in.in:34
+msgid "comic"
+msgstr ""
+
+#: ../data/info.febvre.Komikku.metainfo.xml.in.in:35
+msgid "manga"
+msgstr ""
+
+#: ../data/info.febvre.Komikku.metainfo.xml.in.in:36
+msgid "manhwa"
+msgstr ""
+
+#: ../data/info.febvre.Komikku.metainfo.xml.in.in:37
+msgid "manhua"
+msgstr ""
+
+#: ../data/info.febvre.Komikku.metainfo.xml.in.in:38
+msgid "webtoon"
+msgstr ""
+
+#: ../data/info.febvre.Komikku.metainfo.xml.in.in:39
+msgid "webcomic"
+msgstr ""
+
+#: ../data/info.febvre.Komikku.metainfo.xml.in.in:40
+msgid "book"
+msgstr ""
+
+#: ../data/info.febvre.Komikku.metainfo.xml.in.in:41
+msgid "ebook"
+msgstr ""
+
+#: ../data/info.febvre.Komikku.metainfo.xml.in.in:42
+msgid "offline"
+msgstr ""
+
+#: ../data/info.febvre.Komikku.metainfo.xml.in.in:62
 msgid "The Library page"
 msgstr "लाइब्रेरी पृष्ठ"
 
-#: ../data/info.febvre.Komikku.metainfo.xml.in.in:51
+#: ../data/info.febvre.Komikku.metainfo.xml.in.in:66
 msgid "The Library page with the category sidebar open"
 msgstr "श्रेणी पार्श्वपट्टी के साथ लाइब्रेरी पृष्ठ खुला है"
 
-#: ../data/info.febvre.Komikku.metainfo.xml.in.in:55
+#: ../data/info.febvre.Komikku.metainfo.xml.in.in:70
 msgid "The Preferences page (Library settings)"
 msgstr "प्राथमिकताएं पृष्ठ (लाइब्रेरी सेटिंग)"
 
-#: ../data/info.febvre.Komikku.metainfo.xml.in.in:59
+#: ../data/info.febvre.Komikku.metainfo.xml.in.in:74
 msgid "The Explorer page in mobile format (Servers list)"
 msgstr "मोबाइल प्रारूप में अन्वेषक पृष्ठ (सर्वर सूची)"
 
-#: ../data/info.febvre.Komikku.metainfo.xml.in.in:63
+#: ../data/info.febvre.Komikku.metainfo.xml.in.in:78
 msgid "The Details page"
 msgstr "विवरण पृष्ठ"
 
-#: ../data/info.febvre.Komikku.metainfo.xml.in.in:67
+#: ../data/info.febvre.Komikku.metainfo.xml.in.in:82
 msgid "The Details page (chapters list)"
 msgstr "विवरण पृष्ठ (अध्याय सूची)"
 
-#: ../data/info.febvre.Komikku.metainfo.xml.in.in:71
+#: ../data/info.febvre.Komikku.metainfo.xml.in.in:86
 msgid "The Reader page"
 msgstr "पाठक पृष्ठ"
 
-#: ../data/info.febvre.Komikku.metainfo.xml.in.in:75
+#: ../data/info.febvre.Komikku.metainfo.xml.in.in:90
 msgid "The Reader page in mobile format"
 msgstr "मोबाइल प्रारूप में पाठक पृष्ठ"
 
-#: ../data/info.febvre.Komikku.metainfo.xml.in.in:79
+#: ../data/info.febvre.Komikku.metainfo.xml.in.in:94
 msgid "The Category editor page in mobile format"
 msgstr "मोबाइल प्रारूप में श्रेणी संपादक पृष्ठ"
 
-#: ../data/info.febvre.Komikku.metainfo.xml.in.in:83
+#: ../data/info.febvre.Komikku.metainfo.xml.in.in:98
 msgid "The Reading history page in mobile format"
 msgstr "मोबाइल प्रारूप में पठन इतिहास पृष्ठ"
 
@@ -960,7 +1008,7 @@ msgstr ""
 "किए गए परिवर्तन उन्हें अनुप्रयोग के वर्तमान संस्करण के साथ असंगत बना रहे हैं। यदि कोई "
 "नवीनतम संस्करण मौजूद है तो कृपया उसे अद्यतन करें।"
 
-#: ../komikku/application.py:377 ../komikku/explorer/common.py:276
+#: ../komikku/application.py:377 ../komikku/explorer/common.py:277
 msgid "Close"
 msgstr "बंद"
 
@@ -982,9 +1030,9 @@ msgid "Join Chat"
 msgstr "चैट से जुड़ें"
 
 #: ../komikku/application.py:501 ../komikku/card/__init__.py:160
-#: ../komikku/card/__init__.py:161 ../komikku/categories_editor.py:189
-#: ../komikku/downloader.py:388 ../komikku/downloader.py:389
-#: ../komikku/library/__init__.py:778 ../komikku/library/__init__.py:779
+#: ../komikku/card/__init__.py:161 ../komikku/categories_editor.py:190
+#: ../komikku/downloader.py:397 ../komikku/downloader.py:398
+#: ../komikku/library/__init__.py:782 ../komikku/library/__init__.py:783
 msgid "Cancel"
 msgstr "रद्द"
 
@@ -1046,11 +1094,11 @@ msgstr ""
 "{0} अब समर्थित नहीं है।\n"
 "कृपया किसी अन्य सर्वर पर स्विच करें।"
 
-#: ../komikku/card/__init__.py:475 ../komikku/card/chapters_list.py:731
+#: ../komikku/card/__init__.py:475 ../komikku/card/chapters_list.py:739
 msgid "Clear and Reset"
 msgstr "साफ और रीसेट करें"
 
-#: ../komikku/card/__init__.py:475 ../komikku/card/chapters_list.py:731
+#: ../komikku/card/__init__.py:475 ../komikku/card/chapters_list.py:739
 msgid "Reset"
 msgstr "रीसेट"
 
@@ -1066,7 +1114,7 @@ msgstr "अज्ञात स्थिति"
 msgid "Local"
 msgstr "स्थानीय"
 
-#: ../komikku/card/__init__.py:632 ../komikku/card/chapters_list.py:659
+#: ../komikku/card/__init__.py:632 ../komikku/card/chapters_list.py:667
 msgid "%m/%d/%Y"
 msgstr "%m/%d/%Y"
 
@@ -1074,36 +1122,36 @@ msgstr "%m/%d/%Y"
 msgid "Donate"
 msgstr "दान करें"
 
-#: ../komikku/card/chapters_list.py:338 ../komikku/downloader.py:533
-#: ../komikku/library/__init__.py:812
+#: ../komikku/card/chapters_list.py:342 ../komikku/downloader.py:542
+#: ../komikku/library/__init__.py:816
 #, python-brace-format
 msgid "{0} selected"
 msgid_plural "{0} selected"
 msgstr[0] "{0} चयनित"
 msgstr[1] "{0} चयनित"
 
-#: ../komikku/card/chapters_list.py:421 ../komikku/card/chapters_list.py:520
+#: ../komikku/card/chapters_list.py:425 ../komikku/card/chapters_list.py:528
 msgid "Failed to update chapters reading status"
 msgstr "अध्याय पठन स्थिति अद्यतन करने में विफल"
 
-#: ../komikku/card/chapters_list.py:717 ../komikku/library/__init__.py:404
+#: ../komikku/card/chapters_list.py:725 ../komikku/library/__init__.py:408
 msgid "Download"
 msgstr "डाउनलोड"
 
-#: ../komikku/card/chapters_list.py:727 ../komikku/preferences/__init__.py:153
-#: ../komikku/preferences/__init__.py:171
+#: ../komikku/card/chapters_list.py:735 ../komikku/preferences/__init__.py:153
+#: ../komikku/preferences/__init__.py:176
 msgid "Clear"
 msgstr "साफ करें"
 
-#: ../komikku/card/chapters_list.py:741
+#: ../komikku/card/chapters_list.py:749
 msgid "Mark as Read"
 msgstr "पठित चिह्नित करें"
 
-#: ../komikku/card/chapters_list.py:745
+#: ../komikku/card/chapters_list.py:753
 msgid "Mark as Unread"
 msgstr "अपठित चिह्नित करें"
 
-#: ../komikku/card/chapters_list.py:749
+#: ../komikku/card/chapters_list.py:757
 msgid "Mark Previous Chapters as Read"
 msgstr "पिछले अध्यायों को पठित चिह्नित करें"
 
@@ -1136,6 +1184,7 @@ msgstr ""
 #: ../komikku/servers/mangamana/__init__.py:63
 #: ../komikku/servers/mangaworld/__init__.py:74
 #: ../komikku/servers/raijinscan/__init__.py:34
+#: ../komikku/servers/weebdex/__init__.py:59
 #: ../komikku/servers/zenko/__init__.py:57
 msgid "Status"
 msgstr "स्थिति"
@@ -1149,7 +1198,7 @@ msgid "Chapter"
 msgstr ""
 
 #: ../komikku/card/tracking.py:253 ../komikku/categories_editor.py:78
-#: ../komikku/library/__init__.py:378
+#: ../komikku/library/__init__.py:382
 msgid "Delete?"
 msgstr "मिटाएं?"
 
@@ -1158,7 +1207,7 @@ msgid "Are you sure you want to cancel tracking?"
 msgstr ""
 
 #: ../komikku/card/tracking.py:255 ../komikku/categories_editor.py:80
-#: ../komikku/categories_editor.py:178 ../komikku/library/__init__.py:380
+#: ../komikku/categories_editor.py:179 ../komikku/library/__init__.py:384
 msgid "Delete"
 msgstr "मिटाएं"
 
@@ -1192,45 +1241,45 @@ msgstr ""
 "क्या आप वाकई \"{0}\" श्रेणी को मिटाना \n"
 "चाहते हैं?"
 
-#: ../komikku/categories_editor.py:183
+#: ../komikku/categories_editor.py:184
 msgid "Edit"
 msgstr "संपादन"
 
-#: ../komikku/categories_editor.py:196
+#: ../komikku/categories_editor.py:197
 msgid "Save"
 msgstr "सहेजें"
 
-#: ../komikku/downloader.py:274
+#: ../komikku/downloader.py:283
 #, python-brace-format
 msgid "[{0}] Chapters download ended"
 msgstr ""
 
-#: ../komikku/explorer/common.py:121
+#: ../komikku/explorer/common.py:122
 #, python-brace-format
 msgid "{0} chapter"
 msgid_plural "{0} chapters"
 msgstr[0] "{0} अध्याय"
 msgstr[1] "{0} अध्याय"
 
-#: ../komikku/explorer/common.py:123
+#: ../komikku/explorer/common.py:124
 msgid "Last Chapter: {}"
 msgstr "अंतिम अध्याय: {}"
 
-#: ../komikku/explorer/common.py:125
+#: ../komikku/explorer/common.py:126
 msgid "Last Volume: {}"
 msgstr "अंतिम वॉल्यूम: {}"
 
-#: ../komikku/explorer/common.py:242 ../komikku/preferences/servers.py:366
+#: ../komikku/explorer/common.py:243 ../komikku/preferences/servers.py:366
 #: ../komikku/preferences/servers.py:418
 #: ../komikku/servers/mangatube/__init__.py:150
 msgid "18+"
 msgstr "18+"
 
-#: ../komikku/explorer/common.py:263
+#: ../komikku/explorer/common.py:264
 msgid "Help"
 msgstr "सहायता"
 
-#: ../komikku/explorer/common.py:264
+#: ../komikku/explorer/common.py:265
 msgid ""
 "A specific folder structure is required for local comics to be properly "
 "processed.\n"
@@ -1252,15 +1301,15 @@ msgstr ""
 "\n"
 "नोट: CBR अभिलेखागार के लिए 'unrar' या 'rar' कमांड-लाइन टूल आवश्यक है।"
 
-#: ../komikku/explorer/common.py:274
+#: ../komikku/explorer/common.py:275
 msgid "Local Folder"
 msgstr "स्थानीय फोल्डर"
 
-#: ../komikku/explorer/common.py:284
+#: ../komikku/explorer/common.py:285
 msgid "Open local folder"
 msgstr "स्थानीय फोल्डर खोलें"
 
-#: ../komikku/explorer/common.py:292
+#: ../komikku/explorer/common.py:293
 msgid "Toggle pinned status"
 msgstr "पिन की गई स्थिति टॉगल करें"
 
@@ -1363,39 +1412,39 @@ msgstr "%A, %B %e"
 msgid "Resume"
 msgstr "पुनः आरम्भ"
 
-#: ../komikku/library/__init__.py:374
+#: ../komikku/library/__init__.py:378
 msgid "Are you sure you want to delete this manga?"
 msgstr "क्या आप वाकई इस मंगा को मिटाना चाहते हैं?"
 
-#: ../komikku/library/__init__.py:376
+#: ../komikku/library/__init__.py:380
 msgid "Are you sure you want to delete selected mangas?"
 msgstr "क्या आप वाकई चयनित मंगा को मिटाना चाहते हैं?"
 
-#: ../komikku/library/__init__.py:400
+#: ../komikku/library/__init__.py:404
 msgid "Are you sure you want to download all chapters of selected mangas?"
 msgstr "क्या आप वाकई चयनित मंगा के सभी अध्याय डाउनलोड करना चाहते हैं?"
 
-#: ../komikku/library/__init__.py:402
+#: ../komikku/library/__init__.py:406
 msgid "Download?"
 msgstr "डाउनलोड?"
 
-#: ../komikku/library/__init__.py:626
+#: ../komikku/library/__init__.py:630
 msgid "Welcome to Komikku"
 msgstr "Komikku में आपका स्वागत है"
 
-#: ../komikku/library/__init__.py:636
+#: ../komikku/library/__init__.py:640
 msgid "Loading…"
 msgstr "लोड हो रहा है…"
 
-#: ../komikku/library/__init__.py:761
+#: ../komikku/library/__init__.py:765
 msgid "Failed to update reading status"
 msgstr "पठन स्थिति अपडेट करने में विफल"
 
-#: ../komikku/library/__init__.py:783
+#: ../komikku/library/__init__.py:787
 msgid "Add New Comic"
 msgstr "नई कॉमिक जोड़ें"
 
-#: ../komikku/library/__init__.py:816 ../komikku/library/categories_list.py:145
+#: ../komikku/library/__init__.py:820 ../komikku/library/categories_list.py:145
 msgid "Uncategorized"
 msgstr "अवर्गीकृत"
 
@@ -1450,6 +1499,7 @@ msgstr "पूर्ण"
 #: ../komikku/servers/mangaworld/__init__.py:78
 #: ../komikku/servers/raijinscan/__init__.py:38
 #: ../komikku/servers/weebcentral/__init__.py:52
+#: ../komikku/servers/weebdex/__init__.py:63
 #: ../komikku/servers/zenko/__init__.py:61
 msgid "Ongoing"
 msgstr "चालू"
@@ -1468,12 +1518,13 @@ msgstr "निलंबित"
 #: ../komikku/servers/mangafire/__init__.py:67
 #: ../komikku/servers/mangaworld/__init__.py:81
 #: ../komikku/servers/weebcentral/__init__.py:54
+#: ../komikku/servers/weebdex/__init__.py:65
 #: ../komikku/servers/zenko/__init__.py:63
 msgid "Hiatus"
 msgstr "अंतराल"
 
 #: ../komikku/preferences/__init__.py:151
-#: ../komikku/preferences/__init__.py:169
+#: ../komikku/preferences/__init__.py:174
 msgid "Clear?"
 msgstr "साफ़?"
 
@@ -1481,15 +1532,19 @@ msgstr "साफ़?"
 msgid "Are you sure you want to clear chapters cache and database?"
 msgstr "क्या आप वाकई अध्याय कैश और डेटाबेस साफ़ करना चाहते हैं?"
 
-#: ../komikku/preferences/__init__.py:170
+#: ../komikku/preferences/__init__.py:171
+msgid "Failed to clear WebView data"
+msgstr ""
+
+#: ../komikku/preferences/__init__.py:175
 msgid "Are you sure you want to clear WebView data (cache, storage, cookies)?"
 msgstr ""
 
-#: ../komikku/preferences/__init__.py:195
+#: ../komikku/preferences/__init__.py:200
 msgid "Disable animations?"
 msgstr "सजीवता अक्षम करें?"
 
-#: ../komikku/preferences/__init__.py:196
+#: ../komikku/preferences/__init__.py:201
 msgid ""
 "Are you sure you want to disable animations?\n"
 "\n"
@@ -1499,7 +1554,7 @@ msgstr ""
 "\n"
 "पाठक में जेस्चर नेविगेशन अब ठीक से काम नहीं करेगा।"
 
-#: ../komikku/preferences/__init__.py:197
+#: ../komikku/preferences/__init__.py:202
 msgid "Disable"
 msgstr "अक्षम"
 
@@ -1617,21 +1672,21 @@ msgstr ""
 msgid "Super-saturate or desaturate pages"
 msgstr ""
 
-#: ../komikku/reader/pager/__init__.py:165
+#: ../komikku/reader/pager/__init__.py:178
 msgid "Failed to sync read progress with server"
 msgstr "पठन प्रगति को सर्वर के साथ समन्वयित करने में विफल"
 
-#: ../komikku/reader/pager/__init__.py:464
+#: ../komikku/reader/pager/__init__.py:477
 #: ../komikku/reader/pager/webtoon.py:95
 msgid "There is no previous chapter."
 msgstr "कोई पिछला अध्याय नहीं है।"
 
-#: ../komikku/reader/pager/__init__.py:466
+#: ../komikku/reader/pager/__init__.py:479
 #: ../komikku/reader/pager/webtoon.py:93
 msgid "It was the last chapter."
 msgstr "यह अंतिम अध्याय था।"
 
-#: ../komikku/reader/pager/__init__.py:632
+#: ../komikku/reader/pager/__init__.py:645
 #: ../komikku/reader/pager/webtoon.py:152
 msgid "This chapter is inaccessible."
 msgstr "यह अध्याय अप्राप्य है।"
@@ -1767,26 +1822,31 @@ msgstr "श्याम/सफेद"
 
 #: ../komikku/servers/comick/__init__.py:65
 #: ../komikku/servers/mangadex/__init__.py:58
+#: ../komikku/servers/weebdex/__init__.py:46
 msgid "Rating"
 msgstr "रेटिंग"
 
 #: ../komikku/servers/comick/__init__.py:66
 #: ../komikku/servers/mangadex/__init__.py:59
+#: ../komikku/servers/weebdex/__init__.py:47
 msgid "Filter by Content Ratings"
 msgstr ""
 
 #: ../komikku/servers/comick/__init__.py:69
 #: ../komikku/servers/mangadex/__init__.py:62
+#: ../komikku/servers/weebdex/__init__.py:50
 msgid "Safe"
 msgstr "सुरक्षित"
 
 #: ../komikku/servers/comick/__init__.py:70
 #: ../komikku/servers/mangadex/__init__.py:63
+#: ../komikku/servers/weebdex/__init__.py:51
 msgid "Suggestive"
 msgstr "सुझावात्मक"
 
 #: ../komikku/servers/comick/__init__.py:71
 #: ../komikku/servers/mangadex/__init__.py:64
+#: ../komikku/servers/weebdex/__init__.py:52
 msgid "Erotica"
 msgstr "प्रेमकाव्य"
 
@@ -1798,6 +1858,7 @@ msgstr "प्रेमकाव्य"
 #: ../komikku/servers/mangaworld/__init__.py:75
 #: ../komikku/servers/raijinscan/__init__.py:35
 #: ../komikku/servers/weebcentral/__init__.py:49
+#: ../komikku/servers/weebdex/__init__.py:60
 #: ../komikku/servers/zenko/__init__.py:58
 msgid "Filter by Statuses"
 msgstr ""
@@ -1809,6 +1870,7 @@ msgstr ""
 #: ../komikku/servers/mangadex/__init__.py:76
 #: ../komikku/servers/mangafire/__init__.py:65
 #: ../komikku/servers/raijinscan/__init__.py:39
+#: ../komikku/servers/weebdex/__init__.py:64
 #: ../komikku/servers/zenko/__init__.py:62 ../komikku/trackers/__init__.py:68
 msgid "Completed"
 msgstr "पूर्ण"
@@ -1820,6 +1882,7 @@ msgstr "पूर्ण"
 #: ../komikku/servers/mangadex/__init__.py:78
 #: ../komikku/servers/mangaworld/__init__.py:82
 #: ../komikku/servers/weebcentral/__init__.py:55
+#: ../komikku/servers/weebdex/__init__.py:66
 msgid "Canceled"
 msgstr "रद्द किया गया"
 
@@ -1864,6 +1927,7 @@ msgstr "प्रकाशन जनसांख्यिकीय"
 #: ../komikku/servers/comick/__init__.py:117
 #: ../komikku/servers/comix/__init__.py:69
 #: ../komikku/servers/mangadex/__init__.py:85
+#: ../komikku/servers/weebdex/__init__.py:73
 msgid "Filter by Publication Demographics"
 msgstr ""
 
@@ -1871,6 +1935,7 @@ msgstr ""
 #: ../komikku/servers/comix/__init__.py:75
 #: ../komikku/servers/mangaball/__init__.py:77
 #: ../komikku/servers/mangadex/__init__.py:88
+#: ../komikku/servers/weebdex/__init__.py:76
 msgid "Shounen"
 msgstr "शौनेन"
 
@@ -1878,6 +1943,7 @@ msgstr "शौनेन"
 #: ../komikku/servers/comix/__init__.py:74
 #: ../komikku/servers/mangaball/__init__.py:78
 #: ../komikku/servers/mangadex/__init__.py:89
+#: ../komikku/servers/weebdex/__init__.py:77
 msgid "Shoujo"
 msgstr "शौजो"
 
@@ -1885,6 +1951,7 @@ msgstr "शौजो"
 #: ../komikku/servers/comix/__init__.py:73
 #: ../komikku/servers/mangaball/__init__.py:79
 #: ../komikku/servers/mangadex/__init__.py:91
+#: ../komikku/servers/weebdex/__init__.py:79
 msgid "Seinen"
 msgstr "सिनेन"
 
@@ -1892,6 +1959,7 @@ msgstr "सिनेन"
 #: ../komikku/servers/comix/__init__.py:72
 #: ../komikku/servers/mangaball/__init__.py:80
 #: ../komikku/servers/mangadex/__init__.py:90
+#: ../komikku/servers/weebdex/__init__.py:78
 msgid "Josei"
 msgstr "जोसी"
 
@@ -2229,6 +2297,7 @@ msgid "Comics stored locally as archives in CBZ/CBR/CBT or PDF formats"
 msgstr ""
 
 #: ../komikku/servers/mangaball/__init__.py:71
+#: ../komikku/servers/weebdex/__init__.py:72
 msgid "Demographic"
 msgstr ""
 
@@ -2246,6 +2315,7 @@ msgid "Filter by Status"
 msgstr ""
 
 #: ../komikku/servers/mangadex/__init__.py:65
+#: ../komikku/servers/weebdex/__init__.py:53
 msgid "Pornographic"
 msgstr "अश्लील"
 
@@ -2279,10 +2349,12 @@ msgid "OR"
 msgstr "या"
 
 #: ../komikku/servers/mangadex/__init__.py:166
+#: ../komikku/servers/weebdex/__init__.py:96
 msgid "Data Saver Mode"
 msgstr ""
 
 #: ../komikku/servers/mangadex/__init__.py:167
+#: ../komikku/servers/weebdex/__init__.py:97
 msgid "Fetch lower quality images to save bandwidth"
 msgstr ""
 
@@ -2347,12 +2419,12 @@ msgstr "बिना"
 msgid "16+"
 msgstr "16+"
 
-#: ../komikku/servers/multi/madara/__init__.py:426
+#: ../komikku/servers/multi/madara/__init__.py:427
 #: ../komikku/servers/readmanhwa/__init__.py:45
 msgid "NSFW Content"
 msgstr "NSFW सामग्री"
 
-#: ../komikku/servers/multi/madara/__init__.py:427
+#: ../komikku/servers/multi/madara/__init__.py:428
 #: ../komikku/servers/readmanhwa/__init__.py:46
 msgid "Whether to show manga containing NSFW content"
 msgstr "क्या NSFW सामग्री वाला मंगा दिखाना है"
@@ -2402,57 +2474,57 @@ msgstr ""
 msgid "Rereading"
 msgstr ""
 
-#: ../komikku/updater.py:86
+#: ../komikku/updater.py:88
 #, python-brace-format
 msgid "{0} seems down. Please try updating later"
 msgstr ""
 
-#: ../komikku/updater.py:118
+#: ../komikku/updater.py:122
 msgid "Library update completed with errors"
 msgstr "लाइब्रेरी अद्यतन त्रुटियों के साथ पूरा हुआ"
 
-#: ../komikku/updater.py:120
+#: ../komikku/updater.py:124
 msgid "Library update completed"
 msgstr "लाइब्रेरी अद्यतन पूरा हुआ"
 
-#: ../komikku/updater.py:123
+#: ../komikku/updater.py:127
 msgid "Update completed with errors"
 msgstr "अद्यतन त्रुटियों के साथ पूरा हुआ"
 
-#: ../komikku/updater.py:125
+#: ../komikku/updater.py:129
 msgid "Update completed"
 msgstr "अद्यतन पूरा हुआ"
 
-#: ../komikku/updater.py:129
+#: ../komikku/updater.py:133
 #, python-brace-format
 msgid "{0} successful update"
 msgid_plural "{0} successful updates"
 msgstr[0] "{0} सफल अद्यतन"
 msgstr[1] "{0} सफल अद्यतन"
 
-#: ../komikku/updater.py:130 ../komikku/updater.py:146
+#: ../komikku/updater.py:134 ../komikku/updater.py:150
 #, python-brace-format
 msgid "{0} new chapter"
 msgid_plural "{0} new chapters"
 msgstr[0] "{0} नया अध्याय"
 msgstr[1] "{0} नए अध्याय"
 
-#: ../komikku/updater.py:132 ../komikku/updater.py:154
+#: ../komikku/updater.py:136 ../komikku/updater.py:158
 msgid "No new chapters"
 msgstr "कोई नए अध्याय नहीं"
 
-#: ../komikku/updater.py:135
+#: ../komikku/updater.py:139
 #, python-brace-format
 msgid "{0} update failed"
 msgid_plural "{0} updates failed"
 msgstr[0] "{0} अद्यतन विफल रहा"
 msgstr[1] "{0} अद्यतन विफल रहे"
 
-#: ../komikku/updater.py:173
+#: ../komikku/updater.py:177
 msgid "Oops, update has failed. Please try again."
 msgstr "उफ़, अद्यतन विफल हो गया है। कृपया पुन: प्रयास करें।"
 
-#: ../komikku/updater.py:182
+#: ../komikku/updater.py:186
 msgid "Library update started"
 msgstr "लाइब्रेरी अद्यतन प्रारंभ हुआ"
 
@@ -2464,11 +2536,11 @@ msgstr "आप अभी ऑफ़लाइन हैं"
 msgid "No Internet connection, timeout or server down"
 msgstr "कोई इंटरनेट कनेक्शन नहीं, समय समाप्त या सर्वर डाउन"
 
-#: ../komikku/webview.py:431
+#: ../komikku/webview.py:434
 msgid "Please wait…"
 msgstr ""
 
-#: ../komikku/webview.py:486
+#: ../komikku/webview.py:489
 msgid "Please complete CAPTCHA"
 msgstr "कृपया CAPTCHA पूर्ण करें"
 
