@@ -46,11 +46,16 @@ class Asurascans(Server):
         },
     ]
 
+    long_strip_genres = [
+        'Manhwa',
+        'Manhua',
+    ]
+
     def __init__(self):
         if self.session is None:
             self.session = requests.Session()
             self.session.headers.update({
-                'user-agent': USER_AGENT,
+                'User-Agent': USER_AGENT,
             })
 
     def check_slug(self, initial_data):
@@ -117,11 +122,23 @@ class Asurascans(Server):
                 data['status'] = 'hiatus'
 
         if author_element := soup.select_one('h3:-soup-contains("Author") ~ h3'):
-            data['authors'].append(author_element.text.strip())
+            author = author_element.text.strip()
+            if author and author != '_':
+                data['authors'].append(author)
         if author_element := soup.select_one('h3:-soup-contains("Artist") ~ h3'):
-            data['authors'].append(author_element.text.strip())
+            author = author_element.text.strip()
+            if author and author != '_' and author not in data['authors']:
+                data['authors'].append(author)
+
+        if scanlator_element := soup.select_one('h3:-soup-contains("Serialization") ~ h3'):
+            scanlator = scanlator_element.text.strip()
+            if scanlator and scanlator != '_':
+                data['scanlators'].append(scanlator)
 
         for element in soup.select('h3:-soup-contains("Genre") ~ div button'):
+            data['genres'].append(element.text.strip())
+
+        for element in soup.select('h3:-soup-contains("Type") ~ h3'):
             data['genres'].append(element.text.strip())
 
         if synopsis_element := soup.select_one('h3:-soup-contains("Synopsis") ~ span'):
