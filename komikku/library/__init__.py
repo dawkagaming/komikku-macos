@@ -349,9 +349,13 @@ class LibraryPage(Adw.NavigationPage):
             if self.window.downloader.running or self.window.updater.running:
                 return GLib.SOURCE_CONTINUE
 
+            db_conn = create_db_connection()
+
             # Safely delete mangas in DB
             for manga in mangas:
-                manga.delete()
+                manga.delete(db_conn=db_conn)
+
+            db_conn.close()
 
             # Restart Downloader & Updater
             self.window.downloader.start()
@@ -814,7 +818,7 @@ class LibraryPage(Adw.NavigationPage):
             if (category_id := Settings.get_default().selected_category) != CategoryVirtual.ALL:
                 if category_id == CategoryVirtual.UNCATEGORIZED:
                     title = _('Uncategorized')
-                elif category := Category.get(category_id, db_conn):
+                elif category := Category.get(category_id, db_conn=db_conn):
                     title = category.label
                 else:
                     # Category saved in settings no longer exists!

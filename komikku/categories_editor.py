@@ -103,11 +103,10 @@ class CategoriesEditorPage(Adw.NavigationPage):
 
         db_conn = create_db_connection()
         records = db_conn.execute('SELECT * FROM categories ORDER BY label ASC').fetchall()
-        db_conn.close()
 
         if records:
             for record in records:
-                category = Category.get(record['id'])
+                category = Category.get(record['id'], db_conn=db_conn)
 
                 row = CategoryRow(category)
                 row.delete_button.connect('clicked', self.delete_category, row)
@@ -119,6 +118,8 @@ class CategoriesEditorPage(Adw.NavigationPage):
             self.stack.set_visible_child_name('list')
         else:
             self.stack.set_visible_child_name('empty')
+
+        db_conn.close()
 
     def show(self):
         self.populate()

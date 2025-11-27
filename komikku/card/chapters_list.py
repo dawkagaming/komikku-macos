@@ -181,11 +181,15 @@ class ChaptersList:
 
     def clear_selected_chapters(self, _action, _param, reset):
         # Clear and reset selected chapters
+        db_conn = create_db_connection()
+
         items = self.get_selected_chapters_items()
         Chapter.clear_many([item.chapter for item in items], reset=reset)
         for item in items:
-            item.chapter = Chapter.get(item.chapter.id)
+            item.chapter = Chapter.get(item.chapter.id, db_conn=db_conn)
             item.emit_changed()
+
+        db_conn.close()
 
         self.card.refresh(unread_chapters=reset, info=True)
         self.card.window.library.refresh_on_manga_state_changed(self.card.manga)
@@ -498,10 +502,14 @@ class ChaptersList:
         if res:
             # Then, if DB update succeeded, update chapters rows
             def update_chapters_rows():
+                db_conn = create_db_connection()
+
                 for item in self.get_selected_chapters_items():
-                    item.chapter = Chapter.get(item.chapter.id)
+                    item.chapter = Chapter.get(item.chapter.id, db_conn=db_conn)
                     item.emit_changed()
                     yield True
+
+                db_conn.close()
 
                 self.card.leave_selection_mode()
                 self.card.window.activity_indicator.set_visible(False)

@@ -20,11 +20,15 @@ class Category:
 
     @classmethod
     def get(cls, id_, db_conn=None):
-        if db_conn is not None:
-            row = db_conn.execute('SELECT * FROM categories WHERE id = ?', (id_,)).fetchone()
-        else:
+        if db_conn is None:
             db_conn = create_db_connection()
-            row = db_conn.execute('SELECT * FROM categories WHERE id = ?', (id_,)).fetchone()
+            close_db_conn = True
+        else:
+            close_db_conn = False
+
+        row = db_conn.execute('SELECT * FROM categories WHERE id = ?', (id_,)).fetchone()
+
+        if close_db_conn:
             db_conn.close()
 
         if row is None:
@@ -33,18 +37,14 @@ class Category:
         return cls(row)
 
     @classmethod
-    def new(cls, label, db_conn=None):
+    def new(cls, label):
         data = dict(
             label=label,
         )
 
-        if db_conn is not None:
+        db_conn = create_db_connection()
+        with db_conn:
             id_ = insert_row(db_conn, 'categories', data)
-        else:
-            db_conn = create_db_connection()
-
-            with db_conn:
-                id_ = insert_row(db_conn, 'categories', data)
 
         category = cls.get(id_, db_conn=db_conn) if id_ is not None else None
 

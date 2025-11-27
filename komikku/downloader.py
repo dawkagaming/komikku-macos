@@ -49,6 +49,7 @@ class Downloader(GObject.GObject):
         """Add chapters to download"""
         chapters_ids = []
         rows_data = []
+        db_conn = create_db_connection()
 
         for chapter in chapters:
             if isinstance(chapter, Chapter):
@@ -58,7 +59,7 @@ class Downloader(GObject.GObject):
             else:
                 chapter_id = chapter
 
-            if Download.get_by_chapter_id(chapter_id) is not None:
+            if Download.get_by_chapter_id(chapter_id, db_conn=db_conn) is not None:
                 # Chapter download is already scheduled
                 continue
 
@@ -71,32 +72,37 @@ class Downloader(GObject.GObject):
             chapters_ids.append(chapter_id)
 
         if not chapters_ids:
+            db_conn.close()
             return
 
-        db_conn = create_db_connection()
         with db_conn:
             insert_rows(db_conn, 'downloads', rows_data)
-        db_conn.close()
 
         if emit_signal:
             for chapter_id in chapters_ids:
-                download = Download.get_by_chapter_id(chapter_id)
+                download = Download.get_by_chapter_id(chapter_id, db_conn=db_conn)
                 if download:
                     self.emit('download-changed', download, None)
 
+        db_conn.close()
+
     def cancel(self, chapters):
         """Cancel downloads"""
+        db_conn = create_db_connection()
+
         for chapter in chapters:
-            download = Download.get_by_chapter_id(chapter.id)
+            download = Download.get_by_chapter_id(chapter.id, db_conn=db_conn)
             if not download:
                 continue
 
             if self.current_download and self.current_download.id == download.id:
                 self.current_download.status = 'canceled'
 
-            download.delete()
+            download.delete(db_conn=db_conn)
 
             self.emit('download-changed', None, chapter)
+
+        db_conn.close()
 
     @if_network_available
     def start(self):
@@ -147,6 +153,7 @@ class Downloader(GObject.GObject):
             run(exclude_errors=True)
 
         def process_manga_downloads(downloads):
+            db_conn = create_db_connection()
             manga = None
             cancelations = 0
             errors = 0
@@ -158,7 +165,7 @@ class Downloader(GObject.GObject):
                 if self.stop_flag:
                     break
 
-                download = Download.get(download_id)
+                download = Download.get(download_id, db_conn=db_conn)
                 if download is None:
                     # Download has been canceled in the meantime
                     cancelations += 1
@@ -168,11 +175,11 @@ class Downloader(GObject.GObject):
                 if manga is None:
                     manga = chapter.manga
 
-                download.update(dict(status='downloading'))
+                download.update(dict(status='downloading'), db_conn=db_conn)
                 GLib.idle_add(self.emit, 'download-changed', download, None)
 
                 try:
-                    if chapter.update_full() and len(chapter.pages) > 0:
+                    if chapter.update_full(db_conn=db_conn) and len(chapter.pages) > 0:
                         self.current_download = download
                         page_errors = 0
                         page_successes = 0
@@ -195,14 +202,14 @@ class Downloader(GObject.GObject):
                                 #
                                 # Easiest way to avoid server  overloading is to set a time-out between requests
                                 # equal to 2x the time it took to load the page (responsive delay).
-                                path, rtime = chapter.get_page(index)
+                                path, rtime = chapter.get_page(index, db_conn=db_conn)
 
                                 if path is not None:
                                     page_successes += 1
-                                    download.update(dict(percent=(index + 1) * 100 / len(chapter.pages)))
+                                    download.update(dict(percent=(index + 1) * 100 / len(chapter.pages)), db_conn=db_conn)
                                 else:
                                     page_errors += 1
-                                    download.update(dict(errors=page_errors))
+                                    download.update(dict(errors=page_errors), db_conn=db_conn)
 
                                 GLib.idle_add(self.emit, 'download-changed', download, None)
 
@@ -215,15 +222,15 @@ class Downloader(GObject.GObject):
                             # Download ended
                             # All pages were successfully downloaded
                             successes += 1
-                            chapter.update(dict(downloaded=1))
-                            download.delete()
+                            chapter.update(dict(downloaded=1), db_conn=db_conn)
+                            download.delete(db_conn=db_conn)
                             GLib.idle_add(self.emit, 'download-changed', None, chapter)
 
                         elif page_successes + page_errors == len(chapter.pages):
                             # Download has ended
                             # But at least one page failed to be downloaded
                             errors += 1
-                            download.update(dict(status='error'))
+                            download.update(dict(status='error'), db_conn=db_conn)
                             GLib.idle_add(self.emit, 'download-changed', download, None)
 
                         else:
@@ -231,7 +238,7 @@ class Downloader(GObject.GObject):
                             if self.stop_flag:
                                 # Downloader has been stopped
                                 # Restore pending status of current unfinished download
-                                download.update(dict(status='pending'))
+                                download.update(dict(status='pending'), db_conn=db_conn)
 
                             elif download.status == 'canceled':
                                 # Download has been canceled
@@ -243,7 +250,7 @@ class Downloader(GObject.GObject):
                         # - Outdated chapter info
                         # - Server has undergone changes (API, HTML) and plugin code is outdated
                         failures += 1
-                        download.update(dict(status='error'))
+                        download.update(dict(status='error'), db_conn=db_conn)
                         GLib.idle_add(self.emit, 'download-changed', download, None)
                 except Exception:
                     # Possible causes:
@@ -252,8 +259,10 @@ class Downloader(GObject.GObject):
                     # - Server down
                     # - Bad/corrupt local archive
                     failures += 1
-                    download.update(dict(status='error'))
+                    download.update(dict(status='error'), db_conn=db_conn)
                     GLib.idle_add(self.emit, 'download-changed', download, None)
+
+            db_conn.close()
 
             self.current_download = None
             if not self.stop_flag:
@@ -553,11 +562,10 @@ class DownloadManagerPage(Adw.NavigationPage):
 
         db_conn = create_db_connection()
         records = db_conn.execute('SELECT * FROM downloads ORDER BY date ASC').fetchall()
-        db_conn.close()
 
         if records:
             for record in records:
-                download = Download.get(record['id'])
+                download = Download.get(record['id'], db_conn=db_conn)
 
                 row = DownloadRow(download)
                 self.listbox.append(row)
@@ -566,6 +574,8 @@ class DownloadManagerPage(Adw.NavigationPage):
         else:
             # No downloads
             self.stack.set_visible_child_name('empty')
+
+        db_conn.close()
 
     def select_all(self):
         if not self.selection_mode:

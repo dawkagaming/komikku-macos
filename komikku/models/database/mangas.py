@@ -55,11 +55,15 @@ class Manga:
 
     @classmethod
     def get(cls, id_, server=None, db_conn=None):
-        if db_conn is not None:
-            row = db_conn.execute('SELECT * FROM mangas WHERE id = ?', (id_,)).fetchone()
-        else:
+        if db_conn is None:
             db_conn = create_db_connection()
-            row = db_conn.execute('SELECT * FROM mangas WHERE id = ?', (id_,)).fetchone()
+            close_db_conn = True
+        else:
+            close_db_conn = False
+
+        row = db_conn.execute('SELECT * FROM mangas WHERE id = ?', (id_,)).fetchone()
+
+        if close_db_conn:
             db_conn.close()
 
         if row is None:
@@ -361,13 +365,18 @@ class Manga:
             # Move folder
             shutil.move(tmp_path, self.path)
 
-    def delete(self):
-        db_conn = create_db_connection()
+    def delete(self, db_conn=None):
+        if db_conn is None:
+            db_conn = create_db_connection()
+            close_db_conn = True
+        else:
+            close_db_conn = False
 
         with db_conn:
             db_conn.execute('DELETE FROM mangas WHERE id = ?', (self.id, ))
 
-        db_conn.close()
+        if close_db_conn:
+            db_conn.close()
 
         # Delete folder except when server is 'local'
         if os.path.exists(self.path) and not self.is_local:
@@ -459,7 +468,7 @@ class Manga:
 
         db_conn.close()
 
-    def update(self, data):
+    def update(self, data, db_conn=None):
         """
         Updates specific fields
 
@@ -472,15 +481,21 @@ class Manga:
         for key in data:
             setattr(self, key, data[key])
 
-        db_conn = create_db_connection()
+        if db_conn is None:
+            db_conn = create_db_connection()
+            close_db_conn = True
+        else:
+            close_db_conn = False
+
         with db_conn:
             ret = update_row(db_conn, 'mangas', self.id, data)
 
-        db_conn.close()
+        if close_db_conn:
+            db_conn.close()
 
         return ret
 
-    def update_full(self):
+    def update_full(self, db_conn=None):
         """
         Updates manga
 
@@ -513,7 +528,12 @@ class Manga:
 
         synced = self.server.sync and data['last_read'] != self.last_read
 
-        db_conn = create_db_connection()
+        if db_conn is None:
+            db_conn = create_db_connection()
+            close_db_conn = True
+        else:
+            close_db_conn = False
+
         with db_conn:
             # Update chapters
             chapters_data = data.pop('chapters')
@@ -633,7 +653,8 @@ class Manga:
                 # Manga name changes, manga folder must be renamed too
                 os.rename(old_path, self.path)
 
-        db_conn.close()
+        if close_db_conn:
+            db_conn.close()
 
         return True, chapters_changes, synced
 
@@ -650,11 +671,15 @@ class Chapter:
 
     @classmethod
     def get(cls, id_, manga=None, db_conn=None):
-        if db_conn is not None:
-            row = db_conn.execute('SELECT * FROM chapters WHERE id = ?', (id_,)).fetchone()
-        else:
+        if db_conn is None:
             db_conn = create_db_connection()
-            row = db_conn.execute('SELECT * FROM chapters WHERE id = ?', (id_,)).fetchone()
+            close_db_conn = True
+        else:
+            close_db_conn = False
+
+        row = db_conn.execute('SELECT * FROM chapters WHERE id = ?', (id_,)).fetchone()
+
+        if close_db_conn:
             db_conn.close()
 
         if row is None:
@@ -674,15 +699,19 @@ class Chapter:
             read=0,
         ))
 
-        if db_conn is not None:
-            id_ = insert_row(db_conn, 'chapters', data)
-        else:
+        if db_conn is None:
             db_conn = create_db_connection()
+            close_db_conn = True
+        else:
+            close_db_conn = False
 
-            with db_conn:
-                id_ = insert_row(db_conn, 'chapters', data)
+        with db_conn:
+            id_ = insert_row(db_conn, 'chapters', data)
 
         chapter = cls.get(id_, db_conn=db_conn) if id_ is not None else None
+
+        if close_db_conn:
+            close_db_conn.close()
 
         return chapter
 
@@ -778,20 +807,22 @@ class Chapter:
         db_conn.close()
 
     def delete(self, db_conn=None):
-        if db_conn is not None:
-            db_conn.execute('DELETE FROM chapters WHERE id = ?', (self.id, ))
-        else:
+        if db_conn is None:
             db_conn = create_db_connection()
+            close_db_conn = True
+        else:
+            close_db_conn = False
 
-            with db_conn:
-                db_conn.execute('DELETE FROM chapters WHERE id = ?', (self.id, ))
+        with db_conn:
+            db_conn.execute('DELETE FROM chapters WHERE id = ?', (self.id, ))
 
+        if close_db_conn:
             db_conn.close()
 
         if os.path.exists(self.path):
             shutil.rmtree(self.path)
 
-    def get_page(self, index):
+    def get_page(self, index, db_conn=None):
         page_path = self.get_page_path(index)
         if page_path:
             return page_path, None
@@ -831,7 +862,7 @@ class Chapter:
             updated_data['downloaded'] = downloaded
 
         if updated_data:
-            self.update(updated_data)
+            self.update(updated_data, db_conn=db_conn)
 
         return page_path, rtime
 
@@ -869,7 +900,7 @@ class Chapter:
 
         return path if os.path.exists(path) else None
 
-    def update(self, data):
+    def update(self, data, db_conn=None):
         """
         Updates specific fields
 
@@ -881,15 +912,21 @@ class Chapter:
         for key in data:
             setattr(self, key, data[key])
 
-        db_conn = create_db_connection()
+        if db_conn is None:
+            db_conn = create_db_connection()
+            close_db_conn = True
+        else:
+            close_db_conn = False
+
         with db_conn:
             ret = update_row(db_conn, 'chapters', self.id, data)
 
-        db_conn.close()
+        if close_db_conn:
+            db_conn.close()
 
         return ret
 
-    def update_full(self):
+    def update_full(self, db_conn=None):
         """
         Updates chapter
 
@@ -906,4 +943,4 @@ class Chapter:
         if data is None or not data['pages']:
             return False
 
-        return self.update(data)
+        return self.update(data, db_conn=db_conn)

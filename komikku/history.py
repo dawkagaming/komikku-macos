@@ -198,12 +198,11 @@ class HistoryPage(Adw.NavigationPage):
             ORDER BY last_read DESC
         """
         records = db_conn.execute(query, (start,)).fetchall()
-        db_conn.close()
 
         if records:
             dates = {}
             for record in records:
-                chapter = Chapter.get(record['id'])
+                chapter = Chapter.get(record['id'], db_conn=db_conn)
                 date = record['last_read_date']  # ISO 8601 date string
                 if date not in dates:
                     dates[date] = []
@@ -217,6 +216,8 @@ class HistoryPage(Adw.NavigationPage):
             self.stack.set_visible_child_name('list')
         else:
             self.stack.set_visible_child_name('empty')
+
+        db_conn.close()
 
     def search(self, _entry):
         for date_box in self.dates_box:

@@ -37,26 +37,32 @@ sqlite3.register_converter('json', convert_json)
 
 def backup_db():
     db_path = get_db_path()
-    if os.path.exists(db_path) and check_db():
-        logger.info('Save a DB backup')
-        shutil.copyfile(db_path, get_db_backup_path())
 
+    if os.path.exists(db_path):
+        db_conn = create_db_connection()
+        if not db_conn:
+            logger.info('[SQLite] Failed to backup DB')
+            return
 
-def check_db():
-    db_conn = create_db_connection()
-
-    if db_conn:
-        try:
-            res = db_conn.execute('PRAGMA integrity_check').fetchone()  # PRAGMA quick_check
-
-            fk_violations = len(db_conn.execute('PRAGMA foreign_key_check').fetchall())
-
-            ret = res[0] == 'ok' and fk_violations == 0
-        except sqlite3.DatabaseError:
-            logger.exception('Failed to check DB')
-            ret = False
+        if check_db(db_conn):
+            logger.info('Save a DB backup')
+            shutil.copyfile(db_path, get_db_backup_path())
+        else:
+            logger.info('[SQLite] Failed to backup DB')
 
         db_conn.close()
+
+
+def check_db(db_conn):
+    try:
+        res = db_conn.execute('PRAGMA integrity_check').fetchone()  # PRAGMA quick_check
+
+        fk_violations = len(db_conn.execute('PRAGMA foreign_key_check').fetchall())
+
+        ret = res[0] == 'ok' and fk_violations == 0
+    except sqlite3.DatabaseError:
+        logger.exception('[SQLite] Failed to check DB')
+        ret = False
 
     return ret
 
@@ -93,7 +99,7 @@ def collate_natsort(value1, value2):
 def create_db_connection():
     con = sqlite3.connect(get_db_path(), detect_types=sqlite3.PARSE_DECLTYPES)
     if con is None:
-        logger.error('Can not create the database connection')
+        logger.error('[SQLite] Can not create the database connection')
         return None
 
     con.row_factory = sqlite3.Row
@@ -108,16 +114,20 @@ def create_db_connection():
 
 
 def execute_sql(conn, sql):
+    res = True
+
+    c = conn.cursor()
+
     try:
-        c = conn.cursor()
         c.execute(sql)
         conn.commit()
-        c.close()
     except Exception as e:
-        print('SQLite-error:', e)
-        return False
-    else:
-        return True
+        logger.error('[SQLite] %s', e)
+        res = False
+
+    c.close()
+
+    return res
 
 
 @cache
@@ -148,9 +158,14 @@ def get_db_backup_path():
 
 
 def init_db():
+    db_conn = create_db_connection()
+    if not db_conn:
+        return
+
     db_path = get_db_path()
     db_backup_path = get_db_backup_path()
-    if os.path.exists(db_path) and os.path.exists(db_backup_path) and not check_db():
+
+    if os.path.exists(db_path) and os.path.exists(db_backup_path) and not check_db(db_conn):
         # Restore backup
         logger.info('Restore DB from backup')
         shutil.copyfile(db_backup_path, db_path)
@@ -238,152 +253,150 @@ def init_db():
         'CREATE INDEX IF NOT EXISTS idx_mangas_in_library ON mangas(in_library, last_read DESC);',
     ]
 
-    db_conn = create_db_connection()
-    if db_conn is not None:
-        db_version = db_conn.execute('PRAGMA user_version').fetchone()[0]
+    db_version = db_conn.execute('PRAGMA user_version').fetchone()[0]
 
-        execute_sql(db_conn, sql_create_mangas_table)
-        execute_sql(db_conn, sql_create_chapters_table)
-        execute_sql(db_conn, sql_create_downloads_table)
-        execute_sql(db_conn, sql_create_categories_table)
-        execute_sql(db_conn, sql_create_categories_mangas_association_table)
-        for sql_create_index in sql_create_indexes:
-            execute_sql(db_conn, sql_create_index)
+    execute_sql(db_conn, sql_create_mangas_table)
+    execute_sql(db_conn, sql_create_chapters_table)
+    execute_sql(db_conn, sql_create_downloads_table)
+    execute_sql(db_conn, sql_create_categories_table)
+    execute_sql(db_conn, sql_create_categories_mangas_association_table)
+    for sql_create_index in sql_create_indexes:
+        execute_sql(db_conn, sql_create_index)
 
-        if db_version == 0:
-            # First launch
-            db_conn.execute('PRAGMA user_version = {0}'.format(VERSION))
+    if db_version == 0:
+        # First launch
+        db_conn.execute('PRAGMA user_version = {0}'.format(VERSION))
 
-        if 0 < db_version <= 1:
-            # Version 0.10.0
-            if execute_sql(db_conn, 'ALTER TABLE downloads ADD COLUMN errors integer DEFAULT 0;'):
-                db_conn.execute('PRAGMA user_version = {0}'.format(2))
+    if 0 < db_version <= 1:
+        # Version 0.10.0
+        if execute_sql(db_conn, 'ALTER TABLE downloads ADD COLUMN errors integer DEFAULT 0;'):
+            db_conn.execute('PRAGMA user_version = {0}'.format(2))
 
-        if 0 < db_version <= 2:
-            # Version 0.12.0
-            if execute_sql(db_conn, 'ALTER TABLE mangas ADD COLUMN borders_crop integer;'):
-                db_conn.execute('PRAGMA user_version = {0}'.format(3))
+    if 0 < db_version <= 2:
+        # Version 0.12.0
+        if execute_sql(db_conn, 'ALTER TABLE mangas ADD COLUMN borders_crop integer;'):
+            db_conn.execute('PRAGMA user_version = {0}'.format(3))
 
-        if 0 < db_version <= 4:
-            # Version 0.16.0
-            if execute_sql(db_conn, 'ALTER TABLE chapters ADD COLUMN scanlators json;'):
-                db_conn.execute('PRAGMA user_version = {0}'.format(5))
+    if 0 < db_version <= 4:
+        # Version 0.16.0
+        if execute_sql(db_conn, 'ALTER TABLE chapters ADD COLUMN scanlators json;'):
+            db_conn.execute('PRAGMA user_version = {0}'.format(5))
 
-        if 0 < db_version <= 5:
-            # Version 0.22.0
-            if execute_sql(db_conn, 'ALTER TABLE mangas RENAME COLUMN reading_direction TO reading_mode;'):
-                db_conn.execute('PRAGMA user_version = {0}'.format(6))
+    if 0 < db_version <= 5:
+        # Version 0.22.0
+        if execute_sql(db_conn, 'ALTER TABLE mangas RENAME COLUMN reading_direction TO reading_mode;'):
+            db_conn.execute('PRAGMA user_version = {0}'.format(6))
 
-        if 0 < db_version <= 6:
-            # Version 0.25.0
-            if execute_sql(db_conn, sql_create_categories_table) and execute_sql(db_conn, sql_create_categories_mangas_association_table):
-                db_conn.execute('PRAGMA user_version = {0}'.format(7))
+    if 0 < db_version <= 6:
+        # Version 0.25.0
+        if execute_sql(db_conn, sql_create_categories_table) and execute_sql(db_conn, sql_create_categories_mangas_association_table):
+            db_conn.execute('PRAGMA user_version = {0}'.format(7))
 
-        if 0 < db_version <= 7:
-            # Version 0.31.0
-            ids_mapping = dict(
-                jaiminisbox__old='jaiminisbox',
-                kireicake='kireicake:jaiminisbox',
-                lupiteam='lupiteam:jaiminisbox',
-                tuttoanimemanga='tuttoanimemanga:jaiminisbox',
+    if 0 < db_version <= 7:
+        # Version 0.31.0
+        ids_mapping = dict(
+            jaiminisbox__old='jaiminisbox',
+            kireicake='kireicake:jaiminisbox',
+            lupiteam='lupiteam:jaiminisbox',
+            tuttoanimemanga='tuttoanimemanga:jaiminisbox',
 
-                readcomicsonline='readcomicsonline:hatigarmscans',
+            readcomicsonline='readcomicsonline:hatigarmscans',
 
-                hatigarmscans__old='hatigarmscans',
+            hatigarmscans__old='hatigarmscans',
 
-                edelgardescans='edelgardescans:genkan',
-                hatigarmscans='hatigarmscans:genkan',
-                hunlightscans='hunlightscans:genkan',
-                leviatanscans__old='leviatanscans:genkan',
-                leviatanscans_es_old='leviatanscans_es:genkan',
-                oneshotscans__old='oneshotscans:genkan',
-                reaperscans='reaperscans:genkan',
-                thenonamesscans='thenonamesscans:genkan',
-                zeroscans='zeroscans:genkan',
+            edelgardescans='edelgardescans:genkan',
+            hatigarmscans='hatigarmscans:genkan',
+            hunlightscans='hunlightscans:genkan',
+            leviatanscans__old='leviatanscans:genkan',
+            leviatanscans_es_old='leviatanscans_es:genkan',
+            oneshotscans__old='oneshotscans:genkan',
+            reaperscans='reaperscans:genkan',
+            thenonamesscans='thenonamesscans:genkan',
+            zeroscans='zeroscans:genkan',
 
-                akumanga='akumanga:madara',
-                aloalivn='aloalivn:madara',
-                apollcomics='apollcomics:madara',
-                araznovel='araznovel:madara',
-                argosscan='argosscan:madara',
-                atikrost='atikrost:madara',
-                romance24h='romance24h:madara',
-                wakascan='wakascan:madara',
-            )
-            res = True
-            for new, old in ids_mapping.items():
-                res &= execute_sql(db_conn, f"UPDATE mangas SET server_id = '{new}' WHERE server_id = '{old}';")  # noqa: E702, E231
+            akumanga='akumanga:madara',
+            aloalivn='aloalivn:madara',
+            apollcomics='apollcomics:madara',
+            araznovel='araznovel:madara',
+            argosscan='argosscan:madara',
+            atikrost='atikrost:madara',
+            romance24h='romance24h:madara',
+            wakascan='wakascan:madara',
+        )
+        res = True
+        for new, old in ids_mapping.items():
+            res &= execute_sql(db_conn, f"UPDATE mangas SET server_id = '{new}' WHERE server_id = '{old}';")  # noqa: E702, E231
 
-            if res:
-                db_conn.execute('PRAGMA user_version = {0}'.format(8))
+        if res:
+            db_conn.execute('PRAGMA user_version = {0}'.format(8))
 
-        if 0 < db_version <= 8:
-            # Version 0.32.0
-            if execute_sql(db_conn, 'ALTER TABLE mangas ADD COLUMN page_numbering integer;'):
-                db_conn.execute('PRAGMA user_version = {0}'.format(9))
+    if 0 < db_version <= 8:
+        # Version 0.32.0
+        if execute_sql(db_conn, 'ALTER TABLE mangas ADD COLUMN page_numbering integer;'):
+            db_conn.execute('PRAGMA user_version = {0}'.format(9))
 
-        if 0 < db_version <= 9:
-            # Version 0.35.0
-            execute_sql(db_conn, "UPDATE mangas SET server_id = 'reaperscans__old' WHERE server_id = 'reaperscans';")
+    if 0 < db_version <= 9:
+        # Version 0.35.0
+        execute_sql(db_conn, "UPDATE mangas SET server_id = 'reaperscans__old' WHERE server_id = 'reaperscans';")
 
-            if execute_sql(db_conn, 'ALTER TABLE chapters ADD COLUMN last_read timestamp;'):
-                db_conn.execute('PRAGMA user_version = {0}'.format(10))
+        if execute_sql(db_conn, 'ALTER TABLE chapters ADD COLUMN last_read timestamp;'):
+            db_conn.execute('PRAGMA user_version = {0}'.format(10))
 
-        if 0 < db_version <= 10:
-            # Version 1.0.0
-            execute_sql(db_conn, 'ALTER TABLE mangas ADD COLUMN landscape_zoom integer;')
-            execute_sql(db_conn, 'ALTER TABLE chapters ADD COLUMN read_progress text;')
+    if 0 < db_version <= 10:
+        # Version 1.0.0
+        execute_sql(db_conn, 'ALTER TABLE mangas ADD COLUMN landscape_zoom integer;')
+        execute_sql(db_conn, 'ALTER TABLE chapters ADD COLUMN read_progress text;')
 
-            # Chapters: move reading status of pages in a new 'read_progress' field
-            ids = []
-            data = []
-            manga_rows = db_conn.execute('SELECT id FROM mangas').fetchall()
-            with db_conn:
-                for manga_row in manga_rows:
-                    chapter_rows = db_conn.execute('SELECT * FROM chapters WHERE manga_id = ?', (manga_row['id'],)).fetchall()
-                    for chapter_row in chapter_rows:
-                        if not chapter_row['pages']:
-                            continue
+        # Chapters: move reading status of pages in a new 'read_progress' field
+        ids = []
+        data = []
+        manga_rows = db_conn.execute('SELECT id FROM mangas').fetchall()
+        with db_conn:
+            for manga_row in manga_rows:
+                chapter_rows = db_conn.execute('SELECT * FROM chapters WHERE manga_id = ?', (manga_row['id'],)).fetchall()
+                for chapter_row in chapter_rows:
+                    if not chapter_row['pages']:
+                        continue
 
-                        read_progress = ''
-                        for page in chapter_row['pages']:
-                            read = page.pop('read', False)
-                            read_progress += str(int(read))
-                        if '1' in read_progress and '0' in read_progress:
-                            ids.append(chapter_row['id'])
-                            data.append({'pages': chapter_row['pages'], 'read_progress': read_progress})
+                    read_progress = ''
+                    for page in chapter_row['pages']:
+                        read = page.pop('read', False)
+                        read_progress += str(int(read))
+                    if '1' in read_progress and '0' in read_progress:
+                        ids.append(chapter_row['id'])
+                        data.append({'pages': chapter_row['pages'], 'read_progress': read_progress})
 
-                if ids:
-                    update_rows(db_conn, 'chapters', ids, data)
+            if ids:
+                update_rows(db_conn, 'chapters', ids, data)
 
-                db_conn.execute('PRAGMA user_version = {0}'.format(11))
+            db_conn.execute('PRAGMA user_version = {0}'.format(11))
 
-        if 0 < db_version <= 11:
-            # Version 1.16.0
-            execute_sql(db_conn, 'ALTER TABLE mangas ADD COLUMN in_library integer;')
-            execute_sql(db_conn, 'UPDATE mangas SET in_library = 1;')
-            db_conn.execute('PRAGMA user_version = {0}'.format(12))
+    if 0 < db_version <= 11:
+        # Version 1.16.0
+        execute_sql(db_conn, 'ALTER TABLE mangas ADD COLUMN in_library integer;')
+        execute_sql(db_conn, 'UPDATE mangas SET in_library = 1;')
+        db_conn.execute('PRAGMA user_version = {0}'.format(12))
 
-        if 0 < db_version <= 12:
-            # Version 1.54.0
-            execute_sql(db_conn, 'ALTER TABLE mangas ADD COLUMN scaling_filter text;')
-            db_conn.execute('PRAGMA user_version = {0}'.format(13))
+    if 0 < db_version <= 12:
+        # Version 1.54.0
+        execute_sql(db_conn, 'ALTER TABLE mangas ADD COLUMN scaling_filter text;')
+        db_conn.execute('PRAGMA user_version = {0}'.format(13))
 
-        if 0 < db_version <= 13:
-            # Version 1.60.0
-            execute_sql(db_conn, 'ALTER TABLE mangas ADD COLUMN tracking json;')
-            execute_sql(db_conn, 'ALTER TABLE chapters ADD COLUMN num text;')
-            execute_sql(db_conn, 'ALTER TABLE chapters ADD COLUMN num_volume text;')
-            db_conn.execute('PRAGMA user_version = {0}'.format(14))
+    if 0 < db_version <= 13:
+        # Version 1.60.0
+        execute_sql(db_conn, 'ALTER TABLE mangas ADD COLUMN tracking json;')
+        execute_sql(db_conn, 'ALTER TABLE chapters ADD COLUMN num text;')
+        execute_sql(db_conn, 'ALTER TABLE chapters ADD COLUMN num_volume text;')
+        db_conn.execute('PRAGMA user_version = {0}'.format(14))
 
-        if 0 < db_version <= 14:
-            # Version 1.70.0
-            execute_sql(db_conn, 'ALTER TABLE mangas ADD COLUMN filters json;')
-            db_conn.execute('PRAGMA user_version = {0}'.format(15))
+    if 0 < db_version <= 14:
+        # Version 1.70.0
+        execute_sql(db_conn, 'ALTER TABLE mangas ADD COLUMN filters json;')
+        db_conn.execute('PRAGMA user_version = {0}'.format(15))
 
-        logger.info('DB version {0}'.format(db_conn.execute('PRAGMA user_version').fetchone()[0]))
+    logger.info('DB version {0}'.format(db_conn.execute('PRAGMA user_version').fetchone()[0]))
 
-        db_conn.close()
+    db_conn.close()
 
 
 def delete_rows(db_conn, table, ids):
@@ -403,7 +416,7 @@ def delete_rows(db_conn, table, ids):
     try:
         db_conn.executemany(sql, seq)
     except Exception as e:
-        print('SQLite-error:', e, ids)
+        logger.error('[SQLite] %s %s', e, ids)
         return False
     else:
         return True
@@ -416,7 +429,7 @@ def insert_row(db_conn, table, data):
             tuple(data.values())
         )
     except Exception as e:
-        print('SQLite-error:', e, data)
+        logger.error('[SQLite] %s %s', e, data)
         return None
     else:
         return cursor.lastrowid
@@ -432,7 +445,7 @@ def insert_rows(db_conn, table, data):
     try:
         db_conn.executemany(sql, seq)
     except Exception as e:
-        print('SQLite-error:', e, data)
+        logger.error('[SQLite] %s %s', e, data)
         return False
     else:
         return True
@@ -445,7 +458,7 @@ def update_row(db_conn, table, id_, data):
             tuple(data.values()) + (id_,)
         )
     except Exception as e:
-        print('SQLite-error:', e, data)
+        logger.error('[SQLite] %s %s', e, data)
         return False
     else:
         return True
@@ -461,7 +474,7 @@ def update_rows(db_conn, table, ids, data):
     try:
         db_conn.executemany(sql, seq)
     except Exception as e:
-        print('SQLite-error:', e, data)
+        logger.error('[SQLite] %s %s', e, data)
         return False
     else:
         return True

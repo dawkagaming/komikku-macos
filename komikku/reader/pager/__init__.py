@@ -13,6 +13,7 @@ from gi.repository import GLib
 from gi.repository import GObject
 from gi.repository import Gtk
 
+from komikku.models import create_db_connection
 from komikku.models import Settings
 from komikku.reader.pager.page import Page
 from komikku.utils import log_error_traceback
@@ -101,8 +102,15 @@ class BasePager:
             read_chapters[chapter.id]['pages'].append(page.index)
             read_pages.remove(page)
 
+        db_conn = create_db_connection()
+
         # Update manga last read time
-        self.reader.manga.update(dict(last_read=datetime.datetime.now(datetime.UTC)))
+        self.reader.manga.update(
+            dict(
+                last_read=datetime.datetime.now(datetime.UTC)
+            ),
+            db_conn=db_conn
+        )
 
         # Update chapters read progress
         for read_chapter in read_chapters.values():
@@ -127,17 +135,22 @@ class BasePager:
                     read_progress = None
 
                 # Update chapter
-                chapter.update(dict(
-                    last_page_read_index=page.index if not chapter_is_read else None,
-                    last_read=datetime.datetime.now(datetime.UTC),
-                    read_progress=read_progress,
-                    read=chapter_is_read,
-                    recent=0,
-                ))
+                chapter.update(
+                    dict(
+                        last_page_read_index=page.index if not chapter_is_read else None,
+                        last_read=datetime.datetime.now(datetime.UTC),
+                        read_progress=read_progress,
+                        read=chapter_is_read,
+                        recent=0,
+                    ),
+                    db_conn=db_conn
+                )
 
                 for index in pages:
                     self.sync_progress_with_server(chapter, index)
                     self.sync_progress_with_trackers(chapter, index)
+
+        db_conn.close()
 
         return GLib.SOURCE_REMOVE if not read_pages else GLib.SOURCE_CONTINUE
 

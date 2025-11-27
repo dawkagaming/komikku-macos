@@ -62,6 +62,8 @@ class Updater(GObject.GObject):
                 self.window.add_notification(f'{title}\n{body}' if body else title)
 
         def run():
+            db_conn = create_db_connection()
+
             total_chapters = 0
             total_errors = 0
             total_successes = 0
@@ -89,7 +91,7 @@ class Updater(GObject.GObject):
 
                 self.current_id = manga_id
                 try:
-                    success, chapters_changes, synced = manga.update_full()
+                    success, chapters_changes, synced = manga.update_full(db_conn=db_conn)
                     if success:
                         total_successes += 1
                         if nb_recents := len(chapters_changes['recent_ids']):
@@ -102,6 +104,8 @@ class Updater(GObject.GObject):
                     user_error_message = log_error_traceback(e)
                     total_errors += 1
                     GLib.idle_add(error, manga, user_error_message)
+
+            db_conn.close()
 
             self.current_id = None
             self.running = False

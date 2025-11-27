@@ -32,14 +32,13 @@ class CategoriesList:
 
         db_conn = create_db_connection()
         records = db_conn.execute('SELECT * FROM categories ORDER BY label ASC').fetchall()
-        db_conn.close()
 
         if records:
             self.stack.set_visible_child_name('list')
 
             active_categories = self.card.manga.categories
             for record in records:
-                category = Category.get(record['id'])
+                category = Category.get(record['id'], db_conn=db_conn)
 
                 action_row = Adw.ActionRow()
                 action_row.set_title(category.label)
@@ -56,6 +55,8 @@ class CategoriesList:
                 self.listbox.append(action_row)
         else:
             self.stack.set_visible_child_name('empty')
+
+        db_conn.close()
 
     def on_category_activated(self, switch, _param, category_id):
         self.card.manga.toggle_category(category_id, switch.get_active())

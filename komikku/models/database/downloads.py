@@ -24,10 +24,17 @@ class Download:
     )
 
     @classmethod
-    def get(cls, id_):
-        db_conn = create_db_connection()
+    def get(cls, id_, db_conn=None):
+        if db_conn is None:
+            db_conn = create_db_connection()
+            close_db_conn = True
+        else:
+            close_db_conn = False
+
         row = db_conn.execute('SELECT * FROM downloads WHERE id = ?', (id_,)).fetchone()
-        db_conn.close()
+
+        if close_db_conn:
+            db_conn.close()
 
         if row is None:
             return None
@@ -39,10 +46,17 @@ class Download:
         return d
 
     @classmethod
-    def get_by_chapter_id(cls, chapter_id):
-        db_conn = create_db_connection()
+    def get_by_chapter_id(cls, chapter_id, db_conn=None):
+        if db_conn is None:
+            db_conn = create_db_connection()
+            close_db_conn = True
+        else:
+            close_db_conn = False
+
         row = db_conn.execute('SELECT * FROM downloads WHERE chapter_id = ?', (chapter_id,)).fetchone()
-        db_conn.close()
+
+        if close_db_conn:
+            db_conn.close()
 
         if row:
             d = cls()
@@ -54,25 +68,6 @@ class Download:
 
         return None
 
-    @classmethod
-    def next(cls, exclude_errors=False):
-        db_conn = create_db_connection()
-        if exclude_errors:
-            row = db_conn.execute('SELECT * FROM downloads WHERE status = "pending" ORDER BY date ASC').fetchone()
-        else:
-            row = db_conn.execute('SELECT * FROM downloads ORDER BY date ASC').fetchone()
-        db_conn.close()
-
-        if row:
-            c = cls()
-
-            for key in row.keys():
-                setattr(c, key, row[key])
-
-            return c
-
-        return None
-
     @property
     def chapter(self):
         if self._chapter is None:
@@ -80,23 +75,32 @@ class Download:
 
         return self._chapter
 
-    def delete(self):
-        db_conn = create_db_connection()
+    def delete(self, db_conn=None):
+        if db_conn is None:
+            db_conn = create_db_connection()
+            close_db_conn = True
+        else:
+            close_db_conn = False
 
         with db_conn:
             db_conn.execute('DELETE FROM downloads WHERE id = ?', (self.id, ))
 
-        db_conn.close()
+        if close_db_conn:
+            db_conn.close()
 
-    def update(self, data):
+    def update(self, data, db_conn=None):
         """
         Updates download
 
         :param data: percent of pages downloaded, errors or status
         :return: True on success False otherwise
         """
+        if db_conn is None:
+            db_conn = create_db_connection()
+            close_db_conn = True
+        else:
+            close_db_conn = False
 
-        db_conn = create_db_connection()
         result = False
 
         with db_conn:
@@ -105,6 +109,7 @@ class Download:
                 for key in data:
                     setattr(self, key, data[key])
 
-        db_conn.close()
+        if close_db_conn:
+            db_conn.close()
 
         return result

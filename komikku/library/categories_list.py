@@ -145,7 +145,7 @@ class CategoriesList:
                     label = _('Uncategorized')
                     nb = db_conn.execute('SELECT count(*) FROM mangas').fetchone()[0] - nb_categorized
                 else:
-                    category = Category.get(item['id'])
+                    category = Category.get(item['id'], db_conn=db_conn)
                     label = category.label
                     if not self.edit_mode:
                         nb = db_conn.execute(
