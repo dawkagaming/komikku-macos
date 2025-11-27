@@ -27,8 +27,23 @@
         </ul>
     </description>
 
+    <keywords>
+        <keyword>reader</keyword>
+        <keyword>viewer</keyword>
+        <keyword>scanlation</keyword>
+        <keyword>comic</keyword>
+        <keyword>manga</keyword>
+        <keyword>manhwa</keyword>
+        <keyword>manhua</keyword>
+        <keyword>webtoon</keyword>
+        <keyword>webcomic</keyword>
+        <keyword>book</keyword>
+        <keyword>ebook</keyword>
+        <keyword>offline</keyword>
+    </keywords>
+
     <branding>
-        <color type="primary" scheme_preference="light">#a6cea5</color>->
+        <color type="primary" scheme_preference="light">#a6cea5</color>
         <color type="primary" scheme_preference="dark">#62586b</color>
     </branding>
 
