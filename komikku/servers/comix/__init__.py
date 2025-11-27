@@ -286,7 +286,7 @@ class Comix(Server):
                 })
             elif orderby == 'popular':
                 params.update({
-                    'order[followed_count]': 'desc',
+                    'order[views_30d]': 'desc',
                 })
 
             if statuses:
