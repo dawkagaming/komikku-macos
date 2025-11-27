@@ -233,6 +233,9 @@ class Weebdex(Server):
         rtime = get_response_elapsed(r)
         resp_data = r.json()
 
+        if resp_data['total'] == 0:
+            return chapters
+
         for chapter in resp_data['data']:
             title = []
             if num_volume := chapter.get('volume'):
@@ -333,12 +336,12 @@ class Weebdex(Server):
 
             items, more, rtime = get_page(page)
             for item in items:
-                cover = item['relationships']['cover']
+                cover = item['relationships'].get('cover')
 
                 results.append(dict(
                     slug=item['id'],
                     name=item['title'],
-                    cover=self.cover_url.format(item['id'], cover['id']),
+                    cover=self.cover_url.format(item['id'], cover['id']) if cover else None,
                     last_chapter=item.get('last_chapter'),
                 ))
 
