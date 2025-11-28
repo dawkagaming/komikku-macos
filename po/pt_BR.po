@@ -16,7 +16,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Komikku\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-11-27 16:26+0100\n"
+"POT-Creation-Date: 2025-11-28 10:50+0100\n"
 "PO-Revision-Date: 2025-09-28 18:01+0000\n"
 "Last-Translator: Alex Carvalho <gameplayalex160@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) <https://hosted.weblate.org/projects/"
@@ -37,10 +37,8 @@ msgid "@description@"
 msgstr "@description@"
 
 #: ../data/info.febvre.Komikku.desktop.in:15
-msgid "manga;reader;viewer;comic;manhwa;manhua;bd;webtoon;webcomic;scan;offline;GTK;GNOME;"
+msgid "manga;reader;viewer;comic;manhwa;manhua;webtoon;webcomic;scanlation;book;ebook;offline;GTK;GNOME;"
 msgstr ""
-"mangá;leitor;visualizador;comic;manhwa;manhua;bd;webtoon;webcomic;scan;off-"
-"line;GTK;GNOME;"
 
 #: ../data/info.febvre.Komikku.metainfo.xml.in.in:11
 msgid "Discover and read manga & comics"
@@ -2581,6 +2579,11 @@ msgstr "Por favor, aguarde…"
 #: ../komikku/webview.py:489
 msgid "Please complete CAPTCHA"
 msgstr "Por favor complete o CAPTCHA"
+
+#~ msgid "manga;reader;viewer;comic;manhwa;manhua;bd;webtoon;webcomic;scan;offline;GTK;GNOME;"
+#~ msgstr ""
+#~ "mangá;leitor;visualizador;comic;manhwa;manhua;bd;webtoon;webcomic;scan;off-"
+#~ "line;GTK;GNOME;"
 
 #~ msgid "Explorer"
 #~ msgstr "Explorador"

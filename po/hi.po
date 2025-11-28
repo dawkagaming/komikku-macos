@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Komikku 1.41.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-11-27 16:26+0100\n"
+"POT-Creation-Date: 2025-11-28 10:50+0100\n"
 "PO-Revision-Date: 2024-08-16 15:54+0000\n"
 "Last-Translator: Scrambled777 <weblate.scrambled777@simplelogin.com>\n"
 "Language-Team: Hindi <https://hosted.weblate.org/projects/komikku/main/hi/>\n"
@@ -26,8 +26,8 @@ msgid "@description@"
 msgstr "@description@"
 
 #: ../data/info.febvre.Komikku.desktop.in:15
-msgid "manga;reader;viewer;comic;manhwa;manhua;bd;webtoon;webcomic;scan;offline;GTK;GNOME;"
-msgstr "मंगा;पाठक;दर्शक;कॉमिक;manhwa;manhua;bd;वेबटून;वेबकॉमिक;स्कैन;ऑफलाइन;GTK;GNOME;"
+msgid "manga;reader;viewer;comic;manhwa;manhua;webtoon;webcomic;scanlation;book;ebook;offline;GTK;GNOME;"
+msgstr ""
 
 #: ../data/info.febvre.Komikku.metainfo.xml.in.in:11
 msgid "Discover and read manga & comics"
@@ -2543,6 +2543,9 @@ msgstr ""
 #: ../komikku/webview.py:489
 msgid "Please complete CAPTCHA"
 msgstr "कृपया CAPTCHA पूर्ण करें"
+
+#~ msgid "manga;reader;viewer;comic;manhwa;manhua;bd;webtoon;webcomic;scan;offline;GTK;GNOME;"
+#~ msgstr "मंगा;पाठक;दर्शक;कॉमिक;manhwa;manhua;bd;वेबटून;वेबकॉमिक;स्कैन;ऑफलाइन;GTK;GNOME;"
 
 #~ msgid "Explorer"
 #~ msgstr "अन्वेषक"

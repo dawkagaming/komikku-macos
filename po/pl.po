@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Komikku 1.23.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-11-27 16:26+0100\n"
+"POT-Creation-Date: 2025-11-28 10:50+0100\n"
 "PO-Revision-Date: 2025-10-07 09:52+0000\n"
 "Last-Translator: Kurai <logical.nihil@gmail.com>\n"
 "Language-Team: Polish <https://hosted.weblate.org/projects/komikku/main/pl/"
@@ -32,7 +32,7 @@ msgid "@description@"
 msgstr "@description@"
 
 #: ../data/info.febvre.Komikku.desktop.in:15
-msgid "manga;reader;viewer;comic;manhwa;manhua;bd;webtoon;webcomic;scan;offline;GTK;GNOME;"
+msgid "manga;reader;viewer;comic;manhwa;manhua;webtoon;webcomic;scanlation;book;ebook;offline;GTK;GNOME;"
 msgstr ""
 
 #: ../data/info.febvre.Komikku.metainfo.xml.in.in:11

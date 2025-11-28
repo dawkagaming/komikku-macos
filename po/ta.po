@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Komikku 1.64.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-11-27 16:26+0100\n"
+"POT-Creation-Date: 2025-11-28 10:50+0100\n"
 "PO-Revision-Date: 2025-07-13 22:17+0000\n"
 "Last-Translator: Valéry Febvre <vfebvre@easter-eggs.com>\n"
 "Language-Team: Tamil <https://hosted.weblate.org/projects/komikku/main/ta/>\n"
@@ -27,10 +27,8 @@ msgid "@description@"
 msgstr "@விளக்கம்@"
 
 #: ../data/info.febvre.Komikku.desktop.in:15
-msgid "manga;reader;viewer;comic;manhwa;manhua;bd;webtoon;webcomic;scan;offline;GTK;GNOME;"
+msgid "manga;reader;viewer;comic;manhwa;manhua;webtoon;webcomic;scanlation;book;ebook;offline;GTK;GNOME;"
 msgstr ""
-"மங்கா; வாசகர்; பார்வையாளர்; காமிக்; மன்அ்வா; மன்உவா; பி.டி; வெப்டூன்; வெப்காமிக்; ச்கேன்; "
-"ஆஃப்லைன்; சி.டி.கே; க்னோம்;"
 
 #: ../data/info.febvre.Komikku.metainfo.xml.in.in:11
 msgid "Discover and read manga & comics"
@@ -2554,6 +2552,11 @@ msgstr "தயவுசெய்து காத்திருங்கள்�
 #: ../komikku/webview.py:489
 msgid "Please complete CAPTCHA"
 msgstr "தயவுசெய்து கேப்ட்சாவை முடிக்கவும்"
+
+#~ msgid "manga;reader;viewer;comic;manhwa;manhua;bd;webtoon;webcomic;scan;offline;GTK;GNOME;"
+#~ msgstr ""
+#~ "மங்கா; வாசகர்; பார்வையாளர்; காமிக்; மன்அ்வா; மன்உவா; பி.டி; வெப்டூன்; வெப்காமிக்; "
+#~ "ச்கேன்; ஆஃப்லைன்; சி.டி.கே; க்னோம்;"
 
 #~ msgid "Explorer"
 #~ msgstr "எக்ச்ப்ளோரர்"

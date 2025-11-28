@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Komikku 1.53.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-11-27 16:26+0100\n"
+"POT-Creation-Date: 2025-11-28 10:50+0100\n"
 "PO-Revision-Date: 2025-07-27 11:07+0000\n"
 "Last-Translator: twlvnn <kraft_werk@tutanota.com>\n"
 "Language-Team: Bulgarian <https://hosted.weblate.org/projects/komikku/main/"
@@ -27,8 +27,8 @@ msgid "@description@"
 msgstr "@description@"
 
 #: ../data/info.febvre.Komikku.desktop.in:15
-msgid "manga;reader;viewer;comic;manhwa;manhua;bd;webtoon;webcomic;scan;offline;GTK;GNOME;"
-msgstr "манга;четец;комкис;манхва;манхуа;уеб комикс;южнокорейски уеб комикс;"
+msgid "manga;reader;viewer;comic;manhwa;manhua;webtoon;webcomic;scanlation;book;ebook;offline;GTK;GNOME;"
+msgstr ""
 
 #: ../data/info.febvre.Komikku.metainfo.xml.in.in:11
 msgid "Discover and read manga & comics"
@@ -2572,6 +2572,10 @@ msgstr "Изчакайте…"
 #: ../komikku/webview.py:489
 msgid "Please complete CAPTCHA"
 msgstr "Направете CAPTCHA"
+
+#~ msgid "manga;reader;viewer;comic;manhwa;manhua;bd;webtoon;webcomic;scan;offline;GTK;GNOME;"
+#~ msgstr ""
+#~ "манга;четец;комкис;манхва;манхуа;уеб комикс;южнокорейски уеб комикс;"
 
 #~ msgid "Explorer"
 #~ msgstr "Търсачката"

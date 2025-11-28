@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Komikku 1.0.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-11-27 16:26+0100\n"
+"POT-Creation-Date: 2025-11-28 10:50+0100\n"
 "PO-Revision-Date: 2025-01-20 17:00+0000\n"
 "Last-Translator: LS-Shandong <ls-shandong@outlook.com>\n"
 "Language-Team: Chinese (Simplified Han script) <https://hosted.weblate.org/"
@@ -30,8 +30,8 @@ msgid "@description@"
 msgstr "@description@"
 
 #: ../data/info.febvre.Komikku.desktop.in:15
-msgid "manga;reader;viewer;comic;manhwa;manhua;bd;webtoon;webcomic;scan;offline;GTK;GNOME;"
-msgstr "漫画;阅读器;浏览器;连环画;bd;网络漫画;网络连环画;扫描;离线;GTK;GNOME;"
+msgid "manga;reader;viewer;comic;manhwa;manhua;webtoon;webcomic;scanlation;book;ebook;offline;GTK;GNOME;"
+msgstr ""
 
 #: ../data/info.febvre.Komikku.metainfo.xml.in.in:11
 msgid "Discover and read manga & comics"
@@ -2525,6 +2525,10 @@ msgstr "请等待…"
 #: ../komikku/webview.py:489
 msgid "Please complete CAPTCHA"
 msgstr "请完成 CAPTCHA 验证"
+
+#~ msgid "manga;reader;viewer;comic;manhwa;manhua;bd;webtoon;webcomic;scan;offline;GTK;GNOME;"
+#~ msgstr ""
+#~ "漫画;阅读器;浏览器;连环画;bd;网络漫画;网络连环画;扫描;离线;GTK;GNOME;"
 
 #~ msgid "Explorer"
 #~ msgstr "浏览器"
