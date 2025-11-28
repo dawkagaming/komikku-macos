@@ -13,10 +13,10 @@ msgstr ""
 "Project-Id-Version: Komikku 0.25.1\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-11-28 10:50+0100\n"
-"PO-Revision-Date: 2025-11-23 08:53+0000\n"
+"PO-Revision-Date: 2025-11-29 19:00+0000\n"
 "Last-Translator: cas9 <cas9@users.noreply.hosted.weblate.org>\n"
-"Language-Team: Italian <https://hosted.weblate.org/projects/komikku/main/it/"
-">\n"
+"Language-Team: Italian <https://hosted.weblate.org/projects/komikku/main/it/>"
+"\n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -760,7 +760,7 @@ msgstr "Entra nello schermo intero automaticamente"
 
 #: ../data/ui/preferences.blp:356
 msgid "Advanced"
-msgstr "Avanzati"
+msgstr "Avanzate"
 
 #: ../data/ui/preferences.blp:360
 msgid "A setting has changed that requires a restart to take effect"
@@ -1479,7 +1479,7 @@ msgstr "Download in attesa"
 
 #: ../komikku/models/database/downloads.py:20
 msgid "Downloaded"
-msgstr "Download completi"
+msgstr "Download completato"
 
 #: ../komikku/models/database/downloads.py:21
 msgid "Downloading"
