@@ -55,6 +55,7 @@ CREDITS = dict(
         'Roger VC (Catalan)',
         'Lukáš Linhart (Czech)',
         'Jakub Soukup (Czech)',
+        'Petr Horník (Czech)',
         'Dingzhong Chen (Simplified Chinese)',
         'Eric-Song-Nop (Simplified Chinese)',
         'Inaha (Simplified Chinese)',
@@ -84,6 +85,7 @@ CREDITS = dict(
         'Vortex Acherontic (German)',
         'Dlurak (German)',
         'Mirko P. (German)',
+        'Simon Barth (German)',
         'Scrambled777 (Hindi)',
         'mondstern (Hungarian)',
         'Milo Ivir (Croatian)',
@@ -97,9 +99,11 @@ CREDITS = dict(
         'Andrea Scarano (Italian)',
         'pasquale ruotolo (Italian)',
         'Riccardo Luise (Italian)',
+        'cas9 (Italian)',
         'Velyvis (Lithuanian)',
         'Lili Kurek (Polish)',
         'Aleksander Warzyniak (Polish)',
+        'Kurai (Polish)',
         'ssantos (Portuguese)',
         'Ademario Cunha (Portuguese)',
         'SpiralPack 527 (Portuguese)',
@@ -126,6 +130,7 @@ CREDITS = dict(
         'Bezruchenko Simon (Ukrainian)',
         'Максим Горпиніч (Ukrainian)',
         'niyaki hayyashi (Vietnamese)',
+        'Loc Huynh (Vietnamese)',
     ),
     supporters=(
         'gondolyr',
@@ -135,9 +140,17 @@ CREDITS = dict(
 
 RELEASE_NOTES = """
 <ul>
-    <li>[Servers] Added Zenko (UK)</li>
-    <li>[Explorer] Servers: Kavita and Komga join Local in `Other` section</li>
-    <li>[L10n] Updated French, Russian and Ukrainian translations</li>
+    <li>[Preferences] Advanced: Improved `Clear WebView Data`</li>
+    <li>[Servers] Added WeebDex (EN)</li>
+    <li>[Servers] Argos Comics (PT): Disabled</li>
+    <li>[Servers] Asura Scans (EN): Update</li>
+    <li>[Servers] Comix (EN): Update</li>
+    <li>[Servers] Invincible ComicsVF (FR): Update</li>
+    <li>[Servers] Mangas Origines (FR): Re-enabled</li>
+    <li>[Servers] Punk Records (FR): Update</li>
+    <li>[Servers] Scylla Comics (EN): Disabled</li>
+    <li>[Servers] Tres Daos (ES): Disabled</li>
+    <li>[L10n] Updated Finnish, French, Italian, Russian, Ukrainian and Vietnamese translations</li>
 </ul>
 <p>Happy reading.</p>
 """
