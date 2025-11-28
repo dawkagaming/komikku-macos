@@ -3,13 +3,14 @@
 # This file is distributed under the same license as the Komikku package.
 # niyaki hayyashi <animedaytime@gmail.com>, 2024.
 # Loc Huynh <huynhloc.contact@gmail.com>, 2025.
+# Valéry Febvre <vfebvre@easter-eggs.com>, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: Komikku 1.44.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-11-28 10:50+0100\n"
-"PO-Revision-Date: 2025-11-24 09:51+0000\n"
-"Last-Translator: Loc Huynh <huynhloc.contact@gmail.com>\n"
+"PO-Revision-Date: 2025-11-28 12:12+0000\n"
+"Last-Translator: Valéry Febvre <vfebvre@easter-eggs.com>\n"
 "Language-Team: Vietnamese <https://hosted.weblate.org/projects/komikku/main/"
 "vi/>\n"
 "Language: vi\n"
@@ -33,7 +34,7 @@ msgstr ""
 
 #: ../data/info.febvre.Komikku.metainfo.xml.in.in:11
 msgid "Discover and read manga & comics"
-msgstr "Khám phá và đọc manga & comic"
+msgstr "Khám phá và đọc manga &amp; comic"
 
 #: ../data/info.febvre.Komikku.metainfo.xml.in.in:13
 msgid ""
