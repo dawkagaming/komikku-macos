@@ -3,7 +3,7 @@
 # gregorni <gregorniehl@web.de>, 2023.
 # Liliana Marie Prikler <liliana.prikler@gmail.com>, 2023.
 # Tim <RC2225@users.noreply.github.com>, 2024.
-# Tim <rc2225@ghueder-schrott.com>, 2024.
+# Tim <rc2225@ghueder-schrott.com>, 2024, 2025.
 # Sear Gasor <tefffd@proton.me>, 2024.
 # Vortex Acherontic <vortex@z-ray.de>, 2024.
 # Dlurak <dlurak@proton.me>, 2025.
@@ -16,7 +16,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-11-28 10:50+0100\n"
 "PO-Revision-Date: 2025-12-01 06:00+0000\n"
-"Last-Translator: Simon Barth <simon.pe.barth@gmail.com>\n"
+"Last-Translator: Tim <rc2225@ghueder-schrott.com>\n"
 "Language-Team: German <https://hosted.weblate.org/projects/komikku/main/de/>"
 "\n"
 "Language: de\n"
@@ -571,7 +571,7 @@ msgstr "Lädt neue Kapitel automatisch herunter"
 
 #: ../data/ui/preferences.blp:218
 msgid "Languages"
-msgstr ""
+msgstr "Sprachen"
 
 #: ../data/ui/preferences.blp:219
 msgid "Restrict servers to selected languages"
@@ -884,7 +884,7 @@ msgstr "Tastaturkurzbefehle öffnen"
 #: ../data/ui/shortcuts.blp:28
 msgctxt "Shortcut window description"
 msgid "Quit"
-msgstr ""
+msgstr "Beenden"
 
 #: ../data/ui/shortcuts.blp:34
 msgctxt "Shortcut window description"
@@ -914,7 +914,7 @@ msgstr ""
 #: ../data/ui/shortcuts.blp:57
 msgctxt "Shortcut window description"
 msgid "Update"
-msgstr ""
+msgstr "Aktualisieren"
 
 #: ../data/ui/shortcuts.blp:63
 msgctxt "Shortcut window description"
@@ -996,7 +996,7 @@ msgstr "Einmalige oder monatliche Spende"
 
 #: ../data/ui/support.blp:144
 msgid "Copy to Clipboard"
-msgstr ""
+msgstr "In Zwischenablage kopieren"
 
 #: ../data/ui/webview.blp:10
 msgid "Webview"
