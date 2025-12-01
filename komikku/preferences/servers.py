@@ -214,7 +214,7 @@ class PreferencesServerParamsSupPage(Adw.NavigationPage):
 
         button.icon.set_visible(True)
         if server.logged_in:
-            button.icon.set_from_icon_name('object-select-symbolic')
+            button.icon.set_from_icon_name('checkmark-symbolic')
             if self.keyring_helper.is_disabled or plaintext_checkbutton is not None and not plaintext_checkbutton.get_active():
                 return
 

@@ -193,7 +193,7 @@ class CategoryRow(Gtk.ListBoxRow):
         self.cancel_button.connect('clicked', self.set_edit_mode, False)
         self.box.append(self.cancel_button)
 
-        self.save_button = Gtk.Button.new_from_icon_name('emblem-ok-symbolic')
+        self.save_button = Gtk.Button.new_from_icon_name('checkmark-symbolic')
         self.save_button.set_tooltip_text(_('Save'))
         self.save_button.set_valign(Gtk.Align.CENTER)
         self.save_button.add_css_class('suggested-action')
