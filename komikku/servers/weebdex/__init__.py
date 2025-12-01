@@ -23,6 +23,7 @@ class Weebdex(Server):
     id = 'weebdex'
     name = 'WeebDex'
     lang = 'en'
+    lang_code = 'en'
 
     is_nsfw = True
 
@@ -220,6 +221,7 @@ class Weebdex(Server):
         r = self.session_get(
             self.api_chapters_url.format(slug),
             params={
+                'tlang': self.lang_code,
                 'page': page,
                 'limit': 250,
             },
@@ -292,7 +294,7 @@ class Weebdex(Server):
         def get_page(page):
             params = {
                 'hasChapters': 'true',
-                'availableTranslatedLang': ['en'],
+                'availableTranslatedLang': [self.lang_code],
                 'limit': SEARCH_RESULTS_PAGE_LIMIT,
             }
             if term:
@@ -324,7 +326,7 @@ class Weebdex(Server):
 
             more = page * SEARCH_RESULTS_PAGE_LIMIT < resp_data['total'] and page < SEARCH_RESULTS_PAGES
 
-            return resp_data['data'], more, get_response_elapsed(r)
+            return resp_data.get('data', []), more, get_response_elapsed(r)
 
         results = []
         delay = None
