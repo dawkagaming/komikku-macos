@@ -149,6 +149,7 @@ class MangaStream(Server):
                 'daily release',
                 'en curso',  # es
                 'en cours',  # fr
+                'ativo',  # pt
                 'devam ediyor',  # tr
             )
             if any(re.findall('|'.join(labels), label, re.IGNORECASE)):
@@ -160,6 +161,7 @@ class MangaStream(Server):
                 'finalizado',  # es
                 'fini',  # fr
                 'terminé',  # fr
+                'completo',  # pt
                 'tamamlandı',  # tr
             )
             if any(re.findall('|'.join(labels), label, re.IGNORECASE)):
@@ -169,6 +171,7 @@ class MangaStream(Server):
             labels = (
                 'hiatus',
                 'en pause',  # fr
+                'hiato',  # pt
                 'bırakıldı',  # tr
             )
             if any(re.findall('|'.join(labels), label, re.IGNORECASE)):
@@ -202,22 +205,26 @@ class MangaStream(Server):
 
         # Details
         if self.authors_selector:
-            if elements := soup.select(self.authors_selector):
-                for element in elements:
-                    author = get_soup_element_inner_text(element).strip('-')
-                    if author and author not in data['authors']:
-                        data['authors'].append(author)
+            for element in soup.select(self.authors_selector):
+                author = get_soup_element_inner_text(element).strip('-')
+                if author and author not in data['authors']:
+                    data['authors'].append(author)
+
         if self.genres_selector:
-            if elements := soup.select(self.genres_selector):
-                data['genres'] = [element.text.strip() for element in elements]
+            for element in soup.select(self.genres_selector):
+                genre = element.text.strip()
+                if genre and genre not in data['genres']:
+                    data['genres'].append(genre)
+
         if self.scanlators_selector:
-            if elements := soup.select(self.scanlators_selector):
-                for element in elements:
-                    if scanlator := get_soup_element_inner_text(element).strip('-'):
-                        data['scanlators'].append(scanlator)
+            for element in soup.select(self.scanlators_selector):
+                if scanlator := get_soup_element_inner_text(element).strip('-'):
+                    data['scanlators'].append(scanlator)
+
         if self.status_selector:
             if element := soup.select_one(self.status_selector):
                 data['status'] = compute_status(get_soup_element_inner_text(element))
+
         if self.synopsis_selector:
             if element := soup.select_one(self.synopsis_selector):
                 data['synopsis'] = element.text.strip()
