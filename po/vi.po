@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: Komikku 1.44.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-11-28 10:50+0100\n"
-"PO-Revision-Date: 2025-12-01 06:00+0000\n"
+"PO-Revision-Date: 2025-12-02 11:00+0000\n"
 "Last-Translator: Loc Huynh <huynhloc.contact@gmail.com>\n"
 "Language-Team: Vietnamese <https://hosted.weblate.org/projects/komikku/main/"
 "vi/>\n"
@@ -132,19 +132,19 @@ msgstr "webtoon"
 
 #: ../data/info.febvre.Komikku.metainfo.xml.in.in:39
 msgid "webcomic"
-msgstr ""
+msgstr "webcomic"
 
 #: ../data/info.febvre.Komikku.metainfo.xml.in.in:40
 msgid "book"
-msgstr ""
+msgstr "sách"
 
 #: ../data/info.febvre.Komikku.metainfo.xml.in.in:41
 msgid "ebook"
-msgstr ""
+msgstr "sách điện tử"
 
 #: ../data/info.febvre.Komikku.metainfo.xml.in.in:42
 msgid "offline"
-msgstr ""
+msgstr "ngoại tuyến"
 
 #: ../data/info.febvre.Komikku.metainfo.xml.in.in:62
 msgid "The Library page"
@@ -1553,7 +1553,7 @@ msgstr ""
 
 #: ../komikku/preferences/__init__.py:171
 msgid "Failed to clear WebView data"
-msgstr ""
+msgstr "Không xóa được dữ liệu WebView"
 
 #: ../komikku/preferences/__init__.py:175
 msgid "Are you sure you want to clear WebView data (cache, storage, cookies)?"
