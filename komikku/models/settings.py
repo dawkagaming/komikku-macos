@@ -529,6 +529,39 @@ class Settings(Gio.Settings):
             self.set_enum('scaling-filter', 1)
 
     @property
+    def scroll_click_percentage(self):
+        """Return scroll click distance percentage for Webtoon pager"""
+        return self.get_double('scroll-click-percentage')
+
+    @scroll_click_percentage.setter
+    def scroll_click_percentage(self, percentage):
+        """
+        Set the scroll click distance percentage for Webtoon pager
+
+        :param percentage: percentage of page height to scroll (0.0 to 1.0)
+        :type percentage: float
+        """
+        percentage = GLib.Variant('d', percentage)
+        self.set_value('scroll-click-percentage', percentage)
+
+    @property
+    def scroll_drag_factor(self):
+        """Return scroll drag sensitivity factor for Webtoon pager"""
+        return self.get_double('scroll-drag-factor')
+
+    @scroll_drag_factor.setter
+    def scroll_drag_factor(self, factor):
+        """
+        Set the scroll drag sensitivity factor for Webtoon pager
+
+        :param factor: sensitivity multiplier
+        :type factor: float
+        """
+        factor = GLib.Variant('d', factor)
+        self.set_value('scroll-drag-factor', factor)
+
+
+    @property
     def selected_category(self):
         return self.get_int('selected-category')
 

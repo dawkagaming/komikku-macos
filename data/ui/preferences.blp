@@ -293,6 +293,32 @@ template $PreferencesDialog : Adw.PreferencesDialog {
         };
       }
 
+      Adw.SpinRow {
+        title: _("Scroll Distance");
+        subtitle: _("Percentage of page height to scroll on click or Page Up/Down (Webtoon reading mode only)");
+        digits: 2;
+        adjustment:
+        Adjustment scroll_click_percentage_adjustment {
+          lower: 0.10;
+          upper: 1.00;
+          page-increment: 0.10;
+          step-increment: 0.05;
+        };
+      }
+
+      Adw.SpinRow {
+        title: _("Drag Sensitivity");
+        subtitle: _("Multiplier for drag scrolling sensitivity (Webtoon reading mode only)");
+        digits: 1;
+        adjustment:
+        Adjustment scroll_drag_factor_adjustment {
+          lower: 0.5;
+          upper: 5.0;
+          page-increment: 0.5;
+          step-increment: 0.1;
+        };
+      }
+
       Adw.ComboRow scaling_row {
         title: _("Scaling");
         subtitle: _("Type of scaling to adapt image");

@@ -49,6 +49,8 @@ class PreferencesDialog(Adw.PreferencesDialog):
 
     reading_mode_row = Gtk.Template.Child('reading_mode_row')
     clamp_size_adjustment = Gtk.Template.Child('clamp_size_adjustment')
+    scroll_click_percentage_adjustment = Gtk.Template.Child('scroll_click_percentage_adjustment')
+    scroll_drag_factor_adjustment = Gtk.Template.Child('scroll_drag_factor_adjustment')
     scaling_row = Gtk.Template.Child('scaling_row')
     scaling_filter_row = Gtk.Template.Child('scaling_filter_row')
     landscape_zoom_switch = Gtk.Template.Child('landscape_zoom_switch')
@@ -310,6 +312,12 @@ class PreferencesDialog(Adw.PreferencesDialog):
         elif index == 1:
             self.settings.scaling_filter = 'trilinear'
 
+    def on_scroll_click_percentage_changed(self, adjustment):
+        self.settings.scroll_click_percentage = adjustment.get_value()
+
+    def on_scroll_drag_factor_changed(self, adjustment):
+        self.settings.scroll_drag_factor = adjustment.get_value()
+
     def on_system_accent_colors_changed(self, switch_button, _gparam):
         self.settings.system_accent_colors = switch_button.get_active()
 
@@ -323,6 +331,7 @@ class PreferencesDialog(Adw.PreferencesDialog):
             self.settings.update_at_startup = True
         else:
             self.settings.update_at_startup = False
+
 
     def set_config_values(self):
         #
@@ -426,6 +435,14 @@ class PreferencesDialog(Adw.PreferencesDialog):
         # Pager clamp size ('Webtoon' reading mode only)
         self.clamp_size_adjustment.set_value(self.settings.clamp_size)
         self.clamp_size_adjustment.connect('value-changed', self.on_clamp_size_changed)
+
+        # Scroll click percentage ('Webtoon' reading mode only)
+        self.scroll_click_percentage_adjustment.set_value(self.settings.scroll_click_percentage)
+        self.scroll_click_percentage_adjustment.connect('value-changed', self.on_scroll_click_percentage_changed)
+
+        # Scroll drag factor ('Webtoon' reading mode only)
+        self.scroll_drag_factor_adjustment.set_value(self.settings.scroll_drag_factor)
+        self.scroll_drag_factor_adjustment.connect('value-changed', self.on_scroll_drag_factor_changed)
 
         # Image scaling
         self.scaling_row.set_selected(self.settings.scaling_value)
