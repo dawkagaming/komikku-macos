@@ -7,18 +7,17 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-11-28 10:50+0100\n"
+"POT-Creation-Date: 2025-12-03 00:18+0100\n"
 "PO-Revision-Date: 2025-11-29 19:00+0000\n"
 "Last-Translator: Сергей <asvmail.as@gmail.com>\n"
-"Language-Team: Russian <https://hosted.weblate.org/projects/komikku/main/ru/>"
-"\n"
+"Language-Team: Russian <https://hosted.weblate.org/projects/komikku/main/ru/"
+">\n"
 "Language: ru\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural="
-"(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? "
-"1 : 2);\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 "X-Generator: Weblate 5.15-dev\n"
 
 #: ../data/info.febvre.Komikku.desktop.in:2
@@ -31,9 +30,7 @@ msgstr "@description@"
 
 #: ../data/info.febvre.Komikku.desktop.in:15
 msgid "manga;reader;viewer;comic;manhwa;manhua;webtoon;webcomic;scanlation;book;ebook;offline;GTK;GNOME;"
-msgstr ""
-"manga;reader;viewer;comic;manhwa;manhua;webtoon;webcomic;scanlation;book;ebook;offline;GTK;GNOME;манга;комикс;книга;читалка;"
-""
+msgstr "manga;reader;viewer;comic;manhwa;manhua;webtoon;webcomic;scanlation;book;ebook;offline;GTK;GNOME;манга;комикс;книга;читалка;"
 
 #: ../data/info.febvre.Komikku.metainfo.xml.in.in:11
 msgid "Discover and read manga & comics"
@@ -80,8 +77,8 @@ msgid "Categories to organize your library"
 msgstr "Категории для организации вашей библиотеки"
 
 #: ../data/info.febvre.Komikku.metainfo.xml.in.in:22
-msgid "Automatic tracking of series with MyAnimeList and AniList"
-msgstr "Автоматические отслеживание циклов с помощью MyAnimeList и AniList"
+msgid "Automatic tracking of series with AniList, MangaUpdates and MyAnimeList"
+msgstr ""
 
 #: ../data/info.febvre.Komikku.metainfo.xml.in.in:23
 msgid "Automatic update of series"
@@ -187,7 +184,7 @@ msgstr "Страница редактора категорий в мобильн
 msgid "The Reading history page in mobile format"
 msgstr "Страница истории чтения в мобильном формате"
 
-#: ../data/ui/application_window.blp:54 ../data/ui/preferences.blp:361
+#: ../data/ui/application_window.blp:54 ../data/ui/preferences.blp:394
 msgid "Got it!"
 msgstr "Понятно!"
 
@@ -640,92 +637,105 @@ msgid "⬇ Webtoon"
 msgstr "⬇ Вебтун"
 
 #: ../data/ui/preferences.blp:285
-msgid "Maximum Width"
-msgstr "Максимальная ширина"
-
-#: ../data/ui/preferences.blp:286
-msgid ""
-"Constrain reader's width to a given maximum size (Webtoon reading mode only)"
-msgstr ""
-"Ограничить ширину читалки заданным максимальным размером (только в режиме "
-"чтения «Вебтун»)"
-
-#: ../data/ui/preferences.blp:297
-msgid "Scaling"
-msgstr "Масштабирование"
-
-#: ../data/ui/preferences.blp:298
-msgid "Type of scaling to adapt image"
-msgstr "Тип масштабирования изображения"
-
-#: ../data/ui/preferences.blp:301
-msgid "Adapt to Screen"
-msgstr "По размеру экрана"
-
-#: ../data/ui/preferences.blp:302
-msgid "Adapt to Width"
-msgstr "По ширине"
-
-#: ../data/ui/preferences.blp:303
-msgid "Adapt to Height"
-msgstr "По высоте"
-
-#: ../data/ui/preferences.blp:304
-msgid "Original Size"
-msgstr "Оригинальный размер"
-
-#: ../data/ui/preferences.blp:310
 msgid "Scaling Filter"
 msgstr "Фильтр масштабирования"
 
-#: ../data/ui/preferences.blp:311
+#: ../data/ui/preferences.blp:286
 msgid "Interpolation method used when scaling images"
 msgstr "Метод интерполяции, используемый при масштабировании изображений"
 
-#: ../data/ui/preferences.blp:314
+#: ../data/ui/preferences.blp:289
 msgid "Linear"
 msgstr "Линейный"
 
-#: ../data/ui/preferences.blp:315
+#: ../data/ui/preferences.blp:290
 msgid "Trilinear"
 msgstr "Трилинейный"
 
-#: ../data/ui/preferences.blp:321
+#: ../data/ui/preferences.blp:296
+msgid "Background Color"
+msgstr "Цвет фона"
+
+#: ../data/ui/preferences.blp:299
+msgid "White"
+msgstr "Белый"
+
+#: ../data/ui/preferences.blp:300
+msgid "Gray"
+msgstr "Серый"
+
+#: ../data/ui/preferences.blp:301
+msgid "Black"
+msgstr "Чёрный"
+
+#: ../data/ui/preferences.blp:302
+msgid "System Style"
+msgstr "Системный"
+
+#: ../data/ui/preferences.blp:308
+msgid "Page Numbering"
+msgstr "Нумерация страниц"
+
+#: ../data/ui/preferences.blp:309
+msgid "Hide the page numbering at the bottom of the screen while reading"
+msgstr "Скрыть нумерацию страниц в нижней части экрана во время чтения"
+
+#: ../data/ui/preferences.blp:313
+msgid "Fullscreen"
+msgstr "Во весь экран"
+
+#: ../data/ui/preferences.blp:314
+msgid "Automatically enter fullscreen mode"
+msgstr "Автоматически переходить в полноэкранный режим"
+
+#: ../data/ui/preferences.blp:319
+msgid "Paged Reading Modes"
+msgstr ""
+
+#: ../data/ui/preferences.blp:320
+msgid "Right to Left / Left to Right / Vertical"
+msgstr ""
+
+#: ../data/ui/preferences.blp:323
+msgid "Scaling"
+msgstr "Масштабирование"
+
+#: ../data/ui/preferences.blp:324
+msgid "Type of scaling to adapt image"
+msgstr "Тип масштабирования изображения"
+
+#: ../data/ui/preferences.blp:327
+msgid "Adapt to Screen"
+msgstr "По размеру экрана"
+
+#: ../data/ui/preferences.blp:328
+msgid "Adapt to Width"
+msgstr "По ширине"
+
+#: ../data/ui/preferences.blp:329
+msgid "Adapt to Height"
+msgstr "По высоте"
+
+#: ../data/ui/preferences.blp:330
+msgid "Original Size"
+msgstr "Оригинальный размер"
+
+#: ../data/ui/preferences.blp:336
 msgid "Landscape Pages Zoom"
 msgstr "Масштабирование страниц в альбомной ориентации"
 
-#: ../data/ui/preferences.blp:322
+#: ../data/ui/preferences.blp:337
 msgid ""
 "Zoom page to fit height when page is landscape (Adapt to Screen scaling only)"
 msgstr ""
 "Масштабировать страницу по высоте при её альбомном расположении (только при "
 "масштабировании по размеру экрана)"
 
-#: ../data/ui/preferences.blp:326
-msgid "Background Color"
-msgstr "Цвет фона"
-
-#: ../data/ui/preferences.blp:329
-msgid "White"
-msgstr "Белый"
-
-#: ../data/ui/preferences.blp:330
-msgid "Gray"
-msgstr "Серый"
-
-#: ../data/ui/preferences.blp:331
-msgid "Black"
-msgstr "Чёрный"
-
-#: ../data/ui/preferences.blp:332
-msgid "System Style"
-msgstr "Системный"
-
-#: ../data/ui/preferences.blp:338
+#: ../data/ui/preferences.blp:341
 msgid "Borders Crop"
 msgstr "Обрезка краёв"
 
-#: ../data/ui/preferences.blp:339
+#: ../data/ui/preferences.blp:342
 msgid ""
 "Crop white borders of images\n"
 "\n"
@@ -737,64 +747,80 @@ msgstr ""
 "ПРИМЕЧАНИЕ: Это действие увеличивает нагрузку на процессор и может вызвать "
 "замедление отрисовки и анимации, особенно на мобильных устройствах."
 
-#: ../data/ui/preferences.blp:343
-msgid "Page Numbering"
-msgstr "Нумерация страниц"
-
-#: ../data/ui/preferences.blp:344
-msgid "Hide the page numbering at the bottom of the screen while reading"
-msgstr "Скрыть нумерацию страниц в нижней части экрана во время чтения"
+#: ../data/ui/preferences.blp:347
+msgid "Webtoon Reading Mode"
+msgstr ""
 
 #: ../data/ui/preferences.blp:348
-msgid "Fullscreen"
-msgstr "Во весь экран"
+msgid "Long Strip aka Infinite Vertical Canvas"
+msgstr ""
 
-#: ../data/ui/preferences.blp:349
-msgid "Automatically enter fullscreen mode"
-msgstr "Автоматически переходить в полноэкранный режим"
+#: ../data/ui/preferences.blp:351
+msgid "Maximum Width"
+msgstr "Максимальная ширина"
 
-#: ../data/ui/preferences.blp:356
+#: ../data/ui/preferences.blp:352
+msgid "Constrain reader's width to a given maximum size"
+msgstr ""
+
+#: ../data/ui/preferences.blp:362
+msgid "Scroll Distance"
+msgstr ""
+
+#: ../data/ui/preferences.blp:363
+msgid "Percentage of page height to scroll on click or Page Up/Down"
+msgstr ""
+
+#: ../data/ui/preferences.blp:374
+msgid "Drag Sensitivity"
+msgstr ""
+
+#: ../data/ui/preferences.blp:375
+msgid "Multiplier for drag scrolling sensitivity"
+msgstr ""
+
+#: ../data/ui/preferences.blp:389
 msgid "Advanced"
 msgstr "Продвинутые"
 
-#: ../data/ui/preferences.blp:360
+#: ../data/ui/preferences.blp:393
 msgid "A setting has changed that requires a restart to take effect"
 msgstr ""
 "Изменён параметр, для вступления в силу которого требуется перезагрузка"
 
-#: ../data/ui/preferences.blp:366
+#: ../data/ui/preferences.blp:399
 msgid "Data"
 msgstr "Данные"
 
-#: ../data/ui/preferences.blp:367
+#: ../data/ui/preferences.blp:400
 msgid "Data not saved in the library"
 msgstr "Данные не были сохранены в библиотеке"
 
-#: ../data/ui/preferences.blp:370
+#: ../data/ui/preferences.blp:403
 msgid "Clear Chapters Cache and Database"
 msgstr "Очистить кэш глав и базу данных"
 
-#: ../data/ui/preferences.blp:385
+#: ../data/ui/preferences.blp:418
 msgid "Clear Chapters Cache and Database on Exit"
 msgstr "Очищать кэш глав и базу данных при выходе"
 
-#: ../data/ui/preferences.blp:390
+#: ../data/ui/preferences.blp:423
 msgid "WebView"
 msgstr "WebView"
 
-#: ../data/ui/preferences.blp:393
+#: ../data/ui/preferences.blp:426
 msgid "Clear Data"
 msgstr "Удалить данные"
 
-#: ../data/ui/preferences.blp:409
+#: ../data/ui/preferences.blp:442
 msgid "Servers Modules"
 msgstr "Серверные модули"
 
-#: ../data/ui/preferences.blp:412
+#: ../data/ui/preferences.blp:445
 msgid "Use Up-to-date Servers Modules"
 msgstr "Использовать актуальные серверные модули"
 
-#: ../data/ui/preferences.blp:413
+#: ../data/ui/preferences.blp:446
 msgid ""
 "An alternative version of the servers modules, installed from the source "
 "code repository and updated at each startup, is used instead of the one "
@@ -804,29 +830,29 @@ msgstr ""
 "альтернативная версия серверных модулей, устанавливаемая из репозитория "
 "исходного кода и обновляемая при каждом запуске."
 
-#: ../data/ui/preferences.blp:418
+#: ../data/ui/preferences.blp:451
 msgid "Credentials Storage"
 msgstr "Хранение учётных данных"
 
-#: ../data/ui/preferences.blp:421
+#: ../data/ui/preferences.blp:454
 msgid "Allow Plaintext Storage as Fallback"
 msgstr "Разрешить хранение в виде простого текста, как запасной вариант"
 
-#: ../data/ui/preferences.blp:422
+#: ../data/ui/preferences.blp:455
 msgid "Used when no keyring backends are found"
 msgstr ""
 "Используется, если не найдено ни одного приложения управляющего связками "
 "ключей"
 
-#: ../data/ui/preferences.blp:427
+#: ../data/ui/preferences.blp:460
 msgid "Tweaks"
 msgstr "Дополнительные настройки"
 
-#: ../data/ui/preferences.blp:430
+#: ../data/ui/preferences.blp:463
 msgid "Disable Animations"
 msgstr "Отключить анимацию"
 
-#: ../data/ui/preferences.blp:431
+#: ../data/ui/preferences.blp:464
 msgid ""
 "Useful with E Ink e-readers to avoid very choppy and unpleasant animations "
 "(due to the low refresh rate of the screen)"
@@ -834,7 +860,7 @@ msgstr ""
 "Используется в электронных читалках E-Ink, чтобы избежать дёрганой и "
 "неприятной анимации (из-за низкой частоты обновления экрана)"
 
-#: ../data/ui/preferences.blp:435
+#: ../data/ui/preferences.blp:468
 msgid ""
 "This tweak is only intended for users who do not use the GNOME desktop "
 "environment and therefore cannot disable animations globally via GNOME "
@@ -1168,8 +1194,8 @@ msgstr "Не удалось обновить статус чтения глав"
 msgid "Download"
 msgstr "Загрузить"
 
-#: ../komikku/card/chapters_list.py:735 ../komikku/preferences/__init__.py:153
-#: ../komikku/preferences/__init__.py:176
+#: ../komikku/card/chapters_list.py:735 ../komikku/preferences/__init__.py:155
+#: ../komikku/preferences/__init__.py:178
 msgid "Clear"
 msgstr "Очистить"
 
@@ -1214,7 +1240,7 @@ msgstr "Отменить отслеживание"
 #: ../komikku/servers/mangamana/__init__.py:63
 #: ../komikku/servers/mangaworld/__init__.py:74
 #: ../komikku/servers/raijinscan/__init__.py:34
-#: ../komikku/servers/weebdex/__init__.py:59
+#: ../komikku/servers/weebdex/__init__.py:60
 #: ../komikku/servers/zenko/__init__.py:57
 msgid "Status"
 msgstr "Статус"
@@ -1531,7 +1557,7 @@ msgstr "Завершено"
 #: ../komikku/servers/mangaworld/__init__.py:78
 #: ../komikku/servers/raijinscan/__init__.py:38
 #: ../komikku/servers/weebcentral/__init__.py:52
-#: ../komikku/servers/weebdex/__init__.py:63
+#: ../komikku/servers/weebdex/__init__.py:64
 #: ../komikku/servers/zenko/__init__.py:61
 msgid "Ongoing"
 msgstr "Выходит"
@@ -1550,35 +1576,35 @@ msgstr "Приостановлено"
 #: ../komikku/servers/mangafire/__init__.py:67
 #: ../komikku/servers/mangaworld/__init__.py:81
 #: ../komikku/servers/weebcentral/__init__.py:54
-#: ../komikku/servers/weebdex/__init__.py:65
+#: ../komikku/servers/weebdex/__init__.py:66
 #: ../komikku/servers/zenko/__init__.py:63
 msgid "Hiatus"
 msgstr "Перерыв"
 
-#: ../komikku/preferences/__init__.py:151
-#: ../komikku/preferences/__init__.py:174
+#: ../komikku/preferences/__init__.py:153
+#: ../komikku/preferences/__init__.py:176
 msgid "Clear?"
 msgstr "Очистить?"
 
-#: ../komikku/preferences/__init__.py:152
+#: ../komikku/preferences/__init__.py:154
 msgid "Are you sure you want to clear chapters cache and database?"
 msgstr "Вы уверены, что хотите очистить кэш глав и базу данных?"
 
-#: ../komikku/preferences/__init__.py:171
+#: ../komikku/preferences/__init__.py:173
 msgid "Failed to clear WebView data"
 msgstr "Не удалось очистить данные WebView"
 
-#: ../komikku/preferences/__init__.py:175
+#: ../komikku/preferences/__init__.py:177
 msgid "Are you sure you want to clear WebView data (cache, storage, cookies)?"
 msgstr ""
 "Вы уверены, что хотите удалить данные режима WebView (кэш, хранилище, файлы "
 "cookie)?"
 
-#: ../komikku/preferences/__init__.py:200
+#: ../komikku/preferences/__init__.py:202
 msgid "Disable animations?"
 msgstr "Отключить анимацию?"
 
-#: ../komikku/preferences/__init__.py:201
+#: ../komikku/preferences/__init__.py:203
 msgid ""
 "Are you sure you want to disable animations?\n"
 "\n"
@@ -1588,7 +1614,7 @@ msgstr ""
 "\n"
 "Навигация с помощью жестов в читалке не будет работать должным образом."
 
-#: ../komikku/preferences/__init__.py:202
+#: ../komikku/preferences/__init__.py:204
 msgid "Disable"
 msgstr "Отключить"
 
@@ -1861,31 +1887,31 @@ msgstr "Чёрно-белая"
 
 #: ../komikku/servers/comick/__init__.py:65
 #: ../komikku/servers/mangadex/__init__.py:58
-#: ../komikku/servers/weebdex/__init__.py:46
+#: ../komikku/servers/weebdex/__init__.py:47
 msgid "Rating"
 msgstr "Рейтинг"
 
 #: ../komikku/servers/comick/__init__.py:66
 #: ../komikku/servers/mangadex/__init__.py:59
-#: ../komikku/servers/weebdex/__init__.py:47
+#: ../komikku/servers/weebdex/__init__.py:48
 msgid "Filter by Content Ratings"
 msgstr "Фильтровать по рейтингу содержимого"
 
 #: ../komikku/servers/comick/__init__.py:69
 #: ../komikku/servers/mangadex/__init__.py:62
-#: ../komikku/servers/weebdex/__init__.py:50
+#: ../komikku/servers/weebdex/__init__.py:51
 msgid "Safe"
 msgstr "Безопасное содержимое"
 
 #: ../komikku/servers/comick/__init__.py:70
 #: ../komikku/servers/mangadex/__init__.py:63
-#: ../komikku/servers/weebdex/__init__.py:51
+#: ../komikku/servers/weebdex/__init__.py:52
 msgid "Suggestive"
 msgstr "Непристойное содержимое"
 
 #: ../komikku/servers/comick/__init__.py:71
 #: ../komikku/servers/mangadex/__init__.py:64
-#: ../komikku/servers/weebdex/__init__.py:52
+#: ../komikku/servers/weebdex/__init__.py:53
 msgid "Erotica"
 msgstr "Эротика"
 
@@ -1897,7 +1923,7 @@ msgstr "Эротика"
 #: ../komikku/servers/mangaworld/__init__.py:75
 #: ../komikku/servers/raijinscan/__init__.py:35
 #: ../komikku/servers/weebcentral/__init__.py:49
-#: ../komikku/servers/weebdex/__init__.py:60
+#: ../komikku/servers/weebdex/__init__.py:61
 #: ../komikku/servers/zenko/__init__.py:58
 msgid "Filter by Statuses"
 msgstr "Фильтровать по статусам"
@@ -1909,7 +1935,7 @@ msgstr "Фильтровать по статусам"
 #: ../komikku/servers/mangadex/__init__.py:76
 #: ../komikku/servers/mangafire/__init__.py:65
 #: ../komikku/servers/raijinscan/__init__.py:39
-#: ../komikku/servers/weebdex/__init__.py:64
+#: ../komikku/servers/weebdex/__init__.py:65
 #: ../komikku/servers/zenko/__init__.py:62 ../komikku/trackers/__init__.py:68
 msgid "Completed"
 msgstr "Завершено"
@@ -1921,7 +1947,7 @@ msgstr "Завершено"
 #: ../komikku/servers/mangadex/__init__.py:78
 #: ../komikku/servers/mangaworld/__init__.py:82
 #: ../komikku/servers/weebcentral/__init__.py:55
-#: ../komikku/servers/weebdex/__init__.py:66
+#: ../komikku/servers/weebdex/__init__.py:67
 msgid "Canceled"
 msgstr "Отменено"
 
@@ -1966,7 +1992,7 @@ msgstr "Публикации по возрастно-половым критер
 #: ../komikku/servers/comick/__init__.py:117
 #: ../komikku/servers/comix/__init__.py:69
 #: ../komikku/servers/mangadex/__init__.py:85
-#: ../komikku/servers/weebdex/__init__.py:73
+#: ../komikku/servers/weebdex/__init__.py:74
 msgid "Filter by Publication Demographics"
 msgstr "Фильтровать по демографическим критериям публикации"
 
@@ -1974,7 +2000,7 @@ msgstr "Фильтровать по демографическим критер�
 #: ../komikku/servers/comix/__init__.py:75
 #: ../komikku/servers/mangaball/__init__.py:77
 #: ../komikku/servers/mangadex/__init__.py:88
-#: ../komikku/servers/weebdex/__init__.py:76
+#: ../komikku/servers/weebdex/__init__.py:77
 msgid "Shounen"
 msgstr "Сёнэн"
 
@@ -1982,7 +2008,7 @@ msgstr "Сёнэн"
 #: ../komikku/servers/comix/__init__.py:74
 #: ../komikku/servers/mangaball/__init__.py:78
 #: ../komikku/servers/mangadex/__init__.py:89
-#: ../komikku/servers/weebdex/__init__.py:77
+#: ../komikku/servers/weebdex/__init__.py:78
 msgid "Shoujo"
 msgstr "Сёдзё"
 
@@ -1990,7 +2016,7 @@ msgstr "Сёдзё"
 #: ../komikku/servers/comix/__init__.py:73
 #: ../komikku/servers/mangaball/__init__.py:79
 #: ../komikku/servers/mangadex/__init__.py:91
-#: ../komikku/servers/weebdex/__init__.py:79
+#: ../komikku/servers/weebdex/__init__.py:80
 msgid "Seinen"
 msgstr "Сэйнэн"
 
@@ -1998,7 +2024,7 @@ msgstr "Сэйнэн"
 #: ../komikku/servers/comix/__init__.py:72
 #: ../komikku/servers/mangaball/__init__.py:80
 #: ../komikku/servers/mangadex/__init__.py:90
-#: ../komikku/servers/weebdex/__init__.py:78
+#: ../komikku/servers/weebdex/__init__.py:79
 msgid "Josei"
 msgstr "Дзёсэй"
 
@@ -2338,7 +2364,7 @@ msgid "Comics stored locally as archives in CBZ/CBR/CBT or PDF formats"
 msgstr "Комиксы хранятся локально в виде архивов формата CBZ/CBR/CBT или PDF"
 
 #: ../komikku/servers/mangaball/__init__.py:71
-#: ../komikku/servers/weebdex/__init__.py:72
+#: ../komikku/servers/weebdex/__init__.py:73
 msgid "Demographic"
 msgstr "Демографические"
 
@@ -2356,7 +2382,7 @@ msgid "Filter by Status"
 msgstr "Фильтровать публикации по состоянию"
 
 #: ../komikku/servers/mangadex/__init__.py:65
-#: ../komikku/servers/weebdex/__init__.py:53
+#: ../komikku/servers/weebdex/__init__.py:54
 msgid "Pornographic"
 msgstr "Порнография"
 
@@ -2391,12 +2417,12 @@ msgid "OR"
 msgstr "OR"
 
 #: ../komikku/servers/mangadex/__init__.py:166
-#: ../komikku/servers/weebdex/__init__.py:96
+#: ../komikku/servers/weebdex/__init__.py:97
 msgid "Data Saver Mode"
 msgstr "Режим экономии трафика"
 
 #: ../komikku/servers/mangadex/__init__.py:167
-#: ../komikku/servers/weebdex/__init__.py:97
+#: ../komikku/servers/weebdex/__init__.py:98
 msgid "Fetch lower quality images to save bandwidth"
 msgstr ""
 "Получать изображения более низкого качества для снижения нагрузки на сеть"
@@ -2589,6 +2615,16 @@ msgstr "Пожалуйста, подождите…"
 #: ../komikku/webview.py:489
 msgid "Please complete CAPTCHA"
 msgstr "Пожалуйста, заполните CAPTCHA"
+
+#~ msgid "Automatic tracking of series with MyAnimeList and AniList"
+#~ msgstr "Автоматические отслеживание циклов с помощью MyAnimeList и AniList"
+
+#~ msgid ""
+#~ "Constrain reader's width to a given maximum size (Webtoon reading mode "
+#~ "only)"
+#~ msgstr ""
+#~ "Ограничить ширину читалки заданным максимальным размером (только в режиме "
+#~ "чтения «Вебтун»)"
 
 #~ msgid "manga;reader;viewer;comic;manhwa;manhua;bd;webtoon;webcomic;scan;offline;GTK;GNOME;"
 #~ msgstr "manga;reader;viewer;comic;manhwa;manhua;bd;webtoon;webcomic;scan;offline;GTK;GNOME;манга;читалка;комикс;"

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Komikku 1.0.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-11-28 10:50+0100\n"
+"POT-Creation-Date: 2025-12-03 00:18+0100\n"
 "PO-Revision-Date: 2025-01-20 17:00+0000\n"
 "Last-Translator: LS-Shandong <ls-shandong@outlook.com>\n"
 "Language-Team: Chinese (Simplified Han script) <https://hosted.weblate.org/"
@@ -74,8 +74,8 @@ msgid "Categories to organize your library"
 msgstr "用于组织你收藏库的类别"
 
 #: ../data/info.febvre.Komikku.metainfo.xml.in.in:22
-msgid "Automatic tracking of series with MyAnimeList and AniList"
-msgstr "使用 MyAnimeList 和 AniList 自动跟踪系列"
+msgid "Automatic tracking of series with AniList, MangaUpdates and MyAnimeList"
+msgstr ""
 
 #: ../data/info.febvre.Komikku.metainfo.xml.in.in:23
 msgid "Automatic update of series"
@@ -181,7 +181,7 @@ msgstr "移动端分类编辑器页面"
 msgid "The Reading history page in mobile format"
 msgstr "移动端阅读历史页面"
 
-#: ../data/ui/application_window.blp:54 ../data/ui/preferences.blp:361
+#: ../data/ui/application_window.blp:54 ../data/ui/preferences.blp:394
 msgid "Got it!"
 msgstr ""
 
@@ -627,88 +627,103 @@ msgid "⬇ Webtoon"
 msgstr "⬇ Webtoon"
 
 #: ../data/ui/preferences.blp:285
-msgid "Maximum Width"
-msgstr "最大宽度"
-
-#: ../data/ui/preferences.blp:286
-msgid ""
-"Constrain reader's width to a given maximum size (Webtoon reading mode only)"
-msgstr "将阅读器的宽度限制为给定的最大尺寸（仅限 Webtoon 阅读模式）"
-
-#: ../data/ui/preferences.blp:297
-msgid "Scaling"
-msgstr "缩放"
-
-#: ../data/ui/preferences.blp:298
-msgid "Type of scaling to adapt image"
-msgstr "图像调整的缩放类型"
-
-#: ../data/ui/preferences.blp:301
-msgid "Adapt to Screen"
-msgstr "适应屏幕"
-
-#: ../data/ui/preferences.blp:302
-msgid "Adapt to Width"
-msgstr "适应宽度"
-
-#: ../data/ui/preferences.blp:303
-msgid "Adapt to Height"
-msgstr "适应高度"
-
-#: ../data/ui/preferences.blp:304
-msgid "Original Size"
-msgstr "原始大小"
-
-#: ../data/ui/preferences.blp:310
 msgid "Scaling Filter"
 msgstr "缩放过滤器"
 
-#: ../data/ui/preferences.blp:311
+#: ../data/ui/preferences.blp:286
 msgid "Interpolation method used when scaling images"
 msgstr "缩放图像时使用的插值方法"
 
-#: ../data/ui/preferences.blp:314
+#: ../data/ui/preferences.blp:289
 msgid "Linear"
 msgstr "线性"
 
-#: ../data/ui/preferences.blp:315
+#: ../data/ui/preferences.blp:290
 msgid "Trilinear"
 msgstr "三线性"
 
-#: ../data/ui/preferences.blp:321
+#: ../data/ui/preferences.blp:296
+msgid "Background Color"
+msgstr "背景色"
+
+#: ../data/ui/preferences.blp:299
+msgid "White"
+msgstr "白色"
+
+#: ../data/ui/preferences.blp:300
+msgid "Gray"
+msgstr "灰色"
+
+#: ../data/ui/preferences.blp:301
+msgid "Black"
+msgstr "黑色"
+
+#: ../data/ui/preferences.blp:302
+msgid "System Style"
+msgstr "系统样式"
+
+#: ../data/ui/preferences.blp:308
+msgid "Page Numbering"
+msgstr "页码"
+
+#: ../data/ui/preferences.blp:309
+msgid "Hide the page numbering at the bottom of the screen while reading"
+msgstr "阅读时隐藏屏幕底部的页码"
+
+#: ../data/ui/preferences.blp:313
+msgid "Fullscreen"
+msgstr "全屏"
+
+#: ../data/ui/preferences.blp:314
+msgid "Automatically enter fullscreen mode"
+msgstr "自动进入全屏模式"
+
+#: ../data/ui/preferences.blp:319
+msgid "Paged Reading Modes"
+msgstr ""
+
+#: ../data/ui/preferences.blp:320
+msgid "Right to Left / Left to Right / Vertical"
+msgstr ""
+
+#: ../data/ui/preferences.blp:323
+msgid "Scaling"
+msgstr "缩放"
+
+#: ../data/ui/preferences.blp:324
+msgid "Type of scaling to adapt image"
+msgstr "图像调整的缩放类型"
+
+#: ../data/ui/preferences.blp:327
+msgid "Adapt to Screen"
+msgstr "适应屏幕"
+
+#: ../data/ui/preferences.blp:328
+msgid "Adapt to Width"
+msgstr "适应宽度"
+
+#: ../data/ui/preferences.blp:329
+msgid "Adapt to Height"
+msgstr "适应高度"
+
+#: ../data/ui/preferences.blp:330
+msgid "Original Size"
+msgstr "原始大小"
+
+#: ../data/ui/preferences.blp:336
 msgid "Landscape Pages Zoom"
 msgstr "横幅缩放"
 
-#: ../data/ui/preferences.blp:322
+#: ../data/ui/preferences.blp:337
 msgid ""
 "Zoom page to fit height when page is landscape (Adapt to Screen scaling only)"
 msgstr "当页面为横向时缩放页面以适应高度（仅用于适应屏幕缩放）"
 
-#: ../data/ui/preferences.blp:326
-msgid "Background Color"
-msgstr "背景色"
-
-#: ../data/ui/preferences.blp:329
-msgid "White"
-msgstr "白色"
-
-#: ../data/ui/preferences.blp:330
-msgid "Gray"
-msgstr "灰色"
-
-#: ../data/ui/preferences.blp:331
-msgid "Black"
-msgstr "黑色"
-
-#: ../data/ui/preferences.blp:332
-msgid "System Style"
-msgstr "系统样式"
-
-#: ../data/ui/preferences.blp:338
+#: ../data/ui/preferences.blp:341
 msgid "Borders Crop"
 msgstr "边框裁减"
 
-#: ../data/ui/preferences.blp:339
+#: ../data/ui/preferences.blp:342
 msgid ""
 "Crop white borders of images\n"
 "\n"
@@ -719,63 +734,79 @@ msgstr ""
 "\n"
 "注意：需要使用更多 CPU 资源且可能引起渲染和动画变慢，特别是对移动设备。"
 
-#: ../data/ui/preferences.blp:343
-msgid "Page Numbering"
-msgstr "页码"
-
-#: ../data/ui/preferences.blp:344
-msgid "Hide the page numbering at the bottom of the screen while reading"
-msgstr "阅读时隐藏屏幕底部的页码"
+#: ../data/ui/preferences.blp:347
+msgid "Webtoon Reading Mode"
+msgstr ""
 
 #: ../data/ui/preferences.blp:348
-msgid "Fullscreen"
-msgstr "全屏"
+msgid "Long Strip aka Infinite Vertical Canvas"
+msgstr ""
 
-#: ../data/ui/preferences.blp:349
-msgid "Automatically enter fullscreen mode"
-msgstr "自动进入全屏模式"
+#: ../data/ui/preferences.blp:351
+msgid "Maximum Width"
+msgstr "最大宽度"
 
-#: ../data/ui/preferences.blp:356
+#: ../data/ui/preferences.blp:352
+msgid "Constrain reader's width to a given maximum size"
+msgstr ""
+
+#: ../data/ui/preferences.blp:362
+msgid "Scroll Distance"
+msgstr ""
+
+#: ../data/ui/preferences.blp:363
+msgid "Percentage of page height to scroll on click or Page Up/Down"
+msgstr ""
+
+#: ../data/ui/preferences.blp:374
+msgid "Drag Sensitivity"
+msgstr ""
+
+#: ../data/ui/preferences.blp:375
+msgid "Multiplier for drag scrolling sensitivity"
+msgstr ""
+
+#: ../data/ui/preferences.blp:389
 msgid "Advanced"
 msgstr "高级"
 
-#: ../data/ui/preferences.blp:360
+#: ../data/ui/preferences.blp:393
 msgid "A setting has changed that requires a restart to take effect"
 msgstr ""
 
-#: ../data/ui/preferences.blp:366
+#: ../data/ui/preferences.blp:399
 msgid "Data"
 msgstr "数据"
 
-#: ../data/ui/preferences.blp:367
+#: ../data/ui/preferences.blp:400
 msgid "Data not saved in the library"
 msgstr "数据未保存在图书馆中"
 
-#: ../data/ui/preferences.blp:370
+#: ../data/ui/preferences.blp:403
 msgid "Clear Chapters Cache and Database"
 msgstr "清除章节缓存和数据库"
 
-#: ../data/ui/preferences.blp:385
+#: ../data/ui/preferences.blp:418
 msgid "Clear Chapters Cache and Database on Exit"
 msgstr "退出时清除章节缓存和数据库"
 
-#: ../data/ui/preferences.blp:390
+#: ../data/ui/preferences.blp:423
 msgid "WebView"
 msgstr ""
 
-#: ../data/ui/preferences.blp:393
+#: ../data/ui/preferences.blp:426
 msgid "Clear Data"
 msgstr ""
 
-#: ../data/ui/preferences.blp:409
+#: ../data/ui/preferences.blp:442
 msgid "Servers Modules"
 msgstr "服务器模块"
 
-#: ../data/ui/preferences.blp:412
+#: ../data/ui/preferences.blp:445
 msgid "Use Up-to-date Servers Modules"
 msgstr "使用最新的服务器模块"
 
-#: ../data/ui/preferences.blp:413
+#: ../data/ui/preferences.blp:446
 msgid ""
 "An alternative version of the servers modules, installed from the source "
 "code repository and updated at each startup, is used instead of the one "
@@ -784,34 +815,34 @@ msgstr ""
 "使用的是服务器模块的另一个版本，而不是随应用程序一起提供的版本，该版本从源代"
 "码库中安装，并在每次运行时更新。"
 
-#: ../data/ui/preferences.blp:418
+#: ../data/ui/preferences.blp:451
 msgid "Credentials Storage"
 msgstr "证书存储"
 
-#: ../data/ui/preferences.blp:421
+#: ../data/ui/preferences.blp:454
 msgid "Allow Plaintext Storage as Fallback"
 msgstr "允许纯文本存储作为后备"
 
-#: ../data/ui/preferences.blp:422
+#: ../data/ui/preferences.blp:455
 msgid "Used when no keyring backends are found"
 msgstr "在没有找到密钥环后端时使用"
 
-#: ../data/ui/preferences.blp:427
+#: ../data/ui/preferences.blp:460
 msgid "Tweaks"
 msgstr "微调"
 
-#: ../data/ui/preferences.blp:430
+#: ../data/ui/preferences.blp:463
 msgid "Disable Animations"
 msgstr "禁用动画"
 
-#: ../data/ui/preferences.blp:431
+#: ../data/ui/preferences.blp:464
 msgid ""
 "Useful with E Ink e-readers to avoid very choppy and unpleasant animations "
 "(due to the low refresh rate of the screen)"
 msgstr ""
 "适用于 E Ink 电子阅读器，可避免因屏幕刷新率低而导致的不流畅和不愉快的动画效果"
 
-#: ../data/ui/preferences.blp:435
+#: ../data/ui/preferences.blp:468
 msgid ""
 "This tweak is only intended for users who do not use the GNOME desktop "
 "environment and therefore cannot disable animations globally via GNOME "
@@ -1130,8 +1161,8 @@ msgstr "更新章节阅读状态失败"
 msgid "Download"
 msgstr "下载"
 
-#: ../komikku/card/chapters_list.py:735 ../komikku/preferences/__init__.py:153
-#: ../komikku/preferences/__init__.py:176
+#: ../komikku/card/chapters_list.py:735 ../komikku/preferences/__init__.py:155
+#: ../komikku/preferences/__init__.py:178
 msgid "Clear"
 msgstr "清除"
 
@@ -1176,7 +1207,7 @@ msgstr "取消跟踪"
 #: ../komikku/servers/mangamana/__init__.py:63
 #: ../komikku/servers/mangaworld/__init__.py:74
 #: ../komikku/servers/raijinscan/__init__.py:34
-#: ../komikku/servers/weebdex/__init__.py:59
+#: ../komikku/servers/weebdex/__init__.py:60
 #: ../komikku/servers/zenko/__init__.py:57
 msgid "Status"
 msgstr "状态"
@@ -1489,7 +1520,7 @@ msgstr "已完成"
 #: ../komikku/servers/mangaworld/__init__.py:78
 #: ../komikku/servers/raijinscan/__init__.py:38
 #: ../komikku/servers/weebcentral/__init__.py:52
-#: ../komikku/servers/weebdex/__init__.py:63
+#: ../komikku/servers/weebdex/__init__.py:64
 #: ../komikku/servers/zenko/__init__.py:61
 msgid "Ongoing"
 msgstr "进行中"
@@ -1508,33 +1539,33 @@ msgstr "已暂停"
 #: ../komikku/servers/mangafire/__init__.py:67
 #: ../komikku/servers/mangaworld/__init__.py:81
 #: ../komikku/servers/weebcentral/__init__.py:54
-#: ../komikku/servers/weebdex/__init__.py:65
+#: ../komikku/servers/weebdex/__init__.py:66
 #: ../komikku/servers/zenko/__init__.py:63
 msgid "Hiatus"
 msgstr "已停止"
 
-#: ../komikku/preferences/__init__.py:151
-#: ../komikku/preferences/__init__.py:174
+#: ../komikku/preferences/__init__.py:153
+#: ../komikku/preferences/__init__.py:176
 msgid "Clear?"
 msgstr "清除？"
 
-#: ../komikku/preferences/__init__.py:152
+#: ../komikku/preferences/__init__.py:154
 msgid "Are you sure you want to clear chapters cache and database?"
 msgstr "您确定要清除章节缓存与数据库吗？"
 
-#: ../komikku/preferences/__init__.py:171
+#: ../komikku/preferences/__init__.py:173
 msgid "Failed to clear WebView data"
 msgstr ""
 
-#: ../komikku/preferences/__init__.py:175
+#: ../komikku/preferences/__init__.py:177
 msgid "Are you sure you want to clear WebView data (cache, storage, cookies)?"
 msgstr ""
 
-#: ../komikku/preferences/__init__.py:200
+#: ../komikku/preferences/__init__.py:202
 msgid "Disable animations?"
 msgstr "禁用动画？"
 
-#: ../komikku/preferences/__init__.py:201
+#: ../komikku/preferences/__init__.py:203
 msgid ""
 "Are you sure you want to disable animations?\n"
 "\n"
@@ -1544,7 +1575,7 @@ msgstr ""
 "\n"
 "阅读器中的手势导航将无法正常工作。"
 
-#: ../komikku/preferences/__init__.py:202
+#: ../komikku/preferences/__init__.py:204
 msgid "Disable"
 msgstr "禁用"
 
@@ -1808,31 +1839,31 @@ msgstr "黑白"
 
 #: ../komikku/servers/comick/__init__.py:65
 #: ../komikku/servers/mangadex/__init__.py:58
-#: ../komikku/servers/weebdex/__init__.py:46
+#: ../komikku/servers/weebdex/__init__.py:47
 msgid "Rating"
 msgstr "评分"
 
 #: ../komikku/servers/comick/__init__.py:66
 #: ../komikku/servers/mangadex/__init__.py:59
-#: ../komikku/servers/weebdex/__init__.py:47
+#: ../komikku/servers/weebdex/__init__.py:48
 msgid "Filter by Content Ratings"
 msgstr ""
 
 #: ../komikku/servers/comick/__init__.py:69
 #: ../komikku/servers/mangadex/__init__.py:62
-#: ../komikku/servers/weebdex/__init__.py:50
+#: ../komikku/servers/weebdex/__init__.py:51
 msgid "Safe"
 msgstr "安全"
 
 #: ../komikku/servers/comick/__init__.py:70
 #: ../komikku/servers/mangadex/__init__.py:63
-#: ../komikku/servers/weebdex/__init__.py:51
+#: ../komikku/servers/weebdex/__init__.py:52
 msgid "Suggestive"
 msgstr "建议"
 
 #: ../komikku/servers/comick/__init__.py:71
 #: ../komikku/servers/mangadex/__init__.py:64
-#: ../komikku/servers/weebdex/__init__.py:52
+#: ../komikku/servers/weebdex/__init__.py:53
 msgid "Erotica"
 msgstr "情欲"
 
@@ -1844,7 +1875,7 @@ msgstr "情欲"
 #: ../komikku/servers/mangaworld/__init__.py:75
 #: ../komikku/servers/raijinscan/__init__.py:35
 #: ../komikku/servers/weebcentral/__init__.py:49
-#: ../komikku/servers/weebdex/__init__.py:60
+#: ../komikku/servers/weebdex/__init__.py:61
 #: ../komikku/servers/zenko/__init__.py:58
 msgid "Filter by Statuses"
 msgstr "按状态筛选"
@@ -1856,7 +1887,7 @@ msgstr "按状态筛选"
 #: ../komikku/servers/mangadex/__init__.py:76
 #: ../komikku/servers/mangafire/__init__.py:65
 #: ../komikku/servers/raijinscan/__init__.py:39
-#: ../komikku/servers/weebdex/__init__.py:64
+#: ../komikku/servers/weebdex/__init__.py:65
 #: ../komikku/servers/zenko/__init__.py:62 ../komikku/trackers/__init__.py:68
 msgid "Completed"
 msgstr "已完成"
@@ -1868,7 +1899,7 @@ msgstr "已完成"
 #: ../komikku/servers/mangadex/__init__.py:78
 #: ../komikku/servers/mangaworld/__init__.py:82
 #: ../komikku/servers/weebcentral/__init__.py:55
-#: ../komikku/servers/weebdex/__init__.py:66
+#: ../komikku/servers/weebdex/__init__.py:67
 msgid "Canceled"
 msgstr "已取消"
 
@@ -1913,7 +1944,7 @@ msgstr "出版物人口统计"
 #: ../komikku/servers/comick/__init__.py:117
 #: ../komikku/servers/comix/__init__.py:69
 #: ../komikku/servers/mangadex/__init__.py:85
-#: ../komikku/servers/weebdex/__init__.py:73
+#: ../komikku/servers/weebdex/__init__.py:74
 msgid "Filter by Publication Demographics"
 msgstr ""
 
@@ -1921,7 +1952,7 @@ msgstr ""
 #: ../komikku/servers/comix/__init__.py:75
 #: ../komikku/servers/mangaball/__init__.py:77
 #: ../komikku/servers/mangadex/__init__.py:88
-#: ../komikku/servers/weebdex/__init__.py:76
+#: ../komikku/servers/weebdex/__init__.py:77
 msgid "Shounen"
 msgstr "少年"
 
@@ -1929,7 +1960,7 @@ msgstr "少年"
 #: ../komikku/servers/comix/__init__.py:74
 #: ../komikku/servers/mangaball/__init__.py:78
 #: ../komikku/servers/mangadex/__init__.py:89
-#: ../komikku/servers/weebdex/__init__.py:77
+#: ../komikku/servers/weebdex/__init__.py:78
 msgid "Shoujo"
 msgstr "少女"
 
@@ -1937,7 +1968,7 @@ msgstr "少女"
 #: ../komikku/servers/comix/__init__.py:73
 #: ../komikku/servers/mangaball/__init__.py:79
 #: ../komikku/servers/mangadex/__init__.py:91
-#: ../komikku/servers/weebdex/__init__.py:79
+#: ../komikku/servers/weebdex/__init__.py:80
 msgid "Seinen"
 msgstr "青年"
 
@@ -1945,7 +1976,7 @@ msgstr "青年"
 #: ../komikku/servers/comix/__init__.py:72
 #: ../komikku/servers/mangaball/__init__.py:80
 #: ../komikku/servers/mangadex/__init__.py:90
-#: ../komikku/servers/weebdex/__init__.py:78
+#: ../komikku/servers/weebdex/__init__.py:79
 msgid "Josei"
 msgstr "女性"
 
@@ -2283,7 +2314,7 @@ msgid "Comics stored locally as archives in CBZ/CBR/CBT or PDF formats"
 msgstr ""
 
 #: ../komikku/servers/mangaball/__init__.py:71
-#: ../komikku/servers/weebdex/__init__.py:72
+#: ../komikku/servers/weebdex/__init__.py:73
 msgid "Demographic"
 msgstr ""
 
@@ -2301,7 +2332,7 @@ msgid "Filter by Status"
 msgstr ""
 
 #: ../komikku/servers/mangadex/__init__.py:65
-#: ../komikku/servers/weebdex/__init__.py:53
+#: ../komikku/servers/weebdex/__init__.py:54
 msgid "Pornographic"
 msgstr "色情"
 
@@ -2334,12 +2365,12 @@ msgid "OR"
 msgstr "或"
 
 #: ../komikku/servers/mangadex/__init__.py:166
-#: ../komikku/servers/weebdex/__init__.py:96
+#: ../komikku/servers/weebdex/__init__.py:97
 msgid "Data Saver Mode"
 msgstr ""
 
 #: ../komikku/servers/mangadex/__init__.py:167
-#: ../komikku/servers/weebdex/__init__.py:97
+#: ../komikku/servers/weebdex/__init__.py:98
 msgid "Fetch lower quality images to save bandwidth"
 msgstr ""
 
@@ -2525,6 +2556,14 @@ msgstr "请等待…"
 #: ../komikku/webview.py:489
 msgid "Please complete CAPTCHA"
 msgstr "请完成 CAPTCHA 验证"
+
+#~ msgid "Automatic tracking of series with MyAnimeList and AniList"
+#~ msgstr "使用 MyAnimeList 和 AniList 自动跟踪系列"
+
+#~ msgid ""
+#~ "Constrain reader's width to a given maximum size (Webtoon reading mode "
+#~ "only)"
+#~ msgstr "将阅读器的宽度限制为给定的最大尺寸（仅限 Webtoon 阅读模式）"
 
 #~ msgid "manga;reader;viewer;comic;manhwa;manhua;bd;webtoon;webcomic;scan;offline;GTK;GNOME;"
 #~ msgstr ""

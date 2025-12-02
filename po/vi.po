@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Komikku 1.44.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-11-28 10:50+0100\n"
+"POT-Creation-Date: 2025-12-03 00:18+0100\n"
 "PO-Revision-Date: 2025-12-02 11:00+0000\n"
 "Last-Translator: Loc Huynh <huynhloc.contact@gmail.com>\n"
 "Language-Team: Vietnamese <https://hosted.weblate.org/projects/komikku/main/"
@@ -31,8 +31,8 @@ msgstr "@description@"
 #: ../data/info.febvre.Komikku.desktop.in:15
 msgid "manga;reader;viewer;comic;manhwa;manhua;webtoon;webcomic;scanlation;book;ebook;offline;GTK;GNOME;"
 msgstr ""
-"manga;reader;viewer;comic;manhwa;manhua;webtoon;webcomic;scanlation;book;ebook;offline;GTK;GNOME;"
-"truyện tranh;người đọc;người xem;truyện tranh;sách;ngoại tuyến;"
+"manga;reader;viewer;comic;manhwa;manhua;webtoon;webcomic;scanlation;book;ebook;offline;GTK;GNOME;truyện "
+"tranh;người đọc;người xem;truyện tranh;sách;ngoại tuyến;"
 
 #: ../data/info.febvre.Komikku.metainfo.xml.in.in:11
 msgid "Discover and read manga & comics"
@@ -79,8 +79,8 @@ msgid "Categories to organize your library"
 msgstr "Tạo các danh mục trong thư viện của bạn"
 
 #: ../data/info.febvre.Komikku.metainfo.xml.in.in:22
-msgid "Automatic tracking of series with MyAnimeList and AniList"
-msgstr "Tự động theo dõi bộ truyện với MyAnimeList và AniList"
+msgid "Automatic tracking of series with AniList, MangaUpdates and MyAnimeList"
+msgstr ""
 
 #: ../data/info.febvre.Komikku.metainfo.xml.in.in:23
 msgid "Automatic update of series"
@@ -186,7 +186,7 @@ msgstr "Trang biên tập Danh mục ở định dạng di động"
 msgid "The Reading history page in mobile format"
 msgstr "Trang Lịch sử đọc ở định dạng di động"
 
-#: ../data/ui/application_window.blp:54 ../data/ui/preferences.blp:361
+#: ../data/ui/application_window.blp:54 ../data/ui/preferences.blp:394
 msgid "Got it!"
 msgstr "Hiểu rồi!"
 
@@ -638,92 +638,105 @@ msgid "⬇ Webtoon"
 msgstr "⬇ Webtoon"
 
 #: ../data/ui/preferences.blp:285
-msgid "Maximum Width"
-msgstr "Chiều rộng tối đa"
-
-#: ../data/ui/preferences.blp:286
-msgid ""
-"Constrain reader's width to a given maximum size (Webtoon reading mode only)"
-msgstr ""
-"Giới hạn chiều rộng của trình đọc ở một kích thước tối đa nhất định (chỉ ở "
-"chế độ đọc Webtoon)"
-
-#: ../data/ui/preferences.blp:297
-msgid "Scaling"
-msgstr "Chia tỷ lệ"
-
-#: ../data/ui/preferences.blp:298
-msgid "Type of scaling to adapt image"
-msgstr "Kiểu chia tỷ lệ để điều chỉnh hình ảnh"
-
-#: ../data/ui/preferences.blp:301
-msgid "Adapt to Screen"
-msgstr "Thích ứng với màn hình"
-
-#: ../data/ui/preferences.blp:302
-msgid "Adapt to Width"
-msgstr "Thích ứng với chiều rộng"
-
-#: ../data/ui/preferences.blp:303
-msgid "Adapt to Height"
-msgstr "Thích nghi với chiều cao"
-
-#: ../data/ui/preferences.blp:304
-msgid "Original Size"
-msgstr "Kích thước ban đầu"
-
-#: ../data/ui/preferences.blp:310
 msgid "Scaling Filter"
 msgstr "Bộ Lọc Tỷ Lệ"
 
-#: ../data/ui/preferences.blp:311
+#: ../data/ui/preferences.blp:286
 msgid "Interpolation method used when scaling images"
 msgstr "Phương pháp nội suy được sử dụng khi chia tỷ lệ hình ảnh"
 
-#: ../data/ui/preferences.blp:314
+#: ../data/ui/preferences.blp:289
 msgid "Linear"
 msgstr "Tuyến Tính"
 
-#: ../data/ui/preferences.blp:315
+#: ../data/ui/preferences.blp:290
 msgid "Trilinear"
 msgstr "Tam Tuyến"
 
-#: ../data/ui/preferences.blp:321
+#: ../data/ui/preferences.blp:296
+msgid "Background Color"
+msgstr "Màu nền"
+
+#: ../data/ui/preferences.blp:299
+msgid "White"
+msgstr "Màu Trắng"
+
+#: ../data/ui/preferences.blp:300
+msgid "Gray"
+msgstr "Màu Xám"
+
+#: ../data/ui/preferences.blp:301
+msgid "Black"
+msgstr "Màu Đen"
+
+#: ../data/ui/preferences.blp:302
+msgid "System Style"
+msgstr "Kiểu hệ thống"
+
+#: ../data/ui/preferences.blp:308
+msgid "Page Numbering"
+msgstr "Đánh số trang"
+
+#: ../data/ui/preferences.blp:309
+msgid "Hide the page numbering at the bottom of the screen while reading"
+msgstr "Ẩn đánh số trang cuối màn hình khi đọc"
+
+#: ../data/ui/preferences.blp:313
+msgid "Fullscreen"
+msgstr "Toàn màn hình"
+
+#: ../data/ui/preferences.blp:314
+msgid "Automatically enter fullscreen mode"
+msgstr "Tự động vào chế độ toàn màn hình"
+
+#: ../data/ui/preferences.blp:319
+msgid "Paged Reading Modes"
+msgstr ""
+
+#: ../data/ui/preferences.blp:320
+msgid "Right to Left / Left to Right / Vertical"
+msgstr ""
+
+#: ../data/ui/preferences.blp:323
+msgid "Scaling"
+msgstr "Chia tỷ lệ"
+
+#: ../data/ui/preferences.blp:324
+msgid "Type of scaling to adapt image"
+msgstr "Kiểu chia tỷ lệ để điều chỉnh hình ảnh"
+
+#: ../data/ui/preferences.blp:327
+msgid "Adapt to Screen"
+msgstr "Thích ứng với màn hình"
+
+#: ../data/ui/preferences.blp:328
+msgid "Adapt to Width"
+msgstr "Thích ứng với chiều rộng"
+
+#: ../data/ui/preferences.blp:329
+msgid "Adapt to Height"
+msgstr "Thích nghi với chiều cao"
+
+#: ../data/ui/preferences.blp:330
+msgid "Original Size"
+msgstr "Kích thước ban đầu"
+
+#: ../data/ui/preferences.blp:336
 msgid "Landscape Pages Zoom"
 msgstr "Thu phóng trang ngang"
 
-#: ../data/ui/preferences.blp:322
+#: ../data/ui/preferences.blp:337
 msgid ""
 "Zoom page to fit height when page is landscape (Adapt to Screen scaling only)"
 msgstr ""
 "Thu phóng trang để vừa với chiều cao khi trang ở chế độ ngang (Chỉ thích ứng "
 "với tỷ lệ màn hình)"
 
-#: ../data/ui/preferences.blp:326
-msgid "Background Color"
-msgstr "Màu nền"
-
-#: ../data/ui/preferences.blp:329
-msgid "White"
-msgstr "Màu Trắng"
-
-#: ../data/ui/preferences.blp:330
-msgid "Gray"
-msgstr "Màu Xám"
-
-#: ../data/ui/preferences.blp:331
-msgid "Black"
-msgstr "Màu Đen"
-
-#: ../data/ui/preferences.blp:332
-msgid "System Style"
-msgstr "Kiểu hệ thống"
-
-#: ../data/ui/preferences.blp:338
+#: ../data/ui/preferences.blp:341
 msgid "Borders Crop"
 msgstr "Cắt viền"
 
-#: ../data/ui/preferences.blp:339
+#: ../data/ui/preferences.blp:342
 msgid ""
 "Crop white borders of images\n"
 "\n"
@@ -735,63 +748,79 @@ msgstr ""
 "LƯU Ý: Yêu cầu sử dụng nhiều CPU hơn và có thể gây ra tình trạng chậm hiển "
 "thị và hoạt ảnh, đặc biệt là trên thiết bị di động."
 
-#: ../data/ui/preferences.blp:343
-msgid "Page Numbering"
-msgstr "Đánh số trang"
-
-#: ../data/ui/preferences.blp:344
-msgid "Hide the page numbering at the bottom of the screen while reading"
-msgstr "Ẩn đánh số trang cuối màn hình khi đọc"
+#: ../data/ui/preferences.blp:347
+msgid "Webtoon Reading Mode"
+msgstr ""
 
 #: ../data/ui/preferences.blp:348
-msgid "Fullscreen"
-msgstr "Toàn màn hình"
+msgid "Long Strip aka Infinite Vertical Canvas"
+msgstr ""
 
-#: ../data/ui/preferences.blp:349
-msgid "Automatically enter fullscreen mode"
-msgstr "Tự động vào chế độ toàn màn hình"
+#: ../data/ui/preferences.blp:351
+msgid "Maximum Width"
+msgstr "Chiều rộng tối đa"
 
-#: ../data/ui/preferences.blp:356
+#: ../data/ui/preferences.blp:352
+msgid "Constrain reader's width to a given maximum size"
+msgstr ""
+
+#: ../data/ui/preferences.blp:362
+msgid "Scroll Distance"
+msgstr ""
+
+#: ../data/ui/preferences.blp:363
+msgid "Percentage of page height to scroll on click or Page Up/Down"
+msgstr ""
+
+#: ../data/ui/preferences.blp:374
+msgid "Drag Sensitivity"
+msgstr ""
+
+#: ../data/ui/preferences.blp:375
+msgid "Multiplier for drag scrolling sensitivity"
+msgstr ""
+
+#: ../data/ui/preferences.blp:389
 msgid "Advanced"
 msgstr "Trình độ cao"
 
-#: ../data/ui/preferences.blp:360
+#: ../data/ui/preferences.blp:393
 msgid "A setting has changed that requires a restart to take effect"
 msgstr "Một cài đặt đã thay đổi yêu cầu khởi động lại để có hiệu lực"
 
-#: ../data/ui/preferences.blp:366
+#: ../data/ui/preferences.blp:399
 msgid "Data"
 msgstr "Dữ liệu"
 
-#: ../data/ui/preferences.blp:367
+#: ../data/ui/preferences.blp:400
 msgid "Data not saved in the library"
 msgstr "Dữ liệu chưa được lưu trong thư viện"
 
-#: ../data/ui/preferences.blp:370
+#: ../data/ui/preferences.blp:403
 msgid "Clear Chapters Cache and Database"
 msgstr "Xóa bộ nhớ cache và cơ sở dữ liệu của chương"
 
-#: ../data/ui/preferences.blp:385
+#: ../data/ui/preferences.blp:418
 msgid "Clear Chapters Cache and Database on Exit"
 msgstr "Xóa bộ nhớ cache và cơ sở dữ liệu của chương khi thoát"
 
-#: ../data/ui/preferences.blp:390
+#: ../data/ui/preferences.blp:423
 msgid "WebView"
 msgstr "Chế Độ Xem Web"
 
-#: ../data/ui/preferences.blp:393
+#: ../data/ui/preferences.blp:426
 msgid "Clear Data"
 msgstr "Xóa Dữ Liệu"
 
-#: ../data/ui/preferences.blp:409
+#: ../data/ui/preferences.blp:442
 msgid "Servers Modules"
 msgstr "Mô-đun máy chủ"
 
-#: ../data/ui/preferences.blp:412
+#: ../data/ui/preferences.blp:445
 msgid "Use Up-to-date Servers Modules"
 msgstr "Sử dụng các mô-đun máy chủ cập nhật"
 
-#: ../data/ui/preferences.blp:413
+#: ../data/ui/preferences.blp:446
 msgid ""
 "An alternative version of the servers modules, installed from the source "
 "code repository and updated at each startup, is used instead of the one "
@@ -801,27 +830,27 @@ msgstr ""
 "nguồn và được cập nhật mỗi lần khởi động, được sử dụng thay cho phiên bản "
 "được cung cấp cùng với ứng dụng."
 
-#: ../data/ui/preferences.blp:418
+#: ../data/ui/preferences.blp:451
 msgid "Credentials Storage"
 msgstr "Lưu trữ thông tin xác thực"
 
-#: ../data/ui/preferences.blp:421
+#: ../data/ui/preferences.blp:454
 msgid "Allow Plaintext Storage as Fallback"
 msgstr "Cho phép lưu trữ văn bản gốc dưới dạng dự phòng"
 
-#: ../data/ui/preferences.blp:422
+#: ../data/ui/preferences.blp:455
 msgid "Used when no keyring backends are found"
 msgstr "Được sử dụng khi không tìm thấy phần phụ trợ khóa"
 
-#: ../data/ui/preferences.blp:427
+#: ../data/ui/preferences.blp:460
 msgid "Tweaks"
 msgstr "Tinh chỉnh"
 
-#: ../data/ui/preferences.blp:430
+#: ../data/ui/preferences.blp:463
 msgid "Disable Animations"
 msgstr "Tắt ảnh động"
 
-#: ../data/ui/preferences.blp:431
+#: ../data/ui/preferences.blp:464
 msgid ""
 "Useful with E Ink e-readers to avoid very choppy and unpleasant animations "
 "(due to the low refresh rate of the screen)"
@@ -829,7 +858,7 @@ msgstr ""
 "Hữu ích với trình đọc sách điện tử E Ink để tránh các hình ảnh động bị giật "
 "và khó chịu (do tốc độ làm mới màn hình thấp)"
 
-#: ../data/ui/preferences.blp:435
+#: ../data/ui/preferences.blp:468
 msgid ""
 "This tweak is only intended for users who do not use the GNOME desktop "
 "environment and therefore cannot disable animations globally via GNOME "
@@ -1157,8 +1186,8 @@ msgstr "Không thể cập nhật trạng thái đọc chương"
 msgid "Download"
 msgstr "Tải xuống"
 
-#: ../komikku/card/chapters_list.py:735 ../komikku/preferences/__init__.py:153
-#: ../komikku/preferences/__init__.py:176
+#: ../komikku/card/chapters_list.py:735 ../komikku/preferences/__init__.py:155
+#: ../komikku/preferences/__init__.py:178
 msgid "Clear"
 msgstr "Dọn dẹp"
 
@@ -1203,7 +1232,7 @@ msgstr "Hủy Theo Dõi"
 #: ../komikku/servers/mangamana/__init__.py:63
 #: ../komikku/servers/mangaworld/__init__.py:74
 #: ../komikku/servers/raijinscan/__init__.py:34
-#: ../komikku/servers/weebdex/__init__.py:59
+#: ../komikku/servers/weebdex/__init__.py:60
 #: ../komikku/servers/zenko/__init__.py:57
 msgid "Status"
 msgstr "Tình Trạng"
@@ -1517,7 +1546,7 @@ msgstr "Hoàn thành"
 #: ../komikku/servers/mangaworld/__init__.py:78
 #: ../komikku/servers/raijinscan/__init__.py:38
 #: ../komikku/servers/weebcentral/__init__.py:52
-#: ../komikku/servers/weebdex/__init__.py:63
+#: ../komikku/servers/weebdex/__init__.py:64
 #: ../komikku/servers/zenko/__init__.py:61
 msgid "Ongoing"
 msgstr "Chưa kết thúc"
@@ -1536,36 +1565,36 @@ msgstr "Cấm"
 #: ../komikku/servers/mangafire/__init__.py:67
 #: ../komikku/servers/mangaworld/__init__.py:81
 #: ../komikku/servers/weebcentral/__init__.py:54
-#: ../komikku/servers/weebdex/__init__.py:65
+#: ../komikku/servers/weebdex/__init__.py:66
 #: ../komikku/servers/zenko/__init__.py:63
 msgid "Hiatus"
 msgstr "Gián Đoạn"
 
-#: ../komikku/preferences/__init__.py:151
-#: ../komikku/preferences/__init__.py:174
+#: ../komikku/preferences/__init__.py:153
+#: ../komikku/preferences/__init__.py:176
 msgid "Clear?"
 msgstr "Xóa?"
 
-#: ../komikku/preferences/__init__.py:152
+#: ../komikku/preferences/__init__.py:154
 msgid "Are you sure you want to clear chapters cache and database?"
 msgstr ""
 "Bạn có chắc chắn muốn xóa bộ nhớ đệm và cơ sở dữ liệu của chương không?"
 
-#: ../komikku/preferences/__init__.py:171
+#: ../komikku/preferences/__init__.py:173
 msgid "Failed to clear WebView data"
 msgstr "Không xóa được dữ liệu WebView"
 
-#: ../komikku/preferences/__init__.py:175
+#: ../komikku/preferences/__init__.py:177
 msgid "Are you sure you want to clear WebView data (cache, storage, cookies)?"
 msgstr ""
 "Bạn có chắc chắn muốn xóa dữ liệu WebView (bộ nhớ đệm, bộ lưu trữ, cookie) "
 "không?"
 
-#: ../komikku/preferences/__init__.py:200
+#: ../komikku/preferences/__init__.py:202
 msgid "Disable animations?"
 msgstr "Vô hiệu hóa hình ảnh động?"
 
-#: ../komikku/preferences/__init__.py:201
+#: ../komikku/preferences/__init__.py:203
 msgid ""
 "Are you sure you want to disable animations?\n"
 "\n"
@@ -1575,7 +1604,7 @@ msgstr ""
 "\n"
 "Điều hướng bằng cử chỉ trong trình đọc sẽ không hoạt động bình thường nữa."
 
-#: ../komikku/preferences/__init__.py:202
+#: ../komikku/preferences/__init__.py:204
 msgid "Disable"
 msgstr "Tắt"
 
@@ -1844,31 +1873,31 @@ msgstr "Đen/Trắng"
 
 #: ../komikku/servers/comick/__init__.py:65
 #: ../komikku/servers/mangadex/__init__.py:58
-#: ../komikku/servers/weebdex/__init__.py:46
+#: ../komikku/servers/weebdex/__init__.py:47
 msgid "Rating"
 msgstr "Đánh giá"
 
 #: ../komikku/servers/comick/__init__.py:66
 #: ../komikku/servers/mangadex/__init__.py:59
-#: ../komikku/servers/weebdex/__init__.py:47
+#: ../komikku/servers/weebdex/__init__.py:48
 msgid "Filter by Content Ratings"
 msgstr "Lọc theo Xếp Hạng Nội Dung"
 
 #: ../komikku/servers/comick/__init__.py:69
 #: ../komikku/servers/mangadex/__init__.py:62
-#: ../komikku/servers/weebdex/__init__.py:50
+#: ../komikku/servers/weebdex/__init__.py:51
 msgid "Safe"
 msgstr "An Toàn"
 
 #: ../komikku/servers/comick/__init__.py:70
 #: ../komikku/servers/mangadex/__init__.py:63
-#: ../komikku/servers/weebdex/__init__.py:51
+#: ../komikku/servers/weebdex/__init__.py:52
 msgid "Suggestive"
 msgstr "Có Yếu Tố Nhạy Cảm"
 
 #: ../komikku/servers/comick/__init__.py:71
 #: ../komikku/servers/mangadex/__init__.py:64
-#: ../komikku/servers/weebdex/__init__.py:52
+#: ../komikku/servers/weebdex/__init__.py:53
 msgid "Erotica"
 msgstr "Khiêu Dâm"
 
@@ -1880,7 +1909,7 @@ msgstr "Khiêu Dâm"
 #: ../komikku/servers/mangaworld/__init__.py:75
 #: ../komikku/servers/raijinscan/__init__.py:35
 #: ../komikku/servers/weebcentral/__init__.py:49
-#: ../komikku/servers/weebdex/__init__.py:60
+#: ../komikku/servers/weebdex/__init__.py:61
 #: ../komikku/servers/zenko/__init__.py:58
 msgid "Filter by Statuses"
 msgstr "Lọc theo Trạng Thái"
@@ -1892,7 +1921,7 @@ msgstr "Lọc theo Trạng Thái"
 #: ../komikku/servers/mangadex/__init__.py:76
 #: ../komikku/servers/mangafire/__init__.py:65
 #: ../komikku/servers/raijinscan/__init__.py:39
-#: ../komikku/servers/weebdex/__init__.py:64
+#: ../komikku/servers/weebdex/__init__.py:65
 #: ../komikku/servers/zenko/__init__.py:62 ../komikku/trackers/__init__.py:68
 msgid "Completed"
 msgstr "Hoàn Thành"
@@ -1904,7 +1933,7 @@ msgstr "Hoàn Thành"
 #: ../komikku/servers/mangadex/__init__.py:78
 #: ../komikku/servers/mangaworld/__init__.py:82
 #: ../komikku/servers/weebcentral/__init__.py:55
-#: ../komikku/servers/weebdex/__init__.py:66
+#: ../komikku/servers/weebdex/__init__.py:67
 msgid "Canceled"
 msgstr "Đã Hủy"
 
@@ -1949,7 +1978,7 @@ msgstr "Đối Tượng Độc Giả"
 #: ../komikku/servers/comick/__init__.py:117
 #: ../komikku/servers/comix/__init__.py:69
 #: ../komikku/servers/mangadex/__init__.py:85
-#: ../komikku/servers/weebdex/__init__.py:73
+#: ../komikku/servers/weebdex/__init__.py:74
 msgid "Filter by Publication Demographics"
 msgstr "Lọc theo Đối Tượng Độc Giả"
 
@@ -1957,7 +1986,7 @@ msgstr "Lọc theo Đối Tượng Độc Giả"
 #: ../komikku/servers/comix/__init__.py:75
 #: ../komikku/servers/mangaball/__init__.py:77
 #: ../komikku/servers/mangadex/__init__.py:88
-#: ../komikku/servers/weebdex/__init__.py:76
+#: ../komikku/servers/weebdex/__init__.py:77
 msgid "Shounen"
 msgstr "Shounen"
 
@@ -1965,7 +1994,7 @@ msgstr "Shounen"
 #: ../komikku/servers/comix/__init__.py:74
 #: ../komikku/servers/mangaball/__init__.py:78
 #: ../komikku/servers/mangadex/__init__.py:89
-#: ../komikku/servers/weebdex/__init__.py:77
+#: ../komikku/servers/weebdex/__init__.py:78
 msgid "Shoujo"
 msgstr "Shoujo"
 
@@ -1973,7 +2002,7 @@ msgstr "Shoujo"
 #: ../komikku/servers/comix/__init__.py:73
 #: ../komikku/servers/mangaball/__init__.py:79
 #: ../komikku/servers/mangadex/__init__.py:91
-#: ../komikku/servers/weebdex/__init__.py:79
+#: ../komikku/servers/weebdex/__init__.py:80
 msgid "Seinen"
 msgstr "Seinen"
 
@@ -1981,7 +2010,7 @@ msgstr "Seinen"
 #: ../komikku/servers/comix/__init__.py:72
 #: ../komikku/servers/mangaball/__init__.py:80
 #: ../komikku/servers/mangadex/__init__.py:90
-#: ../komikku/servers/weebdex/__init__.py:78
+#: ../komikku/servers/weebdex/__init__.py:79
 msgid "Josei"
 msgstr "Josei"
 
@@ -2321,7 +2350,7 @@ msgstr ""
 "CBT hoặc PDF"
 
 #: ../komikku/servers/mangaball/__init__.py:71
-#: ../komikku/servers/weebdex/__init__.py:72
+#: ../komikku/servers/weebdex/__init__.py:73
 msgid "Demographic"
 msgstr "Đối tượng độc giả"
 
@@ -2339,7 +2368,7 @@ msgid "Filter by Status"
 msgstr "Lọc theo Trạng Thái"
 
 #: ../komikku/servers/mangadex/__init__.py:65
-#: ../komikku/servers/weebdex/__init__.py:53
+#: ../komikku/servers/weebdex/__init__.py:54
 msgid "Pornographic"
 msgstr "Khiêu dâm"
 
@@ -2374,12 +2403,12 @@ msgid "OR"
 msgstr "HOẶC"
 
 #: ../komikku/servers/mangadex/__init__.py:166
-#: ../komikku/servers/weebdex/__init__.py:96
+#: ../komikku/servers/weebdex/__init__.py:97
 msgid "Data Saver Mode"
 msgstr "Chế Độ Tiết Kiệm Dữ Liệu"
 
 #: ../komikku/servers/mangadex/__init__.py:167
-#: ../komikku/servers/weebdex/__init__.py:97
+#: ../komikku/servers/weebdex/__init__.py:98
 msgid "Fetch lower quality images to save bandwidth"
 msgstr "Tìm nạp hình ảnh chất lượng thấp hơn để tiết kiệm băng thông"
 
@@ -2566,6 +2595,16 @@ msgstr "Vui lòng chờ…"
 #: ../komikku/webview.py:489
 msgid "Please complete CAPTCHA"
 msgstr "Vui lòng hoàn thành CAPTCHA"
+
+#~ msgid "Automatic tracking of series with MyAnimeList and AniList"
+#~ msgstr "Tự động theo dõi bộ truyện với MyAnimeList và AniList"
+
+#~ msgid ""
+#~ "Constrain reader's width to a given maximum size (Webtoon reading mode "
+#~ "only)"
+#~ msgstr ""
+#~ "Giới hạn chiều rộng của trình đọc ở một kích thước tối đa nhất định (chỉ "
+#~ "ở chế độ đọc Webtoon)"
 
 #~ msgid "manga;reader;viewer;comic;manhwa;manhua;bd;webtoon;webcomic;scan;offline;GTK;GNOME;"
 #~ msgstr "manga;reader;viewer;comic;manhwa;manhua;bd;webtoon;webcomic;scan;offline;GTK;GNOME;"
