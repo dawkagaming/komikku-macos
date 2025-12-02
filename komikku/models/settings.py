@@ -560,7 +560,6 @@ class Settings(Gio.Settings):
         factor = GLib.Variant('d', factor)
         self.set_value('scroll-drag-factor', factor)
 
-
     @property
     def selected_category(self):
         return self.get_int('selected-category')

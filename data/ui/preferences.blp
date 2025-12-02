@@ -284,8 +284,7 @@ template $PreferencesDialog : Adw.PreferencesDialog {
       Adw.SpinRow {
         title: _("Maximum Width");
         subtitle: _("Constrain reader\'s width to a given maximum size (Webtoon reading mode only)");
-        adjustment:
-        Adjustment clamp_size_adjustment {
+        adjustment: Adjustment clamp_size_adjustment {
           lower: 360;
           upper: 3840;
           page-increment: 100;
@@ -297,8 +296,7 @@ template $PreferencesDialog : Adw.PreferencesDialog {
         title: _("Scroll Distance");
         subtitle: _("Percentage of page height to scroll on click or Page Up/Down (Webtoon reading mode only)");
         digits: 2;
-        adjustment:
-        Adjustment scroll_click_percentage_adjustment {
+        adjustment: Adjustment scroll_click_percentage_adjustment {
           lower: 0.10;
           upper: 1.00;
           page-increment: 0.10;
@@ -310,8 +308,7 @@ template $PreferencesDialog : Adw.PreferencesDialog {
         title: _("Drag Sensitivity");
         subtitle: _("Multiplier for drag scrolling sensitivity (Webtoon reading mode only)");
         digits: 1;
-        adjustment:
-        Adjustment scroll_drag_factor_adjustment {
+        adjustment: Adjustment scroll_drag_factor_adjustment {
           lower: 0.5;
           upper: 5.0;
           page-increment: 0.5;

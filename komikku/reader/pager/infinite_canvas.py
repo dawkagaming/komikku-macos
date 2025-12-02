@@ -35,6 +35,7 @@ class KInfiniteCanvas(Gtk.Widget, Gtk.Scrollable):
         super().__init__()
 
         self.pager = pager
+        self.settings = Settings.get_default()
 
         self.__hadj = None
         self.__vadj = None
@@ -298,13 +299,12 @@ class KInfiniteCanvas(Gtk.Widget, Gtk.Scrollable):
         if n_press != 1:
             return
 
-        scroll_percentage = Settings.get_default().scroll_click_percentage
         if x < self.canvas_width / 3:
             # First third: scroll up
-            self.scroll_by_increment(-self.vadjustment.props.page_size * scroll_percentage)
+            self.scroll_by_increment(-self.vadjustment.props.page_size * self.settings.scroll_click_percentage)
         elif x > 2 * self.canvas_width / 3:
             # Last third: scroll down
-            self.scroll_by_increment(self.vadjustment.props.page_size * scroll_percentage)
+            self.scroll_by_increment(self.vadjustment.props.page_size * self.settings.scroll_click_percentage)
         else:
             # Second third: controls zone
             self.emit('controls-zone-clicked')
@@ -325,9 +325,8 @@ class KInfiniteCanvas(Gtk.Widget, Gtk.Scrollable):
             # Occurs when a `Retry` button is activated
             return
 
-        drag_factor = Settings.get_default().scroll_drag_factor
         self.scroll_direction = Gtk.DirectionType.UP if offset_y > 0 else Gtk.DirectionType.DOWN
-        self.vadjustment.props.value -= (offset_y - self.scroll_drag_offset) * drag_factor
+        self.vadjustment.props.value -= (offset_y - self.scroll_drag_offset) * self.settings.scroll_drag_factor
         self.scroll_drag_offset = offset_y
 
         self.gesture_drag.set_state(Gtk.EventSequenceState.CLAIMED)
@@ -351,15 +350,13 @@ class KInfiniteCanvas(Gtk.Widget, Gtk.Scrollable):
             return Gdk.EVENT_STOP
 
         elif keyval == Gdk.KEY_Page_Down:
-            scroll_percentage = Settings.get_default().scroll_click_percentage
             self.emit('keyboard-navigation')
-            self.scroll_by_increment(self.vadjustment.props.page_size * scroll_percentage)
+            self.scroll_by_increment(self.vadjustment.props.page_size * self.settings.scroll_click_percentage)
             return Gdk.EVENT_STOP
 
         elif keyval == Gdk.KEY_Page_Up:
-            scroll_percentage = Settings.get_default().scroll_click_percentage
             self.emit('keyboard-navigation')
-            self.scroll_by_increment(-self.vadjustment.props.page_size * scroll_percentage)
+            self.scroll_by_increment(-self.vadjustment.props.page_size * self.settings.scroll_click_percentage)
             return Gdk.EVENT_STOP
 
         return Gdk.EVENT_PROPAGATE

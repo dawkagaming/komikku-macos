@@ -332,7 +332,6 @@ class PreferencesDialog(Adw.PreferencesDialog):
         else:
             self.settings.update_at_startup = False
 
-
     def set_config_values(self):
         #
         # General
