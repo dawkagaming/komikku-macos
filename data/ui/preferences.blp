@@ -281,54 +281,6 @@ template $PreferencesDialog : Adw.PreferencesDialog {
         };
       }
 
-      Adw.SpinRow {
-        title: _("Maximum Width");
-        subtitle: _("Constrain reader\'s width to a given maximum size (Webtoon reading mode only)");
-        adjustment: Adjustment clamp_size_adjustment {
-          lower: 360;
-          upper: 3840;
-          page-increment: 100;
-          step-increment: 10;
-        };
-      }
-
-      Adw.SpinRow {
-        title: _("Scroll Distance");
-        subtitle: _("Percentage of page height to scroll on click or Page Up/Down (Webtoon reading mode only)");
-        digits: 2;
-        adjustment: Adjustment scroll_click_percentage_adjustment {
-          lower: 0.10;
-          upper: 1.00;
-          page-increment: 0.10;
-          step-increment: 0.05;
-        };
-      }
-
-      Adw.SpinRow {
-        title: _("Drag Sensitivity");
-        subtitle: _("Multiplier for drag scrolling sensitivity (Webtoon reading mode only)");
-        digits: 1;
-        adjustment: Adjustment scroll_drag_factor_adjustment {
-          lower: 0.5;
-          upper: 5.0;
-          page-increment: 0.5;
-          step-increment: 0.1;
-        };
-      }
-
-      Adw.ComboRow scaling_row {
-        title: _("Scaling");
-        subtitle: _("Type of scaling to adapt image");
-        model: StringList {
-          strings [
-            _("Adapt to Screen"),
-            _("Adapt to Width"),
-            _("Adapt to Height"),
-            _("Original Size"),
-          ]
-        };
-      }
-
       Adw.ComboRow scaling_filter_row {
         title: _("Scaling Filter");
         subtitle: _("Interpolation method used when scaling images");
@@ -338,11 +290,6 @@ template $PreferencesDialog : Adw.PreferencesDialog {
             _("Trilinear"),
           ]
         };
-      }
-
-      Adw.SwitchRow landscape_zoom_switch {
-        title: _("Landscape Pages Zoom");
-        subtitle: _("Zoom page to fit height when page is landscape (Adapt to Screen scaling only)");
       }
 
       Adw.ComboRow background_color_row {
@@ -357,11 +304,6 @@ template $PreferencesDialog : Adw.PreferencesDialog {
         };
       }
 
-      Adw.SwitchRow borders_crop_switch {
-        title: _("Borders Crop");
-        subtitle: _("Crop white borders of images\n\nNOTE: Requires more CPU usage and can cause rendering and animation slowdowns, especially on mobile devices.");
-      }
-
       Adw.SwitchRow page_numbering_switch {
         title: _("Page Numbering");
         subtitle: _("Hide the page numbering at the bottom of the screen while reading");
@@ -370,6 +312,74 @@ template $PreferencesDialog : Adw.PreferencesDialog {
       Adw.SwitchRow fullscreen_switch {
         title: _("Fullscreen");
         subtitle: _("Automatically enter fullscreen mode");
+      }
+    }
+
+    Adw.PreferencesGroup {
+      title: _("Paged Reading Modes");
+      description: _("Right to Left / Left to Right / Vertical");
+
+      Adw.ComboRow scaling_row {
+        title: _("Scaling");
+        subtitle: _("Type of scaling to adapt image");
+        model: StringList {
+          strings [
+            _("Adapt to Screen"),
+            _("Adapt to Width"),
+            _("Adapt to Height"),
+            _("Original Size"),
+          ]
+        };
+      }
+
+      Adw.SwitchRow landscape_zoom_switch {
+        title: _("Landscape Pages Zoom");
+        subtitle: _("Zoom page to fit height when page is landscape (Adapt to Screen scaling only)");
+      }
+
+      Adw.SwitchRow borders_crop_switch {
+        title: _("Borders Crop");
+        subtitle: _("Crop white borders of images\n\nNOTE: Requires more CPU usage and can cause rendering and animation slowdowns, especially on mobile devices.");
+      }
+    }
+
+    Adw.PreferencesGroup {
+      title: _("Webtoon Reading Mode");
+      description: _("Long Strip aka Infinite Vertical Canvas");
+
+      Adw.SpinRow {
+        title: _("Maximum Width");
+        subtitle: _("Constrain reader\'s width to a given maximum size");
+        adjustment: Adjustment clamp_size_adjustment {
+          lower: 360;
+          upper: 3840;
+          page-increment: 100;
+          step-increment: 10;
+        };
+      }
+
+      Adw.SpinRow {
+        title: _("Scroll Distance");
+        subtitle: _("Percentage of page height to scroll on click or Page Up/Down");
+        digits: 2;
+        adjustment: Adjustment scroll_click_percentage_adjustment {
+          lower: 0.10;
+          upper: 1.00;
+          page-increment: 0.10;
+          step-increment: 0.05;
+        };
+      }
+
+      Adw.SpinRow {
+        title: _("Drag Sensitivity");
+        subtitle: _("Multiplier for drag scrolling sensitivity");
+        digits: 1;
+        adjustment: Adjustment scroll_drag_factor_adjustment {
+          lower: 0.5;
+          upper: 5.0;
+          page-increment: 0.5;
+          step-increment: 0.1;
+        };
       }
     }
   }

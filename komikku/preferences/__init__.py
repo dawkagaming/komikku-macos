@@ -431,6 +431,34 @@ class PreferencesDialog(Adw.PreferencesDialog):
         self.reading_mode_row.set_selected(self.settings.reading_mode_value)
         self.reading_mode_row.connect('notify::selected', self.on_reading_mode_changed)
 
+        # Image scaling filter
+        self.scaling_filter_row.set_selected(self.settings.scaling_filter_value)
+        self.scaling_filter_row.connect('notify::selected', self.on_scaling_filter_changed)
+
+        # Background color
+        self.background_color_row.set_selected(self.settings.background_color_value)
+        self.background_color_row.connect('notify::selected', self.on_background_color_changed)
+
+        # Page numbering
+        self.page_numbering_switch.set_active(not self.settings.page_numbering)
+        self.page_numbering_switch.connect('notify::active', self.on_page_numbering_changed)
+
+        # Full screen
+        self.fullscreen_switch.set_active(self.settings.fullscreen)
+        self.fullscreen_switch.connect('notify::active', self.on_fullscreen_changed)
+
+        # Image scaling (paged reading modes only)
+        self.scaling_row.set_selected(self.settings.scaling_value)
+        self.scaling_row.connect('notify::selected', self.on_scaling_changed)
+
+        # Landscape pages zoom (paged reading modes only)
+        self.landscape_zoom_switch.set_active(self.settings.landscape_zoom)
+        self.landscape_zoom_switch.connect('notify::active', self.on_landscape_zoom_changed)
+
+        # Borders crop (paged reading modes only)
+        self.borders_crop_switch.set_active(self.settings.borders_crop)
+        self.borders_crop_switch.connect('notify::active', self.on_borders_crop_changed)
+
         # Pager clamp size ('Webtoon' reading mode only)
         self.clamp_size_adjustment.set_value(self.settings.clamp_size)
         self.clamp_size_adjustment.connect('value-changed', self.on_clamp_size_changed)
@@ -442,34 +470,6 @@ class PreferencesDialog(Adw.PreferencesDialog):
         # Scroll drag factor ('Webtoon' reading mode only)
         self.scroll_drag_factor_adjustment.set_value(self.settings.scroll_drag_factor)
         self.scroll_drag_factor_adjustment.connect('value-changed', self.on_scroll_drag_factor_changed)
-
-        # Image scaling
-        self.scaling_row.set_selected(self.settings.scaling_value)
-        self.scaling_row.connect('notify::selected', self.on_scaling_changed)
-
-        # Image scaling filter
-        self.scaling_filter_row.set_selected(self.settings.scaling_filter_value)
-        self.scaling_filter_row.connect('notify::selected', self.on_scaling_filter_changed)
-
-        # Landscape pages zoom ('LTR/RTL/Vertical' reading modes with 'Adapt to Screen' scaling only)
-        self.landscape_zoom_switch.set_active(self.settings.landscape_zoom)
-        self.landscape_zoom_switch.connect('notify::active', self.on_landscape_zoom_changed)
-
-        # Background color
-        self.background_color_row.set_selected(self.settings.background_color_value)
-        self.background_color_row.connect('notify::selected', self.on_background_color_changed)
-
-        # Borders crop
-        self.borders_crop_switch.set_active(self.settings.borders_crop)
-        self.borders_crop_switch.connect('notify::active', self.on_borders_crop_changed)
-
-        # Page numbering
-        self.page_numbering_switch.set_active(not self.settings.page_numbering)
-        self.page_numbering_switch.connect('notify::active', self.on_page_numbering_changed)
-
-        # Full screen
-        self.fullscreen_switch.set_active(self.settings.fullscreen)
-        self.fullscreen_switch.connect('notify::active', self.on_fullscreen_changed)
 
         #
         # Advanced
