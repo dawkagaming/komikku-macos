@@ -8,10 +8,10 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-12-03 00:18+0100\n"
-"PO-Revision-Date: 2025-11-29 19:00+0000\n"
+"PO-Revision-Date: 2025-12-04 07:00+0000\n"
 "Last-Translator: Сергей <asvmail.as@gmail.com>\n"
-"Language-Team: Russian <https://hosted.weblate.org/projects/komikku/main/ru/"
-">\n"
+"Language-Team: Russian <https://hosted.weblate.org/projects/komikku/main/ru/>"
+"\n"
 "Language: ru\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -79,6 +79,7 @@ msgstr "Категории для организации вашей библио
 #: ../data/info.febvre.Komikku.metainfo.xml.in.in:22
 msgid "Automatic tracking of series with AniList, MangaUpdates and MyAnimeList"
 msgstr ""
+"Автоматическое отслеживание циклов на AniList, MangaUpdates и MyAnimeList"
 
 #: ../data/info.febvre.Komikku.metainfo.xml.in.in:23
 msgid "Automatic update of series"
@@ -690,11 +691,13 @@ msgstr "Автоматически переходить в полноэкран�
 
 #: ../data/ui/preferences.blp:319
 msgid "Paged Reading Modes"
-msgstr ""
+msgstr "Режимы чтения страниц"
 
 #: ../data/ui/preferences.blp:320
 msgid "Right to Left / Left to Right / Vertical"
 msgstr ""
+"Справа налево / Слева направо / \n"
+"Вертикальный"
 
 #: ../data/ui/preferences.blp:323
 msgid "Scaling"
@@ -749,11 +752,11 @@ msgstr ""
 
 #: ../data/ui/preferences.blp:347
 msgid "Webtoon Reading Mode"
-msgstr ""
+msgstr "Режим чтения «Вебтун»"
 
 #: ../data/ui/preferences.blp:348
 msgid "Long Strip aka Infinite Vertical Canvas"
-msgstr ""
+msgstr "Длинная лента или бесконечный вертикальный холст"
 
 #: ../data/ui/preferences.blp:351
 msgid "Maximum Width"
@@ -761,23 +764,25 @@ msgstr "Максимальная ширина"
 
 #: ../data/ui/preferences.blp:352
 msgid "Constrain reader's width to a given maximum size"
-msgstr ""
+msgstr "Ограничить ширину области чтения заданным максимальным размером"
 
 #: ../data/ui/preferences.blp:362
 msgid "Scroll Distance"
-msgstr ""
+msgstr "Расстояние прокрутки"
 
 #: ../data/ui/preferences.blp:363
 msgid "Percentage of page height to scroll on click or Page Up/Down"
 msgstr ""
+"Процент от высоты страницы для прокрутки при щелчке мышью или использовании "
+"клавиш «Page Up»/«Page Down»"
 
 #: ../data/ui/preferences.blp:374
 msgid "Drag Sensitivity"
-msgstr ""
+msgstr "Чувствительность перетаскивания"
 
 #: ../data/ui/preferences.blp:375
 msgid "Multiplier for drag scrolling sensitivity"
-msgstr ""
+msgstr "Коэффициент чувствительности для прокрутке перетаскиванием"
 
 #: ../data/ui/preferences.blp:389
 msgid "Advanced"
