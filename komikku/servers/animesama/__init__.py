@@ -59,10 +59,10 @@ class Animesama(Server):
         data['name'] = soup.select_one('#titreOeuvre').text.strip()
         data['cover'] = soup.select_one('#coverOeuvre').get('src')
 
-        if element := soup.select_one('p.text-sm.text-gray-400.mt-2'):
+        if element := soup.select_one('div h2:-soup-contains("Synopsis") ~ p'):
             data['synopsis'] = element.text.strip()
 
-        if element := soup.select_one('a.text-sm.text-gray-300.mt-2'):
+        if element := soup.select_one('div h2:-soup-contains("Genres") ~ a'):
             genres = element.text
             if ',' in genres:
                 genres = genres.split(',')
@@ -231,7 +231,7 @@ class Animesama(Server):
 
             results.append(dict(
                 slug=slug,
-                name=a_element.select_one('h1').text.strip(),
+                name=a_element.select_one('.card-title').text.strip(),
                 cover=img_element.get('src'),
             ))
 
