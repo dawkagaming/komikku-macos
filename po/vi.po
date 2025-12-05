@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: Komikku 1.44.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-12-05 16:06+0100\n"
-"PO-Revision-Date: 2025-12-04 07:00+0000\n"
+"PO-Revision-Date: 2025-12-05 16:09+0000\n"
 "Last-Translator: Loc Huynh <huynhloc.contact@gmail.com>\n"
 "Language-Team: Vietnamese <https://hosted.weblate.org/projects/komikku/main/"
 "vi/>\n"
@@ -758,7 +758,7 @@ msgstr "Dải Dài Hay aka Canvas Dọc Vô Hạn"
 
 #: ../data/ui/preferences.blp:353
 msgid "Reset to Default"
-msgstr ""
+msgstr "Đặt lại về Mặc Định"
 
 #: ../data/ui/preferences.blp:361
 msgid "Maximum Width"
