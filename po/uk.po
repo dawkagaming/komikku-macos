@@ -12,7 +12,7 @@ msgstr ""
 "Project-Id-Version: Komikku 1.17.1\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-12-05 16:06+0100\n"
-"PO-Revision-Date: 2025-12-04 07:00+0000\n"
+"PO-Revision-Date: 2025-12-05 15:44+0000\n"
 "Last-Translator: Максим Горпиніч <gorpinicmaksim0@gmail.com>\n"
 "Language-Team: Ukrainian <https://hosted.weblate.org/projects/komikku/main/"
 "uk/>\n"
@@ -766,7 +766,7 @@ msgstr "Довга смуга, також відома як нескінченн
 
 #: ../data/ui/preferences.blp:353
 msgid "Reset to Default"
-msgstr ""
+msgstr "Скинути до заводських налаштувань"
 
 #: ../data/ui/preferences.blp:361
 msgid "Maximum Width"
