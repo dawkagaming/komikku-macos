@@ -6,6 +6,7 @@
 # Anteiku Scans [FR]
 # ED Scanlation [FR]
 # Kewn Scans [EN]
+# Writer Scans [EN]
 
 import logging
 
@@ -30,6 +31,12 @@ class Keyoapp(Server):
     manga_url: str = None
     chapter_url: str = None
     media_url: str = None
+
+    genres_selector = 'h1 ~ div > a > span'
+    authors_selector = 'h1 ~ div > div:-soup-contains("Artist") div:last-child, h1 ~ div > div:-soup-contains("Author") div:last-child'
+    status_selector = 'h1 ~ div > div:-soup-contains("Status") div:last-child'
+    type_selector = 'h1 ~ div > div:-soup-contains("Type") div:last-child'
+    synopsis_selector = 'p[style="white-space: pre-wrap"]'
 
     long_strip_genres = ['Manhua', 'Manhwa']
 
@@ -92,33 +99,30 @@ class Keyoapp(Server):
             data['cover'] = url
 
         # Details
-        for element in soup.select('h1 ~ div > div, h1 ~ div > a'):
-            title = element.get('title')
+        for element in soup.select(self.authors_selector):
+            author = element.text.strip()
+            if author not in data['authors']:
+                data['authors'].append(author)
 
-            if title == 'Status':
-                status = element.span.text.strip().lower()
-                if status == 'ongoing':
-                    data['status'] = 'ongoing'
-                elif status == 'completed':
-                    data['status'] = 'complete'
-                elif status == 'pause':
-                    data['status'] = 'hiatus'
-                elif status == 'dropped':
-                    data['status'] = 'suspended'
+        for element in soup.select(self.genres_selector):
+            genre = element.text.replace(',', '').strip()
+            data['genres'].append(genre)
 
-            elif title in ('Author', 'Artist'):
-                author = element.span.text.strip()
-                if author not in data['authors']:
-                    data['authors'].append(author)
+        if element := soup.select_one(self.type_selector):
+            data['genres'].append(element.text.strip().lower().capitalize())
 
-            elif title in ('Last Updated At', 'View Count'):
-                pass
+        if element := soup.select_one(self.status_selector):
+            status = element.text.strip().lower()
+            if status == 'ongoing':
+                data['status'] = 'ongoing'
+            elif status == 'completed':
+                data['status'] = 'complete'
+            elif status == 'pause':
+                data['status'] = 'hiatus'
+            elif status == 'dropped':
+                data['status'] = 'suspended'
 
-            elif element.span:
-                genre = element.span.text.strip().capitalize()
-                data['genres'].append(genre)
-
-        if element := soup.select_one('p[style="white-space: pre-wrap"]'):
+        if element := soup.select_one(self.synopsis_selector):
             data['synopsis'] = element.text.strip()
 
         # Chapters

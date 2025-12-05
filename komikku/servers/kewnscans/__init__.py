@@ -12,3 +12,5 @@ class Kewnscans(Keyoapp):
 
     base_url = 'https://kewnscans.org'
     logo_url = 'https://wsrv.nl/?url=cdn.meowing.org/uploads/d4846f15ded&w=20'
+
+    genres_selector = 'div.justify-start > div.flex.gap-1 > a.flex'
