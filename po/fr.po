@@ -8,11 +8,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: unnamed project\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-12-03 00:18+0100\n"
+"POT-Creation-Date: 2025-12-05 16:06+0100\n"
 "PO-Revision-Date: 2025-12-03 00:30+0000\n"
 "Last-Translator: Valéry Febvre <vfebvre@easter-eggs.com>\n"
-"Language-Team: French <https://hosted.weblate.org/projects/komikku/main/fr/>"
-"\n"
+"Language-Team: French <https://hosted.weblate.org/projects/komikku/main/fr/"
+">\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -185,7 +185,7 @@ msgstr "La page Éditeur des catégories en format mobile"
 msgid "The Reading history page in mobile format"
 msgstr "La page Historique de lecture en format mobile"
 
-#: ../data/ui/application_window.blp:54 ../data/ui/preferences.blp:394
+#: ../data/ui/application_window.blp:54 ../data/ui/preferences.blp:404
 msgid "Got it!"
 msgstr "C'est noté !"
 
@@ -760,75 +760,79 @@ msgstr "Mode de lecture Webtoon"
 msgid "Long Strip aka Infinite Vertical Canvas"
 msgstr "Longue bande, alias flux vertical infini"
 
-#: ../data/ui/preferences.blp:351
+#: ../data/ui/preferences.blp:353
+msgid "Reset to Default"
+msgstr ""
+
+#: ../data/ui/preferences.blp:361
 msgid "Maximum Width"
 msgstr "Largeur maximale"
 
-#: ../data/ui/preferences.blp:352
+#: ../data/ui/preferences.blp:362
 msgid "Constrain reader's width to a given maximum size"
 msgstr "Limiter la largeur du lecteur à une taille maximale donnée"
 
-#: ../data/ui/preferences.blp:362
+#: ../data/ui/preferences.blp:372
 msgid "Scroll Distance"
 msgstr "Distance de défilement"
 
-#: ../data/ui/preferences.blp:363
+#: ../data/ui/preferences.blp:373
 msgid "Percentage of page height to scroll on click or Page Up/Down"
 msgstr ""
 "Pourcentage de hauteur de page à faire défiler lorsque l'on clique ou que "
 "l'on appuie sur les touches Page précédente/suivante"
 
-#: ../data/ui/preferences.blp:374
+#: ../data/ui/preferences.blp:384
 msgid "Drag Sensitivity"
 msgstr "Sensibilité du glissement"
 
-#: ../data/ui/preferences.blp:375
+#: ../data/ui/preferences.blp:385
 msgid "Multiplier for drag scrolling sensitivity"
 msgstr "Multiplicateur pour la sensibilité du défilement par glissement"
 
-#: ../data/ui/preferences.blp:389
+#: ../data/ui/preferences.blp:399
 msgid "Advanced"
 msgstr "Avancé"
 
-#: ../data/ui/preferences.blp:393
+#: ../data/ui/preferences.blp:403
 msgid "A setting has changed that requires a restart to take effect"
 msgstr ""
 "Un paramètre a été modifié et nécessite un redémarrage pour être pris en "
 "compte"
 
-#: ../data/ui/preferences.blp:399
+#: ../data/ui/preferences.blp:409
 msgid "Data"
 msgstr "Données"
 
-#: ../data/ui/preferences.blp:400
+#: ../data/ui/preferences.blp:410
 msgid "Data not saved in the library"
 msgstr "Données non enregistrées dans la bibliothèque"
 
-#: ../data/ui/preferences.blp:403
+#: ../data/ui/preferences.blp:413
 msgid "Clear Chapters Cache and Database"
 msgstr "Effacer le cache des chapitres et la base de données"
 
-#: ../data/ui/preferences.blp:418
+#: ../data/ui/preferences.blp:428
 msgid "Clear Chapters Cache and Database on Exit"
 msgstr "Effacer le cache des chapitres et la base de données à la fermeture"
 
-#: ../data/ui/preferences.blp:423
+#: ../data/ui/preferences.blp:433
 msgid "WebView"
 msgstr "WebView"
 
-#: ../data/ui/preferences.blp:426
+#: ../data/ui/preferences.blp:436
 msgid "Clear Data"
 msgstr "Effacer les données"
 
-#: ../data/ui/preferences.blp:442
+#: ../data/ui/preferences.blp:452
 msgid "Servers Modules"
 msgstr "Modules des serveurs"
 
-#: ../data/ui/preferences.blp:445
+#: ../data/ui/preferences.blp:455
 msgid "Use Up-to-date Servers Modules"
 msgstr "Utiliser des modules serveurs à jour"
 
-#: ../data/ui/preferences.blp:446
+#: ../data/ui/preferences.blp:456
 msgid ""
 "An alternative version of the servers modules, installed from the source "
 "code repository and updated at each startup, is used instead of the one "
@@ -838,27 +842,27 @@ msgstr ""
 "code source et mise à jour à chaque démarrage, est utilisée à la place de "
 "celle livrée avec l'application."
 
-#: ../data/ui/preferences.blp:451
+#: ../data/ui/preferences.blp:461
 msgid "Credentials Storage"
 msgstr "Stockage des informations d'identification"
 
-#: ../data/ui/preferences.blp:454
+#: ../data/ui/preferences.blp:464
 msgid "Allow Plaintext Storage as Fallback"
 msgstr "Autoriser le stockage en texte en clair comme solution de secours"
 
-#: ../data/ui/preferences.blp:455
+#: ../data/ui/preferences.blp:465
 msgid "Used when no keyring backends are found"
 msgstr "Utilisé lorsque aucun backend de trousseau de clés n'est trouvé"
 
-#: ../data/ui/preferences.blp:460
+#: ../data/ui/preferences.blp:470
 msgid "Tweaks"
 msgstr "Ajustements"
 
-#: ../data/ui/preferences.blp:463
+#: ../data/ui/preferences.blp:473
 msgid "Disable Animations"
 msgstr "Désactiver les animations"
 
-#: ../data/ui/preferences.blp:464
+#: ../data/ui/preferences.blp:474
 msgid ""
 "Useful with E Ink e-readers to avoid very choppy and unpleasant animations "
 "(due to the low refresh rate of the screen)"
@@ -866,7 +870,7 @@ msgstr ""
 "Utile avec les liseuses E Ink pour éviter les animations très hachées et "
 "désagréables (dues au faible taux de rafraîchissement de l'écran)"
 
-#: ../data/ui/preferences.blp:468
+#: ../data/ui/preferences.blp:478
 msgid ""
 "This tweak is only intended for users who do not use the GNOME desktop "
 "environment and therefore cannot disable animations globally via GNOME "
@@ -1201,8 +1205,8 @@ msgstr "Échec de la mise à jour de l'état de lecture des chapitres"
 msgid "Download"
 msgstr "Télécharger"
 
-#: ../komikku/card/chapters_list.py:735 ../komikku/preferences/__init__.py:155
-#: ../komikku/preferences/__init__.py:178
+#: ../komikku/card/chapters_list.py:735 ../komikku/preferences/__init__.py:156
+#: ../komikku/preferences/__init__.py:179
 msgid "Clear"
 msgstr "Effacer"
 
@@ -1590,31 +1594,31 @@ msgstr "Suspendu"
 msgid "Hiatus"
 msgstr "Hiatus"
 
-#: ../komikku/preferences/__init__.py:153
-#: ../komikku/preferences/__init__.py:176
+#: ../komikku/preferences/__init__.py:154
+#: ../komikku/preferences/__init__.py:177
 msgid "Clear?"
 msgstr "Effacer ?"
 
-#: ../komikku/preferences/__init__.py:154
+#: ../komikku/preferences/__init__.py:155
 msgid "Are you sure you want to clear chapters cache and database?"
 msgstr ""
 "Êtes-vous sûr de vouloir vider le cache des chapitres et la base de données ?"
 
-#: ../komikku/preferences/__init__.py:173
+#: ../komikku/preferences/__init__.py:174
 msgid "Failed to clear WebView data"
 msgstr "Échec de la suppression des données de la WebView"
 
-#: ../komikku/preferences/__init__.py:177
+#: ../komikku/preferences/__init__.py:178
 msgid "Are you sure you want to clear WebView data (cache, storage, cookies)?"
 msgstr ""
 "Êtes-vous sûr de vouloir effacer les données de la WebView (cache, stockage, "
 "cookies) ?"
 
-#: ../komikku/preferences/__init__.py:202
+#: ../komikku/preferences/__init__.py:203
 msgid "Disable animations?"
 msgstr "Désactiver les animations ?"
 
-#: ../komikku/preferences/__init__.py:203
+#: ../komikku/preferences/__init__.py:204
 msgid ""
 "Are you sure you want to disable animations?\n"
 "\n"
@@ -1624,7 +1628,7 @@ msgstr ""
 "\n"
 "La navigation gestuelle dans le lecteur ne fonctionnera plus correctement."
 
-#: ../komikku/preferences/__init__.py:204
+#: ../komikku/preferences/__init__.py:205
 msgid "Disable"
 msgstr "Désactiver"
 

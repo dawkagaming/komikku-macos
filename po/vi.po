@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Komikku 1.44.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-12-03 00:18+0100\n"
+"POT-Creation-Date: 2025-12-05 16:06+0100\n"
 "PO-Revision-Date: 2025-12-04 07:00+0000\n"
 "Last-Translator: Loc Huynh <huynhloc.contact@gmail.com>\n"
 "Language-Team: Vietnamese <https://hosted.weblate.org/projects/komikku/main/"
@@ -186,7 +186,7 @@ msgstr "Trang biên tập Danh mục ở định dạng di động"
 msgid "The Reading history page in mobile format"
 msgstr "Trang Lịch sử đọc ở định dạng di động"
 
-#: ../data/ui/application_window.blp:54 ../data/ui/preferences.blp:394
+#: ../data/ui/application_window.blp:54 ../data/ui/preferences.blp:404
 msgid "Got it!"
 msgstr "Hiểu rồi!"
 
@@ -756,71 +756,75 @@ msgstr "Chế Độ Đọc Webtoon"
 msgid "Long Strip aka Infinite Vertical Canvas"
 msgstr "Dải Dài Hay aka Canvas Dọc Vô Hạn"
 
-#: ../data/ui/preferences.blp:351
+#: ../data/ui/preferences.blp:353
+msgid "Reset to Default"
+msgstr ""
+
+#: ../data/ui/preferences.blp:361
 msgid "Maximum Width"
 msgstr "Chiều rộng tối đa"
 
-#: ../data/ui/preferences.blp:352
+#: ../data/ui/preferences.blp:362
 msgid "Constrain reader's width to a given maximum size"
 msgstr "Hạn chế chiều rộng của người đọc ở kích thước tối đa nhất định"
 
-#: ../data/ui/preferences.blp:362
+#: ../data/ui/preferences.blp:372
 msgid "Scroll Distance"
 msgstr "Khoảng Cách Cuộn"
 
-#: ../data/ui/preferences.blp:363
+#: ../data/ui/preferences.blp:373
 msgid "Percentage of page height to scroll on click or Page Up/Down"
 msgstr "Phần trăm chiều cao trang cần cuộn khi nhấp chuột hoặc Lên/Xuống Trang"
 
-#: ../data/ui/preferences.blp:374
+#: ../data/ui/preferences.blp:384
 msgid "Drag Sensitivity"
 msgstr "Độ Nhạy Kéo"
 
-#: ../data/ui/preferences.blp:375
+#: ../data/ui/preferences.blp:385
 msgid "Multiplier for drag scrolling sensitivity"
 msgstr "Hệ số nhân cho độ nhạy cuộn kéo"
 
-#: ../data/ui/preferences.blp:389
+#: ../data/ui/preferences.blp:399
 msgid "Advanced"
 msgstr "Trình độ cao"
 
-#: ../data/ui/preferences.blp:393
+#: ../data/ui/preferences.blp:403
 msgid "A setting has changed that requires a restart to take effect"
 msgstr "Một cài đặt đã thay đổi yêu cầu khởi động lại để có hiệu lực"
 
-#: ../data/ui/preferences.blp:399
+#: ../data/ui/preferences.blp:409
 msgid "Data"
 msgstr "Dữ liệu"
 
-#: ../data/ui/preferences.blp:400
+#: ../data/ui/preferences.blp:410
 msgid "Data not saved in the library"
 msgstr "Dữ liệu chưa được lưu trong thư viện"
 
-#: ../data/ui/preferences.blp:403
+#: ../data/ui/preferences.blp:413
 msgid "Clear Chapters Cache and Database"
 msgstr "Xóa bộ nhớ cache và cơ sở dữ liệu của chương"
 
-#: ../data/ui/preferences.blp:418
+#: ../data/ui/preferences.blp:428
 msgid "Clear Chapters Cache and Database on Exit"
 msgstr "Xóa bộ nhớ cache và cơ sở dữ liệu của chương khi thoát"
 
-#: ../data/ui/preferences.blp:423
+#: ../data/ui/preferences.blp:433
 msgid "WebView"
 msgstr "Chế Độ Xem Web"
 
-#: ../data/ui/preferences.blp:426
+#: ../data/ui/preferences.blp:436
 msgid "Clear Data"
 msgstr "Xóa Dữ Liệu"
 
-#: ../data/ui/preferences.blp:442
+#: ../data/ui/preferences.blp:452
 msgid "Servers Modules"
 msgstr "Mô-đun máy chủ"
 
-#: ../data/ui/preferences.blp:445
+#: ../data/ui/preferences.blp:455
 msgid "Use Up-to-date Servers Modules"
 msgstr "Sử dụng các mô-đun máy chủ cập nhật"
 
-#: ../data/ui/preferences.blp:446
+#: ../data/ui/preferences.blp:456
 msgid ""
 "An alternative version of the servers modules, installed from the source "
 "code repository and updated at each startup, is used instead of the one "
@@ -830,27 +834,27 @@ msgstr ""
 "nguồn và được cập nhật mỗi lần khởi động, được sử dụng thay cho phiên bản "
 "được cung cấp cùng với ứng dụng."
 
-#: ../data/ui/preferences.blp:451
+#: ../data/ui/preferences.blp:461
 msgid "Credentials Storage"
 msgstr "Lưu trữ thông tin xác thực"
 
-#: ../data/ui/preferences.blp:454
+#: ../data/ui/preferences.blp:464
 msgid "Allow Plaintext Storage as Fallback"
 msgstr "Cho phép lưu trữ văn bản gốc dưới dạng dự phòng"
 
-#: ../data/ui/preferences.blp:455
+#: ../data/ui/preferences.blp:465
 msgid "Used when no keyring backends are found"
 msgstr "Được sử dụng khi không tìm thấy phần phụ trợ khóa"
 
-#: ../data/ui/preferences.blp:460
+#: ../data/ui/preferences.blp:470
 msgid "Tweaks"
 msgstr "Tinh chỉnh"
 
-#: ../data/ui/preferences.blp:463
+#: ../data/ui/preferences.blp:473
 msgid "Disable Animations"
 msgstr "Tắt ảnh động"
 
-#: ../data/ui/preferences.blp:464
+#: ../data/ui/preferences.blp:474
 msgid ""
 "Useful with E Ink e-readers to avoid very choppy and unpleasant animations "
 "(due to the low refresh rate of the screen)"
@@ -858,7 +862,7 @@ msgstr ""
 "Hữu ích với trình đọc sách điện tử E Ink để tránh các hình ảnh động bị giật "
 "và khó chịu (do tốc độ làm mới màn hình thấp)"
 
-#: ../data/ui/preferences.blp:468
+#: ../data/ui/preferences.blp:478
 msgid ""
 "This tweak is only intended for users who do not use the GNOME desktop "
 "environment and therefore cannot disable animations globally via GNOME "
@@ -1186,8 +1190,8 @@ msgstr "Không thể cập nhật trạng thái đọc chương"
 msgid "Download"
 msgstr "Tải xuống"
 
-#: ../komikku/card/chapters_list.py:735 ../komikku/preferences/__init__.py:155
-#: ../komikku/preferences/__init__.py:178
+#: ../komikku/card/chapters_list.py:735 ../komikku/preferences/__init__.py:156
+#: ../komikku/preferences/__init__.py:179
 msgid "Clear"
 msgstr "Dọn dẹp"
 
@@ -1570,31 +1574,31 @@ msgstr "Cấm"
 msgid "Hiatus"
 msgstr "Gián Đoạn"
 
-#: ../komikku/preferences/__init__.py:153
-#: ../komikku/preferences/__init__.py:176
+#: ../komikku/preferences/__init__.py:154
+#: ../komikku/preferences/__init__.py:177
 msgid "Clear?"
 msgstr "Xóa?"
 
-#: ../komikku/preferences/__init__.py:154
+#: ../komikku/preferences/__init__.py:155
 msgid "Are you sure you want to clear chapters cache and database?"
 msgstr ""
 "Bạn có chắc chắn muốn xóa bộ nhớ đệm và cơ sở dữ liệu của chương không?"
 
-#: ../komikku/preferences/__init__.py:173
+#: ../komikku/preferences/__init__.py:174
 msgid "Failed to clear WebView data"
 msgstr "Không xóa được dữ liệu WebView"
 
-#: ../komikku/preferences/__init__.py:177
+#: ../komikku/preferences/__init__.py:178
 msgid "Are you sure you want to clear WebView data (cache, storage, cookies)?"
 msgstr ""
 "Bạn có chắc chắn muốn xóa dữ liệu WebView (bộ nhớ đệm, bộ lưu trữ, cookie) "
 "không?"
 
-#: ../komikku/preferences/__init__.py:202
+#: ../komikku/preferences/__init__.py:203
 msgid "Disable animations?"
 msgstr "Vô hiệu hóa hình ảnh động?"
 
-#: ../komikku/preferences/__init__.py:203
+#: ../komikku/preferences/__init__.py:204
 msgid ""
 "Are you sure you want to disable animations?\n"
 "\n"
@@ -1604,7 +1608,7 @@ msgstr ""
 "\n"
 "Điều hướng bằng cử chỉ trong trình đọc sẽ không hoạt động bình thường nữa."
 
-#: ../komikku/preferences/__init__.py:204
+#: ../komikku/preferences/__init__.py:205
 msgid "Disable"
 msgstr "Tắt"
 
