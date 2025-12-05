@@ -245,7 +245,7 @@
             <description>Interpolation method used when scaling images</description>
         </key>
         <key type="d" name="scroll-click-percentage">
-            <default>0.66</default>
+            <default>0.65</default>
             <summary>Scroll Click Distance</summary>
             <description>Percentage of page height to scroll on click or Page Up/Down (Webtoon reading mode only)</description>
         </key>

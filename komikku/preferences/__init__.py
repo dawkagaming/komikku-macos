@@ -48,16 +48,17 @@ class PreferencesDialog(Adw.PreferencesDialog):
     long_strip_detection_switch = Gtk.Template.Child('long_strip_detection_switch')
 
     reading_mode_row = Gtk.Template.Child('reading_mode_row')
+    scaling_filter_row = Gtk.Template.Child('scaling_filter_row')
+    background_color_row = Gtk.Template.Child('background_color_row')
+    page_numbering_switch = Gtk.Template.Child('page_numbering_switch')
+    fullscreen_switch = Gtk.Template.Child('fullscreen_switch')
+    scaling_row = Gtk.Template.Child('scaling_row')
+    landscape_zoom_switch = Gtk.Template.Child('landscape_zoom_switch')
+    borders_crop_switch = Gtk.Template.Child('borders_crop_switch')
+    webtoon_reading_mode_group_reset_button = Gtk.Template.Child('webtoon_reading_mode_group_reset_button')
     clamp_size_adjustment = Gtk.Template.Child('clamp_size_adjustment')
     scroll_click_percentage_adjustment = Gtk.Template.Child('scroll_click_percentage_adjustment')
     scroll_drag_factor_adjustment = Gtk.Template.Child('scroll_drag_factor_adjustment')
-    scaling_row = Gtk.Template.Child('scaling_row')
-    scaling_filter_row = Gtk.Template.Child('scaling_filter_row')
-    landscape_zoom_switch = Gtk.Template.Child('landscape_zoom_switch')
-    background_color_row = Gtk.Template.Child('background_color_row')
-    borders_crop_switch = Gtk.Template.Child('borders_crop_switch')
-    page_numbering_switch = Gtk.Template.Child('page_numbering_switch')
-    fullscreen_switch = Gtk.Template.Child('fullscreen_switch')
 
     advanced_banner = Gtk.Template.Child('advanced_banner')
     clear_cached_data_actionrow = Gtk.Template.Child('clear_cached_data_actionrow')
@@ -332,6 +333,17 @@ class PreferencesDialog(Adw.PreferencesDialog):
         else:
             self.settings.update_at_startup = False
 
+    def reset_webtoon_reading_mode_settings(self, _btn):
+        self.clamp_size_adjustment.set_value(
+            self.settings.get_default_value('clamp-size').get_int32()
+        )
+        self.scroll_click_percentage_adjustment.set_value(
+            self.settings.get_default_value('scroll-click-percentage').get_double()
+        )
+        self.scroll_drag_factor_adjustment.set_value(
+            self.settings.get_default_value('scroll-drag-factor').get_double()
+        )
+
     def set_config_values(self):
         #
         # General
@@ -447,27 +459,34 @@ class PreferencesDialog(Adw.PreferencesDialog):
         self.fullscreen_switch.set_active(self.settings.fullscreen)
         self.fullscreen_switch.connect('notify::active', self.on_fullscreen_changed)
 
-        # Image scaling (paged reading modes only)
+        #
+        # Paged reading modes specific settings
+        # Image scaling
         self.scaling_row.set_selected(self.settings.scaling_value)
         self.scaling_row.connect('notify::selected', self.on_scaling_changed)
 
-        # Landscape pages zoom (paged reading modes only)
+        # Landscape pages zoom
         self.landscape_zoom_switch.set_active(self.settings.landscape_zoom)
         self.landscape_zoom_switch.connect('notify::active', self.on_landscape_zoom_changed)
 
-        # Borders crop (paged reading modes only)
+        # Borders crop
         self.borders_crop_switch.set_active(self.settings.borders_crop)
         self.borders_crop_switch.connect('notify::active', self.on_borders_crop_changed)
 
-        # Pager clamp size ('Webtoon' reading mode only)
+        #
+        # Webtoon reading mode specific settings
+        # Reset button
+        self.webtoon_reading_mode_group_reset_button.connect('clicked', self.reset_webtoon_reading_mode_settings)
+
+        # Pager clamp size
         self.clamp_size_adjustment.set_value(self.settings.clamp_size)
         self.clamp_size_adjustment.connect('value-changed', self.on_clamp_size_changed)
 
-        # Scroll click percentage ('Webtoon' reading mode only)
+        # Scroll click percentage
         self.scroll_click_percentage_adjustment.set_value(self.settings.scroll_click_percentage)
         self.scroll_click_percentage_adjustment.connect('value-changed', self.on_scroll_click_percentage_changed)
 
-        # Scroll drag factor ('Webtoon' reading mode only)
+        # Scroll drag factor
         self.scroll_drag_factor_adjustment.set_value(self.settings.scroll_drag_factor)
         self.scroll_drag_factor_adjustment.connect('value-changed', self.on_scroll_drag_factor_changed)
 
