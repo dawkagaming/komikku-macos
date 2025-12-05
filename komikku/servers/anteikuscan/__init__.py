@@ -11,5 +11,6 @@ class Anteikuscan(Keyoapp):
     lang = 'fr'
     is_nsfw = True
     has_cf = True
+    status = 'disabled'
 
     base_url = 'https://anteikuscan.fr'
