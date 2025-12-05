@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: unnamed project\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-12-05 16:06+0100\n"
-"PO-Revision-Date: 2025-12-05 15:16+0000\n"
+"PO-Revision-Date: 2025-12-05 15:19+0000\n"
 "Last-Translator: Valéry Febvre <vfebvre@easter-eggs.com>\n"
 "Language-Team: French <https://hosted.weblate.org/projects/komikku/main/fr/>"
 "\n"
@@ -762,7 +762,7 @@ msgstr "Longue bande, alias flux vertical infini"
 
 #: ../data/ui/preferences.blp:353
 msgid "Reset to Default"
-msgstr "Réinitialiser les paramètres par défaut"
+msgstr "Réinitialiser les valeurs par défaut"
 
 #: ../data/ui/preferences.blp:361
 msgid "Maximum Width"
