@@ -15,7 +15,7 @@ class Animesama(Server):
     name = 'Anime-Sama'
     lang = 'fr'
 
-    base_url = 'https://anime-sama.org'
+    base_url = 'https://anime-sama.eu'
     logo_url = 'https://cdn.statically.io/gh/Anime-Sama/IMG/img/autres/logo_icon.png'
     search_url = base_url + '/catalogue/'
     manga_url = base_url + '/catalogue/{0}/'
@@ -186,14 +186,14 @@ class Animesama(Server):
             a_element = element.a
             img_element = a_element.img
 
-            if last_element := element.select_one('button.bg-slate-700'):
+            if last_element := element.select_one('.card-info .info-text'):
                 last_chapter = last_element.text.strip()
             else:
                 last_chapter = None
 
             results.append(dict(
                 slug=a_element.get('href').split('/')[-4],
-                name=a_element.select_one('h1').text.strip(),
+                name=a_element.select_one('.card-title').text.strip(),
                 cover=img_element.get('src'),
                 last_chapter=last_chapter,
             ))
