@@ -114,6 +114,22 @@
     <url type="donation">https://febvre.info/donate.html</url>
 
     <releases>
+        <release version="1.96.0" date="2025-12-06">
+            <description translate="no">
+                <ul>
+                    <li>[Preferences] Reader: Split settings in 3 groups (Common, Paged Readings Modes, Webtoon Reading Mode)</li>
+                    <li>[Reader] Added two new scroll settings for Webtoon reading mode</li>
+                    <li>[Servers] Added Mangas Top (pt_BR)</li>
+                    <li>[Servers] Added Writers Scans (EN)</li>
+                    <li>[Servers] Anime-Sama (FR): Update</li>
+                    <li>[Servers] Anteiku Scans (FR): Disabled</li>
+                    <li>[Servers] ED Scanlation (FR): Disabled</li>
+                    <li>[Servers] WeebDex (EN): Update</li>
+                    <li>[L10n] Updated French, German, Russian, Ukrainian and Vietnamese translations</li>
+                </ul>
+                <p>Happy reading.</p>
+            </description>
+        </release>
         <release version="1.95.0" date="2025-11-28">
             <description translate="no">
                 <ul>

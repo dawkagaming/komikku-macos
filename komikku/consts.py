@@ -140,17 +140,15 @@ CREDITS = dict(
 
 RELEASE_NOTES = """
 <ul>
-    <li>[Preferences] Advanced: Improved `Clear WebView Data`</li>
-    <li>[Servers] Added WeebDex (EN)</li>
-    <li>[Servers] Argos Comics (PT): Disabled</li>
-    <li>[Servers] Asura Scans (EN): Update</li>
-    <li>[Servers] Comix (EN): Update</li>
-    <li>[Servers] Invincible ComicsVF (FR): Update</li>
-    <li>[Servers] Mangas Origines (FR): Re-enabled</li>
-    <li>[Servers] Punk Records (FR): Update</li>
-    <li>[Servers] Scylla Comics (EN): Disabled</li>
-    <li>[Servers] Tres Daos (ES): Disabled</li>
-    <li>[L10n] Updated Finnish, French, Italian, Russian, Ukrainian and Vietnamese translations</li>
+    <li>[Preferences] Reader: Split settings in 3 groups (Common, Paged Readings Modes, Webtoon Reading Mode)</li>
+    <li>[Reader] Added two new scroll settings for Webtoon reading mode</li>
+    <li>[Servers] Added Mangas Top (pt_BR)</li>
+    <li>[Servers] Added Writers Scans (EN)</li>
+    <li>[Servers] Anime-Sama (FR): Update</li>
+    <li>[Servers] Anteiku Scans (FR): Disabled</li>
+    <li>[Servers] ED Scanlation (FR): Disabled</li>
+    <li>[Servers] WeebDex (EN): Update</li>
+    <li>[L10n] Updated French, German, Russian, Ukrainian and Vietnamese translations</li>
 </ul>
 <p>Happy reading.</p>
 """
