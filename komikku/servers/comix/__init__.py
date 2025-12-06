@@ -230,11 +230,17 @@ class Comix(Server):
                     title = f'{title} Vol {item["volume"]}'
                 if item['name']:
                     title = f'{title} {item["name"]}'
+                if item['scanlation_group']:
+                    scanlators = [item['scanlation_group']['name']]
+                elif item['is_official']:
+                    scanlators = ['Official']
+                else:
+                    scanlators = []
 
                 chapters.append(dict(
                     slug=f'{item["chapter_id"]}-chapter-{item["number"]}',
                     title=title,
-                    scanlators=[item['scanlation_group']['name']] if item['scanlation_group'] else [],
+                    scanlators=scanlators,
                     num=item['number'] if is_number(item['number']) else None,
                     num_volume=item['volume'] if is_number(item['volume']) else None,
                     date=datetime.datetime.fromtimestamp(item['updated_at']).date(),
