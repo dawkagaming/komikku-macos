@@ -4,7 +4,7 @@
 
 # Supported servers:
 # Anteiku Scans [FR] (disabled)
-# ED Scanlation [FR]
+# ED Scanlation [FR] (disabled)
 # Kewn Scans [EN]
 # Writer Scans [EN]
 
