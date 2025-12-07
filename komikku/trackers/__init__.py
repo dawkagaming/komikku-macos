@@ -153,7 +153,7 @@ class Tracker(BaseServer, ABC):
         expiration_time = payload.get('exp')
         if expiration_time is None:
             # No expiration time, token is assumed to be valid
-            return True, False
+            return True, True
 
         return True, time.time() <= expiration_time - 86400
 
