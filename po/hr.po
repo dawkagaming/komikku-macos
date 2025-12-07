@@ -7,10 +7,10 @@ msgstr ""
 "Project-Id-Version: Komikku 1.47.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-12-05 16:06+0100\n"
-"PO-Revision-Date: 2025-11-11 20:51+0000\n"
+"PO-Revision-Date: 2025-12-08 17:00+0000\n"
 "Last-Translator: Milo Ivir <mail@milotype.de>\n"
-"Language-Team: Croatian <https://hosted.weblate.org/projects/komikku/main/hr/"
-">\n"
+"Language-Team: Croatian <https://hosted.weblate.org/projects/komikku/main/"
+"hr/>\n"
 "Language: hr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -30,6 +30,8 @@ msgstr "@description@"
 #: ../data/info.febvre.Komikku.desktop.in:15
 msgid "manga;reader;viewer;comic;manhwa;manhua;webtoon;webcomic;scanlation;book;ebook;offline;GTK;GNOME;"
 msgstr ""
+"manga;čitač;preglednik;strip;manhwa;manhua;webtoon;web-strip;prijevod "
+"obožavatelja;knjiga;e-knjiga;offline;GTK;GNOME;"
 
 #: ../data/info.febvre.Komikku.metainfo.xml.in.in:11
 msgid "Discover and read manga & comics"
@@ -57,7 +59,7 @@ msgstr "Podrška za lokalno spremljene serije (u formatima CBZ/CBR/CBT ili PDF)"
 
 #: ../data/info.febvre.Komikku.metainfo.xml.in.in:19
 msgid "RTL, LTR, Vertical and Webtoon reading modes"
-msgstr "Modusi čitanja: sdesna nalijevo, slijeva nadesno, okomito i webtoon"
+msgstr "Modusi čitanja: s desna na lijevo, s lijeva na desno, okomito i webtoon"
 
 #: ../data/info.febvre.Komikku.metainfo.xml.in.in:20
 msgid ""
@@ -76,7 +78,7 @@ msgstr "Kategorije za organiziranje biblioteke"
 
 #: ../data/info.febvre.Komikku.metainfo.xml.in.in:22
 msgid "Automatic tracking of series with AniList, MangaUpdates and MyAnimeList"
-msgstr ""
+msgstr "Automatsko praćenje serija pomoću AniList, MangaUpdates i MyAnimeList"
 
 #: ../data/info.febvre.Komikku.metainfo.xml.in.in:23
 msgid "Automatic update of series"
@@ -96,51 +98,51 @@ msgstr "Svijetle i tamne teme"
 
 #: ../data/info.febvre.Komikku.metainfo.xml.in.in:31
 msgid "reader"
-msgstr ""
+msgstr "čitač"
 
 #: ../data/info.febvre.Komikku.metainfo.xml.in.in:32
 msgid "viewer"
-msgstr ""
+msgstr "preglednik"
 
 #: ../data/info.febvre.Komikku.metainfo.xml.in.in:33
 msgid "scanlation"
-msgstr ""
+msgstr "prijevod obožavatelja"
 
 #: ../data/info.febvre.Komikku.metainfo.xml.in.in:34
 msgid "comic"
-msgstr ""
+msgstr "strip"
 
 #: ../data/info.febvre.Komikku.metainfo.xml.in.in:35
 msgid "manga"
-msgstr ""
+msgstr "manga"
 
 #: ../data/info.febvre.Komikku.metainfo.xml.in.in:36
 msgid "manhwa"
-msgstr ""
+msgstr "manhwa"
 
 #: ../data/info.febvre.Komikku.metainfo.xml.in.in:37
 msgid "manhua"
-msgstr ""
+msgstr "manhua"
 
 #: ../data/info.febvre.Komikku.metainfo.xml.in.in:38
 msgid "webtoon"
-msgstr ""
+msgstr "webtoon"
 
 #: ../data/info.febvre.Komikku.metainfo.xml.in.in:39
 msgid "webcomic"
-msgstr ""
+msgstr "web-strip"
 
 #: ../data/info.febvre.Komikku.metainfo.xml.in.in:40
 msgid "book"
-msgstr ""
+msgstr "knjiga"
 
 #: ../data/info.febvre.Komikku.metainfo.xml.in.in:41
 msgid "ebook"
-msgstr ""
+msgstr "e-knjiga"
 
 #: ../data/info.febvre.Komikku.metainfo.xml.in.in:42
 msgid "offline"
-msgstr ""
+msgstr "offline"
 
 #: ../data/info.febvre.Komikku.metainfo.xml.in.in:62
 msgid "The Library page"
@@ -569,7 +571,7 @@ msgstr "Automatski preuzmi nova poglavlja"
 
 #: ../data/ui/preferences.blp:218
 msgid "Languages"
-msgstr ""
+msgstr "Jezici"
 
 #: ../data/ui/preferences.blp:219
 msgid "Restrict servers to selected languages"
@@ -689,11 +691,11 @@ msgstr "Automatski pokreni u cjeloekranskom prikazu"
 
 #: ../data/ui/preferences.blp:319
 msgid "Paged Reading Modes"
-msgstr ""
+msgstr "Modus čitanja pojedinačnih stranica"
 
 #: ../data/ui/preferences.blp:320
 msgid "Right to Left / Left to Right / Vertical"
-msgstr ""
+msgstr "S desna na lijevo / s lijeva na desno / okomito"
 
 #: ../data/ui/preferences.blp:323
 msgid "Scaling"
@@ -748,15 +750,15 @@ msgstr ""
 
 #: ../data/ui/preferences.blp:347
 msgid "Webtoon Reading Mode"
-msgstr ""
+msgstr "Webtoon modus čitanja"
 
 #: ../data/ui/preferences.blp:348
 msgid "Long Strip aka Infinite Vertical Canvas"
-msgstr ""
+msgstr "Dugačka traka ili beskonačno okomito platno"
 
 #: ../data/ui/preferences.blp:353
 msgid "Reset to Default"
-msgstr ""
+msgstr "Resetiraj na standardne postavke"
 
 #: ../data/ui/preferences.blp:361
 msgid "Maximum Width"
@@ -764,23 +766,25 @@ msgstr "Maksimalna širina"
 
 #: ../data/ui/preferences.blp:362
 msgid "Constrain reader's width to a given maximum size"
-msgstr ""
+msgstr "Ograniči širinu čitača na zadanu maksimalnu veličinu"
 
 #: ../data/ui/preferences.blp:372
 msgid "Scroll Distance"
-msgstr ""
+msgstr "Količina klizanja"
 
 #: ../data/ui/preferences.blp:373
 msgid "Percentage of page height to scroll on click or Page Up/Down"
 msgstr ""
+"Postotak visine stranice za klizanje pri kliku ili pri korištenju tipki Page "
+"Up/Down"
 
 #: ../data/ui/preferences.blp:384
 msgid "Drag Sensitivity"
-msgstr ""
+msgstr "Osjetljivost povlačenja"
 
 #: ../data/ui/preferences.blp:385
 msgid "Multiplier for drag scrolling sensitivity"
-msgstr ""
+msgstr "Množitelj za osjetljivost klizanja povlačenjem"
 
 #: ../data/ui/preferences.blp:399
 msgid "Advanced"
@@ -1309,7 +1313,7 @@ msgstr "Spremi"
 #: ../komikku/downloader.py:283
 #, python-brace-format
 msgid "[{0}] Chapters download ended"
-msgstr ""
+msgstr "[{0}] Preuzimanje poglavlja je završeno"
 
 #: ../komikku/explorer/common.py:122
 #, python-brace-format
@@ -1533,7 +1537,7 @@ msgstr "Preuzimanje"
 
 #: ../komikku/models/database/downloads.py:22
 msgid "Download canceled"
-msgstr ""
+msgstr "Preuzimanje je prikinuto"
 
 #: ../komikku/models/database/downloads.py:23
 msgid "Download error"
@@ -1591,7 +1595,7 @@ msgstr "Stvarno želiš izbrisati predmemoriju poglavlja i bazu podataka?"
 
 #: ../komikku/preferences/__init__.py:174
 msgid "Failed to clear WebView data"
-msgstr ""
+msgstr "Neuspjelo brisanje WebView podataka"
 
 #: ../komikku/preferences/__init__.py:178
 msgid "Are you sure you want to clear WebView data (cache, storage, cookies)?"
@@ -2266,11 +2270,11 @@ msgstr "Filtriraj po vrstama"
 
 #: ../komikku/servers/comix/__init__.py:86
 msgid "Hide NSFW Content"
-msgstr ""
+msgstr "Sakrij neprikladan sadržaj"
 
 #: ../komikku/servers/comix/__init__.py:87
 msgid "Hide NSFW content from popular, latest, and search lists"
-msgstr ""
+msgstr "Sakrij neprikladan sadržaj s popisa popularnih, najnovijih i pretraga"
 
 #: ../komikku/servers/dynasty/__init__.py:40
 msgid "Categories"
@@ -2351,7 +2355,7 @@ msgstr "Ispušteno"
 #: ../komikku/servers/kavita/__init__.py:32
 #: ../komikku/servers/komga/__init__.py:26
 msgid "Self-hosted digital library"
-msgstr ""
+msgstr "Samostalni hosting digitalne biblioteke"
 
 #: ../komikku/servers/local/__init__.py:254
 msgid "Comics stored locally as archives in CBZ/CBR/CBT or PDF formats"
@@ -2415,12 +2419,14 @@ msgstr "ILI"
 #: ../komikku/servers/mangadex/__init__.py:166
 #: ../komikku/servers/weebdex/__init__.py:97
 msgid "Data Saver Mode"
-msgstr ""
+msgstr "Modus čuvača podataka"
 
 #: ../komikku/servers/mangadex/__init__.py:167
 #: ../komikku/servers/weebdex/__init__.py:98
 msgid "Fetch lower quality images to save bandwidth"
 msgstr ""
+"Preuzimaj slike niže kvalitete radi uštede količine prijenosa podataka kroz "
+"mrežu"
 
 #: ../komikku/servers/mangafire/__init__.py:50
 #: ../komikku/servers/mangapill/__init__.py:42
@@ -2508,19 +2514,19 @@ msgstr "Platno"
 
 #: ../komikku/servers/zenko/__init__.py:45
 msgid "Age Restriction"
-msgstr ""
+msgstr "Dobno ograničenje"
 
 #: ../komikku/servers/zenko/__init__.py:46
 msgid "Filter by Age Restrictions"
-msgstr ""
+msgstr "Filtriraj po dobnim ograničenjima"
 
 #: ../komikku/servers/zenko/__init__.py:73
 msgid "Manga UA"
-msgstr ""
+msgstr "Manga UA"
 
 #: ../komikku/servers/zenko/__init__.py:77
 msgid "Western Comic"
-msgstr ""
+msgstr "Vestern strip"
 
 #: ../komikku/trackers/__init__.py:67
 msgid "Reading"
