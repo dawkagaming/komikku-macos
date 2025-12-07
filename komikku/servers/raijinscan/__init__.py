@@ -147,8 +147,14 @@ class Raijinscan(Server):
             pages=[],
         )
         for img_element in soup.select('.protected-image-data'):
+            xor_key = 93
+            url_xored = base64.b64decode(img_element.get('data-v')[::-1]).decode()
+            url_encoded = ''
+            for c in url_xored:
+                url_encoded += chr(ord(c) ^ xor_key)
+
             data['pages'].append(dict(
-                image=base64.b64decode(img_element.get('data-r')[::-1]).decode(),
+                image=base64.b64decode(url_encoded).decode(),
                 slug=None,
             ))
 
