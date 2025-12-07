@@ -149,8 +149,13 @@ class Tracker(BaseServer, ABC):
         if not data.get('access_token'):
             return False, False
 
+        # Get expires timestamp in token payload
         payload = jwt.decode(data['access_token'], options={'verify_signature': False})
         expiration_time = payload.get('exp')
+        # Else, get it in data if available
+        if expiration_time is None:
+            expiration_time = data.get('exp')
+
         if expiration_time is None:
             # No expiration time, token is assumed to be valid
             return True, True

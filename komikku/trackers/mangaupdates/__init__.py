@@ -17,7 +17,8 @@ class Mangaupdates(Tracker):
 
     base_url = 'https://www.mangaupdates.com'
     api_url = 'https://api.mangaupdates.com/v1'
-    api_login_url = api_url + '/account/login'
+    api_login_url = api_url + '/account/loginWithCookie'
+    api_refresh_token_url = api_url + '/account/refresh'
     api_search_url = api_url + '/series/search'
     api_manga_url = api_url + '/series/{0}'
     api_list_add_url = api_url + '/lists/series'
@@ -121,8 +122,31 @@ class Mangaupdates(Tracker):
         return data
 
     def refresh_access_token(self):
-        # Access token can't be refreshed
-        # Tracker server don't store the access token
+        """Returns new access token"""
+        r = self.session_get(
+            self.api_refresh_token_url,
+            headers={
+                'Authorization': f'Bearer {self.data["access_token"]}',
+            }
+        )
+        if r.status_code != 200:
+            return None
+
+        data = r.json()
+        if data['status'] != 'success':
+            return None
+
+        for cookie in self.session.cookies:
+            if cookie.name != 'session':
+                continue
+
+            self.data = {
+                'access_token': cookie.value,
+                'refresh_token': None,
+                'exp': cookie.expires,
+            }
+            return cookie.value
+
         return None
 
     def request_access_token(self, username, password):
@@ -140,12 +164,19 @@ class Mangaupdates(Tracker):
         if data['status'] != 'success':
             return False, 'failed'
 
-        self.data = {
-            'access_token': data['context']['session_token'],
-            'refresh_token': None,
-        }
+        for cookie in self.session.cookies:
+            if cookie.name != 'session':
+                continue
 
-        return True, None
+            self.data = {
+                'access_token': cookie.value,
+                'refresh_token': None,
+                'exp': cookie.expires,
+            }
+
+            return True, None
+
+        return False, 'failed'
 
     def search(self, term):
         r = self.session.post(
