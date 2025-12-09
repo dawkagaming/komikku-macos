@@ -180,7 +180,7 @@ class Comix(Server):
         for image in info[3]['chapter']['images']:
             data['pages'].append(dict(
                 slug=None,
-                image=image,
+                image=image['url'],
             ))
 
         return data
