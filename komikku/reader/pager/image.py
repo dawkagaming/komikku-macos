@@ -500,13 +500,13 @@ class KImage(Gtk.Widget, Gtk.Scrollable):
             y = -(self.vadjustment.props.value - (self.vadjustment.props.upper - height) / 2)
             snapshot.translate(Graphene.Point().init(0, int(y)))
 
-            # Center in widget when no scrolling
-            snapshot.translate(
-                Graphene.Point().init(
-                    max((self.widget_width - width) // 2, 0),
-                    max((self.widget_height - height) // 2, 0),
-                )
+        # Center in widget
+        snapshot.translate(
+            Graphene.Point().init(
+                max((self.widget_width - width) // 2, 0),
+                max((self.widget_height - height) // 2, 0),
             )
+        )
 
         # Append textures
         scale_factor = self.get_native().get_surface().get_scale()
