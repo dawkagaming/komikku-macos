@@ -4,6 +4,7 @@
 data/#*#
 po/*.mo
 resources
+subprojects/.wraplock
 subprojects/blueprint-compiler
 _build/
 .buildconfig
