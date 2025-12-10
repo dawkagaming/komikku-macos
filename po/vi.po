@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: Komikku 1.44.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-12-05 16:06+0100\n"
-"PO-Revision-Date: 2025-12-05 16:09+0000\n"
+"PO-Revision-Date: 2025-12-10 18:00+0000\n"
 "Last-Translator: Loc Huynh <huynhloc.contact@gmail.com>\n"
 "Language-Team: Vietnamese <https://hosted.weblate.org/projects/komikku/main/"
 "vi/>\n"
@@ -36,7 +36,7 @@ msgstr ""
 
 #: ../data/info.febvre.Komikku.metainfo.xml.in.in:11
 msgid "Discover and read manga & comics"
-msgstr "Khám phá và đọc manga &amp; comic"
+msgstr "Khám phá, đọc manga & comic"
 
 #: ../data/info.febvre.Komikku.metainfo.xml.in.in:13
 msgid ""
@@ -100,11 +100,11 @@ msgstr "Chủ đề sáng và tối"
 
 #: ../data/info.febvre.Komikku.metainfo.xml.in.in:31
 msgid "reader"
-msgstr "người đọc"
+msgstr "trình đọc"
 
 #: ../data/info.febvre.Komikku.metainfo.xml.in.in:32
 msgid "viewer"
-msgstr "người xem"
+msgstr "trình xem"
 
 #: ../data/info.febvre.Komikku.metainfo.xml.in.in:33
 msgid "scanlation"
@@ -148,7 +148,7 @@ msgstr "ngoại tuyến"
 
 #: ../data/info.febvre.Komikku.metainfo.xml.in.in:62
 msgid "The Library page"
-msgstr "Lưu truyện vào thư viện"
+msgstr "Trang Thư viện"
 
 #: ../data/info.febvre.Komikku.metainfo.xml.in.in:66
 msgid "The Library page with the category sidebar open"
@@ -160,11 +160,11 @@ msgstr "Trang Tùy chọn (Cài đặt thư viện)"
 
 #: ../data/info.febvre.Komikku.metainfo.xml.in.in:74
 msgid "The Explorer page in mobile format (Servers list)"
-msgstr "Trang Explorer ở định dạng di động (danh sách Máy chủ)"
+msgstr "Trang Khám phá ở định dạng di động (Danh sách máy chủ)"
 
 #: ../data/info.febvre.Komikku.metainfo.xml.in.in:78
 msgid "The Details page"
-msgstr "Trang chi tiết"
+msgstr "Trang Chi tiết"
 
 #: ../data/info.febvre.Komikku.metainfo.xml.in.in:82
 msgid "The Details page (chapters list)"
@@ -172,15 +172,15 @@ msgstr "Trang Chi tiết (danh sách chương)"
 
 #: ../data/info.febvre.Komikku.metainfo.xml.in.in:86
 msgid "The Reader page"
-msgstr "Trang Người đọc"
+msgstr "Trang Trình đọc"
 
 #: ../data/info.febvre.Komikku.metainfo.xml.in.in:90
 msgid "The Reader page in mobile format"
-msgstr "Trang Reader ở định dạng di động"
+msgstr "Trang Trình đọc ở định dạng di động"
 
 #: ../data/info.febvre.Komikku.metainfo.xml.in.in:94
 msgid "The Category editor page in mobile format"
-msgstr "Trang biên tập Danh mục ở định dạng di động"
+msgstr "Trang Biên tập danh mục ở định dạng di động"
 
 #: ../data/info.febvre.Komikku.metainfo.xml.in.in:98
 msgid "The Reading history page in mobile format"
@@ -202,7 +202,7 @@ msgstr "Thông tin"
 
 #: ../data/ui/card.blp:148
 msgid "Add to Library"
-msgstr "Thêm vào thư viện"
+msgstr "Thêm vào Thư viện"
 
 #: ../data/ui/card.blp:208
 msgid "Scanlators"
@@ -231,7 +231,7 @@ msgstr "Mới"
 
 #: ../data/ui/card_tracking.blp:9 ../data/ui/preferences.blp:104
 msgid "Tracking"
-msgstr "Theo Dõi"
+msgstr "Theo dõi"
 
 #: ../data/ui/card_tracking_search.blp:10 ../data/ui/explorer_search.blp:10
 #: ../data/ui/explorer_search.blp:43 ../data/ui/history.blp:22
@@ -241,7 +241,7 @@ msgstr "Tìm kiếm"
 
 #: ../data/ui/card_tracking_search.blp:75
 msgid "Search for Tracking"
-msgstr "Tìm kiếm Theo Dõi"
+msgstr "Tìm kiếm Theo dõi"
 
 #: ../data/ui/categories_editor.blp:36
 msgid "Add"
@@ -257,7 +257,7 @@ msgstr "Bắt đầu/Dừng tải xuống"
 
 #: ../data/ui/download_manager.blp:67
 msgid "No Downloads"
-msgstr "Không có gì hết =}}}"
+msgstr "Không có tải xuống"
 
 #: ../data/ui/explorer_search.blp:28
 msgid "Search Filters"
@@ -297,7 +297,7 @@ msgstr "Lịch sử"
 
 #: ../data/ui/history.blp:71
 msgid "No History"
-msgstr "Không có gì hết =}}}"
+msgstr "Không có lịch sử"
 
 #: ../data/ui/library.blp:10 ../data/ui/preferences.blp:114
 msgid "Library"
@@ -305,7 +305,7 @@ msgstr "Thư viện"
 
 #: ../data/ui/library.blp:23
 msgid "Toggle Categories Sidebar"
-msgstr "Chuyển đổi danh mục Thanh bên"
+msgstr "Chuyển đổi danh mục thanh bên"
 
 #: ../data/ui/library.blp:34
 msgid "Main Menu"
@@ -321,11 +321,11 @@ msgstr "Cập nhật"
 
 #: ../data/ui/library.blp:200
 msgid "Discover Comics"
-msgstr "Khám phá truyện tranh"
+msgstr "Khám phá comic"
 
 #: ../data/ui/library.blp:271
 msgid "OK"
-msgstr "Vâng"
+msgstr "OK"
 
 #: ../data/ui/menu/card.xml:30
 msgid "Order of Chapters"
@@ -398,11 +398,11 @@ msgstr "Đọc mới nhất đầu tiên"
 
 #: ../data/ui/menu/main.xml:31
 msgid "Latest Updated First"
-msgstr "Cập nhật mới nhất Đầu tiên"
+msgstr "Cập nhật mới nhất đầu tiên"
 
 #: ../data/ui/menu/main.xml:60
 msgid "Keyboard Shortcuts"
-msgstr "Các phím tắt bàn phím"
+msgstr "Phím tắt bàn phím"
 
 #: ../data/ui/menu/main.xml:68
 msgid "About Komikku"
@@ -435,7 +435,7 @@ msgstr "Tổng quan"
 
 #: ../data/ui/preferences.blp:24
 msgid "Support Komikku"
-msgstr "Ủng Hộ Komikku"
+msgstr "Ủng hộ Komikku"
 
 #: ../data/ui/preferences.blp:30
 msgid ""
@@ -451,7 +451,7 @@ msgstr ""
 
 #: ../data/ui/preferences.blp:59
 msgid "Appearance"
-msgstr "Giao Diện"
+msgstr "Giao diện"
 
 #: ../data/ui/preferences.blp:61
 msgid "Theme"
@@ -467,7 +467,7 @@ msgstr "Tối"
 
 #: ../data/ui/preferences.blp:66
 msgid "Follow System"
-msgstr "Theo dõi hệ thống"
+msgstr "Theo hệ thống"
 
 #: ../data/ui/preferences.blp:72
 msgid "Night Light"
@@ -479,7 +479,7 @@ msgstr "Tự động bật chủ đề tối vào ban đêm"
 
 #: ../data/ui/preferences.blp:77
 msgid "Accent Color"
-msgstr "Màu Nhấn"
+msgstr "Màu nhấn"
 
 #: ../data/ui/preferences.blp:78
 msgid "Use system accent colors"
@@ -539,7 +539,7 @@ msgstr "Hiển thị logo máy chủ"
 
 #: ../data/ui/preferences.blp:136
 msgid "Badges"
-msgstr "danh hiệu"
+msgstr "Danh hiệu"
 
 #: ../data/ui/preferences.blp:139
 msgid "Number of Unread Chapters"
@@ -571,7 +571,7 @@ msgstr "Tự động tải chương mới"
 
 #: ../data/ui/preferences.blp:218
 msgid "Languages"
-msgstr "Ngôn Ngữ"
+msgstr "Ngôn ngữ"
 
 #: ../data/ui/preferences.blp:219
 msgid "Restrict servers to selected languages"
@@ -579,7 +579,7 @@ msgstr "Hạn chế máy chủ ở các ngôn ngữ đã chọn"
 
 #: ../data/ui/preferences.blp:228
 msgid "Enable/disable and configure servers"
-msgstr "Bật/tắt và định cấu hình máy chủ"
+msgstr "Bật/tắt và cấu hình máy chủ"
 
 #: ../data/ui/preferences.blp:236
 msgid "Long Strip Detection"
@@ -615,11 +615,11 @@ msgstr ""
 
 #: ../data/ui/preferences.blp:268 ../data/ui/reader.blp:10
 msgid "Reader"
-msgstr "Người đọc"
+msgstr "Trình đọc"
 
 #: ../data/ui/preferences.blp:273
 msgid "Reading Mode"
-msgstr "Chế độ người đọc"
+msgstr "Chế độ đọc"
 
 #: ../data/ui/preferences.blp:276
 msgid "⬅ Right to Left"
@@ -639,7 +639,7 @@ msgstr "⬇ Webtoon"
 
 #: ../data/ui/preferences.blp:285
 msgid "Scaling Filter"
-msgstr "Bộ Lọc Tỷ Lệ"
+msgstr "Bộ lọc tỷ lệ"
 
 #: ../data/ui/preferences.blp:286
 msgid "Interpolation method used when scaling images"
@@ -647,11 +647,11 @@ msgstr "Phương pháp nội suy được sử dụng khi chia tỷ lệ hình �
 
 #: ../data/ui/preferences.blp:289
 msgid "Linear"
-msgstr "Tuyến Tính"
+msgstr "Tuyến tính"
 
 #: ../data/ui/preferences.blp:290
 msgid "Trilinear"
-msgstr "Tam Tuyến"
+msgstr "Tam tuyến"
 
 #: ../data/ui/preferences.blp:296
 msgid "Background Color"
@@ -659,15 +659,15 @@ msgstr "Màu nền"
 
 #: ../data/ui/preferences.blp:299
 msgid "White"
-msgstr "Màu Trắng"
+msgstr "Màu trắng"
 
 #: ../data/ui/preferences.blp:300
 msgid "Gray"
-msgstr "Màu Xám"
+msgstr "Màu xám"
 
 #: ../data/ui/preferences.blp:301
 msgid "Black"
-msgstr "Màu Đen"
+msgstr "Màu đen"
 
 #: ../data/ui/preferences.blp:302
 msgid "System Style"
@@ -691,11 +691,11 @@ msgstr "Tự động vào chế độ toàn màn hình"
 
 #: ../data/ui/preferences.blp:319
 msgid "Paged Reading Modes"
-msgstr "Chế Độ Đọc Trang"
+msgstr "Chế độ đọc trang"
 
 #: ../data/ui/preferences.blp:320
 msgid "Right to Left / Left to Right / Vertical"
-msgstr "Phải sang Trái / Trái sang Phải / Dọc"
+msgstr "Phải sang trái / Trái sang phải / Dọc"
 
 #: ../data/ui/preferences.blp:323
 msgid "Scaling"
@@ -750,15 +750,15 @@ msgstr ""
 
 #: ../data/ui/preferences.blp:347
 msgid "Webtoon Reading Mode"
-msgstr "Chế Độ Đọc Webtoon"
+msgstr "Chế độ đọc Webtoon"
 
 #: ../data/ui/preferences.blp:348
 msgid "Long Strip aka Infinite Vertical Canvas"
-msgstr "Dải Dài Hay aka Canvas Dọc Vô Hạn"
+msgstr "Dải dài hay còn gọi lại canvas dọc vô hạn"
 
 #: ../data/ui/preferences.blp:353
 msgid "Reset to Default"
-msgstr "Đặt lại về Mặc Định"
+msgstr "Đặt lại về mặc định"
 
 #: ../data/ui/preferences.blp:361
 msgid "Maximum Width"
@@ -770,15 +770,15 @@ msgstr "Hạn chế chiều rộng của người đọc ở kích thước tố
 
 #: ../data/ui/preferences.blp:372
 msgid "Scroll Distance"
-msgstr "Khoảng Cách Cuộn"
+msgstr "Khoảng cách cuộn"
 
 #: ../data/ui/preferences.blp:373
 msgid "Percentage of page height to scroll on click or Page Up/Down"
-msgstr "Phần trăm chiều cao trang cần cuộn khi nhấp chuột hoặc Lên/Xuống Trang"
+msgstr "Phần trăm chiều cao trang cần cuộn khi nhấp chuột hoặc Page Up/Down"
 
 #: ../data/ui/preferences.blp:384
 msgid "Drag Sensitivity"
-msgstr "Độ Nhạy Kéo"
+msgstr "Độ nhạy kéo"
 
 #: ../data/ui/preferences.blp:385
 msgid "Multiplier for drag scrolling sensitivity"
@@ -786,7 +786,7 @@ msgstr "Hệ số nhân cho độ nhạy cuộn kéo"
 
 #: ../data/ui/preferences.blp:399
 msgid "Advanced"
-msgstr "Trình độ cao"
+msgstr "Nâng cao"
 
 #: ../data/ui/preferences.blp:403
 msgid "A setting has changed that requires a restart to take effect"
@@ -810,11 +810,11 @@ msgstr "Xóa bộ nhớ cache và cơ sở dữ liệu của chương khi thoát
 
 #: ../data/ui/preferences.blp:433
 msgid "WebView"
-msgstr "Chế Độ Xem Web"
+msgstr "WebView"
 
 #: ../data/ui/preferences.blp:436
 msgid "Clear Data"
-msgstr "Xóa Dữ Liệu"
+msgstr "Xóa dữ liệu"
 
 #: ../data/ui/preferences.blp:452
 msgid "Servers Modules"
@@ -925,7 +925,7 @@ msgstr "Thư viện"
 #: ../data/ui/shortcuts.blp:37
 msgctxt "Shortcut window description"
 msgid "Add Manga"
-msgstr "Thêm Manga"
+msgstr "Thêm manga"
 
 #: ../data/ui/shortcuts.blp:42
 msgctxt "Shortcut window description"
@@ -940,17 +940,17 @@ msgstr "Tìm kiếm"
 #: ../data/ui/shortcuts.blp:52
 msgctxt "Shortcut window description"
 msgid "Toggle Categories Pane"
-msgstr "Chuyển Đổi Ngăn Danh Mục"
+msgstr "Chuyển đổi ngăn danh mục"
 
 #: ../data/ui/shortcuts.blp:57
 msgctxt "Shortcut window description"
 msgid "Update"
-msgstr "Cập Nhật"
+msgstr "Cập nhật"
 
 #: ../data/ui/shortcuts.blp:63
 msgctxt "Shortcut window description"
 msgid "Manga Card"
-msgstr "Thẻ Manga"
+msgstr "Thẻ manga"
 
 #: ../data/ui/shortcuts.blp:66
 msgctxt "Shortcut window description"
@@ -960,7 +960,7 @@ msgstr "Chọn tất cả các chương"
 #: ../data/ui/shortcuts.blp:72
 msgctxt "Shortcut window description"
 msgid "Reader"
-msgstr "Người đọc"
+msgstr "Trình đọc"
 
 #: ../data/ui/shortcuts.blp:75
 msgctxt "Shortcut window description"
@@ -1024,7 +1024,7 @@ msgstr "Đóng góp một lần hoặc hàng tháng"
 
 #: ../data/ui/support.blp:144
 msgid "Copy to Clipboard"
-msgstr "Sao chép vào Bộ Nhớ Tạm"
+msgstr "Sao chép vào bộ nhớ tạm"
 
 #: ../data/ui/webview.blp:10
 msgid "Webview"
@@ -1044,7 +1044,7 @@ msgstr "Các mô-đun máy chủ đã được cập nhật"
 
 #: ../komikku/application.py:375
 msgid "External Servers Modules Update"
-msgstr "Cập Nhật Mô-đun Máy Chủ Bên Ngoài"
+msgstr "Cập nhật mô-đun máy chủ bên ngoài"
 
 #: ../komikku/application.py:376
 msgid ""
@@ -1091,7 +1091,7 @@ msgstr "Hủy bỏ"
 
 #: ../komikku/application.py:537
 msgid "Are you sure you want to quit?"
-msgstr "Bạn có chắc bạn muốn thoát khỏi?"
+msgstr "Bạn có chắc muốn thoát?"
 
 #: ../komikku/application.py:540
 msgid "Some chapters are currently being downloaded."
@@ -1103,7 +1103,7 @@ msgstr "Một số manga hiện đang được cập nhật."
 
 #: ../komikku/application.py:546
 msgid "Quit?"
-msgstr "Rời khỏi?"
+msgstr "Thoát?"
 
 #: ../komikku/application.py:548
 msgid "Quit"
@@ -1111,22 +1111,22 @@ msgstr "Thoát"
 
 #: ../komikku/application.py:563
 msgid "Restart?"
-msgstr "Khởi Động Lại?"
+msgstr "Khởi động lại?"
 
 #: ../komikku/application.py:565
 msgid "Restart"
-msgstr "Khởi Động Lại"
+msgstr "Khởi động lại"
 
 #: ../komikku/card/__init__.py:112 ../komikku/card/__init__.py:241
 #: ../komikku/explorer/search/__init__.py:75
 #: ../komikku/explorer/search/__init__.py:220 ../komikku/reader/__init__.py:528
 #: ../komikku/reader/__init__.py:531
 msgid "Filters"
-msgstr "Bộ Lọc"
+msgstr "Bộ lọc"
 
 #: ../komikku/card/__init__.py:250
 msgid "Unknown"
-msgstr "Không Xác Định"
+msgstr "Không xác định"
 
 #: ../komikku/card/__init__.py:352
 msgid "Read progress synchronization with server completed successfully"
@@ -1153,7 +1153,7 @@ msgstr "Xóa và đặt lại"
 
 #: ../komikku/card/__init__.py:475 ../komikku/card/chapters_list.py:739
 msgid "Reset"
-msgstr "Cài Đặt lại"
+msgstr "Cài đặt lại"
 
 #: ../komikku/card/__init__.py:582
 msgid "Unknown author"
@@ -1169,7 +1169,7 @@ msgstr "Môi trường"
 
 #: ../komikku/card/__init__.py:632 ../komikku/card/chapters_list.py:667
 msgid "%m/%d/%Y"
-msgstr "Ngày/Tháng/Năm"
+msgstr "%m/%d/%Y"
 
 #: ../komikku/card/__init__.py:643
 msgid "Donate"
@@ -1180,7 +1180,7 @@ msgstr "Ủng hộ"
 #, python-brace-format
 msgid "{0} selected"
 msgid_plural "{0} selected"
-msgstr[0] "{0}Đã chọn"
+msgstr[0] "{0} đã chọn"
 
 #: ../komikku/card/chapters_list.py:425 ../komikku/card/chapters_list.py:528
 msgid "Failed to update chapters reading status"
@@ -1217,15 +1217,15 @@ msgstr "Không có dịch vụ theo dõi có sẵn"
 
 #: ../komikku/card/tracking.py:187
 msgid "Track"
-msgstr "Theo Dõi"
+msgstr "Theo dõi"
 
 #: ../komikku/card/tracking.py:213
 msgid "Use"
-msgstr "Sử Dụng"
+msgstr "Sử dụng"
 
 #: ../komikku/card/tracking.py:221
 msgid "Cancel Tracking"
-msgstr "Hủy Theo Dõi"
+msgstr "Hủy theo dõi"
 
 #: ../komikku/card/tracking.py:227 ../komikku/servers/comick/__init__.py:77
 #: ../komikku/servers/comix/__init__.py:42
@@ -1239,7 +1239,7 @@ msgstr "Hủy Theo Dõi"
 #: ../komikku/servers/weebdex/__init__.py:60
 #: ../komikku/servers/zenko/__init__.py:57
 msgid "Status"
-msgstr "Tình Trạng"
+msgstr "Trạng thái"
 
 #: ../komikku/card/tracking.py:236
 msgid "Score"
@@ -1269,7 +1269,7 @@ msgstr "Kết nối đã hết hạn"
 
 #: ../komikku/card/tracking.py:449 ../komikku/explorer/search/__init__.py:378
 msgid "Search {}"
-msgstr "Tìm Kiếm {}"
+msgstr "Tìm kiếm {}"
 
 #: ../komikku/card/tracking.py:511 ../komikku/explorer/search/search.py:78
 #: ../komikku/explorer/search/search_global.py:168
@@ -1278,7 +1278,7 @@ msgstr "Rất tiếc, tìm kiếm không thành công. Vui lòng thử lại."
 
 #: ../komikku/card/tracking.py:515 ../komikku/explorer/search/search.py:82
 msgid "No Results Found"
-msgstr "Không Tìm Thấy Kết Quả"
+msgstr "Không tìm thấy kết quả"
 
 #: ../komikku/card/tracking.py:516 ../komikku/explorer/search/search.py:83
 msgid "Try a different search"
@@ -1295,7 +1295,7 @@ msgstr ""
 
 #: ../komikku/categories_editor.py:184
 msgid "Edit"
-msgstr "Chỉnh Sửa"
+msgstr "Chỉnh sửa"
 
 #: ../komikku/categories_editor.py:197
 msgid "Save"
@@ -1314,11 +1314,11 @@ msgstr[0] "{0} chương"
 
 #: ../komikku/explorer/common.py:124
 msgid "Last Chapter: {}"
-msgstr "Chương Cuối: {}"
+msgstr "Chương cuối: {}"
 
 #: ../komikku/explorer/common.py:126
 msgid "Last Volume: {}"
-msgstr "Tập Cuối Cùng: {}"
+msgstr "Tập cuối: {}"
 
 #: ../komikku/explorer/common.py:243 ../komikku/preferences/servers.py:366
 #: ../komikku/preferences/servers.py:418
@@ -1328,7 +1328,7 @@ msgstr "18+"
 
 #: ../komikku/explorer/common.py:264
 msgid "Help"
-msgstr "Trợ Giúp"
+msgstr "Trợ giúp"
 
 #: ../komikku/explorer/common.py:265
 msgid ""
@@ -1353,7 +1353,7 @@ msgstr ""
 
 #: ../komikku/explorer/common.py:275
 msgid "Local Folder"
-msgstr "Thư Mục Cục Bộ"
+msgstr "Thư mục cục bộ"
 
 #: ../komikku/explorer/common.py:285
 msgid "Open local folder"
@@ -1391,7 +1391,7 @@ msgstr ""
 
 #: ../komikku/explorer/search/__init__.py:412
 msgid "Global Search"
-msgstr "Tìm Kiếm Toàn Cục"
+msgstr "Tìm kiếm toàn cục"
 
 #: ../komikku/explorer/search/__init__.py:414
 msgid "Search globally by name"
@@ -1399,7 +1399,7 @@ msgstr "Tìm kiếm trên toàn cục theo tên"
 
 #: ../komikku/explorer/search/__init__.py:416
 msgid "Search for Comics"
-msgstr "Tìm Kiếm Truyện Tranh"
+msgstr "Tìm kiếm comic"
 
 #: ../komikku/explorer/search/__init__.py:490
 msgid "Oops, failed to retrieve manga's information."
@@ -1411,7 +1411,7 @@ msgstr "Rất tiếc, không truy xuất được bản cập nhật mới nhấ
 
 #: ../komikku/explorer/search/latest_updates.py:70
 msgid "No Latest Updates Found"
-msgstr "Không Tìm Thấy Bản Cập Nhật Mới Nhất"
+msgstr "Không tìm thấy bản cập nhật mới nhất"
 
 #: ../komikku/explorer/search/latest_updates.py:78
 #: ../komikku/explorer/search/most_popular.py:78
@@ -1426,7 +1426,7 @@ msgstr "Rất tiếc, không thể truy xuất phổ biến nhất."
 
 #: ../komikku/explorer/search/most_popular.py:70
 msgid "No Most Popular Found"
-msgstr "Không Tìm Thấy Phổ Biến Nhất"
+msgstr "Không tìm thấy phổ biến nhất"
 
 #: ../komikku/explorer/search/search_global.py:165
 msgid "Search cancelled"
@@ -1444,7 +1444,7 @@ msgstr "Khác"
 
 #: ../komikku/explorer/servers.py:223
 msgid "Pinned"
-msgstr "Đã Ghim"
+msgstr "Đã ghim"
 
 #: ../komikku/history.py:36
 msgid "Today"
@@ -1460,7 +1460,7 @@ msgstr "%A, %B %e"
 
 #: ../komikku/history.py:94
 msgid "Resume"
-msgstr "Tiếp Tục Phát"
+msgstr "Tiếp tục phát"
 
 #: ../komikku/library/__init__.py:378
 msgid "Are you sure you want to delete this manga?"
@@ -1477,7 +1477,7 @@ msgstr ""
 
 #: ../komikku/library/__init__.py:406
 msgid "Download?"
-msgstr "Tải Xuống?"
+msgstr "Tải xuống?"
 
 #: ../komikku/library/__init__.py:630
 msgid "Welcome to Komikku"
@@ -1485,7 +1485,7 @@ msgstr "Chào mừng đến với Komikku"
 
 #: ../komikku/library/__init__.py:640
 msgid "Loading…"
-msgstr "Đang Tải…"
+msgstr "Đang tải…"
 
 #: ../komikku/library/__init__.py:765
 msgid "Failed to update reading status"
@@ -1493,11 +1493,11 @@ msgstr "Không cập nhật được trạng thái đọc"
 
 #: ../komikku/library/__init__.py:787
 msgid "Add New Comic"
-msgstr "Thêm Truyện Tranh Mới"
+msgstr "Thêm comic mớI"
 
 #: ../komikku/library/__init__.py:820 ../komikku/library/categories_list.py:145
 msgid "Uncategorized"
-msgstr "Chưa Được Phân Loại"
+msgstr "Chưa được phân loại"
 
 #: ../komikku/library/categories_list.py:139
 #: ../komikku/servers/asurascans/__init__.py:41
@@ -1511,7 +1511,7 @@ msgstr "Chưa Được Phân Loại"
 #: ../komikku/servers/phenixscans/__init__.py:40
 #: ../komikku/servers/webtoon/__init__.py:59
 msgid "All"
-msgstr "Tất Cả"
+msgstr "Tất cả"
 
 #: ../komikku/models/database/downloads.py:19
 msgid "Download pending"
@@ -1559,7 +1559,7 @@ msgstr "Chưa kết thúc"
 #: ../komikku/servers/mangamana/__init__.py:69
 #: ../komikku/servers/mangaworld/__init__.py:80
 msgid "Suspended"
-msgstr "Cấm"
+msgstr "Hoãn lại"
 
 #: ../komikku/models/database/mangas.py:49
 #: ../komikku/servers/comix/__init__.py:48
@@ -1572,7 +1572,7 @@ msgstr "Cấm"
 #: ../komikku/servers/weebdex/__init__.py:66
 #: ../komikku/servers/zenko/__init__.py:63
 msgid "Hiatus"
-msgstr "Gián Đoạn"
+msgstr "Gián đoạn"
 
 #: ../komikku/preferences/__init__.py:154
 #: ../komikku/preferences/__init__.py:177
@@ -1591,12 +1591,12 @@ msgstr "Không xóa được dữ liệu WebView"
 #: ../komikku/preferences/__init__.py:178
 msgid "Are you sure you want to clear WebView data (cache, storage, cookies)?"
 msgstr ""
-"Bạn có chắc chắn muốn xóa dữ liệu WebView (bộ nhớ đệm, bộ lưu trữ, cookie) "
+"Bạn có chắc chắn muốn xóa dữ liệu WebView (bộ nhớ cache, lưu trữ, cookie) "
 "không?"
 
 #: ../komikku/preferences/__init__.py:203
 msgid "Disable animations?"
-msgstr "Vô hiệu hóa hình ảnh động?"
+msgstr "Tắt hình ảnh động?"
 
 #: ../komikku/preferences/__init__.py:204
 msgid ""
@@ -1614,19 +1614,19 @@ msgstr "Tắt"
 
 #: ../komikku/preferences/servers.py:44
 msgid "User Account"
-msgstr "Tài Khoản Người Dùng"
+msgstr "TàI khoản người dùng"
 
 #: ../komikku/preferences/servers.py:49
 msgid "Address"
-msgstr "Địa Chỉ"
+msgstr "Địa chỉ"
 
 #: ../komikku/preferences/servers.py:55 ../komikku/preferences/trackers.py:60
 msgid "Username"
-msgstr "Tên Người Dùng"
+msgstr "Tên người dùng"
 
 #: ../komikku/preferences/servers.py:59 ../komikku/preferences/trackers.py:64
 msgid "Password"
-msgstr "Mật Khẩu"
+msgstr "Mật khẩu"
 
 #: ../komikku/preferences/servers.py:72
 msgid "System keyring service is disabled. Credential cannot be saved."
@@ -1651,21 +1651,21 @@ msgstr ""
 
 #: ../komikku/preferences/servers.py:90
 msgid "Test"
-msgstr "Kiểm Tra"
+msgstr "Kiểm tra"
 
 #: ../komikku/preferences/trackers.py:36 ../komikku/preferences/trackers.py:88
 #: ../komikku/preferences/trackers.py:118
 msgid "Disconnect"
-msgstr "Ngắt Kết Nối"
+msgstr "Ngắt kết nối"
 
 #: ../komikku/preferences/trackers.py:43
 msgid "Reconnect"
-msgstr "Kết Nối Lại"
+msgstr "Kết nối lại"
 
 #: ../komikku/preferences/trackers.py:46 ../komikku/preferences/trackers.py:71
 #: ../komikku/preferences/trackers.py:104
 msgid "Connect"
-msgstr "Kết Nối"
+msgstr "Kết nối"
 
 #: ../komikku/preferences/trackers.py:92
 msgid "Failed to request client access"
@@ -1685,19 +1685,19 @@ msgstr "Trang đã được lưu thành công"
 
 #: ../komikku/reader/__init__.py:522
 msgid "Settings"
-msgstr "Cài Đặt"
+msgstr "Cài đặt"
 
 #: ../komikku/reader/__init__.py:535
 msgid "Brightness"
-msgstr "Độ Sáng"
+msgstr "Độ sáng"
 
 #: ../komikku/reader/__init__.py:536
 msgid "Make pages brighter or darker"
-msgstr "Làm cho trang sáng hơn hoặc tối hơn"
+msgstr "Làm cho trang sáng hoặc tối hơn"
 
 #: ../komikku/reader/__init__.py:543
 msgid "Contrast"
-msgstr "Sự tương phản"
+msgstr "Độ tương phản"
 
 #: ../komikku/reader/__init__.py:544
 msgid "Increase or decrease the contrast of pages"
@@ -1705,7 +1705,7 @@ msgstr "Tăng hoặc giảm độ tương phản của trang"
 
 #: ../komikku/reader/__init__.py:551
 msgid "Grayscale"
-msgstr "Thước Xám"
+msgstr "Grayscale"
 
 #: ../komikku/reader/__init__.py:552
 msgid "Convert pages to grayscale"
@@ -1713,7 +1713,7 @@ msgstr "Chuyển đổi trang sang grayscale"
 
 #: ../komikku/reader/__init__.py:559
 msgid "Sepia"
-msgstr "Màu Nâu Đỏ"
+msgstr "Màu nâu đỏ"
 
 #: ../komikku/reader/__init__.py:560
 msgid "Give a more yellow/brown appearance to pages"
@@ -1721,7 +1721,7 @@ msgstr "Mang lại vẻ ngoài màu vàng/nâu hơn cho các trang"
 
 #: ../komikku/reader/__init__.py:567
 msgid "Saturation"
-msgstr "Độ Bão Hòa"
+msgstr "Độ bão hòa"
 
 #: ../komikku/reader/__init__.py:568
 msgid "Super-saturate or desaturate pages"
@@ -1734,7 +1734,7 @@ msgstr "Không thể đồng bộ hóa tiến trình đọc với máy chủ"
 #: ../komikku/reader/pager/__init__.py:477
 #: ../komikku/reader/pager/webtoon.py:95
 msgid "There is no previous chapter."
-msgstr "Không có chương trước."
+msgstr "Không có chương trước đó."
 
 #: ../komikku/reader/pager/__init__.py:479
 #: ../komikku/reader/pager/webtoon.py:93
@@ -1752,7 +1752,7 @@ msgstr "Không thể tải hình ảnh"
 
 #: ../komikku/reader/pager/page.py:303
 msgid "Retry"
-msgstr "Thử Lại"
+msgstr "Thử lại"
 
 #: ../komikku/servers/asurascans/__init__.py:36
 #: ../komikku/servers/comix/__init__.py:55
@@ -1777,7 +1777,7 @@ msgstr "Loại"
 #: ../komikku/servers/rawkuma/__init__.py:38
 #: ../komikku/servers/webtoon/__init__.py:55
 msgid "Filter by Type"
-msgstr "Lọc theo Loại"
+msgstr "Lọc theo loại"
 
 #: ../komikku/servers/asurascans/__init__.py:42
 #: ../komikku/servers/coloredcouncil/__init__.py:44
@@ -1885,25 +1885,25 @@ msgstr "Đánh giá"
 #: ../komikku/servers/mangadex/__init__.py:59
 #: ../komikku/servers/weebdex/__init__.py:48
 msgid "Filter by Content Ratings"
-msgstr "Lọc theo Xếp Hạng Nội Dung"
+msgstr "Lọc theo xếp hạng nội dung"
 
 #: ../komikku/servers/comick/__init__.py:69
 #: ../komikku/servers/mangadex/__init__.py:62
 #: ../komikku/servers/weebdex/__init__.py:51
 msgid "Safe"
-msgstr "An Toàn"
+msgstr "An toàn"
 
 #: ../komikku/servers/comick/__init__.py:70
 #: ../komikku/servers/mangadex/__init__.py:63
 #: ../komikku/servers/weebdex/__init__.py:52
 msgid "Suggestive"
-msgstr "Có Yếu Tố Nhạy Cảm"
+msgstr "Có yếu tố nhạy cảm"
 
 #: ../komikku/servers/comick/__init__.py:71
 #: ../komikku/servers/mangadex/__init__.py:64
 #: ../komikku/servers/weebdex/__init__.py:53
 msgid "Erotica"
-msgstr "Khiêu Dâm"
+msgstr "Khiêu dâm"
 
 #: ../komikku/servers/comick/__init__.py:78
 #: ../komikku/servers/comix/__init__.py:43
@@ -1916,7 +1916,7 @@ msgstr "Khiêu Dâm"
 #: ../komikku/servers/weebdex/__init__.py:61
 #: ../komikku/servers/zenko/__init__.py:58
 msgid "Filter by Statuses"
-msgstr "Lọc theo Trạng Thái"
+msgstr "Lọc theo trạng thái"
 
 #: ../komikku/servers/comick/__init__.py:82
 #: ../komikku/servers/comix/__init__.py:47
@@ -1928,7 +1928,7 @@ msgstr "Lọc theo Trạng Thái"
 #: ../komikku/servers/weebdex/__init__.py:65
 #: ../komikku/servers/zenko/__init__.py:62 ../komikku/trackers/__init__.py:68
 msgid "Completed"
-msgstr "Hoàn Thành"
+msgstr "Hoàn thành"
 
 #: ../komikku/servers/comick/__init__.py:83
 #: ../komikku/servers/comix/__init__.py:49
@@ -1939,27 +1939,27 @@ msgstr "Hoàn Thành"
 #: ../komikku/servers/weebcentral/__init__.py:55
 #: ../komikku/servers/weebdex/__init__.py:67
 msgid "Canceled"
-msgstr "Đã Hủy"
+msgstr "Đã hủy"
 
 #: ../komikku/servers/comick/__init__.py:84
 msgid "Paused"
-msgstr "Đã Tạm Dừng"
+msgstr "Tạm dừng"
 
 #: ../komikku/servers/comick/__init__.py:90
 msgid "Origination"
-msgstr "Nguồn Gốc"
+msgstr "Nguồn gốc"
 
 #: ../komikku/servers/comick/__init__.py:91
 msgid "[Latest Updates only] Filter by Origination"
-msgstr "[Chỉ Cập Nhật Mới Nhất] Lọc theo Nguồn Gốc"
+msgstr "[Chỉ cập nhật mới nhất] Lọc theo nguồn gốc"
 
 #: ../komikku/servers/comick/__init__.py:102
 msgid "Countries"
-msgstr "Quốc Gia"
+msgstr "Quốc gia"
 
 #: ../komikku/servers/comick/__init__.py:104
 msgid "[Search and Most Popular only] Filter by Country (origination)"
-msgstr "[Chỉ Tìm Kiếm và Phổ Biến Nhất] Lọc theo Quốc Gia (nguồn gốc)"
+msgstr "[Chỉ tìm kiếm và phổ biến nhất] Lọc theo quốc gia (nguồn gốc)"
 
 #: ../komikku/servers/comick/__init__.py:108
 msgid "Japan (Manga)"
@@ -2020,7 +2020,7 @@ msgstr "Josei"
 
 #: ../komikku/servers/comick/__init__.py:124
 msgid "None"
-msgstr "Không Có"
+msgstr "Không có"
 
 #: ../komikku/servers/comick/__init__.py:130
 #: ../komikku/servers/mangadex/__init__.py:97
@@ -2030,7 +2030,7 @@ msgstr "Thẻ"
 #: ../komikku/servers/comick/__init__.py:131
 #: ../komikku/servers/mangadex/__init__.py:98
 msgid "Filter by Formats"
-msgstr "Lọc theo Định Dạng"
+msgstr "Lọc theo định dạng"
 
 #: ../komikku/servers/comick/__init__.py:134
 #: ../komikku/servers/mangadex/__init__.py:101
@@ -2040,17 +2040,17 @@ msgstr "4-Koma"
 #: ../komikku/servers/comick/__init__.py:135
 #: ../komikku/servers/mangadex/__init__.py:102
 msgid "Adaptation"
-msgstr "Chuyển Thể"
+msgstr "Chuyển thể"
 
 #: ../komikku/servers/comick/__init__.py:136
 #: ../komikku/servers/mangadex/__init__.py:103
 msgid "Anthology"
-msgstr "Tuyển Tập"
+msgstr "Tuyển tập"
 
 #: ../komikku/servers/comick/__init__.py:137
 #: ../komikku/servers/mangadex/__init__.py:104
 msgid "Award Winning"
-msgstr "Từng Đoạt Giải Thưởng"
+msgstr "Từng đoạt giải thưởng"
 
 #: ../komikku/servers/comick/__init__.py:138
 #: ../komikku/servers/mangadex/__init__.py:105
@@ -2062,22 +2062,22 @@ msgstr "Doujinshi"
 #: ../komikku/servers/comick/__init__.py:139
 #: ../komikku/servers/mangadex/__init__.py:106
 msgid "Fan Colored"
-msgstr "Tô Màu Bởi Fan"
+msgstr "Tô màu bởi người hâm mộ"
 
 #: ../komikku/servers/comick/__init__.py:140
 #: ../komikku/servers/mangadex/__init__.py:107
 msgid "Full Color"
-msgstr "Đủ Màu"
+msgstr "Đủ màu"
 
 #: ../komikku/servers/comick/__init__.py:141
 #: ../komikku/servers/mangadex/__init__.py:108
 msgid "Long Strip"
-msgstr "Truyện Dọc"
+msgstr "Truyện dọc"
 
 #: ../komikku/servers/comick/__init__.py:144
 #: ../komikku/servers/mangadex/__init__.py:109
 msgid "Official Colored"
-msgstr "Bản Màu Chính Thức"
+msgstr "Bản màu chính thức"
 
 #: ../komikku/servers/comick/__init__.py:147
 #: ../komikku/servers/mangadex/__init__.py:110
@@ -2086,7 +2086,7 @@ msgstr "Oneshot"
 
 #: ../komikku/servers/comick/__init__.py:148
 msgid "User Created"
-msgstr "Người Dùng Đã Tạo"
+msgstr "NgườI dùng đã tạo"
 
 #: ../komikku/servers/comick/__init__.py:149
 #: ../komikku/servers/mangadex/__init__.py:112
@@ -2101,12 +2101,12 @@ msgstr "Thể loại"
 #: ../komikku/servers/comick/__init__.py:156
 #: ../komikku/servers/mangadex/__init__.py:119
 msgid "Filter by Genres"
-msgstr "Lọc theo Thể Loại"
+msgstr "Lọc theo thể loại"
 
 #: ../komikku/servers/comick/__init__.py:159
 #: ../komikku/servers/mangadex/__init__.py:122
 msgid "Action"
-msgstr "Hoạt Động"
+msgstr "Hoạt động"
 
 #: ../komikku/servers/comick/__init__.py:160
 msgid "Adult"
@@ -2143,7 +2143,7 @@ msgstr "Giả tưởng"
 
 #: ../komikku/servers/comick/__init__.py:167
 msgid "Gender Bender"
-msgstr "Uốn Cong Giới Tính"
+msgstr "Uốn cong giới tính"
 
 #: ../komikku/servers/comick/__init__.py:168
 #: ../komikku/servers/mangadex/__init__.py:130
@@ -2158,12 +2158,12 @@ msgstr "Kinh dị"
 #: ../komikku/servers/comick/__init__.py:170
 #: ../komikku/servers/mangadex/__init__.py:132
 msgid "Isekai"
-msgstr "Isekai"
+msgstr "Chuyển sinh"
 
 #: ../komikku/servers/comick/__init__.py:171
 #: ../komikku/servers/mangadex/__init__.py:133
 msgid "Magical Girls"
-msgstr "Những Cô Gái Phép Thuật"
+msgstr "Những cô gái phép thuật"
 
 #: ../komikku/servers/comick/__init__.py:172
 msgid "Mature"
@@ -2260,7 +2260,7 @@ msgstr "Lọc theo Loại"
 
 #: ../komikku/servers/comix/__init__.py:86
 msgid "Hide NSFW Content"
-msgstr "Ẩn Nội Dung NSFW"
+msgstr "Ẩn nội dung NSFW"
 
 #: ../komikku/servers/comix/__init__.py:87
 msgid "Hide NSFW content from popular, latest, and search lists"
@@ -2268,11 +2268,11 @@ msgstr "Ẩn nội dung NSFW khỏi danh sách phổ biến, mới nhất và t�
 
 #: ../komikku/servers/dynasty/__init__.py:40
 msgid "Categories"
-msgstr "Thể Loại"
+msgstr "Thể loại"
 
 #: ../komikku/servers/dynasty/__init__.py:44
 msgid "Anthologies"
-msgstr "Tuyển Tập"
+msgstr "Tuyển tập"
 
 #: ../komikku/servers/dynasty/__init__.py:45
 msgid "Doujins"
@@ -2292,7 +2292,7 @@ msgstr "Chương"
 
 #: ../komikku/servers/dynasty/__init__.py:54
 msgid "With Tags"
-msgstr "Có Thẻ"
+msgstr "Có gắn thẻ"
 
 #: ../komikku/servers/dynasty/__init__.py:55
 msgid "Comma separated list of tags to search for"
@@ -2300,7 +2300,7 @@ msgstr "Danh sách các thẻ được phân tách bằng dấu phẩy để tì
 
 #: ../komikku/servers/dynasty/__init__.py:61
 msgid "Without Tags"
-msgstr "Không Có Thẻ"
+msgstr "Không gắn thẻ"
 
 #: ../komikku/servers/dynasty/__init__.py:62
 msgid "Comma separated list of tags to exclude from search"
@@ -2360,7 +2360,7 @@ msgstr "Đối tượng độc giả"
 
 #: ../komikku/servers/mangaball/__init__.py:72
 msgid "Filter by Publication Demographic"
-msgstr "Lọc theo Đối tượng độc giả"
+msgstr "Lọc theo đối tượng độc giả"
 
 #: ../komikku/servers/mangaball/__init__.py:76
 #: ../komikku/servers/mangaball/__init__.py:93
@@ -2369,7 +2369,7 @@ msgstr "Bất kì"
 
 #: ../komikku/servers/mangaball/__init__.py:89
 msgid "Filter by Status"
-msgstr "Lọc theo Trạng Thái"
+msgstr "Lọc theo trạng thái"
 
 #: ../komikku/servers/mangadex/__init__.py:65
 #: ../komikku/servers/weebdex/__init__.py:54
@@ -2390,7 +2390,7 @@ msgstr "Girls Love"
 
 #: ../komikku/servers/mangadex/__init__.py:151
 msgid "Tags Inclusion Mode"
-msgstr "Chế Độ Bao Gồm Thẻ"
+msgstr "Chế độ bao gồm thẻ"
 
 #: ../komikku/servers/mangadex/__init__.py:152
 msgid "Include manga that match <b>all</b> tags (AND) or <b>any</b> tag (OR)"
@@ -2409,7 +2409,7 @@ msgstr "HOẶC"
 #: ../komikku/servers/mangadex/__init__.py:166
 #: ../komikku/servers/weebdex/__init__.py:97
 msgid "Data Saver Mode"
-msgstr "Chế Độ Tiết Kiệm Dữ Liệu"
+msgstr "Chế độ tiết kiệm dữ liệu"
 
 #: ../komikku/servers/mangadex/__init__.py:167
 #: ../komikku/servers/weebdex/__init__.py:98
@@ -2463,7 +2463,7 @@ msgstr "Light Novel"
 
 #: ../komikku/servers/mangatube/__init__.py:143
 msgid "Age Rating"
-msgstr "Xếp Hạng Độ Tuổi"
+msgstr "Xếp hạng độ tuổi"
 
 #: ../komikku/servers/mangatube/__init__.py:144
 msgid "Maturity"
@@ -2480,7 +2480,7 @@ msgstr "16+"
 #: ../komikku/servers/multi/madara/__init__.py:427
 #: ../komikku/servers/readmanhwa/__init__.py:45
 msgid "NSFW Content"
-msgstr "Nội Dung NSFW"
+msgstr "Nội dung NSFW"
 
 #: ../komikku/servers/multi/madara/__init__.py:428
 #: ../komikku/servers/readmanhwa/__init__.py:46
@@ -2490,7 +2490,7 @@ msgstr "Có hiển thị manga có nội dung NSFW hay không"
 #: ../komikku/servers/multi/mangareader/__init__.py:108
 #, python-brace-format
 msgid "Not available in {0} language"
-msgstr "Không có sẵn bằng ngôn ngữ {0}"
+msgstr "Không có sẵn ngôn ngữ {0}"
 
 #: ../komikku/servers/webtoon/__init__.py:60
 msgid "Originals"
@@ -2502,11 +2502,11 @@ msgstr "Canvas"
 
 #: ../komikku/servers/zenko/__init__.py:45
 msgid "Age Restriction"
-msgstr "Giới Hạn Độ Tuổi"
+msgstr "GiớI hạn độ tuổi"
 
 #: ../komikku/servers/zenko/__init__.py:46
 msgid "Filter by Age Restrictions"
-msgstr "Lọc theo Giới Hạn Độ Tuổi"
+msgstr "Lọc theo giới hạn độ tuổi"
 
 #: ../komikku/servers/zenko/__init__.py:73
 msgid "Manga UA"
@@ -2518,15 +2518,15 @@ msgstr "Comic Tây"
 
 #: ../komikku/trackers/__init__.py:67
 msgid "Reading"
-msgstr "Đang Đọc"
+msgstr "Đang đọc"
 
 #: ../komikku/trackers/__init__.py:69
 msgid "On Hold"
-msgstr "Đang Chờ"
+msgstr "Đang chờ"
 
 #: ../komikku/trackers/__init__.py:71
 msgid "Plan to Read"
-msgstr "Dự tính Đọc"
+msgstr "Dự tính đọc"
 
 #: ../komikku/trackers/__init__.py:72
 msgid "Rereading"
