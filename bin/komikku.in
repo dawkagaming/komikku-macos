@@ -75,6 +75,8 @@ if __name__ == '__main__':
 
     Application.application_id = '@appid@'
     Application.author = '@authorfullname@'
+    Application.description = '@description@'
+    Application.gitrepo = '@gitrepo@'
     Application.profile = @PROFILE@
     Application.version = '@VERSION@'
     app = Application()

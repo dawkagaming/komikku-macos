@@ -44,10 +44,20 @@ from komikku.trackers import Trackers
 from komikku.updater import Updater
 from komikku.webview import WebviewPage
 
+BANNER = """
+██╗  ██╗ ██████╗ ███╗   ███╗██╗██╗  ██╗██╗  ██╗██╗   ██╗
+██║ ██╔╝██╔═══██╗████╗ ████║██║██║ ██╔╝██║ ██╔╝██║   ██║
+█████╔╝ ██║   ██║██╔████╔██║██║█████╔╝ █████╔╝ ██║   ██║
+██╔═██╗ ██║   ██║██║╚██╔╝██║██║██╔═██╗ ██╔═██╗ ██║   ██║
+██║  ██╗╚██████╔╝██║ ╚═╝ ██║██║██║  ██╗██║  ██╗╚██████╔╝
+╚═╝  ╚═╝ ╚═════╝ ╚═╝     ╚═╝╚═╝╚═╝  ╚═╝╚═╝  ╚═╝ ╚═════╝"""
+
 
 class Application(Adw.Application):
     application_id = None
     author = None
+    description = None
+    gitrepo = None
     profile = None
     version = None
 
@@ -67,6 +77,9 @@ class Application(Adw.Application):
             level=logging.DEBUG if self.profile == 'development' else logging.INFO
         )
         self.logger = logging.getLogger('komikku')
+
+        print(BANNER)
+        print(f'v{self.version} — {self.description}\n\n{self.gitrepo}\n')
 
     def do_activate(self):
         # We only allow a single window and raise any existing ones

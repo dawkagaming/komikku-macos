@@ -8,7 +8,7 @@ project('komikku',
     license: 'GPL-3.0-or-later'
 )
 
-description = 'A manga reader for GNOME'
+description = 'Discover and read manga'
 prettyname = 'Komikku'
 
 authornickname = 'valos'
