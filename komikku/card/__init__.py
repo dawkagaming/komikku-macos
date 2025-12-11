@@ -16,6 +16,7 @@ from komikku.consts import MISSING_IMG_RESOURCE_PATH
 from komikku.card.categories_list import CategoriesList
 from komikku.card.chapters_list import ChaptersList
 from komikku.card.tracking import TrackingDialog
+from komikku.models import Category
 from komikku.models import Settings
 from komikku.utils import CoverPicture
 from komikku.utils import folder_size
@@ -57,6 +58,7 @@ class CardPage(Adw.NavigationPage):
     add_button = Gtk.Template.Child('add_button')
     resume_button = Gtk.Template.Child('resume_button')
     genres_wrapbox = Gtk.Template.Child('genres_wrapbox')
+    categories_wrapbox = Gtk.Template.Child('categories_wrapbox')
     scanlators_label = Gtk.Template.Child('scanlators_label')
     chapters_label = Gtk.Template.Child('chapters_label')
     last_update_label = Gtk.Template.Child('last_update_label')
@@ -534,6 +536,7 @@ class InfoBox:
         self.add_button = self.card.add_button
         self.resume_button = self.card.resume_button
         self.genres_wrapbox = self.card.genres_wrapbox
+        self.categories_wrapbox = self.card.categories_wrapbox
         self.scanlators_label = self.card.scanlators_label
         self.chapters_label = self.card.chapters_label
         self.last_update_label = self.card.last_update_label
@@ -558,8 +561,10 @@ class InfoBox:
     def populate(self):
         manga = self.card.manga
 
+        # Name
         self.name_label.set_text(manga.name)
 
+        # Cover
         if self.cover_picture:
             self.cover_box.remove(self.cover_picture)
 
@@ -579,9 +584,11 @@ class InfoBox:
         self.cover_picture.add_css_class('cover-dropshadow')
         self.cover_box.append(self.cover_picture)
 
+        # Authors
         authors = html_escape(', '.join(manga.authors)) if manga.authors else _('Unknown author')
         self.authors_label.set_markup(authors)
 
+        # Server (link to server page)
         if not manga.is_local:
             self.status_server_label.set_markup(
                 '{0} · <a href="{1}">{2}</a> ({3})'.format(
@@ -599,6 +606,7 @@ class InfoBox:
                 )
             )
 
+        # Resume button
         if manga.in_library:
             self.add_button.set_visible(False)
             self.resume_button.add_css_class('suggested-action')
@@ -606,6 +614,7 @@ class InfoBox:
             self.add_button.set_visible(True)
             self.resume_button.remove_css_class('suggested-action')
 
+        # Genres
         if manga.genres:
             self.genres_wrapbox.remove_all()
 
@@ -620,22 +629,30 @@ class InfoBox:
         else:
             self.genres_wrapbox.get_parent().set_visible(False)
 
+        # Categories
+        self.set_categories()
+
+        # Scanlators
         if manga.scanlators:
             self.scanlators_label.set_markup(html_escape(', '.join(manga.scanlators)))
             self.scanlators_label.get_parent().set_visible(True)
         else:
             self.scanlators_label.get_parent().set_visible(False)
 
+        # Number of chapters
         self.chapters_label.set_markup(str(len(manga.chapters)))
 
+        # Last update date
         if manga.last_update:
             self.last_update_label.set_markup(manga.last_update.strftime(_('%m/%d/%Y')))
             self.last_update_label.get_parent().set_visible(True)
         else:
             self.last_update_label.get_parent().set_visible(False)
 
+        # Disk usage
         self.set_disk_usage()
 
+        # Synopsis
         self.synopsis_label.set_markup('-')
         if manga.synopsis:
             synopsis = manga.synopsis
@@ -646,6 +663,22 @@ class InfoBox:
 
     def refresh(self):
         self.set_disk_usage()
+
+    def set_categories(self):
+        if self.card.manga.categories:
+            self.categories_wrapbox.remove_all()
+
+            for category_id in sorted(self.card.manga.categories):
+                category = Category.get(category_id)
+                label = Gtk.Label()
+                label.set_ellipsize(Pango.EllipsizeMode.END)
+                label.set_markup(html_escape(category.label))
+                label.set_css_classes(['category-label', 'caption'])
+                self.categories_wrapbox.append(label)
+
+            self.categories_wrapbox.get_parent().set_visible(True)
+        else:
+            self.categories_wrapbox.get_parent().set_visible(False)
 
     def set_disk_usage(self):
         self.size_on_disk_label.set_text(folder_size(self.card.manga.path) or '-')

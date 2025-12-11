@@ -57,14 +57,14 @@ label.badge {
  * Library
  */
 .library {
-	background-color: var(--overview-bg-color);
+    background-color: var(--overview-bg-color);
 }
 flowbox flowboxchild {
     padding: 6px; /* default is 4px */
     border-radius: 12px; /* default is 6px */
 }
 flowbox flowboxchild:selected {
-	background-color: var(--accent-bg-color);
+    background-color: var(--accent-bg-color);
 }
 
 .library-thumbnail-name-label {
@@ -106,19 +106,19 @@ viewswitcher indicatorbin > indicator {
                 ),
                 linear-gradient(
                     217deg,
-					rgb(from var(--backdrop-background-color-1) r g b / calc(alpha * .55)),
+                    rgb(from var(--backdrop-background-color-1) r g b / calc(alpha * .55)),
                     rgb(from var(--backdrop-background-color-1) r g b / calc(alpha * 0)) 70.71%
                     ),
                 linear-gradient(
                     336deg,
-					rgb(from var(--backdrop-background-color-2) r g b / calc(alpha * .55)),
+                    rgb(from var(--backdrop-background-color-2) r g b / calc(alpha * .55)),
                     rgb(from var(--backdrop-background-color-2) r g b / calc(alpha * 0)) 70.71%
                 );
     transition-property: background;
 }
 .backdrop button:focus:focus-visible,
 .backdrop row {
-	border-bottom: 1px solid rgb(from currentColor r g b / calc(alpha * 0.1));
+    border-bottom: 1px solid rgb(from currentColor r g b / calc(alpha * 0.1));
 }
 .backdrop row:focus:focus-visible {
     outline-color: rgb(from currentColor r g b / calc(alpha * 0.25));
@@ -131,6 +131,13 @@ viewswitcher indicatorbin > indicator {
 
 listview :last-child {
     border-bottom: none;
+}
+
+.category-label {
+    color: var(--light-1);
+    background-color: var(--dark-2);
+    padding: 0 7px 1px 7px;
+    border-radius: 999px;
 }
 
 .genre-label {

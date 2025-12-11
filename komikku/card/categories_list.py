@@ -64,6 +64,9 @@ class CategoriesList:
         # Update the categories list in Library, just in case it's necessary to show/hide the 'Uncategorized' category
         self.window.library.categories_list.populate()
 
+        # Update categories in card info
+        self.card.info_box.set_categories()
+
         # Update Library if the current selected category is the activated category or the 'Uncategorized' category
         if Settings.get_default().selected_category in (CategoryVirtual.UNCATEGORIZED, category_id):
             GLib.idle_add(self.window.library.populate)

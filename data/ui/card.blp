@@ -175,7 +175,7 @@ template $CardPage : Adw.NavigationPage {
 
                     Box {
                       spacing: 12;
-                      margin-bottom: 12;
+                      margin-bottom: 6;
 
                       Image {
                         halign: start;
@@ -184,6 +184,26 @@ template $CardPage : Adw.NavigationPage {
                       }
 
                       Adw.WrapBox genres_wrapbox {
+                        justify: fill;
+                        halign: start;
+                        hexpand: true;
+                        valign: center;
+                        line-spacing: 6;
+                        child-spacing: 6;
+                      }
+                    }
+
+                    Box {
+                      spacing: 12;
+                      margin-bottom: 12;
+
+                      Image {
+                        halign: start;
+                        valign: start;
+                        icon-name: "categories-symbolic";
+                      }
+
+                      Adw.WrapBox categories_wrapbox {
                         justify: fill;
                         halign: start;
                         hexpand: true;
