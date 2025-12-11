@@ -30,6 +30,8 @@ from gi.repository import Gtk
 from gi.repository import WebKit
 
 from komikku.consts import REQUESTS_TIMEOUT
+from komikku.models import create_db_connection
+from komikku.models.database import execute_sql
 from komikku.servers.exceptions import ChallengerError
 from komikku.servers.utils import get_session_cookies
 from komikku.utils import get_webview_data_dir
@@ -168,6 +170,11 @@ class WebviewPage(Adw.NavigationPage):
 
     def clear_data(self, on_finish_callback):
         def on_finish(data_manager, result):
+            # Clear cookies in SQLite DB
+            if con := create_db_connection(os.path.join(get_webview_data_dir(), 'cookies.sqlite')):
+                execute_sql(con, 'DELETE FROM moz_cookies;')
+                con.close()
+
             on_finish_callback(data_manager.clear_finish(result))
 
         self.network_session.get_website_data_manager().clear(WebKit.WebsiteDataTypes.ALL, 0, None, on_finish)

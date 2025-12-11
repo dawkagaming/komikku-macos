@@ -96,10 +96,16 @@ def collate_natsort(value1, value2):
     return -1 if lst[0] == value1 else 1
 
 
-def create_db_connection():
-    con = sqlite3.connect(get_db_path(), detect_types=sqlite3.PARSE_DECLTYPES)
+def create_db_connection(path=None):
+    if path is None:
+        path = get_db_path()
+    elif not os.path.exists(path):
+        logger.error('[SQLite] Failed to create DB connection: invalid path %s', path)
+        return None
+
+    con = sqlite3.connect(path, detect_types=sqlite3.PARSE_DECLTYPES)
     if con is None:
-        logger.error('[SQLite] Can not create the database connection')
+        logger.error('[SQLite] Failed to create DB connection')
         return None
 
     con.row_factory = sqlite3.Row
