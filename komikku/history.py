@@ -67,7 +67,7 @@ class HistoryDateChapterRow(Adw.ActionRow):
 
         self.set_title(html_escape(chapter.manga.name))
         self.set_title_lines(1)
-        self.set_subtitle(chapter.title)
+        self.set_subtitle(html_escape(chapter.title))
         self.set_subtitle_lines(1)
 
         # Cover
