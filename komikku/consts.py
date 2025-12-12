@@ -87,7 +87,6 @@ CREDITS = dict(
         'Mirko P. (German)',
         'Simon Barth (German)',
         'Scrambled777 (Hindi)',
-        'mondstern (Hungarian)',
         'Milo Ivir (Croatian)',
         'Alifiyan Rosyidi (Indonesian)',
         'Alim Satria (Indonesian)',
@@ -140,15 +139,15 @@ CREDITS = dict(
 
 RELEASE_NOTES = """
 <ul>
-    <li>[Preferences] Reader: Split settings in 3 groups (Common, Paged Readings Modes, Webtoon Reading Mode)</li>
-    <li>[Reader] Added two new scroll settings for Webtoon reading mode</li>
-    <li>[Servers] Added Mangas Top (pt_BR)</li>
-    <li>[Servers] Added Writers Scans (EN)</li>
-    <li>[Servers] Anime-Sama (FR): Update</li>
-    <li>[Servers] Anteiku Scans (FR): Disabled</li>
-    <li>[Servers] ED Scanlation (FR): Disabled</li>
-    <li>[Servers] WeebDex (EN): Update</li>
-    <li>[L10n] Updated French, German, Russian, Ukrainian and Vietnamese translations</li>
+    <li>[Card] Added categories in `Info` page</li>
+    <li>[Preferences] Advanced: Improved `Clear WebView Data`</li>
+    <li>[Trackers] Improved MangaUpdates</li>
+    <li>[Servers] Added DocTruyen3Q (VI)</li>
+    <li>[Servers] Comix (EN): Update</li>
+    <li>[Servers] EZmanga (EN): Update</li>
+    <li>[Servers] MangaCrab (ES): Update</li>
+    <li>[Servers] Mangas Top (pt_BR): Update</li>
+    <li>[L10n] Updated Croatian, Russian and Vietnamese translations</li>
 </ul>
 <p>Happy reading.</p>
 """

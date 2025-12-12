@@ -114,6 +114,22 @@
     <url type="donation">https://febvre.info/donate.html</url>
 
     <releases>
+        <release version="1.97.0" date="2025-12-13">
+            <description translate="no">
+                <ul>
+                    <li>[Card] Added categories in `Info` page</li>
+                    <li>[Preferences] Advanced: Improved `Clear WebView Data`</li>
+                    <li>[Trackers] Improved MangaUpdates</li>
+                    <li>[Servers] Added DocTruyen3Q (VI)</li>
+                    <li>[Servers] Comix (EN): Update</li>
+                    <li>[Servers] EZmanga (EN): Update</li>
+                    <li>[Servers] MangaCrab (ES): Update</li>
+                    <li>[Servers] Mangas Top (pt_BR): Update</li>
+                    <li>[L10n] Updated Croatian, Russian and Vietnamese translations</li>
+                </ul>
+                <p>Happy reading.</p>
+            </description>
+        </release>
         <release version="1.96.0" date="2025-12-06">
             <description translate="no">
                 <ul>
