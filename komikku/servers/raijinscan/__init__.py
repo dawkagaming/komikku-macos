@@ -14,6 +14,46 @@ from komikku.utils import is_number
 from komikku.webview import CompleteChallenge
 
 
+def decode_url(element):
+    return base64.b64decode(element.get('data-src')).decode()
+
+
+def decode_url_reversed(element):
+    return base64.b64decode(element.get('data-r')[::-1]).decode()
+
+
+def decode_url_xored(element):
+    xor_key = 93
+    url_xored = base64.b64decode(element.get('data-v')[::-1]).decode()
+    url_encoded = ''
+    for c in url_xored:
+        url_encoded += chr(ord(c) ^ xor_key)
+
+    return base64.b64decode(url_encoded).decode()
+
+
+def decode_url_crypted(element):
+    url_crypted = base64.b64decode(element.get('data-m')[::-1])
+    url_encoded = ''
+    for num in url_crypted:
+        url_encoded += chr((num - 7 + 256) & 255 ^ 173)
+
+    return base64.b64decode(url_encoded).decode()
+
+
+def decode_img_url(element):
+    for method in (decode_url, decode_url_reversed, decode_url_xored, decode_url_crypted):
+        try:
+            url = method(element)
+        except Exception:
+            continue
+
+        if '/wp-content/uploads/WP-manga/data/manga_' in url:
+            return url
+
+    return None
+
+
 class Raijinscan(Server):
     id = 'raijinscan'
     name = 'Raijin Scan'
@@ -147,13 +187,8 @@ class Raijinscan(Server):
             pages=[],
         )
         for img_element in soup.select('.protected-image-data'):
-            url_crypted = base64.b64decode(img_element.get('data-m')[::-1])
-            url_encoded = ''
-            for num in url_crypted:
-                url_encoded += chr((num - 7 + 256) & 255 ^ 173)
-
             data['pages'].append(dict(
-                image=base64.b64decode(url_encoded).decode(),
+                image=decode_img_url(img_element),
                 slug=None,
             ))
 
