@@ -210,7 +210,7 @@ class Kavita(Server):
                 else:
                     date = chapter['createdUtc']
 
-                if last_read := chapter.get('lastReadingProgress'):
+                if last_reading_progress := chapter.get('lastReadingProgress'):
                     last_read = datetime.datetime.strptime(last_reading_progress[:-1], '%Y-%m-%dT%H:%M:%S.%f')
                 else:
                     last_read = None
