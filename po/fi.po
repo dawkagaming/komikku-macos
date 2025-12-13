@@ -8,10 +8,10 @@ msgstr ""
 "Project-Id-Version: Komikku 1.12.1\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-12-05 16:06+0100\n"
-"PO-Revision-Date: 2025-11-24 09:51+0000\n"
+"PO-Revision-Date: 2025-12-14 09:00+0000\n"
 "Last-Translator: Jiri Grönroos <jiri.gronroos@iki.fi>\n"
-"Language-Team: Finnish <https://hosted.weblate.org/projects/komikku/main/fi/"
-">\n"
+"Language-Team: Finnish <https://hosted.weblate.org/projects/komikku/main/fi/>"
+"\n"
 "Language: fi\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -749,7 +749,7 @@ msgstr ""
 
 #: ../data/ui/preferences.blp:347
 msgid "Webtoon Reading Mode"
-msgstr ""
+msgstr "Webtoon-lukutila"
 
 #: ../data/ui/preferences.blp:348
 msgid "Long Strip aka Infinite Vertical Canvas"
@@ -757,7 +757,7 @@ msgstr ""
 
 #: ../data/ui/preferences.blp:353
 msgid "Reset to Default"
-msgstr ""
+msgstr "Palauta oletukseksi"
 
 #: ../data/ui/preferences.blp:361
 msgid "Maximum Width"
@@ -769,7 +769,7 @@ msgstr ""
 
 #: ../data/ui/preferences.blp:372
 msgid "Scroll Distance"
-msgstr ""
+msgstr "Vieritysetäisyys"
 
 #: ../data/ui/preferences.blp:373
 msgid "Percentage of page height to scroll on click or Page Up/Down"
@@ -777,7 +777,7 @@ msgstr ""
 
 #: ../data/ui/preferences.blp:384
 msgid "Drag Sensitivity"
-msgstr ""
+msgstr "Vetämisen herkkyys"
 
 #: ../data/ui/preferences.blp:385
 msgid "Multiplier for drag scrolling sensitivity"
@@ -2353,7 +2353,7 @@ msgstr "Pudotettu"
 #: ../komikku/servers/kavita/__init__.py:32
 #: ../komikku/servers/komga/__init__.py:26
 msgid "Self-hosted digital library"
-msgstr ""
+msgstr "Itse ylläpidetty digitaalinen kirjasto"
 
 #: ../komikku/servers/local/__init__.py:254
 msgid "Comics stored locally as archives in CBZ/CBR/CBT or PDF formats"
@@ -2417,12 +2417,12 @@ msgstr "TAI"
 #: ../komikku/servers/mangadex/__init__.py:166
 #: ../komikku/servers/weebdex/__init__.py:97
 msgid "Data Saver Mode"
-msgstr ""
+msgstr "Datan säästötila"
 
 #: ../komikku/servers/mangadex/__init__.py:167
 #: ../komikku/servers/weebdex/__init__.py:98
 msgid "Fetch lower quality images to save bandwidth"
-msgstr ""
+msgstr "Nouda matalalaatuisempia kuvia säästääksesi kaistanleveyttä"
 
 #: ../komikku/servers/mangafire/__init__.py:50
 #: ../komikku/servers/mangapill/__init__.py:42
@@ -2510,7 +2510,7 @@ msgstr ""
 
 #: ../komikku/servers/zenko/__init__.py:45
 msgid "Age Restriction"
-msgstr ""
+msgstr "Ikärajoitus"
 
 #: ../komikku/servers/zenko/__init__.py:46
 msgid "Filter by Age Restrictions"
