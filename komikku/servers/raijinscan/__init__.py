@@ -2,8 +2,11 @@
 # SPDX-License-Identifier: GPL-3.0-or-later
 # Author: Valéry Febvre <vfebvre@easter-eggs.com>
 
-from gettext import gettext as _
 import base64
+from gettext import gettext as _
+import json
+import logging
+import re
 
 from bs4 import BeautifulSoup
 
@@ -13,45 +16,7 @@ from komikku.utils import get_buffer_mime_type
 from komikku.utils import is_number
 from komikku.webview import CompleteChallenge
 
-
-def decode_url(element):
-    return base64.b64decode(element.get('data-src')).decode()
-
-
-def decode_url_reversed(element):
-    return base64.b64decode(element.get('data-r')[::-1]).decode()
-
-
-def decode_url_xored(element):
-    xor_key = 93
-    url_xored = base64.b64decode(element.get('data-v')[::-1]).decode()
-    url_encoded = ''
-    for c in url_xored:
-        url_encoded += chr(ord(c) ^ xor_key)
-
-    return base64.b64decode(url_encoded).decode()
-
-
-def decode_url_crypted(element):
-    url_crypted = base64.b64decode(element.get('data-m')[::-1])
-    url_encoded = ''
-    for num in url_crypted:
-        url_encoded += chr((num - 7 + 256) & 255 ^ 173)
-
-    return base64.b64decode(url_encoded).decode()
-
-
-def decode_img_url(element):
-    for method in (decode_url, decode_url_reversed, decode_url_xored, decode_url_crypted):
-        try:
-            url = method(element)
-        except Exception:
-            continue
-
-        if '/wp-content/uploads/WP-manga/data/manga_' in url:
-            return url
-
-    return None
+logger = logging.getLogger(__name__)
 
 
 class Raijinscan(Server):
@@ -183,12 +148,44 @@ class Raijinscan(Server):
 
         soup = BeautifulSoup(r.text, 'lxml')
 
+        # Find encoded key and data
+        rmk_re = r"""window\._rmk\s*=\s*["']([^"']+)["']"""
+        rmd_re = r"""window\._rmd\s*=\s*["']([^"']+)["']"""
+        rmd = rmk = None
+        for script_element in soup.find_all('script'):
+            script = script_element.string
+            if not script:
+                continue
+            if matches := re.search(rmk_re, script):
+                rmk = matches.group(1)
+            if matches := re.search(rmd_re, script):
+                rmd = matches.group(1)
+
+            if rmk and rmd:
+                break
+
+        if not rmk or not rmd:
+            logger.error('Failed to find window._rmk or window._rmd')
+            return None
+
+        # Decode key
+        decoded = base64.b64decode(rmk)
+        key_seed = [90, 60, 126, 29, 159, 178, 78, 106]
+        key = [(decoded[index] & 0xFF) ^ key_seed[index] for index in range(8)]
+
+        # Decode data
+        normalized = rmd.replace('-', '+').replace('_', '/') + '=='
+        decoded = base64.b64decode(normalized)
+        decrypted = ''.join(
+            [chr((int(c) & 0xFF) ^ key[index % len(key)]) for index, c in enumerate(decoded)]
+        )
+
         data = dict(
             pages=[],
         )
-        for img_element in soup.select('.protected-image-data'):
+        for image in json.loads(decrypted):
             data['pages'].append(dict(
-                image=decode_img_url(img_element),
+                image=image,
                 slug=None,
             ))
 
