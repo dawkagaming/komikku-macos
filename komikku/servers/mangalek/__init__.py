@@ -14,14 +14,14 @@ class Mangalek(Madara):
 
     date_format = '%Y ,%d %B'
 
-    base_url = 'https://lekmanga.net'
-    logo_url = 'https://io.lekmanga.net/wp-content/uploads/2020/05/cropped-%D9%85%D8%A7%D9%86%D8%AC%D8%A7-%D9%84%D9%8A%D9%83-1-300x114-1-32x32.png'
+    base_url = 'https://lek-manga.net'
+    logo_url = 'https://io.lek-manga.net/wp-content/app/lekmanganet/512.png'
     chapter_url = base_url + '/manga/{0}/{1}/'
 
     bypass_cf_url = base_url + '/manga/apotheosis/'
 
     # Mirrors
-    # https://lekmanga.org
-    # https://lekmanga.com
+    # https://lekmanga.online/
+    # https://lekmanga.site
     # https://like-manga.net
     # https://manga-leko.org
