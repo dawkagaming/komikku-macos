@@ -7,6 +7,7 @@
 # Supported servers:
 # Aurora Scans [EN] (disabled)
 # EZmanga [EN]
+# Hive Toon [EN]
 # Hijala Scans [EN]
 # Mode Scanlator [pt_BR] (disabled)
 # Qi Scans [EN]
