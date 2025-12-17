@@ -5,7 +5,7 @@
 # Hean CMS / Iken
 
 # Supported servers:
-# Aurora Scans [EN]
+# Aurora Scans [EN] (disabled)
 # EZmanga [EN]
 # Hijala Scans [EN]
 # Mode Scanlator [pt_BR] (disabled)
@@ -137,7 +137,7 @@ class HeanCMS(Server):
         soup = BeautifulSoup(r.text, 'lxml')
 
         if info := parse_nextjs_hydration(soup, 'API_Response'):
-            images = info[1][3]['API_Response']['chapter']['images']
+            images = info[2][3]['API_Response']['chapter']['images']
 
             data = dict(
                 pages=[],
