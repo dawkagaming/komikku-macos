@@ -112,9 +112,9 @@ class Dbmultiverse(Server):
         data = dict(
             pages=[],
         )
-        for a_element in soup.select('.pageslist > a'):
+        for element in soup.select('.pageslist > a > img'):
             data['pages'].append(dict(
-                slug=a_element.get('href')[:-5].split('-')[-1],
+                slug=element.get('title'),
                 image=None,
             ))
 
@@ -130,7 +130,7 @@ class Dbmultiverse(Server):
 
         soup = BeautifulSoup(r.text, 'lxml')
 
-        if img_element := soup.select_one('img#balloonsimg'):
+        if img_element := soup.select_one('#balloonsimg > img'):
             url = img_element.get('src')
             if not url:
                 url = img_element.get('style').split(';')[0].split(':')[1][4:-1]
