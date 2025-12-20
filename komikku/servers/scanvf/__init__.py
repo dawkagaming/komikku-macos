@@ -20,6 +20,7 @@ class Scanvf(Server):
     id = 'scanvf'
     name = 'Scanvf'
     lang = 'fr'
+    status = 'disabled'
 
     base_url = 'https://scanvf.org'
     logo_url = base_url + '/build/fav.b087d325.png'
