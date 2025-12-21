@@ -411,18 +411,24 @@ def get_soup_element_inner_text(tag, text=None, sep=' ', recursive=True):
     return sep.join(text).strip()
 
 
-def parse_nextjs_hydration(soup, keyword):
+def parse_nextjs_hydration(soup, keyword, key=None):
     """
     Goes through all scripts in `soup`
 
     If a Next.js hydration containing `keyword` is found, it's deserialized and returned
+
+    :param keyword: A string to identify the script being searched for
+    :type text: str
+
+    :param key: A key to retrieve a specific value rather than all data (optional)
+    :type text: str
     """
 
-    info = None
+    data = None
 
     for script_element in soup.select('script'):
         script = script_element.string
-        if not script or not script.startswith('self.__next_f.push([1,') or keyword not in script:
+        if not script or not script.startswith('self.__next_f.push([1,') or f'\\"{keyword}\\":' not in script:  # noqa: E231, E701
             continue
 
         line = script.strip().replace('self.__next_f.push([1,', '')
@@ -436,13 +442,36 @@ def parse_nextjs_hydration(soup, keyword):
         line = line[start:-3]
 
         try:
-            info = json.loads(json.loads(f'"{line}"'))
+            data = json.loads(json.loads(f'"{line}"'))
         except Exception as e:
             logger.debug(f'ERROR: {line}')
             logger.debug(e)
         break
 
-    return info
+    if key:
+        key_value = None
+
+        def get_key(data):
+            nonlocal key_value
+
+            if isinstance(data, list):
+                for value in data:
+                    get_key(value)
+
+            elif isinstance(data, dict):
+                for key, value in data.items():
+                    if key != keyword:
+                        get_key(value)
+                        continue
+
+                    key_value = value
+                    break
+
+        get_key(data)
+
+        return key_value
+
+    return data
 
 
 def sojson4_decode(s):

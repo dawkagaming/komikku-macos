@@ -7,8 +7,8 @@
 # Supported servers:
 # Aurora Scans [EN] (disabled)
 # EZmanga [EN]
-# Hive Toon [EN]
 # Hijala Scans [EN]
+# Hive Toon [EN]
 # Mode Scanlator [pt_BR] (disabled)
 # Qi Scans [EN]
 # Reaper Scans [EN] (disabled)
@@ -137,9 +137,7 @@ class HeanCMS(Server):
 
         soup = BeautifulSoup(r.text, 'lxml')
 
-        if info := parse_nextjs_hydration(soup, 'API_Response'):
-            images = info[2][3]['API_Response']['chapter']['images']
-
+        if images := parse_nextjs_hydration(soup, 'images', key='images'):
             data = dict(
                 pages=[],
             )
