@@ -114,6 +114,21 @@
     <url type="donation">https://febvre.info/donate.html</url>
 
     <releases>
+        <release version="1.98.0" date="2025-12-21">
+            <description translate="no">
+                <ul>
+                    <li>[Servers] Added Hive Toon (EN)</li>
+                    <li>[Servers] Dragon Ball Multiverse: Update</li>
+                    <li>[Servers] Kavita: Fixed chapters recovery</li>
+                    <li>[Servers] Mangalek (AR): Update</li>
+                    <li>[Servers] Qi Scans (EN): Update</li>
+                    <li>[Servers] Raijin Scan (FR): Update</li>
+                    <li>[Servers] Scanvf (FR): Disabled</li>
+                    <li>[L10n] Updated Finnish translation</li>
+                </ul>
+                <p>Enjoy holiday season and Happy reading.</p>
+            </description>
+        </release>
         <release version="1.97.0" date="2025-12-13">
             <description translate="no">
                 <ul>

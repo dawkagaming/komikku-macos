@@ -139,15 +139,14 @@ CREDITS = dict(
 
 RELEASE_NOTES = """
 <ul>
-    <li>[Card] Added categories in `Info` page</li>
-    <li>[Preferences] Advanced: Improved `Clear WebView Data`</li>
-    <li>[Trackers] Improved MangaUpdates</li>
-    <li>[Servers] Added DocTruyen3Q (VI)</li>
-    <li>[Servers] Comix (EN): Update</li>
-    <li>[Servers] EZmanga (EN): Update</li>
-    <li>[Servers] MangaCrab (ES): Update</li>
-    <li>[Servers] Mangas Top (pt_BR): Update</li>
-    <li>[L10n] Updated Croatian, Russian and Vietnamese translations</li>
+    <li>[Servers] Added Hive Toon (EN)</li>
+    <li>[Servers] Dragon Ball Multiverse: Update</li>
+    <li>[Servers] Kavita: Fixed chapters recovery</li>
+    <li>[Servers] Mangalek (AR): Update</li>
+    <li>[Servers] Qi Scans (EN): Update</li>
+    <li>[Servers] Raijin Scan (FR): Update</li>
+    <li>[Servers] Scanvf (FR): Disabled</li>
+    <li>[L10n] Updated Finnish translation</li>
 </ul>
-<p>Happy reading.</p>
+<p>Enjoy holiday season and Happy reading.</p>
 """
