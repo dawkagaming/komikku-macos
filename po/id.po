@@ -6,13 +6,14 @@
 # Juan Manuel <juanmanueldilo09@gmail.com>, 2024.
 # srntskl-111 <maskhraish@outlook.co.id>, 2025.
 # Valéry Febvre <vfebvre@easter-eggs.com>, 2025.
+# Nataniel Dika Kurniawan <hikawaart2@gmail.com>, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: Komikku 1.12.1\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-12-05 16:06+0100\n"
-"PO-Revision-Date: 2025-05-28 23:19+0000\n"
-"Last-Translator: Valéry Febvre <vfebvre@easter-eggs.com>\n"
+"PO-Revision-Date: 2025-12-24 16:00+0000\n"
+"Last-Translator: Nataniel Dika Kurniawan <hikawaart2@gmail.com>\n"
 "Language-Team: Indonesian <https://hosted.weblate.org/projects/komikku/main/"
 "id/>\n"
 "Language: id\n"
@@ -20,7 +21,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 5.12-dev\n"
+"X-Generator: Weblate 5.15.1\n"
 
 #: ../data/info.febvre.Komikku.desktop.in:2
 msgid "@prettyname@"
@@ -31,8 +32,10 @@ msgid "@description@"
 msgstr "@deskripsi@"
 
 #: ../data/info.febvre.Komikku.desktop.in:15
+#, fuzzy
 msgid "manga;reader;viewer;comic;manhwa;manhua;webtoon;webcomic;scanlation;book;ebook;offline;GTK;GNOME;"
 msgstr ""
+"manga;reader;viewer;comic;manhwa;manhua;webtoon;webcomic;scanlation;book;ebook;offline;GTK;GNOME;"
 
 #: ../data/info.febvre.Komikku.metainfo.xml.in.in:11
 msgid "Discover and read manga & comics"
@@ -57,6 +60,8 @@ msgstr "Baca secara daring dan luring dari lusinan server"
 #: ../data/info.febvre.Komikku.metainfo.xml.in.in:18
 msgid "Support for locally stored series (in CBZ/CBR/CBT or PDF formats)"
 msgstr ""
+"Dukungan untuk seri yang disimpan secara lokal (dalam format CBZ/CBR/CBT "
+"atau PDF)"
 
 #: ../data/info.febvre.Komikku.metainfo.xml.in.in:19
 msgid "RTL, LTR, Vertical and Webtoon reading modes"
@@ -79,6 +84,8 @@ msgstr "Kategori untuk mengelola pustakamu"
 #: ../data/info.febvre.Komikku.metainfo.xml.in.in:22
 msgid "Automatic tracking of series with AniList, MangaUpdates and MyAnimeList"
 msgstr ""
+"Pelacakan serial secara otomatis dengan AniList, MangaUpdates, dan "
+"MyAnimeList"
 
 #: ../data/info.febvre.Komikku.metainfo.xml.in.in:23
 msgid "Automatic update of series"
@@ -98,51 +105,51 @@ msgstr "Tema terang dan gelap"
 
 #: ../data/info.febvre.Komikku.metainfo.xml.in.in:31
 msgid "reader"
-msgstr ""
+msgstr "pembaca"
 
 #: ../data/info.febvre.Komikku.metainfo.xml.in.in:32
 msgid "viewer"
-msgstr ""
+msgstr "penonton"
 
 #: ../data/info.febvre.Komikku.metainfo.xml.in.in:33
 msgid "scanlation"
-msgstr ""
+msgstr "pemindaian"
 
 #: ../data/info.febvre.Komikku.metainfo.xml.in.in:34
 msgid "comic"
-msgstr ""
+msgstr "komik"
 
 #: ../data/info.febvre.Komikku.metainfo.xml.in.in:35
 msgid "manga"
-msgstr ""
+msgstr "komik jepang"
 
 #: ../data/info.febvre.Komikku.metainfo.xml.in.in:36
 msgid "manhwa"
-msgstr ""
+msgstr "komik korea"
 
 #: ../data/info.febvre.Komikku.metainfo.xml.in.in:37
 msgid "manhua"
-msgstr ""
+msgstr "komik mandarin"
 
 #: ../data/info.febvre.Komikku.metainfo.xml.in.in:38
 msgid "webtoon"
-msgstr ""
+msgstr "webtoon"
 
 #: ../data/info.febvre.Komikku.metainfo.xml.in.in:39
 msgid "webcomic"
-msgstr ""
+msgstr "webcomic"
 
 #: ../data/info.febvre.Komikku.metainfo.xml.in.in:40
 msgid "book"
-msgstr ""
+msgstr "buku"
 
 #: ../data/info.febvre.Komikku.metainfo.xml.in.in:41
 msgid "ebook"
-msgstr ""
+msgstr "buku elektronik"
 
 #: ../data/info.febvre.Komikku.metainfo.xml.in.in:42
 msgid "offline"
-msgstr ""
+msgstr "tidak daring"
 
 #: ../data/info.febvre.Komikku.metainfo.xml.in.in:62
 msgid "The Library page"
@@ -186,7 +193,7 @@ msgstr "Halaman Riwayat baca dalam format mobile"
 
 #: ../data/ui/application_window.blp:54 ../data/ui/preferences.blp:404
 msgid "Got it!"
-msgstr ""
+msgstr "Mengerti!"
 
 #: ../data/ui/card.blp:47 ../data/ui/card.blp:411
 #: ../data/ui/card_chapters_list_row.blp:48 ../data/ui/download_manager.blp:26
@@ -220,7 +227,6 @@ msgstr "Sinopsis"
 
 #: ../data/ui/card.blp:448 ../data/ui/categories_editor.blp:67
 #: ../data/ui/library.blp:249
-#, fuzzy
 msgid "No Categories"
 msgstr "Tidak kategori"
 
@@ -229,7 +235,6 @@ msgid "New"
 msgstr "Baru"
 
 #: ../data/ui/card_tracking.blp:9 ../data/ui/preferences.blp:104
-#, fuzzy
 msgid "Tracking"
 msgstr "Melacak"
 
@@ -241,7 +246,7 @@ msgstr "Cari"
 
 #: ../data/ui/card_tracking_search.blp:75
 msgid "Search for Tracking"
-msgstr ""
+msgstr "Cari Pelacakan"
 
 #: ../data/ui/categories_editor.blp:36
 msgid "Add"
@@ -253,15 +258,15 @@ msgstr "Pengelola Unduhan"
 
 #: ../data/ui/download_manager.blp:32
 msgid "Start/Stop Download"
-msgstr ""
+msgstr "Mulai/Hentikan Pengunduhan"
 
 #: ../data/ui/download_manager.blp:67
 msgid "No Downloads"
-msgstr ""
+msgstr "Tidak Ada Unduhan"
 
 #: ../data/ui/explorer_search.blp:28
 msgid "Search Filters"
-msgstr ""
+msgstr "Filter Pencarian"
 
 #: ../data/ui/explorer_search.blp:34
 msgid "Open in Browser"
@@ -281,11 +286,11 @@ msgstr "Server"
 
 #: ../data/ui/explorer_servers.blp:17
 msgid "Search Comics Across All Servers"
-msgstr ""
+msgstr "Cari Komik di Semua Server"
 
 #: ../data/ui/explorer_servers.blp:23
 msgid "Search Servers"
-msgstr ""
+msgstr "Server Pencarian"
 
 #: ../data/ui/explorer_servers.blp:37
 msgid "Search for servers by name or language"
@@ -297,7 +302,7 @@ msgstr "Riwayat"
 
 #: ../data/ui/history.blp:71
 msgid "No History"
-msgstr ""
+msgstr "Tidak Ada Sejarah"
 
 #: ../data/ui/library.blp:10 ../data/ui/preferences.blp:114
 msgid "Library"
@@ -305,7 +310,7 @@ msgstr "Pustaka"
 
 #: ../data/ui/library.blp:23
 msgid "Toggle Categories Sidebar"
-msgstr ""
+msgstr "Alihkan Kategori Sidebar"
 
 #: ../data/ui/library.blp:34
 msgid "Main Menu"
@@ -366,7 +371,7 @@ msgstr "Hapus Semua"
 
 #: ../data/ui/menu/explorer_search_global_search.xml:12
 msgid "Pinned Servers Only"
-msgstr ""
+msgstr "Hanya Server yang Disematkan"
 
 #: ../data/ui/menu/library_search.xml:12
 msgid "Unread"
@@ -390,15 +395,16 @@ msgstr ""
 
 #: ../data/ui/menu/main.xml:21
 msgid "Alphabetical"
-msgstr ""
+msgstr "Alfabetis"
 
 #: ../data/ui/menu/main.xml:26
 msgid "Latest Read First"
-msgstr ""
+msgstr "Terbaru Baca Dulu"
 
 #: ../data/ui/menu/main.xml:31
+#, fuzzy
 msgid "Latest Updated First"
-msgstr ""
+msgstr "Terbaru Diperbarui Terlebih Dahulu"
 
 #: ../data/ui/menu/main.xml:60
 msgid "Keyboard Shortcuts"
@@ -435,7 +441,7 @@ msgstr "Umum"
 
 #: ../data/ui/preferences.blp:24
 msgid "Support Komikku"
-msgstr ""
+msgstr "Mendukung Komikku"
 
 #: ../data/ui/preferences.blp:30
 msgid ""
@@ -444,10 +450,14 @@ msgid ""
 "maintain it, but also continue my work as a free software developer in "
 "general."
 msgstr ""
+"Komikku gratis dan bersumber terbuka, dan akan selalu begitu. Jika Anda "
+"menyukainya, mendukung saya melalui donasi akan sangat bagus. Ini tidak "
+"hanya membantu saya memeliharanya, tetapi juga melanjutkan pekerjaan saya "
+"sebagai perangkat lunak bebas."
 
 #: ../data/ui/preferences.blp:59
 msgid "Appearance"
-msgstr ""
+msgstr "Penampilan"
 
 #: ../data/ui/preferences.blp:61
 msgid "Theme"
@@ -475,11 +485,11 @@ msgstr "Secara otomatis mengaktifkan tema gelap di malam hari"
 
 #: ../data/ui/preferences.blp:77
 msgid "Accent Color"
-msgstr ""
+msgstr "Warna Aksen"
 
 #: ../data/ui/preferences.blp:78
 msgid "Use system accent colors"
-msgstr ""
+msgstr "Gunakan warna aksen sistem"
 
 #: ../data/ui/preferences.blp:82
 msgid "Backdrop in Details Page"
@@ -1545,7 +1555,7 @@ msgstr "Ditangguhkan"
 #: ../komikku/servers/weebdex/__init__.py:66
 #: ../komikku/servers/zenko/__init__.py:63
 msgid "Hiatus"
-msgstr "Hiatus"
+msgstr "jeda"
 
 #: ../komikku/preferences/__init__.py:154
 #: ../komikku/preferences/__init__.py:177
@@ -1781,7 +1791,7 @@ msgstr "Manga"
 #: ../komikku/servers/weebcentral/__init__.py:40
 #: ../komikku/servers/zenko/__init__.py:75
 msgid "Manhwa"
-msgstr "Manhwa"
+msgstr "komik korea"
 
 #: ../komikku/servers/asurascans/__init__.py:44
 #: ../komikku/servers/comick/__init__.py:96
@@ -1798,7 +1808,7 @@ msgstr "Manhwa"
 #: ../komikku/servers/weebcentral/__init__.py:41
 #: ../komikku/servers/zenko/__init__.py:76
 msgid "Manhua"
-msgstr "Manhua"
+msgstr "komik mandarin"
 
 #: ../komikku/servers/bilibili/__init__.py:38
 msgid "Price"
