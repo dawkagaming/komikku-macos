@@ -188,7 +188,10 @@ class Kavita(Server):
                         date = chapter['createdUtc']
 
                     if last_reading_progress := chapter.get('lastReadingProgress'):
-                        last_read = datetime.datetime.strptime(last_reading_progress[:-1], '%Y-%m-%dT%H:%M:%S.%f')
+                        if last_reading_progress.startswith('0001-01-01'):
+                            last_read = None
+                        else:
+                            last_read = datetime.datetime.strptime(last_reading_progress[:-1], '%Y-%m-%dT%H:%M:%S.%f')
                     else:
                         last_read = None
 
@@ -203,7 +206,7 @@ class Kavita(Server):
                 data['chapters'].append(chapter_data)
 
         elif resp_data['chapters']:
-            # Not sure if this case is useful
+            # Chapters only, no volumes
             for chapter in resp_data['chapters']:
                 if modified_date := chapter.get('lastModifiedUtc'):
                     date = modified_date
@@ -211,7 +214,10 @@ class Kavita(Server):
                     date = chapter['createdUtc']
 
                 if last_reading_progress := chapter.get('lastReadingProgress'):
-                    last_read = datetime.datetime.strptime(last_reading_progress[:-1], '%Y-%m-%dT%H:%M:%S.%f')
+                    if last_reading_progress.startswith('0001-01-01'):
+                        last_read = None
+                    else:
+                        last_read = datetime.datetime.strptime(last_reading_progress[:-1], '%Y-%m-%dT%H:%M:%S.%f')
                 else:
                     last_read = None
 
