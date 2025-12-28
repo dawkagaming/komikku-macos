@@ -15,7 +15,7 @@ class Animesama(Server):
     name = 'Anime-Sama'
     lang = 'fr'
 
-    base_url = 'https://anime-sama.si'
+    base_url = 'https://anime-sama.tv'
     logo_url = base_url + '/img/favicon.ico?v=4'
     search_url = base_url + '/catalogue/'
     manga_url = base_url + '/catalogue/{0}/'
