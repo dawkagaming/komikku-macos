@@ -222,12 +222,11 @@ class Teamx(Server):
         soup = BeautifulSoup(r.text, 'lxml')
 
         results = []
-        for li_element in soup.select('li'):
-            a_element = li_element.select_one('.result-info > a')
+        for a_element in soup.select('a'):
             results.append(dict(
                 slug=a_element.get('href').split('/')[-1],
-                name=a_element.text,
-                cover=li_element.select_one('.image-parent img').get('src'),
+                name=a_element.select_one('h4').text.strip(),
+                cover=a_element.select_one('img').get('src'),
             ))
 
         return results
