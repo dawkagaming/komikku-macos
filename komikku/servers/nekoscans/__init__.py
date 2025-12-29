@@ -9,12 +9,9 @@ class Nekoscans(MangaStream):
     id = 'nekoscans'
     name = 'Neko Scans'
     lang = 'es'
-    status = 'disabled'
 
-    is_nsfw = True
-
-    base_url = 'https://nekoscans.org'
-    logo_url = 'https://i1.wp.com/nekoscans.org/wp-content/uploads/2025/05/cropped-Nekoscanlogo-32x32.png'
+    base_url = 'https://nekoproject.org'
+    logo_url = 'https://i2.wp.com/nekoproject.org/wp-content/uploads/2025/12/cropped-Nekoscanlogo-1-32x32.png'
 
     authors_selector = '.tsinfo .imptdt:-soup-contains("Artist") i, .tsinfo .imptdt:-soup-contains("Author") i'
     genres_selector = '.info-desc .mgen a'
